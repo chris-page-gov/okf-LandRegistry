@@ -151,6 +151,11 @@ default branch and requires the repository variable
 `OKF_RELEASE_ROOT_SHA256` to name the exact owner-approved release root. Pull
 requests run verification without deployment.
 
+For a beginner-level explanation of the remaining Stage 1, G5 and G9 blocks,
+the exact-candidate evidence still required, and the complete RC-to-public
+procedure, see the
+[`v0.2.0 release tracker and public website guide`](docs/v0.2.0-release-tracker-and-publication-guide.md).
+
 ## Rights and responsible use
 
 Repository code and configuration are licensed under Apache-2.0. Original
