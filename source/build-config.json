@@ -1,12 +1,14 @@
 {
   "schema": "okf-hmlr-build-config.v1",
   "version": "0.1.0",
-  "status": "reviewed-scaffold-not-approved",
+  "status": "released-poc",
   "generated_at": "2026-07-29T09:19:47Z",
-  "release_at": null,
+  "release_at": "2026-07-29T11:00:00Z",
+  "ai_generated_proof_of_concept": true,
   "publication_base": "https://chris-page-gov.github.io/okf-LandRegistry/",
   "notes": [
     "generated_at is a reviewed release-candidate input so identical frozen inputs produce identical bytes.",
-    "release_at remains null until an exact candidate digest receives DEC-RELEASE approval."
+    "release_at records the deterministic v0.1.0 publication time input.",
+    "The release is approved only as an AI-generated proof of concept for the exact digest recorded by DEC-RELEASE."
   ]
 }

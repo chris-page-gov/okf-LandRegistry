@@ -1,12 +1,12 @@
 {
   "schema": "okf-risk-register.v1",
-  "project_status": "reviewed-scaffold",
+  "project_status": "released-poc",
   "research_cutoff": "2026-07-29",
   "scoring": {
     "likelihood": "1 rare to 5 almost certain",
     "impact": "1 negligible to 5 severe",
     "score": "likelihood multiplied by impact",
-    "note": "Residual scores are provisional until controls are tested against a digest-bound candidate."
+    "note": "Residual scores are accepted for the v0.1.0 AI-generated PoC only after controls pass against its digest-bound candidate."
   },
   "risks": [
     {
@@ -188,8 +188,21 @@
       "evidence_refs": ["EV-INVENTORY"],
       "residual": {"likelihood": 1, "impact": 4, "score": 4},
       "owner": "Project owner",
-      "status": "open-decision",
-      "release_disposition": "block until DEC-RELEASE closes for exact digest"
+      "status": "controlled-v0.1.0",
+      "release_disposition": "publish only when G9 and OKF_RELEASE_ROOT_SHA256 bind the exact v0.1.0 digest"
+    },
+    {
+      "id": "RISK-015",
+      "title": "AI-agent review is mistaken for independent human assurance",
+      "cause": "The proof of concept is AI-generated and agent-reviewed without an independent human legal, licence or accessibility audit.",
+      "harm": "Users or maintainers overstate the authority, legal assurance, licence assurance, accessibility conformance or production readiness of the release.",
+      "inherent": {"likelihood": 4, "impact": 4, "score": 16},
+      "controls": ["REQ-017", "REQ-018"],
+      "evidence_refs": ["EV-INVENTORY", "EV-HMLR-RESEARCH"],
+      "residual": {"likelihood": 2, "impact": 4, "score": 8},
+      "owner": "Project owner",
+      "status": "accepted-gap",
+      "release_disposition": "retain in G9 residual risks and prominently disclose the AI-generated PoC and incomplete human audit"
     }
   ]
 }

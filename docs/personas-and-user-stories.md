@@ -1,6 +1,7 @@
 # Personas And User Stories
 
-Status: first-release candidates, research cut-off 29 July 2026.
+Status: v0.1.0 evidence-led hypotheses, independently agent-reviewed at the
+research cut-off of 29 July 2026.
 
 These personas are evidence-led task hypotheses for the HM Land Registry OKF
 bundle. They are behavioural roles, not demographic profiles, and they do not
@@ -20,11 +21,12 @@ requirements. They are not assumptions about a person's identity. The
 accessible-service and Wales-focused personas make those needs testable rather
 than leaving them as unowned overlays.
 
-Candidate expected answers in the evaluation suite are not verified gold. They
-must be checked against the named official source and independently reviewed
-before promotion.
+Expected answers in the evaluation suite were independently agent-reviewed
+against their named official sources and frozen snapshot for v0.1.0. They are
+bounded acceptance expectations, not verified legal answers or
+participant-validated findings.
 
-## Candidate Personas
+## Persona Hypotheses
 
 | ID | Task-based role | Primary need | Main failure to prevent |
 |---|---|---|---|

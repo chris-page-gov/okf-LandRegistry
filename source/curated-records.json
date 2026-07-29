@@ -321,7 +321,7 @@
       "licence": "dataset-specific licence containing third-party address-rights conditions",
       "cadence": "monthly, on the second working day for the preceding month",
       "formats": ["CSV", "JSON API metadata"],
-      "topics": ["corporate-ownership", "overseas-companies", "ocod", "complete-file", "change-only", "registered-titles", "addresses", "address-data", "licence", "third-party-rights"],
+      "topics": ["corporate-ownership", "overseas-companies", "ocod", "complete-file", "change-only", "registered-titles", "addresses", "address-data", "licence", "third-party-rights", "catalogue-metadata", "release-date", "legal-currency"],
       "publisher_last_updated": null,
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
@@ -329,7 +329,8 @@
         "Private individuals, UK companies with overseas addresses and charities are excluded.",
         "Pending register updates are absent until completed and published.",
         "The data omits records before the publisher's stated historical start.",
-        "Address data carries Ordnance Survey and Royal Mail rights."
+        "Address data carries Ordnance Survey and Royal Mail rights.",
+        "The publisher page and file identity, not a catalogue or bundle timestamp, establish the stated release cadence and covered month; this dataset is not the live legal register."
       ],
       "source_urls": [
         "https://use-land-property-data.service.gov.uk/datasets/ocod",
@@ -353,11 +354,12 @@
       "licence": "Open Government Licence v3.0 plus required HM Land Registry and Ordnance Survey attribution conditions",
       "cadence": "monthly, on the first Sunday for the preceding month",
       "formats": ["GML"],
-      "topics": ["inspire", "cadastral-parcels", "polygons", "freehold", "geospatial-data"],
+      "topics": ["inspire", "cadastral-parcels", "polygons", "freehold", "geospatial-data", "british-national-grid", "epsg-27700", "crs"],
       "publisher_last_updated": "2026-07-05",
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
         "Polygons are indicative and do not establish the exact legal extent of a title.",
+        "The source GML uses British National Grid (EPSG:27700); reprojection may introduce positional error.",
         "This is a freehold subset, not all registered titles or all land.",
         "A title may have several polygons; local-authority boundary polygons may be duplicated across files.",
         "A missing INSPIRE ID does not prove that land is unregistered.",
@@ -365,7 +367,37 @@
       ],
       "source_urls": [
         "https://use-land-property-data.service.gov.uk/datasets/inspire",
-        "https://use-land-property-data.service.gov.uk/datasets/inspire/download"
+        "https://use-land-property-data.service.gov.uk/datasets/inspire/download",
+        "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:inspire-technical",
+      "title": "INSPIRE index polygons technical guidance",
+      "description": "Publisher technical guidance for the INSPIRE index polygons GML files, including coordinate reference system, attributes and GIS handling.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "technical-guidance",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["gis-users", "researchers", "data-users"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "guidance content terms; the linked dataset retains its stated licence and attribution conditions",
+      "cadence": "maintained with the dataset",
+      "formats": ["HTML", "GML"],
+      "topics": ["inspire", "gml", "british-national-grid", "epsg-27700", "crs", "reprojection", "technical-guidance"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The source GML uses British National Grid (EPSG:27700); reprojection may introduce positional error.",
+        "A coordinate reference system does not make an indicative polygon an exact legal boundary.",
+        "Use current publisher guidance and inspect the source schema before processing a release."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance",
+        "https://use-land-property-data.service.gov.uk/datasets/inspire"
       ]
     },
     {
@@ -585,7 +617,7 @@
       "id": "hmlr:developer:business-gateway",
       "title": "Business Gateway developer pack",
       "description": "Publisher-operated technical documentation, service definitions, schemas and integration guidance for HM Land Registry Business Gateway products.",
-      "url": "https://landregistry.github.io/bgtechdoc/",
+      "url": "https://landregistry.github.io/bg-dev-pack-redesign/",
       "publisher": "HM Land Registry",
       "authority_tier": "publisher-authoritative",
       "record_type": "developer-documentation",
@@ -597,15 +629,17 @@
       "licence": "service and documentation terms are product-specific",
       "cadence": "maintained with product and schema releases",
       "formats": ["HTML", "XML", "WSDL", "XSD", "PDF"],
-      "topics": ["business-gateway", "soap", "rest", "schemas", "integration"],
+      "topics": ["business-gateway", "soap", "rest", "schemas", "integration", "restricted-access", "automation-boundary", "credentials", "anonymously"],
       "publisher_last_updated": null,
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
         "Documentation discovery does not authorise test or production calls.",
+        "Public documentation is not permission for anonymous or automated operation.",
         "SOAP/WSDL and REST products have different contracts and must not be conflated.",
         "The publisher pack outranks cross-government API catalogue rows for current operation."
       ],
       "source_urls": [
+        "https://landregistry.github.io/bg-dev-pack-redesign/",
         "https://landregistry.github.io/bgtechdoc/",
         "https://www.gov.uk/government/collections/using-hm-land-registrys-digital-services",
         "https://www.gov.uk/government/publications/conditions-of-use-hm-land-registry-business-e-services"
@@ -715,10 +749,11 @@
       "licence": "service terms and statutory access rules; purchased documents are not open-data distributions",
       "cadence": "live service; guidance and fees change",
       "formats": ["HTML", "PDF products"],
-      "topics": ["title-register", "title-plan", "property-summary", "official-copies", "online-copy", "proof-of-ownership"],
+      "topics": ["title-register", "title-plan", "property-summary", "official-copies", "online-copy", "proof-of-ownership", "mortgage", "lender", "discharge"],
       "publisher_last_updated": null,
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
+        "The current service page describes mortgage presence only; lender identity and discharge wording must be cited to the separate register guidance route.",
         "Downloaded copies are not proof of ownership and differ from official copies.",
         "A title plan normally shows general boundaries, not exact legal boundaries.",
         "Some land is unregistered, some interests are not registrable and pending applications may not yet appear.",
@@ -727,6 +762,35 @@
       "source_urls": [
         "https://www.gov.uk/search-property-information-land-registry",
         "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:title-register-information",
+      "title": "Title register and title summary information",
+      "description": "Official guidance describing information available in the title register and title summary, including mortgage, lender and discharge details.",
+      "url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "service-guidance",
+      "source_family": "property-information",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "buyers", "owners"],
+      "access_model": "public-web guidance; linked searches and products may require an account and payment",
+      "authentication": "none for guidance",
+      "licence": "eligible GOV.UK content may be OGL v3.0 subject to exceptions; purchased register products are not open-data distributions",
+      "cadence": "guidance changes with the service",
+      "formats": ["HTML"],
+      "topics": ["title-register", "title-summary", "mortgage", "lender", "discharge", "official-copies", "proof-of-ownership"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The title summary may show a lender's name and address when there is a mortgage; the title register may show whether a mortgage has been discharged.",
+        "The current property-information service promises only whether the property has a mortgage, so cite this guidance route for lender or discharge wording.",
+        "Downloaded online information is not official proof; use the official-copy route where evidential status matters."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/get-information-about-property-and-land/search-the-register",
+        "https://www.gov.uk/search-property-information-land-registry"
       ]
     },
     {
@@ -774,11 +838,12 @@
       "licence": "service terms, copyright and database-right restrictions",
       "cadence": "live service with changing authority coverage",
       "formats": ["HTML", "search products"],
-      "topics": ["local-land-charges", "property-searches", "local-authorities", "planning-conditions", "title-boundaries", "concept-differences"],
+      "topics": ["local-land-charges", "property-searches", "local-authorities", "planning-conditions", "title-boundaries", "concept-differences", "restricted-access", "automation-boundary", "terms", "anonymous"],
       "publisher_last_updated": null,
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
         "Automated software agents must not search, copy or monitor the service.",
+        "Recheck the live terms before use; the public GOV.UK start page is not itself automation permission.",
         "Coverage depends on local-authority migration and must be checked at search time.",
         "CON29 enquiries are separate.",
         "The official result, not this metadata record, controls a transaction."
@@ -788,6 +853,35 @@
         "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
         "https://www.gov.uk/search-local-land-charges",
         "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+      ]
+    },
+    {
+      "id": "hmlr:terms:local-land-charges",
+      "title": "Local Land Charges search terms and conditions",
+      "description": "Service-specific terms governing use of HM Land Registry's Local Land Charges search, including the restriction on automated software agents.",
+      "url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "service-terms",
+      "source_family": "local-land-charges",
+      "jurisdiction": "England and Wales, limited to migrated local authorities",
+      "audience": ["public", "property-professionals", "developers", "automation-reviewers"],
+      "access_model": "public terms; operational search subject to service restrictions and fees",
+      "authentication": "none for terms; service-dependent for searches",
+      "licence": "service terms, copyright and database-right restrictions",
+      "cadence": "live terms; recheck before use",
+      "formats": ["HTML"],
+      "topics": ["local-land-charges", "terms", "automated-agents", "automation-boundary", "restricted-access", "anonymous", "searches", "monitoring"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The terms prohibit automated software agents from searching, copying or monitoring the service.",
+        "Public access to the terms or start page is not permission for anonymous automation.",
+        "Recheck the live terms before use because service conditions can change."
+      ],
+      "source_urls": [
+        "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+        "https://search-local-land-charges.service.gov.uk/"
       ]
     },
     {
@@ -806,7 +900,7 @@
       "licence": "portal and Business e-services terms",
       "cadence": "live service with maintained guidance and roadmap",
       "formats": ["HTML", "online transactions"],
-      "topics": ["portal", "business-e-services", "applications", "searches"],
+      "topics": ["portal", "business-e-services", "applications", "searches", "restricted-access", "automation-boundary", "credentials", "terms", "anonymous"],
       "publisher_last_updated": null,
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
@@ -1036,6 +1130,7 @@
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
         "Authority coverage changes and must be checked at the point of search.",
+        "Planned transfer dates are forecasts, not evidence of completed migration.",
         "The national service does not include CON29 enquiries."
       ],
       "source_urls": [
@@ -1335,7 +1430,7 @@
       "licence": "catalogue and record-specific; underlying publisher terms control reuse",
       "cadence": "catalogue-maintained",
       "formats": ["HTML"],
-      "topics": ["catalogue-metadata", "ownership-data", "release-date", "provenance"],
+      "topics": ["catalogue-metadata", "ownership-data", "release-date", "provenance", "page-modification", "legal-currency"],
       "publisher_last_updated": null,
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
@@ -1362,12 +1457,15 @@
       "licence": "service content terms; linked datasets retain separate rights",
       "cadence": "reviewed as the service changes",
       "formats": ["HTML"],
-      "topics": ["accessibility", "wcag-2.2", "keyboard", "focus", "maps", "language"],
+      "topics": ["accessibility", "wcag-2.2", "keyboard", "focus", "maps", "language", "inspire", "welsh-place-names", "language-metadata", "screen-readers"],
       "languages": ["English"],
       "publisher_last_updated": "2024-09-26",
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [
+        "Some Welsh place names in INSPIRE are not coded as a different language and may be mispronounced by screen readers; this source defect is not permission for the bundle to omit language metadata.",
+        "The source service's statement does not establish accessibility of this bundle.",
         "The statement reported partial WCAG 2.2 AA compliance at the observation date.",
+        "The live statement was last reviewed on 26 September 2024 and reports September 2024 testing; January 2025 remediation targets are past, so current remediation status is unknown without retesting.",
         "Recheck the live statement for remediation and contact information."
       ],
       "source_urls": [
@@ -1400,7 +1498,38 @@
       ],
       "source_urls": [
         "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
-        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme"
+        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme",
+        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme"
+      ]
+    },
+    {
+      "id": "hmlr:policy:welsh-language-scheme-publication",
+      "title": "HM Land Registry Welsh Language Scheme publication",
+      "description": "The published Welsh Language Scheme describing HM Land Registry's commitments for Welsh and bilingual services, correspondence, publications and register contexts.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "language-policy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "Wales",
+      "audience": ["public", "welsh-language-users", "property-professionals"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions",
+      "cadence": "updated when the language scheme changes",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["welsh-language", "cymraeg", "bilingual-services", "bilingual-register", "wales", "language"],
+      "languages": ["English", "Welsh"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The scheme is not proof that every HM Land Registry service, register entry or publication is bilingual.",
+        "Preserve explicit English and Welsh language identity and recheck the current scheme before relying on a service commitment."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme",
+        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme",
+        "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
       ]
     },
     {

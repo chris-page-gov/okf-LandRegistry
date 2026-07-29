@@ -69,6 +69,11 @@
     "body": 2,
     "reviewed_curation_bonus": 3
   },
+  "minimum_should_match": {
+    "apply_from_query_tokens": 3,
+    "minimum_matches": 2,
+    "ratio": 0.3
+  },
   "tie_breakers": [
     "title_en_gb_base",
     "id"

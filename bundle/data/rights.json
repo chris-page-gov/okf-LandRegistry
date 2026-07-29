@@ -169,6 +169,36 @@
     },
     {
       "allowed_fields": [
+        "source locator",
+        "request status",
+        "observation time",
+        "record count",
+        "media type",
+        "digest",
+        "bounded error outcome"
+      ],
+      "attribution": "HM Land Registry public-estate OKF Bundle contributors, version and canonical release URL.",
+      "collection_allowed": true,
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT"
+      ],
+      "id": "RIGHT-EVIDENCE",
+      "layer": "Project-authored acquisition and validation receipts",
+      "licence": "CC BY 4.0 for original receipt metadata; underlying sources retain their own terms.",
+      "prohibited_content": [
+        "source response bodies",
+        "credentials",
+        "cookies",
+        "signed URLs",
+        "personal-level source records"
+      ],
+      "publication_allowed": true,
+      "review_trigger": "Receipt field expansion, source-body capture or a change to project-content licensing.",
+      "source_family_ids": [],
+      "status": "permitted"
+    },
+    {
+      "allowed_fields": [
         "top-level public help and privacy route metadata"
       ],
       "attribution": "Not applicable.",
@@ -4444,6 +4474,12 @@
     },
     {
       "access_state": "public",
+      "id": "hmlr:policy:welsh-language-scheme-publication",
+      "rights_ref": "RIGHT-GOVUK",
+      "rights_state": "open-with-conditions"
+    },
+    {
+      "access_state": "public",
       "id": "govuk:https://www.gov.uk/government/news/hm-land-registry-wins-government-counter-fraud-award",
       "rights_ref": "RIGHT-GOVUK",
       "rights_state": "open-with-conditions"
@@ -5317,6 +5353,12 @@
       "id": "govuk:https://www.gov.uk/guidance/inspire-index-polygons-spatial-data",
       "rights_ref": "RIGHT-GOVUK",
       "rights_state": "open-with-conditions"
+    },
+    {
+      "access_state": "mixed",
+      "id": "hmlr:guidance:inspire-technical",
+      "rights_ref": "RIGHT-DATASETS",
+      "rights_state": "bespoke-or-paid"
     },
     {
       "access_state": "public",
@@ -6961,6 +7003,12 @@
       "id": "cddo-api:f9d3866297b73ffc9737",
       "rights_ref": "RIGHT-CDDO",
       "rights_state": "metadata-only"
+    },
+    {
+      "access_state": "public-search-with-terms-and-fees",
+      "id": "hmlr:terms:local-land-charges",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rights_state": "restricted-service"
     },
     {
       "access_state": "public",
@@ -9331,6 +9379,12 @@
       "id": "govuk:https://www.gov.uk/guidance/third-party-access-to-business-gateway",
       "rights_ref": "RIGHT-GOVUK",
       "rights_state": "open-with-conditions"
+    },
+    {
+      "access_state": "authenticated-and-paid",
+      "id": "hmlr:guidance:title-register-information",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rights_state": "restricted-service"
     },
     {
       "access_state": "public",
@@ -13389,11 +13443,11 @@
       "rights_state": "open-with-conditions"
     }
   ],
-  "release_approved": false,
-  "review_state": "reviewed-scaffold",
+  "release_approved": true,
+  "review_state": "approved-for-v0.1.0-ai-poc",
   "schema": "okf-hmlr-rights-projection.v1",
   "source": {
     "path": "governance/rights-review.json",
-    "sha256": "0522ee643f4f2a0489d818019d0fae81054291f203a71f67a17149b18808abd1"
+    "sha256": "bdae341b08952dc7d0cbcebd476e8c4abe7caae2f3b1adb346a36c0516d3dae0"
   }
 }

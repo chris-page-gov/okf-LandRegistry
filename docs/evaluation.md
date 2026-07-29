@@ -1,7 +1,7 @@
 # Evaluation And Quality
 
-Status: 24-question first-release candidate suite, research cut-off
-29 July 2026.
+Status: 24-question v0.1.0 acceptance suite, independently agent-reviewed at
+the research cut-off of 29 July 2026.
 
 The evaluation scaffold tests whether a static HM Land Registry OKF
 publication helps people find official evidence while preserving legal,
@@ -11,7 +11,7 @@ provide legal advice or authorize access to a transactional service.
 
 Machine-readable assets:
 
-- [`../evaluation/questions.json`](../evaluation/questions.json) — 24 candidate
+- [`../evaluation/questions.json`](../evaluation/questions.json) — 24 reviewed
   competency and retrieval questions;
 - [`../evaluation/journeys.json`](../evaluation/journeys.json) — 12 static
   search/filter/detail journeys using
@@ -19,9 +19,11 @@ Machine-readable assets:
 - [`../personas/personas-and-user-stories.json`](../personas/personas-and-user-stories.json)
   — explicit question → story → persona traceability.
 
-Expected propositions are candidates, not verified gold answers. Each must be
-checked against its named source at the release cut-off and independently
-reviewed before promotion.
+Expected propositions are bounded acceptance expectations, not verified legal
+answers. For v0.1.0 a reviewer independent of the retrieval implementation
+checked them against named official sources and the frozen snapshot. The
+review was AI-agent-assisted, not human domain assurance or participant
+research.
 
 ## First-Release Coverage
 
@@ -48,7 +50,7 @@ For every question:
 
 1. open each `expected_sources` canonical URL;
 2. record the official page, dataset or contract identity and observation time;
-3. verify the candidate expected propositions and near-miss rule;
+3. verify the expected propositions and near-miss rule;
 4. compare the direct-source result with the static bundle result; and
 5. record disagreement, inaccessible evidence or source drift rather than
    silently changing the expected answer.

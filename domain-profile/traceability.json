@@ -16,7 +16,7 @@
       "id": "TRACE-PROVENANCE",
       "requirement": "Keep authority, derivation, freshness, availability, coverage and release state distinct.",
       "tasks": ["TASK-AUDIT"],
-      "artifacts": ["bundle/data/sources.json", "bundle/data/coverage.json", "bundle/data/provenance.json"],
+      "artifacts": ["bundle/data/manifest.json", "bundle/data/coverage.json", "bundle/data/provenance.json"],
       "validations": ["VAL-SNAPSHOT", "VAL-DATA-PLANE"],
       "evidence": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
       "status": "accepted"

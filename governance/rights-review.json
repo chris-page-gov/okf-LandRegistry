@@ -1,9 +1,15 @@
 {
   "schema": "okf-rights-review.v1",
   "project": "HM Land Registry public-estate OKF Bundle",
-  "review_state": "reviewed-scaffold",
-  "release_approved": false,
+  "review_state": "approved-for-v0.1.0-ai-poc",
+  "release_approved": true,
   "reviewed_at": "2026-07-29",
+  "review_method": {
+    "reviewer_kind": "ai-agent",
+    "reviewer_identity": "Codex rights and provenance review",
+    "decision_scope": "Metadata-only v0.1.0 AI-generated proof of concept; final G3 evidence must bind the exact release digest.",
+    "human_legal_or_licence_audit": "not_completed"
+  },
   "research_cutoff": "2026-07-29",
   "scope": "Public metadata acquisition and static metadata publication only.",
   "legal_advice": false,
@@ -81,6 +87,20 @@
       "review_trigger": "Catalogue licence change or operational claim based on catalogue-only evidence."
     },
     {
+      "id": "RIGHT-EVIDENCE",
+      "layer": "Project-authored acquisition and validation receipts",
+      "source_family_ids": [],
+      "status": "permitted",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["source locator", "request status", "observation time", "record count", "media type", "digest", "bounded error outcome"],
+      "prohibited_content": ["source response bodies", "credentials", "cookies", "signed URLs", "personal-level source records"],
+      "licence": "CC BY 4.0 for original receipt metadata; underlying sources retain their own terms.",
+      "attribution": "HM Land Registry public-estate OKF Bundle contributors, version and canonical release URL.",
+      "evidence_refs": ["EV-ACQUISITION-SNAPSHOT"],
+      "review_trigger": "Receipt field expansion, source-body capture or a change to project-content licensing."
+    },
+    {
       "id": "RIGHT-PERSONAL",
       "layer": "Property, register, help-forum and user-submitted personal information",
       "source_family_ids": ["SRC-CUSTOMER-HELP", "SRC-PROPERTY-SERVICE", "SRC-LLC-SERVICE"],
@@ -105,8 +125,9 @@
     "The completed review binds the exact candidate digest."
   ],
   "open_items": [
-    "Owner approval of the public release and canonical identity (DEC-RELEASE).",
-    "Candidate-specific field inventory and safety-scan receipt.",
-    "Independent review of per-record licence and attribution projections."
+    "No independent human legal or licence audit has been completed; retain this limitation as release residual RISK-015.",
+    "Live rights, terms and privacy page bodies are not archived in the repository; revalidate publisher-operated routes for every later release.",
+    "Dataset and repository rights remain per-source and volatile; this approval does not authorise source-data or source-code redistribution.",
+    "Final field-inventory, safety-scan and independent rights receipts must bind the exact v0.1.0 digest before publication."
   ]
 }

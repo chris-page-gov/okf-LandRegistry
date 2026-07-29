@@ -6,6 +6,7 @@ __pycache__/
 uv.lock
 .coverage
 htmlcov/
+.playwright-cli/
 evaluation/latest-report.json
 .okf-build-*/
 source/snapshots/.staging-*/

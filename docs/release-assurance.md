@@ -1,7 +1,7 @@
 # Release assurance
 
-Status: gate contract for a reviewed scaffold. No named candidate has passed
-these gates and `DEC-RELEASE` remains open.
+Status: v0.1.0 AI-generated PoC release contract. G1–G8 receipts and the G9
+owner decision are published under `validation/` and bind one exact candidate.
 
 ## Evidence rule
 
@@ -21,20 +21,25 @@ Warnings require a written disposition; a hard failure cannot be waived.
 
 ## Gates
 
-| Gate | Required evidence | Pass criterion | Scaffold state |
+| Gate | Required evidence | Pass criterion | v0.1.0 state |
 |---|---|---|---|
-| G0 — decision readiness | decision register and named owners | no blocking decision open; release identity remains explicitly draft until G9 | documented |
-| G1 — discovery profile | `VAL-DOMAIN-PROFILE`, checksums and pack root | JSON/YAML schema-valid and equivalent; references closed; pack rehashes | pending receipt |
-| G2 — source snapshot | `VAL-SNAPSHOT`, terminal-outcome and coverage ledgers | all envelopes rehash; one outcome per expected item; omissions explicit | not run |
-| G3 — rights, privacy and safety | `VAL-RIGHTS`, rights review and sampled records | zero prohibited content, secrets, signed URLs or personal-level records; every record has access/rights state | not run |
-| G4 — OKF and data integrity | `VAL-OKF` and `VAL-DATA-PLANE` | schemas, identities, references, paths, counts, shards, checksums and routes pass | not run |
-| G5 — evaluation | `VAL-EVALUATION`, independently reviewed questions | zero hard failures; MRR ≥ 0.80; Recall@10 ≥ 0.90; source and caveat coverage = 1.00 | candidate suite only |
-| G6 — user-facing quality | `VAL-ACCESSIBILITY`, security and performance receipts | required manual/automated journeys pass; no critical security issue; budgets met | not run |
-| G7 — reproducibility | `VAL-REPRODUCIBILITY` and clean-build diff | two clean builds from frozen inputs are byte-identical | not run |
-| G8 — package integrity | release manifest, SBOM/provenance where applicable, checksums | every artifact is digest-bound; workflow and dependency provenance recorded | not run |
-| G9 — independent review and owner approval | review record and signed/recorded release decision | owner approves exact version, digest, residual risks, claims and canonical URL | open |
+| G0 — decision readiness | decision register and named owners | no blocking decision open; release identity remains explicitly draft until G9 | passed by accepted `DEC-RELEASE` |
+| G1 — discovery profile | `VAL-DOMAIN-PROFILE`, checksums and pack root | JSON/YAML schema-valid and equivalent; references closed; pack rehashes | pass |
+| G2 — source snapshot | `VAL-SNAPSHOT`, terminal-outcome and coverage ledgers | all envelopes rehash; one outcome per expected item; omissions explicit | pass |
+| G3 — rights, privacy and safety | `VAL-RIGHTS`, rights review and sampled records | zero prohibited content, secrets, signed URLs or personal-level records; every record has access/rights state | pass |
+| G4 — OKF and data integrity | `VAL-OKF` and `VAL-DATA-PLANE` | schemas, identities, references, paths, counts, shards, checksums and routes pass | pass |
+| G5 — evaluation | `VAL-EVALUATION`, independently reviewed questions | zero hard failures; MRR ≥ 0.80; Recall@10 ≥ 0.90; source and caveat coverage = 1.00 | pass |
+| G6 — user-facing quality | `VAL-ACCESSIBILITY`, security and performance receipts | declared automated and assisted journeys pass; no critical security issue; budgets met | pass |
+| G7 — reproducibility | `VAL-REPRODUCIBILITY` and clean-build diff | two clean builds from frozen inputs are byte-identical | pass |
+| G8 — package integrity | release manifest, SBOM/provenance where applicable, checksums | every artifact is digest-bound; workflow and dependency provenance recorded | pass |
+| G9 — independent review and owner approval | review record and recorded release decision | owner approves exact version, digest, residual risks, claims and canonical URL | approved for AI-generated PoC |
 
 “Pending” and “not run” are not passes.
+
+The independent release and gate reviewers for v0.1.0 are disclosed as
+AI agents. No independent human legal, licence or accessibility audit was
+completed; `RISK-015` remains an accepted residual risk for this proof of
+concept.
 
 ## Hard failures
 
@@ -57,11 +62,12 @@ Aggregate scores never average away a hard failure.
 
 ## Evaluation thresholds
 
-The first-release suite contains 24 candidate questions spanning personas,
+The first-release suite contains 24 reviewed questions spanning personas,
 source families, access/rights states, stale/conflicting metadata, spatial
 caveats, Welsh access and unsafe/unanswerable cases. Before G5 can pass, a
-reviewer independent of the retrieval implementation must verify expected
-propositions and near misses against the frozen snapshot.
+reviewer independent of the retrieval implementation verifies expected
+propositions and near misses against the frozen snapshot. For v0.1.0 this was
+an independent AI-agent review, explicitly not human domain assurance.
 
 Required thresholds:
 
@@ -69,6 +75,8 @@ Required thresholds:
 - complete question → story → persona → source/evidence traceability;
 - primary-target mean reciprocal rank of at least 0.80;
 - Recall@10 of at least 0.90 on answerable questions;
+- every declared expected target or governed source alias present in the top 10
+  for its question;
 - required source resolution and caveat coverage of 1.00; and
 - no new critical category in the second held-out adversarial pass.
 

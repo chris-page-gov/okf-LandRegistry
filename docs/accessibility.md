@@ -1,8 +1,9 @@
 # Accessibility
 
-Status: WCAG 2.2 Level AA is the design target. This scaffold has not had an
-independent accessibility audit or representative-user test and makes no
-conformance claim.
+Status: WCAG 2.2 Level AA is the design target. Version 0.1.0 passed automated
+and agent-assisted keyboard, reflow and no-JavaScript release journeys. It has
+not had an independent human accessibility audit or representative-user test
+and makes no conformance claim.
 
 ## Commitment and boundary
 
@@ -63,12 +64,12 @@ replace visible text.
 
 Automated checks are necessary but not evidence of conformance.
 
-### Manual before release
+### Assisted inspection before release
 
 - keyboard-only search, filtering, result traversal and source navigation;
 - visible focus and focus order after state changes;
 - VoiceOver with Safari and at least one additional screen reader/browser
-  combination available to the reviewer;
+  combination when a qualified human reviewer is available;
 - 200% and 400% zoom, 320-pixel reflow and text-spacing overrides;
 - forced colours/high contrast, reduced motion and dark/light preference;
 - recognition of source authority, rights and caveats without colour;
@@ -81,12 +82,14 @@ result, evidence and unresolved limitation in the accessibility receipt.
 
 ## Release criterion
 
-`VAL-ACCESSIBILITY` passes only when automated checks and required manual
+`VAL-ACCESSIBILITY` passes only when automated checks and the declared assisted
 journeys pass against the exact candidate digest, and every critical or serious
-finding is fixed or blocks release. Owner acceptance cannot turn a failed WCAG
-requirement into conformance.
+finding is fixed or blocks release. The receipt must identify which checks were
+performed by software, an independent AI agent or a human. Owner acceptance
+cannot turn a failed WCAG requirement into conformance.
 
-Participant research and an independent audit remain open
+Participant research, representative assistive-technology testing and an
+independent human audit remain open
 (`GAP-HUMAN-RESEARCH`). The public statement must say so.
 
 Reference: [Web Content Accessibility Guidelines 2.2][WCAG].

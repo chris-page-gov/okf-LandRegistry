@@ -1,6 +1,6 @@
 # HM Land Registry domain warm-up
 
-Status: **reviewed research handoff; not an approved release contract**  
+Status: **approved profile for the v0.1.0 AI-generated PoC**
 Research cut-off: **29 July 2026**
 
 ## Recommendation
@@ -105,7 +105,7 @@ The critical tasks are to:
 
 ## Evaluation
 
-The first release uses a deliberately smaller 24-question candidate suite,
+The first release uses a deliberately smaller 24-question AI-agent-reviewed suite,
 mapped end-to-end through stories and personas. It includes ordinary,
 near-miss, stale, conflicting, restricted, unsafe and unanswerable cases. The
 direct-source baseline is official navigation and search on the named
@@ -125,12 +125,12 @@ held-out adversarial pass.
 - Linked-data schemas and query limits were not fully exercised.
 - Welsh representation parity has not been enumerated.
 - Personas and usability have not been participant validated.
-- The owner still needs to approve the release contract and canonical Pages
-  identity.
+- Owner approval is exact-digest scoped; every later version requires a new G9
+  decision.
 
-None of these prevents a clearly labelled scaffold. They do prevent claims of
-full source coverage, release readiness, legal authority, bilingual parity or
-human preference.
+None of these prevents the clearly labelled v0.1.0 PoC. They do prevent claims
+of full source coverage, production readiness, legal authority, bilingual
+parity, accessibility conformance or human preference.
 
 ## Saturation result
 
@@ -142,7 +142,8 @@ are recorded as gaps instead of being silently treated as complete.
 
 ## Handoff
 
-The build may proceed against this reviewed profile because no open decision is
-marked `blocking_for_build`. Generated artefacts remain draft until the project
-owner accepts `DEC-RELEASE`. The exact profile, evidence register, traceability
-and checksums—not the research transcript—are the Stage 2 inputs.
+The build may proceed against this approved profile because no open decision is
+marked `blocking_for_build`. Publication is limited to the exact v0.1.0 digest
+accepted by `DEC-RELEASE` and recorded in G9. The exact profile, evidence
+register, traceability and checksums—not the research transcript—are the Stage
+2 inputs.

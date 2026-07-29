@@ -9,16 +9,17 @@
   },
   "core_conformance": "OKF v0.2 Markdown concept layer",
   "counts": {
-    "curated_records": 51,
+    "curated_records": 55,
     "merged_representations": 23,
-    "record_types": 74,
-    "records": 2198,
-    "source_representations": 2221,
+    "record_types": 77,
+    "records": 2202,
+    "source_representations": 2225,
     "sources": 14,
-    "topics": 285
+    "topics": 307
   },
   "description": "Independent, metadata-only discovery bundle for HM Land Registry publications, services, datasets, APIs and official repositories.",
   "entrypoints": {
+    "ai_usage_and_cost": "data/ai-usage.json",
     "catalogue": "data/catalogue.json",
     "catalogue_csv": "data/catalogue.csv",
     "catalogue_html": "catalogue-index.html",
@@ -36,6 +37,7 @@
   },
   "extensions": {
     "okf-hmlr-discovery.v1": {
+      "ai_generated_proof_of_concept": true,
       "authenticated_calls_enabled": false,
       "mode": "metadata-only",
       "personal_property_records_included": false,
@@ -58,7 +60,7 @@
   },
   "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
   "publisher": "https://github.com/chris-page-gov/okf-LandRegistry",
-  "release_at": null,
+  "release_at": "2026-07-29T11:00:00Z",
   "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
   "rights": {
     "record_level": true,
@@ -81,7 +83,7 @@
   },
   "semantic_descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld",
   "snapshot": "2026-07-29T091915Z",
-  "status": "reviewed-scaffold-not-approved",
+  "status": "released-poc",
   "title": "HM Land Registry public-estate OKF",
   "version": "0.1.0",
   "vocabulary": {

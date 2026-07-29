@@ -1,7 +1,7 @@
 # Standards profile
 
-Status: reviewed scaffold. A listed standard is not a blanket conformance
-claim.
+Status: v0.1.0 PoC standards profile. A listed standard is not a blanket
+conformance claim.
 
 ## Applicability vocabulary
 
@@ -15,7 +15,7 @@ claim.
 | ID | Standard and version | Applicability | Local use and claim boundary |
 |---|---|---|---|
 | `STD-OKF-02` | [Open Knowledge Format 0.2][OKF] at pinned commit | normative | Markdown root, typed concepts, sources and lifecycle; validate against the pinned specification |
-| `STD-OKF-AUTHORING` | [OKF Foundry authoring profile v1][AUTHORING] | normative | Stage 1 profile, evidence, decisions, traceability and gates; owner approval remains unmet |
+| `STD-OKF-AUTHORING` | [OKF Foundry authoring profile v1][AUTHORING] | normative | Stage 1 profile, evidence, decisions, traceability and exact-digest owner approval |
 | `STD-YAML-122` | [YAML 1.2.2][YAML] | normative | Strict safe YAML; no aliases, merge keys or custom tags |
 | `STD-JSONSCHEMA-202012` | [JSON Schema 2020-12][JSONSCHEMA] | normative | Versioned control-document schemas and validation |
 | `STD-JSONLD-11` | [JSON-LD 1.1][JSONLD] | projection | Deterministic semantic catalogue projection; not an RDF completeness claim |
@@ -23,7 +23,7 @@ claim.
 | `STD-PROVO` | [PROV-O][PROVO] | projection | Provenance mapping for observations, generation and receipts |
 | `STD-INSPIRE-CP` | [INSPIRE Cadastral Parcels 3.1][INSPIRE] | source-native | Preserve publisher-declared parcel metadata; do not republish geometry or imply exact boundaries |
 | `STD-GML-321` | [OGC GML 3.2.1][GML] | source-native | Record source format and CRS declarations only |
-| `STD-WCAG-22` | [WCAG 2.2][WCAG] | normative target | Level A/AA design and test requirements; no conformance claim before independent audit |
+| `STD-WCAG-22` | [WCAG 2.2][WCAG] | normative target | Level A/AA design and test requirements; automated and agent-assisted journeys do not establish conformance without an independent human audit |
 | `STD-YAMLLD-10` | [YAML-LD 1.0 Working Draft][YAMLLD] | reference-only | No YAML-LD artifact or conformance claim in the first scaffold |
 
 ## Mapping policy

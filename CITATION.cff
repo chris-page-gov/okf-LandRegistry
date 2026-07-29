@@ -1,13 +1,16 @@
 cff-version: 1.2.0
 message: >-
-  This is an unapproved metadata scaffold. Cite the exact released version and
-  snapshot digest when one becomes available.
+  This is an independent AI-generated proof of concept, not an HM Land Registry
+  service. Cite the exact released version and snapshot digest.
 title: HM Land Registry public-estate OKF Bundle
 type: dataset
 authors:
   - family-names: Page
     given-names: Chris
 version: 0.1.0
+date-released: 2026-07-29
+repository-code: https://github.com/chris-page-gov/okf-LandRegistry
+url: https://chris-page-gov.github.io/okf-LandRegistry/
 abstract: >-
   An independent, metadata-only discovery bundle for public HM Land Registry
   guidance, services, datasets, APIs, developer resources and repositories.

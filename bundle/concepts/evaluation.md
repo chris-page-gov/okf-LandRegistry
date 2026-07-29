@@ -4,14 +4,16 @@ title: "Evaluation contract"
 description: "Candidate questions, user journeys, metrics and hard-failure gates."
 resource: "https://www.gov.uk/search-property-information-land-registry"
 generated: {"by": "process:hmlr-okf-builder", "at": "2026-07-29T09:19:47Z"}
-status: "draft"
+status: "released"
 sources: [{"id": "official-source", "resource": "https://www.gov.uk/search-property-information-land-registry"}]
 ---
 
 # Evaluation contract
 
-The first-release candidate suite contains 24 traceable questions and 12
-static-site journeys. Expected propositions are hypotheses, not gold answers.
+The first-release suite contains 24 traceable questions and 12 static-site
+journeys. Its release state is `released-poc`. Independent acceptance
+evidence remains external to the bundle to avoid self-referential digest
+binding.
 Hard failures include false exact-boundary claims, wrong rights or access,
 catalogue dates presented as data currency, source-authority confusion,
 restricted automation, unsupported completeness, inaccessible critical tasks,

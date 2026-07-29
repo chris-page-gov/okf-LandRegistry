@@ -30,6 +30,11 @@ const state = {
       "audience", "formats", "topics", "languages", "caveats", "source_urls",
     ],
     weights: { heading: 8, body: 2, reviewed_curation_bonus: 3 },
+    minimum_should_match: {
+      apply_from_query_tokens: 3,
+      minimum_matches: 2,
+      ratio: 0.3,
+    },
   },
 };
 
@@ -116,6 +121,16 @@ function relevanceScore(record, terms) {
     || (typeof record.body_tokens === "string"
       ? new Set(record.body_tokens.split(" ").filter(Boolean))
       : tokens(textFor(record)));
+  const minimum = state.searchContract.minimum_should_match;
+  const requiredMatches = terms.length >= minimum.apply_from_query_tokens
+    ? Math.max(minimum.minimum_matches, Math.ceil(terms.length * minimum.ratio))
+    : 1;
+  const matchedTerms = terms.filter(
+    (term) => headingTerms.has(term) || bodyTerms.has(term),
+  );
+  if (matchedTerms.length < requiredMatches) {
+    return 0;
+  }
   let score = terms.reduce((total, term) => {
     if (headingTerms.has(term)) {
       return total + state.searchContract.weights.heading;
@@ -263,6 +278,19 @@ function metadataRow(term, description) {
   return wrapper;
 }
 
+function normalizedRoute(value) {
+  return String(value || "").replace(/\/+$/, "");
+}
+
+function routeText(value) {
+  try {
+    const route = new URL(value);
+    return `${route.hostname}${route.pathname}${route.search}`;
+  } catch {
+    return value;
+  }
+}
+
 function recordCard(record) {
   const article = create("article", {
     className: "result-card",
@@ -299,17 +327,73 @@ function recordCard(record) {
     ),
     metadataRow("Licence summary", record.licence),
     metadataRow("Cadence", record.cadence),
+    metadataRow("Geography", record.jurisdiction),
+    metadataRow(
+      "Languages",
+      record.languages && record.languages.length
+        ? record.languages.join(", ")
+        : "Not stated by source metadata",
+    ),
     metadataRow("Observed", record.observed_at),
   );
   article.append(metadata);
 
-  if (record.caveats && record.caveats.length) {
-    const details = create("details", { className: "caveat" });
-    appendText(details, "summary", `Read ${record.caveats.length} caveat${record.caveats.length === 1 ? "" : "s"}`);
+  if (record.source_urls && record.source_urls.length) {
+    const routes = create("div", { className: "source-routes" });
+    appendText(routes, "strong", "Governed source and evidence routes");
     const list = create("ul");
-    record.caveats.forEach((item) => appendText(list, "li", item));
-    details.append(list);
-    article.append(details);
+    record.source_urls.forEach((route, index) => {
+      const item = create("li");
+      const primary = normalizedRoute(route) === normalizedRoute(record.url);
+      appendText(
+        item,
+        "span",
+        primary ? "Primary record: " : `Supporting source ${index + 1}: `,
+        "source-route-label",
+      );
+      item.append(create("a", {
+        text: routeText(route),
+        attributes: {
+          href: route,
+          "aria-label": `${primary ? "Primary record" : "Supporting source"} — ${route}`,
+        },
+      }));
+      list.append(item);
+    });
+    routes.append(list);
+    article.append(routes);
+  }
+
+  if (record.caveats && record.caveats.length) {
+    const keyCaveat = create("div", { className: "key-caveat" });
+    appendText(
+      keyCaveat,
+      "strong",
+      record.caveats.length === 1 ? "Key caveat" : "Key caveats",
+    );
+    const visibleCaveats = record.caveats.slice(0, 2);
+    if (visibleCaveats.length === 1) {
+      appendText(keyCaveat, "p", visibleCaveats[0]);
+    } else {
+      const keyList = create("ul");
+      visibleCaveats.forEach((item) => appendText(keyList, "li", item));
+      keyCaveat.append(keyList);
+    }
+    article.append(keyCaveat);
+    if (record.caveats.length > visibleCaveats.length) {
+      const details = create("details", { className: "caveat" });
+      appendText(
+        details,
+        "summary",
+        `Read ${record.caveats.length - visibleCaveats.length} more caveat${record.caveats.length - visibleCaveats.length === 1 ? "" : "s"}`,
+      );
+      const list = create("ul");
+      record.caveats
+        .slice(visibleCaveats.length)
+        .forEach((item) => appendText(list, "li", item));
+      details.append(list);
+      article.append(details);
+    }
   }
   return article;
 }
@@ -459,6 +543,7 @@ async function initialise() {
         && typeof record.id === "string"
         && typeof record.title === "string"
         && typeof record.url === "string"
+        && Array.isArray(record.source_urls)
         && Number.isInteger(record.shard)
         && typeof record.heading_tokens === "string"
         && typeof record.body_tokens === "string")
@@ -469,6 +554,7 @@ async function initialise() {
       contract.schema !== "okf-hmlr-search-contract.v1"
       || !Array.isArray(contract.stopwords)
       || !contract.weights
+      || !contract.minimum_should_match
     ) {
       throw new Error("Search contract is missing or unsupported");
     }
@@ -497,7 +583,7 @@ elements.form.addEventListener("submit", (event) => {
   event.preventDefault();
   applyFilters({ historyMode: "push" });
 });
-elements.search.addEventListener("input", () => applyFilters());
+elements.search.addEventListener("input", () => applyFilters({ writeUrl: false }));
 elements.sort.addEventListener("change", () => applyFilters({ historyMode: "push" }));
 FILTERS.forEach((filter) => {
   const control = document.querySelector(`[data-filter="${filter.key}"]`);

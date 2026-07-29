@@ -1,5 +1,5 @@
 {
-  "record_count": 198,
+  "record_count": 202,
   "records": [
     {
       "access_model": "public-web",
@@ -10,8 +10,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -19,6 +19,279 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-GOVUK-SEARCH"
+      ],
+      "formats": [
+        "HTML"
+      ],
+      "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2022",
+      "jurisdiction": "Source-specific; HM Land Registry normally covers England and Wales",
+      "languages": [],
+      "licence": "check source-specific Crown copyright and reuse terms",
+      "lifecycle_state": "unknown",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "publisher": "HM Land Registry",
+      "publisher_last_updated": "2022-06-22T08:30:00Z",
+      "record_type": "statistical_data_set",
+      "representations": [
+        {
+          "curation": "source-native",
+          "derivation": "normalized-frozen-source-metadata",
+          "evidence_refs": [
+            "EV-GOVUK-SEARCH",
+            "EV-ACQUISITION-SNAPSHOT"
+          ],
+          "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2022",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T09:19:15Z",
+          "rights_ref": "RIGHT-GOVUK",
+          "source_family": "govuk-search"
+        }
+      ],
+      "rights_ref": "RIGHT-GOVUK",
+      "rights_state": "open-with-conditions",
+      "source_families": [
+        "govuk-search"
+      ],
+      "source_family": "govuk-search",
+      "source_native_ids": [
+        "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2022"
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2022"
+      ],
+      "title": "UK House Price Index: data downloads April 2022",
+      "topics": [
+        "statistical data set"
+      ],
+      "url": "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2022"
+    },
+    {
+      "access_model": "public-web",
+      "access_state": "public",
+      "audience": [],
+      "authentication": "none for this publication metadata",
+      "authority_role": "publisher-authoritative-source",
+      "authority_tier": "A",
+      "cadence": "source-specific",
+      "caveats": [
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
+      ],
+      "curation": "source-native",
+      "derivation": "normalized-frozen-source-metadata",
+      "derivations": [
+        "normalized-frozen-source-metadata"
+      ],
+      "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-GOVUK-SEARCH"
+      ],
+      "formats": [
+        "HTML"
+      ],
+      "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2023",
+      "jurisdiction": "Source-specific; HM Land Registry normally covers England and Wales",
+      "languages": [],
+      "licence": "check source-specific Crown copyright and reuse terms",
+      "lifecycle_state": "unknown",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "publisher": "HM Land Registry",
+      "publisher_last_updated": "2023-06-21T08:30:05Z",
+      "record_type": "statistical_data_set",
+      "representations": [
+        {
+          "curation": "source-native",
+          "derivation": "normalized-frozen-source-metadata",
+          "evidence_refs": [
+            "EV-GOVUK-SEARCH",
+            "EV-ACQUISITION-SNAPSHOT"
+          ],
+          "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2023",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T09:19:15Z",
+          "rights_ref": "RIGHT-GOVUK",
+          "source_family": "govuk-search"
+        }
+      ],
+      "rights_ref": "RIGHT-GOVUK",
+      "rights_state": "open-with-conditions",
+      "source_families": [
+        "govuk-search"
+      ],
+      "source_family": "govuk-search",
+      "source_native_ids": [
+        "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2023"
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2023"
+      ],
+      "title": "UK House Price Index: data downloads April 2023",
+      "topics": [
+        "statistical data set"
+      ],
+      "url": "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2023"
+    },
+    {
+      "access_model": "public-web",
+      "access_state": "public",
+      "audience": [],
+      "authentication": "none for this publication metadata",
+      "authority_role": "publisher-authoritative-source",
+      "authority_tier": "A",
+      "cadence": "source-specific",
+      "caveats": [
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
+      ],
+      "curation": "source-native",
+      "derivation": "normalized-frozen-source-metadata",
+      "derivations": [
+        "normalized-frozen-source-metadata"
+      ],
+      "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-GOVUK-SEARCH"
+      ],
+      "formats": [
+        "HTML"
+      ],
+      "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2024",
+      "jurisdiction": "Source-specific; HM Land Registry normally covers England and Wales",
+      "languages": [],
+      "licence": "check source-specific Crown copyright and reuse terms",
+      "lifecycle_state": "unknown",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "publisher": "HM Land Registry",
+      "publisher_last_updated": "2024-06-19T08:30:04Z",
+      "record_type": "statistical_data_set",
+      "representations": [
+        {
+          "curation": "source-native",
+          "derivation": "normalized-frozen-source-metadata",
+          "evidence_refs": [
+            "EV-GOVUK-SEARCH",
+            "EV-ACQUISITION-SNAPSHOT"
+          ],
+          "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2024",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T09:19:15Z",
+          "rights_ref": "RIGHT-GOVUK",
+          "source_family": "govuk-search"
+        }
+      ],
+      "rights_ref": "RIGHT-GOVUK",
+      "rights_state": "open-with-conditions",
+      "source_families": [
+        "govuk-search"
+      ],
+      "source_family": "govuk-search",
+      "source_native_ids": [
+        "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2024"
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2024"
+      ],
+      "title": "UK House Price Index: data downloads April 2024",
+      "topics": [
+        "statistical data set"
+      ],
+      "url": "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2024"
+    },
+    {
+      "access_model": "public-web",
+      "access_state": "public",
+      "audience": [],
+      "authentication": "none for this publication metadata",
+      "authority_role": "publisher-authoritative-source",
+      "authority_tier": "A",
+      "cadence": "source-specific",
+      "caveats": [
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
+      ],
+      "curation": "source-native",
+      "derivation": "normalized-frozen-source-metadata",
+      "derivations": [
+        "normalized-frozen-source-metadata"
+      ],
+      "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-GOVUK-SEARCH"
+      ],
+      "formats": [
+        "HTML"
+      ],
+      "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2025",
+      "jurisdiction": "Source-specific; HM Land Registry normally covers England and Wales",
+      "languages": [],
+      "licence": "check source-specific Crown copyright and reuse terms",
+      "lifecycle_state": "unknown",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "publisher": "HM Land Registry",
+      "publisher_last_updated": "2025-06-18T08:30:05Z",
+      "record_type": "statistical_data_set",
+      "representations": [
+        {
+          "curation": "source-native",
+          "derivation": "normalized-frozen-source-metadata",
+          "evidence_refs": [
+            "EV-GOVUK-SEARCH",
+            "EV-ACQUISITION-SNAPSHOT"
+          ],
+          "id": "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2025",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T09:19:15Z",
+          "rights_ref": "RIGHT-GOVUK",
+          "source_family": "govuk-search"
+        }
+      ],
+      "rights_ref": "RIGHT-GOVUK",
+      "rights_state": "open-with-conditions",
+      "source_families": [
+        "govuk-search"
+      ],
+      "source_family": "govuk-search",
+      "source_native_ids": [
+        "govuk:https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2025"
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2025"
+      ],
+      "title": "UK House Price Index: data downloads April 2025",
+      "topics": [
+        "statistical data set"
+      ],
+      "url": "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-april-2025"
+    },
+    {
+      "access_model": "public-web",
+      "access_state": "public",
+      "audience": [],
+      "authentication": "none for this publication metadata",
+      "authority_role": "publisher-authoritative-source",
+      "authority_tier": "A",
+      "cadence": "source-specific",
+      "caveats": [
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
+      ],
+      "curation": "source-native",
+      "derivation": "normalized-frozen-source-metadata",
+      "derivations": [
+        "normalized-frozen-source-metadata"
+      ],
+      "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -77,8 +350,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -86,6 +359,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -144,8 +418,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -153,6 +427,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -211,8 +486,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -220,6 +495,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -278,8 +554,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -287,6 +563,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -345,8 +622,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -354,6 +631,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -412,8 +690,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -421,6 +699,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -479,8 +758,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -488,6 +767,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -546,8 +826,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -555,6 +835,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -613,8 +894,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -622,6 +903,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -680,8 +962,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -689,6 +971,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -747,8 +1030,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -756,6 +1039,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -814,8 +1098,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -823,6 +1107,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -881,8 +1166,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -890,6 +1175,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -948,8 +1234,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -957,6 +1243,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1015,8 +1302,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1024,6 +1311,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1082,8 +1370,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1091,6 +1379,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1149,8 +1438,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1158,6 +1447,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1216,8 +1506,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1225,6 +1515,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1283,8 +1574,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1292,6 +1583,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1350,8 +1642,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1359,6 +1651,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1417,8 +1710,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1426,6 +1719,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1484,8 +1778,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1493,6 +1787,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1551,8 +1846,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1560,6 +1855,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1618,8 +1914,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1627,6 +1923,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1685,8 +1982,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1694,6 +1991,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1752,8 +2050,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1761,6 +2059,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1819,8 +2118,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1828,6 +2127,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1886,8 +2186,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1895,6 +2195,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1953,8 +2254,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1962,6 +2263,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2020,8 +2322,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2029,6 +2331,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2087,8 +2390,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2096,6 +2399,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2154,8 +2458,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2163,6 +2467,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2221,8 +2526,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2230,6 +2535,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2288,8 +2594,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2297,6 +2603,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2355,8 +2662,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2364,6 +2671,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2422,8 +2730,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2431,6 +2739,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2489,8 +2798,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2498,6 +2807,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2556,8 +2866,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2565,6 +2875,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2623,8 +2934,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2632,6 +2943,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2690,8 +3002,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2699,6 +3011,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2757,8 +3070,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2766,6 +3079,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2824,8 +3138,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2833,6 +3147,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2891,8 +3206,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2900,6 +3215,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2958,8 +3274,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2967,6 +3283,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3025,8 +3342,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3034,6 +3351,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3092,8 +3410,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3101,6 +3419,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3159,8 +3478,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3168,6 +3487,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3226,8 +3546,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3235,6 +3555,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3293,8 +3614,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3302,6 +3623,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3360,8 +3682,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3369,6 +3691,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3427,8 +3750,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3436,6 +3759,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3494,8 +3818,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3503,6 +3827,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3561,8 +3886,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3570,6 +3895,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3628,8 +3954,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3637,6 +3963,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3695,8 +4022,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3704,6 +4031,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3762,8 +4090,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3771,6 +4099,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3829,8 +4158,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3838,6 +4167,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3896,8 +4226,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3905,6 +4235,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3963,8 +4294,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3972,6 +4303,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4030,8 +4362,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4039,6 +4371,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4097,8 +4430,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4106,6 +4439,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4164,8 +4498,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4173,6 +4507,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4231,8 +4566,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4240,6 +4575,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4298,8 +4634,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4307,6 +4643,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4365,8 +4702,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4374,6 +4711,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4432,8 +4770,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4441,6 +4779,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4499,8 +4838,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4508,6 +4847,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4566,8 +4906,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4575,6 +4915,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4633,8 +4974,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4642,6 +4983,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4700,8 +5042,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4709,6 +5051,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4767,8 +5110,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4776,6 +5119,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4834,8 +5178,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4843,6 +5187,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4901,8 +5246,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4910,6 +5255,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4968,8 +5314,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4977,6 +5323,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5035,8 +5382,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5044,6 +5391,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5102,8 +5450,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5111,6 +5459,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5169,8 +5518,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5178,6 +5527,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5236,8 +5586,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5245,6 +5595,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5303,8 +5654,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5312,6 +5663,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5370,8 +5722,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5379,6 +5731,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5437,8 +5790,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5446,6 +5799,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5504,8 +5858,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5513,6 +5867,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5571,8 +5926,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5580,6 +5935,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5638,8 +5994,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5647,6 +6003,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5705,8 +6062,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5714,6 +6071,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5772,8 +6130,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5781,6 +6139,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5839,8 +6198,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5848,6 +6207,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5906,8 +6266,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5915,6 +6275,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5973,8 +6334,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5982,6 +6343,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6040,8 +6402,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6049,6 +6411,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6107,8 +6470,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6116,6 +6479,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6174,8 +6538,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6183,6 +6547,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6241,8 +6606,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6250,6 +6615,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6308,8 +6674,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6317,6 +6683,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6375,8 +6742,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6384,6 +6751,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6442,8 +6810,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6451,6 +6819,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6509,8 +6878,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6518,6 +6887,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6576,8 +6946,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6585,6 +6955,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6643,8 +7014,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6652,6 +7023,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6710,8 +7082,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6719,6 +7091,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6777,8 +7150,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6786,6 +7159,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6844,8 +7218,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6853,6 +7227,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6911,8 +7286,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6920,6 +7295,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6978,8 +7354,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6987,6 +7363,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7045,8 +7422,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7054,6 +7431,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7112,8 +7490,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7121,6 +7499,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7179,8 +7558,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7188,6 +7567,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7246,8 +7626,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7255,6 +7635,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7313,8 +7694,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7322,6 +7703,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7380,8 +7762,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7389,6 +7771,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7447,8 +7830,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7456,6 +7839,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Download aggregated data behind the UK House Price Index (UK HPI), in CSV format.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7514,8 +7898,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7523,6 +7907,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7581,8 +7966,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7590,6 +7975,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7648,8 +8034,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7657,6 +8043,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7715,8 +8102,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7724,6 +8111,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7782,8 +8170,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7791,6 +8179,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7849,8 +8238,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7858,6 +8247,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Monthly house price inflation, calculated using data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7916,8 +8306,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7925,6 +8315,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7983,8 +8374,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7992,6 +8383,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8050,8 +8442,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8059,6 +8451,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8117,8 +8510,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8126,6 +8519,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8184,8 +8578,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8193,6 +8587,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8251,8 +8646,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8260,6 +8655,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8318,8 +8714,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8327,6 +8723,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8385,8 +8782,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8394,6 +8791,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8452,8 +8850,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8461,6 +8859,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The Office for Statistics Regulation confirmed the UK House Price Index will be awarded National Statistics status if 8 requirements are addressed.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8519,8 +8918,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8528,6 +8927,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Cash sales account for between 30% and 40% of all transactions at Great Britain level.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8586,8 +8986,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8595,6 +8995,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8653,8 +9054,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8662,6 +9063,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8720,8 +9122,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8729,6 +9131,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8787,8 +9190,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8796,6 +9199,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8854,8 +9258,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8863,6 +9267,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8921,8 +9326,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8930,6 +9335,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8988,8 +9394,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8997,6 +9403,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9055,8 +9462,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9064,6 +9471,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9122,8 +9530,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9131,6 +9539,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9189,8 +9598,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9198,6 +9607,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9256,8 +9666,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9265,6 +9675,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9323,8 +9734,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9332,6 +9743,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9390,8 +9802,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9399,6 +9811,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9457,8 +9870,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9466,6 +9879,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9524,8 +9938,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9533,6 +9947,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reports for the UK House Price Index (UK HPI) for England, Scotland, Wales and Northern Ireland.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9591,8 +10006,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9600,6 +10015,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9658,8 +10074,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9667,6 +10083,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9725,8 +10142,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9734,6 +10151,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This publication is the single official House Price Index for the UK which uses house price data from Land Registry, Registers of Scotland and Land and Property Services Northern Ireland and is calculated by the Office for National Statistics.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9792,8 +10210,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9801,6 +10219,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form UN1 to enter a unilateral notice.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9859,8 +10278,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9868,6 +10287,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form UN2 to remove a unilateral notice.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9926,8 +10346,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9935,6 +10355,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form UN4 for cancellation of a unilateral notice by a person who is (or is entitled to be) the registered proprietor.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9993,8 +10414,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10002,6 +10423,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This series brings together all HM Land Registry practice guides relating to unregistered land.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10060,8 +10482,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10069,6 +10491,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We will not send a request for information (requisition) from April if consents are to the disposition only.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10127,8 +10550,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10136,6 +10559,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to update the property records and transfer a registered property when someone dies using forms DJP, AS1 and AP1.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10194,8 +10618,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10203,6 +10627,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Keep your contact details with HM Land Registry up to date.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10261,8 +10686,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10270,6 +10695,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "When someone who owns a house or land passes away, you may need to update their property records.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10328,8 +10754,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10337,6 +10763,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form UT1 for upgrading of title.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10395,8 +10822,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10404,6 +10831,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to apply for the class of title to a registered estate to be upgraded (practice guide 42).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10462,8 +10890,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10471,6 +10899,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Increased file size limit for any supporting plans customers attach to online applications for a SIM or OS2.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10535,8 +10964,8 @@
       "authority_tier": "A",
       "cadence": "catalogue maintained; individual datasets have independent cadences",
       "caveats": [
-        "Some files are multi-gigabyte and require specialist tools.",
         "The catalogue showed 14 dataset entries at the research cutoff, but the build must re-enumerate before claiming completeness.",
+        "Some files are multi-gigabyte and require specialist tools.",
         "This bundle records metadata only and never downloads the listed property data."
       ],
       "curation": "reviewed",
@@ -10545,6 +10974,7 @@
         "reviewed-curated-metadata"
       ],
       "description": "HM Land Registry's publisher-operated catalogue for bulk datasets linked to registered land and property.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ULPD"
       ],
@@ -10618,8 +11048,11 @@
       "authority_tier": "A",
       "cadence": "reviewed as the service changes",
       "caveats": [
-        "Recheck the live statement for remediation and contact information.",
-        "The statement reported partial WCAG 2.2 AA compliance at the observation date."
+        "Some Welsh place names in INSPIRE are not coded as a different language and may be mispronounced by screen readers; this source defect is not permission for the bundle to omit language metadata.",
+        "The source service's statement does not establish accessibility of this bundle.",
+        "The statement reported partial WCAG 2.2 AA compliance at the observation date.",
+        "The live statement was last reviewed on 26 September 2024 and reports September 2024 testing; January 2025 remediation targets are past, so current remediation status is unknown without retesting.",
+        "Recheck the live statement for remediation and contact information."
       ],
       "curation": "reviewed",
       "derivation": "reviewed-curated-metadata",
@@ -10627,6 +11060,7 @@
         "reviewed-curated-metadata"
       ],
       "description": "Service-specific statement covering keyboard, focus, map, language and WCAG accessibility limitations for the HMLR data catalogue.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ULPD"
       ],
@@ -10674,10 +11108,14 @@
       "topics": [
         "accessibility",
         "focus",
+        "inspire",
         "keyboard",
         "language",
+        "language-metadata",
         "maps",
-        "wcag-2.2"
+        "screen-readers",
+        "wcag-2.2",
+        "welsh-place-names"
       ],
       "url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
     },
@@ -10694,9 +11132,9 @@
       "authority_tier": "A",
       "cadence": "versioned API; dataset resources follow their own release schedules",
       "caveats": [
-        "API availability does not alter dataset licence restrictions.",
-        "Signed download URLs expire and are credentials; never log or publish them.",
         "The bundle must not call this authenticated API.",
+        "Signed download URLs expire and are credentials; never log or publish them.",
+        "API availability does not alter dataset licence restrictions.",
         "The five observed API-enabled datasets are CCOD, OCOD, National Polygon Service, Registered Leases and Restrictive Covenants."
       ],
       "curation": "reviewed",
@@ -10705,6 +11143,7 @@
         "reviewed-curated-metadata"
       ],
       "description": "REST API for authorised discovery of datasets, resource history and short-lived secure download links for five licensed HM Land Registry products.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ULPD-API"
       ],
@@ -10766,8 +11205,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10775,6 +11214,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We have changed our central PO Box and DX addresses.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10844,6 +11284,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10913,6 +11354,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HMLR User Research Insights Library",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10972,8 +11414,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10981,6 +11423,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Providing the right evidence will help us complete your application as quickly as possible.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11039,8 +11482,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11048,6 +11491,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guides on using our digital services.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11106,8 +11550,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11115,6 +11559,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to prepare and complete transfer forms TR1, TR2, TR5 and TP2 for transactions that are not straightforward and information on completing forms for unusual transactions (practice guide 21).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11184,6 +11629,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -11253,6 +11699,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Local Land Charges validation-api",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -11312,8 +11759,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11321,6 +11768,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form ID1 to prove your identity when lodging an application to HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11379,8 +11827,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11388,6 +11836,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form ID2: certificate of identity for a corporate body.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11446,8 +11895,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11455,6 +11904,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry portal users can use the View Applications service to search, view and manage applications and correspondence in one place.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11513,8 +11963,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11522,6 +11972,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Explaining how voluntary applications can be made to note overriding interests on the registers of developing estates (practice guide 41, supplement 6)",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11580,8 +12031,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11589,6 +12040,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The recent announcement by Wandsworth Council to support its residents through the cost-of-living crisis now includes property buyers.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11647,8 +12099,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11656,6 +12108,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Property buyers in Watford now have instant access to the local land charges information they need, speeding up the conveyancing process.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11714,8 +12167,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11723,6 +12176,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From today we have changed how we send warning of cancellation letters and what they contain.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11781,8 +12235,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11790,6 +12244,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Customers will receive fewer documents when we confirm their application by post.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11848,8 +12303,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11857,6 +12312,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Our external services will be unavailable Saturday 16 and Sunday 17 June for essential maintenance.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11915,8 +12371,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11924,6 +12380,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Update your Land Registry email address records from 30 January 2016.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11982,8 +12439,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11991,6 +12448,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From November 2022 we will accept only digital applications for simple updates to existing titles via our online customer portal.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12049,8 +12507,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12058,6 +12516,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form AS1: for personal representative(s) to assent the whole of a registered title.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12116,8 +12575,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12125,6 +12584,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form WCT to withdraw a caution.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12183,8 +12643,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12192,6 +12652,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form RX4 to withdraw a restriction.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12250,8 +12711,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12259,6 +12720,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From 14 September, Land Registry is withdrawing fax as a lodgement channel.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12317,8 +12779,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12326,6 +12788,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From 28 February, Land Registry's '08' customer support phone numbers will be withdrawn.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12384,8 +12847,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12393,6 +12856,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Clarification of our practice on attestation process where there are multiple signatures.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12451,8 +12915,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12460,6 +12924,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Reminder of our practice on attestation process where there are multiple signatures.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12518,8 +12983,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12527,6 +12992,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Sign up to our research to help improve land registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12596,6 +13062,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Prototype for the workflow team",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12666,6 +13133,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Workflow Management Prototypes",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12736,6 +13204,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "New designs and work for Workflow on v13 gds kit",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12805,6 +13274,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12863,8 +13333,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12872,6 +13342,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Current jobs and what HM Land Registry can offer you.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12930,8 +13401,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12939,6 +13410,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "New trials will defer sending application enquiries when some information is missing.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12997,8 +13469,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13006,6 +13478,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Working together, our Annual Report and Accounts 2023-24, is published today (12 September 2024).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13064,8 +13537,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13073,6 +13546,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Using HM Land Registry’s portal, you can easily find, edit, submit and track a colleague's application.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13131,8 +13605,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13140,6 +13614,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form K4 for registration of a Writ or Order",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13198,8 +13673,9 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Most registered title plans show general boundaries; an exact or determined boundary requires the applicable official process and evidence. This metadata record is not a boundary conclusion.",
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13207,6 +13683,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "About your property boundaries, working out your boundary lines, boundaries and neighbour disputes, agreeing who's responsible for walls and fences",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13265,8 +13742,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13274,6 +13751,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "New recruits to conveyancing now have a comprehensive package of training materials to help them lodge quality applications right from the start.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"

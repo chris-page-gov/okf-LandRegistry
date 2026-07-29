@@ -50,12 +50,18 @@ class DomainProfileTests(unittest.TestCase):
         self.assertEqual(profile["evidence"], evidence)
         self.assertEqual(len(evidence), len({item["id"] for item in evidence}))
 
-    def test_reviewed_profile_is_not_release_approved(self) -> None:
+    def test_profile_records_exact_digest_release_approval(self) -> None:
         profile = json.loads((PROFILE / "domain-profile.json").read_text(encoding="utf-8"))
-        self.assertEqual("reviewed", profile["status"])
-        self.assertNotEqual("approved", profile["status"])
+        self.assertEqual("approved", profile["status"])
         recommendation = profile["build_recommendation"]
         self.assertEqual([], recommendation["blocking_decision_ids"])
+        release = next(
+            decision
+            for decision in profile["decisions"]
+            if decision["id"] == "DEC-RELEASE"
+        )
+        self.assertEqual("accepted", release["status"])
+        self.assertIn("AI-generated proof of concept", release["recommended_default"])
 
 
 if __name__ == "__main__":

@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+      content="default-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'"
     >
     <meta name="theme-color" content="#32102f">
     <title>Accessibility · HM Land Registry public-estate OKF</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
@@ -20,12 +21,22 @@
       </a>
       <nav aria-label="Primary"><a href="./">Back to the catalogue</a></nav>
     </header>
+    <aside class="poc-banner" aria-labelledby="poc-title">
+      <strong id="poc-title">AI-generated proof of concept</strong>
+      <span>
+        This independent site was created with AI assistance. It is not an HM
+        Land Registry service or endorsement.
+      </span>
+    </aside>
     <main id="main" class="simple-page">
-      <p class="eyebrow">Accessibility statement · scaffold</p>
+      <p class="eyebrow">Accessibility statement · version 0.1.0 PoC</p>
       <h1>Accessibility</h1>
       <p class="lede">
-        This static discovery site targets WCAG 2.2 AA. It has not yet received
-        an independent accessibility audit, so it does not claim conformance.
+        This static discovery site targets WCAG 2.2 AA. Automated checks and
+        agent-assisted keyboard, reflow and no-JavaScript journeys were run for
+        version 0.1.0. It has not received an independent human accessibility
+        audit or representative assistive-technology test, so it does not claim
+        conformance.
       </p>
 
       <h2>What should work</h2>
@@ -39,11 +50,11 @@
 
       <h2>Known limits</h2>
       <p>
-        The candidate evaluation journeys have not yet been executed with a
-        representative set of assistive technologies. Linked external services
-        have their own accessibility statements and are outside this site’s
-        control. Source-native Welsh-language availability is recorded only
-        where the source metadata makes it explicit.
+        The release journeys were not executed by representative users or with
+        a representative set of assistive technologies. Linked external
+        services have their own accessibility statements and are outside this
+        site’s control. Source-native Welsh-language availability is recorded
+        only where the source metadata makes it explicit.
       </p>
 
       <h2>Technical approach</h2>

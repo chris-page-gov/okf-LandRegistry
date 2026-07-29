@@ -2,7 +2,7 @@ $schema: https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/doma
 schema: okf-domain-profile.v1
 profile_id: urn:okf-domain-profile:hm-land-registry-public-estate:v1
 version: "1"
-status: reviewed
+status: approved
 prepared_at: "2026-07-29T07:53:38Z"
 research_cutoff: "2026-07-29"
 title: HM Land Registry public-estate domain profile
@@ -1052,6 +1052,18 @@ rights_access_privacy:
     mitigation: Retain source commit and re-verify against HMLR documentation.
     owner: Repository maintainer
     evidence_refs: [EV-CDDO]
+  - id: RIGHT-EVIDENCE
+    layer: Project-authored acquisition and validation receipts
+    operation: Store and publish deterministic local provenance receipts.
+    status: permitted
+    basis: The acquisition manifest is project-authored provenance metadata that identifies, but does not relicense, separately governed GOV.UK, GitHub and CDDO observations.
+    licence: CC BY 4.0 for original receipt metadata; underlying sources retain their own terms.
+    attribution: HM Land Registry public-estate OKF Bundle contributors, version and canonical release URL.
+    third_party_terms: Source URLs, response metadata and described source records remain subject to their applicable source-layer terms.
+    access_constraint: The receipt may record only bounded request metadata, counts, digests and source locators; it does not authorise reuse of underlying source content.
+    mitigation: Publish only receipt metadata and retain per-source rights references for every acquired record.
+    owner: Repository maintainer
+    evidence_refs: [EV-ACQUISITION-SNAPSHOT]
   - id: RIGHT-PERSONAL
     layer: Property, register, help-forum and user-submitted personal information
     operation: Acquire, combine, index or expose personal-level content.
@@ -1086,10 +1098,10 @@ architecture:
 
 enrichment:
   enabled: false
-  purpose: No model-assisted production assertions are justified for the scaffold.
+  purpose: AI-assisted authoring does not authorise model-generated corpus assertions; published classifications remain source-native or deterministically derived.
   permitted_derivations: [source-native, normalized, rule-derived]
   evidence_requirement: Every non-source-native field names its source fields, deterministic method and observation.
-  independent_review: Domain and rights assertions require separate human review before release approval.
+  independent_review: Domain and rights assertions require review independent of the generating implementation; reviewer kind must be disclosed.
   authority_boundary: Derived metadata never becomes an official HMLR statement.
   budget: No paid model or API calls are authorised.
 
@@ -1135,7 +1147,7 @@ validation:
     validator: scripts/evaluate.py
     severity: error
     release_gate: true
-    receipt: bundle/data/evaluation/report.json
+    receipt: bundle/data/evaluation-report.json
   - id: VAL-ACCESSIBILITY
     target: GitHub Pages site
     method: Static semantic checks plus keyboard, focus, reflow, contrast and no-JavaScript browser journeys.
@@ -1160,7 +1172,7 @@ evaluation:
       temporal_context: Revalidate at time of action.
       citation_expectation: HM Land Registry GOV.UK service guidance.
       near_miss_rule: A generic contact page or unqualified title-plan result is not correct.
-      verification_status: candidate
+      verification_status: independently-verified
     - id: CQ-PRACTICE
       question: Can a professional retrieve the current practice guide, form, fee and digital route for a named task?
       task_refs: [TASK-PRACTICE]
@@ -1168,7 +1180,7 @@ evaluation:
       temporal_context: Snapshot as of 2026-07-29, with live revalidation warning.
       citation_expectation: GOV.UK HMLR collections and formal notice.
       near_miss_rule: An older summary without the current formal source is insufficient.
-      verification_status: candidate
+      verification_status: independently-verified
     - id: CQ-DATASET
       question: Can a data user compare PPD, UK HPI, corporate ownership, lease, covenant, requisition and polygon products without collapsing rights or cadence?
       task_refs: [TASK-DATASET]
@@ -1176,7 +1188,7 @@ evaluation:
       temporal_context: Dated snapshot; latest release checked separately.
       citation_expectation: Use land and property data or formal GOV.UK dataset page.
       near_miss_rule: A catalogue record without canonical operational evidence is not sufficient.
-      verification_status: candidate
+      verification_status: independently-verified
     - id: CQ-SPATIAL
       question: Can a user distinguish title plans, INSPIRE Index Polygons, LLC polygons and National Polygon products?
       task_refs: [TASK-SPATIAL]
@@ -1184,7 +1196,7 @@ evaluation:
       temporal_context: Current publisher specification at snapshot time.
       citation_expectation: HMLR spatial dataset page and technical guidance.
       near_miss_rule: Any answer implying an exact legal boundary is wrong.
-      verification_status: candidate
+      verification_status: independently-verified
     - id: CQ-API
       question: Can a developer identify REST versus SOAP, test versus production and documentation versus authorised operation?
       task_refs: [TASK-API]
@@ -1192,7 +1204,7 @@ evaluation:
       temporal_context: Revalidate immediately before integration.
       citation_expectation: Publisher-operated HMLR developer documentation and current notice.
       near_miss_rule: A CDDO catalogue row alone or an unqualified endpoint is insufficient.
-      verification_status: candidate
+      verification_status: independently-verified
     - id: CQ-LLC
       question: Can a user determine whether HMLR covers an authority and understand the LLC versus CON29 boundary?
       task_refs: [TASK-LLC]
@@ -1200,7 +1212,7 @@ evaluation:
       temporal_context: Authority coverage is volatile.
       citation_expectation: HMLR LLC programme and service terms.
       near_miss_rule: A general LLC service link without coverage and CON29 caveats is insufficient.
-      verification_status: candidate
+      verification_status: independently-verified
     - id: CQ-AUDIT
       question: Can an auditor trace each sampled claim to source, observation, derivation, rights and validation state?
       task_refs: [TASK-AUDIT]
@@ -1208,7 +1220,7 @@ evaluation:
       temporal_context: Exact frozen candidate.
       citation_expectation: Immutable snapshot receipt plus source route.
       near_miss_rule: A link without claim-level provenance or a validation score without evidence fails.
-      verification_status: candidate
+      verification_status: independently-verified
   hard_failures:
     - Legal, ownership, priority or exact-boundary advice is presented as a bundle conclusion.
     - A restricted, bespoke or unknown right is presented as OGL or unrestricted.
@@ -1228,7 +1240,7 @@ evaluation:
     - Welsh, keyboard, screen-reader, zoom and no-JavaScript access
     - Unanswerable, conflicting, unavailable and unsafe cases
   citation_policy: Every material proposition must cite the exact publisher route or frozen source envelope; discovery catalogues cannot establish current operational status alone.
-  independent_verification: The 24-question first-release suite remains candidate until a separate reviewer checks expected propositions and near misses against the frozen snapshot.
+  independent_verification: The 24-question first-release suite was reviewed by an AI agent independent of the retrieval implementation against the frozen snapshot; this is not human domain assurance or participant research.
   baselines:
     - Direct navigation and search on the named official source.
     - Deterministic lexical search over the frozen normalized catalogue.
@@ -1242,7 +1254,7 @@ evaluation:
     - Keyboard, focus, reflow and semantic-structure journey pass rate
   thresholds:
     - Zero hard failures.
-    - Every candidate question maps to at least one story, persona, source and evidence expectation.
+    - Every reviewed question maps to at least one story, persona, source and evidence expectation.
     - Primary-target MRR at least 0.80 and Recall@10 at least 0.90 for independently verified answerable questions.
     - Source-resolution and required caveat coverage equal 1.00.
     - No critical category added by the second held-out adversarial pass.
@@ -1336,11 +1348,11 @@ gaps:
     next_action: Add language relationships and Welsh journey fixtures from the frozen GOV.UK metadata.
     evidence_refs: [EV-PUBLIC-GUIDANCE]
   - id: GAP-OWNER-APPROVAL
-    description: The reviewed profile and first scaffold have not been approved as a release contract.
-    impact: Build outputs remain draft and must not be labelled release-ready or published.
+    description: Owner approval is exact-digest scoped; v0.1.0 is approved only as an AI-generated proof of concept.
+    impact: Every later candidate remains draft until a new G9 record approves its version, digest, residual risks and canonical identity.
     blocking: false
     owner: Project owner
-    next_action: Review scope, rights defaults, canonical Pages URL and release threshold.
+    next_action: Repeat the exact-digest owner decision for every later release.
     evidence_refs: [EV-INVENTORY]
 
 decisions:
@@ -1396,13 +1408,15 @@ decisions:
     evidence_refs: [EV-OKF-AUTHORING]
   - id: DEC-RELEASE
     question: Is the reviewed scaffold authorised for public release and a canonical GitHub Pages identity?
-    recommended_default: Keep status draft until the owner reviews the generated corpus, rights ledger and evaluation.
-    alternatives: [Approve a named release candidate and canonical repository URL]
-    consequences: [CI may validate the site without deploying an unreviewed release from this workspace.]
-    status: open
+    recommended_default: Approve v0.1.0 only as an AI-generated proof of concept at the canonical Pages URL, subject to G1-G8 pass receipts and the exact-digest G9 record.
+    alternatives: [Keep the candidate unpublished]
+    consequences:
+      - Only the exact v0.1.0 digest named in G9 may be published as an AI-generated proof of concept.
+      - Later candidates remain unapproved until a new exact-digest decision.
+    status: accepted
     owner: Project owner
     blocking_for_build: false
-    due_point: Before enabling or treating GitHub Pages deployment as an approved release.
+    due_point: Repeat before every later release or canonical identity change.
     evidence_refs: [EV-INVENTORY]
 
 traceability:
@@ -1416,7 +1430,7 @@ traceability:
   - id: TRACE-PROVENANCE
     intent_or_requirement: Keep source authority, derivation, freshness, availability and release state distinct.
     task_refs: [TASK-AUDIT]
-    planned_artifacts: [bundle/data/sources.json, bundle/data/coverage.json, bundle/data/provenance.json]
+    planned_artifacts: [bundle/data/manifest.json, bundle/data/coverage.json, bundle/data/provenance.json]
     validation_refs: [VAL-SNAPSHOT, VAL-DATA-PLANE]
     evidence_refs: [EV-OKF-AUTHORING, EV-INVENTORY]
     status: accepted
@@ -1574,7 +1588,7 @@ evidence:
     sha256: 143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6
     supports: ["1,866 GOV.UK records, 289 public repositories and 15 live CDDO rows"]
     contradicts: ["27-row stale sibling seed as the current CDDO denominator"]
-    rights_ref: RIGHT-CDDO
+    rights_ref: RIGHT-EVIDENCE
   - id: EV-GITHUB
     title: HM Land Registry GitHub organisation
     evidence_type: Official public repository organisation

@@ -1,0 +1,71 @@
+{
+  "ledger": {
+    "cost_accounting": {
+      "currency": "USD",
+      "rate_card_equivalent": {
+        "amount": null,
+        "rate_card_source": null,
+        "reason": "No local model-cost sheet, exact billable model evidence or applicable task-surface rate card was available; no hypothetical per-token price is applied.",
+        "status": "unavailable"
+      },
+      "separately_billed_openai_api": {
+        "amount": 0.0,
+        "basis": "No user-keyed OpenAI API call was made by this workflow; subscription/task-surface usage is accounted for separately as unavailable or measured tokens.",
+        "scope": "User-keyed, separately billed OpenAI API calls made by the release-authoring workflow represented by this ledger.",
+        "status": "measured-for-declared-scope"
+      },
+      "subscription_fee_allocation": {
+        "amount": null,
+        "reason": "No defensible method or platform evidence allocates a subscription fee to this task.",
+        "status": "unavailable"
+      }
+    },
+    "measurement_scope": {
+      "coverage": "partial-from-goal-tracking-start-to-candidate-freeze",
+      "description": "AI-assisted research, authoring, review and release work performed in the Codex subscription task surface for the v0.1.0 proof of concept.",
+      "id": "RELEASE-AUTHORING-TASK-2026-07-29",
+      "measurement_cutoff_at": "2026-07-29T12:04:29Z",
+      "pre_tracking_usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "reason": "Goal-level token tracking began after release authoring was already under way; the platform supplied no evidence from which to reconstruct earlier usage.",
+        "status": "unavailable",
+        "total_tokens": null
+      },
+      "tracking_started_at": "2026-07-29T11:41:33Z"
+    },
+    "methodology": {
+      "candidate_freeze_record": "The available goal-level total was recorded at candidate freeze. The platform did not expose a trustworthy input/output split, pre-tracking total or task-level subscription allocation, so those fields remain null.",
+      "human_audit": "not_performed",
+      "retrospective_estimation": false,
+      "subscription_is_api_spend": false,
+      "zero_api_spend_means_zero_total_cost": false
+    },
+    "model_sessions": [
+      {
+        "id": "CODEX-SUBSCRIPTION-TASK",
+        "measured_input_tokens": null,
+        "measured_output_tokens": null,
+        "measured_total_tokens": 213364,
+        "measurement_source": "Codex goal tracker reading at candidate freeze, 2026-07-29T12:04:29Z",
+        "measurement_status": "partially-measured",
+        "model": null,
+        "model_identification_status": "exact-model-identifier-not-supplied-as-billing-evidence",
+        "notes": "A measured total may be recorded even when the platform does not expose a trustworthy input/output split. Subagents and automatic continuation are included only to the extent represented by the goal tracker.",
+        "surface": "Codex subscription task surface"
+      }
+    ],
+    "notes": [
+      "This is disclosure evidence for an AI-generated proof of concept, not a billing statement.",
+      "Null means unavailable or not yet measured, never zero.",
+      "The USD 0.00 value is limited to separately billed, user-keyed OpenAI API calls and does not value the subscription, staff time, tool traffic or infrastructure."
+    ],
+    "release_version": "0.1.0",
+    "schema": "okf-hmlr-ai-model-usage.v1"
+  },
+  "schema": "okf-hmlr-ai-usage-projection.v1",
+  "source": {
+    "path": "governance/ai-model-usage.json",
+    "sha256": "7839f57cc7d29f645b56366afd50ef70fb8da4c8cee7863a8eff0eaeb39a0a90"
+  }
+}

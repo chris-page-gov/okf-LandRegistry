@@ -3377,7 +3377,7 @@
       "source_native_ids": [
         "hmlr:developer:business-gateway"
       ],
-      "url": "https://landregistry.github.io/bgtechdoc/"
+      "url": "https://landregistry.github.io/bg-dev-pack-redesign/"
     },
     {
       "evidence_refs": [
@@ -20733,6 +20733,33 @@
     },
     {
       "evidence_refs": [
+        "EV-HMLR-ORG"
+      ],
+      "id": "hmlr:policy:welsh-language-scheme-publication",
+      "representations": [
+        {
+          "curation": "reviewed",
+          "derivation": "reviewed-curated-metadata",
+          "evidence_refs": [
+            "EV-HMLR-ORG"
+          ],
+          "id": "hmlr:policy:welsh-language-scheme-publication",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "rights_ref": "RIGHT-GOVUK",
+          "source_family": "govuk-hmlr"
+        }
+      ],
+      "source_families": [
+        "govuk-hmlr"
+      ],
+      "source_native_ids": [
+        "hmlr:policy:welsh-language-scheme-publication"
+      ],
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme"
+    },
+    {
+      "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
       ],
@@ -24977,6 +25004,33 @@
         "govuk:https://www.gov.uk/guidance/inspire-index-polygons-spatial-data"
       ],
       "url": "https://www.gov.uk/guidance/inspire-index-polygons-spatial-data"
+    },
+    {
+      "evidence_refs": [
+        "EV-ULPD"
+      ],
+      "id": "hmlr:guidance:inspire-technical",
+      "representations": [
+        {
+          "curation": "reviewed",
+          "derivation": "reviewed-curated-metadata",
+          "evidence_refs": [
+            "EV-ULPD"
+          ],
+          "id": "hmlr:guidance:inspire-technical",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "rights_ref": "RIGHT-DATASETS",
+          "source_family": "ulpd"
+        }
+      ],
+      "source_families": [
+        "ulpd"
+      ],
+      "source_native_ids": [
+        "hmlr:guidance:inspire-technical"
+      ],
+      "url": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
     },
     {
       "evidence_refs": [
@@ -32949,6 +33003,35 @@
         "cddo-api:f9d3866297b73ffc9737"
       ],
       "url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl"
+    },
+    {
+      "evidence_refs": [
+        "EV-LLC-PROGRAMME",
+        "EV-LLC-TERMS"
+      ],
+      "id": "hmlr:terms:local-land-charges",
+      "representations": [
+        {
+          "curation": "reviewed",
+          "derivation": "reviewed-curated-metadata",
+          "evidence_refs": [
+            "EV-LLC-PROGRAMME",
+            "EV-LLC-TERMS"
+          ],
+          "id": "hmlr:terms:local-land-charges",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "rights_ref": "RIGHT-RESTRICTED",
+          "source_family": "local-land-charges"
+        }
+      ],
+      "source_families": [
+        "local-land-charges"
+      ],
+      "source_native_ids": [
+        "hmlr:terms:local-land-charges"
+      ],
+      "url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions"
     },
     {
       "evidence_refs": [
@@ -44435,6 +44518,33 @@
         "govuk:https://www.gov.uk/guidance/third-party-access-to-business-gateway"
       ],
       "url": "https://www.gov.uk/guidance/third-party-access-to-business-gateway"
+    },
+    {
+      "evidence_refs": [
+        "EV-PROPERTY-SERVICE"
+      ],
+      "id": "hmlr:guidance:title-register-information",
+      "representations": [
+        {
+          "curation": "reviewed",
+          "derivation": "reviewed-curated-metadata",
+          "evidence_refs": [
+            "EV-PROPERTY-SERVICE"
+          ],
+          "id": "hmlr:guidance:title-register-information",
+          "lifecycle_state": "unknown",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "rights_ref": "RIGHT-RESTRICTED",
+          "source_family": "property-information"
+        }
+      ],
+      "source_families": [
+        "property-information"
+      ],
+      "source_native_ids": [
+        "hmlr:guidance:title-register-information"
+      ],
+      "url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
     },
     {
       "evidence_refs": [
@@ -64046,7 +64156,7 @@
       "url": "https://www.gov.uk/government/news/essentials-training-for-new-conveyancing-staff"
     }
   ],
-  "release_at": null,
+  "release_at": "2026-07-29T11:00:00Z",
   "schema": "okf-hmlr-provenance.v1",
   "snapshot": {
     "files": [

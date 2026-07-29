@@ -1,6 +1,7 @@
 # Maintenance and reproducibility
 
-Status: candidate operating procedure. No release is authorised yet.
+Status: operating procedure for the v0.1.0 AI-generated PoC and later
+digest-bound releases.
 
 ## Two-stage lifecycle
 
@@ -47,6 +48,21 @@ The same frozen inputs, code, configuration and supported runtime must produce
 byte-identical governed outputs. Expected volatile data—timestamps, temporary
 paths, unordered maps and remote state—must be excluded from generation or
 derived from the frozen snapshot, never masked after the fact.
+
+## AI usage and cost accounting
+
+Maintain `governance/ai-model-usage.json` as an authored build input and expose
+its digest-bound projection at `bundle/data/ai-usage.json`. At candidate freeze,
+record task-surface tokens only from platform evidence and state the tracking
+cutoff. Leave pre-tracking usage unavailable; do not infer an input/output split
+from a total.
+
+Subscription fee allocation, separately billed API spend and a rate-card
+equivalent are different measures. Do not turn a subscription into an invented
+per-token charge. A zero API value is permitted only for a declared scope in
+which no separately billed, user-keyed API calls occurred; it is never evidence
+that total delivery cost was zero. When the exact model or applicable rate card
+is not evidenced, leave the equivalent amount and source null.
 
 ## Refresh policy
 

@@ -23,6 +23,12 @@ class StructureParser(HTMLParser):
 
 
 class PagesTests(unittest.TestCase):
+    def test_authored_site_links_usage_ledger_without_inventing_cost(self) -> None:
+        html = (PAGES / "index.html").read_text(encoding="utf-8")
+        self.assertIn("./data/ai-usage.json", html)
+        self.assertIn("subscription allocation", html)
+        self.assertIn("remain unavailable", html)
+
     def test_required_semantic_and_progressive_elements(self) -> None:
         html = (BUNDLE / "index.html").read_text(encoding="utf-8")
         parser = StructureParser()
@@ -40,7 +46,8 @@ class PagesTests(unittest.TestCase):
             "a live status region is required",
         )
         self.assertIn('content="default-src', html)
-        self.assertIn("reviewed scaffold", html.casefold())
+        self.assertIn("ai-generated proof of concept", html.casefold())
+        self.assertIn("version 0.1.0", html.casefold())
         self.assertIn("29 July 2026", html)
 
     def test_javascript_uses_safe_dom_apis(self) -> None:
@@ -51,9 +58,19 @@ class PagesTests(unittest.TestCase):
         self.assertIn("URLSearchParams", script)
         self.assertIn("createElement", script)
         self.assertIn("aria", script.casefold())
+        self.assertIn('applyFilters({ writeUrl: false })', script)
+        self.assertIn("Key caveat", script)
+        self.assertIn('metadataRow("Geography"', script)
+        self.assertIn('"Languages"', script)
         self.assertIn("./data/search/index.json", script)
         self.assertIn("./data/records/records-", script)
         self.assertNotIn('fetch("./data/catalogue.json"', script)
+
+    def test_authored_cards_label_governed_source_routes(self) -> None:
+        script = (PAGES / "app.js").read_text(encoding="utf-8")
+        self.assertIn("Governed source and evidence routes", script)
+        self.assertIn("Primary record", script)
+        self.assertIn("Supporting source", script)
 
     def test_no_javascript_catalogue_is_navigable(self) -> None:
         authored = (BUNDLE / "index.html").read_text(encoding="utf-8")

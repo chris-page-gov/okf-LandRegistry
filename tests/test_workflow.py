@@ -18,6 +18,15 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("path: bundle", workflow)
         self.assertIn("scripts/build.py --replace", workflow)
         self.assertIn("scripts/check_domain_profile.py", workflow)
+        self.assertIn(
+            "python -m pip install --require-hashes -r requirements-lock.txt",
+            workflow,
+        )
+        self.assertIn("--acceptance-review evaluation/acceptance-review.json", workflow)
+        self.assertIn("--min-expected-target-recall-at-k 0.90", workflow)
+        self.assertIn("--min-all-expected-target-success-at-k 1.0", workflow)
+        self.assertIn("--min-mrr 0.80", workflow)
+        self.assertIn("python scripts/check_release_evidence.py", workflow)
         self.assertIn("git diff --exit-code -- bundle", workflow)
         self.assertIn(
             "git ls-files --others --exclude-standard -- bundle",

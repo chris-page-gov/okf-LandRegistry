@@ -4,7 +4,7 @@ title: "Rights, access and privacy"
 description: "Record-level rights, access constraints and privacy boundaries."
 resource: "https://www.gov.uk/government/publications/hm-land-registry-data/public-data"
 generated: {"by": "process:hmlr-okf-builder", "at": "2026-07-29T09:19:47Z"}
-status: "draft"
+status: "released"
 sources: [{"id": "official-source", "resource": "https://www.gov.uk/government/publications/hm-land-registry-data/public-data"}]
 ---
 

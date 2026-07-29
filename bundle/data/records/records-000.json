@@ -21,6 +21,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -77,8 +78,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -86,6 +87,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Highlights from our Annual Report and Accounts 2018/19.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -148,9 +150,9 @@
       "authority_tier": "A",
       "cadence": "static",
       "caveats": [
-        "Image transcription and interpretation can introduce errors.",
+        "This is a historical source, not the current register.",
         "Names and property information may concern historical individuals and require responsible handling.",
-        "This is a historical source, not the current register."
+        "Image transcription and interpretation can introduce errors."
       ],
       "curation": "reviewed",
       "derivation": "reviewed-curated-metadata",
@@ -159,6 +161,7 @@
         "reviewed-curated-metadata"
       ],
       "description": "A static digital representation of the first land register created by HM Land Registry under the Land Registry Act 1862.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH",
@@ -237,8 +240,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -246,6 +249,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From today we’ve released details of the first properties registered under the Land Registry Act 1862.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -304,8 +308,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -313,6 +317,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This week the Local Land Charges Programme welcomed five new local authorities joining the register, including our first Welsh local authority.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -371,8 +376,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -380,6 +385,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Today we have launched our Annual Report and Accounts 2019/20: Transforming in uncertainty.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -438,8 +444,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -447,6 +453,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The range of services that HM Land Registry offers.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -505,8 +512,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -514,6 +521,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We register the ownership of land and property in England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -583,6 +591,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "IGNORE - This was a quick attempt to get the latest GOV UK Kit up and running locally, then on to GitHub, followed by Heroku integration and automated updates",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -642,8 +651,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -651,6 +660,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Our Annual Report and Accounts 2021-22 reveals a strong year in our transition to a data-driven, digital organisation that is flexible, resilient and responsive to market challenges.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -720,6 +730,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Front End Tests",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -790,6 +801,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -849,8 +861,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -858,6 +870,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "On 30 July we are upgrading the security settings for our online services.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -927,6 +940,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Template HM Land Registry accessibility statement - in HTML",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -997,6 +1011,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Automated accessibility tools audit",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -1053,8 +1068,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1062,6 +1077,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Advice about applications based on acquisition of land (practice guide 54).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1120,8 +1136,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1129,6 +1145,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How property professionals can add, remove and amend transferor details – and their attorneys – in applications submitted through the Digital Registration Service.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1187,8 +1204,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1196,6 +1213,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "When applying for Business e-services, use this form to provide details of additional administrators.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1254,8 +1272,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1263,6 +1281,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance pages with additional information on working with HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1321,8 +1340,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1330,6 +1349,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Additional Price Paid Data will give you access to approximately 6,600 additional transactions per month.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1388,8 +1408,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1397,6 +1417,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This guide explains HM Land Registry practice about addresses for service entered in the register (practice guide 55).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1466,6 +1487,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -1536,6 +1558,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Address searching prototypes",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -1595,8 +1618,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1604,6 +1627,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to deal with applications involving administration and receivership under the provisions of the Insolvency Act 1986. (Practice guide 36).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1662,8 +1686,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1671,6 +1695,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance on adverse possession where a right to be registered was acquired before 13 October 2003 (practice guide 5).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1729,8 +1754,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1738,6 +1763,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance about adverse possession of registered land. Aimed at conveyancers (practice guide 4).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1796,8 +1822,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1805,6 +1831,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form ST2: Statement of truth in support of an application based upon adverse possession of a rentcharge.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1863,8 +1890,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1872,6 +1899,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form ADV2: register as a person to be notified of an application for adverse possession.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1930,8 +1958,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -1939,6 +1967,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form ADV1: registration of a person in adverse possession.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -1997,8 +2026,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2006,6 +2035,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form ST1: Statement of truth in support of an application for registration based upon adverse possession.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2064,8 +2094,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2073,6 +2103,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form AN1: enter an agreed notice in the register.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2142,6 +2173,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "White label prototype is a generalised version of an AI assistant for caseworkers",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -2211,6 +2243,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "using AI tools to make prototypes - some experimentation",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -2280,6 +2313,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Ai prompts & scripts for user centred design in Government",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -2343,8 +2377,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2352,6 +2386,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance about alterations to the register under Schedule 4 to the Land Registration Act 2002 (practice guide 83).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2410,8 +2445,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2419,6 +2454,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to apply to remove land from a title plan and what happens once you have made your application.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2477,8 +2513,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2486,6 +2522,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance about practice and requirements for applications supported by a transfer or deed to update the register (practice guide 68).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2544,8 +2581,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2553,6 +2590,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Better serving our customers and the property market, our Annual Report and Accounts 2024-25, is published today (18 July 2025).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2622,6 +2660,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Version of mulesoft/api-designer which pulls files from Github",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -2692,6 +2731,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -2761,6 +2801,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Use this service to view applications that are not yet completed by HM Land Registry. Use this service to find out: an application's progress status, the reason for application delays, information about recently completed or cancelled applications, the full priority period for Official Searches. \\n\\nPoll Request Service URL for production environment: https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/ApplicationEnquiryV1_0PollRequestWebService?wsdl \\n\\nTest environment URL: https://bgtest.landregistry.gov.uk/b2b/BGStubService/ApplicationEnquiryV1_0WebService?wsdl \\n\\nPoll Request Service URL for test environment: https://bgtest.landregistry.gov.uk/b2b/BGStubService/ApplicationEnquiryV1_0PollRequestWebService?wsdl",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-CDDO"
@@ -2821,8 +2862,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2830,6 +2871,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We have improved the Application Enquiry service which business customers use to check details of any application.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2888,8 +2930,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2897,6 +2939,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Business e-services customers can fill in this form to get access to HM Land Registry Network Services or Lender Services.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -2955,8 +2998,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -2964,6 +3007,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form AMS1: register a complex commercial transaction or infrastructure development that requires close management by HM Land Registry",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3022,8 +3066,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3031,6 +3075,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Use this form to get access to Business e-services, including Information Services, Digital Registration Service, Land Charges Services, Local Land Charges, Network Services and Lender Services.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3089,8 +3134,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3098,6 +3143,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form PSS1: for use by conveyancers when acting for clients involved in a complex commercial transaction or infrastructure development.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3167,6 +3213,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -3226,8 +3273,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3235,6 +3282,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Practice Guide 40 has been updated to advise a plan to a disposition or application form must be signed for registered estates.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3293,8 +3341,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3302,6 +3350,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Geovation, the joint HM Land Registry and Ordnance Survey initiative, is welcoming applications for specialist support, mentorship, office space, funding and access to high quality government data through its Accelerator Programme.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3360,8 +3409,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3369,6 +3418,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Organisations using HM Land Registry Business e-services can apply for additional services, such as Network Services or Lender Services.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3427,8 +3477,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3436,6 +3486,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Business customers can apply to access our electronic services through the portal or Business Gateway.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3494,8 +3545,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3503,6 +3554,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Apply to the Land Registration division of the Property Chamber (First-tier Tribunal) if you want to correct or cancel certain documents relating to registered land",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3561,8 +3613,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3570,6 +3622,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Find out if you need to apply for probate to deal with the estate of someone who’s died. Discover how to apply for probate or letters of administration and what to do if there’s no will.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3628,8 +3681,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3637,6 +3690,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to apply for approval of standard forms of legal charge and related deeds used by lending institutions (practice guide 30).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3695,8 +3749,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3704,6 +3758,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The data published on this page provides information about the number and types of applications that Land Registry completed in April 2014.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3762,8 +3817,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3771,6 +3826,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Land Registry's Market Trend Data for England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3829,8 +3885,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3838,6 +3894,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The data published here provides information about the number and types of applications that Land Registry completed in April 2015.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3896,8 +3953,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3905,6 +3962,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to them for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -3963,8 +4021,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -3972,6 +4030,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that Land Registry completed in April 2016.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4030,8 +4089,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4039,6 +4098,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4097,8 +4157,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4106,6 +4166,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2017.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4164,8 +4225,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4173,6 +4234,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4231,8 +4293,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4240,6 +4302,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2018.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4298,8 +4361,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4307,6 +4370,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4365,8 +4429,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4374,6 +4438,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2019.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4432,8 +4497,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4441,6 +4506,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4499,8 +4565,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4508,6 +4574,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2020.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4566,8 +4633,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4575,6 +4642,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2021.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4633,8 +4701,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4642,6 +4710,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2022.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4700,8 +4769,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4709,6 +4778,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2023.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4767,8 +4837,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4776,6 +4846,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2024.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4834,8 +4905,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4843,6 +4914,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2025.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4901,8 +4973,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -4910,6 +4982,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in April 2026.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -4979,6 +5052,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Tagged auditing",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -5038,8 +5112,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5047,6 +5121,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Land Registry's Market Trend Data for England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5105,8 +5180,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5114,6 +5189,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The data published on this page provides information about the number and types of applications that Land Registry completed in August 2014.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5172,8 +5248,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5181,6 +5257,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Land Registry's monthly Market Trend Data for residential property prices in England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5239,8 +5316,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5248,6 +5325,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that Land Registry completed in August 2015.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5306,8 +5384,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5315,6 +5393,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to them for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5373,8 +5452,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5382,6 +5461,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that Land Registry completed in August 2016.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5440,8 +5520,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5449,6 +5529,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5507,8 +5588,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5516,6 +5597,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2017.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5574,8 +5656,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5583,6 +5665,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5641,8 +5724,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5650,6 +5733,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2018.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5708,8 +5792,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5717,6 +5801,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5775,8 +5860,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5784,6 +5869,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2019.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5842,8 +5928,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5851,6 +5937,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5909,8 +5996,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5918,6 +6005,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2020.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -5976,8 +6064,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -5985,6 +6073,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2021.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6043,8 +6132,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6052,6 +6141,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2022.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6110,8 +6200,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6119,6 +6209,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2023.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6177,8 +6268,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6186,6 +6277,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2024.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6244,8 +6336,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6253,6 +6345,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in August 2025.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6322,6 +6415,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "automation-training",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -6380,8 +6474,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6389,6 +6483,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Practice guide 8 has been updated to make it clearer what wording is acceptable where deeds are executed by corporate bodies.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6447,8 +6542,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6456,6 +6551,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Tips and video on how to avoid requisitions when applying to register company charges.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6514,8 +6610,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6523,6 +6619,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Tips and video on how to avoid requisitions about confirmation of identity.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6581,8 +6678,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6590,6 +6687,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Tips and video on how to avoid requisitions about the discharges of charges.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6648,8 +6746,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6657,6 +6755,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Tips and video on how to avoid requisitions about the execution of deeds and powers of attorney.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6715,8 +6814,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6724,6 +6823,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Tips and video on how to avoid requisitions about restrictions in the register.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6782,8 +6882,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6791,6 +6891,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Geovation invites PropTech startup companies to bid for funding.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6849,8 +6950,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6858,6 +6959,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form K16 for an official search for bankruptcy only",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6916,8 +7018,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -6925,6 +7027,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We have amended our personal information charter and forms to explain how we use and protect personal information.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -6994,6 +7097,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Temporary home for the dev pack redesign as it is in progress.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -7063,6 +7167,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Technical documents for software developers to develop the client side of the Business Gateway interface",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -7121,8 +7226,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7130,6 +7235,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry’s digital Local Land Charges Register continues to grow, enabling the digital transformation of homebuying.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7188,8 +7294,9 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Most registered title plans show general boundaries; an exact or determined boundary requires the applicable official process and evidence. This metadata record is not a boundary conclusion.",
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7197,6 +7304,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This supplement deals with boundary agreements and determined boundaries; in particular explaining what they are and when they may be appropriate (practice guide 40, supplement 4).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7255,8 +7363,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7264,6 +7372,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Building for the future, our Annual Report and Accounts 2022-23, is published today (18 July 2023).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7322,8 +7431,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7331,6 +7440,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Our portal update enables customers to withdraw official searches online.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7389,8 +7499,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7398,6 +7508,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We have changed how we confirm online applications for Land Registry portal and Business Gateway users.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7456,8 +7567,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7465,6 +7576,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This summer, business customers will receive their application results electronically, even when they send us applications through the post.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7523,8 +7635,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7532,6 +7644,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Request access to Business Gateway if your software supplier has integrated their system or your organisation has IT development capability.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7590,8 +7703,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7599,6 +7712,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form for software suppliers to apply for the Business Gateway connection.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7657,8 +7771,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7666,6 +7780,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This guide displays all the application types within Business Gateway.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7724,8 +7839,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7733,6 +7848,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The agreement entered into by a provider with HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7797,6 +7913,7 @@
       "cadence": "maintained with product and schema releases",
       "caveats": [
         "Documentation discovery does not authorise test or production calls.",
+        "Public documentation is not permission for anonymous or automated operation.",
         "SOAP/WSDL and REST products have different contracts and must not be conflated.",
         "The publisher pack outranks cross-government API catalogue rows for current operation."
       ],
@@ -7806,6 +7923,7 @@
         "reviewed-curated-metadata"
       ],
       "description": "Publisher-operated technical documentation, service definitions, schemas and integration guidance for HM Land Registry Business Gateway products.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-BG-DOCS"
       ],
@@ -7849,19 +7967,24 @@
         "hmlr:developer:business-gateway"
       ],
       "source_urls": [
+        "https://landregistry.github.io/bg-dev-pack-redesign/",
         "https://landregistry.github.io/bgtechdoc/",
         "https://www.gov.uk/government/collections/using-hm-land-registrys-digital-services",
         "https://www.gov.uk/government/publications/conditions-of-use-hm-land-registry-business-e-services"
       ],
       "title": "Business Gateway developer pack",
       "topics": [
+        "anonymously",
+        "automation-boundary",
         "business-gateway",
+        "credentials",
         "integration",
         "rest",
+        "restricted-access",
         "schemas",
         "soap"
       ],
-      "url": "https://landregistry.github.io/bgtechdoc/"
+      "url": "https://landregistry.github.io/bg-dev-pack-redesign/"
     },
     {
       "access_model": "public-web",
@@ -7872,8 +7995,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7881,6 +8004,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Information for software developers and conveyancers who plan to develop the client side of HM Land Registry's Business Gateway interface.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -7939,8 +8063,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -7948,6 +8072,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form RX3 to cancel a restriction.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8006,8 +8131,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8015,6 +8140,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form K12 to cancel an entry in the Land Charges Register under special directions of The Registrar",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8073,8 +8199,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8082,6 +8208,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form DS2: apply to cancel entries relating to a registered charge.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8140,8 +8267,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8149,6 +8276,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form HR4 for cancellation of a home rights notice.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8207,8 +8335,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8216,6 +8344,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form ST5: Statement of truth in support of an application to cancel a Form A restriction.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8274,8 +8403,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8283,6 +8412,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry will resume the cancelling of applications with outstanding requests for information (requisitions) from 16 November 2020.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8341,8 +8471,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8350,6 +8480,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We will return cancelled application results to a customer’s portal account, even if they sent us the application through the post.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8408,8 +8539,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8417,6 +8548,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry’s digital Local Land Charges Register continues to grow, enabling the digital transformation of homebuying.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8486,6 +8618,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The service to handles cases. Cases refers to any request for change on a title, or other requests for action for a title, it can be a search.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -8556,6 +8689,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -8625,6 +8759,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Creation of new titles. (new registrations)",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -8695,6 +8830,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Casework Improve UX",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -8765,6 +8901,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Casework Prototypes",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -8835,6 +8972,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Style guide for internal casework related applications",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -8894,8 +9032,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8903,6 +9041,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CCD: cancel a caution against dealings.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -8961,8 +9100,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -8970,6 +9109,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CCT: cancel a caution against first registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9028,8 +9168,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9037,6 +9177,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Lodging a caution against first registration and dealing with caution titles (practice guide 3).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9099,9 +9240,9 @@
       "authority_tier": "C",
       "cadence": "catalogue maintained independently of API publishers",
       "caveats": [
-        "A catalogue entry does not establish that an API is live or publicly callable.",
+        "The frozen live provider-filtered denominator was 15 rows; an older sibling-bundle seed contained 27.",
         "Rows may lag publisher-operated documentation and can omit licence or authentication details.",
-        "The frozen live provider-filtered denominator was 15 rows; an older sibling-bundle seed contained 27."
+        "A catalogue entry does not establish that an API is live or publicly callable."
       ],
       "curation": "reviewed",
       "derivation": "reviewed-curated-metadata",
@@ -9109,6 +9250,7 @@
         "reviewed-curated-metadata"
       ],
       "description": "Cross-government discovery metadata for APIs whose provider field is HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-CDDO"
@@ -9182,6 +9324,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Centos 7 spec and build for ruby",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -9241,8 +9384,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9250,6 +9393,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form AC4 for a certificate of cancellation of an agricultural charge",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9308,8 +9452,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9317,6 +9461,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form ID3 to prove your identity when lodging an application to HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9375,8 +9520,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9384,6 +9529,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Requirements for the operation and management of HM Land Registry's Certification Authority.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9442,8 +9588,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9451,6 +9597,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form ID5 to be completed with form ID1 or form ID2 where a conveyancer is verifying a person's identity by way of a video meeting.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9509,8 +9656,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9518,6 +9665,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "A guide to the way in which Land Registry will operate as a Certificate Authority.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9576,8 +9724,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9585,6 +9733,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "If you have changed your name (transgender and non-binary), use form CNG to update your name as a registered owner in our Land Register.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9643,8 +9792,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9652,6 +9801,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Business e-services customers can change the responsible person for their organisation.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9710,8 +9860,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9719,6 +9869,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Use the AP1 form to change the register for a property including changing your name.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9777,8 +9928,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9786,6 +9937,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From 7 September we are changing the documents we require when a customer applies to register a first registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9844,8 +9996,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9853,6 +10005,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Recent changes to the way we create title plans for many leasehold registrations that involve a floor level.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9911,8 +10064,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9920,6 +10073,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Information services fees will increase by £4, the first increase in more than 10 years.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -9978,8 +10132,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -9987,6 +10141,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry land registration fees to increase.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10045,8 +10200,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10054,6 +10209,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How HM Land Registry is increasing security and simplicity with documents becoming available via a secure link rather than as an attachment to emails.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10112,8 +10268,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10121,6 +10277,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "To avoid long running, unresolved disputes, we are changing the way we handle disputed applications.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10179,8 +10336,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10188,6 +10345,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We’re making it easier to verify a person’s identity and sign deeds for land registration purposes.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10246,8 +10404,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10255,6 +10413,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Customers submitting Light Obstruction Notices now need to send them to a new address.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10313,8 +10472,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10322,6 +10481,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From January 2016, we will change how we send warning of cancellation letters and what they contain.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10380,8 +10540,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10389,6 +10549,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form AS2: personal representative(s) to assent a charge (mortgage).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10447,8 +10608,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10456,6 +10617,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form TR4 to transfer a charge or a portfolio of charges.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -10525,6 +10687,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "A node.js mockup of the Charges Api that lenders/conveyancers can use to automate the usage of the Charges service",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10595,6 +10758,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10665,6 +10829,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10735,6 +10900,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10805,6 +10971,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "(Feb 2015) Express based html prototypes for charges project",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10875,6 +11042,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -10934,8 +11102,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -10943,6 +11111,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Collection of HM Land Registry practice guides relating to charges.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11001,8 +11170,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11010,6 +11179,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry's guidance on charging orders (practice guide 76).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11068,8 +11238,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11077,6 +11247,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Transactions involving charitable incorporated organisations, including their dissolution (practice guide 14A).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11135,8 +11306,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11144,6 +11315,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Advice about applications to be sent to HM Land Registry to register transactions involving charities (practice guide 14).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11202,8 +11374,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11211,6 +11383,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "These guides contain advice about charity transactions and applications to be sent to HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11280,6 +11453,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Chat prototype (frontend testing only)",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -11338,8 +11512,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11347,6 +11521,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Find out property price trends in the UK from the house price index",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11405,8 +11580,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11414,6 +11589,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Iain Banfield has been appointed as the new Chief Executive of HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11472,8 +11648,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11481,6 +11657,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Chief Land Registrar and Chief Executive of HM Land Registry has announced his intention to step down early next year.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11539,8 +11716,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11548,6 +11725,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From today a single team at our Wales office will process all paper applications from members of the public.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11617,6 +11795,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -11676,8 +11855,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11685,6 +11864,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Apply for compensation if you own property near the proposed High Speed 2 route, Phase 1 or 2 - what you can claim for, eligibility, how to apply",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11743,8 +11923,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11752,6 +11932,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form K8 for the renewal of a registration of a Class F Land Charge",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11810,8 +11991,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11819,6 +12000,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form K2 for registration of a Class F Land Charge",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11877,8 +12059,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11886,6 +12068,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form K13 to cancel a Class F Land Charge",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -11944,8 +12127,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -11953,6 +12136,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Changes to the Network Access Agreement, Technical Manual and Signature Network Access Agreement.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12022,6 +12206,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "testing real time collaboration on a proto - gov proto kit",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12080,8 +12265,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12089,6 +12274,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The release of ownership records of freehold and leasehold property in England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12158,6 +12344,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "A generic Docker/Docker Compose-based development environment with some useful hooks to get apps up and running faster",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12240,6 +12427,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "ALL THE THINGS",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12309,6 +12497,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -12367,8 +12556,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12376,6 +12565,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form COE: notify the change of extent of a commonhold unit with a registered charge.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12434,8 +12624,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12443,6 +12633,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CM1: to register a freehold estate in land which is commonhold land.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12501,8 +12692,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12510,6 +12701,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form CON2: consent to an application for the freehold estate to cease to be registered as a freehold estate in commonhold land during the transitional period.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12568,8 +12760,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12577,6 +12769,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CM2: revert a registered freehold estate in commonhold land back to a normal freehold estate during the transitional period.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12635,8 +12828,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12644,6 +12837,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CM3: register an amended commonhold community statement and/or altered memorandum and articles of association.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12702,8 +12896,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12711,6 +12905,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CM4: add land to a commonhold registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12769,8 +12964,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12778,6 +12973,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form CON1: consent to the registration of land as commonhold land.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12836,8 +13032,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12845,6 +13041,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CM5: terminate a commonhold registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12903,8 +13100,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12912,6 +13109,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form COV: registration of a freehold estate in commonhold land with unit-holders.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -12970,8 +13168,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -12979,6 +13177,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CM6: registration of a successor commonhold association.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13048,6 +13247,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Proposed design journey for 'Complain about HM Land Registry'",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -13106,8 +13306,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13115,6 +13315,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "We are committed to delivering excellent services to our customers. We’ll be accountable when things go wrong and will take steps to put things right wherever we can.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13173,8 +13374,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13182,6 +13383,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance for completing form ID3: certificate of identity for a private individual.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13240,8 +13442,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13249,6 +13451,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance for completing forms ID1: Certificate of identity for a private individual, and ID2: Certificate of identity for a body corporate.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13307,8 +13510,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13316,6 +13519,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Forms AP1, FR1 and DS2: guidance on when evidence of identity must be lodged in support of an application for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13374,8 +13578,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13383,6 +13587,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Updates to practice guide 19 will take effect from April 2020.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13452,6 +13657,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "conceptual digital by default services - looking ahead without current constraints",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -13510,8 +13716,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13519,6 +13725,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Terms and conditions for services provided through the portal and Business Gateway.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13577,8 +13784,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13586,6 +13793,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form CC: enter a note of consolidation of charges.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13644,8 +13852,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13653,6 +13861,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Consultation document launched setting out the options on moving Land Registry operations into the private sector.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13711,8 +13920,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13720,6 +13929,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Proposals to help Land Registry deliver more efficient and modern services were put forward for consultation today (23 January 2014).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13778,8 +13988,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13787,6 +13997,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The consultation asked for views on the proposals for draft Local Land Charges Rules 2017.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13845,8 +14056,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13854,6 +14065,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Get in touch with us or use a guide that may answer your question.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13912,8 +14124,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13921,6 +14133,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Form CS: continuation sheet for use with application and disposition forms.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -13979,8 +14192,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -13988,6 +14201,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "New regulations coming into force in April 2027 will require certain contractual control agreements affecting registered land in England and Wales to be submitted digitally to HM Land Registry.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14046,8 +14260,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14055,6 +14269,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Our latest portal enhancement, Estimated Completion Date, is now available within View My Applications.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14113,8 +14328,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14122,6 +14337,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "How to deal with applications involving the insolvency of corporate bodies. Mainly for insolvency practitioners and conveyancers (practice guide 35).",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14180,8 +14396,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14189,6 +14405,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Guidance on costs involved in disputed applications to the register. Aimed at conveyancers. (practice guide 38)",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14258,6 +14475,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Use our developer pack to explore APIs, review documentation and check endpoints.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -14327,6 +14545,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -14386,8 +14605,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14395,6 +14614,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The report of HM Land Registry's Customer Care Review Committee and the organisation's response.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14453,8 +14673,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14462,6 +14682,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "As well as RSS feeds, portal users can now activate email notifications about their application results.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14520,8 +14741,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14529,6 +14750,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "From 23 October, business customers will receive first registration application results online under certain circumstances.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14587,8 +14809,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -14596,6 +14818,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry’s free fast-track service ensures property sales can proceed smoothly.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -14665,6 +14888,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -14734,6 +14958,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -14803,6 +15028,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -14872,6 +15098,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -14942,6 +15169,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -15012,6 +15240,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Land Registry Data Publications Prototype",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -15082,6 +15311,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Contains the core types, validators and translators for Land Registry concepts",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -15152,6 +15382,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "DB2 Express-C with Vagrant, for local test purposes.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -15222,6 +15453,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "DDaT Capability Assessment",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -15280,8 +15512,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15289,6 +15521,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Application form DJP: remove the name of a joint proprietor from the register, after a death.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15347,8 +15580,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15356,6 +15589,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Land Registry's Market Trend Data for England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15414,8 +15648,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15423,6 +15657,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "The data published here provides information about the number and types of applications that Land Registry completed in December 2014.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15481,8 +15716,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15490,6 +15725,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Land Registry's monthly Market Trend Data for residential property prices in England and Wales.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15548,8 +15784,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15557,6 +15793,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that Land Registry completed in December 2015.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15615,8 +15852,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15624,6 +15861,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to them for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15682,8 +15920,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15691,6 +15929,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that Land Registry completed in December 2016.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15749,8 +15988,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15758,6 +15997,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15816,8 +16056,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15825,6 +16065,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2017.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15883,8 +16124,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15892,6 +16133,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -15950,8 +16192,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -15959,6 +16201,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2018.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16017,8 +16260,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16026,6 +16269,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16084,8 +16328,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16093,6 +16337,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2019.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16151,8 +16396,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16160,6 +16405,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "HM Land Registry Price Paid Data tracks land and property sales in England and Wales submitted to us for registration.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16218,8 +16464,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16227,6 +16473,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2020.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16285,8 +16532,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16294,6 +16541,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2021.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16352,8 +16600,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16361,6 +16609,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2022.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16419,8 +16668,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16428,6 +16677,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2023.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16486,8 +16736,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16495,6 +16745,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2024.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16553,8 +16804,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16562,6 +16813,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "This data provides information about the number and types of applications that HM Land Registry completed in December 2025.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16631,6 +16883,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GITHUB"
@@ -16690,8 +16943,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16699,6 +16952,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Written Ministerial Statement to inform the House of a digital mortgage service to be launched later in 2018.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16757,8 +17011,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16766,6 +17020,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "Help preserve an important part of our archival heritage by loaning or giving your title deeds for deposit with your local record office.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16824,8 +17079,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16833,6 +17088,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "When applying for HM Land Registry Business e-services, use this form to provide details of deputy responsible persons.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"
@@ -16891,8 +17147,8 @@
       "authority_tier": "A",
       "cadence": "source-specific",
       "caveats": [
-        "Publisher modification time is not dataset release, registration or legal currency.",
-        "Search metadata is a discovery record, not the full document or legal advice."
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency."
       ],
       "curation": "source-native",
       "derivation": "normalized-frozen-source-metadata",
@@ -16900,6 +17156,7 @@
         "normalized-frozen-source-metadata"
       ],
       "description": "On 15 August 2018, regulations relating to Welsh Registered Social Landlords will change.",
+      "equivalent_urls": [],
       "evidence_refs": [
         "EV-ACQUISITION-SNAPSHOT",
         "EV-GOVUK-SEARCH"

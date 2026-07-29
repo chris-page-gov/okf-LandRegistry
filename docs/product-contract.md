@@ -1,6 +1,6 @@
 # Product contract
 
-Status: **reviewed scaffold; not approved for public release**  
+Status: **approved for publication as the v0.1.0 AI-generated PoC**
 Research cutoff: **2026-07-29**  
 Decision authority: project owner (`DEC-RELEASE`)
 
@@ -11,6 +11,10 @@ HM Land Registry material. It helps people find the publisher-operated route
 for guidance, forms, services, datasets, APIs, developer resources and public
 repositories, while keeping authority, freshness, access and reuse conditions
 visible.
+
+Version 0.1.0 was generated with AI assistance and reviewed through
+digest-bound automated and independent-agent evidence gates. That approval is
+for publication as a proof of concept, not for production or legal reliance.
 
 The bundle is not an HM Land Registry service and is not endorsed by HM Land
 Registry. It does not provide legal advice, determine ownership or priority,
@@ -110,8 +114,10 @@ digest-bound candidate. In particular:
 - a clean rebuild is byte-identical; and
 - the project owner closes `DEC-RELEASE` for a named version and canonical URL.
 
-Until that final decision, words such as “complete”, “approved”,
-“production-ready”, “accessible” or “official” must not describe the bundle.
+For v0.1.0 the owner decision approves only the exact digest recorded in the
+release evidence. “Complete”, “production-ready”, “accessible” and “official”
+still must not describe the bundle: the bounded per-family coverage, PoC status
+and lack of human accessibility or participant research remain explicit.
 
 [EV-HMLR-ORG]: https://www.gov.uk/government/organisations/land-registry
 [EV-PUBLIC-DATA]: https://www.gov.uk/government/publications/hm-land-registry-data/public-data

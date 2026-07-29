@@ -6,6 +6,8 @@ will use semantic versioning where it fits the artifact lifecycle.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-29
+
 ### Added
 
 - Reviewed, checksum-bound two-stage HM Land Registry domain-profile pack.
@@ -21,6 +23,10 @@ will use semantic versioning where it fits the artifact lifecycle.
   projections with compact search and lazy record shards.
 - Accessible GitHub Pages site with a complete no-JavaScript catalogue.
 - Exact-digest deployment approval and tamper-checked release manifests.
+- A prominent AI-generated proof-of-concept disclosure on every public entry
+  page.
+- Hash-locked build dependencies, gate receipts, SBOM and provenance evidence
+  for the exact release candidate.
 
 ### Security
 
@@ -30,10 +36,10 @@ will use semantic versioning where it fits the artifact lifecycle.
 
 ### Known limitations
 
-- `DEC-RELEASE` remains open; no public release or canonical Pages identity is
-  approved.
 - Associated-domain coverage, Welsh parity, participant research and
-  candidate-specific rights/accessibility assurance remain incomplete.
+  independent human accessibility assurance remain incomplete.
+- Personas and evaluation expectations are evidence-led AI-assisted
+  hypotheses, not findings from representative participants.
 
-The comparison URL will be added when `DEC-RELEASE` approves the canonical
-repository identity.
+[Unreleased]: https://github.com/chris-page-gov/okf-LandRegistry/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/chris-page-gov/okf-LandRegistry/releases/tag/v0.1.0

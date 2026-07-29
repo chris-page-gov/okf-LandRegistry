@@ -462,21 +462,22 @@
     },
     {
       "alternatives": [
-        "Approve a named release candidate and canonical repository URL"
+        "Keep the candidate unpublished"
       ],
       "blocking_for_build": false,
       "consequences": [
-        "CI may validate the site without deploying an unreviewed release from this workspace."
+        "Only the exact v0.1.0 digest named in G9 may be published as an AI-generated proof of concept.",
+        "Later candidates remain unapproved until a new exact-digest decision."
       ],
-      "due_point": "Before enabling or treating GitHub Pages deployment as an approved release.",
+      "due_point": "Repeat before every later release or canonical identity change.",
       "evidence_refs": [
         "EV-INVENTORY"
       ],
       "id": "DEC-RELEASE",
       "owner": "Project owner",
       "question": "Is the reviewed scaffold authorised for public release and a canonical GitHub Pages identity?",
-      "recommended_default": "Keep status draft until the owner reviews the generated corpus, rights ledger and evaluation.",
-      "status": "open"
+      "recommended_default": "Approve v0.1.0 only as an AI-generated proof of concept at the canonical Pages URL, subject to G1-G8 pass receipts and the exact-digest G9 record.",
+      "status": "accepted"
     }
   ],
   "description": "A snapshot-bounded, metadata-led profile for discovering HM Land Registry guidance, forms, services, datasets, APIs, developer resources and public repositories without replacing authoritative sources or redistributing restricted property data.",
@@ -485,13 +486,13 @@
     "budget": "No paid model or API calls are authorised.",
     "enabled": false,
     "evidence_requirement": "Every non-source-native field names its source fields, deterministic method and observation.",
-    "independent_review": "Domain and rights assertions require separate human review before release approval.",
+    "independent_review": "Domain and rights assertions require review independent of the generating implementation; reviewer kind must be disclosed.",
     "permitted_derivations": [
       "source-native",
       "normalized",
       "rule-derived"
     ],
-    "purpose": "No model-assisted production assertions are justified for the scaffold."
+    "purpose": "AI-assisted authoring does not authorise model-generated corpus assertions; published classifications remain source-native or deterministically derived."
   },
   "evaluation": {
     "baselines": [
@@ -511,7 +512,7 @@
           "TASK-PUBLIC-ROUTE"
         ],
         "temporal_context": "Revalidate at time of action.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       },
       {
         "citation_expectation": "GOV.UK HMLR collections and formal notice.",
@@ -523,7 +524,7 @@
           "TASK-PRACTICE"
         ],
         "temporal_context": "Snapshot as of 2026-07-29, with live revalidation warning.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       },
       {
         "citation_expectation": "Use land and property data or formal GOV.UK dataset page.",
@@ -535,7 +536,7 @@
           "TASK-DATASET"
         ],
         "temporal_context": "Dated snapshot; latest release checked separately.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       },
       {
         "citation_expectation": "HMLR spatial dataset page and technical guidance.",
@@ -547,7 +548,7 @@
           "TASK-SPATIAL"
         ],
         "temporal_context": "Current publisher specification at snapshot time.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       },
       {
         "citation_expectation": "Publisher-operated HMLR developer documentation and current notice.",
@@ -559,7 +560,7 @@
           "TASK-API"
         ],
         "temporal_context": "Revalidate immediately before integration.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       },
       {
         "citation_expectation": "HMLR LLC programme and service terms.",
@@ -571,7 +572,7 @@
           "TASK-LLC"
         ],
         "temporal_context": "Authority coverage is volatile.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       },
       {
         "citation_expectation": "Immutable snapshot receipt plus source route.",
@@ -583,7 +584,7 @@
           "TASK-AUDIT"
         ],
         "temporal_context": "Exact frozen candidate.",
-        "verification_status": "candidate"
+        "verification_status": "independently-verified"
       }
     ],
     "hard_failures": [
@@ -595,7 +596,7 @@
       "A result cannot resolve its authoritative source and observation.",
       "Unknown, candidate or untested evidence is relabelled verified."
     ],
-    "independent_verification": "The 24-question first-release suite remains candidate until a separate reviewer checks expected propositions and near misses against the frozen snapshot.",
+    "independent_verification": "The 24-question first-release suite was reviewed by an AI agent independent of the retrieval implementation against the frozen snapshot; this is not human domain assurance or participant research.",
     "metrics": [
       "Recall@5 and Recall@10",
       "Mean reciprocal rank of the primary target",
@@ -618,7 +619,7 @@
     ],
     "thresholds": [
       "Zero hard failures.",
-      "Every candidate question maps to at least one story, persona, source and evidence expectation.",
+      "Every reviewed question maps to at least one story, persona, source and evidence expectation.",
       "Primary-target MRR at least 0.80 and Recall@10 at least 0.90 for independently verified answerable questions.",
       "Source-resolution and required caveat coverage equal 1.00.",
       "No critical category added by the second held-out adversarial pass."
@@ -792,7 +793,7 @@
       "locator": "File entries, record counts, acquisition-script digest, request receipts, source endpoints, pagination and terminal outcomes",
       "observed_at": "2026-07-29T09:19:15Z",
       "retrieved_at": "2026-07-29T09:19:40Z",
-      "rights_ref": "RIGHT-CDDO",
+      "rights_ref": "RIGHT-EVIDENCE",
       "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6",
       "supports": [
         "1,866 GOV.UK records, 289 public repositories and 15 live CDDO rows"
@@ -1356,13 +1357,13 @@
     },
     {
       "blocking": false,
-      "description": "The reviewed profile and first scaffold have not been approved as a release contract.",
+      "description": "Owner approval is exact-digest scoped; v0.1.0 is approved only as an AI-generated proof of concept.",
       "evidence_refs": [
         "EV-INVENTORY"
       ],
       "id": "GAP-OWNER-APPROVAL",
-      "impact": "Build outputs remain draft and must not be labelled release-ready or published.",
-      "next_action": "Review scope, rights defaults, canonical Pages URL and release threshold.",
+      "impact": "Every later candidate remains draft until a new G9 record approves its version, digest, residual risks and canonical identity.",
+      "next_action": "Repeat the exact-digest owner decision for every later release.",
       "owner": "Project owner"
     }
   ],
@@ -1493,6 +1494,22 @@
       "owner": "Repository maintainer",
       "status": "conditional",
       "third_party_terms": "Endpoint and documentation rights remain with their publishers."
+    },
+    {
+      "access_constraint": "The receipt may record only bounded request metadata, counts, digests and source locators; it does not authorise reuse of underlying source content.",
+      "attribution": "HM Land Registry public-estate OKF Bundle contributors, version and canonical release URL.",
+      "basis": "The acquisition manifest is project-authored provenance metadata that identifies, but does not relicense, separately governed GOV.UK, GitHub and CDDO observations.",
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT"
+      ],
+      "id": "RIGHT-EVIDENCE",
+      "layer": "Project-authored acquisition and validation receipts",
+      "licence": "CC BY 4.0 for original receipt metadata; underlying sources retain their own terms.",
+      "mitigation": "Publish only receipt metadata and retain per-source rights references for every acquired record.",
+      "operation": "Store and publish deterministic local provenance receipts.",
+      "owner": "Repository maintainer",
+      "status": "permitted",
+      "third_party_terms": "Source URLs, response metadata and described source records remain subject to their applicable source-layer terms."
     },
     {
       "access_constraint": "No live property results, forum posts, user uploads or personal contact data.",
@@ -2539,7 +2556,7 @@
       "version": "WCAG 2.2"
     }
   ],
-  "status": "reviewed",
+  "status": "approved",
   "tasks": [
     {
       "authority_requirement": "Current GOV.UK and HMLR service evidence.",
@@ -2930,7 +2947,7 @@
       "id": "TRACE-PROVENANCE",
       "intent_or_requirement": "Keep source authority, derivation, freshness, availability and release state distinct.",
       "planned_artifacts": [
-        "bundle/data/sources.json",
+        "bundle/data/manifest.json",
         "bundle/data/coverage.json",
         "bundle/data/provenance.json"
       ],
@@ -3254,7 +3271,7 @@
     {
       "id": "VAL-EVALUATION",
       "method": "Check question-to-story-to-persona traceability, direct-source expectations, retrieval metrics and hard failures.",
-      "receipt": "bundle/data/evaluation/report.json",
+      "receipt": "bundle/data/evaluation-report.json",
       "release_gate": true,
       "severity": "error",
       "target": "Persona and question suite",

@@ -234,8 +234,8 @@
   ],
   "errors": 0,
   "excluded_records": 0,
-  "input_representations": 2221,
+  "input_representations": 2225,
   "merged_representations": 23,
-  "retained_records": 2198,
+  "retained_records": 2202,
   "schema": "okf-hmlr-reconciliation.v1"
 }

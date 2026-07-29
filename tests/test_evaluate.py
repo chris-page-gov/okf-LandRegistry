@@ -31,6 +31,8 @@ class EvaluateTests(unittest.TestCase):
                 "id": "compact",
                 "title": "Compact result",
                 "url": "https://example.test/compact",
+                "source_urls": ["https://example.test/compact"],
+                "equivalent_urls": [],
                 "heading_tokens": ["compact"],
                 "body_tokens": ["compact", "result"],
             }
@@ -76,6 +78,7 @@ class EvaluateTests(unittest.TestCase):
                 "title": "Alpha",
                 "url": "https://example.test/a/#fragment",
                 "source_urls": ["https://example.test/b"],
+                "equivalent_urls": ["https://example.test/a-alias"],
                 "curation": "source-native",
                 "heading_tokens": ["alpha"],
                 "body_tokens": ["alpha"],
@@ -95,7 +98,7 @@ class EvaluateTests(unittest.TestCase):
                 "query": "alpha",
                 "expected_sources": [
                     {"canonical_url": "https://example.test/a"},
-                    {"canonical_url": "https://example.test/b"},
+                    {"canonical_url": "https://example.test/a-alias"},
                 ],
             },
             {
@@ -110,10 +113,127 @@ class EvaluateTests(unittest.TestCase):
         rows, metrics = evaluate.evaluate_questions(questions, records, contract, 1)
 
         self.assertTrue(rows[0]["expected_source_success_at_k"])
-        self.assertEqual(0.5, rows[0]["expected_target_recall_at_k"])
+        self.assertEqual(1.0, rows[0]["expected_target_recall_at_k"])
+        self.assertTrue(rows[0]["all_expected_targets_at_k"])
         self.assertFalse(rows[1]["expected_source_success_at_k"])
         self.assertEqual(0.5, metrics["expected_source_success_at_k"])
-        self.assertAlmostEqual(1 / 3, metrics["expected_target_recall_at_k"])
+        self.assertAlmostEqual(2 / 3, metrics["expected_target_recall_at_k"])
+        self.assertEqual(0.5, metrics["all_expected_targets_success_at_k"])
+
+    def test_supporting_source_urls_do_not_satisfy_expected_targets(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        record = {
+            "id": "source-separation",
+            "title": "Safe route separation",
+            "url": "https://example.test/primary",
+            "source_urls": ["https://example.test/related-evidence"],
+            "equivalent_urls": ["https://example.test/true-alias"],
+            "curation": "reviewed",
+            "heading_tokens": ["safe"],
+            "body_tokens": [],
+        }
+        questions = [
+            {
+                "id": "related",
+                "query": "safe",
+                "expected_sources": [
+                    {"canonical_url": "https://example.test/related-evidence"}
+                ],
+            },
+            {
+                "id": "alias",
+                "query": "safe",
+                "expected_sources": [
+                    {"canonical_url": "https://example.test/true-alias"}
+                ],
+            },
+        ]
+
+        rows, _metrics = evaluate.evaluate_questions(
+            questions, [record], contract, 10
+        )
+
+        self.assertFalse(rows[0]["expected_source_success_at_k"])
+        self.assertTrue(rows[1]["expected_source_success_at_k"])
+
+    def test_multi_term_search_rejects_single_common_term_noise(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        records = [
+            {
+                "id": "specific",
+                "title": "Local land charges automation terms",
+                "url": "https://example.test/specific",
+                "curation": "reviewed",
+                "heading_tokens": ["local", "land", "charges", "automation", "terms"],
+                "body_tokens": [],
+            },
+            {
+                "id": "noise",
+                "title": "Unrelated land publication",
+                "url": "https://example.test/noise",
+                "curation": "source-native",
+                "heading_tokens": ["land"],
+                "body_tokens": [],
+            },
+        ]
+        ranked = evaluate.rank("local land charges automation", records, contract)
+        self.assertEqual(["specific"], [record["id"] for record in ranked])
+
+    def test_acceptance_review_requires_exact_independent_coverage(self) -> None:
+        questions = [
+            {
+                "id": "Q1",
+                "hard_failure_ids": ["HF-AUTHORITY", "HF-COVERAGE"],
+            }
+        ]
+        review = {
+            "schema": evaluate.ACCEPTANCE_REVIEW_SCHEMA,
+            "status": "pass",
+            "suite_sha256": "a" * 64,
+            "bundle_release_root_sha256": "b" * 64,
+            "reviewer": {
+                "role": "independent evaluation reviewer",
+                "kind": "AI-assisted independent process",
+                "reviewed_at": "2026-07-29",
+                "independent_of_retrieval_implementation": True,
+            },
+            "question_reviews": [
+                {
+                    "question_id": "Q1",
+                    "source_resolution": True,
+                    "expected_propositions_verified": True,
+                    "near_miss_rule_verified": True,
+                    "caveat_coverage": True,
+                    "hard_failure_ids_reviewed": [
+                        "HF-AUTHORITY",
+                        "HF-COVERAGE",
+                    ],
+                    "hard_failures_observed": [],
+                }
+            ],
+            "held_out_adversarial": [
+                {
+                    "id": f"ADV-{index}",
+                    "status": "pass",
+                    "new_critical_category": False,
+                    "precision_acceptable": True,
+                    "safety_behavior_verified": True,
+                }
+                for index in range(1, 7)
+            ],
+        }
+
+        result = evaluate.validate_acceptance_review(
+            review, questions, "a" * 64, "b" * 64
+        )
+        self.assertEqual(0, result["hard_failure_count"])
+        self.assertEqual(1.0, result["caveat_coverage"])
+
+        review["question_reviews"][0]["hard_failures_observed"] = ["HF-COVERAGE"]
+        with self.assertRaisesRegex(ValueError, "hard failure was observed"):
+            evaluate.validate_acceptance_review(
+                review, questions, "a" * 64, "b" * 64
+            )
 
 
 if __name__ == "__main__":

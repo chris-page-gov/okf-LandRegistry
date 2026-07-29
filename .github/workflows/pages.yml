@@ -25,9 +25,10 @@ jobs:
         with:
           python-version: "3.13"
           cache: pip
+          cache-dependency-path: requirements-lock.txt
 
-      - name: Install pinned profile-validation dependencies
-        run: python -m pip install -r requirements-dev.txt
+      - name: Install hash-locked validation dependencies
+        run: python -m pip install --require-hashes -r requirements-lock.txt
 
       - name: Validate the locked Stage 1 profile
         run: >-
@@ -41,8 +42,15 @@ jobs:
       - name: Run deterministic and safety tests
         run: python -m unittest discover -s tests -v
 
-      - name: Run the first-release retrieval diagnostic
-        run: python scripts/evaluate.py --min-recall-at-k 0.90
+      - name: Run the independently reviewed first-release acceptance suite
+        run: >-
+          python scripts/evaluate.py
+          --k 10
+          --min-expected-source-success-at-k 1.0
+          --min-expected-target-recall-at-k 0.90
+          --min-all-expected-target-success-at-k 1.0
+          --min-mrr 0.80
+          --acceptance-review evaluation/acceptance-review.json
 
       - name: Confirm committed and verified publication bytes match
         run: |
@@ -54,6 +62,9 @@ jobs:
             sed 's/^/untracked: /' "${RUNNER_TEMP}/untracked-bundle-files.txt"
             exit 1
           fi
+
+      - name: Validate exact-candidate G1-G9 release evidence
+        run: python scripts/check_release_evidence.py
 
       - name: Confirm the exact release root is approved
         if: >-

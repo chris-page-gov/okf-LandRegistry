@@ -1,8 +1,9 @@
 # Sources, rights, privacy and ethics
 
-Status: reviewed policy for a metadata-only scaffold; per-release review is
-still required. This document records project controls and is not legal
-advice.
+Status: approved policy for the metadata-only v0.1.0 AI-generated proof of
+concept. Exact-digest release evidence is still required. The review was
+AI-assisted and no independent human legal or licence audit has been
+completed. This document records project controls and is not legal advice.
 
 ## Governing principles
 
@@ -38,6 +39,7 @@ charter][EV-PERSONAL-INFO].
 | `RIGHT-RESTRICTED` | Property, LLC, portal and Business Gateway services | Public descriptions only; no authentication, execution, monitoring or result collection |
 | `RIGHT-GITHUB` | Public repository metadata | Metadata only; preserve repository licence, fork and archive states; missing licence means no code-reuse assumption |
 | `RIGHT-CDDO` | CDDO discovery metadata | Preserve catalogue provenance and reverify operation at the publisher source |
+| `RIGHT-EVIDENCE` | Project-authored acquisition and validation receipts | Publish bounded receipt metadata under CC BY 4.0; this does not relicense any underlying source |
 | `RIGHT-PERSONAL` | Property, register, forum and user-submitted information | Prohibited from acquisition, combination, indexing and publication |
 
 The project-authored code and documentation licence in `LICENSE.md` does not

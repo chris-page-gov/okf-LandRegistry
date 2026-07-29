@@ -1,7 +1,6 @@
 # Metadata model
 
-Status: candidate model for the reviewed scaffold. Source-native semantics
-remain authoritative.
+Status: v0.1.0 PoC model. Source-native semantics remain authoritative.
 
 ## Design rules
 

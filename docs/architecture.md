@@ -1,6 +1,6 @@
 # Architecture
 
-Status: reviewed scaffold; release approval and runtime receipts are pending.
+Status: v0.1.0 AI-generated PoC release architecture.
 
 ## Architectural decision
 
@@ -71,9 +71,9 @@ flowchart LR
 - Keep publisher dates, observation time, transformation time and bundle
   release time in separate fields.
 
-The candidate namespace in the domain profile is
-`https://chris-page-gov.github.io/okf-LandRegistry/id/`; it is not canonical
-until `DEC-RELEASE` is approved.
+The canonical v0.1.0 namespace is
+`https://chris-page-gov.github.io/okf-LandRegistry/id/`; `DEC-RELEASE` binds
+that identity to the exact approved digest.
 
 ## Public site design constraints
 
@@ -103,7 +103,7 @@ send the user to the current official source before action.
 
 ## Deferred architecture
 
-The reviewed scaffold deliberately defers live federation, authenticated
+The released PoC deliberately defers live federation, authenticated
 provider calls, production data files, model-assisted enrichment, full
 RDF/SHACL publication and participant-validated usability claims. Federation
 should be reconsidered only if source lanes acquire different governance or

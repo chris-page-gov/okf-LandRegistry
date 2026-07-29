@@ -1,8 +1,8 @@
 {
   "schema": "okf-governance-requirements.v1",
   "project": "HM Land Registry public-estate OKF Bundle",
-  "project_status": "reviewed-scaffold",
-  "release_approved": false,
+  "project_status": "released-poc",
+  "release_approved": true,
   "research_cutoff": "2026-07-29",
   "requirements": [
     {
@@ -51,7 +51,7 @@
       "priority": "must",
       "statement": "Every public record shall have an explicit access state, rights state and applicable rights-assessment reference.",
       "rationale": "HMLR source rights range from OGL to bespoke, paid, restricted, prohibited and unknown.",
-      "source_refs": ["RIGHT-GOVUK", "RIGHT-DATASETS", "RIGHT-RESTRICTED", "RIGHT-GITHUB", "RIGHT-CDDO", "RIGHT-PERSONAL"],
+      "source_refs": ["RIGHT-GOVUK", "RIGHT-DATASETS", "RIGHT-RESTRICTED", "RIGHT-GITHUB", "RIGHT-CDDO", "RIGHT-EVIDENCE", "RIGHT-PERSONAL"],
       "verification_refs": ["VAL-RIGHTS"],
       "release_gate": true
     },

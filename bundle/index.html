@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      content="default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'"
     >
     <meta name="theme-color" content="#32102f">
     <meta
       name="description"
-      content="Independent metadata discovery for HM Land Registry publications, services, datasets, APIs and official repositories."
+      content="AI-assisted proof-of-concept metadata discovery for HM Land Registry publications, services, datasets, APIs and official repositories."
     >
     <title>HM Land Registry public-estate map · OKF</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
     <link rel="manifest" href="./manifest.webmanifest">
     <script src="./app.js" defer></script>
@@ -36,6 +37,15 @@
       </nav>
     </header>
 
+    <aside class="poc-banner" aria-labelledby="poc-title">
+      <strong id="poc-title">AI-generated proof of concept</strong>
+      <span>
+        This independent site was created with AI assistance and reviewed
+        through the repository’s evidence gates. It is not an HM Land Registry
+        service or endorsement.
+      </span>
+    </aside>
+
     <main id="main">
       <section class="hero" aria-labelledby="page-title">
         <div class="parcel-grid" aria-hidden="true">
@@ -58,10 +68,11 @@
         </div>
         <aside class="status-card" aria-labelledby="status-title">
           <p class="status-label">Release posture</p>
-          <h2 id="status-title">Reviewed scaffold</h2>
+          <h2 id="status-title">Version 0.1.0 · released PoC</h2>
           <p>
-            Not an approved release. Not HM Land Registry, legal advice, proof
-            of ownership or an exact-boundary service.
+            Approved for publication as an AI-generated proof of concept. Not
+            HM Land Registry, legal advice, proof of ownership or an
+            exact-boundary service.
           </p>
           <a href="https://www.gov.uk/government/organisations/land-registry">
             Go to HM Land Registry on GOV.UK
@@ -84,7 +95,7 @@
         </div>
         <div>
           <strong>24</strong>
-          <span>candidate evaluation questions</span>
+          <span>reviewed evaluation questions</span>
         </div>
       </section>
 
@@ -277,15 +288,25 @@
           <a href="./build-receipt.json">Build receipt</a>
           <a href="./data/coverage.json">Coverage ledger</a>
           <a href="./data/evaluation.json">Evaluation questions</a>
+          <a href="./data/ai-usage.json">AI usage and cost ledger</a>
           <a href="./CHECKSUMS.sha256">Release checksums</a>
         </div>
+        <p>
+          AI usage is disclosed only where platform evidence exists. Earlier
+          tokens, a task-level subscription allocation and any rate-card
+          equivalent remain unavailable—not estimated. Separately billed API
+          spend is scoped independently and does not represent total cost.
+        </p>
       </section>
     </main>
 
     <footer>
       <div>
         <strong>HM Land Registry public-estate OKF</strong>
-        <p>Independent metadata discovery. Source authority always remains external.</p>
+        <p>
+          AI-assisted proof of concept for independent metadata discovery.
+          Source authority always remains external.
+        </p>
       </div>
       <div>
         <a href="./accessibility.html">Accessibility</a>

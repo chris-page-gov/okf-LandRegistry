@@ -149,9 +149,129 @@ def load_build_config() -> dict[str, Any]:
     missing = [key for key in required if not clean_text(config.get(key))]
     if missing:
         raise ValueError(f"source/build-config.json lacks {', '.join(missing)}")
-    if config["status"] != "reviewed-scaffold-not-approved":
-        raise ValueError("only a reviewed, unapproved scaffold may be built by this workflow")
+    allowed_statuses = {"reviewed-scaffold-not-approved", "released-poc"}
+    if config["status"] not in allowed_statuses:
+        raise ValueError(f"unsupported build status: {config['status']!r}")
+    if config["status"] == "released-poc":
+        if not clean_text(config.get("release_at")):
+            raise ValueError("a released proof of concept requires release_at")
+        if config.get("ai_generated_proof_of_concept") is not True:
+            raise ValueError(
+                "a released proof of concept requires the AI-generation disclosure"
+            )
+        profile = load_json(ROOT / "domain-profile" / "domain-profile.json")
+        release_decisions = [
+            row
+            for row in profile.get("decisions", [])
+            if row.get("id") == "DEC-RELEASE"
+        ]
+        if (
+            profile.get("status") != "approved"
+            or len(release_decisions) != 1
+            or release_decisions[0].get("status") != "accepted"
+        ):
+            raise ValueError("released output requires an approved domain profile")
+        requirements = load_json(ROOT / "governance" / "requirements.json")
+        rights = load_json(ROOT / "governance" / "rights-review.json")
+        if (
+            requirements.get("release_approved") is not True
+            or rights.get("release_approved") is not True
+        ):
+            raise ValueError("released output requires approved governance and rights")
     return config
+
+
+def load_ai_model_usage(config: dict[str, Any]) -> dict[str, Any]:
+    path = ROOT / "governance" / "ai-model-usage.json"
+    ledger = load_json(path)
+    if ledger.get("schema") != "okf-hmlr-ai-model-usage.v1":
+        raise ValueError("AI model-usage ledger has an unsupported schema")
+    if ledger.get("release_version") != config["version"]:
+        raise ValueError("AI model-usage ledger and build version differ")
+
+    scope = ledger.get("measurement_scope")
+    if not isinstance(scope, dict) or not clean_text(scope.get("id")):
+        raise ValueError("AI model-usage ledger lacks a measurement scope")
+    pre_tracking = scope.get("pre_tracking_usage")
+    if not isinstance(pre_tracking, dict) or pre_tracking.get("status") != "unavailable":
+        raise ValueError("pre-tracking AI usage must remain explicitly unavailable")
+    for key in ("input_tokens", "output_tokens", "total_tokens"):
+        if pre_tracking.get(key) is not None:
+            raise ValueError("unavailable pre-tracking token counts must be null")
+
+    sessions = ledger.get("model_sessions")
+    if not isinstance(sessions, list) or not sessions:
+        raise ValueError("AI model-usage ledger requires at least one model session")
+    allowed_measurement_states = {
+        "pending-candidate-freeze",
+        "partially-measured",
+        "measured",
+        "unavailable",
+    }
+    for session in sessions:
+        if not isinstance(session, dict) or not clean_text(session.get("id")):
+            raise ValueError("AI model-usage session lacks an ID")
+        if session.get("measurement_status") not in allowed_measurement_states:
+            raise ValueError("AI model-usage session has an unsupported status")
+        values = [
+            session.get("measured_input_tokens"),
+            session.get("measured_output_tokens"),
+            session.get("measured_total_tokens"),
+        ]
+        if any(
+            value is not None
+            and (isinstance(value, bool) or not isinstance(value, int) or value < 0)
+            for value in values
+        ):
+            raise ValueError("measured AI token counts must be null or non-negative integers")
+        if all(value is not None for value in values) and values[0] + values[1] != values[2]:
+            raise ValueError("measured AI input and output tokens do not equal total")
+
+    costs = ledger.get("cost_accounting")
+    if not isinstance(costs, dict):
+        raise ValueError("AI model-usage ledger lacks cost accounting")
+    subscription = costs.get("subscription_fee_allocation")
+    if (
+        not isinstance(subscription, dict)
+        or subscription.get("status") != "unavailable"
+        or subscription.get("amount") is not None
+    ):
+        raise ValueError("subscription allocation must be unavailable and null")
+    separately_billed = costs.get("separately_billed_openai_api")
+    amount = (
+        separately_billed.get("amount")
+        if isinstance(separately_billed, dict)
+        else None
+    )
+    if (
+        isinstance(amount, bool)
+        or not isinstance(amount, (int, float))
+        or amount < 0
+        or not clean_text(separately_billed.get("scope"))
+    ):
+        raise ValueError("separately billed API cost requires a scoped non-negative amount")
+    equivalent = costs.get("rate_card_equivalent")
+    if (
+        not isinstance(equivalent, dict)
+        or equivalent.get("status") != "unavailable"
+        or equivalent.get("amount") is not None
+        or equivalent.get("rate_card_source") is not None
+    ):
+        raise ValueError("rate-card equivalent must be unavailable without a source")
+    return ledger
+
+
+def ai_usage_projection(
+    ledger: dict[str, Any], source_path: Path
+) -> dict[str, Any]:
+    return {
+        "schema": "okf-hmlr-ai-usage-projection.v1",
+        "source": {
+            "path": source_path.relative_to(ROOT).as_posix(),
+            "sha256": sha256_file(source_path),
+        },
+        "ledger": ledger,
+    }
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -221,6 +341,23 @@ def string_list(value: Any) -> list[str]:
     for item in rendered:
         by_casefold.setdefault(item.casefold(), item)
     return [by_casefold[key] for key in sorted(by_casefold)]
+
+
+def ordered_string_list(value: Any) -> list[str]:
+    """Deduplicate ordered prose where the first item has display priority."""
+
+    if value is None:
+        return []
+    values = value if isinstance(value, (list, tuple)) else [value]
+    rendered: list[str] = []
+    seen: set[str] = set()
+    for item in values:
+        cleaned = clean_text(item)
+        key = cleaned.casefold()
+        if cleaned and key not in seen:
+            rendered.append(cleaned)
+            seen.add(key)
+    return rendered
 
 
 def authority_tier(value: Any, source_family: str) -> str:
@@ -303,6 +440,14 @@ def normal_record(record: dict[str, Any]) -> dict[str, Any]:
     if canonical_url not in source_urls:
         source_urls.insert(0, canonical_url)
     source_urls = [ensure_https(url) for url in source_urls]
+    equivalent_urls = [
+        ensure_https(url) for url in string_list(record.get("equivalent_urls"))
+    ]
+    equivalent_urls = [
+        url
+        for url in equivalent_urls
+        if url.rstrip("/") != canonical_url.rstrip("/")
+    ]
 
     source_family = clean_text(record["source_family"])
     normalized = {
@@ -329,8 +474,9 @@ def normal_record(record: dict[str, Any]) -> dict[str, Any]:
         "publisher_last_updated": clean_text(record.get("publisher_last_updated")) or None,
         "observed_at": clean_text(record.get("observed_at"))
         or f"{RESEARCH_CUTOFF}T00:00:00Z",
-        "caveats": string_list(record.get("caveats")),
+        "caveats": ordered_string_list(record.get("caveats")),
         "source_urls": sorted(set(source_urls)),
+        "equivalent_urls": sorted(set(equivalent_urls)),
     }
     return normalized
 
@@ -354,6 +500,22 @@ def normalize_govuk(item: dict[str, Any], observed_at: str) -> dict[str, Any]:
             publisher = clean_text(first.get("title")) or publisher
         elif isinstance(first, str):
             publisher = clean_text(first) or publisher
+    caveats = [
+        "Search metadata is a discovery record, not the full document or legal advice.",
+        "Publisher modification time is not dataset release, registration or legal currency.",
+    ]
+    boundary_text = (
+        f"{clean_text(item.get('title'))} {clean_text(item.get('description'))}"
+    ).casefold()
+    if "boundar" in boundary_text:
+        caveats.insert(
+            0,
+            (
+                "Most registered title plans show general boundaries; an exact "
+                "or determined boundary requires the applicable official process "
+                "and evidence. This metadata record is not a boundary conclusion."
+            ),
+        )
     return normal_record(
         {
             "id": f"govuk:{identity}",
@@ -374,10 +536,7 @@ def normalize_govuk(item: dict[str, Any], observed_at: str) -> dict[str, Any]:
             "topics": [content_type.replace("_", " ")],
             "publisher_last_updated": item.get("public_timestamp"),
             "observed_at": observed_at,
-            "caveats": [
-                "Search metadata is a discovery record, not the full document or legal advice.",
-                "Publisher modification time is not dataset release, registration or legal currency.",
-            ],
+            "caveats": caveats,
             "source_urls": [url],
         }
     )
@@ -838,6 +997,7 @@ def make_descriptor(
             "coverage": "data/coverage.json",
             "provenance": "data/provenance.json",
             "rights": "data/rights.json",
+            "ai_usage_and_cost": "data/ai-usage.json",
             "reconciliation": "data/reconciliation.json",
             "evaluation": "data/evaluation.json",
             "viewer": "https://chris-page-gov.github.io/okf-explorer/",
@@ -880,6 +1040,9 @@ def make_descriptor(
         "extensions": {
             "okf-hmlr-discovery.v1": {
                 "mode": "metadata-only",
+                "ai_generated_proof_of_concept": config.get(
+                    "ai_generated_proof_of_concept", False
+                ),
                 "authenticated_calls_enabled": False,
                 "personal_property_records_included": False,
                 "record_level_rights": True,
@@ -1016,6 +1179,7 @@ def concept_document(
     description: str,
     resource: str,
     generated_at: str,
+    status: str,
     body: str,
 ) -> str:
     metadata = {
@@ -1027,7 +1191,7 @@ def concept_document(
             "by": "process:hmlr-okf-builder",
             "at": generated_at,
         },
-        "status": "draft",
+        "status": status,
         "sources": [{"id": "official-source", "resource": resource}],
     }
     frontmatter = "\n".join(
@@ -1040,6 +1204,7 @@ def concept_document(
 def write_control_concepts(
     output: Path, snapshot: dict[str, Any], config: dict[str, Any]
 ) -> None:
+    concept_status = "released" if config["status"] == "released-poc" else "draft"
     index = """---
 okf_version: "0.2"
 ---
@@ -1075,6 +1240,7 @@ copy, legal advice, or a licence to use restricted data.
             "The bounded jurisdiction, inclusions, exclusions and authority model.",
             "https://www.gov.uk/government/organisations/land-registry/about",
             config["generated_at"],
+            concept_status,
             """# Scope and authority
 
 This release is a bounded metadata discovery snapshot. HM Land Registry and
@@ -1093,6 +1259,7 @@ snapshot denominator is claimed.
             "How official public metadata is observed, normalized and traced.",
             "https://www.gov.uk/government/organisations/land-registry",
             config["generated_at"],
+            concept_status,
             f"""# Sources and provenance
 
 The build used snapshot `{snapshot["snapshot_id"]}`, observed
@@ -1107,6 +1274,7 @@ observation time and source URLs. Normalization does not transfer authority.
             "Record-level rights, access constraints and privacy boundaries.",
             "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
             config["generated_at"],
+            concept_status,
             """# Rights, access and privacy
 
 Rights, fees, authentication and reuse constraints are record-level. “Public”
@@ -1124,10 +1292,13 @@ property results, user uploads and production bulk records.
             "Candidate questions, user journeys, metrics and hard-failure gates.",
             "https://www.gov.uk/search-property-information-land-registry",
             config["generated_at"],
-            """# Evaluation contract
+            concept_status,
+            f"""# Evaluation contract
 
-The first-release candidate suite contains 24 traceable questions and 12
-static-site journeys. Expected propositions are hypotheses, not gold answers.
+The first-release suite contains 24 traceable questions and 12 static-site
+journeys. Its release state is `{config["status"]}`. Independent acceptance
+evidence remains external to the bundle to avoid self-referential digest
+binding.
 Hard failures include false exact-boundary claims, wrong rights or access,
 catalogue dates presented as data currency, source-authority confusion,
 restricted automation, unsupported completeness, inaccessible critical tasks,
@@ -1143,7 +1314,7 @@ and loss of Welsh-language distinctions.
         f"at `{snapshot['observed_at']}`.\n"
         "- Normalized only public discovery metadata; no authenticated, paid, "
         "personal or bulk source records were acquired.\n"
-        "- Generated the reviewed scaffold, provenance, rights, reconciliation, "
+        f"- Generated `{config['status']}` provenance, rights, reconciliation, "
         "search shards and static Pages catalogue offline.\n",
         encoding="utf-8",
     )
@@ -1218,6 +1389,8 @@ def write_search_and_shards(
         "formats",
         "topics",
         "languages",
+        "source_urls",
+        "equivalent_urls",
         "curation",
         "publisher_last_updated",
     ]
@@ -1433,6 +1606,7 @@ def governed_input_receipts(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
         ROOT / "evaluation" / "journeys.json",
         ROOT / "personas" / "personas-and-user-stories.json",
         ROOT / "governance" / "requirements.json",
+        ROOT / "governance" / "ai-model-usage.json",
         ROOT / "governance" / "risk-register.json",
         ROOT / "governance" / "rights-review.json",
         ROOT / "governance" / "traceability.json",
@@ -1538,6 +1712,8 @@ def build(
     validate_output_target(output_dir, replace)
 
     config = load_build_config()
+    ai_usage_path = ROOT / "governance" / "ai-model-usage.json"
+    ai_usage = load_ai_model_usage(config)
     if config["version"] != BUILD_VERSION:
         raise ValueError("build config version and builder version differ")
     sources, rights = source_controls()
@@ -1621,10 +1797,11 @@ def build(
             ],
         }
         write_json(staging / "data" / "provenance.json", provenance)
+        rights_governance = load_json(ROOT / "governance" / "rights-review.json")
         rights_projection = {
             "schema": "okf-hmlr-rights-projection.v1",
-            "review_state": "reviewed-scaffold",
-            "release_approved": False,
+            "review_state": rights_governance["review_state"],
+            "release_approved": rights_governance["release_approved"],
             "source": {
                 "path": "governance/rights-review.json",
                 "sha256": sha256_file(ROOT / "governance" / "rights-review.json"),
@@ -1641,6 +1818,10 @@ def build(
             ],
         }
         write_json(staging / "data" / "rights.json", rights_projection)
+        write_json(
+            staging / "data" / "ai-usage.json",
+            ai_usage_projection(ai_usage, ai_usage_path),
+        )
         evaluation = load_json(ROOT / "evaluation" / "questions.json")
         write_json(staging / "data" / "evaluation.json", evaluation)
         write_search_and_shards(staging, records)

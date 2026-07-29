@@ -1,7 +1,7 @@
 # HM Land Registry domain-profile decisions
 
-This register contains only material owner decisions. The profile is reviewed,
-not release-approved.
+This register contains only material owner decisions. The profile is approved
+for the exact v0.1.0 AI-generated proof-of-concept release.
 
 ## Accepted scaffold defaults
 
@@ -33,17 +33,19 @@ silently overwriting it.
 Do not publish model-assisted classifications, links or answers in the first
 scaffold.
 
-## Open, non-blocking
+## Accepted release decision
 
 ### DEC-RELEASE — owner approval and canonical identity
 
-Recommended default: keep all generated output `draft` until the owner reviews
-the frozen source counts, rights ledger, evaluation results and intended GitHub
-Pages URL.
+The project owner approved v0.1.0 for publication only as an AI-generated
+proof of concept at
+`https://chris-page-gov.github.io/okf-LandRegistry/`, subject to passed G1–G8
+receipts and the exact digest recorded in G9.
 
 Consequences:
 
-- validation CI can run before approval;
-- a generated site is not automatically a public release;
-- no final version, completeness or accessibility-conformance claim is
-  permitted before approval and independent evidence.
+- the approval does not extend to later candidate bytes;
+- the publication is not an HM Land Registry service or endorsement;
+- no completeness, production-readiness, legal-reliance or
+  accessibility-conformance claim is permitted; and
+- later releases require a new exact-digest owner decision.

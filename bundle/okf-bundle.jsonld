@@ -1731,7 +1731,7 @@
       "url": "https://www.gov.uk/government/publications/business-gateway-connection-terms-and-conditions-for-cloud-providers"
     },
     {
-      "@id": "https://landregistry.github.io/bgtechdoc/",
+      "@id": "https://landregistry.github.io/bg-dev-pack-redesign/",
       "@type": "CreativeWork",
       "dateModified": null,
       "description": "Publisher-operated technical documentation, service definitions, schemas and integration guidance for HM Land Registry Business Gateway products.",
@@ -1743,7 +1743,7 @@
         "@type": "Organization",
         "name": "HM Land Registry"
       },
-      "url": "https://landregistry.github.io/bgtechdoc/"
+      "url": "https://landregistry.github.io/bg-dev-pack-redesign/"
     },
     {
       "@id": "https://www.gov.uk/guidance/business-gateway-developer-pack",
@@ -10611,6 +10611,21 @@
       "url": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme"
     },
     {
+      "@id": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme",
+      "@type": "CreativeWork",
+      "dateModified": null,
+      "description": "The published Welsh Language Scheme describing HM Land Registry's commitments for Welsh and bilingual services, correspondence, publications and register contexts.",
+      "isPartOf": {
+        "@id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld"
+      },
+      "name": "HM Land Registry Welsh Language Scheme publication",
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Land Registry"
+      },
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme"
+    },
+    {
       "@id": "https://www.gov.uk/government/news/hm-land-registry-wins-government-counter-fraud-award",
       "@type": "CreativeWork",
       "dateModified": "2017-10-03T13:07:45Z",
@@ -12799,6 +12814,21 @@
         "name": "HM Land Registry"
       },
       "url": "https://www.gov.uk/guidance/inspire-index-polygons-spatial-data"
+    },
+    {
+      "@id": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance",
+      "@type": "CreativeWork",
+      "dateModified": null,
+      "description": "Publisher technical guidance for the INSPIRE index polygons GML files, including coordinate reference system, attributes and GIS handling.",
+      "isPartOf": {
+        "@id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld"
+      },
+      "name": "INSPIRE index polygons technical guidance",
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Land Registry"
+      },
+      "url": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
     },
     {
       "@id": "https://github.com/LandRegistry/inspire-api",
@@ -16909,6 +16939,21 @@
         "name": "HM Land Registry"
       },
       "url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl"
+    },
+    {
+      "@id": "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+      "@type": "CreativeWork",
+      "dateModified": null,
+      "description": "Service-specific terms governing use of HM Land Registry's Local Land Charges search, including the restriction on automated software agents.",
+      "isPartOf": {
+        "@id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld"
+      },
+      "name": "Local Land Charges search terms and conditions",
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Land Registry"
+      },
+      "url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions"
     },
     {
       "@id": "https://www.gov.uk/government/news/local-land-charges-searches-for-norwich-are-now-available",
@@ -22834,6 +22879,21 @@
         "name": "HM Land Registry"
       },
       "url": "https://www.gov.uk/guidance/third-party-access-to-business-gateway"
+    },
+    {
+      "@id": "https://www.gov.uk/get-information-about-property-and-land/search-the-register",
+      "@type": "CreativeWork",
+      "dateModified": null,
+      "description": "Official guidance describing information available in the title register and title summary, including mortgage, lender and discharge details.",
+      "isPartOf": {
+        "@id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld"
+      },
+      "name": "Title register and title summary information",
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Land Registry"
+      },
+      "url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
     },
     {
       "@id": "https://github.com/LandRegistry/title-token",
@@ -33325,7 +33385,7 @@
       "@id": "https://www.gov.uk/government/publications/business-gateway-connection-terms-and-conditions-for-cloud-providers"
     },
     {
-      "@id": "https://landregistry.github.io/bgtechdoc/"
+      "@id": "https://landregistry.github.io/bg-dev-pack-redesign/"
     },
     {
       "@id": "https://www.gov.uk/guidance/business-gateway-developer-pack"
@@ -35101,6 +35161,9 @@
       "@id": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme"
     },
     {
+      "@id": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme"
+    },
+    {
       "@id": "https://www.gov.uk/government/news/hm-land-registry-wins-government-counter-fraud-award"
     },
     {
@@ -35537,6 +35600,9 @@
     },
     {
       "@id": "https://www.gov.uk/guidance/inspire-index-polygons-spatial-data"
+    },
+    {
+      "@id": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
     },
     {
       "@id": "https://github.com/LandRegistry/inspire-api"
@@ -36359,6 +36425,9 @@
     },
     {
       "@id": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl"
+    },
+    {
+      "@id": "https://search-local-land-charges.service.gov.uk/terms-and-conditions"
     },
     {
       "@id": "https://www.gov.uk/government/news/local-land-charges-searches-for-norwich-are-now-available"
@@ -37544,6 +37613,9 @@
     },
     {
       "@id": "https://www.gov.uk/guidance/third-party-access-to-business-gateway"
+    },
+    {
+      "@id": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
     },
     {
       "@id": "https://github.com/LandRegistry/title-token"
