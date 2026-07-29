@@ -1,0 +1,2507 @@
+{
+  "affected": {
+    "gate_work": [
+      {
+        "gate": "G1",
+        "selected_by": {
+          "stages": [
+            "domain-profile"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-DOMAIN-PROFILE"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G2",
+        "selected_by": {
+          "stages": [
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-SNAPSHOT"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G3",
+        "selected_by": {
+          "stages": [
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine",
+            "governance-policy"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-RIGHTS"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G4",
+        "selected_by": {
+          "stages": [
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine",
+            "explorer-consumer-contract",
+            "governance-policy",
+            "pages-presentation"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-DATA-PLANE",
+            "VAL-EXPLORER-CONSUMER",
+            "VAL-OKF"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G5",
+        "selected_by": {
+          "stages": [
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine",
+            "pages-presentation",
+            "evaluation-suite"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-EVALUATION"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G6",
+        "selected_by": {
+          "stages": [
+            "build-inputs",
+            "bundle-build-engine",
+            "explorer-consumer-contract",
+            "pages-presentation",
+            "evaluation-suite"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-ACCESSIBILITY",
+            "VAL-EXPLORER-CONSUMER"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G7",
+        "selected_by": {
+          "stages": [
+            "domain-profile",
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine",
+            "explorer-consumer-contract",
+            "governance-policy",
+            "pages-presentation",
+            "evaluation-suite",
+            "release-assurance-tooling",
+            "impact-control"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": [
+            "VAL-CHANGE-IMPACT",
+            "VAL-REPRODUCIBILITY"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G8",
+        "selected_by": {
+          "stages": [
+            "domain-profile",
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine",
+            "explorer-consumer-contract",
+            "governance-policy",
+            "pages-presentation",
+            "evaluation-suite",
+            "release-assurance-tooling",
+            "impact-control",
+            "documentation"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G9",
+        "selected_by": {
+          "stages": [
+            "domain-profile",
+            "source-snapshot",
+            "build-inputs",
+            "bundle-build-engine",
+            "explorer-consumer-contract",
+            "governance-policy",
+            "pages-presentation",
+            "evaluation-suite",
+            "release-assurance-tooling",
+            "impact-control",
+            "documentation"
+          ],
+          "unknown_change_policy": false,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      }
+    ],
+    "generated_artifacts": [
+      "bundle/**",
+      "bundle/.nojekyll",
+      "bundle/404.html",
+      "bundle/CHECKSUMS.sha256",
+      "bundle/accessibility.html",
+      "bundle/app.js",
+      "bundle/build-receipt.json",
+      "bundle/data/ai-usage.json",
+      "bundle/data/evaluation-report.json",
+      "bundle/data/evaluation.json",
+      "bundle/data/explorer/**",
+      "bundle/data/rights.json",
+      "bundle/data/search/**",
+      "bundle/favicon.svg",
+      "bundle/index.html",
+      "bundle/manifest.webmanifest",
+      "bundle/search-contract.json",
+      "bundle/styles.css",
+      "dist/**",
+      "validation/**"
+    ],
+    "release_gates": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "requirement_ids": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-003",
+      "REQ-004",
+      "REQ-005",
+      "REQ-006",
+      "REQ-007",
+      "REQ-008",
+      "REQ-009",
+      "REQ-010",
+      "REQ-011",
+      "REQ-012",
+      "REQ-013",
+      "REQ-014",
+      "REQ-015",
+      "REQ-016",
+      "REQ-017",
+      "REQ-018",
+      "REQ-019",
+      "REQ-020"
+    ],
+    "risk_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-004",
+      "RISK-005",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011",
+      "RISK-012",
+      "RISK-013",
+      "RISK-014",
+      "RISK-015",
+      "RISK-016",
+      "RISK-017"
+    ],
+    "test_ids": [
+      "acquisition",
+      "build-semantics",
+      "bundle",
+      "change-impact",
+      "domain-profile",
+      "evaluation",
+      "explorer-contract",
+      "jsonld",
+      "links",
+      "okf",
+      "package-release",
+      "pages",
+      "release-approval",
+      "release-evidence",
+      "release-metadata",
+      "traceability",
+      "workflow"
+    ],
+    "tests": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_acquire",
+          "-v"
+        ],
+        "description": "Bounded URL, receipt and snapshot-manifest acquisition checks.",
+        "id": "acquisition"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_build_semantics",
+          "-v"
+        ],
+        "description": "Focused normalization, search-projection and usage-ledger semantics.",
+        "id": "build-semantics"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_bundle",
+          "-v"
+        ],
+        "description": "Generated bundle integrity, safety and deterministic rebuild checks.",
+        "id": "bundle"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_change_impact",
+          "-v"
+        ],
+        "description": "Dependency-graph schema, closure and fail-closed impact checks.",
+        "id": "change-impact"
+      },
+      {
+        "command": [
+          "python",
+          "scripts/check_domain_profile.py",
+          "domain-profile/domain-profile.json",
+          "--equivalent",
+          "domain-profile/domain-profile.yaml"
+        ],
+        "description": "Stage 1 schema, equivalence and reference closure.",
+        "id": "domain-profile"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_evaluate",
+          "-v"
+        ],
+        "description": "Retrieval, expected-target and acceptance-review behavior.",
+        "id": "evaluation"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_explorer_contract",
+          "-v"
+        ],
+        "description": "Pinned OKF Explorer descriptor, manifest, asset and loader compatibility.",
+        "id": "explorer-contract"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_jsonld",
+          "-v"
+        ],
+        "description": "Pinned-context JSON-LD expansion, catalogue ranges and semantic identity closure.",
+        "id": "jsonld"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_links",
+          "-v"
+        ],
+        "description": "Local Markdown link closure.",
+        "id": "links"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_okf",
+          "-v"
+        ],
+        "description": "Pinned executable OKF v0.2 Markdown structural validation.",
+        "id": "okf"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_package_release",
+          "-v"
+        ],
+        "description": "Deterministic release archive behavior.",
+        "id": "package-release"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_pages",
+          "-v"
+        ],
+        "description": "Static Pages semantics, progressive enhancement and local routes.",
+        "id": "pages"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_release_approval",
+          "-v"
+        ],
+        "description": "Exact release-root approval checks.",
+        "id": "release-approval"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_assemble_release_evidence",
+          "tests.test_release_evidence",
+          "-v"
+        ],
+        "description": "Release evidence assembly and exact-candidate validation.",
+        "id": "release-evidence"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_release_metadata",
+          "-v"
+        ],
+        "description": "SBOM and provenance metadata generation.",
+        "id": "release-metadata"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_traceability",
+          "-v"
+        ],
+        "description": "Question, story, persona and journey reference closure.",
+        "id": "traceability"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_workflow",
+          "-v"
+        ],
+        "description": "Pinned workflow and Pages publication controls.",
+        "id": "workflow"
+      }
+    ],
+    "validation_refs": [
+      "VAL-ACCESSIBILITY",
+      "VAL-CHANGE-IMPACT",
+      "VAL-DATA-PLANE",
+      "VAL-DOMAIN-PROFILE",
+      "VAL-EVALUATION",
+      "VAL-EXPLORER-CONSUMER",
+      "VAL-OKF",
+      "VAL-REPRODUCIBILITY",
+      "VAL-RIGHTS",
+      "VAL-SNAPSHOT"
+    ]
+  },
+  "changed_paths": [
+    ".github/workflows/pages.yml",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CITATION.cff",
+    "README.md",
+    "bundle/CHECKSUMS.sha256",
+    "bundle/accessibility.html",
+    "bundle/app.js",
+    "bundle/build-receipt.json",
+    "bundle/catalogue-index.html",
+    "bundle/concepts/evaluation.md",
+    "bundle/concepts/rights-access-privacy.md",
+    "bundle/concepts/scope-and-authority.md",
+    "bundle/concepts/sources-and-provenance.md",
+    "bundle/context.jsonld",
+    "bundle/data/ai-usage.json",
+    "bundle/data/catalogue.csv",
+    "bundle/data/catalogue.json",
+    "bundle/data/coverage.json",
+    "bundle/data/evaluation-report.json",
+    "bundle/data/evaluation.json",
+    "bundle/data/explorer/adjacency/04.json",
+    "bundle/data/explorer/adjacency/32.json",
+    "bundle/data/explorer/adjacency/manifest.json",
+    "bundle/data/explorer/analysis-overview.json",
+    "bundle/data/explorer/datasets-000.json",
+    "bundle/data/explorer/datasets-001.json",
+    "bundle/data/explorer/datasets-002.json",
+    "bundle/data/explorer/datasets-003.json",
+    "bundle/data/explorer/datasets-004.json",
+    "bundle/data/explorer/datasets-005.json",
+    "bundle/data/explorer/datasets-006.json",
+    "bundle/data/explorer/datasets-007.json",
+    "bundle/data/explorer/datasets-008.json",
+    "bundle/data/explorer/facets.json",
+    "bundle/data/explorer/locator/manifest.json",
+    "bundle/data/explorer/locator/routes.json",
+    "bundle/data/explorer/manifest.json",
+    "bundle/data/explorer/overview.json",
+    "bundle/data/explorer/publishers-000.json",
+    "bundle/data/explorer/relationships-000.json",
+    "bundle/data/explorer/resources-000.json",
+    "bundle/data/explorer/resources-001.json",
+    "bundle/data/explorer/resources-002.json",
+    "bundle/data/explorer/resources-003.json",
+    "bundle/data/explorer/resources-004.json",
+    "bundle/data/explorer/resources-005.json",
+    "bundle/data/explorer/resources-006.json",
+    "bundle/data/explorer/resources-007.json",
+    "bundle/data/explorer/resources-008.json",
+    "bundle/data/explorer/search/doc-map.json",
+    "bundle/data/explorer/search/filters/access.json",
+    "bundle/data/explorer/search/filters/access_state.json",
+    "bundle/data/explorer/search/filters/audience.json",
+    "bundle/data/explorer/search/filters/content_type.json",
+    "bundle/data/explorer/search/filters/format.json",
+    "bundle/data/explorer/search/filters/geography.json",
+    "bundle/data/explorer/search/filters/kind.json",
+    "bundle/data/explorer/search/filters/language.json",
+    "bundle/data/explorer/search/filters/licence.json",
+    "bundle/data/explorer/search/filters/lifecycle_state.json",
+    "bundle/data/explorer/search/filters/publisher.json",
+    "bundle/data/explorer/search/filters/record_type.json",
+    "bundle/data/explorer/search/filters/rights_state.json",
+    "bundle/data/explorer/search/filters/service.json",
+    "bundle/data/explorer/search/filters/source_family.json",
+    "bundle/data/explorer/search/filters/topic.json",
+    "bundle/data/explorer/search/filters/update_frequency.json",
+    "bundle/data/explorer/search/lexicon-0.json",
+    "bundle/data/explorer/search/lexicon-1.json",
+    "bundle/data/explorer/search/lexicon-2.json",
+    "bundle/data/explorer/search/lexicon-3.json",
+    "bundle/data/explorer/search/lexicon-4.json",
+    "bundle/data/explorer/search/lexicon-5.json",
+    "bundle/data/explorer/search/lexicon-6.json",
+    "bundle/data/explorer/search/lexicon-7.json",
+    "bundle/data/explorer/search/lexicon-8.json",
+    "bundle/data/explorer/search/lexicon-9.json",
+    "bundle/data/explorer/search/lexicon-a.json",
+    "bundle/data/explorer/search/lexicon-b.json",
+    "bundle/data/explorer/search/lexicon-c.json",
+    "bundle/data/explorer/search/lexicon-d.json",
+    "bundle/data/explorer/search/lexicon-e.json",
+    "bundle/data/explorer/search/lexicon-f.json",
+    "bundle/data/explorer/search/lexicon-g.json",
+    "bundle/data/explorer/search/lexicon-h.json",
+    "bundle/data/explorer/search/lexicon-i.json",
+    "bundle/data/explorer/search/lexicon-j.json",
+    "bundle/data/explorer/search/lexicon-k.json",
+    "bundle/data/explorer/search/lexicon-l.json",
+    "bundle/data/explorer/search/lexicon-m.json",
+    "bundle/data/explorer/search/lexicon-n.json",
+    "bundle/data/explorer/search/lexicon-o.json",
+    "bundle/data/explorer/search/lexicon-p.json",
+    "bundle/data/explorer/search/lexicon-q.json",
+    "bundle/data/explorer/search/lexicon-r.json",
+    "bundle/data/explorer/search/lexicon-s.json",
+    "bundle/data/explorer/search/lexicon-t.json",
+    "bundle/data/explorer/search/lexicon-u.json",
+    "bundle/data/explorer/search/lexicon-v.json",
+    "bundle/data/explorer/search/lexicon-w.json",
+    "bundle/data/explorer/search/lexicon-y.json",
+    "bundle/data/explorer/search/manifest.json",
+    "bundle/data/explorer/search/postings-0.json",
+    "bundle/data/explorer/search/postings-1.json",
+    "bundle/data/explorer/search/postings-2.json",
+    "bundle/data/explorer/search/postings-3.json",
+    "bundle/data/explorer/search/postings-4.json",
+    "bundle/data/explorer/search/postings-5.json",
+    "bundle/data/explorer/search/postings-6.json",
+    "bundle/data/explorer/search/postings-7.json",
+    "bundle/data/explorer/search/postings-8.json",
+    "bundle/data/explorer/search/postings-9.json",
+    "bundle/data/explorer/search/postings-a.json",
+    "bundle/data/explorer/search/postings-b.json",
+    "bundle/data/explorer/search/postings-c.json",
+    "bundle/data/explorer/search/postings-d.json",
+    "bundle/data/explorer/search/postings-e.json",
+    "bundle/data/explorer/search/postings-f.json",
+    "bundle/data/explorer/search/postings-g.json",
+    "bundle/data/explorer/search/postings-h.json",
+    "bundle/data/explorer/search/postings-i.json",
+    "bundle/data/explorer/search/postings-j.json",
+    "bundle/data/explorer/search/postings-k.json",
+    "bundle/data/explorer/search/postings-l.json",
+    "bundle/data/explorer/search/postings-m.json",
+    "bundle/data/explorer/search/postings-n.json",
+    "bundle/data/explorer/search/postings-o.json",
+    "bundle/data/explorer/search/postings-p.json",
+    "bundle/data/explorer/search/postings-q.json",
+    "bundle/data/explorer/search/postings-r.json",
+    "bundle/data/explorer/search/postings-s.json",
+    "bundle/data/explorer/search/postings-t.json",
+    "bundle/data/explorer/search/postings-u.json",
+    "bundle/data/explorer/search/postings-v.json",
+    "bundle/data/explorer/search/postings-w.json",
+    "bundle/data/explorer/search/postings-y.json",
+    "bundle/data/explorer/search/shards.json",
+    "bundle/data/explorer/search/sort-values.json",
+    "bundle/data/manifest.json",
+    "bundle/data/provenance.json",
+    "bundle/data/reconciliation.json",
+    "bundle/data/records/manifest.json",
+    "bundle/data/records/records-000.json",
+    "bundle/data/records/records-001.json",
+    "bundle/data/records/records-002.json",
+    "bundle/data/records/records-003.json",
+    "bundle/data/records/records-004.json",
+    "bundle/data/records/records-005.json",
+    "bundle/data/records/records-006.json",
+    "bundle/data/records/records-007.json",
+    "bundle/data/records/records-008.json",
+    "bundle/data/rights.json",
+    "bundle/data/search/index.json",
+    "bundle/data/search/manifest.json",
+    "bundle/index.html",
+    "bundle/log.md",
+    "bundle/okf-bundle.jsonld",
+    "bundle/okf-explorer.json",
+    "bundle/search-contract.json",
+    "contracts/okf-explorer.consumer-lock.json",
+    "docs/architecture.md",
+    "docs/evaluation.md",
+    "docs/maintenance-and-reproducibility.md",
+    "docs/product-contract.md",
+    "docs/release-assurance.md",
+    "domain-profile/CHECKSUMS.sha256",
+    "domain-profile/decision-register.md",
+    "domain-profile/domain-profile.json",
+    "domain-profile/domain-profile.yaml",
+    "domain-profile/domain-warmup-report.md",
+    "evaluation/explorer-search-calibration-v0.2.0.json",
+    "evaluation/explorer-v0.2.0-journeys.json",
+    "evaluation/fixtures/degraded-descriptor/journeys.json",
+    "evaluation/fixtures/degraded-descriptor/okf-explorer.json",
+    "evaluation/fixtures/malformed-descriptor/journeys.json",
+    "evaluation/fixtures/malformed-descriptor/okf-explorer.json",
+    "evaluation/fixtures/tiny-producer/journeys.json",
+    "evaluation/fixtures/tiny-producer/okf-explorer.json",
+    "evaluation/fixtures/v0.1.0-degraded/journeys.json",
+    "evaluation/journeys.json",
+    "evaluation/questions.json",
+    "governance/README.md",
+    "governance/ai-model-usage.json",
+    "governance/artifact-dependency-graph.json",
+    "governance/requirements.json",
+    "governance/risk-register.json",
+    "governance/traceability.json",
+    "pages/accessibility.html",
+    "pages/index.html",
+    "pyproject.toml",
+    "requirements-dev.txt",
+    "requirements-lock.txt",
+    "schemas/README.md",
+    "schemas/artifact-dependency-graph.schema.json",
+    "schemas/domain-profile.schema.json",
+    "scripts/build.py",
+    "scripts/change_impact.py",
+    "scripts/check_okf.py",
+    "scripts/create_release_metadata.py",
+    "scripts/evaluate.py",
+    "scripts/observe_govuk_content.py",
+    "scripts/package_release.py",
+    "source/build-config.json",
+    "source/curated-records.json",
+    "source/input-manifest-v0.2.0.json",
+    "source/jsonld-context.json",
+    "source/observations/govuk-content-locale-translations-2026-07-29.json",
+    "source/publisher-registry.json",
+    "source/source-register.json",
+    "source/type-kind-crosswalk.json",
+    "tests/test_build_semantics.py",
+    "tests/test_bundle.py",
+    "tests/test_change_impact.py",
+    "tests/test_evaluate.py",
+    "tests/test_explorer_contract.py",
+    "tests/test_jsonld.py",
+    "tests/test_observe_govuk_content.py",
+    "tests/test_okf.py",
+    "tests/test_pages.py",
+    "tests/test_release_metadata.py",
+    "tests/test_workflow.py",
+    "troubleshooting/Evaluate the okf-landregistry bundle.docx",
+    "validation/candidate-v0.2.0/explorer-degraded-descriptor.json",
+    "validation/candidate-v0.2.0/explorer-malformed-descriptor.json",
+    "validation/candidate-v0.2.0/explorer-product-journeys.json",
+    "validation/candidate-v0.2.0/explorer-search-journeys.json",
+    "validation/candidate-v0.2.0/explorer-tiny-producer.json",
+    "validation/candidate-v0.2.0/explorer-v0.1.0-degraded.json",
+    "validation/candidate-v0.2.0/explorer-v0.5.7-deployment.json"
+  ],
+  "changes": [
+    {
+      "paths": [
+        ".github/workflows/pages.yml"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "AGENTS.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "CHANGELOG.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "CITATION.cff"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "README.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/CHECKSUMS.sha256"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/accessibility.html"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/app.js"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/build-receipt.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/catalogue-index.html"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/concepts/evaluation.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/concepts/rights-access-privacy.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/concepts/scope-and-authority.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/concepts/sources-and-provenance.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/context.jsonld"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/ai-usage.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/catalogue.csv"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/catalogue.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/coverage.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/evaluation-report.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/evaluation.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/adjacency/04.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/adjacency/32.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/adjacency/manifest.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/analysis-overview.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-000.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-001.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-002.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-003.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-004.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-005.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-006.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-007.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/datasets-008.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/facets.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/locator/manifest.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/locator/routes.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/manifest.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/overview.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/publishers-000.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/relationships-000.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-000.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-001.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-002.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-003.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-004.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-005.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-006.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-007.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/resources-008.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/doc-map.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/access.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/access_state.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/audience.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/content_type.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/format.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/geography.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/kind.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/language.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/licence.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/lifecycle_state.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/publisher.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/record_type.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/rights_state.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/service.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/source_family.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/topic.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/filters/update_frequency.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-0.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-1.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-2.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-3.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-4.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-5.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-6.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-7.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-8.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-9.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-a.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-b.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-c.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-d.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-e.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-f.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-g.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-h.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-i.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-j.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-k.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-l.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-m.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-n.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-o.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-p.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-q.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-r.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-s.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-t.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-u.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-v.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-w.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/lexicon-y.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/manifest.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-0.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-1.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-2.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-3.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-4.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-5.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-6.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-7.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-8.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-9.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-a.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-b.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-c.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-d.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-e.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-f.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-g.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-h.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-i.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-j.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-k.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-l.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-m.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-n.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-o.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-p.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-q.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-r.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-s.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-t.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-u.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-v.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-w.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/postings-y.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/shards.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/explorer/search/sort-values.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "bundle/data/manifest.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/provenance.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/reconciliation.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/records/manifest.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-000.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-001.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-002.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-003.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-004.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-005.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-006.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-007.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/records/records-008.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/rights.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/data/search/index.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/data/search/manifest.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "bundle/index.html"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/log.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/okf-bundle.jsonld"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/okf-explorer.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/search-contract.json"
+      ],
+      "status": "D"
+    },
+    {
+      "paths": [
+        "contracts/okf-explorer.consumer-lock.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "docs/architecture.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "docs/evaluation.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "docs/maintenance-and-reproducibility.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "docs/product-contract.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "docs/release-assurance.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "domain-profile/CHECKSUMS.sha256"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "domain-profile/decision-register.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "domain-profile/domain-profile.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "domain-profile/domain-profile.yaml"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "domain-profile/domain-warmup-report.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "evaluation/explorer-search-calibration-v0.2.0.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/explorer-v0.2.0-journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/degraded-descriptor/journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/degraded-descriptor/okf-explorer.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/malformed-descriptor/journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/malformed-descriptor/okf-explorer.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/tiny-producer/journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/tiny-producer/okf-explorer.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/fixtures/v0.1.0-degraded/journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "evaluation/journeys.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "evaluation/questions.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "governance/README.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "governance/ai-model-usage.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "governance/artifact-dependency-graph.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "governance/requirements.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "governance/risk-register.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "governance/traceability.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "pages/accessibility.html"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "pages/index.html"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "pyproject.toml"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "requirements-dev.txt"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "requirements-lock.txt"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "schemas/README.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "schemas/artifact-dependency-graph.schema.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "schemas/domain-profile.schema.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "scripts/build.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "scripts/change_impact.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "scripts/check_okf.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "scripts/create_release_metadata.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "scripts/evaluate.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "scripts/observe_govuk_content.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "scripts/package_release.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "source/build-config.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "source/curated-records.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "source/input-manifest-v0.2.0.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "source/jsonld-context.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "source/observations/govuk-content-locale-translations-2026-07-29.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "source/publisher-registry.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "source/source-register.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "source/type-kind-crosswalk.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "tests/test_build_semantics.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_bundle.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_change_impact.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "tests/test_evaluate.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_explorer_contract.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "tests/test_jsonld.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "tests/test_observe_govuk_content.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "tests/test_okf.py"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "tests/test_pages.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_release_metadata.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_workflow.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "troubleshooting/Evaluate the okf-landregistry bundle.docx"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-degraded-descriptor.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-malformed-descriptor.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-product-journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-search-journeys.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-tiny-producer.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-v0.1.0-degraded.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-v0.5.7-deployment.json"
+      ],
+      "status": "A"
+    }
+  ],
+  "comparison": {
+    "base": "e0b095192401538097e56fa0ae192490786dca12",
+    "head": "9955823144e05cad295dc51ac0558d2f9174a464",
+    "mode": "git"
+  },
+  "control_sha256": {
+    "requirements": "5ec8d101e05cff23398dbbcf022d7558670e8601a8f688be7ece9966e92fa88b",
+    "risks": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e",
+    "traceability": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
+  },
+  "decision": "classified",
+  "explained_generated_paths": [
+    "bundle/CHECKSUMS.sha256",
+    "bundle/accessibility.html",
+    "bundle/app.js",
+    "bundle/build-receipt.json",
+    "bundle/catalogue-index.html",
+    "bundle/concepts/evaluation.md",
+    "bundle/concepts/rights-access-privacy.md",
+    "bundle/concepts/scope-and-authority.md",
+    "bundle/concepts/sources-and-provenance.md",
+    "bundle/context.jsonld",
+    "bundle/data/ai-usage.json",
+    "bundle/data/catalogue.csv",
+    "bundle/data/catalogue.json",
+    "bundle/data/coverage.json",
+    "bundle/data/evaluation-report.json",
+    "bundle/data/evaluation.json",
+    "bundle/data/explorer/adjacency/04.json",
+    "bundle/data/explorer/adjacency/32.json",
+    "bundle/data/explorer/adjacency/manifest.json",
+    "bundle/data/explorer/analysis-overview.json",
+    "bundle/data/explorer/datasets-000.json",
+    "bundle/data/explorer/datasets-001.json",
+    "bundle/data/explorer/datasets-002.json",
+    "bundle/data/explorer/datasets-003.json",
+    "bundle/data/explorer/datasets-004.json",
+    "bundle/data/explorer/datasets-005.json",
+    "bundle/data/explorer/datasets-006.json",
+    "bundle/data/explorer/datasets-007.json",
+    "bundle/data/explorer/datasets-008.json",
+    "bundle/data/explorer/facets.json",
+    "bundle/data/explorer/locator/manifest.json",
+    "bundle/data/explorer/locator/routes.json",
+    "bundle/data/explorer/manifest.json",
+    "bundle/data/explorer/overview.json",
+    "bundle/data/explorer/publishers-000.json",
+    "bundle/data/explorer/relationships-000.json",
+    "bundle/data/explorer/resources-000.json",
+    "bundle/data/explorer/resources-001.json",
+    "bundle/data/explorer/resources-002.json",
+    "bundle/data/explorer/resources-003.json",
+    "bundle/data/explorer/resources-004.json",
+    "bundle/data/explorer/resources-005.json",
+    "bundle/data/explorer/resources-006.json",
+    "bundle/data/explorer/resources-007.json",
+    "bundle/data/explorer/resources-008.json",
+    "bundle/data/explorer/search/doc-map.json",
+    "bundle/data/explorer/search/filters/access.json",
+    "bundle/data/explorer/search/filters/access_state.json",
+    "bundle/data/explorer/search/filters/audience.json",
+    "bundle/data/explorer/search/filters/content_type.json",
+    "bundle/data/explorer/search/filters/format.json",
+    "bundle/data/explorer/search/filters/geography.json",
+    "bundle/data/explorer/search/filters/kind.json",
+    "bundle/data/explorer/search/filters/language.json",
+    "bundle/data/explorer/search/filters/licence.json",
+    "bundle/data/explorer/search/filters/lifecycle_state.json",
+    "bundle/data/explorer/search/filters/publisher.json",
+    "bundle/data/explorer/search/filters/record_type.json",
+    "bundle/data/explorer/search/filters/rights_state.json",
+    "bundle/data/explorer/search/filters/service.json",
+    "bundle/data/explorer/search/filters/source_family.json",
+    "bundle/data/explorer/search/filters/topic.json",
+    "bundle/data/explorer/search/filters/update_frequency.json",
+    "bundle/data/explorer/search/lexicon-0.json",
+    "bundle/data/explorer/search/lexicon-1.json",
+    "bundle/data/explorer/search/lexicon-2.json",
+    "bundle/data/explorer/search/lexicon-3.json",
+    "bundle/data/explorer/search/lexicon-4.json",
+    "bundle/data/explorer/search/lexicon-5.json",
+    "bundle/data/explorer/search/lexicon-6.json",
+    "bundle/data/explorer/search/lexicon-7.json",
+    "bundle/data/explorer/search/lexicon-8.json",
+    "bundle/data/explorer/search/lexicon-9.json",
+    "bundle/data/explorer/search/lexicon-a.json",
+    "bundle/data/explorer/search/lexicon-b.json",
+    "bundle/data/explorer/search/lexicon-c.json",
+    "bundle/data/explorer/search/lexicon-d.json",
+    "bundle/data/explorer/search/lexicon-e.json",
+    "bundle/data/explorer/search/lexicon-f.json",
+    "bundle/data/explorer/search/lexicon-g.json",
+    "bundle/data/explorer/search/lexicon-h.json",
+    "bundle/data/explorer/search/lexicon-i.json",
+    "bundle/data/explorer/search/lexicon-j.json",
+    "bundle/data/explorer/search/lexicon-k.json",
+    "bundle/data/explorer/search/lexicon-l.json",
+    "bundle/data/explorer/search/lexicon-m.json",
+    "bundle/data/explorer/search/lexicon-n.json",
+    "bundle/data/explorer/search/lexicon-o.json",
+    "bundle/data/explorer/search/lexicon-p.json",
+    "bundle/data/explorer/search/lexicon-q.json",
+    "bundle/data/explorer/search/lexicon-r.json",
+    "bundle/data/explorer/search/lexicon-s.json",
+    "bundle/data/explorer/search/lexicon-t.json",
+    "bundle/data/explorer/search/lexicon-u.json",
+    "bundle/data/explorer/search/lexicon-v.json",
+    "bundle/data/explorer/search/lexicon-w.json",
+    "bundle/data/explorer/search/lexicon-y.json",
+    "bundle/data/explorer/search/manifest.json",
+    "bundle/data/explorer/search/postings-0.json",
+    "bundle/data/explorer/search/postings-1.json",
+    "bundle/data/explorer/search/postings-2.json",
+    "bundle/data/explorer/search/postings-3.json",
+    "bundle/data/explorer/search/postings-4.json",
+    "bundle/data/explorer/search/postings-5.json",
+    "bundle/data/explorer/search/postings-6.json",
+    "bundle/data/explorer/search/postings-7.json",
+    "bundle/data/explorer/search/postings-8.json",
+    "bundle/data/explorer/search/postings-9.json",
+    "bundle/data/explorer/search/postings-a.json",
+    "bundle/data/explorer/search/postings-b.json",
+    "bundle/data/explorer/search/postings-c.json",
+    "bundle/data/explorer/search/postings-d.json",
+    "bundle/data/explorer/search/postings-e.json",
+    "bundle/data/explorer/search/postings-f.json",
+    "bundle/data/explorer/search/postings-g.json",
+    "bundle/data/explorer/search/postings-h.json",
+    "bundle/data/explorer/search/postings-i.json",
+    "bundle/data/explorer/search/postings-j.json",
+    "bundle/data/explorer/search/postings-k.json",
+    "bundle/data/explorer/search/postings-l.json",
+    "bundle/data/explorer/search/postings-m.json",
+    "bundle/data/explorer/search/postings-n.json",
+    "bundle/data/explorer/search/postings-o.json",
+    "bundle/data/explorer/search/postings-p.json",
+    "bundle/data/explorer/search/postings-q.json",
+    "bundle/data/explorer/search/postings-r.json",
+    "bundle/data/explorer/search/postings-s.json",
+    "bundle/data/explorer/search/postings-t.json",
+    "bundle/data/explorer/search/postings-u.json",
+    "bundle/data/explorer/search/postings-v.json",
+    "bundle/data/explorer/search/postings-w.json",
+    "bundle/data/explorer/search/postings-y.json",
+    "bundle/data/explorer/search/shards.json",
+    "bundle/data/explorer/search/sort-values.json",
+    "bundle/data/manifest.json",
+    "bundle/data/provenance.json",
+    "bundle/data/reconciliation.json",
+    "bundle/data/records/manifest.json",
+    "bundle/data/records/records-000.json",
+    "bundle/data/records/records-001.json",
+    "bundle/data/records/records-002.json",
+    "bundle/data/records/records-003.json",
+    "bundle/data/records/records-004.json",
+    "bundle/data/records/records-005.json",
+    "bundle/data/records/records-006.json",
+    "bundle/data/records/records-007.json",
+    "bundle/data/records/records-008.json",
+    "bundle/data/rights.json",
+    "bundle/data/search/index.json",
+    "bundle/data/search/manifest.json",
+    "bundle/index.html",
+    "bundle/log.md",
+    "bundle/okf-bundle.jsonld",
+    "bundle/okf-explorer.json",
+    "bundle/search-contract.json",
+    "validation/candidate-v0.2.0/explorer-degraded-descriptor.json",
+    "validation/candidate-v0.2.0/explorer-malformed-descriptor.json",
+    "validation/candidate-v0.2.0/explorer-product-journeys.json",
+    "validation/candidate-v0.2.0/explorer-search-journeys.json",
+    "validation/candidate-v0.2.0/explorer-tiny-producer.json",
+    "validation/candidate-v0.2.0/explorer-v0.1.0-degraded.json",
+    "validation/candidate-v0.2.0/explorer-v0.5.7-deployment.json"
+  ],
+  "graph": {
+    "path": "governance/artifact-dependency-graph.json",
+    "schema_path": "schemas/artifact-dependency-graph.schema.json",
+    "schema_sha256": "e7105f0b3d190fcbefb68da63efe460148e2e8119bf6684ccc7eeef16fa6a24f",
+    "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1",
+    "unknown_change_policy": "all-gates-and-manual-review",
+    "version": "1.0.0"
+  },
+  "limitations": [
+    "This report selects work; it does not pass or waive a validation gate.",
+    "Current release evidence remains bound to the exact governed release root.",
+    "G9 remains a project-owner decision for the exact candidate digest."
+  ],
+  "manual_review_required": false,
+  "matched_stages": [
+    {
+      "id": "domain-profile",
+      "input_matches": [
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/decision-register.md",
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml",
+        "domain-profile/domain-warmup-report.md",
+        "schemas/domain-profile.schema.json"
+      ],
+      "matched_paths": [
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/decision-register.md",
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml",
+        "domain-profile/domain-warmup-report.md",
+        "schemas/domain-profile.schema.json"
+      ],
+      "validation_input_matches": []
+    },
+    {
+      "id": "source-snapshot",
+      "input_matches": [
+        "scripts/observe_govuk_content.py",
+        "source/input-manifest-v0.2.0.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "source/source-register.json"
+      ],
+      "matched_paths": [
+        "scripts/observe_govuk_content.py",
+        "source/input-manifest-v0.2.0.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "source/source-register.json",
+        "tests/test_observe_govuk_content.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_observe_govuk_content.py"
+      ]
+    },
+    {
+      "id": "build-inputs",
+      "input_matches": [
+        "source/build-config.json",
+        "source/curated-records.json",
+        "source/jsonld-context.json",
+        "source/publisher-registry.json",
+        "source/type-kind-crosswalk.json"
+      ],
+      "matched_paths": [
+        "source/build-config.json",
+        "source/curated-records.json",
+        "source/jsonld-context.json",
+        "source/publisher-registry.json",
+        "source/type-kind-crosswalk.json",
+        "tests/test_jsonld.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_jsonld.py"
+      ]
+    },
+    {
+      "id": "bundle-build-engine",
+      "input_matches": [
+        "scripts/build.py"
+      ],
+      "matched_paths": [
+        "scripts/build.py",
+        "tests/test_build_semantics.py",
+        "tests/test_bundle.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_build_semantics.py",
+        "tests/test_bundle.py"
+      ]
+    },
+    {
+      "id": "explorer-consumer-contract",
+      "input_matches": [
+        "contracts/okf-explorer.consumer-lock.json"
+      ],
+      "matched_paths": [
+        "contracts/okf-explorer.consumer-lock.json",
+        "tests/test_explorer_contract.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_explorer_contract.py"
+      ]
+    },
+    {
+      "id": "governance-policy",
+      "input_matches": [
+        "governance/ai-model-usage.json",
+        "governance/requirements.json",
+        "governance/risk-register.json",
+        "governance/traceability.json"
+      ],
+      "matched_paths": [
+        "governance/ai-model-usage.json",
+        "governance/requirements.json",
+        "governance/risk-register.json",
+        "governance/traceability.json"
+      ],
+      "validation_input_matches": []
+    },
+    {
+      "id": "pages-presentation",
+      "input_matches": [
+        "pages/accessibility.html",
+        "pages/index.html"
+      ],
+      "matched_paths": [
+        "pages/accessibility.html",
+        "pages/index.html",
+        "tests/test_pages.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_pages.py"
+      ]
+    },
+    {
+      "id": "evaluation-suite",
+      "input_matches": [
+        "evaluation/explorer-search-calibration-v0.2.0.json",
+        "evaluation/explorer-v0.2.0-journeys.json",
+        "evaluation/fixtures/degraded-descriptor/journeys.json",
+        "evaluation/fixtures/degraded-descriptor/okf-explorer.json",
+        "evaluation/fixtures/malformed-descriptor/journeys.json",
+        "evaluation/fixtures/malformed-descriptor/okf-explorer.json",
+        "evaluation/fixtures/tiny-producer/journeys.json",
+        "evaluation/fixtures/tiny-producer/okf-explorer.json",
+        "evaluation/fixtures/v0.1.0-degraded/journeys.json",
+        "evaluation/journeys.json",
+        "evaluation/questions.json",
+        "scripts/evaluate.py"
+      ],
+      "matched_paths": [
+        "evaluation/explorer-search-calibration-v0.2.0.json",
+        "evaluation/explorer-v0.2.0-journeys.json",
+        "evaluation/fixtures/degraded-descriptor/journeys.json",
+        "evaluation/fixtures/degraded-descriptor/okf-explorer.json",
+        "evaluation/fixtures/malformed-descriptor/journeys.json",
+        "evaluation/fixtures/malformed-descriptor/okf-explorer.json",
+        "evaluation/fixtures/tiny-producer/journeys.json",
+        "evaluation/fixtures/tiny-producer/okf-explorer.json",
+        "evaluation/fixtures/v0.1.0-degraded/journeys.json",
+        "evaluation/journeys.json",
+        "evaluation/questions.json",
+        "scripts/evaluate.py",
+        "tests/test_evaluate.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_evaluate.py"
+      ]
+    },
+    {
+      "id": "release-assurance-tooling",
+      "input_matches": [
+        ".github/workflows/pages.yml",
+        "pyproject.toml",
+        "requirements-dev.txt",
+        "requirements-lock.txt",
+        "scripts/check_okf.py",
+        "scripts/create_release_metadata.py",
+        "scripts/package_release.py"
+      ],
+      "matched_paths": [
+        ".github/workflows/pages.yml",
+        "pyproject.toml",
+        "requirements-dev.txt",
+        "requirements-lock.txt",
+        "scripts/check_okf.py",
+        "scripts/create_release_metadata.py",
+        "scripts/package_release.py",
+        "tests/test_okf.py",
+        "tests/test_release_metadata.py",
+        "tests/test_workflow.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_okf.py",
+        "tests/test_release_metadata.py",
+        "tests/test_workflow.py"
+      ]
+    },
+    {
+      "id": "impact-control",
+      "input_matches": [
+        "governance/artifact-dependency-graph.json",
+        "schemas/artifact-dependency-graph.schema.json",
+        "scripts/change_impact.py"
+      ],
+      "matched_paths": [
+        "governance/artifact-dependency-graph.json",
+        "schemas/artifact-dependency-graph.schema.json",
+        "scripts/change_impact.py",
+        "tests/test_change_impact.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_change_impact.py"
+      ]
+    },
+    {
+      "id": "documentation",
+      "input_matches": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CITATION.cff",
+        "README.md",
+        "docs/architecture.md",
+        "docs/evaluation.md",
+        "docs/maintenance-and-reproducibility.md",
+        "docs/product-contract.md",
+        "docs/release-assurance.md",
+        "governance/README.md",
+        "schemas/README.md",
+        "troubleshooting/Evaluate the okf-landregistry bundle.docx"
+      ],
+      "matched_paths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CITATION.cff",
+        "README.md",
+        "docs/architecture.md",
+        "docs/evaluation.md",
+        "docs/maintenance-and-reproducibility.md",
+        "docs/product-contract.md",
+        "docs/release-assurance.md",
+        "governance/README.md",
+        "schemas/README.md",
+        "troubleshooting/Evaluate the okf-landregistry bundle.docx"
+      ],
+      "validation_input_matches": []
+    }
+  ],
+  "release_approval_required": true,
+  "schema": "okf-change-impact-report.v1",
+  "stage1_review_required": true,
+  "unexplained_generated_paths": [],
+  "unmatched_paths": []
+}
