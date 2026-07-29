@@ -1,0 +1,1213 @@
+{
+  "schema": "okf-explorer-evaluation-suite.v1",
+  "title": "HM Land Registry OKF first-release candidate questions",
+  "description": "A bounded set of 24 candidate competency and retrieval questions. Expected propositions are hypotheses for independent verification, not gold answers.",
+  "status": "first-release-candidate",
+  "verification_status": "candidate-not-gold",
+  "research_cutoff": "2026-07-29",
+  "target_bundle": "../okf-explorer.json",
+  "persona_catalogue": "../personas/personas-and-user-stories.json",
+  "question_count": 24,
+  "suite_boundary": "The suite samples critical first-release roles and risks. It does not claim complete coverage of HM Land Registry services, users, law, guidance, datasets or APIs.",
+  "direct_source_baseline": {
+    "id": "BASELINE-DIRECT-OFFICIAL-SOURCES",
+    "method": "For each question, open the named canonical official source, record the page or contract identity and observation date, then compare the expected propositions and limitations with the bundle result.",
+    "comparison_dimensions": [
+      "correct official route",
+      "source and assertion authority",
+      "access and licence",
+      "scope and denominator",
+      "release, observation, registration and catalogue dates",
+      "legal or spatial limitation",
+      "language and accessibility"
+    ],
+    "restrictions": [
+      "Do not create an account or make a paid transaction.",
+      "Do not call authenticated APIs, the portal, Business Gateway or restricted search services.",
+      "Do not store credentials, certificates, session state or signed download links.",
+      "Treat expected propositions as candidates until independently reviewed."
+    ]
+  },
+  "hard_failures": [
+    {
+      "id": "HF-LEGAL-BOUNDARY",
+      "description": "A general or indicative boundary, title-plan line or INSPIRE polygon is presented as the exact legal boundary or definitive registered extent."
+    },
+    {
+      "id": "HF-LICENCE-ACCESS",
+      "description": "The result states or implies open, free or reusable access where an account, fee, bespoke licence, third-party right or other restriction applies."
+    },
+    {
+      "id": "HF-DATE-CURRENCY",
+      "description": "A GOV.UK or catalogue modification date, bundle generation date or observation date is presented as dataset release, registration or legal currency."
+    },
+    {
+      "id": "HF-AUTHORITY",
+      "description": "An unofficial, derived, normalized or catalogue assertion is presented as an official HMLR statement, or an informational online copy is presented as official proof."
+    },
+    {
+      "id": "HF-RESTRICTED-AUTOMATION",
+      "description": "The bundle performs, recommends or appears to authorize automated access to an authenticated, paid, portal, Business Gateway or terms-restricted service, or exposes a credential."
+    },
+    {
+      "id": "HF-COVERAGE",
+      "description": "The result claims complete geographic, authority, service or dataset coverage without a named denominator, as-of date and visible exclusions."
+    },
+    {
+      "id": "HF-ACCESSIBILITY",
+      "description": "A critical discovery or evidence-inspection task cannot be completed using a keyboard or lacks an accessible name, visible focus, status announcement or non-visual equivalent."
+    },
+    {
+      "id": "HF-WELSH-LANGUAGE",
+      "description": "Welsh availability or source-native Welsh content is suppressed, mistranslated, merged into English without a language distinction or falsely described as unavailable."
+    }
+  ],
+  "metrics": {
+    "retrieval": [
+      "expected-source recall at 5",
+      "first relevant result rank",
+      "facet task completion",
+      "zero-result recovery",
+      "query and filter URL restoration"
+    ],
+    "display": [
+      "expected proposition visibility",
+      "legal and spatial limitation visibility",
+      "licence and access visibility",
+      "date-label separation",
+      "plain-language metadata-gap wording"
+    ],
+    "accessibility": [
+      "keyboard task completion",
+      "accessible name coverage",
+      "visible and unobscured focus",
+      "status announcement",
+      "usable layout at 400 percent zoom",
+      "language metadata on Welsh text"
+    ],
+    "provenance_and_safety": [
+      "canonical-source resolution rate",
+      "citation coverage per material proposition",
+      "authority and derivation label accuracy",
+      "observation and release date traceability",
+      "hard-failure count",
+      "restricted-route non-invocation"
+    ]
+  },
+  "rubric": {
+    "retrieval": {
+      "points": 35,
+      "description": "Find the expected official source or evidence-bearing bundle record and preserve search/filter state."
+    },
+    "display": {
+      "points": 25,
+      "description": "Show the expected proposition, scope, access, date and legal or spatial limitation clearly."
+    },
+    "accessibility": {
+      "points": 20,
+      "description": "Support keyboard and assistive-technology inspection, focus, status and language requirements."
+    },
+    "govuk": {
+      "points": 20,
+      "description": "Resolve canonical provenance, distinguish authority and derivation, state licence/access correctly and avoid every hard failure."
+    }
+  },
+  "questions": [
+    {
+      "id": "LR-Q001",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "What does HM Land Registry cover?",
+      "intent": "Find the official statement of HMLR's remit and avoid applying the bundle outside its jurisdiction or authority.",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S01"
+      ],
+      "expected_terms": [
+        "HM Land Registry",
+        "England and Wales",
+        "ownership",
+        "official source"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/organisations/land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "HMLR registers ownership of land and property in England and Wales.",
+        "The OKF bundle is a discovery aid and does not replace HMLR's authoritative records or services."
+      ],
+      "near_miss_rule": "A result about Scotland, Northern Ireland, the wider UK housing market or a secondary catalogue does not establish HMLR's remit.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "tags": [
+        "public",
+        "scope",
+        "authority"
+      ]
+    },
+    {
+      "id": "LR-Q002",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "title register title summary title plan differences",
+      "intent": "Distinguish the main property-information products and what each contains.",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P03"
+      ],
+      "story_ids": [
+        "LR-S02"
+      ],
+      "expected_terms": [
+        "title register",
+        "title summary",
+        "title plan",
+        "general boundaries"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+        },
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/search-property-information-land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "The title register, title summary and title plan expose different information.",
+        "A title plan normally shows general rather than exact boundaries."
+      ],
+      "near_miss_rule": "A result that treats the three products as interchangeable or describes the title plan as exact is not correct.",
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "public",
+        "conveyancing",
+        "lending",
+        "title-information"
+      ]
+    },
+    {
+      "id": "LR-Q003",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "online copy or official copy proof of ownership",
+      "intent": "Find the route and limitation that distinguishes informational downloads from official copies.",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02"
+      ],
+      "story_ids": [
+        "LR-S02"
+      ],
+      "expected_terms": [
+        "online copy",
+        "official copy",
+        "proof of ownership",
+        "fee"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+        },
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/search-property-information-land-registry"
+        },
+        {
+          "source_id": "SRC-PORTAL",
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
+        }
+      ],
+      "expected_propositions": [
+        "An online copy is not proof of ownership.",
+        "Official copies have a distinct order route and evidential role."
+      ],
+      "near_miss_rule": "Merely linking to a paid download without explaining its evidential status is insufficient.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LICENCE-ACCESS"
+      ],
+      "tags": [
+        "public",
+        "conveyancing",
+        "official-copy"
+      ]
+    },
+    {
+      "id": "LR-Q004",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "does a title plan show the exact legal boundary",
+      "intent": "Retrieve authoritative boundary guidance and expose the general-boundaries limitation.",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ],
+      "story_ids": [
+        "LR-S03"
+      ],
+      "expected_terms": [
+        "general boundary",
+        "determined boundary",
+        "exact line",
+        "title plan"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+        }
+      ],
+      "expected_propositions": [
+        "Most registered title boundaries are general boundaries.",
+        "A determined boundary is a distinct recorded status and must not be inferred from map precision."
+      ],
+      "near_miss_rule": "A map scale, red edging or coordinate precision does not establish an exact legal boundary.",
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "tags": [
+        "public",
+        "conveyancing",
+        "gis",
+        "boundaries"
+      ]
+    },
+    {
+      "id": "LR-Q005",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "practice guide general agreed determined boundaries",
+      "intent": "Find the current official practice guidance needed to distinguish boundary concepts.",
+      "persona_ids": [
+        "LR-P02"
+      ],
+      "story_ids": [
+        "LR-S03"
+      ],
+      "expected_terms": [
+        "practice guide 40",
+        "general boundaries",
+        "boundary agreement",
+        "determined boundary"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+        }
+      ],
+      "expected_propositions": [
+        "HMLR practice-guide supplements distinguish general boundaries from agreements and determined boundaries.",
+        "The current official guide identity and update context remain inspectable."
+      ],
+      "near_miss_rule": "A blog post, forum answer or old PDF without a current canonical guide route is not sufficient authority.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "tags": [
+        "conveyancing",
+        "practice-guide",
+        "boundaries"
+      ]
+    },
+    {
+      "id": "LR-Q006",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "address search misses title search of the index map",
+      "intent": "Find the official recovery route when a property address search may not reveal every affected title.",
+      "persona_ids": [
+        "LR-P02"
+      ],
+      "story_ids": [
+        "LR-S04"
+      ],
+      "expected_terms": [
+        "property details",
+        "title number",
+        "search of the index map",
+        "official copies"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-PORTAL",
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
+        },
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-request-a-search-of-the-index-map"
+        },
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+        },
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/search-property-information-land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "Searching only by property details may not show every title affecting the property.",
+        "A search of the index map is the documented alternative for the relevant task."
+      ],
+      "near_miss_rule": "Retrying broader address text is not equivalent to the documented index-map process.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "tags": [
+        "conveyancing",
+        "official-copy",
+        "index-map"
+      ]
+    },
+    {
+      "id": "LR-Q007",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "portal Business Gateway professional access requirements",
+      "intent": "Distinguish professional service guidance from public discovery and make access restrictions visible.",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05"
+      ],
+      "story_ids": [
+        "LR-S04"
+      ],
+      "expected_terms": [
+        "Business e-services",
+        "portal",
+        "approved customer",
+        "Business Gateway"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-PORTAL",
+          "canonical_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+        },
+        {
+          "source_id": "SRC-BG-TECHDOC",
+          "canonical_url": "https://landregistry.github.io/bgtechdoc/"
+        }
+      ],
+      "expected_propositions": [
+        "Portal and Business Gateway are professional service surfaces with approval or credential requirements.",
+        "Public documentation does not authorize the bundle to make a transaction or production call."
+      ],
+      "near_miss_rule": "A public developer page is not evidence that the production service is anonymous or open for unrestricted automation.",
+      "hard_failure_ids": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "tags": [
+        "conveyancing",
+        "api",
+        "restricted-access"
+      ]
+    },
+    {
+      "id": "LR-Q008",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "what mortgage or lender information is in title information",
+      "intent": "Find what title information says about a lender or discharged mortgage without overstating evidential completeness.",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P03"
+      ],
+      "story_ids": [
+        "LR-S05"
+      ],
+      "expected_terms": [
+        "lender",
+        "mortgage",
+        "discharged",
+        "title register"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+        },
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/search-property-information-land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "Title information may identify a lender or indicate whether a mortgage has been discharged.",
+        "The required official evidence route remains distinct from the bundle summary."
+      ],
+      "near_miss_rule": "Absence of a field in a summary is not proof that no charge or relevant entry exists.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "lending",
+        "mortgage",
+        "title-information"
+      ]
+    },
+    {
+      "id": "LR-Q009",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "Price Paid Data current property value limitations",
+      "intent": "Retrieve the official Price Paid Data description, temporal coverage and reuse limitations.",
+      "persona_ids": [
+        "LR-P03",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S05"
+      ],
+      "expected_terms": [
+        "Price Paid Data",
+        "transaction",
+        "1995",
+        "accuracy"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+        }
+      ],
+      "expected_propositions": [
+        "Price Paid Data records qualifying lodged transactions rather than a current valuation.",
+        "Its coverage, update and accuracy notes must remain visible."
+      ],
+      "near_miss_rule": "A historic transaction amount is not a current valuation or proof of the current registered proprietor.",
+      "hard_failure_ids": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "lending",
+        "valuation",
+        "price-paid-data"
+      ]
+    },
+    {
+      "id": "LR-Q010",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "catalogue modified date versus dataset release date",
+      "intent": "Test whether the bundle keeps catalogue, observation, release and registration dates separate.",
+      "persona_ids": [
+        "LR-P03",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S05"
+      ],
+      "expected_terms": [
+        "catalogue modified",
+        "observed",
+        "dataset release",
+        "registration date"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-NDL",
+          "canonical_url": "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
+        }
+      ],
+      "expected_propositions": [
+        "Discovery-catalogue timestamps describe the catalogue record, not necessarily the underlying dataset.",
+        "Publisher-operated release information is the operational source for dataset cadence and current files."
+      ],
+      "near_miss_rule": "A recent page or bundle timestamp cannot repair an unknown dataset-release date.",
+      "hard_failure_ids": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "lending",
+        "provenance",
+        "dates"
+      ]
+    },
+    {
+      "id": "LR-Q011",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "HM Land Registry spatial datasets GIS GML shapefile API",
+      "intent": "Discover the publisher catalogue and compare spatial products by format, access and GIS requirement.",
+      "persona_ids": [
+        "LR-P04"
+      ],
+      "story_ids": [
+        "LR-S06"
+      ],
+      "expected_terms": [
+        "GIS",
+        "GML",
+        "shapefile",
+        "API"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "HMLR spatial products differ in format, cost, licence, update schedule and API availability.",
+        "Some polygon downloads require GIS software and can be large."
+      ],
+      "near_miss_rule": "A generic data catalogue record without the publisher's current access and technical details is insufficient.",
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "data",
+        "gis",
+        "formats"
+      ]
+    },
+    {
+      "id": "LR-Q012",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "INSPIRE polygon indicative or legal boundary",
+      "intent": "Verify that spatial discovery polygons are not presented as exact legal title or charge boundaries.",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ],
+      "story_ids": [
+        "LR-S03"
+      ],
+      "expected_terms": [
+        "INSPIRE",
+        "indicative",
+        "polygon",
+        "legal boundary"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/llc"
+        },
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+        }
+      ],
+      "expected_propositions": [
+        "Local Land Charges INSPIRE data shows indicative locations.",
+        "Indicative geometry is a discovery aid and does not establish an exact legal title boundary."
+      ],
+      "near_miss_rule": "Displaying a polygon on a precise basemap does not upgrade its legal meaning.",
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "tags": [
+        "gis",
+        "local-authority",
+        "boundaries"
+      ]
+    },
+    {
+      "id": "LR-Q013",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "which local authorities are in Local Land Charges INSPIRE data",
+      "intent": "Find the dated authority-level coverage statement and known migration limitation.",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S07"
+      ],
+      "expected_terms": [
+        "local authority",
+        "migrated",
+        "coverage",
+        "monthly"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/llc"
+        },
+        {
+          "source_id": "SRC-LLC-SERVICE",
+          "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+        }
+      ],
+      "expected_propositions": [
+        "Not every local authority dataset has migrated to HMLR.",
+        "Coverage must be stated against the observed authority list and date."
+      ],
+      "near_miss_rule": "The phrase England and Wales does not prove complete authority coverage.",
+      "hard_failure_ids": [
+        "HF-COVERAGE",
+        "HF-DATE-CURRENCY"
+      ],
+      "tags": [
+        "gis",
+        "local-authority",
+        "coverage"
+      ]
+    },
+    {
+      "id": "LR-Q014",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "spatial metadata CRS vintage Welsh place names",
+      "intent": "Test whether spatial records retain format, CRS or coordinate context, vintage, authority and language metadata where the source supplies them.",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P09"
+      ],
+      "story_ids": [
+        "LR-S06"
+      ],
+      "expected_terms": [
+        "CRS",
+        "vintage",
+        "source",
+        "Welsh place names"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
+        }
+      ],
+      "expected_propositions": [
+        "Spatial metadata should preserve the source, release or vintage, format and coordinate-reference information where available.",
+        "Welsh place names require language-aware presentation rather than silent normalization."
+      ],
+      "near_miss_rule": "A place label or representative point must not be converted into invented source geometry.",
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-WELSH-LANGUAGE"
+      ],
+      "tags": [
+        "gis",
+        "metadata",
+        "welsh"
+      ]
+    },
+    {
+      "id": "LR-Q015",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "Use land and property data API base URL version datasets",
+      "intent": "Retrieve the publisher-operated API contract, version and supported dataset scope.",
+      "persona_ids": [
+        "LR-P05"
+      ],
+      "story_ids": [
+        "LR-S08"
+      ],
+      "expected_terms": [
+        "REST",
+        "JSON",
+        "API v1",
+        "base URL"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD-API",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/api-information"
+        },
+        {
+          "source_id": "SRC-ULPD-API",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/api-documentation"
+        }
+      ],
+      "expected_propositions": [
+        "The service documents a RESTful JSON API under a versioned base URL.",
+        "The publisher documentation, not a central catalogue row, defines the operational contract."
+      ],
+      "near_miss_rule": "An API catalogue entry without the publisher contract cannot establish current operations or authentication.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "tags": [
+        "api",
+        "integration",
+        "contract"
+      ]
+    },
+    {
+      "id": "LR-Q016",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "what HMLR API data is public and what requires an account licence key",
+      "intent": "Distinguish public API documentation and example metadata from authenticated dataset access.",
+      "persona_ids": [
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S08"
+      ],
+      "expected_terms": [
+        "account",
+        "licence",
+        "API key",
+        "example data"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD-API",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/api-information"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
+        }
+      ],
+      "expected_propositions": [
+        "Public documentation and some example data can be inspected without treating the underlying dataset as anonymous access.",
+        "Authenticated dataset access requires the documented account, licence acceptance and API key."
+      ],
+      "near_miss_rule": "A publicly visible API URL or example response does not authorize anonymous bulk download.",
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "tags": [
+        "api",
+        "access",
+        "licensing"
+      ]
+    },
+    {
+      "id": "LR-Q017",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "which HM Land Registry services must not be automated anonymously",
+      "intent": "Ensure restricted portal, Business Gateway, local-search and authenticated data routes are discoverable without being invoked.",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S08"
+      ],
+      "expected_terms": [
+        "restricted",
+        "approved access",
+        "terms",
+        "credentials"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-PORTAL",
+          "canonical_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+        },
+        {
+          "source_id": "SRC-BG-TECHDOC",
+          "canonical_url": "https://landregistry.github.io/bgtechdoc/"
+        },
+        {
+          "source_id": "SRC-LLC-SERVICE",
+          "canonical_url": "https://search-local-land-charges.service.gov.uk/"
+        }
+      ],
+      "expected_propositions": [
+        "Public guidance may be indexed while transactional, search or production service calls remain restricted.",
+        "The bundle must not make authenticated calls or preserve credentials and signed links."
+      ],
+      "near_miss_rule": "Robots accessibility or a public landing page is not equivalent to permission to automate a service.",
+      "hard_failure_ids": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "tags": [
+        "api",
+        "conveyancing",
+        "restricted-access",
+        "safety"
+      ]
+    },
+    {
+      "id": "LR-Q018",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "OCOD monthly complete file change only update",
+      "intent": "Find the distribution and refresh contract needed for a reproducible monthly update.",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S09"
+      ],
+      "expected_terms": [
+        "monthly",
+        "complete file",
+        "change only",
+        "title number"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
+        }
+      ],
+      "expected_propositions": [
+        "OCOD publishes a complete monthly file and a change-only update.",
+        "A refresh must preserve file identity, release context and source observation rather than infer currency from the catalogue page."
+      ],
+      "near_miss_rule": "A page last-updated date is not a substitute for the file's release identity or covered month.",
+      "hard_failure_ids": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "data",
+        "api",
+        "refresh",
+        "ocod"
+      ]
+    },
+    {
+      "id": "LR-Q019",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "search local land charges coverage account official certificate",
+      "intent": "Find how public and official local-land-charge searches differ and whether an authority is covered.",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P06",
+        "LR-P09"
+      ],
+      "story_ids": [
+        "LR-S07"
+      ],
+      "expected_terms": [
+        "local land charges",
+        "account",
+        "official search certificate",
+        "local authority"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-LLC-SERVICE",
+          "canonical_url": "https://search-local-land-charges.service.gov.uk/"
+        }
+      ],
+      "expected_propositions": [
+        "The service covers England and Wales but authority migration remains relevant.",
+        "A user account and an official certificate route have distinct access and fee implications."
+      ],
+      "near_miss_rule": "A free personal search is not automatically an official search certificate.",
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-COVERAGE",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "tags": [
+        "local-authority",
+        "public",
+        "local-land-charges"
+      ]
+    },
+    {
+      "id": "LR-Q020",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "local land charge planning condition title boundary differences",
+      "intent": "Prevent conflation of local land charges, planning information, title registration and mapped boundaries.",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ],
+      "story_ids": [
+        "LR-S07"
+      ],
+      "expected_terms": [
+        "local land charge",
+        "planning condition",
+        "title",
+        "indicative location"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-LLC-SERVICE",
+          "canonical_url": "https://www.gov.uk/search-local-land-charges"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/llc"
+        }
+      ],
+      "expected_propositions": [
+        "Local land charges can include restrictions such as planning conditions but are not the complete planning record.",
+        "The search service, charge record, title record and indicative spatial dataset are distinct entities."
+      ],
+      "near_miss_rule": "A matching polygon or planning-related label does not prove the legal scope of a charge or registered title.",
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY",
+        "HF-COVERAGE"
+      ],
+      "tags": [
+        "local-authority",
+        "planning",
+        "semantic-boundary"
+      ]
+    },
+    {
+      "id": "LR-Q021",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "OCOD licence address data third party rights",
+      "intent": "Retrieve the dataset-specific licence and keep third-party address-data conditions visible.",
+      "persona_ids": [
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S10"
+      ],
+      "expected_terms": [
+        "OCOD licence",
+        "AddressBase",
+        "PAF",
+        "third-party rights"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod/licence/view"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
+        }
+      ],
+      "expected_propositions": [
+        "OCOD reuse is governed by a dataset-specific licence.",
+        "Property-address fields carry third-party intellectual-property conditions that must not be collapsed into a generic open-data statement."
+      ],
+      "near_miss_rule": "Public catalogue access or Crown ownership does not establish unrestricted redistribution of every field.",
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ],
+      "tags": [
+        "licensing",
+        "provenance",
+        "ocod"
+      ]
+    },
+    {
+      "id": "LR-Q022",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "Price Paid Data OGL attribution Royal Mail Ordnance Survey",
+      "intent": "Find the required attribution and layered address-data reuse conditions for Price Paid Data.",
+      "persona_ids": [
+        "LR-P03",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S10"
+      ],
+      "expected_terms": [
+        "Open Government Licence",
+        "attribution",
+        "Royal Mail",
+        "Ordnance Survey"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+        }
+      ],
+      "expected_propositions": [
+        "Price Paid Data is published under OGL with a specified attribution.",
+        "Address fields include third-party rights and their reuse conditions must remain visible."
+      ],
+      "near_miss_rule": "Stating only OGL without the address-data conditions is incomplete.",
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS"
+      ],
+      "tags": [
+        "licensing",
+        "lending",
+        "price-paid-data"
+      ]
+    },
+    {
+      "id": "LR-Q023",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "Use land and property data accessibility keyboard focus WCAG",
+      "intent": "Retrieve the applicable accessibility statement and test the bundle's equivalent critical journey.",
+      "persona_ids": [
+        "LR-P05",
+        "LR-P08"
+      ],
+      "story_ids": [
+        "LR-S11"
+      ],
+      "expected_terms": [
+        "WCAG 2.2 AA",
+        "keyboard",
+        "focus",
+        "screen reader"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
+        },
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy"
+        }
+      ],
+      "expected_propositions": [
+        "The publisher exposes an accessibility statement with keyboard, screen-reader, zoom and known-focus limitations.",
+        "The OKF site must test its own search, filter, result and source-link journey rather than inherit the source service's claim."
+      ],
+      "near_miss_rule": "A passing automated audit alone is not evidence that the complete keyboard and screen-reader task works.",
+      "hard_failure_ids": [
+        "HF-ACCESSIBILITY"
+      ],
+      "tags": [
+        "accessibility",
+        "api",
+        "wcag"
+      ]
+    },
+    {
+      "id": "LR-Q024",
+      "status": "first-release-candidate",
+      "verification_status": "candidate",
+      "question_type": "competency-and-retrieval",
+      "query": "HM Land Registry Welsh language services bilingual registers",
+      "intent": "Find the official Welsh-language commitment and preserve bilingual service and register context.",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P08",
+        "LR-P09"
+      ],
+      "story_ids": [
+        "LR-S12"
+      ],
+      "expected_terms": [
+        "Welsh Language Scheme",
+        "Cymraeg",
+        "bilingual register",
+        "English and Welsh"
+      ],
+      "expected_min_results": 1,
+      "expected_sources": [
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
+        }
+      ],
+      "expected_propositions": [
+        "HMLR identifies public services, correspondence and register contexts available in Welsh or bilingually.",
+        "Welsh labels need explicit language metadata, including mitigation for known screen-reader pronunciation issues."
+      ],
+      "near_miss_rule": "An English-only result is incomplete when the official source declares a Welsh route or bilingual context.",
+      "hard_failure_ids": [
+        "HF-WELSH-LANGUAGE",
+        "HF-ACCESSIBILITY"
+      ],
+      "tags": [
+        "welsh",
+        "accessibility",
+        "public"
+      ]
+    }
+  ]
+}

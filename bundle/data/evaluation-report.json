@@ -1,0 +1,476 @@
+{
+  "bundle_snapshot": "2026-07-29T091915Z",
+  "diagnostic_threshold_met": true,
+  "diagnostic_thresholds": {
+    "expected_source_success_at_k": 0.0
+  },
+  "g5_acceptance": "not-evaluated",
+  "k": 5,
+  "limitations": [
+    "This deterministic baseline is a retrieval diagnostic only.",
+    "It is not an independent G5 acceptance evaluation and cannot satisfy G5.",
+    "Expected propositions remain first-release candidates, not gold answers.",
+    "Accessibility, display, provenance semantics and hard failures require separate evaluation."
+  ],
+  "metric_definitions": {
+    "expected_source_success_at_k": "Fraction of questions retrieving at least one distinct expected canonical source URL in the top k.",
+    "expected_target_recall_at_k": "Fraction of all distinct expected canonical target URLs across the suite retrieved in the top k.",
+    "mean_reciprocal_rank": "Mean reciprocal rank of the first expected canonical source URL."
+  },
+  "metrics": {
+    "expected_source_success_at_k": 1.0,
+    "expected_target_recall_at_k": 0.6590909090909091,
+    "hard_failures_evaluated": false,
+    "mean_reciprocal_rank": 0.8611111111111112
+  },
+  "question_count": 24,
+  "record_source": {
+    "kind": "compact-search-index",
+    "path": "data/search/index.json",
+    "schema": "okf-hmlr-search-index.v1",
+    "snapshot_id": null
+  },
+  "results": [
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 2,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/organisations/land-registry"
+      ],
+      "query": "What does HM Land Registry cover?",
+      "question_id": "LR-Q001",
+      "top_urls": [
+        "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+        "https://www.gov.uk/government/organisations/land-registry",
+        "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy",
+        "https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts",
+        "https://hmlandregistry.blog.gov.uk/"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/search-property-information-land-registry"
+      ],
+      "query": "title register title summary title plan differences",
+      "question_id": "LR-Q002",
+      "top_urls": [
+        "https://www.gov.uk/search-property-information-land-registry",
+        "https://www.gov.uk/government/publications/altering-the-register-by-removing-land-from-a-title-plan-pg77",
+        "https://www.gov.uk/government/publications/historical-registertitle-plan-registration-hc1",
+        "https://www.gov.uk/government/publications/how-to-read-a-title-register-and-title-plan",
+        "https://use-land-property-data.service.gov.uk/datasets/llc"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 3,
+      "expected_target_recall_at_k": 0.3333333333333333,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/search-property-information-land-registry"
+      ],
+      "query": "online copy or official copy proof of ownership",
+      "question_id": "LR-Q003",
+      "top_urls": [
+        "https://www.gov.uk/search-property-information-land-registry",
+        "https://www.gov.uk/government/news/business-customers-can-withdraw-official-searches-online",
+        "https://www.gov.uk/government/publications/exempt-document-official-copy-registration-ex2",
+        "https://businessgateway.landregistry.gov.uk/bg2/s1/v1",
+        "https://businessgateway.landregistry.gov.uk/bg2/api/v2/titles/{title_number}/official-copies/availability"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+      ],
+      "query": "does a title plan show the exact legal boundary",
+      "question_id": "LR-Q004",
+      "top_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://www.gov.uk/search-property-information-land-registry",
+        "https://www.gov.uk/government/publications/altering-the-register-by-removing-land-from-a-title-plan-pg77",
+        "https://www.gov.uk/government/publications/exact-line-of-boundary-registration-db",
+        "https://www.gov.uk/government/publications/historical-registertitle-plan-registration-hc1"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+      ],
+      "query": "practice guide general agreed determined boundaries",
+      "question_id": "LR-Q005",
+      "top_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://www.gov.uk/government/publications/boundary-agreements-and-determined-boundaries-pg40s4",
+        "https://www.gov.uk/guidance/land-registry-portal-agreed-notice-to-note-a-charge-e-an1",
+        "https://www.gov.uk/guidance/land-registry-portal-agreed-notice-to-note-a-charging-order-e-an1",
+        "https://www.gov.uk/government/news/new-practice-guide-78-overseas-companies-and-limited-liability-partnerships"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 4,
+      "expected_target_recall_at_k": 0.75,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
+        "https://www.gov.uk/guidance/land-registry-portal-request-a-search-of-the-index-map",
+        "https://www.gov.uk/search-property-information-land-registry"
+      ],
+      "query": "address search misses title search of the index map",
+      "question_id": "LR-Q006",
+      "top_urls": [
+        "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
+        "https://www.gov.uk/guidance/land-registry-portal-request-a-search-of-the-index-map",
+        "https://www.gov.uk/government/publications/index-map-application-for-an-official-search-sim",
+        "https://www.gov.uk/government/publications/official-searches-of-the-index-map",
+        "https://www.gov.uk/search-property-information-land-registry"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 2,
+      "matched_expected_targets": [
+        "https://landregistry.github.io/bgtechdoc",
+        "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+      ],
+      "query": "portal Business Gateway professional access requirements",
+      "question_id": "LR-Q007",
+      "top_urls": [
+        "https://www.gov.uk/guidance/guidance-and-support-for-property-professionals",
+        "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+        "https://www.gov.uk/guidance/third-party-access-to-business-gateway",
+        "https://landregistry.github.io/bgtechdoc/",
+        "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/search-property-information-land-registry"
+      ],
+      "query": "what mortgage or lender information is in title information",
+      "question_id": "LR-Q008",
+      "top_urls": [
+        "https://www.gov.uk/search-property-information-land-registry",
+        "https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter",
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://www.gov.uk/government/organisations/land-registry/about/publication-scheme",
+        "https://www.legislation.gov.uk/ukpga/2002/9/contents"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+      ],
+      "query": "Price Paid Data current property value limitations",
+      "question_id": "LR-Q009",
+      "top_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+        "https://landregistry.data.gov.uk/",
+        "https://www.gov.uk/government/news/april-2016-price-paid-data",
+        "https://www.gov.uk/government/news/april-2017-price-paid-data",
+        "https://www.gov.uk/government/news/april-2018-price-paid-data"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
+      ],
+      "query": "catalogue modified date versus dataset release date",
+      "question_id": "LR-Q010",
+      "top_urls": [
+        "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership",
+        "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+        "https://use-land-property-data.service.gov.uk/",
+        "https://businessgateway.landregistry.gov.uk/bg2/api/v1/applications/{application_reference}/estimate-completion-date",
+        "https://use-land-property-data.service.gov.uk/datasets/av_req"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 2,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
+      ],
+      "query": "HM Land Registry spatial datasets GIS GML shapefile API",
+      "question_id": "LR-Q011",
+      "top_urls": [
+        "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+        "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
+        "https://use-land-property-data.service.gov.uk/datasets/llc"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 3,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/datasets/llc",
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+      ],
+      "query": "INSPIRE polygon indicative or legal boundary",
+      "question_id": "LR-Q012",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/inspire",
+        "https://use-land-property-data.service.gov.uk/datasets/nps",
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://use-land-property-data.service.gov.uk/datasets/llc",
+        "https://www.gov.uk/government/news/inspire-data-to-be-shared-under-open-terms"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/datasets/llc",
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+      ],
+      "query": "which local authorities are in Local Land Charges INSPIRE data",
+      "question_id": "LR-Q013",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/llc",
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme",
+        "https://search-local-land-charges.service.gov.uk/",
+        "https://www.gov.uk/government/news/five-local-authorities-join-hm-land-registry-s-local-land-charges-register",
+        "https://www.gov.uk/government/news/four-local-authorities-join-local-land-charges-register-in-january"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk"
+      ],
+      "query": "spatial metadata CRS vintage Welsh place names",
+      "question_id": "LR-Q014",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/",
+        "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
+        "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+        "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+        "https://use-land-property-data.service.gov.uk/datasets/inspire"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/api-documentation"
+      ],
+      "query": "Use land and property data API base URL version datasets",
+      "question_id": "LR-Q015",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/api-documentation",
+        "https://use-land-property-data.service.gov.uk/",
+        "https://use-land-property-data.service.gov.uk/accessibility-statement",
+        "https://github.com/LandRegistry/use-land-property-data",
+        "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 2,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/datasets/ocod"
+      ],
+      "query": "what HMLR API data is public and what requires an account licence key",
+      "question_id": "LR-Q016",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/api-documentation",
+        "https://use-land-property-data.service.gov.uk/datasets/ocod",
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
+        "https://use-land-property-data.service.gov.uk/",
+        "https://use-land-property-data.service.gov.uk/datasets/nps"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 3,
+      "expected_target_recall_at_k": 0.3333333333333333,
+      "first_expected_rank": 3,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+      ],
+      "query": "which HM Land Registry services must not be automated anonymously",
+      "question_id": "LR-Q017",
+      "top_urls": [
+        "https://www.gov.uk/government/organisations/land-registry",
+        "https://hmlandregistry.blog.gov.uk/",
+        "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+        "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
+        "https://www.gov.uk/guidance/hm-land-registry-registration-services-fees"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/datasets/ocod"
+      ],
+      "query": "OCOD monthly complete file change only update",
+      "question_id": "LR-Q018",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/ocod",
+        "https://www.gov.uk/government/publications/change-of-gender-cng",
+        "https://www.gov.uk/guidance/land-registry-portal-change-of-name-e-con",
+        "https://www.gov.uk/government/news/update-on-complying-with-a-restriction",
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://search-local-land-charges.service.gov.uk"
+      ],
+      "query": "search local land charges coverage account official certificate",
+      "question_id": "LR-Q019",
+      "top_urls": [
+        "https://search-local-land-charges.service.gov.uk/",
+        "https://github.com/LandRegistry/search-local-land-charges-ui",
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme",
+        "https://www.gov.uk/guidance/hm-land-registry-local-land-charges-search-results",
+        "https://www.gov.uk/government/publications/land-charges-official-search-application-k15"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/datasets/llc"
+      ],
+      "query": "local land charge planning condition title boundary differences",
+      "question_id": "LR-Q020",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/llc",
+        "https://search-local-land-charges.service.gov.uk/",
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://www.gov.uk/government/news/land-registry-to-widen-its-powers-and-take-on-local-land-charge-searches--2",
+        "https://github.com/LandRegistry/search-local-land-charge-api"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/datasets/ocod"
+      ],
+      "query": "OCOD licence address data third party rights",
+      "question_id": "LR-Q021",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/ocod",
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+        "https://hmlandregistry.blog.gov.uk/",
+        "https://landregistry.data.gov.uk/"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 1,
+      "expected_target_recall_at_k": 1.0,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+      ],
+      "query": "Price Paid Data OGL attribution Royal Mail Ordnance Survey",
+      "question_id": "LR-Q022",
+      "top_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+        "https://landregistry.data.gov.uk/",
+        "https://www.gov.uk/government/news/additional-price-paid-data-to-be-released-in-october",
+        "https://www.gov.uk/government/news/april-2016-price-paid-data",
+        "https://www.gov.uk/government/news/april-2017-price-paid-data"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://use-land-property-data.service.gov.uk/accessibility-statement"
+      ],
+      "query": "Use land and property data accessibility keyboard focus WCAG",
+      "question_id": "LR-Q023",
+      "top_urls": [
+        "https://use-land-property-data.service.gov.uk/accessibility-statement",
+        "https://use-land-property-data.service.gov.uk/",
+        "https://use-land-property-data.service.gov.uk/api-documentation",
+        "https://github.com/LandRegistry/use-land-property-data",
+        "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
+      ]
+    },
+    {
+      "expected_source_success_at_k": true,
+      "expected_target_count": 2,
+      "expected_target_recall_at_k": 0.5,
+      "first_expected_rank": 1,
+      "matched_expected_targets": [
+        "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
+      ],
+      "query": "HM Land Registry Welsh language services bilingual registers",
+      "question_id": "LR-Q024",
+      "top_urls": [
+        "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
+        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme",
+        "https://www.gov.uk/government/organisations/land-registry",
+        "https://hmlandregistry.blog.gov.uk/",
+        "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+      ]
+    }
+  ],
+  "schema": "okf-hmlr-lexical-retrieval-diagnostic.v1",
+  "search_contract": "pages/search-contract.json",
+  "search_contract_sha256": "7d971e68bc417115959be70c8c5dd622ce2e53fe721cd6d2b8c3b3b90b9f3c05",
+  "status": "retrieval-diagnostic-not-independent-g5-acceptance"
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "okf-rights-review.v1",
+  "project": "HM Land Registry public-estate OKF Bundle",
+  "review_state": "reviewed-scaffold",
+  "release_approved": false,
+  "reviewed_at": "2026-07-29",
+  "research_cutoff": "2026-07-29",
+  "scope": "Public metadata acquisition and static metadata publication only.",
+  "legal_advice": false,
+  "default_rule": "Unknown rights, access or source-layer classification fail closed and require human review.",
+  "field_semantics": "collection_allowed and publication_allowed apply to the assessed source-content layer. When either is false, allowed_fields is a narrow public-metadata exception and does not authorise service operation or source-content reuse.",
+  "assessments": [
+    {
+      "id": "RIGHT-GOVUK",
+      "layer": "GOV.UK and HM Land Registry page metadata",
+      "source_family_ids": ["SRC-GOVUK-SEARCH", "SRC-GOVUK-CONTENT", "SRC-GOVUK-HMLR"],
+      "status": "permitted",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["title", "description", "canonical_url", "content_type", "publisher_dates", "language", "source_identifiers"],
+      "prohibited_content": ["full page bodies", "attachments unless separately reviewed", "third-party assets"],
+      "licence": "Open Government Licence v3.0, subject to source exceptions",
+      "attribution": "Retain source publisher and route and provide OGL attribution.",
+      "evidence_refs": ["EV-HMLR-ORG", "EV-PUBLIC-DATA"],
+      "review_trigger": "Page exception, attachment, source-field expansion or OGL change."
+    },
+    {
+      "id": "RIGHT-DATASETS",
+      "layer": "HM Land Registry dataset metadata and distributions",
+      "source_family_ids": ["SRC-ULPD", "SRC-ULPD-API", "SRC-LINKED-DATA"],
+      "status": "conditional",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["dataset title", "description", "canonical URL", "technical metadata", "coverage", "cadence", "format", "access model", "fee", "licence and attribution metadata"],
+      "prohibited_content": ["production data records", "bulk files", "signed download URLs", "authenticated responses"],
+      "licence": "Per dataset and distribution; no bundle-wide source-data licence.",
+      "attribution": "Preserve exact publisher-specified HM Land Registry, Ordnance Survey, Royal Mail, GeoPlace or other attribution.",
+      "evidence_refs": ["EV-PUBLIC-DATA", "EV-ULPD", "EV-INSPIRE-DATA"],
+      "review_trigger": "New dataset/distribution, sample publication, access change, licence change or third-party field."
+    },
+    {
+      "id": "RIGHT-RESTRICTED",
+      "layer": "Property information, Local Land Charges, portal and Business Gateway services",
+      "source_family_ids": ["SRC-PROPERTY-SERVICE", "SRC-LLC-SERVICE", "SRC-PORTAL", "SRC-BG-TECHDOC"],
+      "status": "prohibited",
+      "collection_allowed": false,
+      "publication_allowed": false,
+      "allowed_fields": ["public service title", "public description", "official documentation URL", "access requirement", "terms URL"],
+      "prohibited_content": ["search execution", "monitoring", "authenticated response", "paid product", "certificate", "user result", "copied service content"],
+      "licence": "Service-specific terms.",
+      "attribution": "Retain publisher and official route.",
+      "evidence_refs": ["EV-PROPERTY-SERVICE", "EV-LLC-TERMS", "EV-BG-DOCS"],
+      "review_trigger": "Any proposal to call a service or collect fields beyond public descriptions."
+    },
+    {
+      "id": "RIGHT-GITHUB",
+      "layer": "HM Land Registry public GitHub repository metadata",
+      "source_family_ids": ["SRC-GITHUB"],
+      "status": "conditional",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["repository name", "description", "URL", "topics", "timestamps", "fork state", "archive state", "declared licence identifier"],
+      "prohibited_content": ["repository source trees", "secrets", "issue or pull-request user content", "licence inference when absent"],
+      "licence": "Per repository; missing licence means no code-reuse assumption.",
+      "attribution": "Retain organisation, repository URL and declared licence identifier.",
+      "evidence_refs": ["EV-GITHUB"],
+      "review_trigger": "Field expansion beyond repository metadata or source-code redistribution."
+    },
+    {
+      "id": "RIGHT-CDDO",
+      "layer": "Central Digital and Data Office API Catalogue metadata",
+      "source_family_ids": ["SRC-CDDO-API"],
+      "status": "conditional",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["provider-filtered catalogue metadata", "source commit", "publisher and documentation routes"],
+      "prohibited_content": ["inferred endpoint rights", "inferred anonymous access", "catalogue-only operational assertion"],
+      "licence": "Catalogue repository terms and per-service terms.",
+      "attribution": "Attribute the catalogue and preserve the publisher-operated HMLR authority link.",
+      "evidence_refs": ["EV-CDDO", "EV-BG-DOCS"],
+      "review_trigger": "Catalogue licence change or operational claim based on catalogue-only evidence."
+    },
+    {
+      "id": "RIGHT-PERSONAL",
+      "layer": "Property, register, help-forum and user-submitted personal information",
+      "source_family_ids": ["SRC-CUSTOMER-HELP", "SRC-PROPERTY-SERVICE", "SRC-LLC-SERVICE"],
+      "status": "prohibited",
+      "collection_allowed": false,
+      "publication_allowed": false,
+      "allowed_fields": ["top-level public help and privacy route metadata"],
+      "prohibited_content": ["names", "personal contact details", "property-level ownership or charge data", "user queries", "forum posts", "uploads", "live search results"],
+      "licence": "Not applicable.",
+      "attribution": "Not applicable.",
+      "evidence_refs": ["EV-PERSONAL-INFO", "EV-CUSTOMER-HELP"],
+      "review_trigger": "Any personal-data discovery or proposal to include user- or property-level content."
+    }
+  ],
+  "release_checks": [
+    "Every public record resolves to exactly one current applicable rights assessment.",
+    "Every record has explicit access and rights states; unknown fails closed.",
+    "Allowlisted public fields only are present.",
+    "No credentials, certificates, tokens, signed URLs or personal-level records are present.",
+    "Required source and third-party attribution is visible.",
+    "A reviewer samples every adapter and all error/outlier buckets.",
+    "The completed review binds the exact candidate digest."
+  ],
+  "open_items": [
+    "Owner approval of the public release and canonical identity (DEC-RELEASE).",
+    "Candidate-specific field inventory and safety-scan receipt.",
+    "Independent review of per-record licence and attribution projections."
+  ]
+}

@@ -1,0 +1,99 @@
+name: Verify and publish the HM Land Registry OKF
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install pinned profile-validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Validate the locked Stage 1 profile
+        run: >-
+          python scripts/check_domain_profile.py
+          domain-profile/domain-profile.json
+          --equivalent domain-profile/domain-profile.yaml
+
+      - name: Build offline from the frozen snapshot
+        run: python scripts/build.py --replace
+
+      - name: Run deterministic and safety tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run the first-release retrieval diagnostic
+        run: python scripts/evaluate.py --min-recall-at-k 0.90
+
+      - name: Confirm committed and verified publication bytes match
+        run: |
+          git diff --exit-code -- bundle
+          git ls-files --others --exclude-standard -- bundle \
+            > "${RUNNER_TEMP}/untracked-bundle-files.txt"
+          if [[ -s "${RUNNER_TEMP}/untracked-bundle-files.txt" ]]; then
+            echo "::error::Generated bundle contains untracked files"
+            sed 's/^/untracked: /' "${RUNNER_TEMP}/untracked-bundle-files.txt"
+            exit 1
+          fi
+
+      - name: Confirm the exact release root is approved
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+          vars.OKF_RELEASE_ROOT_SHA256 != ''
+        env:
+          OKF_RELEASE_ROOT_SHA256: ${{ vars.OKF_RELEASE_ROOT_SHA256 }}
+        run: python scripts/check_release_approval.py
+
+      - name: Configure GitHub Pages
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+          vars.OKF_RELEASE_ROOT_SHA256 != ''
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
+
+      - name: Upload the exact verified artifact
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+          vars.OKF_RELEASE_ROOT_SHA256 != ''
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
+        with:
+          path: bundle
+
+  deploy:
+    if: >-
+      github.event_name != 'pull_request' &&
+      github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+      vars.OKF_RELEASE_ROOT_SHA256 != ''
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the verified artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+.venv/
+uv.lock
+.coverage
+htmlcov/
+evaluation/latest-report.json
+.okf-build-*/
+source/snapshots/.staging-*/

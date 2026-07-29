@@ -1,0 +1,1967 @@
+$schema: https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/domain-profile.schema.json
+schema: okf-domain-profile.v1
+profile_id: urn:okf-domain-profile:hm-land-registry-public-estate:v1
+version: "1"
+status: reviewed
+prepared_at: "2026-07-29T07:53:38Z"
+research_cutoff: "2026-07-29"
+title: HM Land Registry public-estate domain profile
+description: >-
+  A snapshot-bounded, metadata-led profile for discovering HM Land Registry
+  guidance, forms, services, datasets, APIs, developer resources and public
+  repositories without replacing authoritative sources or redistributing
+  restricted property data.
+
+intent:
+  problem: >-
+    HM Land Registry material is spread across GOV.UK, publisher-operated data
+    and transaction services, developer documentation, linked data, help
+    systems, GitHub and an official blog, with materially different authority,
+    freshness, access and reuse conditions.
+  desired_outcomes:
+    - People and agents can find the authoritative route for a land-registration task.
+    - Data users can compare datasets by coverage, cadence, format, access and licence.
+    - Property professionals and developers can distinguish public guidance from restricted operational services.
+    - Every discovery result exposes its source, observation date, authority role and material caveats.
+  non_goals:
+    - The bundle will not provide legal advice or determine ownership, boundaries or priority.
+    - The bundle will not contain title-register, title-plan, search-result or bulk property records.
+    - The bundle will not authenticate to, automate or monitor restricted HM Land Registry services.
+    - The bundle will not claim completeness outside a named, dated denominator.
+  target_okf_version: "0.2"
+  risk_level: high
+
+input_snapshot:
+  locations:
+    - ../research/source-family-inventory.json
+    - ../source/snapshots/2026-07-29T091915Z/manifest.json
+    - https://www.gov.uk/api/search.json?filter_organisations=land-registry
+    - https://use-land-property-data.service.gov.uk/
+    - https://github.com/LandRegistry
+    - https://github.com/co-cddo/api-catalogue
+  snapshot_id: hmlr-domain-warmup-20260729
+  inventory_sha256: d463585dfa9d427a8c88dbf499b3df4da1bf7d0dcc0c73644bca817b32c2c30e
+  item_count: 15
+  byte_count: 13816
+  sampling_method: >-
+    Census of source families; exact GOV.UK Search count; official collection
+    and service-page review; stratified review of public, professional,
+    dataset, geospatial, API, governance, rights and accessibility routes.
+  exclusions:
+    - Page bodies and binary attachments
+    - Authenticated service results and paid documents
+    - Bulk title, ownership, address, polygon and transaction records
+    - Public-forum posts and user uploads
+    - Unofficial mirrors and third-party property-data services
+
+collection_profile:
+  document_families:
+    - GOV.UK guidance, forms, collections, statistics, notices and corporate publications
+    - Dataset landing pages, technical specifications and distribution metadata
+    - Transactional and informational service descriptions
+    - API and Business Gateway developer documentation
+    - Public source-code repository metadata
+    - Help, accessibility, privacy and rights statements
+    - Official blog and subscription-channel metadata
+  formats:
+    - HTML
+    - JSON
+    - CSV
+    - Markdown
+    - XML, WSDL and XSD
+    - GML
+    - PDF, ODT and ODS metadata only
+  languages:
+    - en-GB
+    - cy where an official Welsh representation is linked
+  date_ranges:
+    - Historical 1862 Act Register material
+    - Current public material observed through 2026-07-29
+  representation_relationships:
+    - A GOV.UK route may have HTML, Welsh, attachment and Content API representations.
+    - A dataset may have landing page, technical specification, full, delta, API and linked-data distributions.
+    - A Business Gateway product may have documentation, schema, WSDL, test and production endpoints.
+  duplicate_policy: >-
+    Preserve source-native routes and identifiers; relate alternate
+    representations without collapsing documents, datasets, distributions,
+    services or versions.
+  extraction_constraints:
+    - Metadata only from public, bounded routes.
+    - Do not follow signed download URLs or store credentials.
+    - Do not automate services whose terms prohibit automated agents.
+    - Bound response size, redirects and pagination; reject unsafe URLs.
+  sensitivity_findings:
+    - Land-register information can contain personal information even when statutory access exists.
+    - Corporate and Price Paid datasets contain third-party address rights.
+    - Public forum content can expose personal or sensitive information.
+    - Property searches and title products have legal and financial consequences.
+
+scope:
+  record_definition: >-
+    One source-native public discovery object: a GOV.UK edition/route, HMLR
+    dataset, operational service, API product, public repository or governed
+    source-family entry. Distributions and versions remain separately typed
+    when represented.
+  included:
+    - All records returned by the frozen GOV.UK Search query attributed to organisation slug land-registry.
+    - Publisher-operated HMLR dataset and service metadata selected by deterministic source adapters.
+    - Public HMLR GitHub repository metadata and CDDO API Catalogue records when acquired.
+    - Source-family, rights, standards, persona, evaluation and provenance control records.
+  excluded:
+    - Live property, title, ownership, address, charge, application and search-result data.
+    - Full GOV.UK page bodies and downloaded attachments.
+    - Authenticated API responses, portal content and paid products.
+    - Third-party republications without official provenance.
+  boundary_status: partial
+  denominators:
+    - id: DEN-GOVUK
+      description: GOV.UK Search records attributed to organisation slug land-registry.
+      value: 1866
+      as_of: "2026-07-29"
+      basis: GOV.UK Search API total observed with count=0.
+      evidence_refs: [EV-GOVUK-SEARCH, EV-ACQUISITION-SNAPSHOT]
+    - id: DEN-ULPD
+      description: Dataset entries visible on the Use land and property data catalogue.
+      value: 14
+      as_of: "2026-07-29"
+      basis: Publisher catalogue observation; requires deterministic adapter reconciliation before a completeness claim.
+      evidence_refs: [EV-ULPD]
+    - id: DEN-CDDO-API
+      description: CDDO API Catalogue rows whose provider is hm-land-registry.
+      value: 15
+      as_of: "2026-07-29"
+      basis: Exact frozen live provider-filtered official catalogue observation; an older sibling seed contained 27 records.
+      evidence_refs: [EV-CDDO, EV-ACQUISITION-SNAPSHOT]
+    - id: DEN-GITHUB
+      description: Public repositories displayed for the LandRegistry GitHub organisation.
+      value: 289
+      as_of: "2026-07-29"
+      basis: Exact frozen public GitHub API census.
+      evidence_refs: [EV-GITHUB, EV-ACQUISITION-SNAPSHOT]
+  unexplained_omissions:
+    - No global page-level denominator exists across all associated HMLR domains.
+    - Blog posts, help-centre articles and forum content are not enumerated in this profile.
+    - The exact current Business Gateway service denominator needs publisher-pack reconciliation.
+  snapshot_policy: snapshot-bounded
+
+authority_model:
+  source_authorities:
+    - HM Land Registry is authoritative for its current formal guidance, services, datasets and operational documentation.
+    - Legislation.gov.uk is authoritative for enacted legislation and official revised text.
+    - Government Digital Service is authoritative for GOV.UK Search and Content API metadata.
+    - Repository owners and dataset licensors are authoritative for their own licences and access terms.
+  semantic_authorities:
+    - Source-native HMLR definitions, identifiers, exclusions and version semantics take precedence over local normalization.
+    - Current legislation and formal notices outrank older service matrices, roadmaps and catalogue summaries.
+    - Publisher-operated dataset pages outrank discovery catalogues for cadence, access and operational status.
+  operational_authorities:
+    - Publisher-operated service pages, developer packs, terms and status notices define current operation.
+    - The repository maintainer controls only the derived static publication and its release state.
+  decision_authorities:
+    - The project owner approves scope, profile and release decisions.
+    - HM Land Registry and relevant rights holders alone can determine source access, licence and official interpretation.
+
+claims:
+  - id: CLAIM-GOVUK-DENOMINATOR
+    statement: GOV.UK Search returned 1,866 records attributed to HM Land Registry on the research cutoff.
+    claim_status: observed
+    workflow_status: verified
+    derivation: source-native
+    authority: Government Digital Service Search API observation
+    confidence:
+      level: high
+      score: null
+      calibrated: false
+      method: Exact API total from a bounded query.
+      basis: [EV-GOVUK-SEARCH]
+      limitations:
+        - The total can change after the observation time.
+        - Organisation attribution is not a claim that every result remains current guidance.
+    evidence_refs: [EV-GOVUK-SEARCH]
+    decision_refs: [DEC-ARCHITECTURE]
+    gap_refs: [GAP-ASSOCIATED-DENOMINATOR]
+  - id: CLAIM-SOURCE-AUTHORITY
+    statement: Publisher-operated HMLR pages are the operational authority when discovery catalogues are older or less specific.
+    claim_status: corroborated
+    workflow_status: accepted
+    derivation: normalized
+    authority: HM Land Registry public-data and dataset pages
+    confidence:
+      level: high
+      score: null
+      calibrated: false
+      method: Cross-check of HMLR public-data policy, catalogue and canonical dataset pages.
+      basis: [EV-PUBLIC-DATA, EV-ULPD]
+      limitations:
+        - Formal legislation and notices can still control legal requirements.
+    evidence_refs: [EV-PUBLIC-DATA, EV-ULPD]
+    decision_refs: [DEC-AUTHORITY]
+    gap_refs: []
+  - id: CLAIM-MIXED-RIGHTS
+    statement: Public availability and zero price do not establish a common right to redistribute HMLR data.
+    claim_status: corroborated
+    workflow_status: accepted
+    derivation: source-native
+    authority: HM Land Registry public-data policy and dataset-specific terms
+    confidence:
+      level: high
+      score: null
+      calibrated: false
+      method: Direct review of OGL, bespoke, direct-use, exploration and commercial licence statements.
+      basis: [EV-PUBLIC-DATA, EV-ULPD, EV-LLC-TERMS]
+      limitations:
+        - A release must recheck the terms applying to each represented layer.
+    evidence_refs: [EV-PUBLIC-DATA, EV-ULPD, EV-LLC-TERMS]
+    decision_refs: [DEC-METADATA-ONLY]
+    gap_refs: []
+  - id: CLAIM-BOUNDARY-RISK
+    statement: Title plans and polygon products normally show general or indicative extents rather than exact legal boundaries.
+    claim_status: corroborated
+    workflow_status: accepted
+    derivation: source-native
+    authority: HM Land Registry property and INSPIRE guidance
+    confidence:
+      level: high
+      score: null
+      calibrated: false
+      method: Direct review of property-information and INSPIRE dataset guidance.
+      basis: [EV-PROPERTY-SERVICE, EV-INSPIRE-DATA]
+      limitations: []
+    evidence_refs: [EV-PROPERTY-SERVICE, EV-INSPIRE-DATA]
+    decision_refs: []
+    gap_refs: []
+  - id: CLAIM-RESTRICTED-AUTOMATION
+    statement: Restricted transactional services must not be treated as anonymous public APIs or automated by the bundle.
+    claim_status: corroborated
+    workflow_status: accepted
+    derivation: source-native
+    authority: HM Land Registry service terms and developer documentation
+    confidence:
+      level: high
+      score: null
+      calibrated: false
+      method: Direct review of LLC terms, Business Gateway guidance and ULPD API authentication.
+      basis: [EV-LLC-TERMS, EV-BG-DOCS, EV-ULPD-API]
+      limitations: []
+    evidence_refs: [EV-LLC-TERMS, EV-BG-DOCS, EV-ULPD-API]
+    decision_refs: [DEC-METADATA-ONLY]
+    gap_refs: []
+  - id: CLAIM-LARGE-CORPUS
+    statement: The declared GOV.UK denominator and associated source lanes justify a lazy large-corpus bundle rather than a small in-memory Markdown bundle.
+    claim_status: corroborated
+    workflow_status: accepted
+    derivation: rule-derived
+    authority: OKF Explorer authoring profile applied to observed counts
+    confidence:
+      level: high
+      score: null
+      calibrated: false
+      method: Architecture rule based on the exact GOV.UK count and additional independently refreshed lanes.
+      basis: [EV-INVENTORY, EV-OKF-AUTHORING]
+      limitations:
+        - The initial scaffold may use compact single-file indexes while preserving the shard contract.
+    evidence_refs: [EV-INVENTORY, EV-OKF-AUTHORING]
+    decision_refs: [DEC-ARCHITECTURE]
+    gap_refs: []
+
+sources:
+  - id: SRC-GOVUK
+    title: GOV.UK Search and HM Land Registry publishing pages
+    owner: Government Digital Service and HM Land Registry
+    authority_role: official-reference
+    url: https://www.gov.uk/api/search.json?filter_organisations=land-registry
+    access_status: verified-working
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [GOV.UK metadata, guidance, forms, statistics, notices, corporate publications]
+    access_methods: [Bounded public JSON GET, public HTML GET]
+    formats: [JSON, HTML, attachment metadata]
+    schemas: [GOV.UK Search API result]
+    identifier_model: Preserve the GOV.UK route and any content identifier supplied by the source.
+    version_model: Editions and routes can change; snapshot the observed metadata and do not infer document version from URL alone.
+    update_cadence: Continuous
+    coverage: Exact for the dated GOV.UK Search denominator only.
+    coverage_denominator_ref: DEN-GOVUK
+    known_omissions: [Full page bodies, attachments, unindexed material]
+    acquisition_method: Paginated, size-bounded JSON envelopes plus a canonical normalized projection.
+    rights_ref: RIGHT-GOVUK
+    freshness_policy: Record publisher public_timestamp separately from retrieval and bundle generation.
+    evidence_refs: [EV-GOVUK-SEARCH, EV-HMLR-ORG, EV-ACQUISITION-SNAPSHOT]
+  - id: SRC-DATA
+    title: Use land and property data
+    owner: HM Land Registry
+    authority_role: authoritative
+    url: https://use-land-property-data.service.gov.uk/
+    access_status: verified-working
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [Dataset catalogue, dataset landing pages, technical specifications, licences]
+    access_methods: [Public HTML GET, authenticated API documented but not called]
+    formats: [HTML, JSON documentation, CSV/GML/ZIP distribution metadata]
+    schemas: [Dataset-specific technical specifications]
+    identifier_model: Preserve the dataset slug, canonical landing page and source-native distribution names.
+    version_model: Preserve full, change-only, historic and current releases separately.
+    update_cadence: Mixed; static, monthly, quarterly and six-monthly.
+    coverage: Fourteen landing-page entries were observed; deterministic reconciliation is required before claiming completeness.
+    coverage_denominator_ref: DEN-ULPD
+    known_omissions: [Authenticated metadata, production data files, signed download links]
+    acquisition_method: Source-specific landing-page adapters with evidence URL and observation time.
+    rights_ref: RIGHT-DATASETS
+    freshness_policy: Record dataset cadence and release date separately from landing-page modification time.
+    evidence_refs: [EV-ULPD, EV-PUBLIC-DATA]
+  - id: SRC-ULPD-API
+    title: Use land and property data API v1
+    owner: HM Land Registry
+    authority_role: authoritative
+    url: https://use-land-property-data.service.gov.uk/api-documentation
+    access_status: restricted
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [REST API documentation]
+    access_methods: [Documentation-only public GET]
+    formats: [HTML, JSON examples]
+    schemas: [okf-recorded REST endpoint contract]
+    identifier_model: Dataset name and file name in the API path.
+    version_model: API version 1.0; resource history is distinct from current files.
+    update_cadence: Unknown documentation cadence
+    coverage: Documentation names five accessible datasets; authenticated enumeration was not attempted.
+    known_omissions: [Authenticated responses, API keys, signed download URLs]
+    acquisition_method: Documentation adapter only.
+    rights_ref: RIGHT-DATASETS
+    freshness_policy: Treat examples as examples; current state requires authenticated live validation by an authorised caller.
+    evidence_refs: [EV-ULPD-API]
+  - id: SRC-BUSINESS-GATEWAY
+    title: Business Gateway developer pack
+    owner: HM Land Registry
+    authority_role: authoritative
+    url: https://landregistry.github.io/bgtechdoc/
+    access_status: verified-working
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [API documentation, WSDL, XSD, SOAP and REST service contracts]
+    access_methods: [Public documentation GET, restricted test and production services]
+    formats: [HTML, XML, WSDL, XSD, JSON]
+    schemas: [WSDL 1.1, XML Schema, service-specific REST contracts]
+    identifier_model: Canonical documentation route plus source-native service and schema version.
+    version_model: Preserve legacy and current packs, service versions, test and production endpoints separately.
+    update_cadence: Publisher-managed
+    coverage: Exact current service denominator remains unresolved.
+    known_omissions: [Authenticated calls, credentials, certificate material]
+    acquisition_method: Pin the official repository commit and normalize documentation metadata.
+    rights_ref: RIGHT-RESTRICTED
+    freshness_policy: Current legal notices and publisher documentation outrank older catalogue rows.
+    evidence_refs: [EV-BG-DOCS]
+  - id: SRC-GITHUB
+    title: HM Land Registry public GitHub organisation
+    owner: HM Land Registry
+    authority_role: official-reference
+    url: https://github.com/LandRegistry
+    access_status: verified-working
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [Public source-code repository metadata]
+    access_methods: [GitHub public API]
+    formats: [JSON, Markdown]
+    schemas: [GitHub repository object]
+    identifier_model: Preserve repository full_name and html_url.
+    version_model: Repository metadata is a mutable pointer; releases and commits are separate immutable identities.
+    update_cadence: Continuous
+    coverage: Exact frozen public API census of 289 repositories.
+    coverage_denominator_ref: DEN-GITHUB
+    known_omissions: [Private repositories, repository content, release assets]
+    acquisition_method: Paginated public repository-metadata census.
+    rights_ref: RIGHT-GITHUB
+    freshness_policy: Record pushed_at, archived, fork and licence independently from observation time.
+    evidence_refs: [EV-GITHUB, EV-ACQUISITION-SNAPSHOT]
+  - id: SRC-CDDO
+    title: CDDO API Catalogue
+    owner: Central Digital and Data Office
+    authority_role: official-reference
+    url: https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv
+    access_status: verified-working
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [Government API discovery catalogue]
+    access_methods: [Public CSV GET]
+    formats: [CSV]
+    schemas: [CDDO API Catalogue CSV]
+    identifier_model: Preserve URL, name, provider and source dates.
+    version_model: Pin the catalogue commit used for acquisition.
+    update_cadence: Repository-managed
+    coverage: Fifteen live rows attributed to provider hm-land-registry; an older sibling seed contained 27.
+    coverage_denominator_ref: DEN-CDDO-API
+    known_omissions: [Licence and authentication details are often absent]
+    acquisition_method: Provider-filtered CSV snapshot.
+    rights_ref: RIGHT-CDDO
+    freshness_policy: Treat catalogue dates as record metadata; re-verify operation against HMLR documentation.
+    evidence_refs: [EV-CDDO, EV-ACQUISITION-SNAPSHOT]
+  - id: SRC-RESTRICTED-SERVICES
+    title: Property, Local Land Charges, portal and Business e-services
+    owner: HM Land Registry
+    authority_role: authoritative
+    url: https://www.gov.uk/search-property-information-land-registry
+    access_status: restricted
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [Public service descriptions and terms]
+    access_methods: [Public guidance GET only]
+    formats: [HTML]
+    schemas: []
+    identifier_model: Preserve each canonical service and guidance URL.
+    version_model: Service state is mutable and must be observed per release.
+    update_cadence: Continuous
+    coverage: Metadata-only descriptions of selected high-risk services.
+    known_omissions: [Search results, accounts, purchases, portal content]
+    acquisition_method: Public guidance and terms review only.
+    rights_ref: RIGHT-RESTRICTED
+    freshness_policy: Check service terms, fees and availability at time of use.
+    evidence_refs: [EV-PROPERTY-SERVICE, EV-LLC-TERMS]
+  - id: SRC-HELP-BLOG
+    title: HM Land Registry help, subscriptions and official blog
+    owner: HM Land Registry
+    authority_role: official-reference
+    url: https://customerhelp.landregistry.gov.uk/
+    access_status: verified-working
+    access_tested_at: "2026-07-29T07:53:38Z"
+    source_families: [Help routes, subscription channels, official blog metadata]
+    access_methods: [Public top-level HTML and bounded feed metadata]
+    formats: [HTML, RSS/Atom where available]
+    schemas: []
+    identifier_model: Preserve canonical public route.
+    version_model: Dated posts and mutable help pages remain distinct.
+    update_cadence: Mixed
+    coverage: Source-family discovery only.
+    known_omissions: [Forum posts, user uploads, full blog bodies]
+    acquisition_method: Metadata-only allowlist.
+    rights_ref: RIGHT-PERSONAL
+    freshness_policy: Formal current guidance outranks explanatory blog posts.
+    evidence_refs: [EV-CUSTOMER-HELP, EV-BLOG]
+
+users:
+  - id: USER-PUBLIC
+    role: Member of the public, property owner, buyer or seller
+    context: Finding trustworthy information without routine professional access.
+    authority_requirement: Must reach current official guidance and understand when legal representation or an official copy is needed.
+    accessibility_language_needs: [Plain language, keyboard and screen-reader access, zoom/reflow, Welsh route where officially available]
+    needs:
+      - Find the right property-information, registration, correction or fraud-prevention route.
+      - Understand product cost, coverage and evidential status.
+    risks:
+      - Treating general information as legal advice.
+      - Treating a downloaded register or indicative plan as official proof or an exact boundary.
+    evidence_refs: [EV-PUBLIC-GUIDANCE, EV-PROPERTY-SERVICE]
+  - id: USER-PROFESSIONAL
+    role: Conveyancer or property professional
+    context: Preparing or managing land-registration applications.
+    authority_requirement: Current practice guide, form, fee, notice and digital-service guidance must be distinguishable by date and authority.
+    accessibility_language_needs: [Efficient keyboard navigation, durable deep links]
+    needs:
+      - Find the applicable practice guide, form, fee and digital route.
+      - Check processing, requisition, application and expedite guidance.
+    risks:
+      - Using an obsolete form, fee or portal workflow.
+      - Mistaking an aggregate processing estimate for an application guarantee.
+    evidence_refs: [EV-PRO-GUIDANCE, EV-PRACTICE-GUIDES]
+  - id: USER-LENDER
+    role: Lender, portfolio manager or mortgage-service user
+    context: Using HMLR lender and commercial services.
+    authority_requirement: Product scope, access agreement, fees and current service documentation must remain explicit.
+    accessibility_language_needs: [Clear comparison tables and exportable metadata]
+    needs:
+      - Find charge, data-sync, portfolio and polygon services.
+      - Distinguish guidance, portal functions and machine interfaces.
+    risks:
+      - Assuming a discovery record grants service access or data-reuse rights.
+    evidence_refs: [EV-PRO-GUIDANCE, EV-BG-DOCS]
+  - id: USER-DATA
+    role: Data analyst, researcher, journalist or GIS specialist
+    context: Selecting public or licensed land and property data for analysis.
+    authority_requirement: Dataset scope, exclusions, cadence, format, licence, attribution and quality caveats must come from publisher sources.
+    accessibility_language_needs: [Machine-readable metadata, accessible tables, non-map alternative]
+    needs:
+      - Compare PPD, UK HPI, ownership, transaction, requisition and spatial datasets.
+      - Inspect source-native identifiers, CRS, temporal coverage and distribution types.
+    risks:
+      - Treating latest-month PPD or provisional UK HPI as complete or final.
+      - Treating an index polygon as a legal boundary.
+      - Redistributing bespoke-licensed or third-party address data.
+    evidence_refs: [EV-PUBLIC-DATA, EV-ULPD, EV-INSPIRE-DATA]
+  - id: USER-DEVELOPER
+    role: Case-management or data-platform software engineer
+    context: Evaluating HMLR APIs and integration contracts.
+    authority_requirement: Current publisher documentation, protocol, schema version, environment and authentication requirements must be inspectable.
+    accessibility_language_needs: [Copyable endpoints, schemas and error-state documentation]
+    needs:
+      - Find the correct Business Gateway, ULPD or linked-data interface.
+      - Distinguish REST, SOAP/WSDL, test, production, public and restricted access.
+    risks:
+      - Copying stale catalogue endpoints or example dates as current facts.
+      - Exposing credentials or signed download URLs.
+    evidence_refs: [EV-BG-DOCS, EV-ULPD-API]
+  - id: USER-LOCAL-AUTHORITY
+    role: Local-authority or originating-authority Local Land Charges officer
+    context: Migration, maintenance and search responsibilities across changing coverage.
+    authority_requirement: Current migration table, formal guidance, fees and supplier/API boundaries must be visible.
+    accessibility_language_needs: [Welsh route where applicable, durable authority-specific links]
+    needs:
+      - Determine whether an authority has migrated and which HMLR process applies.
+      - Find originating-authority guidance and service boundaries.
+    risks:
+      - Assuming nationwide LLC coverage.
+      - Treating LLC search as a replacement for CON29 enquiries.
+    evidence_refs: [EV-LLC-PROGRAMME, EV-LLC-TERMS]
+  - id: USER-AUDITOR
+    role: Provenance, licensing, accessibility or service assessor
+    context: Checking whether the derived catalogue makes supportable claims.
+    authority_requirement: Every claim needs source, observation, derivation, rights and release state.
+    accessibility_language_needs: [WCAG 2.2 AA target, text alternatives, reduced motion, high contrast]
+    needs:
+      - Trace a normalized record to publisher evidence.
+      - Identify unknown, restricted, stale, partial and unverified states.
+    risks:
+      - Automated checks being presented as legal, statistical or accessibility assurance.
+    evidence_refs: [EV-ACCESSIBILITY, EV-PERSONAL-INFO, EV-OKF-AUTHORING]
+
+tasks:
+  - id: TASK-PUBLIC-ROUTE
+    user_ids: [USER-PUBLIC]
+    goal: Find the authoritative service or guidance route and understand its product, cost and evidential limits.
+    context: Public property-information and registration discovery.
+    authority_requirement: Current GOV.UK and HMLR service evidence.
+    required_evidence: [Canonical official URL, scope, access requirement, cost volatility, official-copy distinction]
+    freshness_tolerance: Revalidate at time of action; fees and service state are volatile.
+    likely_confusions: [Property summary versus title register, downloaded copy versus official copy, general versus exact boundary]
+    consequences_of_error: [Legal or financial reliance on the wrong product]
+    hard_failures: [The bundle states or implies ownership, an exact boundary or legal advice.]
+    success: The user reaches the official route with the material warning visible before action.
+  - id: TASK-PRACTICE
+    user_ids: [USER-PROFESSIONAL, USER-LENDER]
+    goal: Find the current practice guide, form, fee, notice and digital route for a registration task.
+    context: Professional application preparation.
+    authority_requirement: Formal current guidance and notices outrank older summaries.
+    required_evidence: [Document type, source route, publisher date, related collection]
+    freshness_tolerance: Revalidate before submission.
+    likely_confusions: [Older portal guidance versus current DRS coverage, publication date versus last update]
+    consequences_of_error: [Rejected, delayed or incorrectly charged application]
+    hard_failures: [An obsolete or superseded route is labelled current without warning.]
+    success: The result exposes the formal source, date and related alternatives.
+  - id: TASK-DATASET
+    user_ids: [USER-DATA, USER-AUDITOR]
+    goal: Select a dataset by purpose, coverage, cadence, format, licence and access model.
+    context: Dataset discovery and reuse assessment.
+    authority_requirement: Publisher-operated dataset and licence pages.
+    required_evidence: [Dataset scope, exclusions, release cadence, distribution type, access, licence, attribution]
+    freshness_tolerance: Snapshot metadata may guide discovery; live publisher state must be checked before reuse.
+    likely_confusions: [Free versus open, catalogue modified versus release date, full versus delta, snapshot versus live register]
+    consequences_of_error: [Invalid analysis, licence breach or misleading publication]
+    hard_failures: [A mixed or bespoke licence is flattened to OGL, or catalogue dates are labelled as data currency.]
+    success: The user can compare material differences and open the canonical publisher source.
+  - id: TASK-SPATIAL
+    user_ids: [USER-DATA, USER-PUBLIC]
+    goal: Find the appropriate spatial product and interpret its coverage, CRS and boundary meaning safely.
+    context: INSPIRE, National Polygon and title-plan discovery.
+    authority_requirement: HMLR dataset technical guidance and product terms.
+    required_evidence: [Freehold/leasehold coverage, indicative status, CRS, cadence, licence and attribution]
+    freshness_tolerance: Monthly snapshot with visible release date.
+    likely_confusions: [Title plan versus index polygon, EPSG:27700 versus web CRS, indicative versus exact]
+    consequences_of_error: [Incorrect spatial or legal conclusion]
+    hard_failures: [The bundle calls an indicative polygon an exact legal boundary.]
+    success: The product is discoverable with a non-map explanation and explicit limitation.
+  - id: TASK-API
+    user_ids: [USER-DEVELOPER, USER-LENDER]
+    goal: Identify the correct machine interface, contract, environment and onboarding requirement.
+    context: Business Gateway, dataset API and linked-data integration.
+    authority_requirement: Current publisher documentation and formal service notice.
+    required_evidence: [Protocol, documentation, schema/version, test/production distinction, authentication, access]
+    freshness_tolerance: Revalidate immediately before integration.
+    likely_confusions: [REST versus SOAP, public documentation versus public operation, example endpoint versus current endpoint]
+    consequences_of_error: [Failed integration, security exposure or unauthorised call]
+    hard_failures: [A credential is stored, or a restricted service is described as anonymous.]
+    success: A developer reaches the official contract without the bundle attempting execution.
+  - id: TASK-LLC
+    user_ids: [USER-LOCAL-AUTHORITY, USER-PUBLIC, USER-PROFESSIONAL]
+    goal: Determine the Local Land Charges route, migration coverage and boundary with CON29.
+    context: LLC search, migration and maintenance.
+    authority_requirement: Current programme page, service terms and PG79.
+    required_evidence: [Authority migration status, search type, fee/access, originating authority, CON29 exclusion]
+    freshness_tolerance: Revalidate at time of search or migration action.
+    likely_confusions: [Land Charges versus Local Land Charges, personal versus official search, LLC versus CON29]
+    consequences_of_error: [Incomplete conveyancing search or wrong authority process]
+    hard_failures: [The bundle claims nationwide coverage or automates the restricted search service.]
+    success: The user can identify the official route and visible scope boundary.
+  - id: TASK-AUDIT
+    user_ids: [USER-AUDITOR]
+    goal: Verify source authority, derivation, freshness, rights, coverage and accessibility claims.
+    context: Publication assurance.
+    authority_requirement: Machine-readable provenance plus direct publisher evidence.
+    required_evidence: [Source URL, observed time, source date, derivation, rights state, denominator, validation receipt]
+    freshness_tolerance: Bound to the frozen snapshot and candidate digest.
+    likely_confusions: [Official source versus official endorsement, automated pass versus independent assurance]
+    consequences_of_error: [Unsupported trust or completeness claim]
+    hard_failures: [An unknown or untested state is relabelled passed.]
+    success: Every sampled claim resolves to evidence and unsupported claims fail closed.
+
+terminology:
+  - id: TERM-TITLE
+    preferred_label: Title number
+    definition: HM Land Registry reference for an individual registered estate in land.
+    source_scope: HM Land Registry register and data products
+    language: en-GB
+    owner: HM Land Registry
+    variants: []
+    confusable_terms: [Property address, UPRN, INSPIRE ID]
+    mapping_status: source-native-only
+    evidence_refs: [EV-PUBLIC-DATA]
+  - id: TERM-BOUNDARY
+    preferred_label: General or indicative boundary
+    definition: A representation of general position or indicative extent that does not by itself establish an exact legal boundary.
+    source_scope: Title plans and polygon datasets
+    language: en-GB
+    owner: HM Land Registry
+    variants: [Indicative extent]
+    confusable_terms: [Exact boundary, determined boundary]
+    mapping_status: source-native-only
+    evidence_refs: [EV-INSPIRE-DATA, EV-PROPERTY-SERVICE]
+  - id: TERM-OFFICIAL-COPY
+    preferred_label: Official copy
+    definition: An HMLR-issued copy with an evidential role distinct from an online downloaded information copy.
+    source_scope: Property information services
+    language: en-GB
+    owner: HM Land Registry
+    variants: []
+    confusable_terms: [Downloaded title register, title deeds]
+    mapping_status: source-native-only
+    evidence_refs: [EV-PROPERTY-SERVICE]
+  - id: TERM-LLC
+    preferred_label: Local land charge
+    definition: A restriction or prohibition registered through the Local Land Charges regime for an in-scope authority.
+    source_scope: Local Land Charges service
+    language: en-GB
+    owner: HM Land Registry and originating authorities
+    variants: [LLC]
+    confusable_terms: [Land Charge, CON29 enquiry]
+    mapping_status: source-native-only
+    evidence_refs: [EV-LLC-PROGRAMME]
+  - id: TERM-PPD
+    preferred_label: Price Paid Data
+    definition: Property sales in England and Wales sold for value and lodged for registration, subject to stated exclusions and lag.
+    source_scope: HM Land Registry Price Paid Data
+    language: en-GB
+    owner: HM Land Registry
+    variants: [PPD]
+    confusable_terms: [UK House Price Index, property valuation]
+    mapping_status: source-native-only
+    evidence_refs: [EV-PPD]
+  - id: TERM-UKHPI
+    preferred_label: UK House Price Index
+    definition: A collaborative UK index of changes in residential property values whose recent estimates can be provisional and revised.
+    source_scope: UK HPI
+    language: en-GB
+    owner: HM Land Registry and UK HPI partners
+    variants: [UK HPI]
+    confusable_terms: [Price Paid Data, asking-price index]
+    mapping_status: source-native-only
+    evidence_refs: [EV-UKHPI]
+  - id: TERM-CATALOGUE-DATE
+    preferred_label: Catalogue metadata date
+    definition: A date describing a discovery record, not necessarily the underlying dataset release, validity or coverage.
+    source_scope: GOV.UK, CDDO, NDL and other catalogues
+    language: en-GB
+    owner: Derived publication
+    variants: [Metadata modified]
+    confusable_terms: [Latest release, temporal coverage, observation time]
+    mapping_status: related
+    evidence_refs: [EV-OKF-AUTHORING]
+
+semantic_model:
+  entity_types:
+    - id: TYPE-PUBLICATION
+      label: Official publication or guidance record
+      source_native_type: GOV.UK content-store document type
+      proposed_class: schema:CreativeWork
+      identity_key: Canonical GOV.UK route plus source content identifier when supplied.
+      version_key: Preserve edition/publication timestamps; do not infer versions from titles.
+      required_properties: [id, route, title, record_type, source, generated]
+      optional_properties: [description, public_timestamp, organisations, language, related records]
+      examples: [Practice guide, form, statistical data set, notice, corporate report]
+      excluded_conflations: [A collection is not one of its member documents., A page route is not an attachment.]
+      task_refs: [TASK-PUBLIC-ROUTE, TASK-PRACTICE, TASK-AUDIT]
+      evidence_refs: [EV-GOVUK-SEARCH]
+    - id: TYPE-DATASET
+      label: Dataset
+      source_native_type: HMLR dataset landing-page entry
+      proposed_class: dcat:Dataset
+      identity_key: Canonical publisher dataset URL and source slug.
+      version_key: Source-native release or snapshot identity; landing-page dates remain separate.
+      required_properties: [id, title, scope, publisher, source, access, rights, cadence]
+      optional_properties: [distributions, temporal coverage, spatial coverage, technical specification]
+      examples: [Price Paid Data, INSPIRE Index Polygons, Registered Leases]
+      excluded_conflations: [Dataset is not distribution., Snapshot is not live register.]
+      task_refs: [TASK-DATASET, TASK-SPATIAL, TASK-AUDIT]
+      evidence_refs: [EV-ULPD]
+    - id: TYPE-SERVICE
+      label: Operational service or API product
+      source_native_type: HMLR service or Business Gateway product
+      proposed_class: dcat:DataService where a data service is evidenced
+      identity_key: Canonical service or documentation URL plus source-native service name/version.
+      version_key: Preserve protocol, schema version, environment and formal notice.
+      required_properties: [id, title, source, access_model, operational_authority]
+      optional_properties: [endpoint, protocol, authentication, documentation, schema, fees]
+      examples: [Search for land and property information, Business Gateway API, LLC search]
+      excluded_conflations: [Public documentation is not anonymous service access., Test and production endpoints are distinct.]
+      task_refs: [TASK-PUBLIC-ROUTE, TASK-API, TASK-LLC]
+      evidence_refs: [EV-BG-DOCS, EV-PROPERTY-SERVICE, EV-LLC-TERMS]
+    - id: TYPE-REPOSITORY
+      label: Public source-code repository
+      source_native_type: GitHub repository
+      proposed_class: schema:SoftwareSourceCode
+      identity_key: GitHub repository full_name.
+      version_key: Repository is mutable; commits and releases are separate identities.
+      required_properties: [full_name, html_url, source, observed_at]
+      optional_properties: [description, archived, fork, licence, pushed_at]
+      examples: [LandRegistry/bgtechdoc]
+      excluded_conflations: [Prototype code is not production policy., Missing licence is not permission.]
+      task_refs: [TASK-API, TASK-AUDIT]
+      evidence_refs: [EV-GITHUB]
+  identifier_schemes:
+    - id: IDSCHEME-GOVUK
+      issuer: Government Digital Service
+      syntax: Canonical GOV.UK route and source content identifier where supplied.
+      scope: GOV.UK records attributed to HM Land Registry
+      persistence: Routes can redirect; content identifiers are preferred when present.
+      normalization: Preserve native values and add a deterministic route-safe local identifier.
+      collision_policy: Fail closed when two source identities map to one local route.
+      uri_policy: Resolve local IDs under https://chris-page-gov.github.io/okf-LandRegistry/id/.
+      equivalence_policy: A redirect or similar title does not establish identity without source evidence.
+      evidence_refs: [EV-GOVUK-SEARCH]
+    - id: IDSCHEME-HMLR-DATASET
+      issuer: HM Land Registry
+      syntax: Canonical publisher URL and dataset slug.
+      scope: HMLR datasets and distributions
+      persistence: Preserve renamed legacy slugs as aliases, not replacement identities.
+      normalization: Keep source slug and full canonical URL.
+      collision_policy: Fail closed on duplicate canonical URLs or slugs within one source.
+      uri_policy: Mint local IRIs from source kind and slug while retaining canonical source URL.
+      equivalence_policy: Related fields or titles do not make two datasets identical.
+      evidence_refs: [EV-ULPD]
+    - id: IDSCHEME-GITHUB
+      issuer: GitHub and HM Land Registry
+      syntax: LandRegistry/<repository>
+      scope: Public repositories
+      persistence: Renames and transfers require explicit source metadata.
+      normalization: Case-preserving full_name plus case-insensitive collision check.
+      collision_policy: Fail closed on duplicate repository IDs or normalized names.
+      uri_policy: Use the GitHub html_url as source identity and a local derived IRI.
+      equivalence_policy: Fork, archive or successor relationships are not owl:sameAs.
+      evidence_refs: [EV-GITHUB]
+  identifier_policy:
+    native_identifier_rule: Preserve source routes, slugs, content IDs, service versions and repository full names verbatim.
+    route_rule: Use deterministic lower-case percent-safe routes prefixed by source family; record every alias and collision.
+    iri_rule: Mint only repository-controlled derived IRIs and retain the canonical source URL separately.
+    collision_rule: Fail closed on identity collision; never add numeric suffixes silently.
+    redirect_rule: Preserve source redirects and explicit replacement evidence; do not guess moved routes.
+  relationship_types:
+    - id: REL-HAS-PART
+      label: has part
+      predicate_iri: http://purl.org/dc/terms/hasPart
+      inverse_label: is part of
+      source_types: [Official publication or guidance record, Dataset]
+      target_types: [Official publication or guidance record, Dataset]
+      direction: directed
+      minimum_evidence: Source-declared collection membership or distribution listing.
+      permitted_derivations: [source-native, normalized]
+      temporal_meaning: True for the observed source snapshot.
+      cardinality: zero or more
+      non_properties: [A hyperlink alone is not membership.]
+      task_refs: [TASK-PRACTICE, TASK-DATASET]
+    - id: REL-DOCUMENTS
+      label: documents
+      predicate_iri: http://xmlns.com/foaf/0.1/page
+      inverse_label: is documented by
+      source_types: [Official publication or guidance record]
+      target_types: [Operational service or API product, Dataset]
+      direction: directed
+      minimum_evidence: Explicit publisher documentation link.
+      permitted_derivations: [source-native, normalized]
+      temporal_meaning: Documentation relationship observed at snapshot time.
+      cardinality: zero or more
+      non_properties: [Documentation does not imply public access.]
+      task_refs: [TASK-API, TASK-DATASET]
+    - id: REL-SUPERSEDES
+      label: supersedes
+      predicate_iri: http://purl.org/dc/terms/replaces
+      inverse_label: is superseded by
+      source_types: [Official publication or guidance record, Operational service or API product]
+      target_types: [Official publication or guidance record, Operational service or API product]
+      direction: directed
+      minimum_evidence: Explicit publisher replacement, redirect or formal notice.
+      permitted_derivations: [source-native, normalized]
+      temporal_meaning: Replacement applies from the source-stated date.
+      cardinality: zero or more
+      non_properties: [Newer publication date alone does not prove supersession.]
+      task_refs: [TASK-PRACTICE, TASK-API, TASK-AUDIT]
+  temporal_model:
+    distinctions:
+      - Source publication time
+      - Source metadata modification time
+      - Dataset release and coverage period
+      - Service observation time
+      - Acquisition time
+      - Bundle generation and release time
+    version_semantics: Preserve source-native editions, releases, schema versions and immutable commits; never infer them from one generic date.
+    freshness_semantics: Freshness is source-family specific and always measured from an explicit observation or release event.
+  equivalence_policy: Do not assert identity from title, URL similarity, shared title number, address, hierarchy or embedding similarity.
+  prohibited_inferences:
+    - Do not infer legal ownership, exact boundary or priority from discovery metadata.
+    - Do not infer beneficial ownership from corporate proprietor data.
+    - Do not infer open reuse from public or free access.
+    - Do not infer dataset currency from catalogue modification.
+    - Do not infer nationwide LLC coverage from service availability.
+    - Do not use owl:sameAs without authoritative identity evidence.
+
+standards:
+  - id: STD-OKF-02
+    title: Open Knowledge Format
+    version: "0.2 at commit 3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+    publication_status: Repository specification
+    canonical_url: https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/3fcbb9f828c2f23d109c855ee403c3a4c81f3a96/okf/SPEC.md
+    applicability: normative
+    scope: Portable Markdown control plane.
+    terms_adopted: [type, generated, sources, status]
+    supported_source_fields: [Source-native identifiers and metadata remain additive.]
+    mappings: []
+    unmet_requirements: []
+    semantic_conflicts: []
+    conformance_artifact: OKF 0.2 Markdown root and typed concepts.
+    validation: Local validator checks reserved files, frontmatter, actors, sources and lifecycle.
+    licence: See upstream repository.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-OKF]
+  - id: STD-OKF-AUTHORING
+    title: OKF Foundry authoring profile
+    version: v1 observed at local okf-explorer checkout on 2026-07-29
+    publication_status: Versioned OKF Explorer application profile
+    canonical_url: https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/
+    applicability: normative
+    scope: Domain-profile handoff, source authority, rights, evaluation and build gates.
+    terms_adopted: [okf-domain-profile.v1, evidence states, release gates]
+    supported_source_fields: [All profile control fields]
+    mappings: []
+    unmet_requirements: [Owner approval remains required before release.]
+    semantic_conflicts: []
+    conformance_artifact: Schema-valid, equivalent JSON and YAML domain-profile pack.
+    validation: Pinned Draft 2020-12 schema and reference validator.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-OKF-AUTHORING]
+  - id: STD-YAML-122
+    title: YAML 1.2.2
+    version: "1.2.2"
+    publication_status: YAML language specification
+    canonical_url: https://yaml.org/spec/1.2.2/
+    applicability: normative
+    scope: Domain profile and OKF Markdown frontmatter.
+    terms_adopted: [Core schema scalars, unique string keys]
+    supported_source_fields: []
+    mappings: []
+    unmet_requirements: []
+    semantic_conflicts: []
+    conformance_artifact: Strict YAML documents without aliases, merge keys or custom tags.
+    validation: Safe YAML parser plus duplicate-key and JSON-equivalence checks.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-YAML]
+  - id: STD-YAMLLD-10
+    title: YAML-LD 1.0
+    version: W3C Working Draft 2025-06-12
+    publication_status: W3C Working Draft
+    canonical_url: https://www.w3.org/TR/2025/WD-yaml-ld-10-20250612/
+    applicability: reference-only
+    scope: Assessed for future governed-semantic authoring; not claimed by the first scaffold.
+    terms_adopted: []
+    supported_source_fields: []
+    mappings: []
+    unmet_requirements: [No YAML-LD conformance artefact in the first scaffold.]
+    semantic_conflicts: []
+    conformance_artifact: None in this profile level; status is documented explicitly.
+    validation: Not applicable until governed-semantic authoring is selected.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-YAMLLD]
+  - id: STD-JSONSCHEMA-202012
+    title: JSON Schema
+    version: 2020-12
+    publication_status: Published meta-schema and validation specification
+    canonical_url: https://json-schema.org/draft/2020-12/schema
+    applicability: normative
+    scope: Domain profile, source manifests, evaluation assets and Explorer control documents.
+    terms_adopted: [JSON Schema Core and Validation 2020-12]
+    supported_source_fields: []
+    mappings: []
+    unmet_requirements: []
+    semantic_conflicts: []
+    conformance_artifact: Versioned JSON control documents and schemas.
+    validation: Draft 2020-12 validator with format checking.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-JSONSCHEMA]
+  - id: STD-JSONLD-11
+    title: JSON-LD 1.1
+    version: W3C Recommendation 2020-07-16
+    publication_status: W3C Recommendation
+    canonical_url: https://www.w3.org/TR/json-ld11/
+    applicability: projection
+    scope: Compact semantic catalogue descriptor without replacing source-native records.
+    terms_adopted: ["@context", "@id", "@type"]
+    supported_source_fields: [Dataset, DataService, CreativeWork and provenance projections]
+    mappings: [Local record types map additively to Schema.org and DCAT terms.]
+    unmet_requirements: [Full RDF materialization and isomorphism are deferred.]
+    semantic_conflicts: [Source-native distinctions must not be collapsed to fit a vocabulary.]
+    conformance_artifact: Deterministic JSON-LD catalogue projection.
+    validation: JSON parse, local context allowlist and stable identifier checks.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-JSONLD]
+  - id: STD-DCAT-3
+    title: Data Catalog Vocabulary
+    version: DCAT 3, W3C Recommendation 2024-08-22
+    publication_status: W3C Recommendation
+    canonical_url: https://www.w3.org/TR/vocab-dcat-3/
+    applicability: projection
+    scope: Dataset, distribution, catalogue and data-service discovery metadata.
+    terms_adopted: [dcat:Dataset, dcat:Distribution, dcat:DataService, dcterms:accrualPeriodicity]
+    supported_source_fields: [Dataset identity, distributions, formats, access URLs, cadence and rights]
+    mappings: [Full and change-only files remain distinct distributions.]
+    unmet_requirements: [No DCAT conformance claim for sparse GOV.UK publication records.]
+    semantic_conflicts: [Catalogue modification is not dataset release or coverage.]
+    conformance_artifact: Additive JSON-LD dataset and service projection.
+    validation: Mapping tests and required evidence checks; no certification claim.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-DCAT]
+  - id: STD-PROVO
+    title: PROV-O
+    version: W3C Recommendation 2013-04-30
+    publication_status: W3C Recommendation
+    canonical_url: https://www.w3.org/TR/prov-o/
+    applicability: projection
+    scope: Source observation, normalization, generation and verification provenance.
+    terms_adopted: [prov:Entity, prov:Activity, prov:wasDerivedFrom, prov:generatedAtTime]
+    supported_source_fields: [sources, generated, observed_at, derivation]
+    mappings: [Build receipts map to activities without implying source endorsement.]
+    unmet_requirements: []
+    semantic_conflicts: []
+    conformance_artifact: Provenance fields and optional JSON-LD projection.
+    validation: Every generated assertion must resolve to an evidence record and derivation.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-PROVO]
+  - id: STD-INSPIRE-CP
+    title: INSPIRE Data Specification on Cadastral Parcels
+    version: "3.1"
+    publication_status: European Commission Technical Guidelines
+    canonical_url: https://inspire.ec.europa.eu/id/document/tg/cp
+    applicability: source-native
+    scope: HMLR INSPIRE Index Polygons source format and identifiers.
+    terms_adopted: [Source-native cadastral parcel representation only]
+    supported_source_fields: [INSPIRE ID, geometry, local-authority distribution, CRS]
+    mappings: []
+    unmet_requirements: []
+    semantic_conflicts: [HMLR polygons remain indicative and must not be presented as exact legal cadastral boundaries.]
+    conformance_artifact: Preserved source format and technical metadata; the bundle does not republish geometry.
+    validation: Check declared GML, CRS, identifier, cadence and attribution fields against publisher evidence.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-INSPIRE-SPEC, EV-INSPIRE-DATA]
+  - id: STD-GML-321
+    title: Geography Markup Language
+    version: OGC GML 3.2.1 / ISO 19136:2007
+    publication_status: OGC Standard
+    canonical_url: https://portal.ogc.org/files/?artifact_id=20509
+    applicability: source-native
+    scope: HMLR INSPIRE GML distribution metadata.
+    terms_adopted: [GML distribution format]
+    supported_source_fields: [format, CRS, geometry distribution]
+    mappings: []
+    unmet_requirements: []
+    semantic_conflicts: []
+    conformance_artifact: Source-format declaration only; no geometry is generated.
+    validation: Match publisher-declared format and technical guidance.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-GML, EV-INSPIRE-DATA]
+  - id: STD-WCAG-22
+    title: Web Content Accessibility Guidelines
+    version: WCAG 2.2
+    publication_status: W3C Recommendation 2023-10-05
+    canonical_url: https://www.w3.org/TR/WCAG22/
+    applicability: normative
+    scope: GitHub Pages discovery site.
+    terms_adopted: [Level A and AA success criteria]
+    supported_source_fields: []
+    mappings: []
+    unmet_requirements: [Independent accessibility audit and participant testing remain future evidence.]
+    semantic_conflicts: []
+    conformance_artifact: Accessible static HTML application and an honest accessibility statement.
+    validation: Automated semantic, keyboard, contrast and browser checks plus documented manual checks.
+    retrieved_at: "2026-07-29T07:53:38Z"
+    evidence_refs: [EV-WCAG]
+
+rights_access_privacy:
+  - id: RIGHT-GOVUK
+    layer: GOV.UK and HMLR page metadata
+    operation: Store and redistribute titles, descriptions, routes, document types and dates with attribution.
+    status: permitted
+    basis: GOV.UK pages state OGL v3 except where otherwise stated; the bundle retains metadata and source links only.
+    licence: Open Government Licence v3.0, subject to exceptions.
+    attribution: Contains public-sector information licensed under the Open Government Licence v3.0; source publisher and route retained.
+    third_party_terms: Page attachments and third-party content can have separate terms.
+    access_constraint: Recheck exceptions and do not copy full page bodies or attachments in this scaffold.
+    mitigation: Per-record source, rights status and exception field.
+    owner: Repository maintainer
+    evidence_refs: [EV-HMLR-ORG, EV-PUBLIC-DATA]
+  - id: RIGHT-DATASETS
+    layer: HMLR dataset metadata and data distributions
+    operation: Store metadata and link to data; do not redistribute production data.
+    status: conditional
+    basis: Dataset terms range from OGL to bespoke direct-use, exploration and commercial licences with third-party rights.
+    licence: Per-dataset
+    attribution: Preserve the exact publisher-specified HMLR, Ordnance Survey, Royal Mail or other attribution.
+    third_party_terms: Address, mapping, GeoPlace, Ordnance Survey and Royal Mail rights can apply.
+    access_constraint: Account, accepted licence, fee or API key may be required.
+    mitigation: Publish metadata and small expressly permitted samples only; never flatten rights to a bundle-wide licence.
+    owner: Repository maintainer and data user
+    evidence_refs: [EV-PUBLIC-DATA, EV-ULPD, EV-INSPIRE-DATA]
+  - id: RIGHT-RESTRICTED
+    layer: Property, LLC, portal and Business Gateway services
+    operation: Automated access, result collection or redistribution.
+    status: prohibited
+    basis: Services require accounts, approval, payment or certificates; LLC terms explicitly prohibit automated agents and copying.
+    licence: Service-specific terms
+    attribution: ""
+    third_party_terms: Address, map and originating-authority rights may apply.
+    access_constraint: Public descriptions only; do not authenticate or execute.
+    mitigation: Store only public service metadata and link users to the official route.
+    owner: Repository maintainer
+    evidence_refs: [EV-PROPERTY-SERVICE, EV-LLC-TERMS, EV-BG-DOCS]
+  - id: RIGHT-GITHUB
+    layer: Public GitHub repository metadata and source code
+    operation: Store and redistribute repository metadata; do not copy source trees.
+    status: conditional
+    basis: Each repository declares its own licence and lifecycle; missing licence means no reuse assumption.
+    licence: Per-repository
+    attribution: Preserve organisation, repository URL and declared licence identifier.
+    third_party_terms: Forks and vendored dependencies retain their own rights.
+    access_constraint: Public API rate limits and GitHub terms apply.
+    mitigation: Metadata-only census with per-record licence, fork and archive state.
+    owner: Repository maintainer
+    evidence_refs: [EV-GITHUB]
+  - id: RIGHT-CDDO
+    layer: CDDO API Catalogue metadata
+    operation: Store provider-filtered discovery metadata.
+    status: conditional
+    basis: Official public GitHub catalogue used as discovery provenance; downstream endpoint rights remain separate.
+    licence: Repository terms and per-service terms
+    attribution: Central Digital and Data Office API Catalogue plus publisher-operated HMLR source.
+    third_party_terms: Endpoint and documentation rights remain with their publishers.
+    access_constraint: Catalogue absence does not grant rights or establish current operation.
+    mitigation: Retain source commit and re-verify against HMLR documentation.
+    owner: Repository maintainer
+    evidence_refs: [EV-CDDO]
+  - id: RIGHT-PERSONAL
+    layer: Property, register, help-forum and user-submitted personal information
+    operation: Acquire, combine, index or expose personal-level content.
+    status: prohibited
+    basis: The discovery purpose does not require personal-level records and public accessibility does not remove privacy or ethical risk.
+    licence: Not applicable
+    attribution: ""
+    third_party_terms: Statutory register-access regimes and service privacy terms apply.
+    access_constraint: No live property results, forum posts, user uploads or personal contact data.
+    mitigation: Metadata allowlists, secret and PII scans, aggregate-only evaluation fixtures.
+    owner: Repository maintainer
+    evidence_refs: [EV-PERSONAL-INFO, EV-CUSTOMER-HELP]
+
+architecture:
+  profile_level: large-corpus
+  bundle_shape: large-corpus
+  canonical_authoring: markdown
+  generated_representations:
+    - okf-explorer-descriptor
+    - json-ld
+    - csv
+    - release-archive
+  refresh_strategy: >-
+    Acquire immutable, content-addressed source envelopes outside the public
+    projection; build only from a frozen snapshot; publish later observations
+    as a new snapshot rather than backpatching release bytes.
+  namespace_strategy: https://chris-page-gov.github.io/okf-LandRegistry/id/ with source-native identifiers retained.
+  scale_assumptions: >-
+    At least 1,866 GOV.UK records plus up to 289 public repositories, 15 CDDO
+    API rows, approximately 14 dataset records and control concepts; use lazy
+    data entrypoints and bounded result rendering.
+
+enrichment:
+  enabled: false
+  purpose: No model-assisted production assertions are justified for the scaffold.
+  permitted_derivations: [source-native, normalized, rule-derived]
+  evidence_requirement: Every non-source-native field names its source fields, deterministic method and observation.
+  independent_review: Domain and rights assertions require separate human review before release approval.
+  authority_boundary: Derived metadata never becomes an official HMLR statement.
+  budget: No paid model or API calls are authorised.
+
+validation:
+  - id: VAL-DOMAIN-PROFILE
+    target: Domain profile pack
+    method: Validate JSON and YAML against okf-domain-profile.v1, references and canonical equivalence.
+    validator: Pinned OKF Explorer check_domain_profile.py
+    severity: error
+    release_gate: true
+    receipt: validation/domain-profile.json
+  - id: VAL-SNAPSHOT
+    target: Frozen source snapshot
+    method: Rehash every envelope, validate media type and reconcile one terminal outcome per expected source item.
+    validator: scripts/check_snapshot.py
+    severity: error
+    release_gate: true
+    receipt: validation/source-snapshot.json
+  - id: VAL-OKF
+    target: OKF 0.2 Markdown control plane
+    method: Validate reserved files, concept types, actors, provenance and lifecycle.
+    validator: scripts/check_bundle.py
+    severity: error
+    release_gate: true
+    receipt: validation/okf-core.json
+  - id: VAL-DATA-PLANE
+    target: Explorer descriptor, manifest, records, search and relationships
+    method: Validate schemas, safe paths, stable routes, referential integrity, counts, chunk bounds and checksums.
+    validator: scripts/check_bundle.py
+    severity: error
+    release_gate: true
+    receipt: validation/data-plane.json
+  - id: VAL-RIGHTS
+    target: Public records and links
+    method: Require per-record access and rights states; scan for credentials, signed URLs, personal data and forbidden source layers.
+    validator: scripts/check_bundle.py and tests/test_safety.py
+    severity: error
+    release_gate: true
+    receipt: validation/rights-safety.json
+  - id: VAL-EVALUATION
+    target: Persona and question suite
+    method: Check question-to-story-to-persona traceability, direct-source expectations, retrieval metrics and hard failures.
+    validator: scripts/evaluate.py
+    severity: error
+    release_gate: true
+    receipt: bundle/data/evaluation/report.json
+  - id: VAL-ACCESSIBILITY
+    target: GitHub Pages site
+    method: Static semantic checks plus keyboard, focus, reflow, contrast and no-JavaScript browser journeys.
+    validator: tests/test_site.py and browser acceptance suite
+    severity: error
+    release_gate: true
+    receipt: validation/accessibility.json
+  - id: VAL-REPRODUCIBILITY
+    target: Complete generated bundle
+    method: Build twice from the same frozen inputs and compare every generated byte and checksum.
+    validator: scripts/build.py --check
+    severity: error
+    release_gate: true
+    receipt: validation/reproducibility.json
+
+evaluation:
+  competency_questions:
+    - id: CQ-PUBLIC
+      question: Can a public user find the correct property-information route and see the official-copy and boundary warnings?
+      task_refs: [TASK-PUBLIC-ROUTE]
+      expected_evidence: Canonical GOV.UK service route, product descriptions, costs as volatile metadata and evidential distinction.
+      temporal_context: Revalidate at time of action.
+      citation_expectation: HM Land Registry GOV.UK service guidance.
+      near_miss_rule: A generic contact page or unqualified title-plan result is not correct.
+      verification_status: candidate
+    - id: CQ-PRACTICE
+      question: Can a professional retrieve the current practice guide, form, fee and digital route for a named task?
+      task_refs: [TASK-PRACTICE]
+      expected_evidence: Current formal routes with document type and publisher dates.
+      temporal_context: Snapshot as of 2026-07-29, with live revalidation warning.
+      citation_expectation: GOV.UK HMLR collections and formal notice.
+      near_miss_rule: An older summary without the current formal source is insufficient.
+      verification_status: candidate
+    - id: CQ-DATASET
+      question: Can a data user compare PPD, UK HPI, corporate ownership, lease, covenant, requisition and polygon products without collapsing rights or cadence?
+      task_refs: [TASK-DATASET]
+      expected_evidence: Publisher landing pages, technical specifications and per-dataset rights.
+      temporal_context: Dated snapshot; latest release checked separately.
+      citation_expectation: Use land and property data or formal GOV.UK dataset page.
+      near_miss_rule: A catalogue record without canonical operational evidence is not sufficient.
+      verification_status: candidate
+    - id: CQ-SPATIAL
+      question: Can a user distinguish title plans, INSPIRE Index Polygons, LLC polygons and National Polygon products?
+      task_refs: [TASK-SPATIAL]
+      expected_evidence: Coverage, freehold/leasehold distinction, indicative status, CRS, licence and cadence.
+      temporal_context: Current publisher specification at snapshot time.
+      citation_expectation: HMLR spatial dataset page and technical guidance.
+      near_miss_rule: Any answer implying an exact legal boundary is wrong.
+      verification_status: candidate
+    - id: CQ-API
+      question: Can a developer identify REST versus SOAP, test versus production and documentation versus authorised operation?
+      task_refs: [TASK-API]
+      expected_evidence: Official developer pack, protocol, schema version, environment and authentication.
+      temporal_context: Revalidate immediately before integration.
+      citation_expectation: Publisher-operated HMLR developer documentation and current notice.
+      near_miss_rule: A CDDO catalogue row alone or an unqualified endpoint is insufficient.
+      verification_status: candidate
+    - id: CQ-LLC
+      question: Can a user determine whether HMLR covers an authority and understand the LLC versus CON29 boundary?
+      task_refs: [TASK-LLC]
+      expected_evidence: Current migration table, service terms and PG79.
+      temporal_context: Authority coverage is volatile.
+      citation_expectation: HMLR LLC programme and service terms.
+      near_miss_rule: A general LLC service link without coverage and CON29 caveats is insufficient.
+      verification_status: candidate
+    - id: CQ-AUDIT
+      question: Can an auditor trace each sampled claim to source, observation, derivation, rights and validation state?
+      task_refs: [TASK-AUDIT]
+      expected_evidence: Machine-readable provenance and direct publisher link.
+      temporal_context: Exact frozen candidate.
+      citation_expectation: Immutable snapshot receipt plus source route.
+      near_miss_rule: A link without claim-level provenance or a validation score without evidence fails.
+      verification_status: candidate
+  hard_failures:
+    - Legal, ownership, priority or exact-boundary advice is presented as a bundle conclusion.
+    - A restricted, bespoke or unknown right is presented as OGL or unrestricted.
+    - Catalogue modification time is presented as dataset release, validity or coverage.
+    - A restricted service is called, monitored or presented as an anonymous public API.
+    - A credential, signed download URL, personal-level record or forum upload enters the public bundle.
+    - A result cannot resolve its authoritative source and observation.
+    - Unknown, candidate or untested evidence is relabelled verified.
+  strata:
+    - Public service and official-copy discovery
+    - Practice guide, form, fee and notice
+    - Open, bespoke and chargeable datasets
+    - Temporal lag, revision and stale catalogue metadata
+    - Indicative spatial products and CRS
+    - SOAP, REST, linked data and restricted access
+    - LLC migration, coverage and CON29 near miss
+    - Welsh, keyboard, screen-reader, zoom and no-JavaScript access
+    - Unanswerable, conflicting, unavailable and unsafe cases
+  citation_policy: Every material proposition must cite the exact publisher route or frozen source envelope; discovery catalogues cannot establish current operational status alone.
+  independent_verification: The 24-question first-release suite remains candidate until a separate reviewer checks expected propositions and near misses against the frozen snapshot.
+  baselines:
+    - Direct navigation and search on the named official source.
+    - Deterministic lexical search over the frozen normalized catalogue.
+  metrics:
+    - Recall@5 and Recall@10
+    - Mean reciprocal rank of the primary target
+    - nDCG@10 for graded alternatives
+    - Source-resolution and citation-support rate
+    - Rights, access, freshness and caveat field coverage
+    - Persona, story, source-family and failure-stratum coverage
+    - Keyboard, focus, reflow and semantic-structure journey pass rate
+  thresholds:
+    - Zero hard failures.
+    - Every candidate question maps to at least one story, persona, source and evidence expectation.
+    - Primary-target MRR at least 0.80 and Recall@10 at least 0.90 for independently verified answerable questions.
+    - Source-resolution and required caveat coverage equal 1.00.
+    - No critical category added by the second held-out adversarial pass.
+  challenge_policy: Use two disjoint held-out passes containing stale, conflicting, similarly named, restricted, unanswerable and unsafe cases; publish new critical categories rather than averaging them away.
+
+constraints:
+  - id: CONSTRAINT-LLC-AUTOMATION
+    kind: access
+    effect: LLC service terms prohibit automated software agents from searching, copying or monitoring the service.
+    mitigation: Keep only public service metadata and programme/coverage links; never execute the search.
+    owner: Repository maintainer
+    disposition: mitigated
+    evidence_refs: [EV-LLC-TERMS]
+  - id: CONSTRAINT-MIXED-LICENCES
+    kind: licence
+    effect: Dataset rights range from OGL to direct-use, exploration and chargeable commercial licences with third-party rights.
+    mitigation: Per-record rights and access states; metadata-only publication; no bundle-wide data licence claim.
+    owner: Repository maintainer
+    disposition: mitigated
+    evidence_refs: [EV-PUBLIC-DATA, EV-ULPD]
+  - id: CONSTRAINT-AUTH
+    kind: authentication
+    effect: Business Gateway, portal, property services and some dataset APIs require accounts, approval, payment, keys or certificates.
+    mitigation: Document access requirements and prohibit execution or secret storage.
+    owner: Repository maintainer
+    disposition: mitigated
+    evidence_refs: [EV-BG-DOCS, EV-ULPD-API, EV-PROPERTY-SERVICE]
+  - id: CONSTRAINT-PRIVACY
+    kind: privacy
+    effect: Register information, property results and forum content can contain personal or sensitive information.
+    mitigation: Exclude personal-level records and user-supplied content; run allowlist and safety checks.
+    owner: Repository maintainer
+    disposition: mitigated
+    evidence_refs: [EV-PERSONAL-INFO, EV-CUSTOMER-HELP]
+  - id: CONSTRAINT-VOLATILITY
+    kind: availability
+    effect: Fees, service state, local-authority migration, datasets and GOV.UK content change on different cadences.
+    mitigation: Snapshot every source, expose observed and source dates separately, and require live revalidation before action.
+    owner: Repository maintainer
+    disposition: recorded
+    evidence_refs: [EV-HMLR-ORG, EV-LLC-PROGRAMME, EV-ULPD]
+  - id: CONSTRAINT-SCALE
+    kind: technical
+    effect: The catalogue exceeds a small-bundle payload and source distributions can be multi-gigabyte.
+    mitigation: Lazy metadata shards, bounded search, no production data files and explicit performance budgets.
+    owner: Repository maintainer
+    disposition: mitigated
+    evidence_refs: [EV-GOVUK-SEARCH, EV-ULPD]
+
+gaps:
+  - id: GAP-ASSOCIATED-DENOMINATOR
+    description: No global page-level denominator exists across all HMLR-associated domains.
+    impact: Completeness can be claimed only per named source denominator.
+    blocking: false
+    owner: Repository maintainer
+    next_action: Maintain separate source-family denominators and publish unexplained omissions.
+    evidence_refs: [EV-INVENTORY]
+  - id: GAP-BG-DENOMINATOR
+    description: The exact current Business Gateway product/schema population has not been reconciled from the publisher pack.
+    impact: The initial API lane is discovery-complete only against the 15-row frozen CDDO denominator.
+    blocking: false
+    owner: Repository maintainer
+    next_action: Build a deterministic index from pinned HMLR developer-pack navigation and formal notices.
+    evidence_refs: [EV-BG-DOCS, EV-CDDO]
+  - id: GAP-DATASET-DENOMINATOR
+    description: The observed 14-item dataset catalogue count needs deterministic adapter confirmation.
+    impact: Do not claim complete HMLR dataset coverage in the scaffold.
+    blocking: false
+    owner: Repository maintainer
+    next_action: Reconcile catalogue cards, API-visible and external dataset pages with explicit outcomes.
+    evidence_refs: [EV-ULPD]
+  - id: GAP-LINKED-DATA
+    description: Linked-data capability, schema and query limits were not fully exercised.
+    impact: Linked data is documented as a source family but not claimed operationally assured.
+    blocking: false
+    owner: Repository maintainer
+    next_action: Add bounded capability fixtures and publisher-documentation checks without unbounded queries.
+    evidence_refs: [EV-LINKED-DATA]
+  - id: GAP-HUMAN-RESEARCH
+    description: Personas and user stories are evidence-led hypotheses, not participant-validated findings.
+    impact: The site cannot claim to be a preferred or fully usable interface for real users.
+    blocking: false
+    owner: Project owner
+    next_action: Commission accessibility-expert and representative-user research after the deterministic scaffold is stable.
+    evidence_refs: [EV-HMLR-RESEARCH]
+  - id: GAP-WELSH
+    description: Welsh representation parity has not been enumerated or evaluated.
+    impact: The scaffold can expose official Welsh routes but cannot claim bilingual parity.
+    blocking: false
+    owner: Repository maintainer
+    next_action: Add language relationships and Welsh journey fixtures from the frozen GOV.UK metadata.
+    evidence_refs: [EV-PUBLIC-GUIDANCE]
+  - id: GAP-OWNER-APPROVAL
+    description: The reviewed profile and first scaffold have not been approved as a release contract.
+    impact: Build outputs remain draft and must not be labelled release-ready or published.
+    blocking: false
+    owner: Project owner
+    next_action: Review scope, rights defaults, canonical Pages URL and release threshold.
+    evidence_refs: [EV-INVENTORY]
+
+decisions:
+  - id: DEC-SNAPSHOT
+    question: Should the bundle resolve sources live or publish a frozen snapshot?
+    recommended_default: Snapshot-bounded publication with explicit source and observation dates.
+    alternatives: [Live resolution, Hybrid snapshot and bounded live reconciliation]
+    consequences: [Snapshot builds are reproducible; users must revalidate volatile facts before action.]
+    status: accepted
+    owner: Project owner through the scaffold request
+    blocking_for_build: false
+    due_point: Reconsider before any live provider integration.
+    evidence_refs: [EV-OKF-AUTHORING, EV-INVENTORY]
+  - id: DEC-METADATA-ONLY
+    question: What source content may the public scaffold retain?
+    recommended_default: Public metadata, provenance and links only; no property-level, bulk dataset, forum or authenticated content.
+    alternatives: [Licensed bounded samples after rights review]
+    consequences: [Broad safe discovery remains possible without redistributing controlled data.]
+    status: accepted
+    owner: Project owner through the scaffold request
+    blocking_for_build: false
+    due_point: Any later request to include source content or samples.
+    evidence_refs: [EV-PUBLIC-DATA, EV-LLC-TERMS, EV-PERSONAL-INFO]
+  - id: DEC-ARCHITECTURE
+    question: Which OKF bundle shape fits the declared source population?
+    recommended_default: Large-corpus descriptor with a Markdown control plane and lazy static data.
+    alternatives: [Small Markdown bundle, Federation by source family]
+    consequences: [Supports the 1,866-record GOV.UK denominator; source families can later federate if governance diverges.]
+    status: accepted
+    owner: Project owner through the scaffold request
+    blocking_for_build: false
+    due_point: Reassess when full snapshot sizes and independent release cadences are measured.
+    evidence_refs: [EV-GOVUK-SEARCH, EV-OKF-AUTHORING]
+  - id: DEC-AUTHORITY
+    question: Which source controls operational metadata when catalogues and HMLR pages differ?
+    recommended_default: Current publisher-operated HMLR page or formal notice, while preserving the catalogue record as discovery provenance.
+    alternatives: [Catalogue-only view]
+    consequences: [Freshness and access claims remain supportable without erasing provenance.]
+    status: accepted
+    owner: Project owner through the scaffold request
+    blocking_for_build: false
+    due_point: Apply in every source adapter and conflict record.
+    evidence_refs: [EV-PUBLIC-DATA, EV-OKF-AUTHORING]
+  - id: DEC-ENRICHMENT
+    question: Should model-assisted classifications or relationships enter the first scaffold?
+    recommended_default: No; use source-native and deterministic normalized fields only.
+    alternatives: [Separately labelled candidate enrichment after calibration and independent review]
+    consequences: [The first corpus is conservative and explainable.]
+    status: accepted
+    owner: Project owner through the request for an evidence-led scaffold
+    blocking_for_build: false
+    due_point: Revisit only for a demonstrated search or semantic gap.
+    evidence_refs: [EV-OKF-AUTHORING]
+  - id: DEC-RELEASE
+    question: Is the reviewed scaffold authorised for public release and a canonical GitHub Pages identity?
+    recommended_default: Keep status draft until the owner reviews the generated corpus, rights ledger and evaluation.
+    alternatives: [Approve a named release candidate and canonical repository URL]
+    consequences: [CI may validate the site without deploying an unreviewed release from this workspace.]
+    status: open
+    owner: Project owner
+    blocking_for_build: false
+    due_point: Before enabling or treating GitHub Pages deployment as an approved release.
+    evidence_refs: [EV-INVENTORY]
+
+traceability:
+  - id: TRACE-DISCOVERY
+    intent_or_requirement: Find authoritative HMLR material across the public estate.
+    task_refs: [TASK-PUBLIC-ROUTE, TASK-PRACTICE, TASK-DATASET, TASK-API, TASK-LLC]
+    planned_artifacts: [bundle/okf-explorer.json, bundle/data/manifest.json, bundle/data/catalogue.json, bundle/index.html]
+    validation_refs: [VAL-DATA-PLANE, VAL-EVALUATION]
+    evidence_refs: [EV-GOVUK-SEARCH, EV-INVENTORY]
+    status: accepted
+  - id: TRACE-PROVENANCE
+    intent_or_requirement: Keep source authority, derivation, freshness, availability and release state distinct.
+    task_refs: [TASK-AUDIT]
+    planned_artifacts: [bundle/data/sources.json, bundle/data/coverage.json, bundle/data/provenance.json]
+    validation_refs: [VAL-SNAPSHOT, VAL-DATA-PLANE]
+    evidence_refs: [EV-OKF-AUTHORING, EV-INVENTORY]
+    status: accepted
+  - id: TRACE-RIGHTS
+    intent_or_requirement: Preserve mixed dataset and service rights without unsafe acquisition.
+    task_refs: [TASK-DATASET, TASK-API, TASK-LLC, TASK-AUDIT]
+    planned_artifacts: [docs/sources-rights-and-ethics.md, bundle/data/rights.json]
+    validation_refs: [VAL-RIGHTS]
+    evidence_refs: [EV-PUBLIC-DATA, EV-LLC-TERMS, EV-PERSONAL-INFO]
+    status: accepted
+  - id: TRACE-PERSONAS
+    intent_or_requirement: Provide evidence-led personas, stories and evaluation coverage.
+    task_refs: [TASK-PUBLIC-ROUTE, TASK-PRACTICE, TASK-DATASET, TASK-SPATIAL, TASK-API, TASK-LLC, TASK-AUDIT]
+    planned_artifacts: [personas/personas-and-user-stories.json, evaluation/questions.json, evaluation/journeys.json]
+    validation_refs: [VAL-EVALUATION, VAL-ACCESSIBILITY]
+    evidence_refs: [EV-PUBLIC-GUIDANCE, EV-PRO-GUIDANCE, EV-HMLR-RESEARCH]
+    status: accepted
+  - id: TRACE-PAGES
+    intent_or_requirement: Publish a durable, accessible GitHub Pages discovery site.
+    task_refs: [TASK-PUBLIC-ROUTE, TASK-DATASET, TASK-AUDIT]
+    planned_artifacts: [bundle/index.html, bundle/accessibility.html, .github/workflows/pages.yml]
+    validation_refs: [VAL-ACCESSIBILITY, VAL-REPRODUCIBILITY]
+    evidence_refs: [EV-WCAG, EV-OKF-AUTHORING]
+    status: accepted
+  - id: TRACE-SAFETY
+    intent_or_requirement: Avoid legal overclaim, secrets, personal data and restricted-service automation.
+    task_refs: [TASK-PUBLIC-ROUTE, TASK-SPATIAL, TASK-API, TASK-LLC, TASK-AUDIT]
+    planned_artifacts: [SECURITY.md, docs/sources-rights-and-ethics.md, validation/rights-safety.json]
+    validation_refs: [VAL-RIGHTS, VAL-DATA-PLANE]
+    evidence_refs: [EV-PROPERTY-SERVICE, EV-LLC-TERMS, EV-PERSONAL-INFO]
+    status: accepted
+
+evidence:
+  - id: EV-INVENTORY
+    title: HM Land Registry source-family inventory
+    evidence_type: Local research inventory
+    authority: Derived from cited official public sources
+    location: ../research/source-family-inventory.json
+    locator: Entire file
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: d463585dfa9d427a8c88dbf499b3df4da1bf7d0dcc0c73644bca817b32c2c30e
+    supports: [Source-family boundary, denominators, saturation and residual gaps]
+    contradicts: []
+  - id: EV-GOVUK-SEARCH
+    title: GOV.UK Search API HMLR organisation filter
+    evidence_type: Official API observation
+    authority: Government Digital Service
+    location: https://www.gov.uk/api/search.json?filter_organisations=land-registry&count=0
+    locator: total and content_store_document_type aggregate
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: ["1,866-record dated denominator, content-type diversity, large-corpus decision"]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-HMLR-ORG
+    title: HM Land Registry organisation page
+    evidence_type: Official organisation page
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/organisations/land-registry
+    locator: What we do, services, current publications and organisation identity
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Organisation authority, England and Wales remit, official source routes]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-PUBLIC-DATA
+    title: HM Land Registry public data policy
+    evidence_type: Official guidance
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/publications/hm-land-registry-data/public-data
+    locator: OGL, free, restricted, accuracy, public-sector sharing and licence-exception sections
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Dataset source universe, mixed rights, accuracy limits]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-ULPD
+    title: Use land and property data catalogue
+    evidence_type: Publisher dataset catalogue
+    authority: HM Land Registry
+    location: https://use-land-property-data.service.gov.uk/
+    locator: Dataset cards, cadence, file format, API, price and licence summaries
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Dataset inventory, access, cadence and format]
+    contradicts: []
+    rights_ref: RIGHT-DATASETS
+  - id: EV-ULPD-API
+    title: Use land and property data API documentation
+    evidence_type: Publisher API documentation
+    authority: HM Land Registry
+    location: https://use-land-property-data.service.gov.uk/api-documentation
+    locator: Authentication, endpoint, dataset, history and signed-download sections
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [REST API v1, API-key access, dataset and resource identity]
+    contradicts: []
+    rights_ref: RIGHT-DATASETS
+  - id: EV-BG-DOCS
+    title: HM Land Registry Business Gateway developer documentation
+    evidence_type: Publisher developer documentation
+    authority: HM Land Registry
+    location: https://landregistry.github.io/bgtechdoc/
+    locator: Developer guide and service documentation
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: link-checked
+    sha256: unknown
+    supports: [Business Gateway service discovery, restricted access, SOAP/WSDL and REST distinction]
+    contradicts: []
+    rights_ref: RIGHT-RESTRICTED
+  - id: EV-CDDO
+    title: CDDO API Catalogue HMLR rows
+    evidence_type: Official discovery catalogue
+    authority: Central Digital and Data Office
+    location: https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv
+    locator: Rows with provider hm-land-registry
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [API discovery catalogue and publisher-verification requirement]
+    contradicts: []
+    rights_ref: RIGHT-CDDO
+  - id: EV-ACQUISITION-SNAPSHOT
+    title: Frozen public-metadata acquisition manifest
+    evidence_type: Deterministic acquisition receipt
+    authority: Local receipt derived from named public source endpoints
+    location: ../source/snapshots/2026-07-29T091915Z/manifest.json
+    locator: File entries, record counts, acquisition-script digest, request receipts, source endpoints, pagination and terminal outcomes
+    retrieved_at: "2026-07-29T09:19:40Z"
+    observed_at: "2026-07-29T09:19:15Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: 143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6
+    supports: ["1,866 GOV.UK records, 289 public repositories and 15 live CDDO rows"]
+    contradicts: ["27-row stale sibling seed as the current CDDO denominator"]
+    rights_ref: RIGHT-CDDO
+  - id: EV-GITHUB
+    title: HM Land Registry GitHub organisation
+    evidence_type: Official public repository organisation
+    authority: HM Land Registry
+    location: https://github.com/LandRegistry
+    locator: Organisation identity and public repository count
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Official source-code lane, 289 displayed public repositories]
+    contradicts: []
+    rights_ref: RIGHT-GITHUB
+  - id: EV-PROPERTY-SERVICE
+    title: Search for land and property information
+    evidence_type: Official service guidance
+    authority: HM Land Registry
+    location: https://www.gov.uk/search-property-information-land-registry
+    locator: Products, cost, sign-in and proof-of-ownership sections
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Property product scope, fees, downloaded versus official copy, general boundary]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-LLC-TERMS
+    title: Search for local land charges terms of use
+    evidence_type: Official service terms
+    authority: HM Land Registry
+    location: https://search-local-land-charges.service.gov.uk/terms-and-conditions
+    locator: Scope, personal/official search, automation prohibition, copyright and database rights
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Restricted automation, LLC search scope, reuse restrictions]
+    contradicts: []
+    rights_ref: RIGHT-RESTRICTED
+  - id: EV-LLC-PROGRAMME
+    title: HM Land Registry Local Land Charges Programme
+    evidence_type: Official programme publication
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme
+    locator: Migration, local authorities, search, PG79 and fee sections
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Volatile authority coverage, LLC process and CON29 boundary]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-INSPIRE-DATA
+    title: INSPIRE Index Polygons spatial data
+    evidence_type: Publisher dataset page
+    authority: HM Land Registry
+    location: https://use-land-property-data.service.gov.uk/datasets/inspire
+    locator: Scope, identity, conditions, cadence, GML and boundary limitations
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Freehold subset, indicative polygons, monthly GML, OGL and OS attribution]
+    contradicts: []
+    rights_ref: RIGHT-DATASETS
+  - id: EV-PPD
+    title: HM Land Registry Price Paid Data
+    evidence_type: Official statistical dataset
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
+    locator: Scope, current release, monthly cadence, distributions, rights and accuracy
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [PPD semantics, lag, distributions and third-party address rights]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-UKHPI
+    title: UK House Price Index reports
+    evidence_type: Official statistics collection
+    authority: HM Land Registry and UK HPI partners
+    location: https://www.gov.uk/government/collections/uk-house-price-index-reports
+    locator: Current release, revisions, methods, cadence and archive
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [UK HPI semantics, monthly publication, provisional and revised estimates]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-PUBLIC-GUIDANCE
+    title: Guidance for members of the public
+    evidence_type: Official audience guidance
+    authority: HM Land Registry
+    location: https://www.gov.uk/guidance/guidance-for-members-of-the-public
+    locator: Audience routes and legal-complexity warning
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Public persona and task hypotheses]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-PRO-GUIDANCE
+    title: Guidance and support for property professionals
+    evidence_type: Official audience guidance
+    authority: HM Land Registry
+    location: https://www.gov.uk/guidance/guidance-and-support-for-property-professionals
+    locator: Professional services, application and support routes
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Professional, lender and developer persona hypotheses]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-PRACTICE-GUIDES
+    title: Land registration practice guides
+    evidence_type: Official guidance collection
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/collections/land-registration-practice-guides
+    locator: Guide inventory, audience warning and Welsh availability
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Professional discovery, document families and language]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-HMLR-RESEARCH
+    title: Research at HM Land Registry
+    evidence_type: Official research overview
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/organisations/land-registry/about/research
+    locator: Customer research programmes and evidence channels
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: link-checked
+    sha256: unknown
+    supports: [Need for participant validation and research limits]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-PERSONAL-INFO
+    title: HM Land Registry personal information charter
+    evidence_type: Official privacy statement
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter
+    locator: Register information, digital services, retention and data rights
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: link-checked
+    sha256: unknown
+    supports: [Privacy boundary and personal-data exclusion]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-ACCESSIBILITY
+    title: HM Land Registry accessible documents policy
+    evidence_type: Official accessibility statement
+    authority: HM Land Registry
+    location: https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy
+    locator: Formats, partial compliance, alternative formats and testing
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Accessibility risks and alternative-format needs]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-CUSTOMER-HELP
+    title: Contact HM Land Registry and customer help
+    evidence_type: Official help service
+    authority: HM Land Registry
+    location: https://customerhelp.landregistry.gov.uk/
+    locator: Guidance, contact, forum privacy warning and support routes
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Help source family and forum-content exclusion]
+    contradicts: []
+    rights_ref: RIGHT-PERSONAL
+  - id: EV-BLOG
+    title: HM Land Registry blog
+    evidence_type: Official explanatory publication
+    authority: HM Land Registry
+    location: https://hmlandregistry.blog.gov.uk/
+    locator: Blog index
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: link-checked
+    sha256: unknown
+    supports: [Official context source family]
+    contradicts: []
+    rights_ref: RIGHT-GOVUK
+  - id: EV-LINKED-DATA
+    title: HM Land Registry linked data service
+    evidence_type: Official data service
+    authority: HM Land Registry
+    location: https://landregistry.data.gov.uk/
+    locator: Service home and documentation routes
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: documented-not-tested
+    verification: link-checked
+    sha256: unknown
+    supports: [Linked-data source family and residual assurance gap]
+    contradicts: []
+    rights_ref: RIGHT-DATASETS
+  - id: EV-OKF
+    title: Open Knowledge Format 0.2 specification
+    evidence_type: Normative specification
+    authority: GoogleCloudPlatform knowledge-catalog repository
+    location: https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/3fcbb9f828c2f23d109c855ee403c3a4c81f3a96/okf/SPEC.md
+    locator: Version 0.2 specification
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [OKF 0.2 portable core]
+    contradicts: []
+  - id: EV-OKF-AUTHORING
+    title: OKF Foundry authoring profile and prompt kit
+    evidence_type: Versioned application profile
+    authority: OKF Explorer repository
+    location: https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/
+    locator: Domain-profile schema, warm-up and build contracts
+    retrieved_at: "2026-07-29T07:53:38Z"
+    observed_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: support-checked
+    sha256: unknown
+    supports: [Two-stage workflow, evidence states, large-corpus and release gates]
+    contradicts: []
+  - id: EV-YAML
+    title: YAML 1.2.2
+    evidence_type: Normative specification
+    authority: YAML Language Development Team
+    location: https://yaml.org/spec/1.2.2/
+    locator: Complete specification
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [YAML parsing contract]
+    contradicts: []
+  - id: EV-YAMLLD
+    title: YAML-LD 1.0 Working Draft
+    evidence_type: Normative specification
+    authority: World Wide Web Consortium
+    location: https://www.w3.org/TR/2025/WD-yaml-ld-10-20250612/
+    locator: Publication status and specification
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [YAML-LD assessment and Working Draft status]
+    contradicts: []
+  - id: EV-JSONSCHEMA
+    title: JSON Schema 2020-12
+    evidence_type: Normative specification
+    authority: JSON Schema project
+    location: https://json-schema.org/draft/2020-12/schema
+    locator: Meta-schema
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [JSON control-document validation]
+    contradicts: []
+  - id: EV-JSONLD
+    title: JSON-LD 1.1
+    evidence_type: Normative specification
+    authority: World Wide Web Consortium
+    location: https://www.w3.org/TR/json-ld11/
+    locator: Recommendation
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [Semantic projection contract]
+    contradicts: []
+  - id: EV-DCAT
+    title: Data Catalog Vocabulary 3
+    evidence_type: Normative specification
+    authority: World Wide Web Consortium
+    location: https://www.w3.org/TR/vocab-dcat-3/
+    locator: Recommendation
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [Dataset, distribution and service projection]
+    contradicts: []
+  - id: EV-PROVO
+    title: PROV-O
+    evidence_type: Normative specification
+    authority: World Wide Web Consortium
+    location: https://www.w3.org/TR/prov-o/
+    locator: Recommendation
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [Provenance projection]
+    contradicts: []
+  - id: EV-INSPIRE-SPEC
+    title: INSPIRE Data Specification on Cadastral Parcels
+    evidence_type: Official technical guideline
+    authority: European Commission INSPIRE
+    location: https://inspire.ec.europa.eu/id/document/tg/cp
+    locator: Version 3.1 technical guidelines
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [INSPIRE cadastral parcel source-native assessment]
+    contradicts: []
+  - id: EV-GML
+    title: OGC Geography Markup Language 3.2.1
+    evidence_type: Normative specification
+    authority: Open Geospatial Consortium
+    location: https://portal.ogc.org/files/?artifact_id=20509
+    locator: OGC 07-036
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: link-checked
+    sha256: unknown
+    supports: [GML source-format assessment]
+    contradicts: []
+  - id: EV-WCAG
+    title: Web Content Accessibility Guidelines 2.2
+    evidence_type: Normative specification
+    authority: World Wide Web Consortium
+    location: https://www.w3.org/TR/WCAG22/
+    locator: Recommendation
+    retrieved_at: "2026-07-29T07:53:38Z"
+    access_state: verified-working
+    verification: locator-checked
+    sha256: unknown
+    supports: [Accessibility target and evaluation]
+    contradicts: []
+
+build_recommendation:
+  required_features:
+    - Frozen source envelopes with exact per-family denominators and terminal outcomes
+    - Stable source-native identity, deterministic local routes and collision failure
+    - Search, source/type/access/topic facets and bounded result rendering
+    - Record detail with authority, derivation, freshness, rights, coverage and caveats
+    - Dataset distributions, API protocol/access and spatial boundary semantics
+    - Persona/story/question traceability and direct-source evaluation baseline
+    - Accessible, progressively enhanced GitHub Pages site and raw machine entrypoints
+  deferred_features:
+    - Property-level, title, address, polygon or transaction data
+    - Authenticated provider calls, live search and credential handling
+    - Model-assisted relationships, classifications or answers
+    - Full YAML-LD/RDF/SHACL conformance until a user task justifies governed-semantic publication
+    - Federation until independently governed source lanes require separate releases
+    - Participant-validated usability and bilingual-parity claims
+  blocking_decision_ids: []
+  canonical_fixture: >-
+    Include a current OGL dataset, bespoke-licensed dataset, restricted
+    service, stale catalogue/current publisher pair, indicative spatial
+    product, Welsh route, missing-rights repository, unsafe signed URL,
+    duplicate identifier, unanswerable query and source-content prompt
+    injection treated only as data.
+  acceptance_gates:
+    - The domain profile validates, JSON and YAML are equivalent, and the pack root digest is recorded.
+    - The tiny positive, negative and degraded fixture builds twice with byte-identical output and fails closed.
+    - Every expected source item has one terminal acquisition outcome and all envelopes rehash.
+    - OKF core, descriptor, manifests, routes, counts, rights and source ledgers validate.
+    - The 24-question first-release suite has complete persona/story/source traceability and zero hard failures.
+    - Accessibility, safety, performance and clean reproduction receipts bind the exact frozen candidate.
+    - No public-release or completeness claim is made beyond owner-approved, digest-bound evidence.

@@ -1,0 +1,16 @@
+{
+  "name": "HM Land Registry public-estate OKF",
+  "short_name": "HMLR OKF",
+  "description": "Independent metadata discovery for HM Land Registry public sources.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f4ec",
+  "theme_color": "#32102f",
+  "lang": "en-GB",
+  "categories": [
+    "government",
+    "productivity",
+    "reference"
+  ]
+}

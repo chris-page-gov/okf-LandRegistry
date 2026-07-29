@@ -1,0 +1,228 @@
+{
+  "builder": "scripts/build.py/0.1.0",
+  "builder_sha256": "582b2e65fcb62d744cc11a3983137b55294c9ead26e084f928cebfaa0a7d2a51",
+  "curated_source": {
+    "observed_at": "2026-07-29T07:53:38Z",
+    "record_count": 51,
+    "sha256": "53a4daf82113de082b3f005c6e46d0d39df8a6a05ed8fb7a6f0aac9446a049c6"
+  },
+  "domain_profile_canonical_sha256": "e36cd74928df765f9813f5be20d80c162b2c21489675f4ed408b5c2e9108a51e",
+  "domain_profile_pack_root_sha256": "135d3e82b19535ca8529c58952fd2fcf985879871504621836a6e55c10fc8533",
+  "generated_at": "2026-07-29T09:19:47Z",
+  "governed_inputs": [
+    {
+      "bytes": 608,
+      "path": "domain-profile/CHECKSUMS.sha256",
+      "sha256": "510a64ccea5a8a585d2c762324de9d306c6ed4717c98cdd573658d05ae74355a"
+    },
+    {
+      "bytes": 127151,
+      "path": "domain-profile/domain-profile.json",
+      "sha256": "e92f3db74c7461ccb68ba01ee03350c24792df7720cfe8343cd60f37e1894378"
+    },
+    {
+      "bytes": 22451,
+      "path": "evaluation/journeys.json",
+      "sha256": "527477dd7020fb8af855a4b50396c4391df2a4a5e6153b97c19da79ff7086b61"
+    },
+    {
+      "bytes": 41573,
+      "path": "evaluation/questions.json",
+      "sha256": "af651fd5ab1c5318a01083b05e949dccd6da59bbab16c0bec81066bd65caf10d"
+    },
+    {
+      "bytes": 9096,
+      "path": "governance/requirements.json",
+      "sha256": "93911dd6815d52214a983fcc8e4757a098c8a98349e3afc00bc20993631943a0"
+    },
+    {
+      "bytes": 6841,
+      "path": "governance/rights-review.json",
+      "sha256": "0522ee643f4f2a0489d818019d0fae81054291f203a71f67a17149b18808abd1"
+    },
+    {
+      "bytes": 9465,
+      "path": "governance/risk-register.json",
+      "sha256": "6ab5b18790d5102231ef0408857c6d709fcdf894ed082adfcf73bb0a903b71f9"
+    },
+    {
+      "bytes": 5347,
+      "path": "governance/traceability.json",
+      "sha256": "cfe37d8b6165d673f30ff9ff4594213f8e5dcff1bb8de8c93a989e013daaa8ee"
+    },
+    {
+      "bytes": 1,
+      "path": "pages/.nojekyll",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 1055,
+      "path": "pages/404.html",
+      "sha256": "77e1096f361fa37c1358ffe27f3e000f94d158d81a3e80b8e07f648ba57e16c4"
+    },
+    {
+      "bytes": 2964,
+      "path": "pages/accessibility.html",
+      "sha256": "1a03e914fae334467137243762c3873173b7277bb3071b52e7f88b36855780e2"
+    },
+    {
+      "bytes": 17365,
+      "path": "pages/app.js",
+      "sha256": "edc70ec2014c39e213b4719a6d89c31a616833a771eb7ec82e0164c89278c450"
+    },
+    {
+      "bytes": 11851,
+      "path": "pages/index.html",
+      "sha256": "8113feeb7a3baab0f17f9157aa847387b4ab9612dcfac4afb3a88c55bfe42fe2"
+    },
+    {
+      "bytes": 389,
+      "path": "pages/manifest.webmanifest",
+      "sha256": "44385ce180a3ee60a77e90ad65e883d80edcf5b4479c1fdc9586a7bc7ae2fcb5"
+    },
+    {
+      "bytes": 1039,
+      "path": "pages/search-contract.json",
+      "sha256": "7d971e68bc417115959be70c8c5dd622ce2e53fe721cd6d2b8c3b3b90b9f3c05"
+    },
+    {
+      "bytes": 14269,
+      "path": "pages/styles.css",
+      "sha256": "f7c5960db1203f3487b050a150a87c982ff7cc11b6523e843e8e877ea131a022"
+    },
+    {
+      "bytes": 25166,
+      "path": "personas/personas-and-user-stories.json",
+      "sha256": "8acddf495ffaf10e432a753bbb8890c7353c10dc9073b1f201091057b2bdd841"
+    },
+    {
+      "bytes": 38634,
+      "path": "schemas/domain-profile.schema.json",
+      "sha256": "6cdf0882d306c89d8d3e8aef0d3daa5c7bcd954a0e833b06b49e493f112ca81f"
+    },
+    {
+      "bytes": 30727,
+      "path": "scripts/acquire.py",
+      "sha256": "e3d51b0fc18532a3acfe9b5c6b7c8e8c483634edba2be5d8ffdb8482a6aa75f7"
+    },
+    {
+      "bytes": 67638,
+      "path": "scripts/build.py",
+      "sha256": "582b2e65fcb62d744cc11a3983137b55294c9ead26e084f928cebfaa0a7d2a51"
+    },
+    {
+      "bytes": 7331,
+      "path": "scripts/check_domain_profile.py",
+      "sha256": "d88a3eb956d6f9b238d2182eec45ba7e1e2d9bdd24af93fbae5a3f1e3b339f62"
+    },
+    {
+      "bytes": 11206,
+      "path": "scripts/evaluate.py",
+      "sha256": "6aa24d5bcb662ec7227d06817f0e410997fd1aae0c322293e0aa1a8e7207fc9d"
+    },
+    {
+      "bytes": 472,
+      "path": "source/build-config.json",
+      "sha256": "1863fde977ec3b2764743cb8d766f2c98a6feb82bb2c11d048ccf6701f219784"
+    },
+    {
+      "bytes": 83010,
+      "path": "source/curated-records.json",
+      "sha256": "53a4daf82113de082b3f005c6e46d0d39df8a6a05ed8fb7a6f0aac9446a049c6"
+    },
+    {
+      "bytes": 20992,
+      "path": "source/snapshots/2026-07-29T091915Z/cddo-api-catalogue.json",
+      "sha256": "7872682ca604aaa9fc98bb4cb26f5713f4c00936bfe52234d730ea51b4f827f3"
+    },
+    {
+      "bytes": 2003949,
+      "path": "source/snapshots/2026-07-29T091915Z/github-repositories.json",
+      "sha256": "f80da2f67404f54957235f0ad6f700bb74dfddbf811b7f170d1217abb7750cff"
+    },
+    {
+      "bytes": 5334493,
+      "path": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+      "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
+    },
+    {
+      "bytes": 9776,
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    {
+      "bytes": 14105,
+      "path": "source/source-register.json",
+      "sha256": "271aa0994711e418df218837f286b7601402947459f8483ba188278fc41fcb54"
+    }
+  ],
+  "network_access": false,
+  "observed_at": "2026-07-29T09:19:15Z",
+  "record_count": 2198,
+  "release_at": null,
+  "schema": "okf-hmlr-build-receipt.v1",
+  "snapshot": {
+    "files": [
+      {
+        "bytes": 5334493,
+        "path": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+        "record_count": 1866,
+        "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
+      },
+      {
+        "bytes": 2003949,
+        "path": "source/snapshots/2026-07-29T091915Z/github-repositories.json",
+        "record_count": 289,
+        "sha256": "f80da2f67404f54957235f0ad6f700bb74dfddbf811b7f170d1217abb7750cff"
+      },
+      {
+        "bytes": 20992,
+        "path": "source/snapshots/2026-07-29T091915Z/cddo-api-catalogue.json",
+        "record_count": 15,
+        "sha256": "7872682ca604aaa9fc98bb4cb26f5713f4c00936bfe52234d730ea51b4f827f3"
+      }
+    ],
+    "lanes": {
+      "cddo-api-catalogue": {
+        "acquired": 15,
+        "errors": 0,
+        "expected": 15,
+        "terminal_outcome": {
+          "reason": "single-response-provider-filter-complete",
+          "record_count": 15,
+          "request_count": 1,
+          "rows_scanned": 231,
+          "status": "complete"
+        }
+      },
+      "github": {
+        "acquired": 289,
+        "errors": 0,
+        "expected": 289,
+        "terminal_outcome": {
+          "reason": "short-page",
+          "record_count": 289,
+          "request_count": 3,
+          "status": "complete"
+        }
+      },
+      "govuk-search": {
+        "acquired": 1866,
+        "errors": 0,
+        "expected": 1866,
+        "terminal_outcome": {
+          "reason": "declared-total-reconciled",
+          "record_count": 1866,
+          "request_count": 4,
+          "status": "complete"
+        }
+      }
+    },
+    "manifest_path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+    "mode": "frozen-public-metadata",
+    "observed_at": "2026-07-29T09:19:15Z",
+    "snapshot_id": "2026-07-29T091915Z",
+    "source_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "status": "reviewed-scaffold-not-approved"
+}

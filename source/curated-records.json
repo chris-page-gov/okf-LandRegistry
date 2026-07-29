@@ -1,0 +1,1490 @@
+{
+  "schema": "okf-hmlr-curated-records.v1",
+  "observed_at": "2026-07-29T07:53:38Z",
+  "research_cutoff": "2026-07-29",
+  "scope_note": "A metadata-only catalogue of high-value official HM Land Registry sources. It complements, rather than replaces, the dated GOV.UK Search, GitHub and CDDO catalogue census lanes. URLs, fees, service status, release dates and terms must be rechecked at the publisher before use.",
+  "records": [
+    {
+      "id": "hmlr:organisation",
+      "title": "HM Land Registry",
+      "description": "The official GOV.UK organisation hub for HM Land Registry, which registers ownership of land and property in England and Wales.",
+      "url": "https://www.gov.uk/government/organisations/land-registry",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "organisation",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "data-users", "developers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible GOV.UK content, subject to stated exceptions and third-party rights",
+      "cadence": "continuously maintained",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["organisation", "services", "publications", "land-registration"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The bundle is independent and does not speak for HM Land Registry.",
+        "The remit is England and Wales; UK-wide products state their own coverage."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/organisations/land-registry",
+        "https://www.gov.uk/government/organisations/land-registry/about"
+      ]
+    },
+    {
+      "id": "hmlr:collection:land-registration-data",
+      "title": "Land registration data",
+      "description": "The official GOV.UK collection for HM Land Registry public datasets and related guidance.",
+      "url": "https://www.gov.uk/government/collections/land-registration-data",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "collection",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales, with UK-wide coverage where a dataset says so",
+      "audience": ["data-users", "researchers", "analysts", "developers"],
+      "access_model": "public-web",
+      "authentication": "none for collection metadata; dataset access varies",
+      "licence": "Dataset-specific; do not infer a common licence from collection membership",
+      "cadence": "maintained as datasets change",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["datasets", "statistics", "geospatial-data", "applications"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Collection publication dates and page updates are not dataset currency dates.",
+        "Publisher dataset pages control current cadence, access and licence details."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/collections/land-registration-data",
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data"
+      ]
+    },
+    {
+      "id": "hmlr:policy:public-data",
+      "title": "HM Land Registry public data",
+      "description": "Official policy explaining which HM Land Registry datasets are open, free under another licence, restricted, shared with the public sector or otherwise available.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "rights-policy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["data-users", "researchers", "developers", "commercial-reusers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Page under applicable GOV.UK terms; referenced datasets retain their own licences and third-party rights",
+      "cadence": "updated when policy or products change",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["licensing", "open-data", "restricted-data", "public-sector-data-sharing"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Free access is not the same as open redistribution.",
+        "Ordnance Survey, Royal Mail, GeoPlace and other third-party rights may apply.",
+        "Recheck the dataset-specific licence before every use or redistribution."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
+        "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      ]
+    },
+    {
+      "id": "hmlr:catalogue:use-land-property-data",
+      "title": "Use land and property data",
+      "description": "HM Land Registry's publisher-operated catalogue for bulk datasets linked to registered land and property.",
+      "url": "https://use-land-property-data.service.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset-catalogue",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales, with UK-wide coverage for UK HPI reports",
+      "audience": ["data-users", "researchers", "property-professionals", "developers", "commercial-reusers"],
+      "access_model": "mixed: open download, account-and-licence, API and paid products",
+      "authentication": "varies by dataset; some downloads and APIs require an account, accepted licence and API key",
+      "licence": "dataset-specific: Open Government Licence, bespoke, direct-use, exploration or commercial terms",
+      "cadence": "catalogue maintained; individual datasets have independent cadences",
+      "formats": ["HTML", "CSV metadata"],
+      "topics": ["bulk-data", "ownership", "polygons", "leases", "covenants", "statistics", "spatial-metadata", "crs", "vintage", "welsh-place-names", "language"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The catalogue showed 14 dataset entries at the research cutoff, but the build must re-enumerate before claiming completeness.",
+        "Some files are multi-gigabyte and require specialist tools.",
+        "This bundle records metadata only and never downloads the listed property data."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/",
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:price-paid-data",
+      "title": "Price Paid Data",
+      "description": "Transaction-level information about property sales in England and Wales sold for value and lodged for registration, available as monthly, yearly and complete files and through linked data.",
+      "url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "analysts", "researchers", "data-users", "commercial-reusers"],
+      "access_model": "public bulk download and public linked-data access",
+      "authentication": "none for public distributions",
+      "licence": "Open Government Licence v3.0 with required HMLR attribution and additional conditions for third-party address data",
+      "cadence": "monthly, normally on the twentieth working day",
+      "formats": ["CSV", "TXT", "RDF linked data"],
+      "topics": ["property-sales", "prices", "transactions", "addresses"],
+      "publisher_last_updated": "2026-07-28",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The latest month is incomplete and is added to in later releases.",
+        "Registration and publication lag the underlying sale.",
+        "It excludes transactions that do not meet the publisher's stated inclusion criteria.",
+        "Address fields include Ordnance Survey and Royal Mail rights not fully licensed by the OGL.",
+        "The complete file is several gigabytes and is not acquired by this bundle."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+        "https://landregistry.data.gov.uk/",
+        "https://www.gov.uk/government/publications/hm-land-registry-data/public-data"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:uk-house-price-index",
+      "title": "UK House Price Index",
+      "description": "An accredited monthly house-price index and data series produced by HM Land Registry with partner administrations and statistical bodies.",
+      "url": "https://www.gov.uk/government/collections/uk-house-price-index-reports",
+      "publisher": "HM Land Registry and UK House Price Index partners",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "official-statistics-series",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "United Kingdom, with nation-specific availability and history",
+      "audience": ["public", "analysts", "researchers", "policy-makers", "media"],
+      "access_model": "public reports, downloads and report-generation tools",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 subject to the series' stated reuse conditions",
+      "cadence": "monthly",
+      "formats": ["HTML", "CSV", "PDF", "RDF linked data"],
+      "topics": ["house-prices", "index", "official-statistics", "market-trends"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Recent estimates are provisional and revised as later transactions arrive.",
+        "An index is not a valuation of an individual property.",
+        "Coverage start dates and methods differ across the four UK nations.",
+        "Release month and reference month are different dates."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/collections/uk-house-price-index-reports",
+        "https://landregistry.data.gov.uk/"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:transaction-data",
+      "title": "Transaction Data",
+      "description": "Five monthly aggregate files describing applications and searches completed by HM Land Registry, grouped by customer or location.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/td",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["property-professionals", "analysts", "researchers", "policy-makers"],
+      "access_model": "public download and linked data",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 with publisher attribution",
+      "cadence": "monthly, normally on the fifteenth working day for the preceding month",
+      "formats": ["CSV", "RDF linked data"],
+      "topics": ["applications", "searches", "transactions", "operational-statistics"],
+      "publisher_last_updated": "2026-07-21",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "This measures completed applications and searches, not the live application queue or property market directly.",
+        "Pending, bankruptcy and bulk applications are excluded.",
+        "Customer-name data reflects account customers and should not be treated as individual performance without context.",
+        "Historical files extend to December 2011; classifications and structures need version-aware comparison."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/td",
+        "https://use-land-property-data.service.gov.uk/datasets/td/tech-spec",
+        "https://use-land-property-data.service.gov.uk/datasets/td/download"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:request-for-information",
+      "title": "Request for information (requisition) data",
+      "description": "Quarterly statistics about register-change applications from account-holder customers and the requests for information HM Land Registry sends to them.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/rfi",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["property-professionals", "analysts", "researchers"],
+      "access_model": "public download and online view",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 with publisher attribution and link to the dataset explanation",
+      "cadence": "quarterly, normally on the fifteenth working day after the quarter",
+      "formats": ["CSV", "ODS", "HTML"],
+      "topics": ["requisitions", "applications", "customer-groups", "operational-statistics"],
+      "publisher_last_updated": "2026-07-21",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Requests for information were formerly called requisitions.",
+        "Customer activity mix affects counts and prevents simplistic league-table interpretation.",
+        "Telephone requests, bankruptcy applications, bulk applications and pending applications are excluded.",
+        "The publisher does not guarantee that the dataset is error-free or fit for a particular use."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/rfi",
+        "https://use-land-property-data.service.gov.uk/datasets/rfi/tech-spec",
+        "https://use-land-property-data.service.gov.uk/datasets/rfi/download"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:avoidable-requisitions",
+      "title": "Request for information (avoidable requisition) data",
+      "description": "A six-month snapshot of completed register-change applications with requisitions classified as wholly avoidable for account customers meeting the stated activity threshold.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/av_req",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["property-professionals", "analysts", "researchers"],
+      "access_model": "public download and online view",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 with publisher attribution and link to the dataset explanation",
+      "cadence": "every six months, normally on the fifteenth working day after the period",
+      "formats": ["CSV", "HTML"],
+      "topics": ["avoidable-requisitions", "applications", "quality", "customer-groups"],
+      "publisher_last_updated": "2026-06-07",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Only customers submitting at least the publisher's threshold number of applications are included.",
+        "Requisitions containing both technical and avoidable points are excluded.",
+        "The percentage is not an absolute measure of overall requisition performance.",
+        "Each release is a new snapshot and is not revised."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/av_req",
+        "https://use-land-property-data.service.gov.uk/datasets/av_req/tech-spec",
+        "https://use-land-property-data.service.gov.uk/datasets/av_req/download"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:uk-company-ownership",
+      "title": "UK companies that own property in England and Wales",
+      "description": "Monthly title-level data for registered land and property whose legal owner is a UK company or corporate body; formerly Commercial and Corporate Ownership Data (CCOD).",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/ccod",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["researchers", "data-users", "commercial-reusers", "property-professionals"],
+      "access_model": "free account-and-licence download; authenticated API available",
+      "authentication": "account and accepted dataset licence; API access additionally uses an API key",
+      "licence": "dataset-specific licence containing third-party address-rights conditions",
+      "cadence": "monthly, on the second working day for the preceding month",
+      "formats": ["CSV", "JSON API metadata"],
+      "topics": ["corporate-ownership", "companies", "registered-titles", "addresses"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "This is legal registered ownership by companies, not beneficial ownership.",
+        "Private individuals, overseas companies and charities are excluded.",
+        "Pending register updates are absent until completed and published.",
+        "Historical identifiers and addresses can be incomplete or inconsistent.",
+        "Address data carries Ordnance Survey and Royal Mail rights."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/ccod",
+        "https://use-land-property-data.service.gov.uk/datasets/ccod/tech-spec",
+        "https://use-land-property-data.service.gov.uk/datasets/ccod/licence/view"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:overseas-company-ownership",
+      "title": "Overseas companies that own property in England and Wales",
+      "description": "Monthly title-level data for registered land and property whose legal owner is a company or corporate body incorporated outside the UK; formerly Overseas Company Ownership Data (OCOD).",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/ocod",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["researchers", "data-users", "commercial-reusers", "property-professionals"],
+      "access_model": "free account-and-licence download; authenticated API available",
+      "authentication": "account and accepted dataset licence; API access additionally uses an API key",
+      "licence": "dataset-specific licence containing third-party address-rights conditions",
+      "cadence": "monthly, on the second working day for the preceding month",
+      "formats": ["CSV", "JSON API metadata"],
+      "topics": ["corporate-ownership", "overseas-companies", "ocod", "complete-file", "change-only", "registered-titles", "addresses", "address-data", "licence", "third-party-rights"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "This is legal registered ownership by an overseas company, not beneficial ownership.",
+        "Private individuals, UK companies with overseas addresses and charities are excluded.",
+        "Pending register updates are absent until completed and published.",
+        "The data omits records before the publisher's stated historical start.",
+        "Address data carries Ordnance Survey and Royal Mail rights."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/ocod",
+        "https://use-land-property-data.service.gov.uk/datasets/ocod/tech-spec",
+        "https://use-land-property-data.service.gov.uk/datasets/ocod/licence/view"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:inspire-index-polygons",
+      "title": "Index polygons spatial data (INSPIRE)",
+      "description": "Monthly GML files showing the indicative position and extent of registered freehold property in England and Wales by local authority area.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/inspire",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "geospatial-dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["gis-users", "researchers", "data-users", "property-professionals"],
+      "access_model": "public download",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 plus required HM Land Registry and Ordnance Survey attribution conditions",
+      "cadence": "monthly, on the first Sunday for the preceding month",
+      "formats": ["GML"],
+      "topics": ["inspire", "cadastral-parcels", "polygons", "freehold", "geospatial-data"],
+      "publisher_last_updated": "2026-07-05",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Polygons are indicative and do not establish the exact legal extent of a title.",
+        "This is a freehold subset, not all registered titles or all land.",
+        "A title may have several polygons; local-authority boundary polygons may be duplicated across files.",
+        "A missing INSPIRE ID does not prove that land is unregistered.",
+        "GIS software is normally required."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/inspire",
+        "https://use-land-property-data.service.gov.uk/datasets/inspire/download"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:local-land-charges-inspire",
+      "title": "Local land charges spatial data (INSPIRE)",
+      "description": "Monthly GML files showing indicative locations of migrated local land charges that fall within specified INSPIRE themes.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/llc",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "geospatial-dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales, limited to migrated local-authority data",
+      "audience": ["gis-users", "researchers", "data-users", "property-professionals"],
+      "access_model": "public download",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 plus required HM Land Registry and Ordnance Survey attribution conditions",
+      "cadence": "monthly, on the sixth day for the preceding month",
+      "formats": ["GML"],
+      "topics": ["local-land-charges", "inspire", "polygons", "geospatial-data", "planning-conditions", "title-boundaries", "concept-differences"],
+      "publisher_last_updated": "2026-07-06",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Not every local authority has migrated its local land charges data.",
+        "The polygons are indicative; source documents held by the originating authority determine definitive extent.",
+        "Only charges in the stated INSPIRE theme groups are represented.",
+        "This does not include CON29 enquiries."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/llc",
+        "https://use-land-property-data.service.gov.uk/datasets/llc/download",
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:national-polygon-service",
+      "title": "National Polygon Service",
+      "description": "A licensed service combining the National Polygon, Title Descriptor and Title Number and UPRN Look Up datasets for registered freehold and leasehold titles.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/nps",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "licensed-data-service",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["commercial-reusers", "gis-users", "property-professionals", "data-engineers"],
+      "access_model": "paid annual licence with account download and authenticated API",
+      "authentication": "account, executed licence, payment and API key for API access",
+      "licence": "bespoke National Polygon Service licence with Ordnance Survey and GeoPlace rights and attribution",
+      "cadence": "monthly, on the second working day for the preceding month",
+      "formats": ["ESRI Shapefile", "CSV", "ZIP", "JSON API metadata"],
+      "topics": ["title-polygons", "title-descriptors", "uprn", "geospatial-data", "licensed-data"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The observed annual price was £20,000 plus VAT and must be rechecked before a decision.",
+        "Polygons show indicative position and extent, not exact legal boundaries.",
+        "A title number can link to a UPRN only where the publisher can establish a relationship to AddressBase.",
+        "The files are very large and are not acquired by this bundle."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/nps",
+        "https://use-land-property-data.service.gov.uk/datasets/nps/licence/view"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:registered-leases",
+      "title": "Registered Leases",
+      "description": "Monthly licensed data about registered leasehold land and property, including lease dates, terms and selected associated property information.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/leases",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "licensed-dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["property-professionals", "researchers", "commercial-reusers", "data-users"],
+      "access_model": "account-and-licence download and authenticated API; commercial use is paid",
+      "authentication": "account and accepted direct-use, exploration or commercial licence; API key for API access",
+      "licence": "three dataset-specific licence types: direct use, exploration and commercial",
+      "cadence": "monthly, on the sixth working day for the preceding month",
+      "formats": ["CSV", "JSON API metadata"],
+      "topics": ["leases", "leasehold", "registered-titles", "licensed-data"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Not every short lease is registrable or registered; scope follows the technical specification.",
+        "Direct-use data cannot be published or shared externally under the observed terms.",
+        "The observed commercial annual price was £5,000 plus VAT and must be rechecked.",
+        "The data is a monthly snapshot, not the live register."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/leases",
+        "https://use-land-property-data.service.gov.uk/datasets/leases/tech-spec"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:restrictive-covenants",
+      "title": "Restrictive Covenants",
+      "description": "Monthly licensed data indicating registered titles with restrictive covenants, without the text or detail of the covenant itself.",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/res_cov",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "licensed-dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["property-professionals", "researchers", "commercial-reusers", "data-users"],
+      "access_model": "account-and-licence download and authenticated API; commercial use is paid",
+      "authentication": "account and accepted direct-use, exploration or commercial licence; API key for API access",
+      "licence": "three dataset-specific licence types: direct use, exploration and commercial",
+      "cadence": "monthly, on the sixth working day for the preceding month",
+      "formats": ["CSV", "JSON API metadata"],
+      "topics": ["restrictive-covenants", "registered-titles", "licensed-data"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The dataset indicates that a covenant exists but does not give its wording or legal effect.",
+        "Relevant details may require official registers or documents.",
+        "Direct-use data cannot be published or shared externally under the observed terms.",
+        "The observed commercial annual price was £475 plus VAT and must be rechecked.",
+        "The data is a monthly snapshot, not the live register."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/datasets/res_cov",
+        "https://use-land-property-data.service.gov.uk/datasets/res_cov/tech-spec",
+        "https://use-land-property-data.service.gov.uk/datasets/res_cov/licence/commercial/view"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:geospatial-data-catalogue",
+      "title": "HM Land Registry Geospatial Data Catalogue",
+      "description": "A small CSV discovery catalogue describing selected electronic HM Land Registry datasets linked to location through title registrations.",
+      "url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "dataset-catalogue",
+      "source_family": "ulpd",
+      "jurisdiction": "England and Wales",
+      "audience": ["gis-users", "data-users", "researchers"],
+      "access_model": "public download",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0, subject to the catalogue's stated conditions",
+      "cadence": "rarely updated",
+      "formats": ["CSV"],
+      "topics": ["geospatial-data", "data-catalogue", "discovery-metadata"],
+      "publisher_last_updated": "2020-10-01",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The catalogue can be stale relative to publisher dataset pages.",
+        "Catalogue timestamps are not dataset currency timestamps.",
+        "It covers some, not necessarily all, location-linked HMLR datasets."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+        "https://use-land-property-data.service.gov.uk/",
+        "https://www.data.gov.uk/search?filters%5Bpublisher%5D=HM+Land+Registry"
+      ]
+    },
+    {
+      "id": "hmlr:dataset:1862-act-register",
+      "title": "1862 Act Register",
+      "description": "A static digital representation of the first land register created by HM Land Registry under the Land Registry Act 1862.",
+      "url": "https://www.gov.uk/guidance/1862-act-register",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "historical-dataset",
+      "source_family": "ulpd",
+      "jurisdiction": "Historical register coverage under the 1862 Act",
+      "audience": ["historians", "researchers", "public"],
+      "access_model": "public download",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 subject to the source's stated conditions",
+      "cadence": "static",
+      "formats": ["JPG"],
+      "topics": ["history", "land-register", "1862-act", "archive"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "This is a historical source, not the current register.",
+        "Names and property information may concern historical individuals and require responsible handling.",
+        "Image transcription and interpretation can introduce errors."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/guidance/1862-act-register",
+        "https://digitalarchives.landregistry.gov.uk/",
+        "https://www.legislation.gov.uk/ukpga/Vict/25-26/53/contents"
+      ]
+    },
+    {
+      "id": "hmlr:api:use-land-property-data-v1",
+      "title": "Use land and property data API v1",
+      "description": "REST API for authorised discovery of datasets, resource history and short-lived secure download links for five licensed HM Land Registry products.",
+      "url": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "api-documentation",
+      "source_family": "ulpd-api",
+      "jurisdiction": "England and Wales",
+      "audience": ["developers", "data-engineers", "licensed-data-users"],
+      "access_model": "documentation public; operational API authenticated and licence-gated",
+      "authentication": "account, accepted dataset licence and API key",
+      "licence": "underlying dataset licence controls use; documentation terms may differ",
+      "cadence": "versioned API; dataset resources follow their own release schedules",
+      "formats": ["HTML", "JSON"],
+      "topics": ["api", "dataset-metadata", "downloads", "authentication"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The bundle must not call this authenticated API.",
+        "Signed download URLs expire and are credentials; never log or publish them.",
+        "API availability does not alter dataset licence restrictions.",
+        "The five observed API-enabled datasets are CCOD, OCOD, National Polygon Service, Registered Leases and Restrictive Covenants."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/api-information",
+        "https://use-land-property-data.service.gov.uk/api-documentation"
+      ]
+    },
+    {
+      "id": "hmlr:developer:business-gateway",
+      "title": "Business Gateway developer pack",
+      "description": "Publisher-operated technical documentation, service definitions, schemas and integration guidance for HM Land Registry Business Gateway products.",
+      "url": "https://landregistry.github.io/bgtechdoc/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "developer-documentation",
+      "source_family": "business-gateway-docs",
+      "jurisdiction": "England and Wales",
+      "audience": ["developers", "property-professionals", "lenders", "software-suppliers"],
+      "access_model": "public documentation; test and production services restricted",
+      "authentication": "Business e-services approval and product-specific certificate or credentials for operational services",
+      "licence": "service and documentation terms are product-specific",
+      "cadence": "maintained with product and schema releases",
+      "formats": ["HTML", "XML", "WSDL", "XSD", "PDF"],
+      "topics": ["business-gateway", "soap", "rest", "schemas", "integration"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Documentation discovery does not authorise test or production calls.",
+        "SOAP/WSDL and REST products have different contracts and must not be conflated.",
+        "The publisher pack outranks cross-government API catalogue rows for current operation."
+      ],
+      "source_urls": [
+        "https://landregistry.github.io/bgtechdoc/",
+        "https://www.gov.uk/government/collections/using-hm-land-registrys-digital-services",
+        "https://www.gov.uk/government/publications/conditions-of-use-hm-land-registry-business-e-services"
+      ]
+    },
+    {
+      "id": "hmlr:developer:linked-data",
+      "title": "HM Land Registry linked data",
+      "description": "Official linked-data publishing and query services for Price Paid Data, Transaction Data and UK House Price Index resources.",
+      "url": "https://landregistry.data.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "linked-data-service",
+      "source_family": "linked-data",
+      "jurisdiction": "Dataset-specific",
+      "audience": ["developers", "semantic-web-users", "researchers", "data-users"],
+      "access_model": "public query and resource access, subject to service and dataset conditions",
+      "authentication": "none observed for public linked-data routes",
+      "licence": "underlying dataset-specific terms and third-party rights apply",
+      "cadence": "dataset-specific",
+      "formats": ["HTML", "RDF", "SPARQL results"],
+      "topics": ["linked-data", "rdf", "sparql", "price-paid-data", "house-price-index"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The service's live operational status was not fully exercised during discovery.",
+        "A public query endpoint is not permission for unbounded extraction.",
+        "Dataset models and update semantics differ and must not be merged naively."
+      ],
+      "source_urls": [
+        "https://landregistry.data.gov.uk/",
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+        "https://www.gov.uk/government/collections/uk-house-price-index-reports"
+      ]
+    },
+    {
+      "id": "hmlr:developer:github-organisation",
+      "title": "LandRegistry GitHub organisation",
+      "description": "The official public GitHub organisation containing HM Land Registry code, prototypes, documentation and archived repositories.",
+      "url": "https://github.com/LandRegistry",
+      "publisher": "HM Land Registry",
+      "authority_tier": "official-reference",
+      "record_type": "repository-organisation",
+      "source_family": "github",
+      "jurisdiction": "not applicable; repository-specific",
+      "audience": ["developers", "researchers", "software-suppliers"],
+      "access_model": "public repository metadata and source where a repository is public",
+      "authentication": "none for bounded public metadata; GitHub rate limits apply",
+      "licence": "repository-specific; absence of a licence is not permission to reuse code",
+      "cadence": "continuous",
+      "formats": ["JSON metadata", "Git repositories", "HTML"],
+      "topics": ["source-code", "repositories", "prototypes", "developer-resources"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Public code is not necessarily supported or in production.",
+        "Archived, fork and prototype status must remain visible.",
+        "Each repository licence and security posture must be reviewed independently."
+      ],
+      "source_urls": [
+        "https://github.com/LandRegistry",
+        "https://api.github.com/orgs/LandRegistry/repos"
+      ]
+    },
+    {
+      "id": "hmlr:catalogue:cddo-api",
+      "title": "CDDO API Catalogue — HM Land Registry records",
+      "description": "Cross-government discovery metadata for APIs whose provider field is HM Land Registry.",
+      "url": "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+      "publisher": "Central Digital and Data Office",
+      "authority_tier": "official-reference",
+      "record_type": "api-catalogue",
+      "source_family": "cddo-api-catalogue",
+      "jurisdiction": "API-specific",
+      "audience": ["developers", "api-portfolio-managers", "researchers"],
+      "access_model": "public catalogue metadata",
+      "authentication": "none for catalogue metadata; listed APIs vary",
+      "licence": "catalogue-repository terms; listed APIs retain their own terms",
+      "cadence": "catalogue maintained independently of API publishers",
+      "formats": ["CSV", "Git"],
+      "topics": ["api-catalogue", "discovery-metadata", "cross-government"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The frozen live provider-filtered denominator was 15 rows; an older sibling-bundle seed contained 27.",
+        "Rows may lag publisher-operated documentation and can omit licence or authentication details.",
+        "A catalogue entry does not establish that an API is live or publicly callable."
+      ],
+      "source_urls": [
+        "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+        "https://landregistry.github.io/bgtechdoc/"
+      ]
+    },
+    {
+      "id": "hmlr:service:property-information",
+      "title": "Search for land and property information",
+      "description": "Official route for finding a property summary and buying downloaded copies of title registers, title plans or referred documents.",
+      "url": "https://www.gov.uk/search-property-information-land-registry",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "transactional-service",
+      "source_family": "property-information",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "buyers", "owners"],
+      "access_model": "online account with chargeable products",
+      "authentication": "sign-in required for searches and purchases",
+      "licence": "service terms and statutory access rules; purchased documents are not open-data distributions",
+      "cadence": "live service; guidance and fees change",
+      "formats": ["HTML", "PDF products"],
+      "topics": ["title-register", "title-plan", "property-summary", "official-copies", "online-copy", "proof-of-ownership"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Downloaded copies are not proof of ownership and differ from official copies.",
+        "A title plan normally shows general boundaries, not exact legal boundaries.",
+        "Some land is unregistered, some interests are not registrable and pending applications may not yet appear.",
+        "This bundle does not search the service, create an account or buy documents."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/search-property-information-land-registry",
+        "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+      ]
+    },
+    {
+      "id": "hmlr:service:property-alert",
+      "title": "HM Land Registry Property Alert",
+      "description": "A free account service that sends email alerts when specified activity occurs on monitored registered properties.",
+      "url": "https://propertyalert.landregistry.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "notification-service",
+      "source_family": "property-information",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-owners"],
+      "access_model": "free account service",
+      "authentication": "account required",
+      "licence": "service terms; alerts and property information are not an open dataset",
+      "cadence": "event-driven alerts",
+      "formats": ["HTML", "email"],
+      "topics": ["property-fraud", "alerts", "monitoring"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "An alert does not block an application or prove fraud.",
+        "Users must follow the official response route if an alert is suspicious.",
+        "This bundle does not sign in, monitor properties or process alert emails."
+      ],
+      "source_urls": [
+        "https://propertyalert.landregistry.gov.uk/",
+        "https://www.gov.uk/guidance/property-alert"
+      ]
+    },
+    {
+      "id": "hmlr:service:local-land-charges",
+      "title": "Search for local land charges",
+      "description": "HM Land Registry's statutory Local Land Charges search service for migrated local-authority areas.",
+      "url": "https://search-local-land-charges.service.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "transactional-service",
+      "source_family": "local-land-charges",
+      "jurisdiction": "England and Wales, limited to migrated local authorities",
+      "audience": ["public", "property-professionals", "buyers", "local-authorities"],
+      "access_model": "public search subject to terms and fees",
+      "authentication": "service-dependent; payment may be required",
+      "licence": "service terms, copyright and database-right restrictions",
+      "cadence": "live service with changing authority coverage",
+      "formats": ["HTML", "search products"],
+      "topics": ["local-land-charges", "property-searches", "local-authorities", "planning-conditions", "title-boundaries", "concept-differences"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Automated software agents must not search, copy or monitor the service.",
+        "Coverage depends on local-authority migration and must be checked at search time.",
+        "CON29 enquiries are separate.",
+        "The official result, not this metadata record, controls a transaction."
+      ],
+      "source_urls": [
+        "https://search-local-land-charges.service.gov.uk/",
+        "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+        "https://www.gov.uk/search-local-land-charges",
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+      ]
+    },
+    {
+      "id": "hmlr:service:portal",
+      "title": "HM Land Registry portal",
+      "description": "Business e-services portal used by approved professional customers for applications, searches, documents and related land-registration work.",
+      "url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "professional-service",
+      "source_family": "portal",
+      "jurisdiction": "England and Wales",
+      "audience": ["conveyancers", "lenders", "property-professionals", "business-customers"],
+      "access_model": "approved professional account",
+      "authentication": "Business e-services credentials and role-specific access",
+      "licence": "portal and Business e-services terms",
+      "cadence": "live service with maintained guidance and roadmap",
+      "formats": ["HTML", "online transactions"],
+      "topics": ["portal", "business-e-services", "applications", "searches"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Public guidance does not grant portal access.",
+        "Fees, available transactions and service behavior can change.",
+        "The bundle never signs in or performs a transaction."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+        "https://www.gov.uk/government/collections/using-hm-land-registrys-digital-services",
+        "https://www.gov.uk/government/publications/conditions-of-use-hm-land-registry-business-e-services"
+      ]
+    },
+    {
+      "id": "hmlr:service:fee-calculator",
+      "title": "HM Land Registry fee calculator",
+      "description": "Official tool for working out registration-service fees from the transaction and application details supplied by a user.",
+      "url": "https://fee-calculator.landregistry.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "calculation-service",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "applicants"],
+      "access_model": "public interactive tool",
+      "authentication": "none observed for calculator access",
+      "licence": "service terms; calculator output is not a substitute for the current Fee Order and guidance",
+      "cadence": "updated when fees or rules change",
+      "formats": ["HTML"],
+      "topics": ["fees", "applications", "calculator"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "A result depends on the user's inputs and current fee rules.",
+        "Current formal fee legislation and HM Land Registry guidance control.",
+        "The bundle does not reproduce fee calculations."
+      ],
+      "source_urls": [
+        "https://fee-calculator.landregistry.gov.uk/",
+        "https://www.gov.uk/guidance/hm-land-registry-registration-services-fees"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:public",
+      "title": "Guidance for members of the public",
+      "description": "Audience-oriented routes for common land-registration tasks, including property information, ownership changes, boundaries, fraud and support.",
+      "url": "https://www.gov.uk/guidance/guidance-for-members-of-the-public",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "guidance",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-owners", "buyers"],
+      "access_model": "public-web",
+      "authentication": "none for guidance; linked services vary",
+      "licence": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions",
+      "cadence": "updated as services and practice change",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["public-guidance", "ownership", "boundaries", "fraud", "applications"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "General guidance is not legal advice.",
+        "Complex or disputed matters may require a conveyancer or other qualified adviser."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/guidance/guidance-for-members-of-the-public"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:property-professionals",
+      "title": "Guidance and support for property professionals",
+      "description": "Audience hub for conveyancers, lenders and other professional customers using HM Land Registry guidance and services.",
+      "url": "https://www.gov.uk/guidance/guidance-and-support-for-property-professionals",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "guidance",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["conveyancers", "lenders", "property-professionals", "software-suppliers"],
+      "access_model": "public guidance with links to restricted professional services",
+      "authentication": "none for guidance; linked services require approval or accounts",
+      "licence": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions",
+      "cadence": "updated as services and practice change",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["professional-guidance", "applications", "portal", "business-gateway", "training"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Service eligibility and account requirements vary.",
+        "Use the latest practice guide, notice and service documentation for an actual application."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/guidance/guidance-and-support-for-property-professionals"
+      ]
+    },
+    {
+      "id": "hmlr:collection:practice-guides",
+      "title": "Land registration practice guides",
+      "description": "The official collection of detailed HM Land Registry practice guidance for conveyancers and other legal professionals.",
+      "url": "https://www.gov.uk/government/collections/land-registration-practice-guides",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "guidance-collection",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["conveyancers", "legal-professionals", "property-professionals"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "individual guides updated as law and practice change",
+      "formats": ["HTML", "PDF", "Welsh-language representations", "JSON metadata"],
+      "topics": ["practice-guides", "applications", "land-registration", "legal-practice"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The guides are principally written for legal professionals.",
+        "Each guide has its own update history and may have a Welsh representation.",
+        "Current legislation and formal notices control where there is a conflict."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/collections/land-registration-practice-guides"
+      ]
+    },
+    {
+      "id": "hmlr:collection:forms",
+      "title": "HM Land Registry forms",
+      "description": "Official GOV.UK collection of forms used in land-registration applications and related processes.",
+      "url": "https://www.gov.uk/government/collections/hm-land-registry-forms",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "forms-collection",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "conveyancers", "property-professionals", "applicants"],
+      "access_model": "public download; submission routes vary",
+      "authentication": "none for forms; digital submission services may require accounts",
+      "licence": "Crown copyright and source-specific reuse terms",
+      "cadence": "forms revised when law, policy or process changes",
+      "formats": ["PDF", "DOC", "ODT", "HTML", "JSON metadata"],
+      "topics": ["forms", "applications", "land-registration"],
+      "publisher_last_updated": "2026-03-18",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Always use the current publisher version of a form.",
+        "A form alone does not explain eligibility, evidence, fees or submission requirements.",
+        "Some PDF forms may present accessibility barriers; check for alternative formats."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/collections/hm-land-registry-forms",
+        "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:registration-services-fees",
+      "title": "HM Land Registry: Registration Services fees",
+      "description": "Official guidance on fees for registration services and the fee scale applying to different application routes.",
+      "url": "https://www.gov.uk/guidance/hm-land-registry-registration-services-fees",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "fee-guidance",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "conveyancers", "property-professionals", "applicants"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "updated when the Fee Order or service routes change",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["fees", "applications", "fee-order"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Fee rules are time-sensitive and transaction-specific.",
+        "Check the current Fee Order, guidance and calculator before submitting an application."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/guidance/hm-land-registry-registration-services-fees",
+        "https://fee-calculator.landregistry.gov.uk/"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:processing-times",
+      "title": "HM Land Registry processing times",
+      "description": "Official guidance reporting expected and recent completion times for categories of applications and information services.",
+      "url": "https://www.gov.uk/guidance/hm-land-registry-processing-times",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "operational-guidance",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "applicants", "service-managers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "regularly updated",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["processing-times", "applications", "service-performance"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Published times are operational estimates or distributions, not a guarantee for an individual case.",
+        "Complexity, requisitions and expedition decisions affect actual completion."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/guidance/hm-land-registry-processing-times"
+      ]
+    },
+    {
+      "id": "hmlr:programme:local-land-charges",
+      "title": "HM Land Registry Local Land Charges Programme",
+      "description": "Official programme information about migration of local-authority Local Land Charges registers to HM Land Registry and the national search service.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "programme-guidance",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "local-authorities", "policy-makers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "updated as authorities migrate and programme policy changes",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["local-land-charges", "migration", "local-authorities", "programme"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Authority coverage changes and must be checked at the point of search.",
+        "The national service does not include CON29 enquiries."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme",
+        "https://search-local-land-charges.service.gov.uk/"
+      ]
+    },
+    {
+      "id": "hmlr:privacy:personal-information-charter",
+      "title": "HM Land Registry personal information charter",
+      "description": "Official explanation of how HM Land Registry handles personal information in the register, applications, services and organisational activities.",
+      "url": "https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "privacy-policy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "United Kingdom data-protection context; operational remit England and Wales",
+      "audience": ["public", "service-users", "data-subjects", "researchers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "GOV.UK content terms; personal information remains subject to data-protection and statutory rules",
+      "cadence": "updated when processing or law changes",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["privacy", "personal-data", "data-protection", "register-information"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Statutory public access to register information does not make all personal data open data.",
+        "The bundle excludes title, ownership, address, application and user-generated personal records."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter"
+      ]
+    },
+    {
+      "id": "hmlr:accessibility:documents-policy",
+      "title": "HM Land Registry accessible documents policy",
+      "description": "Official policy describing known accessibility limitations in published documents and how to request alternative formats.",
+      "url": "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "accessibility-policy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "United Kingdom accessibility-law context",
+      "audience": ["public", "assistive-technology-users", "document-authors", "service-users"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "reviewed as publishing practice changes",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["accessibility", "documents", "alternative-formats"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Some source PDFs and office documents are not fully accessible.",
+        "The bundle should expose HTML metadata and source alternative-format routes rather than republishing inaccessible attachments."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy"
+      ]
+    },
+    {
+      "id": "hmlr:help:customer-support",
+      "title": "HM Land Registry customer help",
+      "description": "Official support and contact routes for common HM Land Registry questions and service issues.",
+      "url": "https://customerhelp.landregistry.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "help-service",
+      "source_family": "customer-help",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "service-users"],
+      "access_model": "public help pages and contact routes",
+      "authentication": "varies by support channel",
+      "licence": "service and content terms; user-generated forum content is excluded",
+      "cadence": "continuously maintained",
+      "formats": ["HTML"],
+      "topics": ["help", "contact", "support"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Forum posts can contain user-supplied personal or sensitive information.",
+        "The bundle records only top-level help routes and excludes forum posts, profiles and uploads.",
+        "Support responses do not replace formal legal advice."
+      ],
+      "source_urls": [
+        "https://customerhelp.landregistry.gov.uk/",
+        "https://www.gov.uk/guidance/contact-hm-land-registry"
+      ]
+    },
+    {
+      "id": "hmlr:channel:official-blog",
+      "title": "HM Land Registry blog",
+      "description": "Official explanatory posts about land registration, data, digital services, policy and organisational work.",
+      "url": "https://hmlandregistry.blog.gov.uk/",
+      "publisher": "HM Land Registry",
+      "authority_tier": "official-reference",
+      "record_type": "publication-channel",
+      "source_family": "blog",
+      "jurisdiction": "primarily England and Wales",
+      "audience": ["public", "property-professionals", "developers", "policy-makers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "GOV.UK blog terms and article-specific third-party rights",
+      "cadence": "irregular",
+      "formats": ["HTML", "RSS or Atom feed"],
+      "topics": ["news", "explainers", "digital-services", "data", "land-registration"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Blog posts provide context but do not replace current formal guidance, legislation or service terms.",
+        "The initial bundle does not claim a complete blog-post census."
+      ],
+      "source_urls": [
+        "https://hmlandregistry.blog.gov.uk/"
+      ]
+    },
+    {
+      "id": "hmlr:corporate:strategy-2025",
+      "title": "HM Land Registry Strategy 2025+",
+      "description": "Current corporate strategy setting out HM Land Registry's strategic direction, public value and transformation priorities.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-strategy-2025",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "corporate-strategy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "staff", "policy-makers", "partners", "suppliers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "strategy-period publication with updates or replacement",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["strategy", "transformation", "public-value", "organisation"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Strategic intent is not evidence that every planned capability is delivered.",
+        "Use current business plans and reports to assess implementation."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-strategy-2025"
+      ]
+    },
+    {
+      "id": "hmlr:corporate:business-plan-2026",
+      "title": "HM Land Registry Business Plan 2026+",
+      "description": "The current business plan translating Strategy 2025+ into 2026–27 outcomes, key performance indicators, risk and financial priorities.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-business-plan-2026",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "corporate-report",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "policy-makers", "staff", "partners", "researchers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "annual or plan-period publication",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["business-plan", "performance", "strategy", "delivery"],
+      "publisher_last_updated": "2026-03-31",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Targets and milestones are time-bounded to the plan period.",
+        "The plan describes intentions; annual reports and official statistics provide outcome evidence."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-business-plan-2026",
+        "https://www.gov.uk/government/publications/hm-land-registry-business-plan-2026/hm-land-registry-business-plan-2026"
+      ]
+    },
+    {
+      "id": "hmlr:corporate:annual-reports",
+      "title": "HM Land Registry annual reports and accounts",
+      "description": "Official reports on HM Land Registry's yearly performance, governance, finances, risks and audited accounts.",
+      "url": "https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "corporate-publication-collection",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "Parliament", "policy-makers", "researchers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible content, subject to exceptions",
+      "cadence": "annual",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["annual-report", "accounts", "governance", "performance", "risk"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Financial years and publication years differ.",
+        "Figures and narrative should be read with the report's audit status, definitions and comparators."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts"
+      ]
+    },
+    {
+      "id": "hmlr:corporate:publication-scheme",
+      "title": "HM Land Registry publication scheme",
+      "description": "Official guide to routinely published organisational information and routes for information requests.",
+      "url": "https://www.gov.uk/government/organisations/land-registry/about/publication-scheme",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "publication-policy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "United Kingdom freedom-of-information context; operational remit England and Wales",
+      "audience": ["public", "researchers", "journalists", "information-rights-practitioners"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "GOV.UK content terms; underlying publications retain their own rights",
+      "cadence": "reviewed as publication practice changes",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["publication-scheme", "transparency", "freedom-of-information"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "A publication scheme is an access map, not a complete page-level catalogue.",
+        "Statutory information-request exemptions and fees may apply."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/organisations/land-registry/about/publication-scheme"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:plans-boundaries-pg40s3",
+      "title": "HM Land Registry plans: boundaries (PG40 supplement 3)",
+      "description": "Official practice guidance on how title plans show general boundaries and how general, agreed and determined boundaries differ.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "practice-guide",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["public", "property-professionals", "legal-professionals", "gis-users"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions",
+      "cadence": "updated when land-registration practice changes",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["boundaries", "title-plans", "general-boundary", "agreed-boundary", "determined-boundary"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "A title-plan line normally shows a general boundary, not the exact legal boundary.",
+        "Practice guidance does not decide a particular dispute or replace legal advice."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+        "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3/land-registry-plans-boundaries-practice-guide-40-supplement-3"
+      ]
+    },
+    {
+      "id": "hmlr:guidance:official-copies-and-index-map",
+      "title": "Portal official copies and searches of the index map",
+      "description": "Official portal guidance for requesting official copies and, when an address search is insufficient, finding titles through a search of the index map.",
+      "url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "professional-guidance",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["property-professionals", "legal-professionals"],
+      "access_model": "public guidance with links to an approved professional account service",
+      "authentication": "none for guidance; approved account required for portal operation",
+      "licence": "GOV.UK content terms; portal products and operation have separate conditions",
+      "cadence": "updated as portal workflows change",
+      "formats": ["HTML", "JSON metadata"],
+      "topics": ["official-copies", "index-map", "address-search", "title-search", "portal"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The bundle does not operate the portal or authorise a search.",
+        "Official copies, ordinary online downloads and index-map searches are distinct products and procedures."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
+        "https://www.gov.uk/guidance/land-registry-portal-request-a-search-of-the-index-map",
+        "https://www.gov.uk/government/publications/official-searches-of-the-index-map"
+      ]
+    },
+    {
+      "id": "hmlr:catalogue:land-property-ownership",
+      "title": "Land and property ownership data collection",
+      "description": "Cross-government discovery collection whose catalogue modification dates must not be confused with an HMLR dataset release date, register update or legal currency.",
+      "url": "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership",
+      "publisher": "Government Digital Service and contributing publishers",
+      "authority_tier": "official-reference",
+      "record_type": "cross-government-catalogue",
+      "source_family": "cross-government-data-catalogues",
+      "jurisdiction": "source-specific",
+      "audience": ["data-users", "researchers", "provenance-reviewers"],
+      "access_model": "public catalogue metadata",
+      "authentication": "none",
+      "licence": "catalogue and record-specific; underlying publisher terms control reuse",
+      "cadence": "catalogue-maintained",
+      "formats": ["HTML"],
+      "topics": ["catalogue-metadata", "ownership-data", "release-date", "provenance"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Catalogue modification time is not dataset release, registration or legal currency.",
+        "Publisher-operated HMLR pages control current access, licence and operational facts."
+      ],
+      "source_urls": [
+        "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
+      ]
+    },
+    {
+      "id": "hmlr:accessibility:ulpd",
+      "title": "Use land and property data accessibility statement",
+      "description": "Service-specific statement covering keyboard, focus, map, language and WCAG accessibility limitations for the HMLR data catalogue.",
+      "url": "https://use-land-property-data.service.gov.uk/accessibility-statement",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "accessibility-statement",
+      "source_family": "ulpd",
+      "jurisdiction": "United Kingdom accessibility-law context",
+      "audience": ["public", "data-users", "assistive-technology-users", "accessibility-reviewers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "service content terms; linked datasets retain separate rights",
+      "cadence": "reviewed as the service changes",
+      "formats": ["HTML"],
+      "topics": ["accessibility", "wcag-2.2", "keyboard", "focus", "maps", "language"],
+      "languages": ["English"],
+      "publisher_last_updated": "2024-09-26",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The statement reported partial WCAG 2.2 AA compliance at the observation date.",
+        "Recheck the live statement for remediation and contact information."
+      ],
+      "source_urls": [
+        "https://use-land-property-data.service.gov.uk/accessibility-statement"
+      ]
+    },
+    {
+      "id": "hmlr:policy:welsh-language-scheme",
+      "title": "HM Land Registry Welsh Language Scheme",
+      "description": "Official scheme for Welsh-language and bilingual HM Land Registry services, publications and public interactions.",
+      "url": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
+      "publisher": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "record_type": "language-policy",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "Wales",
+      "audience": ["public", "welsh-language-users", "property-professionals"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions",
+      "cadence": "updated when the language scheme changes",
+      "formats": ["HTML", "PDF", "JSON metadata"],
+      "topics": ["welsh-language", "bilingual-services", "wales", "language"],
+      "languages": ["English", "Welsh"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Welsh availability is service- and publication-specific; do not infer that every linked item is bilingual.",
+        "Preserve the source-native language identity instead of merging Welsh and English content."
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
+        "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme"
+      ]
+    },
+    {
+      "id": "legislation:land-registration-act-2002",
+      "title": "Land Registration Act 2002",
+      "description": "Primary legislation establishing the modern legal framework for registration of title to land in England and Wales.",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/9/contents",
+      "publisher": "The National Archives",
+      "authority_tier": "normative-authority",
+      "record_type": "legislation",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["legal-professionals", "policy-makers", "researchers", "public"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Crown copyright and legislation.gov.uk reuse terms",
+      "cadence": "revised text changes as amendments take effect",
+      "formats": ["HTML", "PDF", "XML"],
+      "topics": ["legislation", "land-registration", "registered-title"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Check whether viewing original, revised or prospective text and the date to which changes are incorporated.",
+        "Legislation is not legal advice and must be read with applicable rules and case law."
+      ],
+      "source_urls": [
+        "https://www.legislation.gov.uk/ukpga/2002/9/contents"
+      ]
+    },
+    {
+      "id": "legislation:land-registration-rules-2003",
+      "title": "Land Registration Rules 2003",
+      "description": "Principal procedural rules made under the Land Registration Act 2002, as amended.",
+      "url": "https://www.legislation.gov.uk/uksi/2003/1417/contents",
+      "publisher": "The National Archives",
+      "authority_tier": "normative-authority",
+      "record_type": "legislation",
+      "source_family": "govuk-hmlr",
+      "jurisdiction": "England and Wales",
+      "audience": ["legal-professionals", "policy-makers", "researchers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Crown copyright and legislation.gov.uk reuse terms",
+      "cadence": "revised text changes as amendments take effect",
+      "formats": ["HTML", "PDF", "XML"],
+      "topics": ["legislation", "rules", "applications", "land-registration"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "The rules have been amended; verify the relevant version and effective date.",
+        "Procedural guidance may explain practice but cannot override the rules."
+      ],
+      "source_urls": [
+        "https://www.legislation.gov.uk/uksi/2003/1417/contents",
+        "https://www.gov.uk/government/collections/land-registration-practice-guides"
+      ]
+    },
+    {
+      "id": "legislation:local-land-charges-act-1975",
+      "title": "Local Land Charges Act 1975",
+      "description": "Primary legislation governing local land charges and the statutory register, as amended.",
+      "url": "https://www.legislation.gov.uk/ukpga/1975/76/contents",
+      "publisher": "The National Archives",
+      "authority_tier": "normative-authority",
+      "record_type": "legislation",
+      "source_family": "local-land-charges",
+      "jurisdiction": "England and Wales",
+      "audience": ["legal-professionals", "local-authorities", "policy-makers", "researchers"],
+      "access_model": "public-web",
+      "authentication": "none",
+      "licence": "Crown copyright and legislation.gov.uk reuse terms",
+      "cadence": "revised text changes as amendments take effect",
+      "formats": ["HTML", "PDF", "XML"],
+      "topics": ["legislation", "local-land-charges", "statutory-register"],
+      "publisher_last_updated": null,
+      "observed_at": "2026-07-29T07:53:38Z",
+      "caveats": [
+        "Check revised text and commencement or migration provisions applicable to the relevant authority.",
+        "This metadata record is not a substitute for legal interpretation."
+      ],
+      "source_urls": [
+        "https://www.legislation.gov.uk/ukpga/1975/76/contents",
+        "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+      ]
+    }
+  ]
+}

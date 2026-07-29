@@ -1,0 +1,108 @@
+{
+  "schema": "okf-governance-traceability.v1",
+  "project_status": "reviewed-scaffold",
+  "research_cutoff": "2026-07-29",
+  "assurance_state": "not-run",
+  "rows": [
+    {
+      "requirement_ids": ["REQ-001", "REQ-006", "REQ-007"],
+      "profile_refs": ["DEC-METADATA-ONLY", "TRACE-SAFETY", "RIGHT-RESTRICTED", "RIGHT-PERSONAL"],
+      "evidence_refs": ["EV-PUBLIC-DATA", "EV-LLC-TERMS", "EV-PERSONAL-INFO"],
+      "artifact_paths": ["docs/product-contract.md", "docs/sources-rights-and-ethics.md", "SECURITY.md", "governance/rights-review.json"],
+      "risk_ids": ["RISK-001", "RISK-004", "RISK-005"],
+      "validation_refs": ["VAL-RIGHTS", "VAL-DATA-PLANE"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-002", "REQ-004", "REQ-008", "REQ-009"],
+      "profile_refs": ["DEC-AUTHORITY", "TRACE-PROVENANCE"],
+      "evidence_refs": ["EV-GOVUK-SEARCH", "EV-PUBLIC-DATA", "EV-ULPD", "EV-OKF-AUTHORING"],
+      "artifact_paths": ["docs/metadata-model.md", "docs/architecture.md", "domain-profile/traceability.json", "bundle/data/provenance.json"],
+      "risk_ids": ["RISK-006", "RISK-008"],
+      "validation_refs": ["VAL-OKF", "VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-003"],
+      "profile_refs": ["DEN-GOVUK", "DEN-ULPD", "DEN-CDDO-API", "DEN-GITHUB", "GAP-ASSOCIATED-DENOMINATOR"],
+      "evidence_refs": ["EV-GOVUK-SEARCH", "EV-ULPD", "EV-CDDO", "EV-GITHUB"],
+      "artifact_paths": ["docs/scope-and-coverage.md", "research/source-family-inventory.json", "bundle/data/coverage.json"],
+      "risk_ids": ["RISK-007"],
+      "validation_refs": ["VAL-SNAPSHOT", "VAL-DATA-PLANE"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-005"],
+      "profile_refs": ["TRACE-RIGHTS", "RIGHT-GOVUK", "RIGHT-DATASETS", "RIGHT-RESTRICTED", "RIGHT-GITHUB", "RIGHT-CDDO", "RIGHT-PERSONAL"],
+      "evidence_refs": ["EV-PUBLIC-DATA", "EV-ULPD", "EV-LLC-TERMS", "EV-GITHUB"],
+      "artifact_paths": ["docs/sources-rights-and-ethics.md", "governance/rights-review.json", "bundle/data/rights.json"],
+      "risk_ids": ["RISK-003"],
+      "validation_refs": ["VAL-RIGHTS"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-010"],
+      "profile_refs": ["CLAIM-BOUNDARY-RISK", "TRACE-SAFETY"],
+      "evidence_refs": ["EV-PROPERTY-SERVICE", "EV-INSPIRE-DATA", "EV-PPD", "EV-UKHPI", "EV-LLC-PROGRAMME"],
+      "artifact_paths": ["docs/product-contract.md", "docs/sources-rights-and-ethics.md", "evaluation/questions.json"],
+      "risk_ids": ["RISK-001", "RISK-002", "RISK-006"],
+      "validation_refs": ["VAL-EVALUATION", "VAL-DATA-PLANE"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-011", "REQ-013"],
+      "profile_refs": ["DEC-ARCHITECTURE", "TRACE-PAGES", "CONSTRAINT-SCALE"],
+      "evidence_refs": ["EV-GOVUK-SEARCH", "EV-OKF-AUTHORING"],
+      "artifact_paths": ["docs/architecture.md", "bundle/index.html", "bundle/okf-explorer.json"],
+      "risk_ids": ["RISK-010"],
+      "validation_refs": ["VAL-DATA-PLANE", "VAL-ACCESSIBILITY"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-012"],
+      "profile_refs": ["STD-WCAG-22", "TRACE-PAGES", "GAP-HUMAN-RESEARCH", "GAP-WELSH"],
+      "evidence_refs": ["EV-WCAG", "EV-ACCESSIBILITY"],
+      "artifact_paths": ["docs/accessibility.md", "bundle/accessibility.html"],
+      "risk_ids": ["RISK-009", "RISK-012"],
+      "validation_refs": ["VAL-ACCESSIBILITY"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-014", "REQ-017"],
+      "profile_refs": ["DEC-SNAPSHOT", "TRACE-PROVENANCE"],
+      "evidence_refs": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "artifact_paths": ["docs/maintenance-and-reproducibility.md", "docs/release-assurance.md", "domain-profile/CHECKSUMS.sha256"],
+      "risk_ids": ["RISK-010", "RISK-011"],
+      "validation_refs": ["VAL-SNAPSHOT", "VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
+      "implementation_state": "documented",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-015", "REQ-016"],
+      "profile_refs": ["TRACE-PERSONAS", "GAP-HUMAN-RESEARCH"],
+      "evidence_refs": ["EV-PUBLIC-GUIDANCE", "EV-PRO-GUIDANCE", "EV-HMLR-RESEARCH"],
+      "artifact_paths": ["docs/evaluation.md", "docs/personas-and-user-stories.md", "evaluation/questions.json", "evaluation/journeys.json"],
+      "risk_ids": ["RISK-013"],
+      "validation_refs": ["VAL-EVALUATION"],
+      "implementation_state": "candidate",
+      "verification_state": "not_run"
+    },
+    {
+      "requirement_ids": ["REQ-018"],
+      "profile_refs": ["DEC-RELEASE", "GAP-OWNER-APPROVAL"],
+      "evidence_refs": ["EV-INVENTORY"],
+      "artifact_paths": ["docs/release-assurance.md", "governance/risk-register.json"],
+      "risk_ids": ["RISK-014"],
+      "validation_refs": [],
+      "implementation_state": "open_decision",
+      "verification_state": "not_approved"
+    }
+  ]
+}

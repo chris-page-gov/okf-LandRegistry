@@ -1,0 +1,317 @@
+{
+  "schema": "okf-source-family-inventory.v1",
+  "title": "HM Land Registry public-estate source-family inventory",
+  "observed_at": "2026-07-29T07:53:38Z",
+  "research_cutoff": "2026-07-29",
+  "scope_note": "This is a source-family inventory, not a claim that every public HM Land Registry resource has been captured.",
+  "source_families": [
+    {
+      "id": "SRC-GOVUK-SEARCH",
+      "title": "GOV.UK Search API records attributed to HM Land Registry",
+      "owner": "Government Digital Service and HM Land Registry",
+      "url": "https://www.gov.uk/api/search.json?filter_organisations=land-registry",
+      "authority_role": "official-reference",
+      "access_state": "verified-working",
+      "denominator": {
+        "value": 1866,
+        "basis": "Search API total for filter_organisations=land-registry",
+        "as_of": "2026-07-29"
+      },
+      "acquisition": "Bounded, paginated JSON metadata census; no document bodies or attachments.",
+      "rights_status": "conditional",
+      "refresh": "Snapshot each release; GOV.UK content changes continuously.",
+      "known_limits": [
+        "Attribution to the organisation does not mean every record is current guidance.",
+        "Search metadata dates are publication metadata, not dataset currency.",
+        "The total can change after the observation time."
+      ]
+    },
+    {
+      "id": "SRC-GOVUK-CONTENT",
+      "title": "GOV.UK Content API",
+      "owner": "Government Digital Service",
+      "url": "https://content-api.publishing.service.gov.uk/",
+      "authority_role": "official-reference",
+      "access_state": "documented-not-tested",
+      "denominator": null,
+      "acquisition": "Targeted metadata enrichment for routes already enumerated by GOV.UK Search.",
+      "rights_status": "conditional",
+      "refresh": "Only during a declared snapshot build.",
+      "known_limits": [
+        "Not an independent denominator.",
+        "Page bodies and attachments are outside the scaffold boundary."
+      ]
+    },
+    {
+      "id": "SRC-GOVUK-HMLR",
+      "title": "HM Land Registry organisation, collections and policy pages on GOV.UK",
+      "owner": "HM Land Registry",
+      "url": "https://www.gov.uk/government/organisations/land-registry",
+      "authority_role": "authoritative",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Human-readable authority, collection, service and policy evidence.",
+      "rights_status": "conditional",
+      "refresh": "Observe at each release.",
+      "known_limits": [
+        "Collections overlap with Search API records.",
+        "OGL applies except where a page or asset states otherwise."
+      ]
+    },
+    {
+      "id": "SRC-ULPD",
+      "title": "Use land and property data catalogue",
+      "owner": "HM Land Registry",
+      "url": "https://use-land-property-data.service.gov.uk/",
+      "authority_role": "authoritative",
+      "access_state": "verified-working",
+      "denominator": {
+        "value": 14,
+        "basis": "Dataset landing-page entries visible in the catalogue observation",
+        "as_of": "2026-07-29"
+      },
+      "acquisition": "Dataset landing-page and technical-specification metadata only.",
+      "rights_status": "conditional",
+      "refresh": "Monthly or when the catalogue changes.",
+      "known_limits": [
+        "Licences, charges and authentication vary by dataset.",
+        "Public catalogue access does not grant bulk-data redistribution rights.",
+        "Some downloads are very large and require specialist software."
+      ]
+    },
+    {
+      "id": "SRC-ULPD-API",
+      "title": "Use land and property data API v1",
+      "owner": "HM Land Registry",
+      "url": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "authority_role": "authoritative",
+      "access_state": "restricted",
+      "denominator": {
+        "value": 5,
+        "basis": "Datasets named by the public API information page",
+        "as_of": "2026-07-29"
+      },
+      "acquisition": "Documentation only; authenticated endpoints are not called.",
+      "rights_status": "conditional",
+      "refresh": "Observe documentation at each release.",
+      "known_limits": [
+        "Account, accepted dataset licence and API key are required.",
+        "Signed download links are short lived and must never be frozen as public credentials."
+      ]
+    },
+    {
+      "id": "SRC-LINKED-DATA",
+      "title": "HM Land Registry linked-data services",
+      "owner": "HM Land Registry",
+      "url": "https://landregistry.data.gov.uk/",
+      "authority_role": "authoritative",
+      "access_state": "documented-not-tested",
+      "denominator": null,
+      "acquisition": "Service and documentation metadata; no unbounded SPARQL crawl.",
+      "rights_status": "conditional",
+      "refresh": "Observe capability and documentation routes at each release.",
+      "known_limits": [
+        "Price Paid Data and UK HPI linked-data models have distinct semantics.",
+        "A query endpoint is not a licence for unbounded extraction."
+      ]
+    },
+    {
+      "id": "SRC-BG-TECHDOC",
+      "title": "HM Land Registry Business Gateway developer pack",
+      "owner": "HM Land Registry",
+      "url": "https://landregistry.github.io/bgtechdoc/",
+      "authority_role": "authoritative",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Documentation, schema and service-contract metadata only; no production calls.",
+      "rights_status": "conditional",
+      "refresh": "Observe the exact Git commit used for a release.",
+      "known_limits": [
+        "Most services require Business e-services approval and certificate-based access.",
+        "SOAP/WSDL and REST services must not be conflated.",
+        "The CDDO API Catalogue is discovery provenance, while this developer pack is operational authority."
+      ]
+    },
+    {
+      "id": "SRC-GITHUB",
+      "title": "HM Land Registry public GitHub organisation",
+      "owner": "HM Land Registry",
+      "url": "https://github.com/LandRegistry",
+      "authority_role": "official-reference",
+      "access_state": "verified-working",
+      "denominator": {
+        "value": 289,
+        "basis": "Public repository count displayed by the organisation page",
+        "as_of": "2026-07-29"
+      },
+      "acquisition": "Public repository metadata through the GitHub API.",
+      "rights_status": "conditional",
+      "refresh": "Snapshot repository metadata at each release.",
+      "known_limits": [
+        "Each repository has its own lifecycle and licence.",
+        "Public source code is not automatically production service documentation.",
+        "Archived, prototype and fork status must remain visible."
+      ]
+    },
+    {
+      "id": "SRC-PROPERTY-SERVICE",
+      "title": "Search for land and property information",
+      "owner": "HM Land Registry",
+      "url": "https://www.gov.uk/search-property-information-land-registry",
+      "authority_role": "authoritative",
+      "access_state": "restricted",
+      "denominator": null,
+      "acquisition": "Public service-description metadata only; no account creation, search or purchase.",
+      "rights_status": "prohibited",
+      "refresh": "Observe GOV.UK service guidance at each release.",
+      "known_limits": [
+        "Sign-in is required.",
+        "Documents may be chargeable.",
+        "Downloaded copies are not proof of ownership; official copies have a different evidential role."
+      ]
+    },
+    {
+      "id": "SRC-LLC-SERVICE",
+      "title": "Search for local land charges",
+      "owner": "HM Land Registry",
+      "url": "https://search-local-land-charges.service.gov.uk/",
+      "authority_role": "authoritative",
+      "access_state": "restricted",
+      "denominator": null,
+      "acquisition": "Terms, help and public service-description metadata only; no automated search.",
+      "rights_status": "prohibited",
+      "refresh": "Observe public programme, coverage and terms pages at each release.",
+      "known_limits": [
+        "Service terms prohibit automated software agents from searching, copying or monitoring the service.",
+        "Reuse beyond conducting a search may require specific consent.",
+        "Coverage depends on which local authorities have migrated.",
+        "CON29 enquiries remain outside this service."
+      ]
+    },
+    {
+      "id": "SRC-PORTAL",
+      "title": "HM Land Registry portal and Business e-services",
+      "owner": "HM Land Registry",
+      "url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "authority_role": "authoritative",
+      "access_state": "restricted",
+      "denominator": null,
+      "acquisition": "Public guidance metadata only; no portal authentication.",
+      "rights_status": "prohibited",
+      "refresh": "Observe public guidance and roadmap at each release.",
+      "known_limits": [
+        "Access is for approved professional customers.",
+        "Service availability, fees and transaction coverage can change."
+      ]
+    },
+    {
+      "id": "SRC-CUSTOMER-HELP",
+      "title": "HM Land Registry customer help and support",
+      "owner": "HM Land Registry",
+      "url": "https://customerhelp.landregistry.gov.uk/",
+      "authority_role": "authoritative",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Top-level help-route metadata only.",
+      "rights_status": "conditional",
+      "refresh": "Observe contact and support routes at each release.",
+      "known_limits": [
+        "The public forum may contain user-supplied personal or sensitive information.",
+        "Forum posts and uploaded files are excluded from acquisition."
+      ]
+    },
+    {
+      "id": "SRC-BLOG",
+      "title": "HM Land Registry blog",
+      "owner": "HM Land Registry",
+      "url": "https://hmlandregistry.blog.gov.uk/",
+      "authority_role": "official-reference",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Feed and article metadata are a future bounded lane; no full article bodies in the scaffold.",
+      "rights_status": "conditional",
+      "refresh": "Feed-based observation at each release.",
+      "known_limits": [
+        "Blog posts explain practice and change but do not replace current formal guidance."
+      ]
+    },
+    {
+      "id": "SRC-CDDO-API",
+      "title": "Central Digital and Data Office API Catalogue",
+      "owner": "Central Digital and Data Office",
+      "url": "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+      "authority_role": "official-reference",
+      "access_state": "verified-working",
+      "denominator": {
+        "value": 15,
+        "basis": "Rows whose provider is hm-land-registry in the frozen live catalogue snapshot",
+        "as_of": "2026-07-29"
+      },
+      "acquisition": "Filter the public CSV by provider and retain its native route and dates.",
+      "rights_status": "conditional",
+      "refresh": "Pin the catalogue commit used for a release.",
+      "known_limits": [
+        "Catalogue rows are discovery metadata and may lag publisher-operated developer documentation.",
+        "Licence and authentication fields are often absent.",
+        "An older sibling-bundle seed contained 27 HMLR records; the exact live provider-filtered acquisition returned 15 and controls this snapshot."
+      ]
+    },
+    {
+      "id": "SRC-NDL",
+      "title": "National Data Library and data.gov.uk discovery records",
+      "owner": "Department for Science, Innovation and Technology and contributing publishers",
+      "url": "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership",
+      "authority_role": "secondary-reference",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Discovery links and catalogue provenance only.",
+      "rights_status": "conditional",
+      "refresh": "Observe at each release.",
+      "known_limits": [
+        "Publisher-operated HMLR pages remain authoritative for access, licence and freshness.",
+        "Catalogue dates must not be presented as dataset release dates."
+      ]
+    }
+  ],
+  "declared_denominators": [
+    {
+      "id": "DEN-GOVUK-20260729",
+      "value": 1866,
+      "scope": "GOV.UK Search records attributed to organisation slug land-registry",
+      "as_of": "2026-07-29",
+      "completeness_claim_allowed": true
+    },
+    {
+      "id": "DEN-ULPD-20260729",
+      "value": 14,
+      "scope": "Dataset entries visible on the Use land and property data catalogue",
+      "as_of": "2026-07-29",
+      "completeness_claim_allowed": false
+    },
+    {
+      "id": "DEN-CDDO-API-20260729",
+      "value": 15,
+      "scope": "Rows returned by the frozen live CDDO API Catalogue provider filter hm-land-registry",
+      "as_of": "2026-07-29",
+      "completeness_claim_allowed": true
+    },
+    {
+      "id": "DEN-GITHUB-20260729",
+      "value": 289,
+      "scope": "Public repositories returned by the frozen LandRegistry GitHub API census",
+      "as_of": "2026-07-29",
+      "completeness_claim_allowed": true
+    }
+  ],
+  "saturation": {
+    "status": "source-family-saturated-for-scaffold",
+    "test": "A second pass added no new critical class of official publishing, transactional, data, developer, support, governance or communication surface.",
+    "residual_gaps": [
+      "No page-level denominator exists across all associated domains.",
+      "Authenticated catalogues and service results were not inspected.",
+      "Blog posts, customer-help articles and public forum content were not enumerated.",
+      "The exact Business Gateway service denominator needs publisher-pack reconciliation.",
+      "Dataset landing-page count needs deterministic adapter confirmation."
+    ]
+  }
+}

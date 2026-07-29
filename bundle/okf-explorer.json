@@ -1,0 +1,96 @@
+{
+  "@context": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/context.jsonld",
+  "@id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+  "authority": {
+    "bundle_authority": "metadata normalization and this release only",
+    "legal_advice": false,
+    "not_endorsed_by_source": true,
+    "official_source_authority": "external live HM Land Registry and GOV.UK sources"
+  },
+  "core_conformance": "OKF v0.2 Markdown concept layer",
+  "counts": {
+    "curated_records": 51,
+    "merged_representations": 23,
+    "record_types": 74,
+    "records": 2198,
+    "source_representations": 2221,
+    "sources": 14,
+    "topics": 285
+  },
+  "description": "Independent, metadata-only discovery bundle for HM Land Registry publications, services, datasets, APIs and official repositories.",
+  "entrypoints": {
+    "catalogue": "data/catalogue.json",
+    "catalogue_csv": "data/catalogue.csv",
+    "catalogue_html": "catalogue-index.html",
+    "coverage": "data/coverage.json",
+    "data_manifest": "data/manifest.json",
+    "evaluation": "data/evaluation.json",
+    "okf_index": "index.md",
+    "okf_log": "log.md",
+    "provenance": "data/provenance.json",
+    "reconciliation": "data/reconciliation.json",
+    "rights": "data/rights.json",
+    "search_manifest": "data/search/manifest.json",
+    "site": "./",
+    "viewer": "https://chris-page-gov.github.io/okf-explorer/"
+  },
+  "extensions": {
+    "okf-hmlr-discovery.v1": {
+      "authenticated_calls_enabled": false,
+      "mode": "metadata-only",
+      "personal_property_records_included": false,
+      "record_level_rights": true
+    },
+    "okf-pages-publication.v1": {
+      "descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+      "site": "https://chris-page-gov.github.io/okf-LandRegistry/"
+    }
+  },
+  "generated_at": "2026-07-29T09:19:47Z",
+  "kind": "okf-large-corpus",
+  "observed_at": "2026-07-29T09:19:15Z",
+  "okf_version": "0.2",
+  "performance": {
+    "full_record_hydration": "lazy bounded record shards",
+    "relationship_hydration": "not applicable in scaffold",
+    "search": "compact client-side index",
+    "startup_mode": "overview-first"
+  },
+  "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+  "publisher": "https://github.com/chris-page-gov/okf-LandRegistry",
+  "release_at": null,
+  "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
+  "rights": {
+    "record_level": true,
+    "statement": "Public accessibility is not treated as blanket permission. Consult each record and its official source for current terms.",
+    "status": "mixed-record-level"
+  },
+  "schema": "okf-explorer-large-corpus.v1",
+  "scope": {
+    "complete_for_govuk_hmlr_filter_at_snapshot": true,
+    "complete_hmlr_public_estate": false,
+    "excludes": [
+      "title-register and title-plan records",
+      "bulk property, ownership, address, polygon and transaction rows",
+      "authenticated, paid and user-submitted service content",
+      "legal advice or determinations"
+    ],
+    "kind": "bounded-public-metadata-discovery",
+    "metadata_only": true,
+    "research_cutoff": "2026-07-29"
+  },
+  "semantic_descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld",
+  "snapshot": "2026-07-29T091915Z",
+  "status": "reviewed-scaffold-not-approved",
+  "title": "HM Land Registry public-estate OKF",
+  "version": "0.1.0",
+  "vocabulary": {
+    "publisher_plural": "source publishers",
+    "publisher_singular": "source publisher",
+    "record_plural": "HMLR discovery records",
+    "record_singular": "HMLR discovery record",
+    "resource_plural": "official sources",
+    "resource_singular": "official source",
+    "search_placeholder": "Search guidance, datasets, services, APIs and repositories"
+  }
+}

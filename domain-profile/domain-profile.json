@@ -1,0 +1,3283 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/domain-profile.schema.json",
+  "architecture": {
+    "bundle_shape": "large-corpus",
+    "canonical_authoring": "markdown",
+    "generated_representations": [
+      "okf-explorer-descriptor",
+      "json-ld",
+      "csv",
+      "release-archive"
+    ],
+    "namespace_strategy": "https://chris-page-gov.github.io/okf-LandRegistry/id/ with source-native identifiers retained.",
+    "profile_level": "large-corpus",
+    "refresh_strategy": "Acquire immutable, content-addressed source envelopes outside the public projection; build only from a frozen snapshot; publish later observations as a new snapshot rather than backpatching release bytes.",
+    "scale_assumptions": "At least 1,866 GOV.UK records plus up to 289 public repositories, 15 CDDO API rows, approximately 14 dataset records and control concepts; use lazy data entrypoints and bounded result rendering."
+  },
+  "authority_model": {
+    "decision_authorities": [
+      "The project owner approves scope, profile and release decisions.",
+      "HM Land Registry and relevant rights holders alone can determine source access, licence and official interpretation."
+    ],
+    "operational_authorities": [
+      "Publisher-operated service pages, developer packs, terms and status notices define current operation.",
+      "The repository maintainer controls only the derived static publication and its release state."
+    ],
+    "semantic_authorities": [
+      "Source-native HMLR definitions, identifiers, exclusions and version semantics take precedence over local normalization.",
+      "Current legislation and formal notices outrank older service matrices, roadmaps and catalogue summaries.",
+      "Publisher-operated dataset pages outrank discovery catalogues for cadence, access and operational status."
+    ],
+    "source_authorities": [
+      "HM Land Registry is authoritative for its current formal guidance, services, datasets and operational documentation.",
+      "Legislation.gov.uk is authoritative for enacted legislation and official revised text.",
+      "Government Digital Service is authoritative for GOV.UK Search and Content API metadata.",
+      "Repository owners and dataset licensors are authoritative for their own licences and access terms."
+    ]
+  },
+  "build_recommendation": {
+    "acceptance_gates": [
+      "The domain profile validates, JSON and YAML are equivalent, and the pack root digest is recorded.",
+      "The tiny positive, negative and degraded fixture builds twice with byte-identical output and fails closed.",
+      "Every expected source item has one terminal acquisition outcome and all envelopes rehash.",
+      "OKF core, descriptor, manifests, routes, counts, rights and source ledgers validate.",
+      "The 24-question first-release suite has complete persona/story/source traceability and zero hard failures.",
+      "Accessibility, safety, performance and clean reproduction receipts bind the exact frozen candidate.",
+      "No public-release or completeness claim is made beyond owner-approved, digest-bound evidence."
+    ],
+    "blocking_decision_ids": [],
+    "canonical_fixture": "Include a current OGL dataset, bespoke-licensed dataset, restricted service, stale catalogue/current publisher pair, indicative spatial product, Welsh route, missing-rights repository, unsafe signed URL, duplicate identifier, unanswerable query and source-content prompt injection treated only as data.",
+    "deferred_features": [
+      "Property-level, title, address, polygon or transaction data",
+      "Authenticated provider calls, live search and credential handling",
+      "Model-assisted relationships, classifications or answers",
+      "Full YAML-LD/RDF/SHACL conformance until a user task justifies governed-semantic publication",
+      "Federation until independently governed source lanes require separate releases",
+      "Participant-validated usability and bilingual-parity claims"
+    ],
+    "required_features": [
+      "Frozen source envelopes with exact per-family denominators and terminal outcomes",
+      "Stable source-native identity, deterministic local routes and collision failure",
+      "Search, source/type/access/topic facets and bounded result rendering",
+      "Record detail with authority, derivation, freshness, rights, coverage and caveats",
+      "Dataset distributions, API protocol/access and spatial boundary semantics",
+      "Persona/story/question traceability and direct-source evaluation baseline",
+      "Accessible, progressively enhanced GitHub Pages site and raw machine entrypoints"
+    ]
+  },
+  "claims": [
+    {
+      "authority": "Government Digital Service Search API observation",
+      "claim_status": "observed",
+      "confidence": {
+        "basis": [
+          "EV-GOVUK-SEARCH"
+        ],
+        "calibrated": false,
+        "level": "high",
+        "limitations": [
+          "The total can change after the observation time.",
+          "Organisation attribution is not a claim that every result remains current guidance."
+        ],
+        "method": "Exact API total from a bounded query.",
+        "score": null
+      },
+      "decision_refs": [
+        "DEC-ARCHITECTURE"
+      ],
+      "derivation": "source-native",
+      "evidence_refs": [
+        "EV-GOVUK-SEARCH"
+      ],
+      "gap_refs": [
+        "GAP-ASSOCIATED-DENOMINATOR"
+      ],
+      "id": "CLAIM-GOVUK-DENOMINATOR",
+      "statement": "GOV.UK Search returned 1,866 records attributed to HM Land Registry on the research cutoff.",
+      "workflow_status": "verified"
+    },
+    {
+      "authority": "HM Land Registry public-data and dataset pages",
+      "claim_status": "corroborated",
+      "confidence": {
+        "basis": [
+          "EV-PUBLIC-DATA",
+          "EV-ULPD"
+        ],
+        "calibrated": false,
+        "level": "high",
+        "limitations": [
+          "Formal legislation and notices can still control legal requirements."
+        ],
+        "method": "Cross-check of HMLR public-data policy, catalogue and canonical dataset pages.",
+        "score": null
+      },
+      "decision_refs": [
+        "DEC-AUTHORITY"
+      ],
+      "derivation": "normalized",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-ULPD"
+      ],
+      "gap_refs": [],
+      "id": "CLAIM-SOURCE-AUTHORITY",
+      "statement": "Publisher-operated HMLR pages are the operational authority when discovery catalogues are older or less specific.",
+      "workflow_status": "accepted"
+    },
+    {
+      "authority": "HM Land Registry public-data policy and dataset-specific terms",
+      "claim_status": "corroborated",
+      "confidence": {
+        "basis": [
+          "EV-PUBLIC-DATA",
+          "EV-ULPD",
+          "EV-LLC-TERMS"
+        ],
+        "calibrated": false,
+        "level": "high",
+        "limitations": [
+          "A release must recheck the terms applying to each represented layer."
+        ],
+        "method": "Direct review of OGL, bespoke, direct-use, exploration and commercial licence statements.",
+        "score": null
+      },
+      "decision_refs": [
+        "DEC-METADATA-ONLY"
+      ],
+      "derivation": "source-native",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-ULPD",
+        "EV-LLC-TERMS"
+      ],
+      "gap_refs": [],
+      "id": "CLAIM-MIXED-RIGHTS",
+      "statement": "Public availability and zero price do not establish a common right to redistribute HMLR data.",
+      "workflow_status": "accepted"
+    },
+    {
+      "authority": "HM Land Registry property and INSPIRE guidance",
+      "claim_status": "corroborated",
+      "confidence": {
+        "basis": [
+          "EV-PROPERTY-SERVICE",
+          "EV-INSPIRE-DATA"
+        ],
+        "calibrated": false,
+        "level": "high",
+        "limitations": [],
+        "method": "Direct review of property-information and INSPIRE dataset guidance.",
+        "score": null
+      },
+      "decision_refs": [],
+      "derivation": "source-native",
+      "evidence_refs": [
+        "EV-PROPERTY-SERVICE",
+        "EV-INSPIRE-DATA"
+      ],
+      "gap_refs": [],
+      "id": "CLAIM-BOUNDARY-RISK",
+      "statement": "Title plans and polygon products normally show general or indicative extents rather than exact legal boundaries.",
+      "workflow_status": "accepted"
+    },
+    {
+      "authority": "HM Land Registry service terms and developer documentation",
+      "claim_status": "corroborated",
+      "confidence": {
+        "basis": [
+          "EV-LLC-TERMS",
+          "EV-BG-DOCS",
+          "EV-ULPD-API"
+        ],
+        "calibrated": false,
+        "level": "high",
+        "limitations": [],
+        "method": "Direct review of LLC terms, Business Gateway guidance and ULPD API authentication.",
+        "score": null
+      },
+      "decision_refs": [
+        "DEC-METADATA-ONLY"
+      ],
+      "derivation": "source-native",
+      "evidence_refs": [
+        "EV-LLC-TERMS",
+        "EV-BG-DOCS",
+        "EV-ULPD-API"
+      ],
+      "gap_refs": [],
+      "id": "CLAIM-RESTRICTED-AUTOMATION",
+      "statement": "Restricted transactional services must not be treated as anonymous public APIs or automated by the bundle.",
+      "workflow_status": "accepted"
+    },
+    {
+      "authority": "OKF Explorer authoring profile applied to observed counts",
+      "claim_status": "corroborated",
+      "confidence": {
+        "basis": [
+          "EV-INVENTORY",
+          "EV-OKF-AUTHORING"
+        ],
+        "calibrated": false,
+        "level": "high",
+        "limitations": [
+          "The initial scaffold may use compact single-file indexes while preserving the shard contract."
+        ],
+        "method": "Architecture rule based on the exact GOV.UK count and additional independently refreshed lanes.",
+        "score": null
+      },
+      "decision_refs": [
+        "DEC-ARCHITECTURE"
+      ],
+      "derivation": "rule-derived",
+      "evidence_refs": [
+        "EV-INVENTORY",
+        "EV-OKF-AUTHORING"
+      ],
+      "gap_refs": [],
+      "id": "CLAIM-LARGE-CORPUS",
+      "statement": "The declared GOV.UK denominator and associated source lanes justify a lazy large-corpus bundle rather than a small in-memory Markdown bundle.",
+      "workflow_status": "accepted"
+    }
+  ],
+  "collection_profile": {
+    "date_ranges": [
+      "Historical 1862 Act Register material",
+      "Current public material observed through 2026-07-29"
+    ],
+    "document_families": [
+      "GOV.UK guidance, forms, collections, statistics, notices and corporate publications",
+      "Dataset landing pages, technical specifications and distribution metadata",
+      "Transactional and informational service descriptions",
+      "API and Business Gateway developer documentation",
+      "Public source-code repository metadata",
+      "Help, accessibility, privacy and rights statements",
+      "Official blog and subscription-channel metadata"
+    ],
+    "duplicate_policy": "Preserve source-native routes and identifiers; relate alternate representations without collapsing documents, datasets, distributions, services or versions.",
+    "extraction_constraints": [
+      "Metadata only from public, bounded routes.",
+      "Do not follow signed download URLs or store credentials.",
+      "Do not automate services whose terms prohibit automated agents.",
+      "Bound response size, redirects and pagination; reject unsafe URLs."
+    ],
+    "formats": [
+      "HTML",
+      "JSON",
+      "CSV",
+      "Markdown",
+      "XML, WSDL and XSD",
+      "GML",
+      "PDF, ODT and ODS metadata only"
+    ],
+    "languages": [
+      "en-GB",
+      "cy where an official Welsh representation is linked"
+    ],
+    "representation_relationships": [
+      "A GOV.UK route may have HTML, Welsh, attachment and Content API representations.",
+      "A dataset may have landing page, technical specification, full, delta, API and linked-data distributions.",
+      "A Business Gateway product may have documentation, schema, WSDL, test and production endpoints."
+    ],
+    "sensitivity_findings": [
+      "Land-register information can contain personal information even when statutory access exists.",
+      "Corporate and Price Paid datasets contain third-party address rights.",
+      "Public forum content can expose personal or sensitive information.",
+      "Property searches and title products have legal and financial consequences."
+    ]
+  },
+  "constraints": [
+    {
+      "disposition": "mitigated",
+      "effect": "LLC service terms prohibit automated software agents from searching, copying or monitoring the service.",
+      "evidence_refs": [
+        "EV-LLC-TERMS"
+      ],
+      "id": "CONSTRAINT-LLC-AUTOMATION",
+      "kind": "access",
+      "mitigation": "Keep only public service metadata and programme/coverage links; never execute the search.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "disposition": "mitigated",
+      "effect": "Dataset rights range from OGL to direct-use, exploration and chargeable commercial licences with third-party rights.",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-ULPD"
+      ],
+      "id": "CONSTRAINT-MIXED-LICENCES",
+      "kind": "licence",
+      "mitigation": "Per-record rights and access states; metadata-only publication; no bundle-wide data licence claim.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "disposition": "mitigated",
+      "effect": "Business Gateway, portal, property services and some dataset APIs require accounts, approval, payment, keys or certificates.",
+      "evidence_refs": [
+        "EV-BG-DOCS",
+        "EV-ULPD-API",
+        "EV-PROPERTY-SERVICE"
+      ],
+      "id": "CONSTRAINT-AUTH",
+      "kind": "authentication",
+      "mitigation": "Document access requirements and prohibit execution or secret storage.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "disposition": "mitigated",
+      "effect": "Register information, property results and forum content can contain personal or sensitive information.",
+      "evidence_refs": [
+        "EV-PERSONAL-INFO",
+        "EV-CUSTOMER-HELP"
+      ],
+      "id": "CONSTRAINT-PRIVACY",
+      "kind": "privacy",
+      "mitigation": "Exclude personal-level records and user-supplied content; run allowlist and safety checks.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "disposition": "recorded",
+      "effect": "Fees, service state, local-authority migration, datasets and GOV.UK content change on different cadences.",
+      "evidence_refs": [
+        "EV-HMLR-ORG",
+        "EV-LLC-PROGRAMME",
+        "EV-ULPD"
+      ],
+      "id": "CONSTRAINT-VOLATILITY",
+      "kind": "availability",
+      "mitigation": "Snapshot every source, expose observed and source dates separately, and require live revalidation before action.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "disposition": "mitigated",
+      "effect": "The catalogue exceeds a small-bundle payload and source distributions can be multi-gigabyte.",
+      "evidence_refs": [
+        "EV-GOVUK-SEARCH",
+        "EV-ULPD"
+      ],
+      "id": "CONSTRAINT-SCALE",
+      "kind": "technical",
+      "mitigation": "Lazy metadata shards, bounded search, no production data files and explicit performance budgets.",
+      "owner": "Repository maintainer"
+    }
+  ],
+  "decisions": [
+    {
+      "alternatives": [
+        "Live resolution",
+        "Hybrid snapshot and bounded live reconciliation"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "Snapshot builds are reproducible; users must revalidate volatile facts before action."
+      ],
+      "due_point": "Reconsider before any live provider integration.",
+      "evidence_refs": [
+        "EV-OKF-AUTHORING",
+        "EV-INVENTORY"
+      ],
+      "id": "DEC-SNAPSHOT",
+      "owner": "Project owner through the scaffold request",
+      "question": "Should the bundle resolve sources live or publish a frozen snapshot?",
+      "recommended_default": "Snapshot-bounded publication with explicit source and observation dates.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Licensed bounded samples after rights review"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "Broad safe discovery remains possible without redistributing controlled data."
+      ],
+      "due_point": "Any later request to include source content or samples.",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-LLC-TERMS",
+        "EV-PERSONAL-INFO"
+      ],
+      "id": "DEC-METADATA-ONLY",
+      "owner": "Project owner through the scaffold request",
+      "question": "What source content may the public scaffold retain?",
+      "recommended_default": "Public metadata, provenance and links only; no property-level, bulk dataset, forum or authenticated content.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Small Markdown bundle",
+        "Federation by source family"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "Supports the 1",
+        "866-record GOV.UK denominator; source families can later federate if governance diverges."
+      ],
+      "due_point": "Reassess when full snapshot sizes and independent release cadences are measured.",
+      "evidence_refs": [
+        "EV-GOVUK-SEARCH",
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "DEC-ARCHITECTURE",
+      "owner": "Project owner through the scaffold request",
+      "question": "Which OKF bundle shape fits the declared source population?",
+      "recommended_default": "Large-corpus descriptor with a Markdown control plane and lazy static data.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Catalogue-only view"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "Freshness and access claims remain supportable without erasing provenance."
+      ],
+      "due_point": "Apply in every source adapter and conflict record.",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "DEC-AUTHORITY",
+      "owner": "Project owner through the scaffold request",
+      "question": "Which source controls operational metadata when catalogues and HMLR pages differ?",
+      "recommended_default": "Current publisher-operated HMLR page or formal notice, while preserving the catalogue record as discovery provenance.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Separately labelled candidate enrichment after calibration and independent review"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "The first corpus is conservative and explainable."
+      ],
+      "due_point": "Revisit only for a demonstrated search or semantic gap.",
+      "evidence_refs": [
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "DEC-ENRICHMENT",
+      "owner": "Project owner through the request for an evidence-led scaffold",
+      "question": "Should model-assisted classifications or relationships enter the first scaffold?",
+      "recommended_default": "No; use source-native and deterministic normalized fields only.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Approve a named release candidate and canonical repository URL"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "CI may validate the site without deploying an unreviewed release from this workspace."
+      ],
+      "due_point": "Before enabling or treating GitHub Pages deployment as an approved release.",
+      "evidence_refs": [
+        "EV-INVENTORY"
+      ],
+      "id": "DEC-RELEASE",
+      "owner": "Project owner",
+      "question": "Is the reviewed scaffold authorised for public release and a canonical GitHub Pages identity?",
+      "recommended_default": "Keep status draft until the owner reviews the generated corpus, rights ledger and evaluation.",
+      "status": "open"
+    }
+  ],
+  "description": "A snapshot-bounded, metadata-led profile for discovering HM Land Registry guidance, forms, services, datasets, APIs, developer resources and public repositories without replacing authoritative sources or redistributing restricted property data.",
+  "enrichment": {
+    "authority_boundary": "Derived metadata never becomes an official HMLR statement.",
+    "budget": "No paid model or API calls are authorised.",
+    "enabled": false,
+    "evidence_requirement": "Every non-source-native field names its source fields, deterministic method and observation.",
+    "independent_review": "Domain and rights assertions require separate human review before release approval.",
+    "permitted_derivations": [
+      "source-native",
+      "normalized",
+      "rule-derived"
+    ],
+    "purpose": "No model-assisted production assertions are justified for the scaffold."
+  },
+  "evaluation": {
+    "baselines": [
+      "Direct navigation and search on the named official source.",
+      "Deterministic lexical search over the frozen normalized catalogue."
+    ],
+    "challenge_policy": "Use two disjoint held-out passes containing stale, conflicting, similarly named, restricted, unanswerable and unsafe cases; publish new critical categories rather than averaging them away.",
+    "citation_policy": "Every material proposition must cite the exact publisher route or frozen source envelope; discovery catalogues cannot establish current operational status alone.",
+    "competency_questions": [
+      {
+        "citation_expectation": "HM Land Registry GOV.UK service guidance.",
+        "expected_evidence": "Canonical GOV.UK service route, product descriptions, costs as volatile metadata and evidential distinction.",
+        "id": "CQ-PUBLIC",
+        "near_miss_rule": "A generic contact page or unqualified title-plan result is not correct.",
+        "question": "Can a public user find the correct property-information route and see the official-copy and boundary warnings?",
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE"
+        ],
+        "temporal_context": "Revalidate at time of action.",
+        "verification_status": "candidate"
+      },
+      {
+        "citation_expectation": "GOV.UK HMLR collections and formal notice.",
+        "expected_evidence": "Current formal routes with document type and publisher dates.",
+        "id": "CQ-PRACTICE",
+        "near_miss_rule": "An older summary without the current formal source is insufficient.",
+        "question": "Can a professional retrieve the current practice guide, form, fee and digital route for a named task?",
+        "task_refs": [
+          "TASK-PRACTICE"
+        ],
+        "temporal_context": "Snapshot as of 2026-07-29, with live revalidation warning.",
+        "verification_status": "candidate"
+      },
+      {
+        "citation_expectation": "Use land and property data or formal GOV.UK dataset page.",
+        "expected_evidence": "Publisher landing pages, technical specifications and per-dataset rights.",
+        "id": "CQ-DATASET",
+        "near_miss_rule": "A catalogue record without canonical operational evidence is not sufficient.",
+        "question": "Can a data user compare PPD, UK HPI, corporate ownership, lease, covenant, requisition and polygon products without collapsing rights or cadence?",
+        "task_refs": [
+          "TASK-DATASET"
+        ],
+        "temporal_context": "Dated snapshot; latest release checked separately.",
+        "verification_status": "candidate"
+      },
+      {
+        "citation_expectation": "HMLR spatial dataset page and technical guidance.",
+        "expected_evidence": "Coverage, freehold/leasehold distinction, indicative status, CRS, licence and cadence.",
+        "id": "CQ-SPATIAL",
+        "near_miss_rule": "Any answer implying an exact legal boundary is wrong.",
+        "question": "Can a user distinguish title plans, INSPIRE Index Polygons, LLC polygons and National Polygon products?",
+        "task_refs": [
+          "TASK-SPATIAL"
+        ],
+        "temporal_context": "Current publisher specification at snapshot time.",
+        "verification_status": "candidate"
+      },
+      {
+        "citation_expectation": "Publisher-operated HMLR developer documentation and current notice.",
+        "expected_evidence": "Official developer pack, protocol, schema version, environment and authentication.",
+        "id": "CQ-API",
+        "near_miss_rule": "A CDDO catalogue row alone or an unqualified endpoint is insufficient.",
+        "question": "Can a developer identify REST versus SOAP, test versus production and documentation versus authorised operation?",
+        "task_refs": [
+          "TASK-API"
+        ],
+        "temporal_context": "Revalidate immediately before integration.",
+        "verification_status": "candidate"
+      },
+      {
+        "citation_expectation": "HMLR LLC programme and service terms.",
+        "expected_evidence": "Current migration table, service terms and PG79.",
+        "id": "CQ-LLC",
+        "near_miss_rule": "A general LLC service link without coverage and CON29 caveats is insufficient.",
+        "question": "Can a user determine whether HMLR covers an authority and understand the LLC versus CON29 boundary?",
+        "task_refs": [
+          "TASK-LLC"
+        ],
+        "temporal_context": "Authority coverage is volatile.",
+        "verification_status": "candidate"
+      },
+      {
+        "citation_expectation": "Immutable snapshot receipt plus source route.",
+        "expected_evidence": "Machine-readable provenance and direct publisher link.",
+        "id": "CQ-AUDIT",
+        "near_miss_rule": "A link without claim-level provenance or a validation score without evidence fails.",
+        "question": "Can an auditor trace each sampled claim to source, observation, derivation, rights and validation state?",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "temporal_context": "Exact frozen candidate.",
+        "verification_status": "candidate"
+      }
+    ],
+    "hard_failures": [
+      "Legal, ownership, priority or exact-boundary advice is presented as a bundle conclusion.",
+      "A restricted, bespoke or unknown right is presented as OGL or unrestricted.",
+      "Catalogue modification time is presented as dataset release, validity or coverage.",
+      "A restricted service is called, monitored or presented as an anonymous public API.",
+      "A credential, signed download URL, personal-level record or forum upload enters the public bundle.",
+      "A result cannot resolve its authoritative source and observation.",
+      "Unknown, candidate or untested evidence is relabelled verified."
+    ],
+    "independent_verification": "The 24-question first-release suite remains candidate until a separate reviewer checks expected propositions and near misses against the frozen snapshot.",
+    "metrics": [
+      "Recall@5 and Recall@10",
+      "Mean reciprocal rank of the primary target",
+      "nDCG@10 for graded alternatives",
+      "Source-resolution and citation-support rate",
+      "Rights, access, freshness and caveat field coverage",
+      "Persona, story, source-family and failure-stratum coverage",
+      "Keyboard, focus, reflow and semantic-structure journey pass rate"
+    ],
+    "strata": [
+      "Public service and official-copy discovery",
+      "Practice guide, form, fee and notice",
+      "Open, bespoke and chargeable datasets",
+      "Temporal lag, revision and stale catalogue metadata",
+      "Indicative spatial products and CRS",
+      "SOAP, REST, linked data and restricted access",
+      "LLC migration, coverage and CON29 near miss",
+      "Welsh, keyboard, screen-reader, zoom and no-JavaScript access",
+      "Unanswerable, conflicting, unavailable and unsafe cases"
+    ],
+    "thresholds": [
+      "Zero hard failures.",
+      "Every candidate question maps to at least one story, persona, source and evidence expectation.",
+      "Primary-target MRR at least 0.80 and Recall@10 at least 0.90 for independently verified answerable questions.",
+      "Source-resolution and required caveat coverage equal 1.00.",
+      "No critical category added by the second held-out adversarial pass."
+    ]
+  },
+  "evidence": [
+    {
+      "access_state": "verified-working",
+      "authority": "Derived from cited official public sources",
+      "contradicts": [],
+      "evidence_type": "Local research inventory",
+      "id": "EV-INVENTORY",
+      "location": "../research/source-family-inventory.json",
+      "locator": "Entire file",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "d463585dfa9d427a8c88dbf499b3df4da1bf7d0dcc0c73644bca817b32c2c30e",
+      "supports": [
+        "Source-family boundary",
+        "denominators",
+        "saturation and residual gaps"
+      ],
+      "title": "HM Land Registry source-family inventory",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "Government Digital Service",
+      "contradicts": [],
+      "evidence_type": "Official API observation",
+      "id": "EV-GOVUK-SEARCH",
+      "location": "https://www.gov.uk/api/search.json?filter_organisations=land-registry&count=0",
+      "locator": "total and content_store_document_type aggregate",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "1,866-record dated denominator, content-type diversity, large-corpus decision"
+      ],
+      "title": "GOV.UK Search API HMLR organisation filter",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official organisation page",
+      "id": "EV-HMLR-ORG",
+      "location": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "What we do, services, current publications and organisation identity",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Organisation authority",
+        "England and Wales remit",
+        "official source routes"
+      ],
+      "title": "HM Land Registry organisation page",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official guidance",
+      "id": "EV-PUBLIC-DATA",
+      "location": "https://www.gov.uk/government/publications/hm-land-registry-data/public-data",
+      "locator": "OGL, free, restricted, accuracy, public-sector sharing and licence-exception sections",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Dataset source universe",
+        "mixed rights",
+        "accuracy limits"
+      ],
+      "title": "HM Land Registry public data policy",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Publisher dataset catalogue",
+      "id": "EV-ULPD",
+      "location": "https://use-land-property-data.service.gov.uk/",
+      "locator": "Dataset cards, cadence, file format, API, price and licence summaries",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-DATASETS",
+      "sha256": "unknown",
+      "supports": [
+        "Dataset inventory",
+        "access",
+        "cadence and format"
+      ],
+      "title": "Use land and property data catalogue",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Publisher API documentation",
+      "id": "EV-ULPD-API",
+      "location": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "locator": "Authentication, endpoint, dataset, history and signed-download sections",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-DATASETS",
+      "sha256": "unknown",
+      "supports": [
+        "REST API v1",
+        "API-key access",
+        "dataset and resource identity"
+      ],
+      "title": "Use land and property data API documentation",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Publisher developer documentation",
+      "id": "EV-BG-DOCS",
+      "location": "https://landregistry.github.io/bgtechdoc/",
+      "locator": "Developer guide and service documentation",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "sha256": "unknown",
+      "supports": [
+        "Business Gateway service discovery",
+        "restricted access",
+        "SOAP/WSDL and REST distinction"
+      ],
+      "title": "HM Land Registry Business Gateway developer documentation",
+      "verification": "link-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "Central Digital and Data Office",
+      "contradicts": [],
+      "evidence_type": "Official discovery catalogue",
+      "id": "EV-CDDO",
+      "location": "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+      "locator": "Rows with provider hm-land-registry",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-CDDO",
+      "sha256": "unknown",
+      "supports": [
+        "API discovery catalogue and publisher-verification requirement"
+      ],
+      "title": "CDDO API Catalogue HMLR rows",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "Local receipt derived from named public source endpoints",
+      "contradicts": [
+        "27-row stale sibling seed as the current CDDO denominator"
+      ],
+      "evidence_type": "Deterministic acquisition receipt",
+      "id": "EV-ACQUISITION-SNAPSHOT",
+      "location": "../source/snapshots/2026-07-29T091915Z/manifest.json",
+      "locator": "File entries, record counts, acquisition-script digest, request receipts, source endpoints, pagination and terminal outcomes",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "retrieved_at": "2026-07-29T09:19:40Z",
+      "rights_ref": "RIGHT-CDDO",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6",
+      "supports": [
+        "1,866 GOV.UK records, 289 public repositories and 15 live CDDO rows"
+      ],
+      "title": "Frozen public-metadata acquisition manifest",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official public repository organisation",
+      "id": "EV-GITHUB",
+      "location": "https://github.com/LandRegistry",
+      "locator": "Organisation identity and public repository count",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GITHUB",
+      "sha256": "unknown",
+      "supports": [
+        "Official source-code lane",
+        "289 displayed public repositories"
+      ],
+      "title": "HM Land Registry GitHub organisation",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official service guidance",
+      "id": "EV-PROPERTY-SERVICE",
+      "location": "https://www.gov.uk/search-property-information-land-registry",
+      "locator": "Products, cost, sign-in and proof-of-ownership sections",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Property product scope",
+        "fees",
+        "downloaded versus official copy",
+        "general boundary"
+      ],
+      "title": "Search for land and property information",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official service terms",
+      "id": "EV-LLC-TERMS",
+      "location": "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+      "locator": "Scope, personal/official search, automation prohibition, copyright and database rights",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "sha256": "unknown",
+      "supports": [
+        "Restricted automation",
+        "LLC search scope",
+        "reuse restrictions"
+      ],
+      "title": "Search for local land charges terms of use",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official programme publication",
+      "id": "EV-LLC-PROGRAMME",
+      "location": "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme",
+      "locator": "Migration, local authorities, search, PG79 and fee sections",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Volatile authority coverage",
+        "LLC process and CON29 boundary"
+      ],
+      "title": "HM Land Registry Local Land Charges Programme",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Publisher dataset page",
+      "id": "EV-INSPIRE-DATA",
+      "location": "https://use-land-property-data.service.gov.uk/datasets/inspire",
+      "locator": "Scope, identity, conditions, cadence, GML and boundary limitations",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-DATASETS",
+      "sha256": "unknown",
+      "supports": [
+        "Freehold subset",
+        "indicative polygons",
+        "monthly GML",
+        "OGL and OS attribution"
+      ],
+      "title": "INSPIRE Index Polygons spatial data",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official statistical dataset",
+      "id": "EV-PPD",
+      "location": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+      "locator": "Scope, current release, monthly cadence, distributions, rights and accuracy",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "PPD semantics",
+        "lag",
+        "distributions and third-party address rights"
+      ],
+      "title": "HM Land Registry Price Paid Data",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry and UK HPI partners",
+      "contradicts": [],
+      "evidence_type": "Official statistics collection",
+      "id": "EV-UKHPI",
+      "location": "https://www.gov.uk/government/collections/uk-house-price-index-reports",
+      "locator": "Current release, revisions, methods, cadence and archive",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "UK HPI semantics",
+        "monthly publication",
+        "provisional and revised estimates"
+      ],
+      "title": "UK House Price Index reports",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official audience guidance",
+      "id": "EV-PUBLIC-GUIDANCE",
+      "location": "https://www.gov.uk/guidance/guidance-for-members-of-the-public",
+      "locator": "Audience routes and legal-complexity warning",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Public persona and task hypotheses"
+      ],
+      "title": "Guidance for members of the public",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official audience guidance",
+      "id": "EV-PRO-GUIDANCE",
+      "location": "https://www.gov.uk/guidance/guidance-and-support-for-property-professionals",
+      "locator": "Professional services, application and support routes",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Professional",
+        "lender and developer persona hypotheses"
+      ],
+      "title": "Guidance and support for property professionals",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official guidance collection",
+      "id": "EV-PRACTICE-GUIDES",
+      "location": "https://www.gov.uk/government/collections/land-registration-practice-guides",
+      "locator": "Guide inventory, audience warning and Welsh availability",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Professional discovery",
+        "document families and language"
+      ],
+      "title": "Land registration practice guides",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official research overview",
+      "id": "EV-HMLR-RESEARCH",
+      "location": "https://www.gov.uk/government/organisations/land-registry/about/research",
+      "locator": "Customer research programmes and evidence channels",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Need for participant validation and research limits"
+      ],
+      "title": "Research at HM Land Registry",
+      "verification": "link-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official privacy statement",
+      "id": "EV-PERSONAL-INFO",
+      "location": "https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter",
+      "locator": "Register information, digital services, retention and data rights",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Privacy boundary and personal-data exclusion"
+      ],
+      "title": "HM Land Registry personal information charter",
+      "verification": "link-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official accessibility statement",
+      "id": "EV-ACCESSIBILITY",
+      "location": "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy",
+      "locator": "Formats, partial compliance, alternative formats and testing",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Accessibility risks and alternative-format needs"
+      ],
+      "title": "HM Land Registry accessible documents policy",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official help service",
+      "id": "EV-CUSTOMER-HELP",
+      "location": "https://customerhelp.landregistry.gov.uk/",
+      "locator": "Guidance, contact, forum privacy warning and support routes",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-PERSONAL",
+      "sha256": "unknown",
+      "supports": [
+        "Help source family and forum-content exclusion"
+      ],
+      "title": "Contact HM Land Registry and customer help",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official explanatory publication",
+      "id": "EV-BLOG",
+      "location": "https://hmlandregistry.blog.gov.uk/",
+      "locator": "Blog index",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-GOVUK",
+      "sha256": "unknown",
+      "supports": [
+        "Official context source family"
+      ],
+      "title": "HM Land Registry blog",
+      "verification": "link-checked"
+    },
+    {
+      "access_state": "documented-not-tested",
+      "authority": "HM Land Registry",
+      "contradicts": [],
+      "evidence_type": "Official data service",
+      "id": "EV-LINKED-DATA",
+      "location": "https://landregistry.data.gov.uk/",
+      "locator": "Service home and documentation routes",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "rights_ref": "RIGHT-DATASETS",
+      "sha256": "unknown",
+      "supports": [
+        "Linked-data source family and residual assurance gap"
+      ],
+      "title": "HM Land Registry linked data service",
+      "verification": "link-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "GoogleCloudPlatform knowledge-catalog repository",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-OKF",
+      "location": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/3fcbb9f828c2f23d109c855ee403c3a4c81f3a96/okf/SPEC.md",
+      "locator": "Version 0.2 specification",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "OKF 0.2 portable core"
+      ],
+      "title": "Open Knowledge Format 0.2 specification",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "OKF Explorer repository",
+      "contradicts": [],
+      "evidence_type": "Versioned application profile",
+      "id": "EV-OKF-AUTHORING",
+      "location": "https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/",
+      "locator": "Domain-profile schema, warm-up and build contracts",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "Two-stage workflow",
+        "evidence states",
+        "large-corpus and release gates"
+      ],
+      "title": "OKF Foundry authoring profile and prompt kit",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "YAML Language Development Team",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-YAML",
+      "location": "https://yaml.org/spec/1.2.2/",
+      "locator": "Complete specification",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "YAML parsing contract"
+      ],
+      "title": "YAML 1.2.2",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "World Wide Web Consortium",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-YAMLLD",
+      "location": "https://www.w3.org/TR/2025/WD-yaml-ld-10-20250612/",
+      "locator": "Publication status and specification",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "YAML-LD assessment and Working Draft status"
+      ],
+      "title": "YAML-LD 1.0 Working Draft",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "JSON Schema project",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-JSONSCHEMA",
+      "location": "https://json-schema.org/draft/2020-12/schema",
+      "locator": "Meta-schema",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "JSON control-document validation"
+      ],
+      "title": "JSON Schema 2020-12",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "World Wide Web Consortium",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-JSONLD",
+      "location": "https://www.w3.org/TR/json-ld11/",
+      "locator": "Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "Semantic projection contract"
+      ],
+      "title": "JSON-LD 1.1",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "World Wide Web Consortium",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-DCAT",
+      "location": "https://www.w3.org/TR/vocab-dcat-3/",
+      "locator": "Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "Dataset",
+        "distribution and service projection"
+      ],
+      "title": "Data Catalog Vocabulary 3",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "World Wide Web Consortium",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-PROVO",
+      "location": "https://www.w3.org/TR/prov-o/",
+      "locator": "Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "Provenance projection"
+      ],
+      "title": "PROV-O",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "European Commission INSPIRE",
+      "contradicts": [],
+      "evidence_type": "Official technical guideline",
+      "id": "EV-INSPIRE-SPEC",
+      "location": "https://inspire.ec.europa.eu/id/document/tg/cp",
+      "locator": "Version 3.1 technical guidelines",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "INSPIRE cadastral parcel source-native assessment"
+      ],
+      "title": "INSPIRE Data Specification on Cadastral Parcels",
+      "verification": "locator-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "Open Geospatial Consortium",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-GML",
+      "location": "https://portal.ogc.org/files/?artifact_id=20509",
+      "locator": "OGC 07-036",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "GML source-format assessment"
+      ],
+      "title": "OGC Geography Markup Language 3.2.1",
+      "verification": "link-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "World Wide Web Consortium",
+      "contradicts": [],
+      "evidence_type": "Normative specification",
+      "id": "EV-WCAG",
+      "location": "https://www.w3.org/TR/WCAG22/",
+      "locator": "Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "sha256": "unknown",
+      "supports": [
+        "Accessibility target and evaluation"
+      ],
+      "title": "Web Content Accessibility Guidelines 2.2",
+      "verification": "locator-checked"
+    }
+  ],
+  "gaps": [
+    {
+      "blocking": false,
+      "description": "No global page-level denominator exists across all HMLR-associated domains.",
+      "evidence_refs": [
+        "EV-INVENTORY"
+      ],
+      "id": "GAP-ASSOCIATED-DENOMINATOR",
+      "impact": "Completeness can be claimed only per named source denominator.",
+      "next_action": "Maintain separate source-family denominators and publish unexplained omissions.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "blocking": false,
+      "description": "The exact current Business Gateway product/schema population has not been reconciled from the publisher pack.",
+      "evidence_refs": [
+        "EV-BG-DOCS",
+        "EV-CDDO"
+      ],
+      "id": "GAP-BG-DENOMINATOR",
+      "impact": "The initial API lane is discovery-complete only against the 15-row frozen CDDO denominator.",
+      "next_action": "Build a deterministic index from pinned HMLR developer-pack navigation and formal notices.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "blocking": false,
+      "description": "The observed 14-item dataset catalogue count needs deterministic adapter confirmation.",
+      "evidence_refs": [
+        "EV-ULPD"
+      ],
+      "id": "GAP-DATASET-DENOMINATOR",
+      "impact": "Do not claim complete HMLR dataset coverage in the scaffold.",
+      "next_action": "Reconcile catalogue cards, API-visible and external dataset pages with explicit outcomes.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "blocking": false,
+      "description": "Linked-data capability, schema and query limits were not fully exercised.",
+      "evidence_refs": [
+        "EV-LINKED-DATA"
+      ],
+      "id": "GAP-LINKED-DATA",
+      "impact": "Linked data is documented as a source family but not claimed operationally assured.",
+      "next_action": "Add bounded capability fixtures and publisher-documentation checks without unbounded queries.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "blocking": false,
+      "description": "Personas and user stories are evidence-led hypotheses, not participant-validated findings.",
+      "evidence_refs": [
+        "EV-HMLR-RESEARCH"
+      ],
+      "id": "GAP-HUMAN-RESEARCH",
+      "impact": "The site cannot claim to be a preferred or fully usable interface for real users.",
+      "next_action": "Commission accessibility-expert and representative-user research after the deterministic scaffold is stable.",
+      "owner": "Project owner"
+    },
+    {
+      "blocking": false,
+      "description": "Welsh representation parity has not been enumerated or evaluated.",
+      "evidence_refs": [
+        "EV-PUBLIC-GUIDANCE"
+      ],
+      "id": "GAP-WELSH",
+      "impact": "The scaffold can expose official Welsh routes but cannot claim bilingual parity.",
+      "next_action": "Add language relationships and Welsh journey fixtures from the frozen GOV.UK metadata.",
+      "owner": "Repository maintainer"
+    },
+    {
+      "blocking": false,
+      "description": "The reviewed profile and first scaffold have not been approved as a release contract.",
+      "evidence_refs": [
+        "EV-INVENTORY"
+      ],
+      "id": "GAP-OWNER-APPROVAL",
+      "impact": "Build outputs remain draft and must not be labelled release-ready or published.",
+      "next_action": "Review scope, rights defaults, canonical Pages URL and release threshold.",
+      "owner": "Project owner"
+    }
+  ],
+  "input_snapshot": {
+    "byte_count": 13816,
+    "exclusions": [
+      "Page bodies and binary attachments",
+      "Authenticated service results and paid documents",
+      "Bulk title, ownership, address, polygon and transaction records",
+      "Public-forum posts and user uploads",
+      "Unofficial mirrors and third-party property-data services"
+    ],
+    "inventory_sha256": "d463585dfa9d427a8c88dbf499b3df4da1bf7d0dcc0c73644bca817b32c2c30e",
+    "item_count": 15,
+    "locations": [
+      "../research/source-family-inventory.json",
+      "../source/snapshots/2026-07-29T091915Z/manifest.json",
+      "https://www.gov.uk/api/search.json?filter_organisations=land-registry",
+      "https://use-land-property-data.service.gov.uk/",
+      "https://github.com/LandRegistry",
+      "https://github.com/co-cddo/api-catalogue"
+    ],
+    "sampling_method": "Census of source families; exact GOV.UK Search count; official collection and service-page review; stratified review of public, professional, dataset, geospatial, API, governance, rights and accessibility routes.",
+    "snapshot_id": "hmlr-domain-warmup-20260729"
+  },
+  "intent": {
+    "desired_outcomes": [
+      "People and agents can find the authoritative route for a land-registration task.",
+      "Data users can compare datasets by coverage, cadence, format, access and licence.",
+      "Property professionals and developers can distinguish public guidance from restricted operational services.",
+      "Every discovery result exposes its source, observation date, authority role and material caveats."
+    ],
+    "non_goals": [
+      "The bundle will not provide legal advice or determine ownership, boundaries or priority.",
+      "The bundle will not contain title-register, title-plan, search-result or bulk property records.",
+      "The bundle will not authenticate to, automate or monitor restricted HM Land Registry services.",
+      "The bundle will not claim completeness outside a named, dated denominator."
+    ],
+    "problem": "HM Land Registry material is spread across GOV.UK, publisher-operated data and transaction services, developer documentation, linked data, help systems, GitHub and an official blog, with materially different authority, freshness, access and reuse conditions.",
+    "risk_level": "high",
+    "target_okf_version": "0.2"
+  },
+  "prepared_at": "2026-07-29T07:53:38Z",
+  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v1",
+  "research_cutoff": "2026-07-29",
+  "rights_access_privacy": [
+    {
+      "access_constraint": "Recheck exceptions and do not copy full page bodies or attachments in this scaffold.",
+      "attribution": "Contains public-sector information licensed under the Open Government Licence v3.0; source publisher and route retained.",
+      "basis": "GOV.UK pages state OGL v3 except where otherwise stated; the bundle retains metadata and source links only.",
+      "evidence_refs": [
+        "EV-HMLR-ORG",
+        "EV-PUBLIC-DATA"
+      ],
+      "id": "RIGHT-GOVUK",
+      "layer": "GOV.UK and HMLR page metadata",
+      "licence": "Open Government Licence v3.0, subject to exceptions.",
+      "mitigation": "Per-record source, rights status and exception field.",
+      "operation": "Store and redistribute titles, descriptions, routes, document types and dates with attribution.",
+      "owner": "Repository maintainer",
+      "status": "permitted",
+      "third_party_terms": "Page attachments and third-party content can have separate terms."
+    },
+    {
+      "access_constraint": "Account, accepted licence, fee or API key may be required.",
+      "attribution": "Preserve the exact publisher-specified HMLR, Ordnance Survey, Royal Mail or other attribution.",
+      "basis": "Dataset terms range from OGL to bespoke direct-use, exploration and commercial licences with third-party rights.",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-ULPD",
+        "EV-INSPIRE-DATA"
+      ],
+      "id": "RIGHT-DATASETS",
+      "layer": "HMLR dataset metadata and data distributions",
+      "licence": "Per-dataset",
+      "mitigation": "Publish metadata and small expressly permitted samples only; never flatten rights to a bundle-wide licence.",
+      "operation": "Store metadata and link to data; do not redistribute production data.",
+      "owner": "Repository maintainer and data user",
+      "status": "conditional",
+      "third_party_terms": "Address, mapping, GeoPlace, Ordnance Survey and Royal Mail rights can apply."
+    },
+    {
+      "access_constraint": "Public descriptions only; do not authenticate or execute.",
+      "attribution": "",
+      "basis": "Services require accounts, approval, payment or certificates; LLC terms explicitly prohibit automated agents and copying.",
+      "evidence_refs": [
+        "EV-PROPERTY-SERVICE",
+        "EV-LLC-TERMS",
+        "EV-BG-DOCS"
+      ],
+      "id": "RIGHT-RESTRICTED",
+      "layer": "Property, LLC, portal and Business Gateway services",
+      "licence": "Service-specific terms",
+      "mitigation": "Store only public service metadata and link users to the official route.",
+      "operation": "Automated access, result collection or redistribution.",
+      "owner": "Repository maintainer",
+      "status": "prohibited",
+      "third_party_terms": "Address, map and originating-authority rights may apply."
+    },
+    {
+      "access_constraint": "Public API rate limits and GitHub terms apply.",
+      "attribution": "Preserve organisation, repository URL and declared licence identifier.",
+      "basis": "Each repository declares its own licence and lifecycle; missing licence means no reuse assumption.",
+      "evidence_refs": [
+        "EV-GITHUB"
+      ],
+      "id": "RIGHT-GITHUB",
+      "layer": "Public GitHub repository metadata and source code",
+      "licence": "Per-repository",
+      "mitigation": "Metadata-only census with per-record licence, fork and archive state.",
+      "operation": "Store and redistribute repository metadata; do not copy source trees.",
+      "owner": "Repository maintainer",
+      "status": "conditional",
+      "third_party_terms": "Forks and vendored dependencies retain their own rights."
+    },
+    {
+      "access_constraint": "Catalogue absence does not grant rights or establish current operation.",
+      "attribution": "Central Digital and Data Office API Catalogue plus publisher-operated HMLR source.",
+      "basis": "Official public GitHub catalogue used as discovery provenance; downstream endpoint rights remain separate.",
+      "evidence_refs": [
+        "EV-CDDO"
+      ],
+      "id": "RIGHT-CDDO",
+      "layer": "CDDO API Catalogue metadata",
+      "licence": "Repository terms and per-service terms",
+      "mitigation": "Retain source commit and re-verify against HMLR documentation.",
+      "operation": "Store provider-filtered discovery metadata.",
+      "owner": "Repository maintainer",
+      "status": "conditional",
+      "third_party_terms": "Endpoint and documentation rights remain with their publishers."
+    },
+    {
+      "access_constraint": "No live property results, forum posts, user uploads or personal contact data.",
+      "attribution": "",
+      "basis": "The discovery purpose does not require personal-level records and public accessibility does not remove privacy or ethical risk.",
+      "evidence_refs": [
+        "EV-PERSONAL-INFO",
+        "EV-CUSTOMER-HELP"
+      ],
+      "id": "RIGHT-PERSONAL",
+      "layer": "Property, register, help-forum and user-submitted personal information",
+      "licence": "Not applicable",
+      "mitigation": "Metadata allowlists, secret and PII scans, aggregate-only evaluation fixtures.",
+      "operation": "Acquire, combine, index or expose personal-level content.",
+      "owner": "Repository maintainer",
+      "status": "prohibited",
+      "third_party_terms": "Statutory register-access regimes and service privacy terms apply."
+    }
+  ],
+  "schema": "okf-domain-profile.v1",
+  "scope": {
+    "boundary_status": "partial",
+    "denominators": [
+      {
+        "as_of": "2026-07-29",
+        "basis": "GOV.UK Search API total observed with count=0.",
+        "description": "GOV.UK Search records attributed to organisation slug land-registry.",
+        "evidence_refs": [
+          "EV-GOVUK-SEARCH",
+          "EV-ACQUISITION-SNAPSHOT"
+        ],
+        "id": "DEN-GOVUK",
+        "value": 1866
+      },
+      {
+        "as_of": "2026-07-29",
+        "basis": "Publisher catalogue observation; requires deterministic adapter reconciliation before a completeness claim.",
+        "description": "Dataset entries visible on the Use land and property data catalogue.",
+        "evidence_refs": [
+          "EV-ULPD"
+        ],
+        "id": "DEN-ULPD",
+        "value": 14
+      },
+      {
+        "as_of": "2026-07-29",
+        "basis": "Exact frozen live provider-filtered official catalogue observation; an older sibling seed contained 27 records.",
+        "description": "CDDO API Catalogue rows whose provider is hm-land-registry.",
+        "evidence_refs": [
+          "EV-CDDO",
+          "EV-ACQUISITION-SNAPSHOT"
+        ],
+        "id": "DEN-CDDO-API",
+        "value": 15
+      },
+      {
+        "as_of": "2026-07-29",
+        "basis": "Exact frozen public GitHub API census.",
+        "description": "Public repositories displayed for the LandRegistry GitHub organisation.",
+        "evidence_refs": [
+          "EV-GITHUB",
+          "EV-ACQUISITION-SNAPSHOT"
+        ],
+        "id": "DEN-GITHUB",
+        "value": 289
+      }
+    ],
+    "excluded": [
+      "Live property, title, ownership, address, charge, application and search-result data.",
+      "Full GOV.UK page bodies and downloaded attachments.",
+      "Authenticated API responses, portal content and paid products.",
+      "Third-party republications without official provenance."
+    ],
+    "included": [
+      "All records returned by the frozen GOV.UK Search query attributed to organisation slug land-registry.",
+      "Publisher-operated HMLR dataset and service metadata selected by deterministic source adapters.",
+      "Public HMLR GitHub repository metadata and CDDO API Catalogue records when acquired.",
+      "Source-family, rights, standards, persona, evaluation and provenance control records."
+    ],
+    "record_definition": "One source-native public discovery object: a GOV.UK edition/route, HMLR dataset, operational service, API product, public repository or governed source-family entry. Distributions and versions remain separately typed when represented.",
+    "snapshot_policy": "snapshot-bounded",
+    "unexplained_omissions": [
+      "No global page-level denominator exists across all associated HMLR domains.",
+      "Blog posts, help-centre articles and forum content are not enumerated in this profile.",
+      "The exact current Business Gateway service denominator needs publisher-pack reconciliation."
+    ]
+  },
+  "semantic_model": {
+    "entity_types": [
+      {
+        "evidence_refs": [
+          "EV-GOVUK-SEARCH"
+        ],
+        "examples": [
+          "Practice guide",
+          "form",
+          "statistical data set",
+          "notice",
+          "corporate report"
+        ],
+        "excluded_conflations": [
+          "A collection is not one of its member documents.",
+          "A page route is not an attachment."
+        ],
+        "id": "TYPE-PUBLICATION",
+        "identity_key": "Canonical GOV.UK route plus source content identifier when supplied.",
+        "label": "Official publication or guidance record",
+        "optional_properties": [
+          "description",
+          "public_timestamp",
+          "organisations",
+          "language",
+          "related records"
+        ],
+        "proposed_class": "schema:CreativeWork",
+        "required_properties": [
+          "id",
+          "route",
+          "title",
+          "record_type",
+          "source",
+          "generated"
+        ],
+        "source_native_type": "GOV.UK content-store document type",
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE",
+          "TASK-PRACTICE",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Preserve edition/publication timestamps; do not infer versions from titles."
+      },
+      {
+        "evidence_refs": [
+          "EV-ULPD"
+        ],
+        "examples": [
+          "Price Paid Data",
+          "INSPIRE Index Polygons",
+          "Registered Leases"
+        ],
+        "excluded_conflations": [
+          "Dataset is not distribution.",
+          "Snapshot is not live register."
+        ],
+        "id": "TYPE-DATASET",
+        "identity_key": "Canonical publisher dataset URL and source slug.",
+        "label": "Dataset",
+        "optional_properties": [
+          "distributions",
+          "temporal coverage",
+          "spatial coverage",
+          "technical specification"
+        ],
+        "proposed_class": "dcat:Dataset",
+        "required_properties": [
+          "id",
+          "title",
+          "scope",
+          "publisher",
+          "source",
+          "access",
+          "rights",
+          "cadence"
+        ],
+        "source_native_type": "HMLR dataset landing-page entry",
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-SPATIAL",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Source-native release or snapshot identity; landing-page dates remain separate."
+      },
+      {
+        "evidence_refs": [
+          "EV-BG-DOCS",
+          "EV-PROPERTY-SERVICE",
+          "EV-LLC-TERMS"
+        ],
+        "examples": [
+          "Search for land and property information",
+          "Business Gateway API",
+          "LLC search"
+        ],
+        "excluded_conflations": [
+          "Public documentation is not anonymous service access.",
+          "Test and production endpoints are distinct."
+        ],
+        "id": "TYPE-SERVICE",
+        "identity_key": "Canonical service or documentation URL plus source-native service name/version.",
+        "label": "Operational service or API product",
+        "optional_properties": [
+          "endpoint",
+          "protocol",
+          "authentication",
+          "documentation",
+          "schema",
+          "fees"
+        ],
+        "proposed_class": "dcat:DataService where a data service is evidenced",
+        "required_properties": [
+          "id",
+          "title",
+          "source",
+          "access_model",
+          "operational_authority"
+        ],
+        "source_native_type": "HMLR service or Business Gateway product",
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE",
+          "TASK-API",
+          "TASK-LLC"
+        ],
+        "version_key": "Preserve protocol, schema version, environment and formal notice."
+      },
+      {
+        "evidence_refs": [
+          "EV-GITHUB"
+        ],
+        "examples": [
+          "LandRegistry/bgtechdoc"
+        ],
+        "excluded_conflations": [
+          "Prototype code is not production policy.",
+          "Missing licence is not permission."
+        ],
+        "id": "TYPE-REPOSITORY",
+        "identity_key": "GitHub repository full_name.",
+        "label": "Public source-code repository",
+        "optional_properties": [
+          "description",
+          "archived",
+          "fork",
+          "licence",
+          "pushed_at"
+        ],
+        "proposed_class": "schema:SoftwareSourceCode",
+        "required_properties": [
+          "full_name",
+          "html_url",
+          "source",
+          "observed_at"
+        ],
+        "source_native_type": "GitHub repository",
+        "task_refs": [
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Repository is mutable; commits and releases are separate identities."
+      }
+    ],
+    "equivalence_policy": "Do not assert identity from title, URL similarity, shared title number, address, hierarchy or embedding similarity.",
+    "identifier_policy": {
+      "collision_rule": "Fail closed on identity collision; never add numeric suffixes silently.",
+      "iri_rule": "Mint only repository-controlled derived IRIs and retain the canonical source URL separately.",
+      "native_identifier_rule": "Preserve source routes, slugs, content IDs, service versions and repository full names verbatim.",
+      "redirect_rule": "Preserve source redirects and explicit replacement evidence; do not guess moved routes.",
+      "route_rule": "Use deterministic lower-case percent-safe routes prefixed by source family; record every alias and collision."
+    },
+    "identifier_schemes": [
+      {
+        "collision_policy": "Fail closed when two source identities map to one local route.",
+        "equivalence_policy": "A redirect or similar title does not establish identity without source evidence.",
+        "evidence_refs": [
+          "EV-GOVUK-SEARCH"
+        ],
+        "id": "IDSCHEME-GOVUK",
+        "issuer": "Government Digital Service",
+        "normalization": "Preserve native values and add a deterministic route-safe local identifier.",
+        "persistence": "Routes can redirect; content identifiers are preferred when present.",
+        "scope": "GOV.UK records attributed to HM Land Registry",
+        "syntax": "Canonical GOV.UK route and source content identifier where supplied.",
+        "uri_policy": "Resolve local IDs under https://chris-page-gov.github.io/okf-LandRegistry/id/."
+      },
+      {
+        "collision_policy": "Fail closed on duplicate canonical URLs or slugs within one source.",
+        "equivalence_policy": "Related fields or titles do not make two datasets identical.",
+        "evidence_refs": [
+          "EV-ULPD"
+        ],
+        "id": "IDSCHEME-HMLR-DATASET",
+        "issuer": "HM Land Registry",
+        "normalization": "Keep source slug and full canonical URL.",
+        "persistence": "Preserve renamed legacy slugs as aliases, not replacement identities.",
+        "scope": "HMLR datasets and distributions",
+        "syntax": "Canonical publisher URL and dataset slug.",
+        "uri_policy": "Mint local IRIs from source kind and slug while retaining canonical source URL."
+      },
+      {
+        "collision_policy": "Fail closed on duplicate repository IDs or normalized names.",
+        "equivalence_policy": "Fork, archive or successor relationships are not owl:sameAs.",
+        "evidence_refs": [
+          "EV-GITHUB"
+        ],
+        "id": "IDSCHEME-GITHUB",
+        "issuer": "GitHub and HM Land Registry",
+        "normalization": "Case-preserving full_name plus case-insensitive collision check.",
+        "persistence": "Renames and transfers require explicit source metadata.",
+        "scope": "Public repositories",
+        "syntax": "LandRegistry/<repository>",
+        "uri_policy": "Use the GitHub html_url as source identity and a local derived IRI."
+      }
+    ],
+    "prohibited_inferences": [
+      "Do not infer legal ownership, exact boundary or priority from discovery metadata.",
+      "Do not infer beneficial ownership from corporate proprietor data.",
+      "Do not infer open reuse from public or free access.",
+      "Do not infer dataset currency from catalogue modification.",
+      "Do not infer nationwide LLC coverage from service availability.",
+      "Do not use owl:sameAs without authoritative identity evidence."
+    ],
+    "relationship_types": [
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-HAS-PART",
+        "inverse_label": "is part of",
+        "label": "has part",
+        "minimum_evidence": "Source-declared collection membership or distribution listing.",
+        "non_properties": [
+          "A hyperlink alone is not membership."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/hasPart",
+        "source_types": [
+          "Official publication or guidance record",
+          "Dataset"
+        ],
+        "target_types": [
+          "Official publication or guidance record",
+          "Dataset"
+        ],
+        "task_refs": [
+          "TASK-PRACTICE",
+          "TASK-DATASET"
+        ],
+        "temporal_meaning": "True for the observed source snapshot."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-DOCUMENTS",
+        "inverse_label": "is documented by",
+        "label": "documents",
+        "minimum_evidence": "Explicit publisher documentation link.",
+        "non_properties": [
+          "Documentation does not imply public access."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://xmlns.com/foaf/0.1/page",
+        "source_types": [
+          "Official publication or guidance record"
+        ],
+        "target_types": [
+          "Operational service or API product",
+          "Dataset"
+        ],
+        "task_refs": [
+          "TASK-API",
+          "TASK-DATASET"
+        ],
+        "temporal_meaning": "Documentation relationship observed at snapshot time."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-SUPERSEDES",
+        "inverse_label": "is superseded by",
+        "label": "supersedes",
+        "minimum_evidence": "Explicit publisher replacement, redirect or formal notice.",
+        "non_properties": [
+          "Newer publication date alone does not prove supersession."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/replaces",
+        "source_types": [
+          "Official publication or guidance record",
+          "Operational service or API product"
+        ],
+        "target_types": [
+          "Official publication or guidance record",
+          "Operational service or API product"
+        ],
+        "task_refs": [
+          "TASK-PRACTICE",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Replacement applies from the source-stated date."
+      }
+    ],
+    "temporal_model": {
+      "distinctions": [
+        "Source publication time",
+        "Source metadata modification time",
+        "Dataset release and coverage period",
+        "Service observation time",
+        "Acquisition time",
+        "Bundle generation and release time"
+      ],
+      "freshness_semantics": "Freshness is source-family specific and always measured from an explicit observation or release event.",
+      "version_semantics": "Preserve source-native editions, releases, schema versions and immutable commits; never infer them from one generic date."
+    }
+  },
+  "sources": [
+    {
+      "access_methods": [
+        "Bounded public JSON GET",
+        "public HTML GET"
+      ],
+      "access_status": "verified-working",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Paginated, size-bounded JSON envelopes plus a canonical normalized projection.",
+      "authority_role": "official-reference",
+      "coverage": "Exact for the dated GOV.UK Search denominator only.",
+      "coverage_denominator_ref": "DEN-GOVUK",
+      "evidence_refs": [
+        "EV-GOVUK-SEARCH",
+        "EV-HMLR-ORG",
+        "EV-ACQUISITION-SNAPSHOT"
+      ],
+      "formats": [
+        "JSON",
+        "HTML",
+        "attachment metadata"
+      ],
+      "freshness_policy": "Record publisher public_timestamp separately from retrieval and bundle generation.",
+      "id": "SRC-GOVUK",
+      "identifier_model": "Preserve the GOV.UK route and any content identifier supplied by the source.",
+      "known_omissions": [
+        "Full page bodies",
+        "attachments",
+        "unindexed material"
+      ],
+      "owner": "Government Digital Service and HM Land Registry",
+      "rights_ref": "RIGHT-GOVUK",
+      "schemas": [
+        "GOV.UK Search API result"
+      ],
+      "source_families": [
+        "GOV.UK metadata",
+        "guidance",
+        "forms",
+        "statistics",
+        "notices",
+        "corporate publications"
+      ],
+      "title": "GOV.UK Search and HM Land Registry publishing pages",
+      "update_cadence": "Continuous",
+      "url": "https://www.gov.uk/api/search.json?filter_organisations=land-registry",
+      "version_model": "Editions and routes can change; snapshot the observed metadata and do not infer document version from URL alone."
+    },
+    {
+      "access_methods": [
+        "Public HTML GET",
+        "authenticated API documented but not called"
+      ],
+      "access_status": "verified-working",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Source-specific landing-page adapters with evidence URL and observation time.",
+      "authority_role": "authoritative",
+      "coverage": "Fourteen landing-page entries were observed; deterministic reconciliation is required before claiming completeness.",
+      "coverage_denominator_ref": "DEN-ULPD",
+      "evidence_refs": [
+        "EV-ULPD",
+        "EV-PUBLIC-DATA"
+      ],
+      "formats": [
+        "HTML",
+        "JSON documentation",
+        "CSV/GML/ZIP distribution metadata"
+      ],
+      "freshness_policy": "Record dataset cadence and release date separately from landing-page modification time.",
+      "id": "SRC-DATA",
+      "identifier_model": "Preserve the dataset slug, canonical landing page and source-native distribution names.",
+      "known_omissions": [
+        "Authenticated metadata",
+        "production data files",
+        "signed download links"
+      ],
+      "owner": "HM Land Registry",
+      "rights_ref": "RIGHT-DATASETS",
+      "schemas": [
+        "Dataset-specific technical specifications"
+      ],
+      "source_families": [
+        "Dataset catalogue",
+        "dataset landing pages",
+        "technical specifications",
+        "licences"
+      ],
+      "title": "Use land and property data",
+      "update_cadence": "Mixed; static, monthly, quarterly and six-monthly.",
+      "url": "https://use-land-property-data.service.gov.uk/",
+      "version_model": "Preserve full, change-only, historic and current releases separately."
+    },
+    {
+      "access_methods": [
+        "Documentation-only public GET"
+      ],
+      "access_status": "restricted",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Documentation adapter only.",
+      "authority_role": "authoritative",
+      "coverage": "Documentation names five accessible datasets; authenticated enumeration was not attempted.",
+      "evidence_refs": [
+        "EV-ULPD-API"
+      ],
+      "formats": [
+        "HTML",
+        "JSON examples"
+      ],
+      "freshness_policy": "Treat examples as examples; current state requires authenticated live validation by an authorised caller.",
+      "id": "SRC-ULPD-API",
+      "identifier_model": "Dataset name and file name in the API path.",
+      "known_omissions": [
+        "Authenticated responses",
+        "API keys",
+        "signed download URLs"
+      ],
+      "owner": "HM Land Registry",
+      "rights_ref": "RIGHT-DATASETS",
+      "schemas": [
+        "okf-recorded REST endpoint contract"
+      ],
+      "source_families": [
+        "REST API documentation"
+      ],
+      "title": "Use land and property data API v1",
+      "update_cadence": "Unknown documentation cadence",
+      "url": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "version_model": "API version 1.0; resource history is distinct from current files."
+    },
+    {
+      "access_methods": [
+        "Public documentation GET",
+        "restricted test and production services"
+      ],
+      "access_status": "verified-working",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Pin the official repository commit and normalize documentation metadata.",
+      "authority_role": "authoritative",
+      "coverage": "Exact current service denominator remains unresolved.",
+      "evidence_refs": [
+        "EV-BG-DOCS"
+      ],
+      "formats": [
+        "HTML",
+        "XML",
+        "WSDL",
+        "XSD",
+        "JSON"
+      ],
+      "freshness_policy": "Current legal notices and publisher documentation outrank older catalogue rows.",
+      "id": "SRC-BUSINESS-GATEWAY",
+      "identifier_model": "Canonical documentation route plus source-native service and schema version.",
+      "known_omissions": [
+        "Authenticated calls",
+        "credentials",
+        "certificate material"
+      ],
+      "owner": "HM Land Registry",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "schemas": [
+        "WSDL 1.1",
+        "XML Schema",
+        "service-specific REST contracts"
+      ],
+      "source_families": [
+        "API documentation",
+        "WSDL",
+        "XSD",
+        "SOAP and REST service contracts"
+      ],
+      "title": "Business Gateway developer pack",
+      "update_cadence": "Publisher-managed",
+      "url": "https://landregistry.github.io/bgtechdoc/",
+      "version_model": "Preserve legacy and current packs, service versions, test and production endpoints separately."
+    },
+    {
+      "access_methods": [
+        "GitHub public API"
+      ],
+      "access_status": "verified-working",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Paginated public repository-metadata census.",
+      "authority_role": "official-reference",
+      "coverage": "Exact frozen public API census of 289 repositories.",
+      "coverage_denominator_ref": "DEN-GITHUB",
+      "evidence_refs": [
+        "EV-GITHUB",
+        "EV-ACQUISITION-SNAPSHOT"
+      ],
+      "formats": [
+        "JSON",
+        "Markdown"
+      ],
+      "freshness_policy": "Record pushed_at, archived, fork and licence independently from observation time.",
+      "id": "SRC-GITHUB",
+      "identifier_model": "Preserve repository full_name and html_url.",
+      "known_omissions": [
+        "Private repositories",
+        "repository content",
+        "release assets"
+      ],
+      "owner": "HM Land Registry",
+      "rights_ref": "RIGHT-GITHUB",
+      "schemas": [
+        "GitHub repository object"
+      ],
+      "source_families": [
+        "Public source-code repository metadata"
+      ],
+      "title": "HM Land Registry public GitHub organisation",
+      "update_cadence": "Continuous",
+      "url": "https://github.com/LandRegistry",
+      "version_model": "Repository metadata is a mutable pointer; releases and commits are separate immutable identities."
+    },
+    {
+      "access_methods": [
+        "Public CSV GET"
+      ],
+      "access_status": "verified-working",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Provider-filtered CSV snapshot.",
+      "authority_role": "official-reference",
+      "coverage": "Fifteen live rows attributed to provider hm-land-registry; an older sibling seed contained 27.",
+      "coverage_denominator_ref": "DEN-CDDO-API",
+      "evidence_refs": [
+        "EV-CDDO",
+        "EV-ACQUISITION-SNAPSHOT"
+      ],
+      "formats": [
+        "CSV"
+      ],
+      "freshness_policy": "Treat catalogue dates as record metadata; re-verify operation against HMLR documentation.",
+      "id": "SRC-CDDO",
+      "identifier_model": "Preserve URL, name, provider and source dates.",
+      "known_omissions": [
+        "Licence and authentication details are often absent"
+      ],
+      "owner": "Central Digital and Data Office",
+      "rights_ref": "RIGHT-CDDO",
+      "schemas": [
+        "CDDO API Catalogue CSV"
+      ],
+      "source_families": [
+        "Government API discovery catalogue"
+      ],
+      "title": "CDDO API Catalogue",
+      "update_cadence": "Repository-managed",
+      "url": "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+      "version_model": "Pin the catalogue commit used for acquisition."
+    },
+    {
+      "access_methods": [
+        "Public guidance GET only"
+      ],
+      "access_status": "restricted",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Public guidance and terms review only.",
+      "authority_role": "authoritative",
+      "coverage": "Metadata-only descriptions of selected high-risk services.",
+      "evidence_refs": [
+        "EV-PROPERTY-SERVICE",
+        "EV-LLC-TERMS"
+      ],
+      "formats": [
+        "HTML"
+      ],
+      "freshness_policy": "Check service terms, fees and availability at time of use.",
+      "id": "SRC-RESTRICTED-SERVICES",
+      "identifier_model": "Preserve each canonical service and guidance URL.",
+      "known_omissions": [
+        "Search results",
+        "accounts",
+        "purchases",
+        "portal content"
+      ],
+      "owner": "HM Land Registry",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "schemas": [],
+      "source_families": [
+        "Public service descriptions and terms"
+      ],
+      "title": "Property, Local Land Charges, portal and Business e-services",
+      "update_cadence": "Continuous",
+      "url": "https://www.gov.uk/search-property-information-land-registry",
+      "version_model": "Service state is mutable and must be observed per release."
+    },
+    {
+      "access_methods": [
+        "Public top-level HTML and bounded feed metadata"
+      ],
+      "access_status": "verified-working",
+      "access_tested_at": "2026-07-29T07:53:38Z",
+      "acquisition_method": "Metadata-only allowlist.",
+      "authority_role": "official-reference",
+      "coverage": "Source-family discovery only.",
+      "evidence_refs": [
+        "EV-CUSTOMER-HELP",
+        "EV-BLOG"
+      ],
+      "formats": [
+        "HTML",
+        "RSS/Atom where available"
+      ],
+      "freshness_policy": "Formal current guidance outranks explanatory blog posts.",
+      "id": "SRC-HELP-BLOG",
+      "identifier_model": "Preserve canonical public route.",
+      "known_omissions": [
+        "Forum posts",
+        "user uploads",
+        "full blog bodies"
+      ],
+      "owner": "HM Land Registry",
+      "rights_ref": "RIGHT-PERSONAL",
+      "schemas": [],
+      "source_families": [
+        "Help routes",
+        "subscription channels",
+        "official blog metadata"
+      ],
+      "title": "HM Land Registry help, subscriptions and official blog",
+      "update_cadence": "Mixed",
+      "url": "https://customerhelp.landregistry.gov.uk/",
+      "version_model": "Dated posts and mutable help pages remain distinct."
+    }
+  ],
+  "standards": [
+    {
+      "applicability": "normative",
+      "canonical_url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/3fcbb9f828c2f23d109c855ee403c3a4c81f3a96/okf/SPEC.md",
+      "conformance_artifact": "OKF 0.2 Markdown root and typed concepts.",
+      "evidence_refs": [
+        "EV-OKF"
+      ],
+      "id": "STD-OKF-02",
+      "licence": "See upstream repository.",
+      "mappings": [],
+      "publication_status": "Repository specification",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Portable Markdown control plane.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [
+        "Source-native identifiers and metadata remain additive."
+      ],
+      "terms_adopted": [
+        "type",
+        "generated",
+        "sources",
+        "status"
+      ],
+      "title": "Open Knowledge Format",
+      "unmet_requirements": [],
+      "validation": "Local validator checks reserved files, frontmatter, actors, sources and lifecycle.",
+      "version": "0.2 at commit 3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+    },
+    {
+      "applicability": "normative",
+      "canonical_url": "https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/",
+      "conformance_artifact": "Schema-valid, equivalent JSON and YAML domain-profile pack.",
+      "evidence_refs": [
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "STD-OKF-AUTHORING",
+      "mappings": [],
+      "publication_status": "Versioned OKF Explorer application profile",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Domain-profile handoff, source authority, rights, evaluation and build gates.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [
+        "All profile control fields"
+      ],
+      "terms_adopted": [
+        "okf-domain-profile.v1",
+        "evidence states",
+        "release gates"
+      ],
+      "title": "OKF Foundry authoring profile",
+      "unmet_requirements": [
+        "Owner approval remains required before release."
+      ],
+      "validation": "Pinned Draft 2020-12 schema and reference validator.",
+      "version": "v1 observed at local okf-explorer checkout on 2026-07-29"
+    },
+    {
+      "applicability": "normative",
+      "canonical_url": "https://yaml.org/spec/1.2.2/",
+      "conformance_artifact": "Strict YAML documents without aliases, merge keys or custom tags.",
+      "evidence_refs": [
+        "EV-YAML"
+      ],
+      "id": "STD-YAML-122",
+      "mappings": [],
+      "publication_status": "YAML language specification",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Domain profile and OKF Markdown frontmatter.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [],
+      "terms_adopted": [
+        "Core schema scalars",
+        "unique string keys"
+      ],
+      "title": "YAML 1.2.2",
+      "unmet_requirements": [],
+      "validation": "Safe YAML parser plus duplicate-key and JSON-equivalence checks.",
+      "version": "1.2.2"
+    },
+    {
+      "applicability": "reference-only",
+      "canonical_url": "https://www.w3.org/TR/2025/WD-yaml-ld-10-20250612/",
+      "conformance_artifact": "None in this profile level; status is documented explicitly.",
+      "evidence_refs": [
+        "EV-YAMLLD"
+      ],
+      "id": "STD-YAMLLD-10",
+      "mappings": [],
+      "publication_status": "W3C Working Draft",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Assessed for future governed-semantic authoring; not claimed by the first scaffold.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [],
+      "terms_adopted": [],
+      "title": "YAML-LD 1.0",
+      "unmet_requirements": [
+        "No YAML-LD conformance artefact in the first scaffold."
+      ],
+      "validation": "Not applicable until governed-semantic authoring is selected.",
+      "version": "W3C Working Draft 2025-06-12"
+    },
+    {
+      "applicability": "normative",
+      "canonical_url": "https://json-schema.org/draft/2020-12/schema",
+      "conformance_artifact": "Versioned JSON control documents and schemas.",
+      "evidence_refs": [
+        "EV-JSONSCHEMA"
+      ],
+      "id": "STD-JSONSCHEMA-202012",
+      "mappings": [],
+      "publication_status": "Published meta-schema and validation specification",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Domain profile, source manifests, evaluation assets and Explorer control documents.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [],
+      "terms_adopted": [
+        "JSON Schema Core and Validation 2020-12"
+      ],
+      "title": "JSON Schema",
+      "unmet_requirements": [],
+      "validation": "Draft 2020-12 validator with format checking.",
+      "version": "2020-12"
+    },
+    {
+      "applicability": "projection",
+      "canonical_url": "https://www.w3.org/TR/json-ld11/",
+      "conformance_artifact": "Deterministic JSON-LD catalogue projection.",
+      "evidence_refs": [
+        "EV-JSONLD"
+      ],
+      "id": "STD-JSONLD-11",
+      "mappings": [
+        "Local record types map additively to Schema.org and DCAT terms."
+      ],
+      "publication_status": "W3C Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Compact semantic catalogue descriptor without replacing source-native records.",
+      "semantic_conflicts": [
+        "Source-native distinctions must not be collapsed to fit a vocabulary."
+      ],
+      "supported_source_fields": [
+        "Dataset",
+        "DataService",
+        "CreativeWork and provenance projections"
+      ],
+      "terms_adopted": [
+        "@context",
+        "@id",
+        "@type"
+      ],
+      "title": "JSON-LD 1.1",
+      "unmet_requirements": [
+        "Full RDF materialization and isomorphism are deferred."
+      ],
+      "validation": "JSON parse, local context allowlist and stable identifier checks.",
+      "version": "W3C Recommendation 2020-07-16"
+    },
+    {
+      "applicability": "projection",
+      "canonical_url": "https://www.w3.org/TR/vocab-dcat-3/",
+      "conformance_artifact": "Additive JSON-LD dataset and service projection.",
+      "evidence_refs": [
+        "EV-DCAT"
+      ],
+      "id": "STD-DCAT-3",
+      "mappings": [
+        "Full and change-only files remain distinct distributions."
+      ],
+      "publication_status": "W3C Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Dataset, distribution, catalogue and data-service discovery metadata.",
+      "semantic_conflicts": [
+        "Catalogue modification is not dataset release or coverage."
+      ],
+      "supported_source_fields": [
+        "Dataset identity",
+        "distributions",
+        "formats",
+        "access URLs",
+        "cadence and rights"
+      ],
+      "terms_adopted": [
+        "dcat:Dataset",
+        "dcat:Distribution",
+        "dcat:DataService",
+        "dcterms:accrualPeriodicity"
+      ],
+      "title": "Data Catalog Vocabulary",
+      "unmet_requirements": [
+        "No DCAT conformance claim for sparse GOV.UK publication records."
+      ],
+      "validation": "Mapping tests and required evidence checks; no certification claim.",
+      "version": "DCAT 3, W3C Recommendation 2024-08-22"
+    },
+    {
+      "applicability": "projection",
+      "canonical_url": "https://www.w3.org/TR/prov-o/",
+      "conformance_artifact": "Provenance fields and optional JSON-LD projection.",
+      "evidence_refs": [
+        "EV-PROVO"
+      ],
+      "id": "STD-PROVO",
+      "mappings": [
+        "Build receipts map to activities without implying source endorsement."
+      ],
+      "publication_status": "W3C Recommendation",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "Source observation, normalization, generation and verification provenance.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [
+        "sources",
+        "generated",
+        "observed_at",
+        "derivation"
+      ],
+      "terms_adopted": [
+        "prov:Entity",
+        "prov:Activity",
+        "prov:wasDerivedFrom",
+        "prov:generatedAtTime"
+      ],
+      "title": "PROV-O",
+      "unmet_requirements": [],
+      "validation": "Every generated assertion must resolve to an evidence record and derivation.",
+      "version": "W3C Recommendation 2013-04-30"
+    },
+    {
+      "applicability": "source-native",
+      "canonical_url": "https://inspire.ec.europa.eu/id/document/tg/cp",
+      "conformance_artifact": "Preserved source format and technical metadata; the bundle does not republish geometry.",
+      "evidence_refs": [
+        "EV-INSPIRE-SPEC",
+        "EV-INSPIRE-DATA"
+      ],
+      "id": "STD-INSPIRE-CP",
+      "mappings": [],
+      "publication_status": "European Commission Technical Guidelines",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "HMLR INSPIRE Index Polygons source format and identifiers.",
+      "semantic_conflicts": [
+        "HMLR polygons remain indicative and must not be presented as exact legal cadastral boundaries."
+      ],
+      "supported_source_fields": [
+        "INSPIRE ID",
+        "geometry",
+        "local-authority distribution",
+        "CRS"
+      ],
+      "terms_adopted": [
+        "Source-native cadastral parcel representation only"
+      ],
+      "title": "INSPIRE Data Specification on Cadastral Parcels",
+      "unmet_requirements": [],
+      "validation": "Check declared GML, CRS, identifier, cadence and attribution fields against publisher evidence.",
+      "version": "3.1"
+    },
+    {
+      "applicability": "source-native",
+      "canonical_url": "https://portal.ogc.org/files/?artifact_id=20509",
+      "conformance_artifact": "Source-format declaration only; no geometry is generated.",
+      "evidence_refs": [
+        "EV-GML",
+        "EV-INSPIRE-DATA"
+      ],
+      "id": "STD-GML-321",
+      "mappings": [],
+      "publication_status": "OGC Standard",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "HMLR INSPIRE GML distribution metadata.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [
+        "format",
+        "CRS",
+        "geometry distribution"
+      ],
+      "terms_adopted": [
+        "GML distribution format"
+      ],
+      "title": "Geography Markup Language",
+      "unmet_requirements": [],
+      "validation": "Match publisher-declared format and technical guidance.",
+      "version": "OGC GML 3.2.1 / ISO 19136:2007"
+    },
+    {
+      "applicability": "normative",
+      "canonical_url": "https://www.w3.org/TR/WCAG22/",
+      "conformance_artifact": "Accessible static HTML application and an honest accessibility statement.",
+      "evidence_refs": [
+        "EV-WCAG"
+      ],
+      "id": "STD-WCAG-22",
+      "mappings": [],
+      "publication_status": "W3C Recommendation 2023-10-05",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "scope": "GitHub Pages discovery site.",
+      "semantic_conflicts": [],
+      "supported_source_fields": [],
+      "terms_adopted": [
+        "Level A and AA success criteria"
+      ],
+      "title": "Web Content Accessibility Guidelines",
+      "unmet_requirements": [
+        "Independent accessibility audit and participant testing remain future evidence."
+      ],
+      "validation": "Automated semantic, keyboard, contrast and browser checks plus documented manual checks.",
+      "version": "WCAG 2.2"
+    }
+  ],
+  "status": "reviewed",
+  "tasks": [
+    {
+      "authority_requirement": "Current GOV.UK and HMLR service evidence.",
+      "consequences_of_error": [
+        "Legal or financial reliance on the wrong product"
+      ],
+      "context": "Public property-information and registration discovery.",
+      "freshness_tolerance": "Revalidate at time of action; fees and service state are volatile.",
+      "goal": "Find the authoritative service or guidance route and understand its product, cost and evidential limits.",
+      "hard_failures": [
+        "The bundle states or implies ownership",
+        "an exact boundary or legal advice."
+      ],
+      "id": "TASK-PUBLIC-ROUTE",
+      "likely_confusions": [
+        "Property summary versus title register",
+        "downloaded copy versus official copy",
+        "general versus exact boundary"
+      ],
+      "required_evidence": [
+        "Canonical official URL",
+        "scope",
+        "access requirement",
+        "cost volatility",
+        "official-copy distinction"
+      ],
+      "success": "The user reaches the official route with the material warning visible before action.",
+      "user_ids": [
+        "USER-PUBLIC"
+      ]
+    },
+    {
+      "authority_requirement": "Formal current guidance and notices outrank older summaries.",
+      "consequences_of_error": [
+        "Rejected",
+        "delayed or incorrectly charged application"
+      ],
+      "context": "Professional application preparation.",
+      "freshness_tolerance": "Revalidate before submission.",
+      "goal": "Find the current practice guide, form, fee, notice and digital route for a registration task.",
+      "hard_failures": [
+        "An obsolete or superseded route is labelled current without warning."
+      ],
+      "id": "TASK-PRACTICE",
+      "likely_confusions": [
+        "Older portal guidance versus current DRS coverage",
+        "publication date versus last update"
+      ],
+      "required_evidence": [
+        "Document type",
+        "source route",
+        "publisher date",
+        "related collection"
+      ],
+      "success": "The result exposes the formal source, date and related alternatives.",
+      "user_ids": [
+        "USER-PROFESSIONAL",
+        "USER-LENDER"
+      ]
+    },
+    {
+      "authority_requirement": "Publisher-operated dataset and licence pages.",
+      "consequences_of_error": [
+        "Invalid analysis",
+        "licence breach or misleading publication"
+      ],
+      "context": "Dataset discovery and reuse assessment.",
+      "freshness_tolerance": "Snapshot metadata may guide discovery; live publisher state must be checked before reuse.",
+      "goal": "Select a dataset by purpose, coverage, cadence, format, licence and access model.",
+      "hard_failures": [
+        "A mixed or bespoke licence is flattened to OGL",
+        "or catalogue dates are labelled as data currency."
+      ],
+      "id": "TASK-DATASET",
+      "likely_confusions": [
+        "Free versus open",
+        "catalogue modified versus release date",
+        "full versus delta",
+        "snapshot versus live register"
+      ],
+      "required_evidence": [
+        "Dataset scope",
+        "exclusions",
+        "release cadence",
+        "distribution type",
+        "access",
+        "licence",
+        "attribution"
+      ],
+      "success": "The user can compare material differences and open the canonical publisher source.",
+      "user_ids": [
+        "USER-DATA",
+        "USER-AUDITOR"
+      ]
+    },
+    {
+      "authority_requirement": "HMLR dataset technical guidance and product terms.",
+      "consequences_of_error": [
+        "Incorrect spatial or legal conclusion"
+      ],
+      "context": "INSPIRE, National Polygon and title-plan discovery.",
+      "freshness_tolerance": "Monthly snapshot with visible release date.",
+      "goal": "Find the appropriate spatial product and interpret its coverage, CRS and boundary meaning safely.",
+      "hard_failures": [
+        "The bundle calls an indicative polygon an exact legal boundary."
+      ],
+      "id": "TASK-SPATIAL",
+      "likely_confusions": [
+        "Title plan versus index polygon",
+        "EPSG:27700 versus web CRS",
+        "indicative versus exact"
+      ],
+      "required_evidence": [
+        "Freehold/leasehold coverage",
+        "indicative status",
+        "CRS",
+        "cadence",
+        "licence and attribution"
+      ],
+      "success": "The product is discoverable with a non-map explanation and explicit limitation.",
+      "user_ids": [
+        "USER-DATA",
+        "USER-PUBLIC"
+      ]
+    },
+    {
+      "authority_requirement": "Current publisher documentation and formal service notice.",
+      "consequences_of_error": [
+        "Failed integration",
+        "security exposure or unauthorised call"
+      ],
+      "context": "Business Gateway, dataset API and linked-data integration.",
+      "freshness_tolerance": "Revalidate immediately before integration.",
+      "goal": "Identify the correct machine interface, contract, environment and onboarding requirement.",
+      "hard_failures": [
+        "A credential is stored",
+        "or a restricted service is described as anonymous."
+      ],
+      "id": "TASK-API",
+      "likely_confusions": [
+        "REST versus SOAP",
+        "public documentation versus public operation",
+        "example endpoint versus current endpoint"
+      ],
+      "required_evidence": [
+        "Protocol",
+        "documentation",
+        "schema/version",
+        "test/production distinction",
+        "authentication",
+        "access"
+      ],
+      "success": "A developer reaches the official contract without the bundle attempting execution.",
+      "user_ids": [
+        "USER-DEVELOPER",
+        "USER-LENDER"
+      ]
+    },
+    {
+      "authority_requirement": "Current programme page, service terms and PG79.",
+      "consequences_of_error": [
+        "Incomplete conveyancing search or wrong authority process"
+      ],
+      "context": "LLC search, migration and maintenance.",
+      "freshness_tolerance": "Revalidate at time of search or migration action.",
+      "goal": "Determine the Local Land Charges route, migration coverage and boundary with CON29.",
+      "hard_failures": [
+        "The bundle claims nationwide coverage or automates the restricted search service."
+      ],
+      "id": "TASK-LLC",
+      "likely_confusions": [
+        "Land Charges versus Local Land Charges",
+        "personal versus official search",
+        "LLC versus CON29"
+      ],
+      "required_evidence": [
+        "Authority migration status",
+        "search type",
+        "fee/access",
+        "originating authority",
+        "CON29 exclusion"
+      ],
+      "success": "The user can identify the official route and visible scope boundary.",
+      "user_ids": [
+        "USER-LOCAL-AUTHORITY",
+        "USER-PUBLIC",
+        "USER-PROFESSIONAL"
+      ]
+    },
+    {
+      "authority_requirement": "Machine-readable provenance plus direct publisher evidence.",
+      "consequences_of_error": [
+        "Unsupported trust or completeness claim"
+      ],
+      "context": "Publication assurance.",
+      "freshness_tolerance": "Bound to the frozen snapshot and candidate digest.",
+      "goal": "Verify source authority, derivation, freshness, rights, coverage and accessibility claims.",
+      "hard_failures": [
+        "An unknown or untested state is relabelled passed."
+      ],
+      "id": "TASK-AUDIT",
+      "likely_confusions": [
+        "Official source versus official endorsement",
+        "automated pass versus independent assurance"
+      ],
+      "required_evidence": [
+        "Source URL",
+        "observed time",
+        "source date",
+        "derivation",
+        "rights state",
+        "denominator",
+        "validation receipt"
+      ],
+      "success": "Every sampled claim resolves to evidence and unsupported claims fail closed.",
+      "user_ids": [
+        "USER-AUDITOR"
+      ]
+    }
+  ],
+  "terminology": [
+    {
+      "confusable_terms": [
+        "Property address",
+        "UPRN",
+        "INSPIRE ID"
+      ],
+      "definition": "HM Land Registry reference for an individual registered estate in land.",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA"
+      ],
+      "id": "TERM-TITLE",
+      "language": "en-GB",
+      "mapping_status": "source-native-only",
+      "owner": "HM Land Registry",
+      "preferred_label": "Title number",
+      "source_scope": "HM Land Registry register and data products",
+      "variants": []
+    },
+    {
+      "confusable_terms": [
+        "Exact boundary",
+        "determined boundary"
+      ],
+      "definition": "A representation of general position or indicative extent that does not by itself establish an exact legal boundary.",
+      "evidence_refs": [
+        "EV-INSPIRE-DATA",
+        "EV-PROPERTY-SERVICE"
+      ],
+      "id": "TERM-BOUNDARY",
+      "language": "en-GB",
+      "mapping_status": "source-native-only",
+      "owner": "HM Land Registry",
+      "preferred_label": "General or indicative boundary",
+      "source_scope": "Title plans and polygon datasets",
+      "variants": [
+        "Indicative extent"
+      ]
+    },
+    {
+      "confusable_terms": [
+        "Downloaded title register",
+        "title deeds"
+      ],
+      "definition": "An HMLR-issued copy with an evidential role distinct from an online downloaded information copy.",
+      "evidence_refs": [
+        "EV-PROPERTY-SERVICE"
+      ],
+      "id": "TERM-OFFICIAL-COPY",
+      "language": "en-GB",
+      "mapping_status": "source-native-only",
+      "owner": "HM Land Registry",
+      "preferred_label": "Official copy",
+      "source_scope": "Property information services",
+      "variants": []
+    },
+    {
+      "confusable_terms": [
+        "Land Charge",
+        "CON29 enquiry"
+      ],
+      "definition": "A restriction or prohibition registered through the Local Land Charges regime for an in-scope authority.",
+      "evidence_refs": [
+        "EV-LLC-PROGRAMME"
+      ],
+      "id": "TERM-LLC",
+      "language": "en-GB",
+      "mapping_status": "source-native-only",
+      "owner": "HM Land Registry and originating authorities",
+      "preferred_label": "Local land charge",
+      "source_scope": "Local Land Charges service",
+      "variants": [
+        "LLC"
+      ]
+    },
+    {
+      "confusable_terms": [
+        "UK House Price Index",
+        "property valuation"
+      ],
+      "definition": "Property sales in England and Wales sold for value and lodged for registration, subject to stated exclusions and lag.",
+      "evidence_refs": [
+        "EV-PPD"
+      ],
+      "id": "TERM-PPD",
+      "language": "en-GB",
+      "mapping_status": "source-native-only",
+      "owner": "HM Land Registry",
+      "preferred_label": "Price Paid Data",
+      "source_scope": "HM Land Registry Price Paid Data",
+      "variants": [
+        "PPD"
+      ]
+    },
+    {
+      "confusable_terms": [
+        "Price Paid Data",
+        "asking-price index"
+      ],
+      "definition": "A collaborative UK index of changes in residential property values whose recent estimates can be provisional and revised.",
+      "evidence_refs": [
+        "EV-UKHPI"
+      ],
+      "id": "TERM-UKHPI",
+      "language": "en-GB",
+      "mapping_status": "source-native-only",
+      "owner": "HM Land Registry and UK HPI partners",
+      "preferred_label": "UK House Price Index",
+      "source_scope": "UK HPI",
+      "variants": [
+        "UK HPI"
+      ]
+    },
+    {
+      "confusable_terms": [
+        "Latest release",
+        "temporal coverage",
+        "observation time"
+      ],
+      "definition": "A date describing a discovery record, not necessarily the underlying dataset release, validity or coverage.",
+      "evidence_refs": [
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "TERM-CATALOGUE-DATE",
+      "language": "en-GB",
+      "mapping_status": "related",
+      "owner": "Derived publication",
+      "preferred_label": "Catalogue metadata date",
+      "source_scope": "GOV.UK, CDDO, NDL and other catalogues",
+      "variants": [
+        "Metadata modified"
+      ]
+    }
+  ],
+  "title": "HM Land Registry public-estate domain profile",
+  "traceability": [
+    {
+      "evidence_refs": [
+        "EV-GOVUK-SEARCH",
+        "EV-INVENTORY"
+      ],
+      "id": "TRACE-DISCOVERY",
+      "intent_or_requirement": "Find authoritative HMLR material across the public estate.",
+      "planned_artifacts": [
+        "bundle/okf-explorer.json",
+        "bundle/data/manifest.json",
+        "bundle/data/catalogue.json",
+        "bundle/index.html"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-PRACTICE",
+        "TASK-DATASET",
+        "TASK-API",
+        "TASK-LLC"
+      ],
+      "validation_refs": [
+        "VAL-DATA-PLANE",
+        "VAL-EVALUATION"
+      ]
+    },
+    {
+      "evidence_refs": [
+        "EV-OKF-AUTHORING",
+        "EV-INVENTORY"
+      ],
+      "id": "TRACE-PROVENANCE",
+      "intent_or_requirement": "Keep source authority, derivation, freshness, availability and release state distinct.",
+      "planned_artifacts": [
+        "bundle/data/sources.json",
+        "bundle/data/coverage.json",
+        "bundle/data/provenance.json"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-AUDIT"
+      ],
+      "validation_refs": [
+        "VAL-SNAPSHOT",
+        "VAL-DATA-PLANE"
+      ]
+    },
+    {
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-LLC-TERMS",
+        "EV-PERSONAL-INFO"
+      ],
+      "id": "TRACE-RIGHTS",
+      "intent_or_requirement": "Preserve mixed dataset and service rights without unsafe acquisition.",
+      "planned_artifacts": [
+        "docs/sources-rights-and-ethics.md",
+        "bundle/data/rights.json"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-DATASET",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "validation_refs": [
+        "VAL-RIGHTS"
+      ]
+    },
+    {
+      "evidence_refs": [
+        "EV-PUBLIC-GUIDANCE",
+        "EV-PRO-GUIDANCE",
+        "EV-HMLR-RESEARCH"
+      ],
+      "id": "TRACE-PERSONAS",
+      "intent_or_requirement": "Provide evidence-led personas, stories and evaluation coverage.",
+      "planned_artifacts": [
+        "personas/personas-and-user-stories.json",
+        "evaluation/questions.json",
+        "evaluation/journeys.json"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-PRACTICE",
+        "TASK-DATASET",
+        "TASK-SPATIAL",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "validation_refs": [
+        "VAL-EVALUATION",
+        "VAL-ACCESSIBILITY"
+      ]
+    },
+    {
+      "evidence_refs": [
+        "EV-WCAG",
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "TRACE-PAGES",
+      "intent_or_requirement": "Publish a durable, accessible GitHub Pages discovery site.",
+      "planned_artifacts": [
+        "bundle/index.html",
+        "bundle/accessibility.html",
+        ".github/workflows/pages.yml"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-DATASET",
+        "TASK-AUDIT"
+      ],
+      "validation_refs": [
+        "VAL-ACCESSIBILITY",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "evidence_refs": [
+        "EV-PROPERTY-SERVICE",
+        "EV-LLC-TERMS",
+        "EV-PERSONAL-INFO"
+      ],
+      "id": "TRACE-SAFETY",
+      "intent_or_requirement": "Avoid legal overclaim, secrets, personal data and restricted-service automation.",
+      "planned_artifacts": [
+        "SECURITY.md",
+        "docs/sources-rights-and-ethics.md",
+        "validation/rights-safety.json"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-SPATIAL",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "validation_refs": [
+        "VAL-RIGHTS",
+        "VAL-DATA-PLANE"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "accessibility_language_needs": [
+        "Plain language",
+        "keyboard and screen-reader access",
+        "zoom/reflow",
+        "Welsh route where officially available"
+      ],
+      "authority_requirement": "Must reach current official guidance and understand when legal representation or an official copy is needed.",
+      "context": "Finding trustworthy information without routine professional access.",
+      "evidence_refs": [
+        "EV-PUBLIC-GUIDANCE",
+        "EV-PROPERTY-SERVICE"
+      ],
+      "id": "USER-PUBLIC",
+      "needs": [
+        "Find the right property-information, registration, correction or fraud-prevention route.",
+        "Understand product cost, coverage and evidential status."
+      ],
+      "risks": [
+        "Treating general information as legal advice.",
+        "Treating a downloaded register or indicative plan as official proof or an exact boundary."
+      ],
+      "role": "Member of the public, property owner, buyer or seller"
+    },
+    {
+      "accessibility_language_needs": [
+        "Efficient keyboard navigation",
+        "durable deep links"
+      ],
+      "authority_requirement": "Current practice guide, form, fee, notice and digital-service guidance must be distinguishable by date and authority.",
+      "context": "Preparing or managing land-registration applications.",
+      "evidence_refs": [
+        "EV-PRO-GUIDANCE",
+        "EV-PRACTICE-GUIDES"
+      ],
+      "id": "USER-PROFESSIONAL",
+      "needs": [
+        "Find the applicable practice guide, form, fee and digital route.",
+        "Check processing, requisition, application and expedite guidance."
+      ],
+      "risks": [
+        "Using an obsolete form, fee or portal workflow.",
+        "Mistaking an aggregate processing estimate for an application guarantee."
+      ],
+      "role": "Conveyancer or property professional"
+    },
+    {
+      "accessibility_language_needs": [
+        "Clear comparison tables and exportable metadata"
+      ],
+      "authority_requirement": "Product scope, access agreement, fees and current service documentation must remain explicit.",
+      "context": "Using HMLR lender and commercial services.",
+      "evidence_refs": [
+        "EV-PRO-GUIDANCE",
+        "EV-BG-DOCS"
+      ],
+      "id": "USER-LENDER",
+      "needs": [
+        "Find charge, data-sync, portfolio and polygon services.",
+        "Distinguish guidance, portal functions and machine interfaces."
+      ],
+      "risks": [
+        "Assuming a discovery record grants service access or data-reuse rights."
+      ],
+      "role": "Lender, portfolio manager or mortgage-service user"
+    },
+    {
+      "accessibility_language_needs": [
+        "Machine-readable metadata",
+        "accessible tables",
+        "non-map alternative"
+      ],
+      "authority_requirement": "Dataset scope, exclusions, cadence, format, licence, attribution and quality caveats must come from publisher sources.",
+      "context": "Selecting public or licensed land and property data for analysis.",
+      "evidence_refs": [
+        "EV-PUBLIC-DATA",
+        "EV-ULPD",
+        "EV-INSPIRE-DATA"
+      ],
+      "id": "USER-DATA",
+      "needs": [
+        "Compare PPD, UK HPI, ownership, transaction, requisition and spatial datasets.",
+        "Inspect source-native identifiers, CRS, temporal coverage and distribution types."
+      ],
+      "risks": [
+        "Treating latest-month PPD or provisional UK HPI as complete or final.",
+        "Treating an index polygon as a legal boundary.",
+        "Redistributing bespoke-licensed or third-party address data."
+      ],
+      "role": "Data analyst, researcher, journalist or GIS specialist"
+    },
+    {
+      "accessibility_language_needs": [
+        "Copyable endpoints",
+        "schemas and error-state documentation"
+      ],
+      "authority_requirement": "Current publisher documentation, protocol, schema version, environment and authentication requirements must be inspectable.",
+      "context": "Evaluating HMLR APIs and integration contracts.",
+      "evidence_refs": [
+        "EV-BG-DOCS",
+        "EV-ULPD-API"
+      ],
+      "id": "USER-DEVELOPER",
+      "needs": [
+        "Find the correct Business Gateway, ULPD or linked-data interface.",
+        "Distinguish REST, SOAP/WSDL, test, production, public and restricted access."
+      ],
+      "risks": [
+        "Copying stale catalogue endpoints or example dates as current facts.",
+        "Exposing credentials or signed download URLs."
+      ],
+      "role": "Case-management or data-platform software engineer"
+    },
+    {
+      "accessibility_language_needs": [
+        "Welsh route where applicable",
+        "durable authority-specific links"
+      ],
+      "authority_requirement": "Current migration table, formal guidance, fees and supplier/API boundaries must be visible.",
+      "context": "Migration, maintenance and search responsibilities across changing coverage.",
+      "evidence_refs": [
+        "EV-LLC-PROGRAMME",
+        "EV-LLC-TERMS"
+      ],
+      "id": "USER-LOCAL-AUTHORITY",
+      "needs": [
+        "Determine whether an authority has migrated and which HMLR process applies.",
+        "Find originating-authority guidance and service boundaries."
+      ],
+      "risks": [
+        "Assuming nationwide LLC coverage.",
+        "Treating LLC search as a replacement for CON29 enquiries."
+      ],
+      "role": "Local-authority or originating-authority Local Land Charges officer"
+    },
+    {
+      "accessibility_language_needs": [
+        "WCAG 2.2 AA target",
+        "text alternatives",
+        "reduced motion",
+        "high contrast"
+      ],
+      "authority_requirement": "Every claim needs source, observation, derivation, rights and release state.",
+      "context": "Checking whether the derived catalogue makes supportable claims.",
+      "evidence_refs": [
+        "EV-ACCESSIBILITY",
+        "EV-PERSONAL-INFO",
+        "EV-OKF-AUTHORING"
+      ],
+      "id": "USER-AUDITOR",
+      "needs": [
+        "Trace a normalized record to publisher evidence.",
+        "Identify unknown, restricted, stale, partial and unverified states."
+      ],
+      "risks": [
+        "Automated checks being presented as legal, statistical or accessibility assurance."
+      ],
+      "role": "Provenance, licensing, accessibility or service assessor"
+    }
+  ],
+  "validation": [
+    {
+      "id": "VAL-DOMAIN-PROFILE",
+      "method": "Validate JSON and YAML against okf-domain-profile.v1, references and canonical equivalence.",
+      "receipt": "validation/domain-profile.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Domain profile pack",
+      "validator": "Pinned OKF Explorer check_domain_profile.py"
+    },
+    {
+      "id": "VAL-SNAPSHOT",
+      "method": "Rehash every envelope, validate media type and reconcile one terminal outcome per expected source item.",
+      "receipt": "validation/source-snapshot.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Frozen source snapshot",
+      "validator": "scripts/check_snapshot.py"
+    },
+    {
+      "id": "VAL-OKF",
+      "method": "Validate reserved files, concept types, actors, provenance and lifecycle.",
+      "receipt": "validation/okf-core.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "OKF 0.2 Markdown control plane",
+      "validator": "scripts/check_bundle.py"
+    },
+    {
+      "id": "VAL-DATA-PLANE",
+      "method": "Validate schemas, safe paths, stable routes, referential integrity, counts, chunk bounds and checksums.",
+      "receipt": "validation/data-plane.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Explorer descriptor, manifest, records, search and relationships",
+      "validator": "scripts/check_bundle.py"
+    },
+    {
+      "id": "VAL-RIGHTS",
+      "method": "Require per-record access and rights states; scan for credentials, signed URLs, personal data and forbidden source layers.",
+      "receipt": "validation/rights-safety.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Public records and links",
+      "validator": "scripts/check_bundle.py and tests/test_safety.py"
+    },
+    {
+      "id": "VAL-EVALUATION",
+      "method": "Check question-to-story-to-persona traceability, direct-source expectations, retrieval metrics and hard failures.",
+      "receipt": "bundle/data/evaluation/report.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Persona and question suite",
+      "validator": "scripts/evaluate.py"
+    },
+    {
+      "id": "VAL-ACCESSIBILITY",
+      "method": "Static semantic checks plus keyboard, focus, reflow, contrast and no-JavaScript browser journeys.",
+      "receipt": "validation/accessibility.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "GitHub Pages site",
+      "validator": "tests/test_site.py and browser acceptance suite"
+    },
+    {
+      "id": "VAL-REPRODUCIBILITY",
+      "method": "Build twice from the same frozen inputs and compare every generated byte and checksum.",
+      "receipt": "validation/reproducibility.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Complete generated bundle",
+      "validator": "scripts/build.py --check"
+    }
+  ],
+  "version": "1"
+}

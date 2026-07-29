@@ -1,0 +1,938 @@
+{
+  "schema": "okf-explorer-interaction-suite.v1",
+  "title": "HM Land Registry OKF first-release interaction journeys",
+  "description": "Candidate browser journeys for a static search, filter and record-detail publication. The journeys use the OKF Explorer interaction vocabulary and make no authenticated or transactional request.",
+  "status": "first-release-candidate",
+  "target_bundle": "../okf-explorer.json",
+  "question_suite": "questions.json",
+  "persona_catalogue": "../personas/personas-and-user-stories.json",
+  "static_site_contract": {
+    "required_controls": [
+      "search input",
+      "searchable facet sections",
+      "title sort",
+      "result list",
+      "record detail",
+      "canonical source link",
+      "Back and Forward state restoration"
+    ],
+    "required_facets": [
+      {
+        "key": "audience",
+        "label": "Audience"
+      },
+      {
+        "key": "content_type",
+        "label": "Content type"
+      },
+      {
+        "key": "service",
+        "label": "Service"
+      },
+      {
+        "key": "format",
+        "label": "Format"
+      },
+      {
+        "key": "access",
+        "label": "Access"
+      },
+      {
+        "key": "geography",
+        "label": "Geography"
+      },
+      {
+        "key": "licence",
+        "label": "Licence"
+      },
+      {
+        "key": "language",
+        "label": "Language"
+      },
+      {
+        "key": "update_frequency",
+        "label": "Update frequency"
+      }
+    ],
+    "safety_rule": "All actions operate on static bundle data and public documentation links. No journey signs in, pays, searches a restricted service, calls an authenticated API or submits a transaction."
+  },
+  "personas": [
+    {
+      "id": "LR-P01",
+      "name": "Public property-information user",
+      "need": "Find the correct official route and understand the evidential or legal limitation before acting."
+    },
+    {
+      "id": "LR-P02",
+      "name": "Conveyancing practitioner",
+      "need": "Resolve current official guidance, evidential documents and authorised professional routes."
+    },
+    {
+      "id": "LR-P03",
+      "name": "Lending and valuation evidence user",
+      "need": "Distinguish title evidence, registered charges, transaction data, dates and derived indicators."
+    },
+    {
+      "id": "LR-P04",
+      "name": "Data and GIS practitioner",
+      "need": "Assess dataset format, spatial meaning, coverage, vintage, access and licence before reuse."
+    },
+    {
+      "id": "LR-P05",
+      "name": "API and data-integration engineer",
+      "need": "Find the operational contract and authentication boundary without exposing credentials or calling a restricted service."
+    },
+    {
+      "id": "LR-P06",
+      "name": "Local-authority land and planning user",
+      "need": "Understand Local Land Charges coverage and keep search, spatial, planning and title concepts distinct."
+    },
+    {
+      "id": "LR-P07",
+      "name": "Provenance and licensing reviewer",
+      "need": "Trace claims to canonical sources and verify authority, derivation, licence, access and observation time."
+    },
+    {
+      "id": "LR-P08",
+      "name": "Accessible-service user and evaluator",
+      "need": "Complete discovery and evidence inspection with keyboard and assistive-technology-compatible controls."
+    },
+    {
+      "id": "LR-P09",
+      "name": "Wales-focused bilingual service user",
+      "need": "Find Welsh or bilingual services and preserve source-native language metadata."
+    }
+  ],
+  "stories": [
+    {
+      "id": "LR-S01",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P07"
+      ],
+      "user_story": "Find HMLR's remit and canonical authority without applying it beyond England and Wales.",
+      "question_ids": [
+        "LR-Q001"
+      ]
+    },
+    {
+      "id": "LR-S02",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P03"
+      ],
+      "user_story": "Distinguish title summaries, online copies and official evidence.",
+      "question_ids": [
+        "LR-Q002",
+        "LR-Q003"
+      ]
+    },
+    {
+      "id": "LR-S03",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ],
+      "user_story": "Interpret general, determined and indicative boundaries without overstating legal precision.",
+      "question_ids": [
+        "LR-Q004",
+        "LR-Q005",
+        "LR-Q012"
+      ]
+    },
+    {
+      "id": "LR-S04",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05"
+      ],
+      "user_story": "Find an authorised official-copy, index-map or professional-service route without invoking it.",
+      "question_ids": [
+        "LR-Q006",
+        "LR-Q007"
+      ]
+    },
+    {
+      "id": "LR-S05",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P03",
+        "LR-P07"
+      ],
+      "user_story": "Separate lending evidence, historic transaction data and catalogue or release dates.",
+      "question_ids": [
+        "LR-Q008",
+        "LR-Q009",
+        "LR-Q010"
+      ]
+    },
+    {
+      "id": "LR-S06",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P09"
+      ],
+      "user_story": "Filter datasets by technical, spatial and language metadata before reuse.",
+      "question_ids": [
+        "LR-Q011",
+        "LR-Q014"
+      ]
+    },
+    {
+      "id": "LR-S07",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06",
+        "LR-P07",
+        "LR-P09"
+      ],
+      "user_story": "Understand Local Land Charges coverage and keep search, charge, title and spatial data distinct.",
+      "question_ids": [
+        "LR-Q013",
+        "LR-Q019",
+        "LR-Q020"
+      ]
+    },
+    {
+      "id": "LR-S08",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "user_story": "Distinguish public API metadata, authenticated data access and restricted professional services.",
+      "question_ids": [
+        "LR-Q015",
+        "LR-Q016",
+        "LR-Q017"
+      ]
+    },
+    {
+      "id": "LR-S09",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "user_story": "Model complete and change-only monthly releases reproducibly.",
+      "question_ids": [
+        "LR-Q018"
+      ]
+    },
+    {
+      "id": "LR-S10",
+      "persona_ids": [
+        "LR-P03",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "user_story": "Verify dataset-specific licences, attribution and third-party rights.",
+      "question_ids": [
+        "LR-Q021",
+        "LR-Q022"
+      ]
+    },
+    {
+      "id": "LR-S11",
+      "persona_ids": [
+        "LR-P05",
+        "LR-P08"
+      ],
+      "user_story": "Complete search, filtering and evidence inspection accessibly.",
+      "question_ids": [
+        "LR-Q023"
+      ]
+    },
+    {
+      "id": "LR-S12",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P08",
+        "LR-P09"
+      ],
+      "user_story": "Discover Welsh and bilingual services without losing language metadata.",
+      "question_ids": [
+        "LR-Q024"
+      ]
+    }
+  ],
+  "journeys": [
+    {
+      "id": "LR-J01",
+      "title": "Orient to HMLR scope and preserve search state",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S01"
+      ],
+      "start": {
+        "query": "HM Land Registry England and Wales"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "HM Land Registry England and Wales"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "audience",
+          "facet_label": "Audience"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "audience",
+          "facet_label": "Audience",
+          "value": "Public"
+        },
+        {
+          "action": "set_sort",
+          "value": "title"
+        },
+        {
+          "action": "history_round_trip",
+          "alternate_query": "Scotland land register"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "search_value",
+          "value": "HM Land Registry England and Wales"
+        },
+        {
+          "assertion": "url_param_equals",
+          "name": "q",
+          "value": "HM Land Registry England and Wales"
+        },
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.audience",
+          "value": "Public"
+        },
+        {
+          "assertion": "sort_value",
+          "value": "title"
+        },
+        {
+          "assertion": "history_round_trip_restored"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "England and Wales"
+        }
+      ]
+    },
+    {
+      "id": "LR-J02",
+      "title": "Distinguish online and official title evidence",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P03"
+      ],
+      "story_ids": [
+        "LR-S02"
+      ],
+      "start": {
+        "query": "title register official copy"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "title register official copy"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "content_type",
+          "facet_label": "Content type"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "content_type",
+          "facet_label": "Content type",
+          "value": "Guidance"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "search_value",
+          "value": "title register official copy"
+        },
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.content_type",
+          "value": "Guidance"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "official copy"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "proof of ownership"
+        }
+      ]
+    },
+    {
+      "id": "LR-J03",
+      "title": "Inspect the general-boundaries limitation",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ],
+      "story_ids": [
+        "LR-S03"
+      ],
+      "start": {
+        "query": "general boundaries"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "general boundaries"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "service",
+          "facet_label": "Service"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "service",
+          "facet_label": "Service",
+          "value": "Property information"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.service",
+          "value": "Property information"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "general boundary"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "not exact"
+        }
+      ]
+    },
+    {
+      "id": "LR-J04",
+      "title": "Recover from an incomplete address search",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05"
+      ],
+      "story_ids": [
+        "LR-S04"
+      ],
+      "start": {
+        "query": "search of the index map"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "search of the index map"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "audience",
+          "facet_label": "Audience"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "audience",
+          "facet_label": "Audience",
+          "value": "Conveyancer"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.audience",
+          "value": "Conveyancer"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "search of the index map"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "restricted"
+        }
+      ]
+    },
+    {
+      "id": "LR-J05",
+      "title": "Separate lender evidence and historic price data",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P03",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S05"
+      ],
+      "start": {
+        "query": "mortgage lender Price Paid Data"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "mortgage lender Price Paid Data"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "audience",
+          "facet_label": "Audience"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "audience",
+          "facet_label": "Audience",
+          "value": "Lending and valuation"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.audience",
+          "value": "Lending and valuation"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "historic transaction"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "source date"
+        }
+      ]
+    },
+    {
+      "id": "LR-J06",
+      "title": "Find a GIS-ready dataset without overstating geometry",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P09"
+      ],
+      "story_ids": [
+        "LR-S03",
+        "LR-S06"
+      ],
+      "start": {
+        "query": "INSPIRE polygons"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "INSPIRE polygons"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "format",
+          "facet_label": "Format"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "format",
+          "facet_label": "Format",
+          "value": "GML"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.format",
+          "value": "GML"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "indicative"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "GIS"
+        }
+      ]
+    },
+    {
+      "id": "LR-J07",
+      "title": "Inspect Local Land Charges migration coverage",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06",
+        "LR-P07",
+        "LR-P09"
+      ],
+      "story_ids": [
+        "LR-S07"
+      ],
+      "start": {
+        "query": "local land charges"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "local land charges"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "geography",
+          "facet_label": "Geography"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "geography",
+          "facet_label": "Geography",
+          "value": "England and Wales"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.geography",
+          "value": "England and Wales"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "not every local authority"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "official search"
+        }
+      ]
+    },
+    {
+      "id": "LR-J08",
+      "title": "Inspect API documentation without crossing access controls",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S08"
+      ],
+      "start": {
+        "query": "API key"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "API key"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "access",
+          "facet_label": "Access"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "access",
+          "facet_label": "Access",
+          "value": "Account, licence and API key required"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.access",
+          "value": "Account, licence and API key required"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "API key"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "documentation only"
+        }
+      ]
+    },
+    {
+      "id": "LR-J09",
+      "title": "Find full and change-only monthly distributions",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S09"
+      ],
+      "start": {
+        "query": "monthly complete change only"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "monthly complete change only"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "update_frequency",
+          "facet_label": "Update frequency"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "update_frequency",
+          "facet_label": "Update frequency",
+          "value": "Monthly"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.update_frequency",
+          "value": "Monthly"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "complete file"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "change only"
+        }
+      ]
+    },
+    {
+      "id": "LR-J10",
+      "title": "Inspect dataset-specific licence and third-party rights",
+      "persona_ids": [
+        "LR-P03",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "story_ids": [
+        "LR-S10"
+      ],
+      "start": {
+        "query": "Price Paid Data licence"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "Price Paid Data licence"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "licence",
+          "facet_label": "Licence"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "licence",
+          "facet_label": "Licence",
+          "value": "Open Government Licence"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.licence",
+          "value": "Open Government Licence"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "attribution"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "third-party rights"
+        }
+      ]
+    },
+    {
+      "id": "LR-J11",
+      "title": "Find and inspect accessibility evidence",
+      "persona_ids": [
+        "LR-P05",
+        "LR-P08"
+      ],
+      "story_ids": [
+        "LR-S11"
+      ],
+      "start": {
+        "query": "accessibility statement"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "accessibility statement"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "content_type",
+          "facet_label": "Content type"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "content_type",
+          "facet_label": "Content type",
+          "value": "Accessibility"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.content_type",
+          "value": "Accessibility"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "WCAG 2.2 AA"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "keyboard"
+        }
+      ]
+    },
+    {
+      "id": "LR-J12",
+      "title": "Discover Welsh and bilingual service evidence",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P08",
+        "LR-P09"
+      ],
+      "story_ids": [
+        "LR-S12"
+      ],
+      "start": {
+        "query": "Welsh language"
+      },
+      "actions": [
+        {
+          "action": "search",
+          "value": "Welsh language"
+        },
+        {
+          "action": "open_facet",
+          "facet_key": "language",
+          "facet_label": "Language"
+        },
+        {
+          "action": "select_facet_value",
+          "facet_key": "language",
+          "facet_label": "Language",
+          "value": "Welsh"
+        },
+        {
+          "action": "open_first_result"
+        }
+      ],
+      "assertions": [
+        {
+          "assertion": "url_param_includes",
+          "name": "filter.language",
+          "value": "Welsh"
+        },
+        {
+          "assertion": "result_count_min",
+          "value": 1
+        },
+        {
+          "assertion": "visible_text",
+          "value": "Welsh Language Scheme"
+        },
+        {
+          "assertion": "visible_text",
+          "value": "English and Welsh"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "csv_formula_neutralization": "leading =, +, -, @, tab and carriage return are prefixed with an apostrophe",
+  "files": [
+    {
+      "bytes": 2414091,
+      "path": "data/catalogue.csv",
+      "sha256": "dd9baed6b288bd3280318f6b94fd57cf198810a69eee805d99d6f9e1b3ef7679"
+    },
+    {
+      "bytes": 5723239,
+      "path": "data/catalogue.json",
+      "sha256": "752d3e67d5680fc6c77c89a80089c3bc873b34e9966011c2c17953b2845a99c7"
+    },
+    {
+      "bytes": 17788,
+      "path": "data/coverage.json",
+      "sha256": "057b1cb6bf0fe3a186eb6a50489ad615b150bbb369b3f97566496481f254b1b8"
+    },
+    {
+      "bytes": 22228,
+      "path": "data/evaluation-report.json",
+      "sha256": "76b6272ba854173664a3e9225ba86ee7dadbf808255524d41907385135d35c96"
+    },
+    {
+      "bytes": 41573,
+      "path": "data/evaluation.json",
+      "sha256": "deb1cf19125a34fb950718a44a87e238c8689a010e07f16c3946ea1331292fad"
+    },
+    {
+      "bytes": 2252800,
+      "path": "data/provenance.json",
+      "sha256": "248be9f9202905df10907d4dc5a523c4a6683077a407a0cfdd467727ff9d0710"
+    },
+    {
+      "bytes": 10543,
+      "path": "data/reconciliation.json",
+      "sha256": "57cfe6d4749aad65aa7516c7a4b5966a52364e8ec23508c47fb0b1128629082a"
+    },
+    {
+      "bytes": 1862,
+      "path": "data/records/manifest.json",
+      "sha256": "b320e0f5064ee320f1363f9f83684373fa98846a73a06ace766a716e19b5e39d"
+    },
+    {
+      "bytes": 640066,
+      "path": "data/records/records-000.json",
+      "sha256": "e99be8c25a8c0d7b4e43d994bdb15cd00c5fb699f47663b7460ccc6f65d71ab9"
+    },
+    {
+      "bytes": 631862,
+      "path": "data/records/records-001.json",
+      "sha256": "59f6e116ae2939c484b17007cc8beaeb43cc55aa66018a416e9ecf2610415c82"
+    },
+    {
+      "bytes": 672586,
+      "path": "data/records/records-002.json",
+      "sha256": "f4dfc7617bbb01840aa66e6bdcb4f4c8bbd1bacccb507c943159d99e7a6a732f"
+    },
+    {
+      "bytes": 651313,
+      "path": "data/records/records-003.json",
+      "sha256": "064c6f8f245fc51778fab3711ae5cf78dc84ed65931ca430bdc4fd1cfa6446dc"
+    },
+    {
+      "bytes": 637425,
+      "path": "data/records/records-004.json",
+      "sha256": "440e6990e797580f2ad4c5f05d9b5c02b2e9562339cd415a96c183426951db90"
+    },
+    {
+      "bytes": 650868,
+      "path": "data/records/records-005.json",
+      "sha256": "01f330e48daf5e6bb17933f965471cc40794a8d8bc303106d72c5131a2ee46a2"
+    },
+    {
+      "bytes": 648275,
+      "path": "data/records/records-006.json",
+      "sha256": "111dd581f7e9abd99757c509b00326b2cd7e9b22dc53289d8668b4106e5025b1"
+    },
+    {
+      "bytes": 660139,
+      "path": "data/records/records-007.json",
+      "sha256": "b07f9d13226504f968f58a5a8fb08c43b54d047491f142bff4376ffbda2eea5d"
+    },
+    {
+      "bytes": 531224,
+      "path": "data/records/records-008.json",
+      "sha256": "ef7f5b182832d64795fa6b813b1fcad27c87240b2bcef16535a43aef91312324"
+    },
+    {
+      "bytes": 490094,
+      "path": "data/rights.json",
+      "sha256": "e4c10bca922e733d3a9cf1d31119dcdf0fb4d71292434c67c590db1355aa7abd"
+    },
+    {
+      "bytes": 2621836,
+      "path": "data/search/index.json",
+      "sha256": "94879fd5dd42e3fcbb03fec49d03c879aca42f3a3e7f9bd66274fdc5739a7835"
+    },
+    {
+      "bytes": 11947,
+      "path": "data/search/manifest.json",
+      "sha256": "3ea82c851d6240e4a7265c794b40fb04f5294dc06d25752c6ef7f59fb72a6ada"
+    }
+  ],
+  "record_count": 2198,
+  "schema": "okf-hmlr-data-manifest.v1"
+}

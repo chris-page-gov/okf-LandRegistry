@@ -1,0 +1,189 @@
+{
+  "schema": "okf-governance-requirements.v1",
+  "project": "HM Land Registry public-estate OKF Bundle",
+  "project_status": "reviewed-scaffold",
+  "release_approved": false,
+  "research_cutoff": "2026-07-29",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "class": "scope",
+      "priority": "must",
+      "statement": "The public bundle shall contain discovery metadata, provenance, controls and links only, never property-level or bulk source data.",
+      "rationale": "The discovery purpose does not require controlled or personal-level records.",
+      "source_refs": ["DEC-METADATA-ONLY", "RIGHT-PERSONAL"],
+      "verification_refs": ["VAL-RIGHTS", "VAL-DATA-PLANE"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-002",
+      "class": "authority",
+      "priority": "must",
+      "statement": "Every material record and proposition shall resolve to an authoritative publisher source, observation and derivation.",
+      "rationale": "The bundle is a finding aid and must not become an unsupported authority.",
+      "source_refs": ["DEC-AUTHORITY", "TRACE-PROVENANCE"],
+      "verification_refs": ["VAL-DATA-PLANE", "VAL-EVALUATION"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-003",
+      "class": "coverage",
+      "priority": "must",
+      "statement": "Completeness shall be stated only against a named, dated denominator with reconciled terminal outcomes.",
+      "rationale": "No global page-level denominator exists across all associated source families.",
+      "source_refs": ["DEN-GOVUK", "DEN-ULPD", "DEN-CDDO-API", "DEN-GITHUB", "GAP-ASSOCIATED-DENOMINATOR"],
+      "verification_refs": ["VAL-SNAPSHOT"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-004",
+      "class": "temporal",
+      "priority": "must",
+      "statement": "Publisher publication, modification, dataset release, coverage, observation, generation and release times shall remain distinct.",
+      "rationale": "Catalogue modification does not establish data currency, validity or coverage.",
+      "source_refs": ["CONSTRAINT-VOLATILITY"],
+      "verification_refs": ["VAL-DATA-PLANE", "VAL-EVALUATION"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-005",
+      "class": "rights",
+      "priority": "must",
+      "statement": "Every public record shall have an explicit access state, rights state and applicable rights-assessment reference.",
+      "rationale": "HMLR source rights range from OGL to bespoke, paid, restricted, prohibited and unknown.",
+      "source_refs": ["RIGHT-GOVUK", "RIGHT-DATASETS", "RIGHT-RESTRICTED", "RIGHT-GITHUB", "RIGHT-CDDO", "RIGHT-PERSONAL"],
+      "verification_refs": ["VAL-RIGHTS"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-006",
+      "class": "access",
+      "priority": "must",
+      "statement": "The project shall not authenticate to, execute, search, copy from or monitor restricted HM Land Registry services.",
+      "rationale": "Service terms and access models require accounts, licences, payment, keys or certificates and can prohibit automation.",
+      "source_refs": ["CONSTRAINT-LLC-AUTOMATION", "CONSTRAINT-AUTH", "RIGHT-RESTRICTED"],
+      "verification_refs": ["VAL-RIGHTS"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-007",
+      "class": "privacy",
+      "priority": "must",
+      "statement": "Credentials, certificates, tokens, signed URLs, personal-level records, user queries, forum posts and uploads shall not enter public artifacts.",
+      "rationale": "Public accessibility does not remove privacy, security or ethical risk.",
+      "source_refs": ["CONSTRAINT-PRIVACY", "RIGHT-PERSONAL"],
+      "verification_refs": ["VAL-RIGHTS", "VAL-DATA-PLANE"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-008",
+      "class": "identity",
+      "priority": "must",
+      "statement": "Records shall retain source-native identity and use deterministic stable local identifiers; collisions shall fail the build.",
+      "rationale": "Traversal-order or random collision handling breaks reproducibility and provenance.",
+      "source_refs": ["TRACE-PROVENANCE", "DEC-SNAPSHOT"],
+      "verification_refs": ["VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-009",
+      "class": "semantics",
+      "priority": "must",
+      "statement": "Documents, datasets, distributions, services, API products, repositories, versions and representations shall remain separately typed when materially distinct.",
+      "rationale": "Collapsing source objects erases rights, cadence, access and evidential differences.",
+      "source_refs": ["DEC-AUTHORITY"],
+      "verification_refs": ["VAL-OKF", "VAL-DATA-PLANE"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-010",
+      "class": "safety",
+      "priority": "must",
+      "statement": "Results shall present legal-reliance, official-copy, general/indicative-boundary, temporal-lag and coverage caveats when applicable.",
+      "rationale": "Omitting a material caveat can turn correct discovery metadata into a harmful answer.",
+      "source_refs": ["CLAIM-BOUNDARY-RISK", "TRACE-SAFETY"],
+      "verification_refs": ["VAL-EVALUATION", "VAL-DATA-PLANE"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-011",
+      "class": "architecture",
+      "priority": "must",
+      "statement": "The public site shall be a static GitHub Pages-compatible projection with no authentication, live restricted-service dependency or third-party tracking.",
+      "rationale": "A static boundary is durable, auditable and consistent with metadata-only scope.",
+      "source_refs": ["DEC-ARCHITECTURE", "TRACE-PAGES"],
+      "verification_refs": ["VAL-DATA-PLANE", "VAL-ACCESSIBILITY"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-012",
+      "class": "accessibility",
+      "priority": "must",
+      "statement": "Core discovery and source navigation shall work without JavaScript and target WCAG 2.2 Level A and AA requirements.",
+      "rationale": "Progressive enhancement and standards-based HTML provide a resilient baseline.",
+      "source_refs": ["STD-WCAG-22", "TRACE-PAGES"],
+      "verification_refs": ["VAL-ACCESSIBILITY"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-013",
+      "class": "performance",
+      "priority": "must",
+      "statement": "Search and rendering shall use bounded lazy metadata, not production data files or an eager whole-corpus first payload.",
+      "rationale": "The source population exceeds a small-bundle shape and source distributions can be multi-gigabyte.",
+      "source_refs": ["CONSTRAINT-SCALE", "DEC-ARCHITECTURE"],
+      "verification_refs": ["VAL-DATA-PLANE", "VAL-ACCESSIBILITY"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-014",
+      "class": "reproducibility",
+      "priority": "must",
+      "statement": "Two clean builds from identical frozen inputs, code, policy and toolchain shall produce byte-identical governed output.",
+      "rationale": "A release must be independently reconstructable without live-source drift.",
+      "source_refs": ["DEC-SNAPSHOT"],
+      "verification_refs": ["VAL-REPRODUCIBILITY"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-015",
+      "class": "evaluation",
+      "priority": "must",
+      "statement": "Every release question shall trace to a story, persona, source/evidence expectation, near miss and declared hard-failure policy.",
+      "rationale": "Aggregate retrieval scores alone do not test safe task completion.",
+      "source_refs": ["TRACE-PERSONAS"],
+      "verification_refs": ["VAL-EVALUATION"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-016",
+      "class": "evaluation",
+      "priority": "must",
+      "statement": "A candidate shall have zero hard failures, MRR at least 0.80, Recall@10 at least 0.90 and source/caveat coverage of 1.00 on independently verified answerable questions.",
+      "rationale": "Thresholds define a transparent first-release baseline while preserving categorical failures.",
+      "source_refs": ["TRACE-PERSONAS"],
+      "verification_refs": ["VAL-EVALUATION"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-017",
+      "class": "integrity",
+      "priority": "must",
+      "statement": "Every governed input, generated artifact and validation receipt shall be covered by a closed checksum and provenance manifest.",
+      "rationale": "Assurance evidence is meaningful only when it binds the exact candidate.",
+      "source_refs": ["TRACE-PROVENANCE"],
+      "verification_refs": ["VAL-SNAPSHOT", "VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-018",
+      "class": "release",
+      "priority": "must",
+      "statement": "Publication as an approved release requires owner approval of the exact version, digest, residual risks, claims and canonical Pages identity.",
+      "rationale": "Successful generation or deployment is not release authorisation.",
+      "source_refs": ["DEC-RELEASE", "GAP-OWNER-APPROVAL"],
+      "verification_refs": [],
+      "release_gate": true
+    }
+  ]
+}

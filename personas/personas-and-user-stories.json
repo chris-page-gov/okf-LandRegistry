@@ -1,0 +1,749 @@
+{
+  "schema": "okf-persona-story-catalogue.v1",
+  "title": "HM Land Registry OKF candidate personas and user stories",
+  "status": "first-release-candidate",
+  "research_cutoff": "2026-07-29",
+  "description": "Task-based hypotheses for evaluating discovery of HM Land Registry public information. These are not demographic profiles and are not claims that user research has validated the roles.",
+  "evidence_policy": {
+    "persona_status": "hypothesis",
+    "rule": "A persona is included only where an official source exposes a corresponding task, service, data product, access route or assurance need.",
+    "prohibitions": [
+      "Do not invent age, gender, ethnicity, disability, income, location or technical skill.",
+      "Do not treat a professional label as evidence that every member of that profession has the same need.",
+      "Do not promote a candidate persona to validated without cited independent user research."
+    ],
+    "source_inventory": "../research/source-family-inventory.json"
+  },
+  "personas": [
+    {
+      "id": "LR-P01",
+      "name": "Public property-information user",
+      "hypothesis_status": "candidate",
+      "role_basis": "Official GOV.UK guidance exposes public tasks for finding title information, understanding boundaries and searching local land charges.",
+      "need": "Find the correct official service or guidance, understand what the returned information can establish and recover when an address search is incomplete.",
+      "main_risks": [
+        "Treating an online title copy as official proof of ownership.",
+        "Treating a title-plan line as an exact legal boundary.",
+        "Using a service outside its England-and-Wales scope."
+      ],
+      "evidence_of_success": [
+        "The result identifies the official HMLR or GOV.UK route.",
+        "The legal and evidential limitation is visible before the user follows the route.",
+        "Alternative official routes such as official copies or a search of the index map are discoverable when applicable."
+      ],
+      "evidence_refs": [
+        "SRC-GOVUK-HMLR",
+        "SRC-PROPERTY-SERVICE",
+        "SRC-LLC-SERVICE"
+      ]
+    },
+    {
+      "id": "LR-P02",
+      "name": "Conveyancing practitioner",
+      "hypothesis_status": "candidate",
+      "role_basis": "HMLR publishes practice guides, portal guidance, official-copy procedures and Business Gateway material for professional land-registration work.",
+      "need": "Resolve the current official guidance, evidential document or professional service route for a defined conveyancing task.",
+      "main_risks": [
+        "Relying on superseded guidance or an unofficial summary.",
+        "Missing titles that affect a property when searching only by address.",
+        "Confusing general, agreed and determined boundary evidence."
+      ],
+      "evidence_of_success": [
+        "The result preserves the guide or service identity and current official URL.",
+        "Access, fee and account requirements are visible.",
+        "The answer distinguishes procedural guidance from legal advice and source evidence."
+      ],
+      "evidence_refs": [
+        "SRC-GOVUK-HMLR",
+        "SRC-PORTAL",
+        "SRC-BG-TECHDOC",
+        "SRC-PROPERTY-SERVICE"
+      ]
+    },
+    {
+      "id": "LR-P03",
+      "name": "Lending and valuation evidence user",
+      "hypothesis_status": "candidate",
+      "role_basis": "HMLR describes registered charges and lenders in title information and publishes transaction data used in property-market analysis.",
+      "need": "Distinguish title evidence, registered-charge information, transaction data and derived market indicators before relying on them in lending or valuation work.",
+      "main_risks": [
+        "Treating a historic price-paid value as a current valuation.",
+        "Treating catalogue or bundle dates as register or dataset currency.",
+        "Treating a title summary or bulk dataset as a substitute for the required official evidence."
+      ],
+      "evidence_of_success": [
+        "The record states the evidence type, coverage period and source date separately.",
+        "The route to official title evidence is distinguishable from analytical datasets.",
+        "Licence and third-party address-data constraints remain visible."
+      ],
+      "evidence_refs": [
+        "SRC-GOVUK-HMLR",
+        "SRC-PROPERTY-SERVICE",
+        "SRC-ULPD",
+        "SRC-NDL"
+      ]
+    },
+    {
+      "id": "LR-P04",
+      "name": "Data and GIS practitioner",
+      "hypothesis_status": "candidate",
+      "role_basis": "The Use land and property data catalogue publishes tabular and spatial products, formats, update schedules and GIS requirements.",
+      "need": "Discover a suitable dataset, inspect its schema, spatial meaning, coverage, vintage, delivery format and permitted use before reuse.",
+      "main_risks": [
+        "Presenting indicative polygons as exact legal title boundaries.",
+        "Assuming all datasets have the same licence, access model or API.",
+        "Claiming complete local-authority or geographic coverage without a dated denominator."
+      ],
+      "evidence_of_success": [
+        "Format, CRS or spatial semantics, vintage and source are explicit where available.",
+        "The dataset landing page and technical specification are both recoverable.",
+        "Coverage and known omissions are stated without inventing geometry."
+      ],
+      "evidence_refs": [
+        "SRC-ULPD",
+        "SRC-LINKED-DATA",
+        "SRC-GOVUK-HMLR"
+      ]
+    },
+    {
+      "id": "LR-P05",
+      "name": "API and data-integration engineer",
+      "hypothesis_status": "candidate",
+      "role_basis": "HMLR publishes API v1 documentation, Business Gateway developer material and public API-catalogue records with materially different access models.",
+      "need": "Identify the operationally authoritative contract, supported access method, authentication boundary, version and refresh behaviour without exposing credentials.",
+      "main_risks": [
+        "Treating catalogue discovery metadata as the operational API contract.",
+        "Calling an authenticated or restricted service without authority.",
+        "Persisting API keys, certificates or short-lived signed download links."
+      ],
+      "evidence_of_success": [
+        "The publisher-operated API or developer documentation is the operational source.",
+        "REST, SOAP/WSDL and transactional services are not conflated.",
+        "Account, licence, key or certificate requirements are explicit and no credential is stored."
+      ],
+      "evidence_refs": [
+        "SRC-ULPD-API",
+        "SRC-BG-TECHDOC",
+        "SRC-CDDO-API",
+        "SRC-PORTAL"
+      ]
+    },
+    {
+      "id": "LR-P06",
+      "name": "Local-authority land and planning user",
+      "hypothesis_status": "candidate",
+      "role_basis": "The national Local Land Charges service and its spatial data expose authority-migration, official-search and indicative-location tasks.",
+      "need": "Determine whether an authority is covered, distinguish search evidence from spatial discovery data and understand the relationship to planning or land-registration information.",
+      "main_risks": [
+        "Assuming every local authority has migrated to the national register.",
+        "Treating an INSPIRE polygon as the complete legal charge or title boundary.",
+        "Automating a search service whose terms prohibit software-agent searching or monitoring."
+      ],
+      "evidence_of_success": [
+        "Migration and coverage limitations are visible.",
+        "Official search, personal search and downloadable spatial data remain distinct.",
+        "The route does not imply that CON29 or all planning information is included."
+      ],
+      "evidence_refs": [
+        "SRC-LLC-SERVICE",
+        "SRC-ULPD",
+        "SRC-GOVUK-HMLR"
+      ]
+    },
+    {
+      "id": "LR-P07",
+      "name": "Provenance and licensing reviewer",
+      "hypothesis_status": "candidate",
+      "role_basis": "HMLR data surfaces publish dataset-specific licences, third-party-rights conditions, attribution text and access constraints that cannot be inferred from public availability.",
+      "need": "Trace every material claim to a canonical source and verify the applicable licence, attribution, access state, derivation and observation date.",
+      "main_risks": [
+        "Applying the Open Government Licence to content governed by a bespoke or third-party licence.",
+        "Using a CKAN or catalogue modification date as dataset currency.",
+        "Presenting normalized or derived metadata as an official HMLR assertion."
+      ],
+      "evidence_of_success": [
+        "Each result exposes source family, canonical URL, observation date and derivation.",
+        "Licence and access states are dataset-specific.",
+        "Publisher-operated sources outrank discovery catalogues for operational claims."
+      ],
+      "evidence_refs": [
+        "SRC-GOVUK-HMLR",
+        "SRC-ULPD",
+        "SRC-NDL",
+        "SRC-GOVUK-SEARCH"
+      ]
+    },
+    {
+      "id": "LR-P08",
+      "name": "Accessible-service user and evaluator",
+      "hypothesis_status": "candidate",
+      "role_basis": "HMLR publishes accessibility statements and an accessible-documents policy describing keyboard, screen-reader, zoom, focus and alternative-format needs.",
+      "need": "Complete discovery and evidence-inspection tasks with keyboard and assistive-technology-compatible controls and understand known accessibility limitations.",
+      "main_risks": [
+        "A visual-only map, facet or status signal blocking task completion.",
+        "Focus becoming obscured or controls lacking accessible names.",
+        "A PDF or spatial result having no usable HTML explanation or alternative route."
+      ],
+      "evidence_of_success": [
+        "Search, facets, results and source links are keyboard operable with visible focus.",
+        "Status and evidence labels are programmatically available and survive 400 percent zoom.",
+        "Known source accessibility limitations and alternative-format routes are disclosed."
+      ],
+      "evidence_refs": [
+        "SRC-ULPD",
+        "SRC-GOVUK-HMLR"
+      ]
+    },
+    {
+      "id": "LR-P09",
+      "name": "Wales-focused bilingual service user",
+      "hypothesis_status": "candidate",
+      "role_basis": "HMLR's Welsh Language Scheme identifies bilingual public services, correspondence, registers, publications and Welsh terminology needs.",
+      "need": "Find the Welsh or bilingual form of relevant guidance and preserve Welsh labels, language metadata and Wales-specific service context.",
+      "main_risks": [
+        "Assuming an English route means no Welsh service exists.",
+        "Dropping language tags or anglicising source-native Welsh labels.",
+        "Allowing a screen reader to mispronounce Welsh place names because language changes are unmarked."
+      ],
+      "evidence_of_success": [
+        "Welsh routes or availability are visible from the English result.",
+        "English and Welsh labels remain distinct but linked.",
+        "Language metadata and known pronunciation limitations are inspectable."
+      ],
+      "evidence_refs": [
+        "SRC-GOVUK-HMLR",
+        "SRC-ULPD",
+        "SRC-LLC-SERVICE"
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "id": "LR-S01",
+      "title": "Orient to HMLR scope and authority",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P07"
+      ],
+      "user_story": "As a public information user or reviewer, I want to identify what HM Land Registry covers and which source is authoritative so that I do not apply the bundle beyond England and Wales or mistake discovery metadata for official evidence.",
+      "question_ids": [
+        "LR-Q001"
+      ],
+      "acceptance_criteria": [
+        "The result names HM Land Registry and its England-and-Wales remit.",
+        "The canonical GOV.UK organisation route is visible.",
+        "The bundle describes itself as discovery and does not replace the source."
+      ],
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LEGAL-BOUNDARY"
+      ]
+    },
+    {
+      "id": "LR-S02",
+      "title": "Choose the right property-information evidence",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P03"
+      ],
+      "user_story": "As someone investigating a property, I want title summaries, online copies and official copies to be clearly distinguished so that I obtain evidence fit for my purpose.",
+      "question_ids": [
+        "LR-Q002",
+        "LR-Q003"
+      ],
+      "acceptance_criteria": [
+        "Register, title summary and title plan are described separately.",
+        "Online copies are not represented as proof of ownership.",
+        "The official-copy route and applicable access or fee are recoverable."
+      ],
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LICENCE-ACCESS"
+      ]
+    },
+    {
+      "id": "LR-S03",
+      "title": "Interpret title and spatial boundaries safely",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ],
+      "user_story": "As a property or spatial-data user, I want general, determined and indicative boundaries labelled correctly so that map geometry is not mistaken for an exact legal boundary.",
+      "question_ids": [
+        "LR-Q004",
+        "LR-Q005",
+        "LR-Q012"
+      ],
+      "acceptance_criteria": [
+        "General boundaries are never described as exact.",
+        "Determined-boundary guidance is linked when relevant.",
+        "INSPIRE and other discovery polygons retain their indicative status."
+      ],
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY"
+      ]
+    },
+    {
+      "id": "LR-S04",
+      "title": "Follow an authorised conveyancing route",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05"
+      ],
+      "user_story": "As a conveyancing practitioner, I want to find official-copy, index-map and professional-service guidance with access constraints so that I use an authorised current route.",
+      "question_ids": [
+        "LR-Q006",
+        "LR-Q007"
+      ],
+      "acceptance_criteria": [
+        "Address-search limitations and the search-of-index-map alternative are visible.",
+        "Portal or Business Gateway access is labelled restricted where applicable.",
+        "The bundle never attempts the transaction."
+      ],
+      "hard_failure_ids": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ]
+    },
+    {
+      "id": "LR-S05",
+      "title": "Separate lending evidence from market data",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P03",
+        "LR-P07"
+      ],
+      "user_story": "As a lending or valuation evidence user, I want registered-charge information, price-paid data and dates kept distinct so that I do not overstate currency or evidential value.",
+      "question_ids": [
+        "LR-Q008",
+        "LR-Q009",
+        "LR-Q010"
+      ],
+      "acceptance_criteria": [
+        "Title evidence and analytical transaction data are separate result types.",
+        "Price paid is not described as current value.",
+        "Catalogue, observation, release and registration dates have distinct labels."
+      ],
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-DATE-CURRENCY"
+      ]
+    },
+    {
+      "id": "LR-S06",
+      "title": "Assess a dataset for technical reuse",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P09"
+      ],
+      "user_story": "As a data or GIS practitioner, I want to filter datasets by purpose, format, geography and update behaviour so that I can inspect the right technical specification before reuse.",
+      "question_ids": [
+        "LR-Q011",
+        "LR-Q014"
+      ],
+      "acceptance_criteria": [
+        "Dataset landing page, technical specification and download or API route are separate.",
+        "Format, GIS requirement and geography metadata are searchable.",
+        "Source-native Welsh place names and language metadata are retained."
+      ],
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ]
+    },
+    {
+      "id": "LR-S07",
+      "title": "Understand Local Land Charges coverage and meaning",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06",
+        "LR-P07",
+        "LR-P09"
+      ],
+      "user_story": "As a local-land user, I want service coverage, authority migration, official-search evidence and spatial discovery data kept distinct so that I do not claim more than the national register contains.",
+      "question_ids": [
+        "LR-Q013",
+        "LR-Q019",
+        "LR-Q020"
+      ],
+      "acceptance_criteria": [
+        "The result states that not every authority has migrated where that remains true.",
+        "Official search and downloadable INSPIRE data are different records.",
+        "Planning, CON29, title and local-land-charge concepts are not conflated."
+      ],
+      "hard_failure_ids": [
+        "HF-COVERAGE",
+        "HF-LEGAL-BOUNDARY",
+        "HF-RESTRICTED-AUTOMATION"
+      ]
+    },
+    {
+      "id": "LR-S08",
+      "title": "Integrate through a documented access boundary",
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "user_story": "As an integration engineer, I want to distinguish public metadata, authenticated data APIs and professional transaction services so that automation stays within documented authority.",
+      "question_ids": [
+        "LR-Q015",
+        "LR-Q016",
+        "LR-Q017"
+      ],
+      "acceptance_criteria": [
+        "The API base, version and supported dataset list come from publisher documentation.",
+        "Account, accepted licence, API key or certificate requirements are explicit.",
+        "No credential, signed URL or automated restricted-service call is emitted."
+      ],
+      "hard_failure_ids": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ]
+    },
+    {
+      "id": "LR-S09",
+      "title": "Refresh full and change-only data reproducibly",
+      "persona_ids": [
+        "LR-P04",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "user_story": "As a data maintainer, I want complete and change-only releases, their identifiers and observation dates modelled explicitly so that refreshes are reproducible and do not invent currency.",
+      "question_ids": [
+        "LR-Q018"
+      ],
+      "acceptance_criteria": [
+        "Full and change-only distributions are distinct.",
+        "The monthly release rule comes from the dataset technical specification.",
+        "A refresh creates a new observed snapshot rather than rewriting old evidence."
+      ],
+      "hard_failure_ids": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ]
+    },
+    {
+      "id": "LR-S10",
+      "title": "Verify licence, attribution and third-party rights",
+      "persona_ids": [
+        "LR-P03",
+        "LR-P05",
+        "LR-P07"
+      ],
+      "user_story": "As a reuse reviewer, I want the licence and attribution for each dataset and field layer so that public accessibility is not mistaken for unrestricted reuse.",
+      "question_ids": [
+        "LR-Q021",
+        "LR-Q022"
+      ],
+      "acceptance_criteria": [
+        "OCOD and Price Paid Data licence evidence resolves to the relevant publisher page.",
+        "Third-party address-data conditions remain visible.",
+        "OGL status is not inherited by a dataset with a bespoke licence."
+      ],
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ]
+    },
+    {
+      "id": "LR-S11",
+      "title": "Complete discovery accessibly",
+      "persona_ids": [
+        "LR-P05",
+        "LR-P08"
+      ],
+      "user_story": "As an accessible-service user or evaluator, I want search, filters, evidence and recovery links to work with keyboard and assistive technology so that discovery is not visual-only.",
+      "question_ids": [
+        "LR-Q023"
+      ],
+      "acceptance_criteria": [
+        "All critical controls have accessible names and keyboard operation.",
+        "Focus remains visible and status changes are announced.",
+        "Known source limitations and alternative-format routes are documented."
+      ],
+      "hard_failure_ids": [
+        "HF-ACCESSIBILITY"
+      ]
+    },
+    {
+      "id": "LR-S12",
+      "title": "Discover Welsh and bilingual services",
+      "persona_ids": [
+        "LR-P01",
+        "LR-P08",
+        "LR-P09"
+      ],
+      "user_story": "As a Wales-focused user, I want Welsh availability and language metadata shown alongside English records so that the bundle does not erase bilingual service obligations or source labels.",
+      "question_ids": [
+        "LR-Q024"
+      ],
+      "acceptance_criteria": [
+        "The Welsh Language Scheme is discoverable.",
+        "Welsh routes and bilingual-register context are explicit.",
+        "Welsh labels retain language metadata, including known pronunciation limitations."
+      ],
+      "hard_failure_ids": [
+        "HF-WELSH-LANGUAGE",
+        "HF-ACCESSIBILITY"
+      ]
+    }
+  ],
+  "traceability": [
+    {
+      "question_id": "LR-Q001",
+      "story_ids": [
+        "LR-S01"
+      ],
+      "persona_ids": [
+        "LR-P01",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q002",
+      "story_ids": [
+        "LR-S02"
+      ],
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P03"
+      ]
+    },
+    {
+      "question_id": "LR-Q003",
+      "story_ids": [
+        "LR-S02"
+      ],
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02"
+      ]
+    },
+    {
+      "question_id": "LR-Q004",
+      "story_ids": [
+        "LR-S03"
+      ],
+      "persona_ids": [
+        "LR-P01",
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ]
+    },
+    {
+      "question_id": "LR-Q005",
+      "story_ids": [
+        "LR-S03"
+      ],
+      "persona_ids": [
+        "LR-P02"
+      ]
+    },
+    {
+      "question_id": "LR-Q006",
+      "story_ids": [
+        "LR-S04"
+      ],
+      "persona_ids": [
+        "LR-P02"
+      ]
+    },
+    {
+      "question_id": "LR-Q007",
+      "story_ids": [
+        "LR-S04"
+      ],
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05"
+      ]
+    },
+    {
+      "question_id": "LR-Q008",
+      "story_ids": [
+        "LR-S05"
+      ],
+      "persona_ids": [
+        "LR-P02",
+        "LR-P03"
+      ]
+    },
+    {
+      "question_id": "LR-Q009",
+      "story_ids": [
+        "LR-S05"
+      ],
+      "persona_ids": [
+        "LR-P03",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q010",
+      "story_ids": [
+        "LR-S05"
+      ],
+      "persona_ids": [
+        "LR-P03",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q011",
+      "story_ids": [
+        "LR-S06"
+      ],
+      "persona_ids": [
+        "LR-P04"
+      ]
+    },
+    {
+      "question_id": "LR-Q012",
+      "story_ids": [
+        "LR-S03"
+      ],
+      "persona_ids": [
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ]
+    },
+    {
+      "question_id": "LR-Q013",
+      "story_ids": [
+        "LR-S07"
+      ],
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q014",
+      "story_ids": [
+        "LR-S06"
+      ],
+      "persona_ids": [
+        "LR-P04",
+        "LR-P06",
+        "LR-P09"
+      ]
+    },
+    {
+      "question_id": "LR-Q015",
+      "story_ids": [
+        "LR-S08"
+      ],
+      "persona_ids": [
+        "LR-P05"
+      ]
+    },
+    {
+      "question_id": "LR-Q016",
+      "story_ids": [
+        "LR-S08"
+      ],
+      "persona_ids": [
+        "LR-P05",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q017",
+      "story_ids": [
+        "LR-S08"
+      ],
+      "persona_ids": [
+        "LR-P02",
+        "LR-P05",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q018",
+      "story_ids": [
+        "LR-S09"
+      ],
+      "persona_ids": [
+        "LR-P04",
+        "LR-P05",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q019",
+      "story_ids": [
+        "LR-S07"
+      ],
+      "persona_ids": [
+        "LR-P01",
+        "LR-P06",
+        "LR-P09"
+      ]
+    },
+    {
+      "question_id": "LR-Q020",
+      "story_ids": [
+        "LR-S07"
+      ],
+      "persona_ids": [
+        "LR-P02",
+        "LR-P04",
+        "LR-P06"
+      ]
+    },
+    {
+      "question_id": "LR-Q021",
+      "story_ids": [
+        "LR-S10"
+      ],
+      "persona_ids": [
+        "LR-P05",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q022",
+      "story_ids": [
+        "LR-S10"
+      ],
+      "persona_ids": [
+        "LR-P03",
+        "LR-P07"
+      ]
+    },
+    {
+      "question_id": "LR-Q023",
+      "story_ids": [
+        "LR-S11"
+      ],
+      "persona_ids": [
+        "LR-P05",
+        "LR-P08"
+      ]
+    },
+    {
+      "question_id": "LR-Q024",
+      "story_ids": [
+        "LR-S12"
+      ],
+      "persona_ids": [
+        "LR-P01",
+        "LR-P08",
+        "LR-P09"
+      ]
+    }
+  ]
+}

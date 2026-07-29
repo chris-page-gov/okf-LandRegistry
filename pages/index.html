@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+    >
+    <meta name="theme-color" content="#32102f">
+    <meta
+      name="description"
+      content="Independent metadata discovery for HM Land Registry publications, services, datasets, APIs and official repositories."
+    >
+    <title>HM Land Registry public-estate map · OKF</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the catalogue</a>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="HM Land Registry public-estate OKF home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span>
+          <strong>Land Registry</strong>
+          <small>public-estate OKF</small>
+        </span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#catalogue">Catalogue</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#method">Method</a>
+        <a href="./accessibility.html">Accessibility</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="parcel-grid" aria-hidden="true">
+          <span class="parcel parcel-one"></span>
+          <span class="parcel parcel-two"></span>
+          <span class="parcel parcel-three"></span>
+          <span class="parcel parcel-four"></span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Independent metadata map · research cutoff 29 July 2026</p>
+          <h1 id="page-title">Find the official route through HM Land Registry</h1>
+          <p class="lede">
+            Search one bounded catalogue of guidance, services, datasets, APIs
+            and public code—then follow the evidence back to its source.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#catalogue">Search the catalogue</a>
+            <a class="button button-quiet" href="./okf-explorer.json">Use the OKF descriptor</a>
+          </div>
+        </div>
+        <aside class="status-card" aria-labelledby="status-title">
+          <p class="status-label">Release posture</p>
+          <h2 id="status-title">Reviewed scaffold</h2>
+          <p>
+            Not an approved release. Not HM Land Registry, legal advice, proof
+            of ownership or an exact-boundary service.
+          </p>
+          <a href="https://www.gov.uk/government/organisations/land-registry">
+            Go to HM Land Registry on GOV.UK
+          </a>
+        </aside>
+      </section>
+
+      <section class="facts" aria-label="Catalogue overview">
+        <div>
+          <strong id="stat-records">—</strong>
+          <span>public metadata records</span>
+        </div>
+        <div>
+          <strong id="stat-sources">—</strong>
+          <span>source families</span>
+        </div>
+        <div>
+          <strong>0</strong>
+          <span>property-level records</span>
+        </div>
+        <div>
+          <strong>24</strong>
+          <span>candidate evaluation questions</span>
+        </div>
+      </section>
+
+      <section id="coverage" class="guardrails" aria-labelledby="guardrail-title">
+        <div>
+          <p class="eyebrow">Read the map correctly</p>
+          <h2 id="guardrail-title">Discovery metadata, with the sharp edges visible</h2>
+        </div>
+        <div class="guardrail-grid">
+          <article>
+            <span class="rule-number">01</span>
+            <h3>England and Wales by default</h3>
+            <p>
+              HMLR’s normal remit is England and Wales. A source-specific record,
+              such as the UK House Price Index, can have wider coverage.
+            </p>
+          </article>
+          <article>
+            <span class="rule-number">02</span>
+            <h3>Indicative is not exact</h3>
+            <p>
+              Title plans and polygon products normally show general or
+              indicative boundaries—not a definitive legal boundary.
+            </p>
+          </article>
+          <article>
+            <span class="rule-number">03</span>
+            <h3>Public is not automatically open</h3>
+            <p>
+              Fees, accounts, bespoke licences and third-party rights remain
+              record-level facts. Check the live source before reuse.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalogue" class="catalogue" aria-labelledby="catalogue-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Bounded catalogue</p>
+            <h2 id="catalogue-title">Search the public estate</h2>
+          </div>
+          <p>
+            Results are static snapshot metadata. Opening a result takes you to
+            its external source; this site never signs in or calls a restricted
+            service.
+          </p>
+        </div>
+
+        <form id="search-form" class="search-panel" role="search">
+          <div class="search-field">
+            <label for="search">Search titles, summaries, topics and caveats</label>
+            <div class="search-input-wrap">
+              <span aria-hidden="true">⌕</span>
+              <input
+                id="search"
+                name="q"
+                type="search"
+                autocomplete="off"
+                placeholder="Try “price paid”, “boundary” or “Business Gateway”"
+              >
+            </div>
+          </div>
+
+          <details class="filter-drawer" open>
+            <summary>Filter the catalogue</summary>
+            <div class="filter-grid">
+              <div>
+                <label for="filter-content-type">Content type</label>
+                <select id="filter-content-type" data-filter="content_type">
+                  <option value="">All content types</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-service">Source family / service</label>
+                <select id="filter-service" data-filter="service">
+                  <option value="">All source families</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-audience">Audience</label>
+                <select id="filter-audience" data-filter="audience">
+                  <option value="">All audiences</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-access">Access</label>
+                <select id="filter-access" data-filter="access">
+                  <option value="">All access models</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-format">Format</label>
+                <select id="filter-format" data-filter="format">
+                  <option value="">All formats</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-geography">Geography</label>
+                <select id="filter-geography" data-filter="geography">
+                  <option value="">All geographies</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-licence">Licence</label>
+                <select id="filter-licence" data-filter="licence">
+                  <option value="">All licence states</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-language">Language</label>
+                <select id="filter-language" data-filter="language">
+                  <option value="">All languages</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-update-frequency">Update frequency</label>
+                <select id="filter-update-frequency" data-filter="update_frequency">
+                  <option value="">All update frequencies</option>
+                </select>
+              </div>
+              <div>
+                <label for="filter-topic">Topic</label>
+                <select id="filter-topic" data-filter="topic">
+                  <option value="">All topics</option>
+                </select>
+              </div>
+            </div>
+          </details>
+
+          <div class="search-actions">
+            <div>
+              <label for="sort">Sort by</label>
+              <select id="sort" name="sort">
+                <option value="relevance">Relevance</option>
+                <option value="title">Title A–Z</option>
+                <option value="latest">Most recently updated</option>
+              </select>
+            </div>
+            <button id="clear-filters" class="text-button" type="button">Clear search and filters</button>
+          </div>
+        </form>
+
+        <div class="result-toolbar">
+          <p id="result-status" role="status" aria-live="polite" aria-atomic="true">
+            Loading the catalogue…
+          </p>
+          <a href="./data/catalogue.csv" download>Download metadata CSV</a>
+        </div>
+
+        <div id="results" class="results" aria-busy="true"></div>
+        <button id="load-more" class="button button-more" type="button" hidden>
+          Show more results
+        </button>
+
+        <noscript>
+          <div class="noscript">
+            JavaScript is needed for local filtering. Browse the
+            <a href="./catalogue-index.html">complete static catalogue</a>, or
+            download the metadata as <a href="./data/catalogue.json">JSON</a>
+            or <a href="./data/catalogue.csv">CSV</a>.
+          </div>
+        </noscript>
+      </section>
+
+      <section id="method" class="method" aria-labelledby="method-title">
+        <div>
+          <p class="eyebrow">Evidence before interface</p>
+          <h2 id="method-title">A two-stage, fail-closed build</h2>
+        </div>
+        <ol>
+          <li>
+            <strong>Discover and lock</strong>
+            <span>Map source families, authority, rights and risks in a reviewed domain profile.</span>
+          </li>
+          <li>
+            <strong>Freeze public metadata</strong>
+            <span>Acquire bounded source envelopes separately; never authenticate or take production data.</span>
+          </li>
+          <li>
+            <strong>Build offline</strong>
+            <span>Generate OKF, catalogue and site bytes deterministically, then bind them with checksums.</span>
+          </li>
+          <li>
+            <strong>Evaluate before release</strong>
+            <span>Test retrieval, provenance, safety and accessibility; require independent review for approval.</span>
+          </li>
+        </ol>
+        <div class="method-links">
+          <a href="./build-receipt.json">Build receipt</a>
+          <a href="./data/coverage.json">Coverage ledger</a>
+          <a href="./data/evaluation.json">Evaluation questions</a>
+          <a href="./CHECKSUMS.sha256">Release checksums</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>HM Land Registry public-estate OKF</strong>
+        <p>Independent metadata discovery. Source authority always remains external.</p>
+      </div>
+      <div>
+        <a href="./accessibility.html">Accessibility</a>
+        <a href="./okf-explorer.json">OKF descriptor</a>
+        <a href="https://github.com/chris-page-gov/okf-LandRegistry">Source repository</a>
+      </div>
+    </footer>
+  </body>
+</html>

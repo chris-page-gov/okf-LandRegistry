@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: >-
+  This is an unapproved metadata scaffold. Cite the exact released version and
+  snapshot digest when one becomes available.
+title: HM Land Registry public-estate OKF Bundle
+type: dataset
+authors:
+  - family-names: Page
+    given-names: Chris
+version: 0.1.0
+abstract: >-
+  An independent, metadata-only discovery bundle for public HM Land Registry
+  guidance, services, datasets, APIs, developer resources and repositories.
+keywords:
+  - HM Land Registry
+  - Open Knowledge Format
+  - public metadata
+  - data discovery
+  - England and Wales
+license: CC-BY-4.0

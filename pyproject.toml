@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okf-land-registry"
+version = "0.1.0"
+description = "Metadata-only HM Land Registry public-estate OKF Bundle"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{name = "OKF Land Registry contributors"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://chris-page-gov.github.io/okf-LandRegistry/"
+Repository = "https://github.com/chris-page-gov/okf-LandRegistry"
+
+[tool.setuptools]
+py-modules = []

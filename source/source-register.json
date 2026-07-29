@@ -1,0 +1,294 @@
+{
+  "schema": "okf-hmlr-source-register.v1",
+  "title": "HM Land Registry official public-source register",
+  "observed_at": "2026-07-29T07:53:38Z",
+  "scope": "Discovery metadata for authoritative and official-reference HM Land Registry sources. This register does not contain property records, legal advice, service responses, credentials, signed download URLs, page bodies, or attachments.",
+  "jurisdiction_note": "HM Land Registry registers the ownership of land and property in England and Wales. UK-wide statistical products and cross-government catalogues state their own coverage.",
+  "authority_precedence": [
+    "Current legislation and formal notices control legal requirements.",
+    "Current publisher-operated HM Land Registry pages, terms and developer packs control operational use.",
+    "GOV.UK and other official discovery catalogues provide discovery metadata and can lag a publisher source.",
+    "This bundle is an independent discovery aid and is never an authority for ownership, boundaries, priority, fees, service status or legal interpretation."
+  ],
+  "acquisition_policy": {
+    "metadata_only": true,
+    "authenticate": false,
+    "retrieve_production_property_records": false,
+    "download_bulk_datasets": false,
+    "retrieve_page_bodies_or_attachments": false,
+    "follow_signed_download_urls": false,
+    "enumerate_user_content": false,
+    "public_metadata_lanes": [
+      "GOV.UK Search API records attributed to organisation slug land-registry",
+      "Public repository metadata for the LandRegistry GitHub organisation",
+      "CDDO API Catalogue rows whose provider is hm-land-registry"
+    ]
+  },
+  "rights_states": {
+    "open-with-conditions": "Public metadata or data is reusable only under the source-specific licence, attribution and third-party-rights conditions.",
+    "bespoke-or-paid": "Access or reuse is governed by a bespoke, direct-use, exploration or commercial licence and may involve a fee.",
+    "restricted-service": "The public description is discoverable, but the operational service requires authentication, approval, payment or compliance with service terms.",
+    "metadata-only": "Only public discovery metadata is represented; no inference is made about rights in linked content, code, data or attachments."
+  },
+  "source_families": [
+    {
+      "id": "govuk-search",
+      "title": "GOV.UK Search API — HM Land Registry organisation filter",
+      "url": "https://www.gov.uk/api/search.json?filter_organisations=land-registry",
+      "owner": "Government Digital Service",
+      "authority_tier": "official-reference",
+      "access_state": "public",
+      "rights_state": "open-with-conditions",
+      "acquisition": "Bounded paginated JSON metadata census. No page bodies or attachments.",
+      "observed_denominator": 1866,
+      "denominator_as_of": "2026-07-29",
+      "refresh": "Take a new dated snapshot for each release.",
+      "caveats": [
+        "Organisation attribution does not establish that a result is current guidance.",
+        "Search publication dates are not dataset currency dates.",
+        "The denominator changes as GOV.UK content changes."
+      ]
+    },
+    {
+      "id": "govuk-content",
+      "title": "GOV.UK Content API",
+      "url": "https://content-api.publishing.service.gov.uk/",
+      "owner": "Government Digital Service",
+      "authority_tier": "official-reference",
+      "access_state": "public",
+      "rights_state": "open-with-conditions",
+      "acquisition": "Potential targeted metadata enrichment for routes already enumerated by GOV.UK Search; outside the initial automated lane.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Only within a declared release snapshot.",
+      "caveats": [
+        "This is not an independent content denominator.",
+        "Rendered bodies and attachments remain outside bundle scope."
+      ]
+    },
+    {
+      "id": "govuk-hmlr",
+      "title": "HM Land Registry on GOV.UK",
+      "url": "https://www.gov.uk/government/organisations/land-registry",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "public",
+      "rights_state": "open-with-conditions",
+      "acquisition": "Curated metadata plus the exhaustive GOV.UK Search lane.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Observe organisation, collections, services and policy routes at each release.",
+      "caveats": [
+        "GOV.UK collections overlap with search results.",
+        "Open Government Licence coverage has exceptions and does not erase third-party rights."
+      ]
+    },
+    {
+      "id": "ulpd",
+      "title": "Use land and property data catalogue",
+      "url": "https://use-land-property-data.service.gov.uk/",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "mixed",
+      "rights_state": "bespoke-or-paid",
+      "acquisition": "Curated catalogue and technical metadata only; no bulk data download.",
+      "observed_denominator": 14,
+      "denominator_as_of": "2026-07-29",
+      "refresh": "Reconcile the publisher catalogue at each release.",
+      "caveats": [
+        "Licence, price, authentication, cadence and file size vary by dataset.",
+        "A public landing page does not grant redistribution rights.",
+        "Some products are multi-gigabyte and need specialist software."
+      ]
+    },
+    {
+      "id": "ulpd-api",
+      "title": "Use land and property data API v1",
+      "url": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "authenticated",
+      "rights_state": "restricted-service",
+      "acquisition": "Documentation metadata only; the API is never called by this bundle.",
+      "observed_denominator": 5,
+      "denominator_as_of": "2026-07-29",
+      "refresh": "Observe public API documentation at each release.",
+      "caveats": [
+        "An account, accepted dataset licence and API key are required.",
+        "Signed resource URLs are short-lived credentials and must never be published."
+      ]
+    },
+    {
+      "id": "linked-data",
+      "title": "HM Land Registry linked data",
+      "url": "https://landregistry.data.gov.uk/",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "public",
+      "rights_state": "open-with-conditions",
+      "acquisition": "Service and documentation metadata only; no unbounded SPARQL or resource crawl.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Check service and documentation routes at each release.",
+      "caveats": [
+        "Price Paid Data and UK House Price Index linked-data models have different semantics.",
+        "A query endpoint does not itself establish a right to perform unbounded extraction."
+      ]
+    },
+    {
+      "id": "business-gateway-docs",
+      "title": "HM Land Registry Business Gateway developer pack",
+      "url": "https://landregistry.github.io/bgtechdoc/",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "documentation-public-service-restricted",
+      "rights_state": "restricted-service",
+      "acquisition": "Documentation, schema and contract metadata only; no test or production calls.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Pin the documentation commit used by each release.",
+      "caveats": [
+        "Most operational services require Business e-services approval and certificate-based access.",
+        "SOAP/WSDL and REST products must remain distinct.",
+        "Publisher documentation outranks a discovery catalogue for current operation."
+      ]
+    },
+    {
+      "id": "github",
+      "title": "LandRegistry GitHub organisation",
+      "url": "https://github.com/LandRegistry",
+      "owner": "HM Land Registry",
+      "authority_tier": "official-reference",
+      "access_state": "public",
+      "rights_state": "metadata-only",
+      "acquisition": "Bounded public repository metadata through the unauthenticated GitHub REST API.",
+      "observed_denominator": 289,
+      "denominator_as_of": "2026-07-29",
+      "refresh": "Snapshot public repository metadata at each release.",
+      "caveats": [
+        "Every repository has its own lifecycle and licence.",
+        "Public source code is not necessarily production documentation.",
+        "Archived, fork and prototype status must remain visible."
+      ]
+    },
+    {
+      "id": "property-information",
+      "title": "Search for land and property information",
+      "url": "https://www.gov.uk/search-property-information-land-registry",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "authenticated-and-paid",
+      "rights_state": "restricted-service",
+      "acquisition": "Public service-description metadata only; no account creation, search or purchase.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Observe public guidance, fees and terms at each release.",
+      "caveats": [
+        "Downloaded copies are not proof of ownership and differ from official copies.",
+        "Title plans normally show general boundaries, not exact legal boundaries."
+      ]
+    },
+    {
+      "id": "local-land-charges",
+      "title": "Search for local land charges",
+      "url": "https://search-local-land-charges.service.gov.uk/",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "public-search-with-terms-and-fees",
+      "rights_state": "restricted-service",
+      "acquisition": "Terms and public service-description metadata only; never automate a search.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Observe coverage, fees and terms at each release.",
+      "caveats": [
+        "Terms prohibit automated software agents from searching, copying or monitoring the service.",
+        "Coverage depends on local-authority migration.",
+        "CON29 enquiries are outside the service."
+      ]
+    },
+    {
+      "id": "portal",
+      "title": "HM Land Registry portal and Business e-services",
+      "url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "approved-professional-users",
+      "rights_state": "restricted-service",
+      "acquisition": "Public guidance metadata only; no portal authentication or transaction.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Observe public guidance, roadmap and service notices at each release.",
+      "caveats": [
+        "Access is intended for approved professional customers.",
+        "Availability, fees and transaction coverage can change."
+      ]
+    },
+    {
+      "id": "customer-help",
+      "title": "HM Land Registry customer help",
+      "url": "https://customerhelp.landregistry.gov.uk/",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "public",
+      "rights_state": "metadata-only",
+      "acquisition": "Top-level help and contact-route metadata only.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Observe support routes at each release.",
+      "caveats": [
+        "Public forum posts and uploads are excluded because they may contain personal or sensitive information."
+      ]
+    },
+    {
+      "id": "blog",
+      "title": "HM Land Registry blog",
+      "url": "https://hmlandregistry.blog.gov.uk/",
+      "owner": "HM Land Registry",
+      "authority_tier": "official-reference",
+      "access_state": "public",
+      "rights_state": "open-with-conditions",
+      "acquisition": "Index metadata only in this scaffold; no article-body crawl.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Consider a bounded feed snapshot in a later release.",
+      "caveats": [
+        "Blog posts provide context but do not replace current formal guidance."
+      ]
+    },
+    {
+      "id": "cddo-api-catalogue",
+      "title": "CDDO API Catalogue",
+      "url": "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",
+      "owner": "Central Digital and Data Office",
+      "authority_tier": "official-reference",
+      "access_state": "public",
+      "rights_state": "metadata-only",
+      "acquisition": "Bounded CSV scan filtered exactly to provider hm-land-registry.",
+      "observed_denominator": 15,
+      "denominator_as_of": "2026-07-29",
+      "refresh": "Snapshot from an identified catalogue revision at each release.",
+      "caveats": [
+        "Catalogue rows may lag publisher-operated documentation.",
+        "Licence and authentication fields can be absent.",
+        "An older sibling-bundle seed contained 27 HMLR records; the frozen live provider-filtered snapshot returned 15."
+      ]
+    },
+    {
+      "id": "cross-government-data-catalogues",
+      "title": "National Data Library and data.gov.uk discovery records",
+      "url": "https://www.data.gov.uk/search?filters%5Bpublisher%5D=HM+Land+Registry",
+      "owner": "Government Digital Service and National Data Library programme",
+      "authority_tier": "official-reference",
+      "access_state": "public",
+      "rights_state": "metadata-only",
+      "acquisition": "Curated discovery references only in the initial scaffold.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Reconcile publisher records before claiming catalogue completeness.",
+      "caveats": [
+        "Catalogue metadata can be stale even when a linked publisher distribution is current.",
+        "Publisher landing pages control cadence, access and current operational status."
+      ]
+    }
+  ]
+}
