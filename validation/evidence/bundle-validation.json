@@ -1,0 +1,42 @@
+{
+  "schema": "okf-hmlr-bundle-validation-evidence.v1",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c"
+  },
+  "executed_at": "2026-07-29T12:08:27Z",
+  "status": "pass",
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    [
+      "OKF_RELEASE_ROOT_SHA256=a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+      ".venv/bin/python",
+      "scripts/check_release_approval.py"
+    ]
+  ],
+  "results": {
+    "tests_run": 86,
+    "tests_passed": 86,
+    "tests_failed": 0,
+    "tests_errored": 0,
+    "record_count": 2202,
+    "record_shards": 9,
+    "data_manifest_files": 21,
+    "release_checksum_entries": 42,
+    "okf_core_valid": true,
+    "data_plane_valid": true,
+    "checksums_valid": true,
+    "local_routes_valid": true,
+    "csv_formula_neutralisation_valid": true,
+    "forbidden_raw_content_and_secret_shapes_absent": true
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "okf-hmlr-user-facing-validation-evidence.v1",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c"
+  },
+  "executed_at": "2026-07-29T12:08:27Z",
+  "status": "pass",
+  "environment": {
+    "served_origin": "http://127.0.0.1:8765",
+    "browser": "Google Chrome 150.0.7871.187, headless",
+    "browser_driver": "Playwright 1.62.0",
+    "accessibility_engine": "axe-core 4.12.1",
+    "viewport_checks": [
+      "desktop-default",
+      "320 CSS px wide"
+    ]
+  },
+  "automated_accessibility": [
+    {
+      "path": "/",
+      "wcag_tags": [
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "wcag22aa"
+      ],
+      "violations": 0,
+      "passes": 28,
+      "manual_review_items": 2
+    },
+    {
+      "path": "/accessibility.html",
+      "violations": 0,
+      "passes": 19,
+      "manual_review_items": 0
+    },
+    {
+      "path": "/catalogue-index.html",
+      "violations": 0,
+      "passes": 18,
+      "manual_review_items": 0
+    }
+  ],
+  "manual_agent_checks": {
+    "human_audit_performed": false,
+    "contrast": [
+      {
+        "target": "#status-title",
+        "foreground": "#fffdf8",
+        "background": "#32102f",
+        "ratio": 16.5157,
+        "minimum": 4.5,
+        "status": "pass"
+      },
+      {
+        "target": ".search-input-wrap > span[aria-hidden=true]",
+        "foreground": "#32102f",
+        "background": "#ffffff",
+        "ratio": 16.7894,
+        "minimum": 4.5,
+        "status": "pass"
+      }
+    ],
+    "journeys": [
+      {
+        "id": "skip-link",
+        "status": "pass",
+        "result": "The first Tab target is the skip link to #main."
+      },
+      {
+        "id": "search-state",
+        "status": "pass",
+        "result": "Search state survives reload and browser Back restores the prior submitted query."
+      },
+      {
+        "id": "progressive-load",
+        "status": "pass",
+        "result": "The first 24 results expand to 48 and focus moves to the first newly added result."
+      },
+      {
+        "id": "high-risk-query",
+        "status": "pass",
+        "result": "The portal, Local Land Charges and Business Gateway routes and their access/rights caveats are visible for the reviewed query."
+      },
+      {
+        "id": "no-javascript",
+        "status": "pass",
+        "result": "The no-script fallback links to the complete static catalogue."
+      },
+      {
+        "id": "small-screen",
+        "status": "pass",
+        "result": "No horizontal document overflow at 320 CSS px."
+      },
+      {
+        "id": "semantics",
+        "status": "pass",
+        "result": "One H1, a unique page title and header/main/footer landmarks are present."
+      }
+    ]
+  },
+  "security": {
+    "critical_findings": 0,
+    "console_errors": 0,
+    "console_warnings": 0,
+    "third_party_runtime_requests": 0,
+    "cookies_created": 0,
+    "local_storage_entries": 0,
+    "session_storage_entries": 0,
+    "content_security_policy_present": true,
+    "unsafe_dom_sinks_rejected_by_tests": true,
+    "external_runtime_dependencies": 0
+  },
+  "performance_budgets": [
+    {
+      "id": "authored-shell-raw",
+      "scope": "index.html + styles.css + app.js",
+      "maximum_bytes": 65536,
+      "measured_bytes": 48221,
+      "status": "pass"
+    },
+    {
+      "id": "authored-shell-gzip",
+      "scope": "sum of separate gzip streams for index.html, styles.css and app.js",
+      "maximum_bytes": 16384,
+      "measured_bytes": 12773,
+      "status": "pass"
+    },
+    {
+      "id": "search-index-raw",
+      "scope": "data/search/index.json",
+      "maximum_bytes": 3145728,
+      "measured_bytes": 2894919,
+      "status": "pass"
+    },
+    {
+      "id": "search-index-gzip",
+      "scope": "gzip stream for data/search/index.json",
+      "maximum_bytes": 262144,
+      "measured_bytes": 187698,
+      "status": "pass"
+    },
+    {
+      "id": "published-bundle-total",
+      "scope": "all 43 bundle files including CHECKSUMS.sha256",
+      "maximum_bytes": 25165824,
+      "measured_bytes": 22168820,
+      "status": "pass"
+    }
+  ],
+  "limitations": [
+    "Interactive and contrast checks were performed by an AI agent, not a human accessibility specialist or representative user.",
+    "The evidence does not make a WCAG conformance claim.",
+    "Production Pages is rechecked after deployment."
+  ]
+}

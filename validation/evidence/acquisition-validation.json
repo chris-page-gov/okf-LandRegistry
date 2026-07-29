@@ -1,0 +1,58 @@
+{
+  "schema": "okf-hmlr-acquisition-validation-evidence.v1",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "executed_at": "2026-07-29T12:08:27Z",
+  "status": "pass",
+  "snapshot": {
+    "id": "2026-07-29T091915Z",
+    "observed_at": "2026-07-29T09:19:15Z",
+    "mode": "frozen-public-metadata",
+    "network_access_during_build": false
+  },
+  "lanes": [
+    {
+      "id": "govuk-search",
+      "expected": 1866,
+      "acquired": 1866,
+      "errors": 0,
+      "requests": 4,
+      "terminal_status": "complete",
+      "terminal_reason": "declared-total-reconciled"
+    },
+    {
+      "id": "github",
+      "expected": 289,
+      "acquired": 289,
+      "errors": 0,
+      "requests": 3,
+      "terminal_status": "complete",
+      "terminal_reason": "short-page"
+    },
+    {
+      "id": "cddo-api-catalogue",
+      "expected": 15,
+      "acquired": 15,
+      "errors": 0,
+      "requests": 1,
+      "rows_scanned": 231,
+      "terminal_status": "complete",
+      "terminal_reason": "single-response-provider-filter-complete"
+    }
+  ],
+  "checks": {
+    "envelopes_rehashed": true,
+    "media_types_valid": true,
+    "terminal_outcomes_complete": true,
+    "omissions_explicit": true,
+    "source_files_rehashed": true
+  },
+  "scope_limitations": [
+    "The reconciled denominators apply only to the named source lanes at the observation time.",
+    "Curated source families do not claim a reconciled denominator for the entire HMLR public estate.",
+    "No property-level, bulk dataset, authenticated, paid or user-submitted content was acquired."
+  ]
+}

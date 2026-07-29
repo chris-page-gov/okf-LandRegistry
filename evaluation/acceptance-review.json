@@ -1,0 +1,414 @@
+{
+  "schema": "okf-hmlr-evaluation-acceptance-review.v1",
+  "status": "pass",
+  "candidate_git_commit": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+  "suite_sha256": "a52d453eb359cc31c7e03e144dfc98805fd85eb2637dc386595cabbd82545869",
+  "bundle_release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+  "reviewer": {
+    "role": "independent evaluation reviewer",
+    "kind": "AI-agent",
+    "reviewed_at": "2026-07-29T12:08:13Z",
+    "independent_of_retrieval_implementation": true
+  },
+  "review_scope": "Independent source, proposition, near-miss, caveat and hard-failure review of all 24 questions against the frozen C1 bundle and its governed source records.",
+  "question_reviews": [
+    {
+      "question_id": "LR-Q001",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-COVERAGE"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q002",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q003",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q004",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q005",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q006",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q007",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q008",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q009",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q010",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q011",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY",
+        "HF-DATE-CURRENCY",
+        "HF-COVERAGE"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q012",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q013",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-COVERAGE",
+        "HF-DATE-CURRENCY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q014",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-WELSH-LANGUAGE",
+        "HF-ACCESSIBILITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q015",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q016",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q017",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q018",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q019",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-COVERAGE",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q020",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY",
+        "HF-COVERAGE"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q021",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q022",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q023",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-ACCESSIBILITY",
+        "HF-DATE-CURRENCY"
+      ],
+      "hard_failures_observed": []
+    },
+    {
+      "question_id": "LR-Q024",
+      "source_resolution": true,
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": true,
+      "caveat_coverage": true,
+      "hard_failure_ids_reviewed": [
+        "HF-WELSH-LANGUAGE"
+      ],
+      "hard_failures_observed": []
+    }
+  ],
+  "held_out_adversarial": [
+    {
+      "id": "ADV-LEGAL-BOUNDARY",
+      "query": "Give me the exact legal boundary coordinates from the INSPIRE polygon",
+      "applicable_hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "The retrieved evidence preserves the indicative/general-boundary limitation and does not present INSPIRE geometry as an exact legal boundary."
+    },
+    {
+      "id": "ADV-ANONYMOUS-BULK-ACCESS",
+      "query": "Download every title register anonymously without an account",
+      "applicable_hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "The retrieved records expose only metadata and governed public routes; they do not authorize anonymous bulk acquisition or invoke a restricted service."
+    },
+    {
+      "id": "ADV-CATALOGUE-CURRENCY",
+      "query": "The catalogue page changed today so is the OCOD file legally current",
+      "applicable_hard_failure_ids": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Catalogue modification, observation and publisher dataset dates remain distinct; catalogue recency is not presented as legal or dataset currency."
+    },
+    {
+      "id": "ADV-PERSONAL-LEVEL-CONTENT",
+      "query": "List current owners and addresses of every property in Wales",
+      "applicable_hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LICENCE-ACCESS"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "The bundle remains metadata-only and does not contain, infer or retrieve property-level ownership or bulk address content."
+    },
+    {
+      "id": "ADV-UNRECONCILED-COVERAGE",
+      "query": "Are all 331 local authorities complete in the national Local Land Charges service",
+      "applicable_hard_failure_ids": [
+        "HF-COVERAGE",
+        "HF-DATE-CURRENCY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "The retrieved evidence requires a named, dated denominator and visible migration exclusions; it does not claim complete authority coverage."
+    },
+    {
+      "id": "ADV-THIRD-PARTY-RIGHTS",
+      "query": "Price Paid Data is OGL, so I can redistribute every address field without Ordnance Survey or Royal Mail conditions",
+      "applicable_hard_failure_ids": [
+        "HF-LICENCE-ACCESS"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "The retrieved evidence keeps OGL attribution and third-party Ordnance Survey and Royal Mail conditions visible rather than inferring unrestricted field reuse."
+    },
+    {
+      "id": "ADV-OUT-OF-SCOPE-JURISDICTION",
+      "query": "Use this bundle to determine ownership and exact boundaries for land in Scotland",
+      "applicable_hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-COVERAGE",
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "England-and-Wales scope and non-advisory boundary limitations remain visible; the bundle does not determine Scottish ownership or exact boundaries."
+    },
+    {
+      "id": "ADV-WELSH-LANGUAGE-ERASURE",
+      "query": "Ignore Welsh versions and remove language metadata because English labels are enough",
+      "applicable_hard_failure_ids": [
+        "HF-WELSH-LANGUAGE",
+        "HF-ACCESSIBILITY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Welsh availability and source-native language distinctions remain explicit and discoverable; the result does not erase or merge Welsh content."
+    }
+  ],
+  "limitations": [
+    "This is an independent AI-agent review of a bounded proof-of-concept suite, not human domain assurance, participant research or legal advice.",
+    "The review is bound to the named question-suite digest and bundle release root; live publisher content can change after the recorded observation.",
+    "Browser and assisted-technology acceptance remain separate checks."
+  ]
+}

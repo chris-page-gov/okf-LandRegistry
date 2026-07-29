@@ -1,0 +1,69 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "checks": [
+    {
+      "id": "json-yaml-equivalent",
+      "status": "pass",
+      "summary": "JSON and YAML canonical forms are byte-equivalent after parsing."
+    },
+    {
+      "id": "profile-pack-rehashed",
+      "status": "pass",
+      "summary": "Every profile-pack file and the declared pack root rehash exactly."
+    },
+    {
+      "id": "references-closed",
+      "status": "pass",
+      "summary": "Profile, evidence, requirement, decision, risk and trace references resolve."
+    },
+    {
+      "id": "schema-valid",
+      "status": "pass",
+      "summary": "The pinned domain-profile schema accepts the exact candidate profile."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/evidence/profile-validation.json",
+      "sha256": "90ed20215ddf67841fc0fead8250f9d0c51f74f1996c0534cfbc9632545d071f"
+    },
+    {
+      "path": "domain-profile/CHECKSUMS.sha256",
+      "sha256": "44899010d4e4e1666fa06e59fec1d9a9f846ed2d8fe559036b01ba39d9427951"
+    },
+    {
+      "path": "domain-profile/domain-profile.json",
+      "sha256": "11bff9ba448b051575f1cde0e77d5438415777f2568ed9d010229e2a1740ca73"
+    }
+  ],
+  "executed_at": "2026-07-29T12:08:27Z",
+  "failures": [],
+  "gate": "G1",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "scripts/check_domain_profile.py",
+      "domain-profile/domain-profile.json",
+      "--equivalent",
+      "domain-profile/domain-profile.yaml"
+    ],
+    "name": "domain-profile-validator",
+    "sha256": "d88a3eb956d6f9b238d2182eec45ba7e1e2d9bdd24af93fbae5a3f1e3b339f62",
+    "version": "v1-candidate-edbe2cb"
+  },
+  "waivers": []
+}

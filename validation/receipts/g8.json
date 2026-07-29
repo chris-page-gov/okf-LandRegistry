@@ -1,0 +1,89 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "checks": [
+    {
+      "id": "artifact-manifest-complete",
+      "status": "pass",
+      "summary": "The deterministic archive contains all 43 candidate bundle files under a versioned prefix and rehashes."
+    },
+    {
+      "id": "dependency-provenance",
+      "status": "pass",
+      "summary": "Seven Python dependencies are version/hash locked and represented in the SPDX document."
+    },
+    {
+      "id": "sbom-recorded",
+      "status": "pass",
+      "summary": "An SPDX 2.3 SBOM records the project and seven locked dependencies."
+    },
+    {
+      "id": "workflow-provenance",
+      "status": "pass",
+      "summary": "All five GitHub Actions uses are pinned to full commit SHA values and recorded in provenance."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/evidence/supply-chain-validation.json",
+      "sha256": "fb372e91b314c867ed275a13f1cc7866bc1ea06dc5b3882492312c28dc216a7d"
+    },
+    {
+      "path": "validation/evidence/release-archive.json",
+      "sha256": "6f562e6c075c6671d51a74497128c4dc55824c52db939d7e0701243fc4571089"
+    },
+    {
+      "path": "validation/evidence/sbom.spdx.json",
+      "sha256": "2ea95edc04cc897047a004cc472a07a7ae4bc4c2a522570c35d2a7bf0ef6512b"
+    },
+    {
+      "path": "validation/evidence/provenance.json",
+      "sha256": "b074ef9c930b39402dfdfdb2b7cb21f0f7d049a466e165a013255a96e4ff8673"
+    },
+    {
+      "path": "dist/okf-landregistry-0.1.0.zip",
+      "sha256": "39ad20759dbd211da158f81c018b697d0fa8b5895fab9aab782113595d3b0dc5"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "sha256": "2b34dff6da8650b0c1f1bb238866bd86075b2593882458d8ee68ac3a15b5ddf2"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "89819d3ef9e5d10dcc2f1eb4417314aeb0c0dd2d9e8bdd0352463a47a5ce4f34"
+    }
+  ],
+  "executed_at": "2026-07-29T12:08:27Z",
+  "failures": [],
+  "gate": "G8",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "scripts/package_release.py",
+      "--receipt",
+      "validation/evidence/release-archive.json",
+      "then",
+      ".venv/bin/python",
+      "scripts/create_release_metadata.py",
+      "--candidate-commit-sha",
+      "edbe2cb61a3d916bc149519ad489f957c5ee3a38"
+    ],
+    "name": "release-package-sbom-and-provenance-generator",
+    "sha256": "c3187fe92cf5edf5a3b6b47898187df169710a6057a3fa1daa5b7db357eb383e",
+    "version": "v1-candidate-edbe2cb"
+  },
+  "waivers": []
+}

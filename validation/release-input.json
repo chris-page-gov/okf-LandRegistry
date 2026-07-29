@@ -1,0 +1,521 @@
+{
+  "schema": "okf-release-assembly-input.v1",
+  "generated_at": "2026-07-29T12:19:07Z",
+  "gates": {
+    "G1": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:27Z",
+      "validator": {
+        "name": "domain-profile-validator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "scripts/check_domain_profile.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/check_domain_profile.py",
+          "domain-profile/domain-profile.json",
+          "--equivalent",
+          "domain-profile/domain-profile.yaml"
+        ]
+      },
+      "checks": {
+        "schema-valid": {
+          "status": "pass",
+          "summary": "The pinned domain-profile schema accepts the exact candidate profile."
+        },
+        "json-yaml-equivalent": {
+          "status": "pass",
+          "summary": "JSON and YAML canonical forms are byte-equivalent after parsing."
+        },
+        "references-closed": {
+          "status": "pass",
+          "summary": "Profile, evidence, requirement, decision, risk and trace references resolve."
+        },
+        "profile-pack-rehashed": {
+          "status": "pass",
+          "summary": "Every profile-pack file and the declared pack root rehash exactly."
+        }
+      },
+      "evidence": [
+        "validation/evidence/profile-validation.json",
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/domain-profile.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G2": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:27Z",
+      "validator": {
+        "name": "frozen-snapshot-and-build-semantics-validator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "scripts/build.py",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_acquire",
+          "tests.test_bundle"
+        ]
+      },
+      "checks": {
+        "envelopes-rehashed": {
+          "status": "pass",
+          "summary": "All three frozen source envelopes match their manifest and build-receipt hashes."
+        },
+        "media-types-valid": {
+          "status": "pass",
+          "summary": "Every request receipt records an allowed media type and successful bounded response."
+        },
+        "terminal-outcomes-complete": {
+          "status": "pass",
+          "summary": "GOV.UK, GitHub and CDDO lanes each have one reconciled complete terminal outcome."
+        },
+        "omissions-explicit": {
+          "status": "pass",
+          "summary": "Scope exclusions and the absence of a whole-estate denominator are explicit."
+        }
+      },
+      "evidence": [
+        "validation/evidence/acquisition-validation.json",
+        "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "bundle/build-receipt.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G3": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:25Z",
+      "validator": {
+        "name": "rights-safety-and-prohibited-content-validator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "tests/test_bundle.py",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_bundle.BundleTests.test_forbidden_raw_content_and_secret_shapes_absent",
+          "tests.test_bundle.BundleTests.test_record_identity_urls_and_rights_are_explicit",
+          "tests.test_bundle.BundleTests.test_current_snapshot_receipts_are_rehashed_and_reconciled"
+        ]
+      },
+      "checks": {
+        "field-inventory-reviewed": {
+          "status": "pass",
+          "summary": "The exact 2,202-record public-field projection was structurally inventoried and reviewed."
+        },
+        "rights-access-complete": {
+          "status": "pass",
+          "summary": "Every record resolves to explicit access, rights, licence and assessment states."
+        },
+        "prohibited-content-absent": {
+          "status": "pass",
+          "summary": "Structural tests and targeted scans found no prohibited property-level, personal, credential or signed-download content."
+        },
+        "independent-rights-review": {
+          "status": "pass",
+          "summary": "An independent AI-agent reviewed the exact field and rights projection; no human legal or licence audit is claimed."
+        }
+      },
+      "evidence": [
+        "validation/rights-safety.json",
+        "governance/rights-review.json",
+        "governance/risk-register.json",
+        "validation/evidence/independent-release-review.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+            "kind": "ai-agent",
+            "role": "independent-rights-reviewer",
+            "reviewed_at": "2026-07-29T12:08:25Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "field-inventory-reviewed": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+          "completed_at": "2026-07-29T12:08:25Z",
+          "execution_mode": "document-review"
+        },
+        "independent-rights-review": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+          "completed_at": "2026-07-29T12:08:25Z",
+          "execution_mode": "automated-agent"
+        },
+        "prohibited-content-absent": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+          "completed_at": "2026-07-29T12:08:25Z",
+          "execution_mode": "automated-agent"
+        },
+        "rights-access-complete": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+          "completed_at": "2026-07-29T12:08:25Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G4": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:27Z",
+      "validator": {
+        "name": "bundle-and-exact-root-validator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "scripts/check_release_approval.py",
+        "command": [
+          "OKF_RELEASE_ROOT_SHA256=a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+          ".venv/bin/python",
+          "scripts/check_release_approval.py"
+        ]
+      },
+      "checks": {
+        "okf-core-valid": {
+          "status": "pass",
+          "summary": "The OKF control-plane descriptor and referenced concept documents pass repository contract tests."
+        },
+        "data-plane-valid": {
+          "status": "pass",
+          "summary": "The catalogue, compact search index, nine shards, rights and provenance artifacts reconcile to 2,202 records."
+        },
+        "checksums-valid": {
+          "status": "pass",
+          "summary": "All 42 governed artifact entries and release root rehash exactly."
+        },
+        "routes-valid": {
+          "status": "pass",
+          "summary": "All local HTML, manifest and descriptor routes resolve without external runtime dependencies."
+        }
+      },
+      "evidence": [
+        "validation/evidence/bundle-validation.json",
+        "bundle/CHECKSUMS.sha256",
+        "bundle/data/manifest.json",
+        "bundle/data/records/manifest.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G5": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:13Z",
+      "validator": {
+        "name": "retrieval-diagnostic-and-formal-acceptance-evaluator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "scripts/evaluate.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/evaluate.py",
+          "--k",
+          "10",
+          "--min-expected-source-success-at-k",
+          "1.0",
+          "--min-expected-target-recall-at-k",
+          "0.90",
+          "--min-all-expected-target-success-at-k",
+          "1.0",
+          "--min-mrr",
+          "0.80",
+          "--acceptance-review",
+          "evaluation/acceptance-review.json",
+          "--output",
+          "validation/evidence/evaluation-acceptance.json"
+        ]
+      },
+      "checks": {
+        "independent-question-review": {
+          "status": "pass",
+          "summary": "All 24 questions, eight hard-failure types and eight held-out adversarial cases received independent AI-agent review."
+        },
+        "hard-failures-zero": {
+          "status": "pass",
+          "summary": "The independent acceptance review and formal evaluator report zero hard failures."
+        },
+        "mrr-threshold": {
+          "status": "pass",
+          "summary": "Mean reciprocal rank is 0.864583 against a required minimum of 0.80."
+        },
+        "recall-at-10-threshold": {
+          "status": "pass",
+          "summary": "Expected-target recall at 10 is 38/38 (1.0), with all-target question success of 1.0."
+        },
+        "source-caveat-coverage": {
+          "status": "pass",
+          "summary": "Independent source-resolution and caveat coverage are both 1.0."
+        }
+      },
+      "evidence": [
+        "evaluation/acceptance-review.json",
+        "evaluation/questions.json",
+        "validation/evidence/evaluation-acceptance.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "Codex independent source catalogue agent /root/source_catalogue",
+            "kind": "ai-agent",
+            "role": "independent-evaluation-reviewer",
+            "reviewed_at": "2026-07-29T12:08:13Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "hard-failure-review": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
+          "completed_at": "2026-07-29T12:08:13Z",
+          "execution_mode": "document-review"
+        },
+        "independent-question-review": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
+          "completed_at": "2026-07-29T12:08:13Z",
+          "execution_mode": "automated-agent"
+        },
+        "source-caveat-coverage": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
+          "completed_at": "2026-07-29T12:08:13Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G6": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:17:59Z",
+      "validator": {
+        "name": "pages-browser-accessibility-security-performance-validator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "tests/test_pages.py",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_pages",
+          "plus Playwright 1.62 and axe-core 4.12.1 exact-candidate journeys"
+        ]
+      },
+      "checks": {
+        "automated-journeys": {
+          "status": "pass",
+          "summary": "Static tests, Playwright journeys and axe scans pass on the exact local candidate."
+        },
+        "manual-accessibility-journeys": {
+          "status": "pass",
+          "summary": "Agent-assisted interactive keyboard, focus, history, no-JavaScript, contrast and 320px reflow checks pass; this is not a human audit."
+        },
+        "security-critical-zero": {
+          "status": "pass",
+          "summary": "No critical browser/security finding, console error, storage use, third-party runtime request or unsafe DOM sink was found."
+        },
+        "performance-budgets": {
+          "status": "pass",
+          "summary": "Authored shell, search-index and total-bundle byte budgets pass with lazy 24-record initial rendering."
+        }
+      },
+      "evidence": [
+        "validation/evidence/browser-accessibility-security-performance.json",
+        "validation/evidence/user-facing-independent-review.json",
+        "docs/accessibility.md"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+            "kind": "ai-agent",
+            "role": "independent-g6-reviewer",
+            "reviewed_at": "2026-07-29T12:17:59Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "accessibility-and-limitations-review": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+          "completed_at": "2026-07-29T12:17:59Z",
+          "execution_mode": "document-review"
+        },
+        "security-and-performance-review": {
+          "status": "pass",
+          "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+          "completed_at": "2026-07-29T12:17:59Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G7": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:27Z",
+      "validator": {
+        "name": "offline-deterministic-builder-and-byte-comparator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "scripts/build.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/build.py",
+          "three exact-input builds followed by diff -qr comparisons"
+        ]
+      },
+      "checks": {
+        "clean-build-a": {
+          "status": "pass",
+          "summary": "The first isolated output build produced release root a3c15f0e...80c3c."
+        },
+        "clean-build-b": {
+          "status": "pass",
+          "summary": "The second isolated output build produced release root a3c15f0e...80c3c."
+        },
+        "byte-identical": {
+          "status": "pass",
+          "summary": "The two clean bundle trees have zero byte differences."
+        },
+        "committed-bundle-identical": {
+          "status": "pass",
+          "summary": "The committed candidate bundle and clean build A have zero byte differences."
+        }
+      },
+      "evidence": [
+        "validation/evidence/reproducibility.json",
+        "bundle/build-receipt.json",
+        "bundle/CHECKSUMS.sha256"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G8": {
+      "status": "pass",
+      "executed_at": "2026-07-29T12:08:27Z",
+      "validator": {
+        "name": "release-package-sbom-and-provenance-generator",
+        "version": "v1-candidate-edbe2cb",
+        "artifact_path": "scripts/create_release_metadata.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/package_release.py",
+          "--receipt",
+          "validation/evidence/release-archive.json",
+          "then",
+          ".venv/bin/python",
+          "scripts/create_release_metadata.py",
+          "--candidate-commit-sha",
+          "edbe2cb61a3d916bc149519ad489f957c5ee3a38"
+        ]
+      },
+      "checks": {
+        "artifact-manifest-complete": {
+          "status": "pass",
+          "summary": "The deterministic archive contains all 43 candidate bundle files under a versioned prefix and rehashes."
+        },
+        "dependency-provenance": {
+          "status": "pass",
+          "summary": "Seven Python dependencies are version/hash locked and represented in the SPDX document."
+        },
+        "workflow-provenance": {
+          "status": "pass",
+          "summary": "All five GitHub Actions uses are pinned to full commit SHA values and recorded in provenance."
+        },
+        "sbom-recorded": {
+          "status": "pass",
+          "summary": "An SPDX 2.3 SBOM records the project and seven locked dependencies."
+        }
+      },
+      "evidence": [
+        "validation/evidence/supply-chain-validation.json",
+        "validation/evidence/release-archive.json",
+        "validation/evidence/sbom.spdx.json",
+        "validation/evidence/provenance.json",
+        "dist/okf-landregistry-0.1.0.zip",
+        "requirements-lock.txt",
+        ".github/workflows/pages.yml"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    }
+  },
+  "release": {
+    "status": "approved",
+    "version": "0.1.0",
+    "canonical_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+    "claims_reviewed": true,
+    "residual_risks_reviewed": true,
+    "residual_risk_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-004",
+      "RISK-005",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011",
+      "RISK-012",
+      "RISK-013",
+      "RISK-014",
+      "RISK-015"
+    ],
+    "human_audit": {
+      "status": "not_completed",
+      "residual_risk_id": "RISK-015",
+      "notes": "Independent AI-agent evidence review is complete, but no independent human domain, legal, licence, privacy or accessibility audit and no representative-user study was performed."
+    },
+    "owner_approval": {
+      "identity": "chris-page-gov",
+      "kind": "organisation",
+      "role": "project-owner",
+      "approved_at": "2026-07-29T12:19:07Z",
+      "approved": true
+    },
+    "independent_review": {
+      "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+      "kind": "ai-agent",
+      "role": "release-reviewer",
+      "reviewed_at": "2026-07-29T12:13:38Z",
+      "independent": true,
+      "outcome": "recommend_approval"
+    }
+  }
+}

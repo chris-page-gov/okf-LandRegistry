@@ -1,0 +1,92 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "checks": [
+    {
+      "id": "automated-journeys",
+      "status": "pass",
+      "summary": "Static tests, Playwright journeys and axe scans pass on the exact local candidate."
+    },
+    {
+      "id": "manual-accessibility-journeys",
+      "status": "pass",
+      "summary": "Agent-assisted interactive keyboard, focus, history, no-JavaScript, contrast and 320px reflow checks pass; this is not a human audit."
+    },
+    {
+      "id": "performance-budgets",
+      "status": "pass",
+      "summary": "Authored shell, search-index and total-bundle byte budgets pass with lazy 24-record initial rendering."
+    },
+    {
+      "id": "security-critical-zero",
+      "status": "pass",
+      "summary": "No critical browser/security finding, console error, storage use, third-party runtime request or unsafe DOM sink was found."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/evidence/browser-accessibility-security-performance.json",
+      "sha256": "1271a5ec5473bb69444ce7d85de55367361aca5d47c624fdd586bf9f6a819494"
+    },
+    {
+      "path": "validation/evidence/user-facing-independent-review.json",
+      "sha256": "848f1c97357ceab14b77b3da796555a12d74c9415fea6f1fcb085f2b12acb926"
+    },
+    {
+      "path": "docs/accessibility.md",
+      "sha256": "33dd0feff43f1c37a1affc9365c7e4b567ab6b012084c37bc75866a72606ffe3"
+    }
+  ],
+  "executed_at": "2026-07-29T12:17:59Z",
+  "failures": [],
+  "gate": "G6",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-07-29T12:17:59Z",
+        "role": "independent-g6-reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-07-29T12:17:59Z",
+      "execution_mode": "document-review",
+      "id": "accessibility-and-limitations-review",
+      "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-29T12:17:59Z",
+      "execution_mode": "document-review",
+      "id": "security-and-performance-review",
+      "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_pages",
+      "plus Playwright 1.62 and axe-core 4.12.1 exact-candidate journeys"
+    ],
+    "name": "pages-browser-accessibility-security-performance-validator",
+    "sha256": "1251fe3e8329ff496e3bda42b8c01e6b5c8d5ce689f55f1e56adc9306a464954",
+    "version": "v1-candidate-edbe2cb"
+  },
+  "waivers": []
+}

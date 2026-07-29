@@ -1,0 +1,212 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "checks": {
+    "field-inventory-reviewed": {
+      "status": "pass",
+      "summary": "All 2,202 public records were included in a machine-checked field inventory. Every record carries the required identity, source, observation, derivation, evidence, access, rights, licence and authentication fields."
+    },
+    "independent-rights-review": {
+      "status": "pass",
+      "summary": "A read-only AI-agent reviewer who did not author the acquisition, normalisation, build or release-evidence implementation reviewed the exact frozen candidate. This is independent agent review, not independent human legal or licence assurance."
+    },
+    "prohibited-content-absent": {
+      "status": "pass",
+      "summary": "Full-candidate structural tests and targeted pattern scans found no raw page bodies, production property records, user submissions, private-key markers, GitHub tokens, AWS access keys, signed-download query parameters or email addresses in the public bundle."
+    },
+    "rights-access-complete": {
+      "status": "pass",
+      "summary": "All 2,202 unique public record IDs have exactly one matching rights projection, explicit access and rights states, and a rights_ref resolving to a declared assessment. No missing, extra or mismatched rights rows were found."
+    }
+  },
+  "completed_at": "2026-07-29T12:08:25Z",
+  "field_inventory": {
+    "access_state_counts": {
+      "approved-professional-users": 1,
+      "authenticated": 1,
+      "authenticated-and-paid": 3,
+      "documentation-public-service-restricted": 1,
+      "mixed": 15,
+      "public": 2178,
+      "public-search-with-terms-and-fees": 3
+    },
+    "declared_assessment_ids": [
+      "RIGHT-CDDO",
+      "RIGHT-DATASETS",
+      "RIGHT-EVIDENCE",
+      "RIGHT-GITHUB",
+      "RIGHT-GOVUK",
+      "RIGHT-PERSONAL",
+      "RIGHT-RESTRICTED"
+    ],
+    "missing_required_field_counts": {
+      "access_model": 0,
+      "access_state": 0,
+      "authentication": 0,
+      "derivation": 0,
+      "evidence_refs": 0,
+      "id": 0,
+      "licence": 0,
+      "observed_at": 0,
+      "rights_ref": 0,
+      "rights_state": 0,
+      "source_family": 0,
+      "source_urls": 0,
+      "title": 0,
+      "url": 0
+    },
+    "record_count": 2202,
+    "required_fields_reviewed": [
+      "id",
+      "title",
+      "url",
+      "source_urls",
+      "source_family",
+      "observed_at",
+      "derivation",
+      "evidence_refs",
+      "access_model",
+      "access_state",
+      "authentication",
+      "rights_ref",
+      "rights_state",
+      "licence"
+    ],
+    "rights_projection": {
+      "duplicate_record_ids": 0,
+      "extra_rights_rows": 0,
+      "mismatched_rights_rows": 0,
+      "missing_rights_rows": 0,
+      "rights_row_count": 2202,
+      "unknown_assessment_references": 0
+    },
+    "rights_ref_counts": {
+      "RIGHT-CDDO": 16,
+      "RIGHT-DATASETS": 17,
+      "RIGHT-GITHUB": 290,
+      "RIGHT-GOVUK": 1870,
+      "RIGHT-PERSONAL": 1,
+      "RIGHT-RESTRICTED": 8
+    },
+    "rights_state_counts": {
+      "bespoke-or-paid": 15,
+      "metadata-only": 308,
+      "open-with-conditions": 1870,
+      "restricted-service": 9
+    },
+    "sampled_record_ids": {
+      "RIGHT-CDDO": "cddo-api:b7f72815cf8fb4b53503",
+      "RIGHT-DATASETS": "hmlr:dataset:1862-act-register",
+      "RIGHT-GITHUB": "github:LandRegistry/.github",
+      "RIGHT-GOVUK": "govuk:https://www.gov.uk/government/news/10-things-to-love-about-us",
+      "RIGHT-PERSONAL": "hmlr:help:customer-support",
+      "RIGHT-RESTRICTED": "hmlr:developer:business-gateway"
+    },
+    "unique_record_ids": 2202
+  },
+  "gate": "G3",
+  "inputs": [
+    {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c"
+    },
+    {
+      "path": "bundle/build-receipt.json",
+      "sha256": "7da5a7d69a11cc39d9d8123c3a07b16fc86ffa3bb8ebc04c2d92349261ae026d"
+    },
+    {
+      "path": "bundle/data/manifest.json",
+      "sha256": "00bf540271d5316c8ccd3c43e10aa91cdcaef2ebee707344dae96789254ba0a9"
+    },
+    {
+      "path": "bundle/data/provenance.json",
+      "sha256": "1c10ee4e67fcd0daf92fe36b713f7b9ef2fe0d88d6effc93d6132ac14690ec1f"
+    },
+    {
+      "path": "bundle/data/rights.json",
+      "sha256": "2b29853bee522b81a2e5e1acc333e2e69cb434bd91888e997bdefabf47af397e"
+    },
+    {
+      "path": "domain-profile/CHECKSUMS.sha256",
+      "sha256": "44899010d4e4e1666fa06e59fec1d9a9f846ed2d8fe559036b01ba39d9427951"
+    },
+    {
+      "path": "domain-profile/domain-profile.json",
+      "sha256": "11bff9ba448b051575f1cde0e77d5438415777f2568ed9d010229e2a1740ca73"
+    },
+    {
+      "path": "domain-profile/evidence-register.jsonl",
+      "sha256": "25ee9a7939a6594deeab5ffcae3a8e26268898a590b5f66daee9501b33a93af9"
+    },
+    {
+      "path": "governance/requirements.json",
+      "sha256": "9c435052f58516daea189a2966cffcb7515560685f503dda90ba71e80bfe0eaa"
+    },
+    {
+      "path": "governance/rights-review.json",
+      "sha256": "bdae341b08952dc7d0cbcebd476e8c4abe7caae2f3b1adb346a36c0516d3dae0"
+    },
+    {
+      "path": "governance/risk-register.json",
+      "sha256": "8839dec7735b8844cac8cba766344ea2a22408678d248d7fa17c31c51f1ad60c"
+    },
+    {
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    }
+  ],
+  "limitations": [
+    "This evidence supports a metadata-only AI-generated proof of concept and is not legal advice, licence advice, ownership evidence, priority evidence or exact-boundary advice.",
+    "No independent human legal, licence, privacy or accessibility audit was completed.",
+    "Pattern scans and structural validation reduce, but cannot prove the universal absence of every possible secret or personal-data form.",
+    "Live publisher terms and rights pages are locator-based evidence and were not archived as page bodies; later releases must revalidate them.",
+    "Dataset and repository rights remain source-specific and volatile. This review does not authorise redistribution of linked datasets, repository source trees, service results or restricted content."
+  ],
+  "prohibited_content_review": {
+    "automated_tests": [
+      "tests.test_bundle.BundleTests.test_forbidden_raw_content_and_secret_shapes_absent",
+      "tests.test_bundle.BundleTests.test_record_identity_urls_and_rights_are_explicit",
+      "tests.test_bundle.BundleTests.test_current_snapshot_receipts_are_rehashed_and_reconciled"
+    ],
+    "findings": [],
+    "pattern_scan_results": {
+      "aws_access_key": 0,
+      "email_address": 0,
+      "github_token": 0,
+      "private_key": 0,
+      "signed_url_query": 0
+    },
+    "reviewed_scope": [
+      "bundle/",
+      "bundle/data/records/records-000.json through records-008.json",
+      "bundle/data/rights.json",
+      "bundle/data/provenance.json",
+      "source/snapshots/2026-07-29T091915Z/manifest.json"
+    ],
+    "test_result": "3 tests passed"
+  },
+  "residual_risks": [
+    {
+      "disposition": "accepted-gap; retain in the exact G9 release record and prominently disclose on the public site",
+      "id": "RISK-015",
+      "status": "accepted-gap",
+      "summary": "The release is AI-generated and independently AI-agent reviewed; no independent human legal, licence or accessibility audit was completed."
+    }
+  ],
+  "review": {
+    "execution_mode": "read-only exact-candidate review",
+    "independent": true,
+    "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+    "reviewer_kind": "ai-agent",
+    "role": "independent-rights-reviewer",
+    "scope_separation": "The reviewer did not author or edit the acquisition, frozen source snapshot, domain profile, rights policy, normalisation, generated bundle, validation tooling or release-assembly implementation."
+  },
+  "schema": "okf-rights-safety-evidence.v1",
+  "status": "pass",
+  "summary": "Independent AI-agent G3 review recommends pass for the exact v0.1.0 metadata-only proof-of-concept candidate. The recommendation is digest-bound, does not substitute for owner approval, and retains the incomplete human audit as RISK-015."
+}

@@ -1,0 +1,107 @@
+{
+  "ai_disclosure": {
+    "ai_generated_proof_of_concept": true,
+    "human_accessibility_audit_completed": false
+  },
+  "build": {
+    "build_receipt_schema": "okf-hmlr-build-receipt.v1",
+    "builder": {
+      "path": "scripts/build.py",
+      "sha256": "1c1ad3970945caad0a4e51b1eccc45e7eec2db7db6e337a9ce71aec31baa24b4"
+    },
+    "invocation": [
+      "python",
+      "scripts/build.py",
+      "--replace"
+    ],
+    "network_access_during_build": false,
+    "python_target": "3.13",
+    "source_acquisition": "Previously frozen bounded public-metadata snapshot; no live source access during the candidate build.",
+    "type": "offline-deterministic-static-bundle"
+  },
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "dependency_lock": {
+    "hash_enforced_install": "python -m pip install --require-hashes -r requirements-lock.txt",
+    "package_count": 7,
+    "path": "requirements-lock.txt",
+    "sha256": "2b34dff6da8650b0c1f1bb238866bd86075b2593882458d8ee68ac3a15b5ddf2"
+  },
+  "generated_at": "2026-07-29T11:00:00Z",
+  "materials": [
+    {
+      "path": "domain-profile/CHECKSUMS.sha256",
+      "sha256": "44899010d4e4e1666fa06e59fec1d9a9f846ed2d8fe559036b01ba39d9427951"
+    },
+    {
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "sha256": "2b34dff6da8650b0c1f1bb238866bd86075b2593882458d8ee68ac3a15b5ddf2"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "89819d3ef9e5d10dcc2f1eb4417314aeb0c0dd2d9e8bdd0352463a47a5ce4f34"
+    },
+    {
+      "path": "pages/search-contract.json",
+      "sha256": "fd71d4ec3565b09c981c80d4c830b573d4e8275517a44ff039929809446892ef"
+    },
+    {
+      "path": "evaluation/questions.json",
+      "sha256": "a52d453eb359cc31c7e03e144dfc98805fd85eb2637dc386595cabbd82545869"
+    }
+  ],
+  "schema": "okf-hmlr-release-provenance.v1",
+  "subject": {
+    "archive": {
+      "bytes": 1101554,
+      "file_count": 43,
+      "path": "dist/okf-landregistry-0.1.0.zip",
+      "release_at": "2026-07-29T11:00:00Z",
+      "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+      "schema": "okf-hmlr-release-archive.v1",
+      "sha256": "39ad20759dbd211da158f81c018b697d0fa8b5895fab9aab782113595d3b0dc5",
+      "version": "0.1.0"
+    },
+    "bundle_checksums": {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c"
+    }
+  },
+  "version": "0.1.0",
+  "workflow_actions": [
+    {
+      "action": "actions/checkout",
+      "commit": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "version_comment": "v7"
+    },
+    {
+      "action": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "version_comment": "v6"
+    },
+    {
+      "action": "actions/configure-pages",
+      "commit": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+      "version_comment": "v6"
+    },
+    {
+      "action": "actions/upload-pages-artifact",
+      "commit": "fc324d3547104276b827a68afc52ff2a11cc49c9",
+      "version_comment": "v5"
+    },
+    {
+      "action": "actions/deploy-pages",
+      "commit": "cd2ce8fcbc39b97be8ca5fce6e763baed58fa128",
+      "version_comment": "v5"
+    }
+  ]
+}

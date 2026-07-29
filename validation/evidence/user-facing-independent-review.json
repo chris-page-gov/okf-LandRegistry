@@ -1,0 +1,73 @@
+{
+  "schema": "okf-hmlr-user-facing-independent-review.v1",
+  "gate": "G6",
+  "status": "pass",
+  "outcome": "accept",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c"
+  },
+  "reviewer": {
+    "identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+    "kind": "ai-agent",
+    "role": "independent-g6-reviewer",
+    "independent": true,
+    "independent_of_user_facing_evidence_authoring": true,
+    "reviewed_at": "2026-07-29T12:17:59Z",
+    "execution_mode": "read-only exact-candidate review",
+    "scope_separation": "The reviewer did not author or edit the generated bundle, governed inputs, existing G6 evidence, accessibility scanner, browser journey implementation, security checks or performance budgets."
+  },
+  "reviewed_evidence": {
+    "path": "validation/evidence/browser-accessibility-security-performance.json",
+    "sha256": "1271a5ec5473bb69444ce7d85de55367361aca5d47c624fdd586bf9f6a819494",
+    "schema": "okf-hmlr-user-facing-validation-evidence.v1",
+    "status": "pass",
+    "executed_at": "2026-07-29T12:08:27Z"
+  },
+  "checks": [
+    {
+      "id": "candidate-binding",
+      "status": "pass",
+      "method": "Compared the evidence candidate identity with Git HEAD and the release-root marker in bundle/CHECKSUMS.sha256.",
+      "result": "The evidence, frozen commit and bundle all identify commit edbe2cb61a3d916bc149519ad489f957c5ee3a38 and release root a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c."
+    },
+    {
+      "id": "automated-journeys",
+      "status": "pass",
+      "method": "Reviewed the exact-candidate axe results for all three declared routes and independently inspected the rendered accessibility tree and static progressive-enhancement requirements.",
+      "result": "The evidence records zero automated violations on /, /accessibility.html and /catalogue-index.html. The independent rendered sample found a descriptive title, one level-one heading, banner/navigation/main/footer landmarks, a labelled searchbox, live result status, visible release limitations and a navigable no-script catalogue fallback."
+    },
+    {
+      "id": "manual-accessibility-journeys",
+      "status": "pass",
+      "method": "Ran a bounded Playwright keyboard and interaction sample against the frozen bundle served locally.",
+      "result": "The first Tab target was the skip link; a submitted search survived reload; browser Back restored the prior submitted query; progressive loading expanded 24 results to 48 and focused the first newly added article; the high-risk search exposed portal, Local Land Charges and Business Gateway access and rights caveats."
+    },
+    {
+      "id": "security-critical-zero",
+      "status": "pass",
+      "method": "Reviewed the exact-candidate browser/security evidence and inspected the authored CSP, external-runtime boundary and unsafe-DOM-sink tests.",
+      "result": "No critical finding is recorded. The page declares a restrictive self-only CSP, the authored JavaScript avoids the tested unsafe DOM sinks, runtime assets are local, and restricted services remain external links rather than invoked dependencies."
+    },
+    {
+      "id": "performance-budgets",
+      "status": "pass",
+      "method": "Independently recomputed raw bytes, system-gzip bytes, bundle file count and total published bytes from the frozen bundle.",
+      "result": "All evidence values reproduced exactly: authored shell 48,221 raw and 12,773 gzip bytes; search index 2,894,919 raw and 187,698 gzip bytes; 43 published files totalling 22,168,820 bytes. Every declared maximum is met."
+    },
+    {
+      "id": "requirements-and-limitations",
+      "status": "pass",
+      "method": "Compared the evidence with REQ-012, REQ-013, docs/accessibility.md and the G6 release criterion.",
+      "result": "The evidence supports the declared progressive-enhancement, bounded-loading, automated and agent-assisted journey, critical-security and performance claims without asserting WCAG conformance or human assurance."
+    }
+  ],
+  "blocking_findings": [],
+  "limitations": [
+    "No independent human accessibility audit, representative-user research or qualified assistive-technology evaluation was performed.",
+    "This AI-agent review does not make a WCAG conformance claim.",
+    "The independent browser work was a bounded sample, not a second execution of every axe rule, contrast state, zoom level, forced-colour mode, preference mode or browser and screen-reader combination.",
+    "The production GitHub Pages deployment remains subject to the declared post-deployment recheck."
+  ],
+  "decision": "Accept G6 for the exact frozen proof-of-concept candidate, subject to the explicit limitations above."
+}

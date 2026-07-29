@@ -1,0 +1,10 @@
+{
+  "bytes": 1101554,
+  "file_count": 43,
+  "path": "dist/okf-landregistry-0.1.0.zip",
+  "release_at": "2026-07-29T11:00:00Z",
+  "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+  "schema": "okf-hmlr-release-archive.v1",
+  "sha256": "39ad20759dbd211da158f81c018b697d0fa8b5895fab9aab782113595d3b0dc5",
+  "version": "0.1.0"
+}

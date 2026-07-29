@@ -1,0 +1,71 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "checks": [
+    {
+      "id": "checksums-valid",
+      "status": "pass",
+      "summary": "All 42 governed artifact entries and release root rehash exactly."
+    },
+    {
+      "id": "data-plane-valid",
+      "status": "pass",
+      "summary": "The catalogue, compact search index, nine shards, rights and provenance artifacts reconcile to 2,202 records."
+    },
+    {
+      "id": "okf-core-valid",
+      "status": "pass",
+      "summary": "The OKF control-plane descriptor and referenced concept documents pass repository contract tests."
+    },
+    {
+      "id": "routes-valid",
+      "status": "pass",
+      "summary": "All local HTML, manifest and descriptor routes resolve without external runtime dependencies."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/evidence/bundle-validation.json",
+      "sha256": "8b687de5a38d92689dfc3690e3ca3c961f706360f5fec02bb6550d2cb757c64e"
+    },
+    {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c"
+    },
+    {
+      "path": "bundle/data/manifest.json",
+      "sha256": "00bf540271d5316c8ccd3c43e10aa91cdcaef2ebee707344dae96789254ba0a9"
+    },
+    {
+      "path": "bundle/data/records/manifest.json",
+      "sha256": "1aef0bd8d62cfbb613ec58cdeb9ffb6fc5064f22ae855218635b965f227c3d9b"
+    }
+  ],
+  "executed_at": "2026-07-29T12:08:27Z",
+  "failures": [],
+  "gate": "G4",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      "OKF_RELEASE_ROOT_SHA256=a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+      ".venv/bin/python",
+      "scripts/check_release_approval.py"
+    ],
+    "name": "bundle-and-exact-root-validator",
+    "sha256": "e9045467986ed448957f32788a7c456bc53197834ebe655684eba2de6537db94",
+    "version": "v1-candidate-edbe2cb"
+  },
+  "waivers": []
+}

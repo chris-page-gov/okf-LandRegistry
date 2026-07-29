@@ -1,0 +1,115 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "checks": [
+    {
+      "id": "hard-failures-zero",
+      "status": "pass",
+      "summary": "The independent acceptance review and formal evaluator report zero hard failures."
+    },
+    {
+      "id": "independent-question-review",
+      "status": "pass",
+      "summary": "All 24 questions, eight hard-failure types and eight held-out adversarial cases received independent AI-agent review."
+    },
+    {
+      "id": "mrr-threshold",
+      "status": "pass",
+      "summary": "Mean reciprocal rank is 0.864583 against a required minimum of 0.80."
+    },
+    {
+      "id": "recall-at-10-threshold",
+      "status": "pass",
+      "summary": "Expected-target recall at 10 is 38/38 (1.0), with all-target question success of 1.0."
+    },
+    {
+      "id": "source-caveat-coverage",
+      "status": "pass",
+      "summary": "Independent source-resolution and caveat coverage are both 1.0."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evaluation/acceptance-review.json",
+      "sha256": "9d4d8d1c34ea589dcd03ede8eaf0c7c01c429f0d743951d4676b8cf2dea50c98"
+    },
+    {
+      "path": "evaluation/questions.json",
+      "sha256": "a52d453eb359cc31c7e03e144dfc98805fd85eb2637dc386595cabbd82545869"
+    },
+    {
+      "path": "validation/evidence/evaluation-acceptance.json",
+      "sha256": "dc274890c02e10dc980b6cda18af8227e4a2bdae0066eceb34026ee3d3cca55a"
+    }
+  ],
+  "executed_at": "2026-07-29T12:08:13Z",
+  "failures": [],
+  "gate": "G5",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "Codex independent source catalogue agent /root/source_catalogue",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-07-29T12:08:13Z",
+        "role": "independent-evaluation-reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-07-29T12:08:13Z",
+      "execution_mode": "document-review",
+      "id": "hard-failure-review",
+      "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-29T12:08:13Z",
+      "execution_mode": "automated-agent",
+      "id": "independent-question-review",
+      "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-29T12:08:13Z",
+      "execution_mode": "document-review",
+      "id": "source-caveat-coverage",
+      "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "scripts/evaluate.py",
+      "--k",
+      "10",
+      "--min-expected-source-success-at-k",
+      "1.0",
+      "--min-expected-target-recall-at-k",
+      "0.90",
+      "--min-all-expected-target-success-at-k",
+      "1.0",
+      "--min-mrr",
+      "0.80",
+      "--acceptance-review",
+      "evaluation/acceptance-review.json",
+      "--output",
+      "validation/evidence/evaluation-acceptance.json"
+    ],
+    "name": "retrieval-diagnostic-and-formal-acceptance-evaluator",
+    "sha256": "f795bb9a53375f56202bce2d696fa4523467f9f60a55737d311b3fc1aff60518",
+    "version": "v1-candidate-edbe2cb"
+  },
+  "waivers": []
+}

@@ -1,0 +1,199 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "annotations": [
+    {
+      "annotationDate": "2026-07-29T11:00:00Z",
+      "annotationType": "OTHER",
+      "annotator": "Tool: scripts/create_release_metadata.py",
+      "comment": "Dependency versions and permitted distribution hashes are bound by requirements-lock.txt SHA-256 2b34dff6da8650b0c1f1bb238866bd86075b2593882458d8ee68ac3a15b5ddf2."
+    }
+  ],
+  "creationInfo": {
+    "created": "2026-07-29T11:00:00Z",
+    "creators": [
+      "Tool: scripts/create_release_metadata.py"
+    ],
+    "licenseListVersion": "3.27"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentDescribes": [
+    "SPDXRef-Package-okf-landregistry"
+  ],
+  "documentNamespace": "https://chris-page-gov.github.io/okf-LandRegistry/spdx/a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+  "name": "okf-landregistry-0.1.0",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-okf-landregistry",
+      "comment": "Mixed repository licensing is declared in LICENSE.md; source metadata and linked material retain their own terms.",
+      "copyrightText": "Copyright 2026 Chris Page",
+      "downloadLocation": "https://github.com/chris-page-gov/okf-LandRegistry",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "okf-LandRegistry",
+      "versionInfo": "0.1.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-attrs",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/attrs/26.1.0/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/attrs@26.1.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "attrs",
+      "versionInfo": "26.1.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-jsonschema",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/jsonschema/4.26.0/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/jsonschema@4.26.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "jsonschema",
+      "versionInfo": "4.26.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-jsonschema-specifications",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/jsonschema-specifications/2025.9.1/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/jsonschema-specifications@2025.9.1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "jsonschema-specifications",
+      "versionInfo": "2025.9.1"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-referencing",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/referencing/0.37.0/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/referencing@0.37.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "referencing",
+      "versionInfo": "0.37.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-rpds-py",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/rpds-py/2026.6.3/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/rpds-py@2026.6.3",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "rpds-py",
+      "versionInfo": "2026.6.3"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-ruamel-yaml",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/ruamel-yaml/0.19.1/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/ruamel-yaml@0.19.1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "ruamel-yaml",
+      "versionInfo": "0.19.1"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-typing-extensions",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pypi.org/project/typing-extensions/4.16.0/",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/typing-extensions@4.16.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "typing-extensions",
+      "versionInfo": "4.16.0"
+    }
+  ],
+  "relationships": [
+    {
+      "relatedSpdxElement": "SPDXRef-Package-okf-landregistry",
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-attrs",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-jsonschema",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-jsonschema-specifications",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-referencing",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-rpds-py",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-ruamel-yaml",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-typing-extensions",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-okf-landregistry"
+    }
+  ],
+  "spdxVersion": "SPDX-2.3"
+}

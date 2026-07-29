@@ -1,0 +1,48 @@
+{
+  "schema": "okf-hmlr-supply-chain-validation-evidence.v1",
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c"
+  },
+  "executed_at": "2026-07-29T12:08:27Z",
+  "status": "pass",
+  "archive": {
+    "path": "dist/okf-landregistry-0.1.0.zip",
+    "bytes": 1101554,
+    "file_count": 43,
+    "sha256": "39ad20759dbd211da158f81c018b697d0fa8b5895fab9aab782113595d3b0dc5",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c"
+  },
+  "dependency_lock": {
+    "path": "requirements-lock.txt",
+    "sha256": "2b34dff6da8650b0c1f1bb238866bd86075b2593882458d8ee68ac3a15b5ddf2",
+    "packages": 7,
+    "hash_locked": true
+  },
+  "workflow": {
+    "path": ".github/workflows/pages.yml",
+    "sha256": "89819d3ef9e5d10dcc2f1eb4417314aeb0c0dd2d9e8bdd0352463a47a5ce4f34",
+    "sha_pinned_actions": 5,
+    "unversioned_actions": 0
+  },
+  "sbom": {
+    "path": "validation/evidence/sbom.spdx.json",
+    "sha256": "2ea95edc04cc897047a004cc472a07a7ae4bc4c2a522570c35d2a7bf0ef6512b",
+    "format": "SPDX-2.3",
+    "packages": 8
+  },
+  "provenance": {
+    "path": "validation/evidence/provenance.json",
+    "sha256": "b074ef9c930b39402dfdfdb2b7cb21f0f7d049a466e165a013255a96e4ff8673",
+    "schema": "okf-hmlr-release-provenance.v1",
+    "materials": 6,
+    "workflow_actions": 5
+  },
+  "checks": {
+    "artifact_manifest_complete": true,
+    "archive_rehashes": true,
+    "dependency_provenance_present": true,
+    "workflow_provenance_present": true,
+    "sbom_recorded": true
+  }
+}

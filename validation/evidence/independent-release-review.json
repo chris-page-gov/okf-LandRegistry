@@ -1,0 +1,280 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
+    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
+    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
+    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+  },
+  "claims_review": {
+    "approved_claims": [
+      "Version 0.1.0 is an AI-generated proof of concept for independent metadata discovery.",
+      "The bundle is metadata-only and is not an HM Land Registry service or endorsement.",
+      "The bundle is not legal advice and does not prove ownership, priority or an exact legal boundary.",
+      "Completeness is asserted only for the named, dated and reconciled GOV.UK, public GitHub and CDDO acquisition lanes.",
+      "Linked datasets, repository source trees, service results and restricted content are not relicensed by the bundle.",
+      "Personas and evaluation fixtures are evidence-led hypotheses, not participant-validated research.",
+      "Automated and AI-agent accessibility checks do not establish WCAG conformance or substitute for an independent human audit."
+    ],
+    "conflicting_or_unsupported_claims": [],
+    "public_disclosure_verified": {
+      "ai_generated_proof_of_concept": true,
+      "human_audit_not_completed": true,
+      "independent_from_hm_land_registry": true,
+      "no_exact_boundary_claim": true,
+      "no_legal_or_ownership_advice": true,
+      "no_participant_research_claim": true,
+      "no_wcag_conformance_claim": true
+    },
+    "status": "pass"
+  },
+  "conditions": [
+    "The project owner must approve this exact candidate commit, release root, canonical URL, reviewed claims and all residual risk IDs in G9.",
+    "G9 must record human_audit.status as not_completed and human_audit.residual_risk_id as RISK-015.",
+    "The exact G1-G8 receipt hashes assembled after this review must validate against the release-evidence schema.",
+    "The candidate bundle, domain profile and frozen snapshot must remain byte-identical between C1 and the evidence commit.",
+    "GitHub Pages deployment must remain gated by OKF_RELEASE_ROOT_SHA256 equal to the exact release root.",
+    "Production Pages must be smoke-tested after deployment; any material mismatch or critical finding reopens approval."
+  ],
+  "evidence_integrity": {
+    "acceptance_review": {
+      "candidate_commit_matches": true,
+      "held_out_adversarial_reviews": 8,
+      "path": "evaluation/acceptance-review.json",
+      "question_reviews": 24,
+      "release_root_matches": true,
+      "sha256": "9d4d8d1c34ea589dcd03ede8eaf0c7c01c429f0d743951d4676b8cf2dea50c98"
+    },
+    "archive": {
+      "bytes": 1101554,
+      "content_mismatches": 0,
+      "file_count": 43,
+      "file_inventory_matches_bundle": true,
+      "path": "dist/okf-landregistry-0.1.0.zip",
+      "release_root_matches": true,
+      "sha256": "39ad20759dbd211da158f81c018b697d0fa8b5895fab9aab782113595d3b0dc5"
+    },
+    "governed_candidate_drift": {
+      "bundle": false,
+      "domain-profile": false,
+      "source/snapshots": false
+    },
+    "referenced_hash_mismatches": 0,
+    "release_root_recomputed": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
+    "strict_json_documents_reviewed": 11
+  },
+  "failures": [],
+  "gate_reviews": {
+    "G1": {
+      "evidence": [
+        {
+          "path": "validation/evidence/profile-validation.json",
+          "sha256": "90ed20215ddf67841fc0fead8250f9d0c51f74f1996c0534cfbc9632545d071f"
+        }
+      ],
+      "finding": "The JSON and YAML profile forms are schema-valid, canonically equivalent and reference-closed; the complete profile checksum inventory and pack root rehash.",
+      "status": "pass",
+      "supported_checks": [
+        "schema-valid",
+        "json-yaml-equivalent",
+        "references-closed",
+        "profile-pack-rehashed"
+      ]
+    },
+    "G2": {
+      "evidence": [
+        {
+          "path": "validation/evidence/acquisition-validation.json",
+          "sha256": "8fef9246efed5f000ead115c91ebee0fa28aadb733c4167723aa19a0f37d455c"
+        }
+      ],
+      "finding": "The frozen public-metadata source envelopes rehash, declared media types pass, every named acquisition lane has a reconciled terminal outcome, and the bounded scope and omissions are explicit.",
+      "status": "pass",
+      "supported_checks": [
+        "envelopes-rehashed",
+        "media-types-valid",
+        "terminal-outcomes-complete",
+        "omissions-explicit"
+      ]
+    },
+    "G3": {
+      "evidence": [
+        {
+          "path": "validation/rights-safety.json",
+          "sha256": "2ca117a61b9e226f32abf87cb2af82f7f08597bfad8973efb177c1e8b655cd6b"
+        }
+      ],
+      "finding": "All 2,202 public records have complete, resolving access and rights projections. Structural tests, pattern scans and stratified AI-agent review found no prohibited public content. The review is explicitly not human legal or licence assurance.",
+      "status": "pass",
+      "supported_checks": [
+        "field-inventory-reviewed",
+        "rights-access-complete",
+        "prohibited-content-absent",
+        "independent-rights-review"
+      ]
+    },
+    "G4": {
+      "evidence": [
+        {
+          "path": "validation/evidence/bundle-validation.json",
+          "sha256": "8b687de5a38d92689dfc3690e3ca3c961f706360f5fec02bb6550d2cb757c64e"
+        }
+      ],
+      "finding": "The 2,202-record bundle passed the complete 86-test suite, OKF and data-plane integrity checks, the 42-entry checksum inventory, local route validation and exact release-root approval check.",
+      "status": "pass",
+      "supported_checks": [
+        "okf-core-valid",
+        "data-plane-valid",
+        "checksums-valid",
+        "routes-valid"
+      ]
+    },
+    "G5": {
+      "evidence": [
+        {
+          "path": "validation/evidence/evaluation-acceptance.json",
+          "sha256": "dc274890c02e10dc980b6cda18af8227e4a2bdae0066eceb34026ee3d3cca55a"
+        },
+        {
+          "path": "evaluation/acceptance-review.json",
+          "sha256": "9d4d8d1c34ea589dcd03ede8eaf0c7c01c429f0d743951d4676b8cf2dea50c98"
+        }
+      ],
+      "finding": "Independent AI-agent review covers all 24 questions and eight held-out adversarial cases. No hard failures were observed; MRR is 0.864583, Recall@10, expected-target success, source resolution and caveat coverage are all 1.0.",
+      "status": "pass",
+      "supported_checks": [
+        "independent-question-review",
+        "hard-failures-zero",
+        "mrr-threshold",
+        "recall-at-10-threshold",
+        "source-caveat-coverage"
+      ]
+    },
+    "G6": {
+      "evidence": [
+        {
+          "path": "validation/evidence/browser-accessibility-security-performance.json",
+          "sha256": "1271a5ec5473bb69444ce7d85de55367361aca5d47c624fdd586bf9f6a819494"
+        }
+      ],
+      "finding": "Automated axe checks found zero violations on three routes; agent-operated keyboard, state, progressive-load, high-risk, no-JavaScript, semantics and 320 CSS-pixel journeys passed. Security critical findings and third-party runtime requests are zero, and all declared performance budgets pass.",
+      "status": "pass",
+      "supported_checks": [
+        "automated-journeys",
+        "manual-accessibility-journeys",
+        "security-critical-zero",
+        "performance-budgets"
+      ]
+    },
+    "G7": {
+      "evidence": [
+        {
+          "path": "validation/evidence/reproducibility.json",
+          "sha256": "9175751c025b122a11dfb8922f37ac6e2e926bbf4f9f6c84f49a444bb62bdd2d"
+        }
+      ],
+      "finding": "The committed bundle and two clean offline builds have the same release root and zero byte differences.",
+      "status": "pass",
+      "supported_checks": [
+        "clean-build-a",
+        "clean-build-b",
+        "byte-identical",
+        "committed-bundle-identical"
+      ]
+    },
+    "G8": {
+      "evidence": [
+        {
+          "path": "validation/evidence/supply-chain-validation.json",
+          "sha256": "fb372e91b314c867ed275a13f1cc7866bc1ea06dc5b3882492312c28dc216a7d"
+        },
+        {
+          "path": "validation/evidence/release-archive.json",
+          "sha256": "6f562e6c075c6671d51a74497128c4dc55824c52db939d7e0701243fc4571089"
+        },
+        {
+          "path": "validation/evidence/provenance.json",
+          "sha256": "b074ef9c930b39402dfdfdb2b7cb21f0f7d049a466e165a013255a96e4ff8673"
+        },
+        {
+          "path": "validation/evidence/sbom.spdx.json",
+          "sha256": "2ea95edc04cc897047a004cc472a07a7ae4bc4c2a522570c35d2a7bf0ef6512b"
+        }
+      ],
+      "finding": "The deterministic 43-file archive exactly matches the bundle and rehashes. The seven-package dependency lock is hash-enforced, all five workflow actions are commit-pinned, and SPDX 2.3 SBOM plus build/workflow provenance are present.",
+      "status": "pass",
+      "supported_checks": [
+        "artifact-manifest-complete",
+        "dependency-provenance",
+        "workflow-provenance",
+        "sbom-recorded"
+      ]
+    }
+  },
+  "limitations": [
+    "This is an independent AI-agent review, not an independent human legal, licence, privacy, security or accessibility audit.",
+    "The release remains a bounded metadata proof of concept and is not production-ready, complete across the entire HMLR public estate or suitable for legal reliance.",
+    "Automated and agent-operated testing cannot prove universal accessibility, security, privacy or retrieval quality.",
+    "Publisher pages, terms, services, repository states and dataset rights may change after the 2026-07-29 observation cutoff.",
+    "Welsh parity and representative-user validation remain open gaps."
+  ],
+  "outcome": "recommend_approval",
+  "residual_risk_review": {
+    "accepted_gap_ids": [
+      "RISK-012",
+      "RISK-013",
+      "RISK-015"
+    ],
+    "controlled_by_digest_bound_release_ids": [
+      "RISK-014"
+    ],
+    "controlled_but_still_residual_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-004",
+      "RISK-005",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011"
+    ],
+    "human_audit": {
+      "residual_risk_id": "RISK-015",
+      "status": "not_completed"
+    },
+    "required_g9_residual_risk_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-004",
+      "RISK-005",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011",
+      "RISK-012",
+      "RISK-013",
+      "RISK-014",
+      "RISK-015"
+    ],
+    "review_finding": "No gate evidence shows a triggered hard-failure disposition. All governance risks retain non-zero residual scores and therefore require explicit G9 owner review; RISK-012, RISK-013 and RISK-015 remain prominently disclosed accepted gaps.",
+    "status": "pass"
+  },
+  "review": {
+    "independent": true,
+    "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+    "kind": "ai-agent",
+    "reviewed_at": "2026-07-29T12:13:38Z",
+    "role": "release-reviewer",
+    "scope_separation": "The reviewer did not author or edit the acquisition, frozen source snapshot, domain profile, governance controls, normalisation, generated bundle, gate validators, package tooling, acceptance review, SBOM or provenance. The reviewer created the separate G3 rights evidence and this final read-only release recommendation."
+  },
+  "schema": "okf-independent-release-review.v1",
+  "status": "pass",
+  "summary": "G1-G8 are supported for the exact v0.1.0 candidate. The public claims are bounded and the residual risks are disclosed. Independent AI-agent review recommends project-owner approval only for this exact digest as an AI-generated proof of concept.",
+  "waivers": []
+}
