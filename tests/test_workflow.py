@@ -15,6 +15,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertGreaterEqual(len(uses), 5)
         for action, revision in uses:
             self.assertRegex(revision, r"^[0-9a-f]{40}$", action)
+        self.assertIn("fetch-depth: 0", workflow)
         self.assertIn("path: bundle", workflow)
         self.assertIn("scripts/build.py --replace", workflow)
         self.assertIn("scripts/check_domain_profile.py", workflow)

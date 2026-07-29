@@ -4,7 +4,7 @@
     "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
     "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c"
   },
-  "executed_at": "2026-07-29T12:08:27Z",
+  "executed_at": "2026-07-29T12:25:32Z",
   "status": "pass",
   "archive": {
     "path": "dist/okf-landregistry-0.1.0.zip",
@@ -21,9 +21,10 @@
   },
   "workflow": {
     "path": ".github/workflows/pages.yml",
-    "sha256": "89819d3ef9e5d10dcc2f1eb4417314aeb0c0dd2d9e8bdd0352463a47a5ce4f34",
+    "sha256": "02cd32b471136b060549eb8f2316f52718ecf5f1a9a18ab194546ce3a4d2c636",
     "sha_pinned_actions": 5,
-    "unversioned_actions": 0
+    "unversioned_actions": 0,
+    "full_history_checkout": true
   },
   "sbom": {
     "path": "validation/evidence/sbom.spdx.json",
@@ -33,7 +34,7 @@
   },
   "provenance": {
     "path": "validation/evidence/provenance.json",
-    "sha256": "b074ef9c930b39402dfdfdb2b7cb21f0f7d049a466e165a013255a96e4ff8673",
+    "sha256": "77e3148a1906ef6396aedd59b0147356c2b86487e594d227f218ffc215eae96e",
     "schema": "okf-hmlr-release-provenance.v1",
     "materials": 6,
     "workflow_actions": 5

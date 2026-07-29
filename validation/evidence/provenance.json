@@ -48,7 +48,7 @@
     },
     {
       "path": ".github/workflows/pages.yml",
-      "sha256": "89819d3ef9e5d10dcc2f1eb4417314aeb0c0dd2d9e8bdd0352463a47a5ce4f34"
+      "sha256": "02cd32b471136b060549eb8f2316f52718ecf5f1a9a18ab194546ce3a4d2c636"
     },
     {
       "path": "pages/search-contract.json",

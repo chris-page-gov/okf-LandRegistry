@@ -61,7 +61,13 @@
     },
     "referenced_hash_mismatches": 0,
     "release_root_recomputed": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "strict_json_documents_reviewed": 11
+    "strict_json_documents_reviewed": 11,
+    "workflow": {
+      "commit_pinned_actions": 5,
+      "full_history_checkout": true,
+      "path": ".github/workflows/pages.yml",
+      "sha256": "02cd32b471136b060549eb8f2316f52718ecf5f1a9a18ab194546ce3a4d2c636"
+    }
   },
   "failures": [],
   "gate_reviews": {
@@ -186,7 +192,7 @@
       "evidence": [
         {
           "path": "validation/evidence/supply-chain-validation.json",
-          "sha256": "fb372e91b314c867ed275a13f1cc7866bc1ea06dc5b3882492312c28dc216a7d"
+          "sha256": "65eb624db5a484905608ad4070d526abaed84b44db4f76949e24c37074213468"
         },
         {
           "path": "validation/evidence/release-archive.json",
@@ -194,14 +200,14 @@
         },
         {
           "path": "validation/evidence/provenance.json",
-          "sha256": "b074ef9c930b39402dfdfdb2b7cb21f0f7d049a466e165a013255a96e4ff8673"
+          "sha256": "77e3148a1906ef6396aedd59b0147356c2b86487e594d227f218ffc215eae96e"
         },
         {
           "path": "validation/evidence/sbom.spdx.json",
           "sha256": "2ea95edc04cc897047a004cc472a07a7ae4bc4c2a522570c35d2a7bf0ef6512b"
         }
       ],
-      "finding": "The deterministic 43-file archive exactly matches the bundle and rehashes. The seven-package dependency lock is hash-enforced, all five workflow actions are commit-pinned, and SPDX 2.3 SBOM plus build/workflow provenance are present.",
+      "finding": "The deterministic 43-file archive exactly matches the bundle and rehashes. The seven-package dependency lock is hash-enforced, all five workflow actions are commit-pinned, checkout fetches full history for candidate ancestry validation, and SPDX 2.3 SBOM plus updated build/workflow provenance are present.",
       "status": "pass",
       "supported_checks": [
         "artifact-manifest-complete",
@@ -269,7 +275,7 @@
     "independent": true,
     "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
     "kind": "ai-agent",
-    "reviewed_at": "2026-07-29T12:13:38Z",
+    "reviewed_at": "2026-07-29T12:25:44Z",
     "role": "release-reviewer",
     "scope_separation": "The reviewer did not author or edit the acquisition, frozen source snapshot, domain profile, governance controls, normalisation, generated bundle, gate validators, package tooling, acceptance review, SBOM or provenance. The reviewer created the separate G3 rights evidence and this final read-only release recommendation."
   },

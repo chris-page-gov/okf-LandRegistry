@@ -11,7 +11,7 @@
     },
     {
       "gate": "G3",
-      "sha256": "cb73e88c0b063886d1db7d554cc8dc3616d48b610e5a87f4c32ab5dd61877e10"
+      "sha256": "7bc66490eece1f0087e0cf049d5df3460ba28482b41491b6b8dff1bd4affdb54"
     },
     {
       "gate": "G4",
@@ -31,7 +31,7 @@
     },
     {
       "gate": "G8",
-      "sha256": "97f2c726754b1d0b7962905eea4eee29552738a235529c309de5145d8fcd7001"
+      "sha256": "1bcee8efa667b10df102f524fe61cb48c54aed795a39f7b5bbbfb605c2a703c6"
     }
   ],
   "candidate": {
@@ -54,7 +54,7 @@
     "independent": true,
     "kind": "ai-agent",
     "outcome": "recommend_approval",
-    "reviewed_at": "2026-07-29T12:13:38Z",
+    "reviewed_at": "2026-07-29T12:25:44Z",
     "role": "release-reviewer"
   },
   "owner_approval": {

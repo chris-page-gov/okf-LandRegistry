@@ -1,6 +1,6 @@
 {
   "schema": "okf-release-assembly-input.v1",
-  "generated_at": "2026-07-29T12:19:07Z",
+  "generated_at": "2026-07-29T12:26:52Z",
   "gates": {
     "G1": {
       "status": "pass",
@@ -421,7 +421,7 @@
     },
     "G8": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:27Z",
+      "executed_at": "2026-07-29T12:25:32Z",
       "validator": {
         "name": "release-package-sbom-and-provenance-generator",
         "version": "v1-candidate-edbe2cb",
@@ -513,7 +513,7 @@
       "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
       "kind": "ai-agent",
       "role": "release-reviewer",
-      "reviewed_at": "2026-07-29T12:13:38Z",
+      "reviewed_at": "2026-07-29T12:25:44Z",
       "independent": true,
       "outcome": "recommend_approval"
     }
