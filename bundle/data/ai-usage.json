@@ -21,10 +21,10 @@
       }
     },
     "measurement_scope": {
-      "coverage": "partial-from-goal-tracking-start-to-candidate-freeze",
-      "description": "AI-assisted research, authoring, review and release work performed in the Codex subscription task surface for the v0.1.0 proof of concept.",
+      "coverage": "partial-v0.1.0-goal-reading-plus-unavailable-v0.2.0-correction-usage",
+      "description": "AI-assisted research, authoring, correction, review and release work performed in the Codex subscription task surface through the v0.2.0 proof of concept.",
       "id": "RELEASE-AUTHORING-TASK-2026-07-29",
-      "measurement_cutoff_at": "2026-07-29T12:04:29Z",
+      "measurement_cutoff_at": "2026-07-29T15:30:00Z",
       "pre_tracking_usage": {
         "input_tokens": null,
         "output_tokens": null,
@@ -35,7 +35,7 @@
       "tracking_started_at": "2026-07-29T11:41:33Z"
     },
     "methodology": {
-      "candidate_freeze_record": "The available goal-level total was recorded at candidate freeze. The platform did not expose a trustworthy input/output split, pre-tracking total or task-level subscription allocation, so those fields remain null.",
+      "candidate_freeze_record": "The available v0.1.0 goal-level total is retained. No active goal-level usage report was exposed for the v0.2.0 correction, and the platform did not expose a trustworthy input/output split, pre-tracking total or task-level subscription allocation, so those fields remain null.",
       "human_audit": "not_performed",
       "retrospective_estimation": false,
       "subscription_is_api_spend": false,
@@ -53,6 +53,18 @@
         "model_identification_status": "exact-model-identifier-not-supplied-as-billing-evidence",
         "notes": "A measured total may be recorded even when the platform does not expose a trustworthy input/output split. Subagents and automatic continuation are included only to the extent represented by the goal tracker.",
         "surface": "Codex subscription task surface"
+      },
+      {
+        "id": "CODEX-SUBSCRIPTION-CORRECTION-2026-07-29",
+        "measured_input_tokens": null,
+        "measured_output_tokens": null,
+        "measured_total_tokens": null,
+        "measurement_source": "No active goal-level usage report was exposed for the v0.2.0 correction task at candidate freeze.",
+        "measurement_status": "unavailable",
+        "model": null,
+        "model_identification_status": "exact-model-identifier-not-supplied-as-billing-evidence",
+        "notes": "The correction used the subscription task surface and subagents, but the platform supplied no trustworthy task-level token total or input/output split; null is not zero.",
+        "surface": "Codex subscription task surface"
       }
     ],
     "notes": [
@@ -60,12 +72,12 @@
       "Null means unavailable or not yet measured, never zero.",
       "The USD 0.00 value is limited to separately billed, user-keyed OpenAI API calls and does not value the subscription, staff time, tool traffic or infrastructure."
     ],
-    "release_version": "0.1.0",
+    "release_version": "0.2.0",
     "schema": "okf-hmlr-ai-model-usage.v1"
   },
   "schema": "okf-hmlr-ai-usage-projection.v1",
   "source": {
     "path": "governance/ai-model-usage.json",
-    "sha256": "7839f57cc7d29f645b56366afd50ef70fb8da4c8cee7863a8eff0eaeb39a0a90"
+    "sha256": "83ff435b958a85cc22b3290498d7921ac93032f0829111e27225142999b3bf1d"
   }
 }

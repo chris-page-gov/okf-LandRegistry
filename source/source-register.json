@@ -20,6 +20,7 @@
     "enumerate_user_content": false,
     "public_metadata_lanes": [
       "GOV.UK Search API records attributed to organisation slug land-registry",
+      "Bounded GOV.UK Content API locale and available-translations observations for already-enumerated routes",
       "Public repository metadata for the LandRegistry GitHub organisation",
       "CDDO API Catalogue rows whose provider is hm-land-registry"
     ]
@@ -57,12 +58,13 @@
       "authority_tier": "official-reference",
       "access_state": "public",
       "rights_state": "open-with-conditions",
-      "acquisition": "Potential targeted metadata enrichment for routes already enumerated by GOV.UK Search; outside the initial automated lane.",
-      "observed_denominator": null,
-      "denominator_as_of": null,
-      "refresh": "Only within a declared release snapshot.",
+      "acquisition": "Bounded locale and available-translations metadata observation for already-enumerated GOV.UK routes. Bodies, contacts, details and attachments are excluded.",
+      "observed_denominator": 2,
+      "denominator_as_of": "2026-07-29",
+      "refresh": "Refresh only the bounded observation set when its declared freshness rule requires it.",
       "caveats": [
         "This is not an independent content denominator.",
+        "Locale is taken from the Content API; no unsupported locale parameter is sent to the Search API.",
         "Rendered bodies and attachments remain outside bundle scope."
       ]
     },

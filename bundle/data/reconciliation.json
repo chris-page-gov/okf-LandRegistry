@@ -1,5 +1,5 @@
 {
-  "canonical_url_collisions": 23,
+  "canonical_url_collisions": 24,
   "collisions": [
     {
       "representation_count": 2,
@@ -7,7 +7,7 @@
         "hmlr:corporate:annual-reports",
         "govuk:https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts"
       ],
-      "selected_id": "hmlr:corporate:annual-reports",
+      "selected_id": "hmlr-da13be8a1368516b172ee1bb",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts"
     },
@@ -17,7 +17,7 @@
         "hmlr:collection:forms",
         "govuk:https://www.gov.uk/government/collections/hm-land-registry-forms"
       ],
-      "selected_id": "hmlr:collection:forms",
+      "selected_id": "hmlr-c1adffb2057cd6e099004dde",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/collections/hm-land-registry-forms"
     },
@@ -27,7 +27,7 @@
         "hmlr:service:portal",
         "govuk:https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
       ],
-      "selected_id": "hmlr:service:portal",
+      "selected_id": "hmlr-1beb6fbc5637a9b82e1a2981",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
     },
@@ -37,7 +37,7 @@
         "hmlr:collection:land-registration-data",
         "govuk:https://www.gov.uk/government/collections/land-registration-data"
       ],
-      "selected_id": "hmlr:collection:land-registration-data",
+      "selected_id": "hmlr-fd195f37acd21a27a58f2550",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/collections/land-registration-data"
     },
@@ -47,7 +47,7 @@
         "hmlr:collection:practice-guides",
         "govuk:https://www.gov.uk/government/collections/land-registration-practice-guides"
       ],
-      "selected_id": "hmlr:collection:practice-guides",
+      "selected_id": "hmlr-b7d4b6799c42c21fc704c8a4",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/collections/land-registration-practice-guides"
     },
@@ -57,7 +57,7 @@
         "hmlr:dataset:uk-house-price-index",
         "govuk:https://www.gov.uk/government/collections/uk-house-price-index-reports"
       ],
-      "selected_id": "hmlr:dataset:uk-house-price-index",
+      "selected_id": "hmlr-24cb8715122feb7048b803bd",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/collections/uk-house-price-index-reports"
     },
@@ -67,7 +67,7 @@
         "hmlr:organisation",
         "govuk:https://www.gov.uk/government/organisations/land-registry"
       ],
-      "selected_id": "hmlr:organisation",
+      "selected_id": "hmlr-0cc6d8ee6cef3871fe1b9395",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/organisations/land-registry"
     },
@@ -77,7 +77,7 @@
         "hmlr:accessibility:documents-policy",
         "govuk:https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy"
       ],
-      "selected_id": "hmlr:accessibility:documents-policy",
+      "selected_id": "hmlr-14141da0d1699d7a37d62fc3",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/organisations/land-registry/about/accessible-documents-policy"
     },
@@ -87,7 +87,7 @@
         "hmlr:privacy:personal-information-charter",
         "govuk:https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter"
       ],
-      "selected_id": "hmlr:privacy:personal-information-charter",
+      "selected_id": "hmlr-826e56b338e0d7cae37990ef",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter"
     },
@@ -97,7 +97,7 @@
         "hmlr:corporate:publication-scheme",
         "govuk:https://www.gov.uk/government/organisations/land-registry/about/publication-scheme"
       ],
-      "selected_id": "hmlr:corporate:publication-scheme",
+      "selected_id": "hmlr-fbe3036b6b08304fb2fc615d",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/organisations/land-registry/about/publication-scheme"
     },
@@ -107,7 +107,7 @@
         "hmlr:policy:welsh-language-scheme",
         "govuk:https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
       ],
-      "selected_id": "hmlr:policy:welsh-language-scheme",
+      "selected_id": "hmlr-a06335fbd99b66b49262359f",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
     },
@@ -117,7 +117,7 @@
         "hmlr:dataset:geospatial-data-catalogue",
         "govuk:https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
       ],
-      "selected_id": "hmlr:dataset:geospatial-data-catalogue",
+      "selected_id": "hmlr-eddb4a4c2e56c5d44b541ee0",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
     },
@@ -127,7 +127,7 @@
         "hmlr:corporate:business-plan-2026",
         "govuk:https://www.gov.uk/government/publications/hm-land-registry-business-plan-2026"
       ],
-      "selected_id": "hmlr:corporate:business-plan-2026",
+      "selected_id": "hmlr-15d0f8cbf5da6971e9eb853a",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/publications/hm-land-registry-business-plan-2026"
     },
@@ -137,7 +137,7 @@
         "hmlr:guidance:plans-boundaries-pg40s3",
         "govuk:https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
       ],
-      "selected_id": "hmlr:guidance:plans-boundaries-pg40s3",
+      "selected_id": "hmlr-67b30d277b91539ede47ceae",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
     },
@@ -147,9 +147,19 @@
         "hmlr:corporate:strategy-2025",
         "govuk:https://www.gov.uk/government/publications/hm-land-registry-strategy-2025"
       ],
-      "selected_id": "hmlr:corporate:strategy-2025",
+      "selected_id": "hmlr-17c8f9c59dc023f1d3fb4008",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/publications/hm-land-registry-strategy-2025"
+    },
+    {
+      "representation_count": 2,
+      "representation_ids": [
+        "govuk-content:4a43de8b-16c6-4a80-aedd-7a72786a29eb:en",
+        "govuk:https://www.gov.uk/government/publications/land-registry-welsh-glossary-of-legal-terms"
+      ],
+      "selected_id": "hmlr-2ee481af07c02b79bce6b1e6",
+      "selection_rule": "reviewed curation, then authority tier, then stable ID",
+      "url": "https://www.gov.uk/government/publications/land-registry-welsh-glossary-of-legal-terms"
     },
     {
       "representation_count": 2,
@@ -157,7 +167,7 @@
         "hmlr:dataset:price-paid-data",
         "govuk:https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
       ],
-      "selected_id": "hmlr:dataset:price-paid-data",
+      "selected_id": "hmlr-3b11ad1cf66fec6e4b26fdac",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
     },
@@ -167,7 +177,7 @@
         "hmlr:dataset:1862-act-register",
         "govuk:https://www.gov.uk/guidance/1862-act-register"
       ],
-      "selected_id": "hmlr:dataset:1862-act-register",
+      "selected_id": "hmlr-7073dffae7f428e0cb9f875c",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/guidance/1862-act-register"
     },
@@ -177,7 +187,7 @@
         "hmlr:guidance:property-professionals",
         "govuk:https://www.gov.uk/guidance/guidance-and-support-for-property-professionals"
       ],
-      "selected_id": "hmlr:guidance:property-professionals",
+      "selected_id": "hmlr-e4576af00935a1e21aa7784f",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/guidance/guidance-and-support-for-property-professionals"
     },
@@ -187,7 +197,7 @@
         "hmlr:guidance:public",
         "govuk:https://www.gov.uk/guidance/guidance-for-members-of-the-public"
       ],
-      "selected_id": "hmlr:guidance:public",
+      "selected_id": "hmlr-fc7cfdc0f85ee1b9f42061ec",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/guidance/guidance-for-members-of-the-public"
     },
@@ -197,7 +207,7 @@
         "hmlr:guidance:processing-times",
         "govuk:https://www.gov.uk/guidance/hm-land-registry-processing-times"
       ],
-      "selected_id": "hmlr:guidance:processing-times",
+      "selected_id": "hmlr-434593f338d9b31d24b14774",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/guidance/hm-land-registry-processing-times"
     },
@@ -207,7 +217,7 @@
         "hmlr:guidance:registration-services-fees",
         "govuk:https://www.gov.uk/guidance/hm-land-registry-registration-services-fees"
       ],
-      "selected_id": "hmlr:guidance:registration-services-fees",
+      "selected_id": "hmlr-d6f86576b0b4c42b26f6b902",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/guidance/hm-land-registry-registration-services-fees"
     },
@@ -217,7 +227,7 @@
         "hmlr:guidance:official-copies-and-index-map",
         "govuk:https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
       ],
-      "selected_id": "hmlr:guidance:official-copies-and-index-map",
+      "selected_id": "hmlr-611cfe33f2d16809739db29d",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
     },
@@ -227,15 +237,15 @@
         "hmlr:service:property-information",
         "govuk:https://www.gov.uk/search-property-information-land-registry"
       ],
-      "selected_id": "hmlr:service:property-information",
+      "selected_id": "hmlr-1841cdb194ad8e7d4264683e",
       "selection_rule": "reviewed curation, then authority tier, then stable ID",
       "url": "https://www.gov.uk/search-property-information-land-registry"
     }
   ],
   "errors": 0,
   "excluded_records": 0,
-  "input_representations": 2225,
-  "merged_representations": 23,
-  "retained_records": 2202,
+  "input_representations": 2227,
+  "merged_representations": 24,
+  "retained_records": 2203,
   "schema": "okf-hmlr-reconciliation.v1"
 }

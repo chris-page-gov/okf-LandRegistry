@@ -15,7 +15,8 @@ from urllib.parse import urldefrag
 ROOT = Path(__file__).resolve().parents[1]
 SEARCH_CONTRACT = ROOT / "pages" / "search-contract.json"
 SEARCH_INDEX_SCHEMA = "okf-hmlr-search-index.v1"
-CATALOGUE_SCHEMA = "okf-hmlr-catalogue.v1"
+CATALOGUE_SCHEMA = "okf-hmlr-catalogue.v2"
+CATALOGUE_SCHEMAS = {"okf-hmlr-catalogue.v1", CATALOGUE_SCHEMA}
 ACCEPTANCE_REVIEW_SCHEMA = "okf-hmlr-evaluation-acceptance-review.v1"
 RELEASE_ROOT_MARKER = "# release-root-sha256: "
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -187,7 +188,7 @@ def load_records(bundle: Path) -> tuple[list[dict], dict]:
 
     catalogue_path = bundle / "data" / "catalogue.json"
     payload = json.loads(catalogue_path.read_text(encoding="utf-8"))
-    if payload.get("schema") != CATALOGUE_SCHEMA:
+    if payload.get("schema") not in CATALOGUE_SCHEMAS:
         raise ValueError(f"unsupported catalogue fallback: {catalogue_path}")
     records = payload.get("records")
     if not isinstance(records, list):
@@ -211,6 +212,10 @@ def evaluate_questions(
     all_target_questions = 0
     matched_target_count = 0
     expected_target_count = 0
+    forbidden_target_count = 0
+    forbidden_target_hits = 0
+    questions_without_forbidden_hits = 0
+    required_caveat_assertion_count = 0
     for question in questions:
         ranked = rank(question["query"], records, contract)
         expected = {
@@ -233,6 +238,33 @@ def evaluate_questions(
         matched_target_count += len(matched_at_k)
         expected_target_count += len(expected)
         reciprocal_ranks.append(0 if first_rank is None else 1 / first_rank)
+        forbidden_hits: list[dict] = []
+        forbidden_targets = question.get("must_not_retrieve", [])
+        forbidden_target_count += len(forbidden_targets)
+        for target in forbidden_targets:
+            target_url = canonical(target["canonical_url"])
+            max_rank = int(target.get("max_rank", k))
+            matching_rank = next(
+                (
+                    index
+                    for index, record in enumerate(ranked, start=1)
+                    if index <= max_rank and target_url in record_urls(record)
+                ),
+                None,
+            )
+            if matching_rank is not None:
+                forbidden_hits.append(
+                    {
+                        "target_id": target["target_id"],
+                        "canonical_url": target_url,
+                        "rank": matching_rank,
+                        "max_rank": max_rank,
+                    }
+                )
+        forbidden_target_hits += len(forbidden_hits)
+        questions_without_forbidden_hits += int(not forbidden_hits)
+        required_caveat_ids = sorted(set(question.get("required_caveat_ids", [])))
+        required_caveat_assertion_count += len(required_caveat_ids)
         rows.append(
             {
                 "question_id": question["id"],
@@ -245,6 +277,9 @@ def evaluate_questions(
                     url: target_ranks.get(url) for url in sorted(expected)
                 },
                 "matched_expected_targets": sorted(matched_at_k),
+                "must_not_retrieve_passed": not forbidden_hits,
+                "must_not_retrieve_hits": forbidden_hits,
+                "required_caveat_ids": required_caveat_ids,
                 "expected_target_recall_at_k": (
                     len(matched_at_k) / len(expected) if expected else 0
                 ),
@@ -266,6 +301,12 @@ def evaluate_questions(
             else 0
         ),
         "mean_reciprocal_rank": sum(reciprocal_ranks) / count if count else 0,
+        "must_not_retrieve_pass_rate": (
+            questions_without_forbidden_hits / count if count else 0
+        ),
+        "must_not_retrieve_target_count": forbidden_target_count,
+        "must_not_retrieve_hit_count": forbidden_target_hits,
+        "required_caveat_assertion_count": required_caveat_assertion_count,
         "hard_failures_evaluated": False,
     }
     return rows, metrics
@@ -296,7 +337,10 @@ def validate_acceptance_review(
             raise ValueError(f"evaluation reviewer lacks {field}")
 
     expected_by_id = {
-        question["id"]: set(question.get("hard_failure_ids", []))
+        question["id"]: {
+            "hard_failure_ids": set(question.get("hard_failure_ids", [])),
+            "required_caveat_ids": set(question.get("required_caveat_ids", [])),
+        }
         for question in questions
     }
     reviews = review.get("question_reviews")
@@ -308,7 +352,7 @@ def validate_acceptance_review(
     if set(review_by_id) != set(expected_by_id) or len(reviews) != len(review_by_id):
         raise ValueError("evaluation acceptance review question coverage is not exact")
 
-    for question_id, hard_failure_ids in expected_by_id.items():
+    for question_id, expected in expected_by_id.items():
         row = review_by_id[question_id]
         for field in (
             "source_resolution",
@@ -319,8 +363,11 @@ def validate_acceptance_review(
             if row.get(field) is not True:
                 raise ValueError(f"{question_id}: {field} is not passed")
         reviewed_ids = set(row.get("hard_failure_ids_reviewed", []))
-        if reviewed_ids != hard_failure_ids:
+        if reviewed_ids != expected["hard_failure_ids"]:
             raise ValueError(f"{question_id}: hard-failure review coverage differs")
+        caveat_ids = set(row.get("required_caveat_ids_verified", []))
+        if caveat_ids != expected["required_caveat_ids"]:
+            raise ValueError(f"{question_id}: required-caveat coverage differs")
         if row.get("hard_failures_observed") != []:
             raise ValueError(f"{question_id}: a hard failure was observed")
 
@@ -353,6 +400,64 @@ def validate_acceptance_review(
         "caveat_coverage": 1.0,
         "hard_failure_count": 0,
     }
+
+
+def validate_question_contract(payload: dict) -> None:
+    if payload.get("suite_partition") != "calibration":
+        raise ValueError("question suite must declare the calibration partition")
+    caveats = payload.get("caveat_registry")
+    if not isinstance(caveats, list) or not caveats:
+        raise ValueError("question suite lacks a caveat registry")
+    caveat_ids = {
+        row.get("id")
+        for row in caveats
+        if isinstance(row, dict) and isinstance(row.get("id"), str)
+    }
+    if len(caveat_ids) != len(caveats):
+        raise ValueError("question suite has invalid or duplicate caveat IDs")
+    questions = payload.get("questions")
+    if not isinstance(questions, list) or not questions:
+        raise ValueError("question suite lacks questions")
+    for question in questions:
+        question_id = question.get("id", "unknown")
+        expected_urls = {
+            canonical(source["canonical_url"])
+            for source in question.get("expected_sources", [])
+            if isinstance(source, dict)
+            and isinstance(source.get("canonical_url"), str)
+        }
+        runtime_expected = question.get("runtime_expected_source_url")
+        if (
+            not isinstance(runtime_expected, str)
+            or canonical(runtime_expected) not in expected_urls
+        ):
+            raise ValueError(
+                f"{question_id}: runtime expected source is not a declared target"
+            )
+        required = question.get("required_caveat_ids")
+        if not isinstance(required, list) or not required or not set(required) <= caveat_ids:
+            raise ValueError(f"{question_id}: required caveat IDs are invalid")
+        forbidden = question.get("must_not_retrieve")
+        if not isinstance(forbidden, list) or not forbidden:
+            raise ValueError(f"{question_id}: executable forbidden targets are absent")
+        target_ids: set[str] = set()
+        for target in forbidden:
+            if not isinstance(target, dict):
+                raise ValueError(f"{question_id}: invalid forbidden target")
+            target_id = target.get("target_id")
+            url = target.get("canonical_url")
+            max_rank = target.get("max_rank")
+            if (
+                not isinstance(target_id, str)
+                or not target_id
+                or target_id in target_ids
+                or not isinstance(url, str)
+                or not url.startswith("https://")
+                or not isinstance(max_rank, int)
+                or max_rank < 1
+            ):
+                raise ValueError(f"{question_id}: invalid forbidden target")
+            target_ids.add(target_id)
 
 
 def main() -> int:
@@ -407,6 +512,10 @@ def main() -> int:
     questions_path = ROOT / "evaluation" / "questions.json"
     questions_bytes = questions_path.read_bytes()
     questions = json.loads(questions_bytes)
+    try:
+        validate_question_contract(questions)
+    except ValueError as exc:
+        raise SystemExit(f"evaluation question contract failed closed: {exc}") from exc
     records, record_source = load_records(args.bundle)
     bundle_snapshot = record_source["snapshot_id"]
     catalogue_path = args.bundle / "data" / "catalogue.json"
@@ -429,6 +538,7 @@ def main() -> int:
         and metrics["all_expected_targets_success_at_k"]
         >= args.min_all_expected_target_success_at_k
         and metrics["mean_reciprocal_rank"] >= args.min_mrr
+        and metrics["must_not_retrieve_pass_rate"] == 1.0
     )
     acceptance = None
     if args.acceptance_review:
@@ -477,6 +587,9 @@ def main() -> int:
             else "not-evaluated"
         ),
         "bundle_snapshot": bundle_snapshot,
+        "evaluation_partition": "calibration",
+        "retrieval_engine": "deterministic-lexical-calibration-baseline",
+        "public_runtime_search": False,
         "record_source": record_source,
         "question_count": len(rows),
         "k": args.k,
@@ -499,6 +612,10 @@ def main() -> int:
             "mean_reciprocal_rank": (
                 "Mean reciprocal rank of the first expected canonical source URL."
             ),
+            "must_not_retrieve_pass_rate": (
+                "Fraction of calibration questions for which no declared "
+                "forbidden canonical target appears at or above its maximum rank."
+            ),
         },
         "diagnostic_thresholds": {
             "expected_source_success_at_k": args.min_expected_source_success_at_k,
@@ -513,6 +630,7 @@ def main() -> int:
         "limitations": (
             [
                 "This deterministic baseline is a retrieval diagnostic only.",
+                "It is a calibration baseline, not the locked Explorer search worker.",
                 "It is not an independent G5 acceptance evaluation and cannot satisfy G5.",
                 "Reviewed expected propositions are bounded acceptance expectations, not gold answers.",
                 (

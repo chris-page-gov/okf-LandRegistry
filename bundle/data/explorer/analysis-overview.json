@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-07-29T15:30:00Z",
+  "schema": "okf-explorer-analysis.v1",
+  "snapshot": "hmlr-public-metadata-v0.2.0",
+  "summary": {
+    "description": "Overview-first metadata discovery across the governed HM Land Registry public-estate source lanes.",
+    "notices": [
+      "Independent AI-generated proof of concept; not an HM Land Registry service or endorsement.",
+      "Metadata discovery only: not legal advice, proof of ownership, priority or an exact-boundary service.",
+      "Public access is not treated as blanket open rights; check each record and its current source terms.",
+      "Coverage is bounded to named, dated and reconciled source lanes, not the complete HMLR public estate."
+    ],
+    "title": "HM Land Registry public-estate metadata overview"
+  }
+}

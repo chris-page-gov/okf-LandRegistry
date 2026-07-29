@@ -1,44 +1,99 @@
 {
-  "builder": "scripts/build.py/0.1.0",
-  "builder_sha256": "1c1ad3970945caad0a4e51b1eccc45e7eec2db7db6e337a9ce71aec31baa24b4",
+  "builder": "scripts/build.py/0.2.0",
+  "builder_sha256": "e20c4e6bcf403367c9eb6b425fbee17e4bf749ce3e6ce0745b6ffe334d19e490",
   "curated_source": {
     "observed_at": "2026-07-29T07:53:38Z",
     "record_count": 55,
-    "sha256": "3dbe987c9517d04f3180c324365e1fedb74510c1a4ab891dd2e483a5f8b0a5bf"
+    "sha256": "5b045ea626c07d981a013419267060f90dfe3ea9d172674fec891f7ad05fed30"
   },
-  "domain_profile_canonical_sha256": "07be42048c45dfcfea69a30552dbb2e32e80641c30f38e17630ebbe9b2063f3a",
-  "domain_profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-  "generated_at": "2026-07-29T09:19:47Z",
+  "domain_profile_canonical_sha256": "99ab3683fc0bacaf133f1ea3ade6f27de736747595e87b8a50a2c61ac50f8aef",
+  "domain_profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+  "generated_at": "2026-07-29T15:30:00Z",
   "governed_inputs": [
+    {
+      "bytes": 7866,
+      "path": "contracts/okf-explorer.consumer-lock.json",
+      "sha256": "b03bdbb401e1621efc97d156bfc75cc30f3f75b03e5226cce14adaa5e9fc8bea"
+    },
     {
       "bytes": 608,
       "path": "domain-profile/CHECKSUMS.sha256",
-      "sha256": "44899010d4e4e1666fa06e59fec1d9a9f846ed2d8fe559036b01ba39d9427951"
+      "sha256": "4dd7c27b2fa4943b4197b9564cf10dd03411d5f980f256936e60f3739fd0d261"
     },
     {
-      "bytes": 128739,
+      "bytes": 130351,
       "path": "domain-profile/domain-profile.json",
-      "sha256": "11bff9ba448b051575f1cde0e77d5438415777f2568ed9d010229e2a1740ca73"
+      "sha256": "66f043a4bbae9df27609418c2698066423af60033fda0f9d36d08b8a241b6985"
     },
     {
-      "bytes": 22451,
+      "bytes": 27864,
+      "path": "evaluation/explorer-search-calibration-v0.2.0.json",
+      "sha256": "5351914a559f7cf702248421d345c574976cd0314d61353ff8b99cf3d6fdc0a1"
+    },
+    {
+      "bytes": 5753,
+      "path": "evaluation/explorer-v0.2.0-journeys.json",
+      "sha256": "f721e6c9915484d72ac38b3630926a0461ff7fe417f39651a1a8e79546968431"
+    },
+    {
+      "bytes": 858,
+      "path": "evaluation/fixtures/degraded-descriptor/journeys.json",
+      "sha256": "856b1300673b75b3c4967cfa063621cd973b659bd30314d1520f1f2e593f756d"
+    },
+    {
+      "bytes": 306,
+      "path": "evaluation/fixtures/degraded-descriptor/okf-explorer.json",
+      "sha256": "161cbede33da294f45b76f049a4c050dd49a5aa85e76a38fd13a80ae6f281ae5"
+    },
+    {
+      "bytes": 842,
+      "path": "evaluation/fixtures/malformed-descriptor/journeys.json",
+      "sha256": "434b5e6cd2573de07d36163835785534715ad85bc6942ed9de532ca8781220e6"
+    },
+    {
+      "bytes": 286,
+      "path": "evaluation/fixtures/malformed-descriptor/okf-explorer.json",
+      "sha256": "2c08d3fc240d2846fe32a1a79a1b9b9bf72cb97a9986d7a55e6cfe1a8d9abaaf"
+    },
+    {
+      "bytes": 1322,
+      "path": "evaluation/fixtures/tiny-producer/journeys.json",
+      "sha256": "13b8e11fb7aa2f38f237ae12df3976fd61baa7534aed5f882e4cdcc9e47b7464"
+    },
+    {
+      "bytes": 797,
+      "path": "evaluation/fixtures/tiny-producer/okf-explorer.json",
+      "sha256": "62ca82fa3bc70ce969c45d9766c7fe811b3389437ad943ff2c9ef4654cb13973"
+    },
+    {
+      "bytes": 868,
+      "path": "evaluation/fixtures/v0.1.0-degraded/journeys.json",
+      "sha256": "bae111ba9457c8bd5133785a1d159488c7e188b17c98e9eec485eca18a11c2a4"
+    },
+    {
+      "bytes": 22534,
       "path": "evaluation/journeys.json",
-      "sha256": "527477dd7020fb8af855a4b50396c4391df2a4a5e6153b97c19da79ff7086b61"
+      "sha256": "d8e42633d4eba03419345b2fd367b6dc80dd82fcb7cb41ae035e840a936810ce"
     },
     {
-      "bytes": 43467,
+      "bytes": 60798,
       "path": "evaluation/questions.json",
-      "sha256": "a52d453eb359cc31c7e03e144dfc98805fd85eb2637dc386595cabbd82545869"
+      "sha256": "c6d00626c50d3a50b29e0576ca529e3b0110eb270606feebeb3cde232b7dad9b"
     },
     {
-      "bytes": 3287,
+      "bytes": 4091,
       "path": "governance/ai-model-usage.json",
-      "sha256": "7839f57cc7d29f645b56366afd50ef70fb8da4c8cee7863a8eff0eaeb39a0a90"
+      "sha256": "83ff435b958a85cc22b3290498d7921ac93032f0829111e27225142999b3bf1d"
     },
     {
-      "bytes": 9108,
+      "bytes": 21920,
+      "path": "governance/artifact-dependency-graph.json",
+      "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1"
+    },
+    {
+      "bytes": 10443,
       "path": "governance/requirements.json",
-      "sha256": "9c435052f58516daea189a2966cffcb7515560685f503dda90ba71e80bfe0eaa"
+      "sha256": "5ec8d101e05cff23398dbbcf022d7558670e8601a8f688be7ece9966e92fa88b"
     },
     {
       "bytes": 8377,
@@ -46,14 +101,14 @@
       "sha256": "bdae341b08952dc7d0cbcebd476e8c4abe7caae2f3b1adb346a36c0516d3dae0"
     },
     {
-      "bytes": 10370,
+      "bytes": 12227,
       "path": "governance/risk-register.json",
-      "sha256": "8839dec7735b8844cac8cba766344ea2a22408678d248d7fa17c31c51f1ad60c"
+      "sha256": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e"
     },
     {
-      "bytes": 5385,
+      "bytes": 6770,
       "path": "governance/traceability.json",
-      "sha256": "5a7e4b3fa2e0a2e94a95f71713457466bee886f9764f97a5bee091333d4de689"
+      "sha256": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
     },
     {
       "bytes": 1,
@@ -68,7 +123,7 @@
     {
       "bytes": 3487,
       "path": "pages/accessibility.html",
-      "sha256": "518009a8f1f239a032e822cae247568a496d80e32631d6e08e31c0825b4690bf"
+      "sha256": "884d0aabbe37cf3b2bfdfcd25a10230e22519b1abf4a4ab5745d02aab889bcb0"
     },
     {
       "bytes": 20058,
@@ -81,9 +136,9 @@
       "sha256": "4f02d089de903ea29856d9623f61f3becdb88bab72963ba58252b8373ee008be"
     },
     {
-      "bytes": 12785,
+      "bytes": 8927,
       "path": "pages/index.html",
-      "sha256": "788851783fdd9083cf4fbaf7100dcd8b38911d9c29660dd5c0a76df7ed9bb50b"
+      "sha256": "1749e24dd6daca8ef2f03a5d66ea9bd7a7845cdcb7d24170a5dc0276cf295a33"
     },
     {
       "bytes": 389,
@@ -106,9 +161,14 @@
       "sha256": "8acddf495ffaf10e432a753bbb8890c7353c10dc9073b1f201091057b2bdd841"
     },
     {
-      "bytes": 38634,
+      "bytes": 5280,
+      "path": "schemas/artifact-dependency-graph.schema.json",
+      "sha256": "e7105f0b3d190fcbefb68da63efe460148e2e8119bf6684ccc7eeef16fa6a24f"
+    },
+    {
+      "bytes": 49189,
       "path": "schemas/domain-profile.schema.json",
-      "sha256": "6cdf0882d306c89d8d3e8aef0d3daa5c7bcd954a0e833b06b49e493f112ca81f"
+      "sha256": "2b002829ac11ea8f83f9db57611a07066e60c52a6684c30e960fd1a9a1a1aab7"
     },
     {
       "bytes": 30727,
@@ -116,9 +176,14 @@
       "sha256": "e3d51b0fc18532a3acfe9b5c6b7c8e8c483634edba2be5d8ffdb8482a6aa75f7"
     },
     {
-      "bytes": 75144,
+      "bytes": 121968,
       "path": "scripts/build.py",
-      "sha256": "1c1ad3970945caad0a4e51b1eccc45e7eec2db7db6e337a9ce71aec31baa24b4"
+      "sha256": "e20c4e6bcf403367c9eb6b425fbee17e4bf749ce3e6ce0745b6ffe334d19e490"
+    },
+    {
+      "bytes": 25965,
+      "path": "scripts/change_impact.py",
+      "sha256": "db25edf14c8531f69468b346cdb1fb258d331961884b13c7f7916aa2791de856"
     },
     {
       "bytes": 7331,
@@ -126,19 +191,49 @@
       "sha256": "d88a3eb956d6f9b238d2182eec45ba7e1e2d9bdd24af93fbae5a3f1e3b339f62"
     },
     {
-      "bytes": 21733,
+      "bytes": 5975,
+      "path": "scripts/check_okf.py",
+      "sha256": "c19ca429fe6d0039e051d873acd11f69c801959f218cd311359cf9b5b7ae2a38"
+    },
+    {
+      "bytes": 27358,
       "path": "scripts/evaluate.py",
-      "sha256": "f795bb9a53375f56202bce2d696fa4523467f9f60a55737d311b3fc1aff60518"
+      "sha256": "db0e7af2532615980d161a6369994093c0a840f666eede292dc9d75815dae38f"
     },
     {
-      "bytes": 612,
+      "bytes": 6014,
+      "path": "scripts/observe_govuk_content.py",
+      "sha256": "9db59ba97e3b08d6789a8ea980db1f95790859cd8863d23e4b9f0974fd22528a"
+    },
+    {
+      "bytes": 634,
       "path": "source/build-config.json",
-      "sha256": "205255fc99f83e128ff897796708892083b7509465dc4125f5019763b8ac09a3"
+      "sha256": "0b264d415549519fc0dbae411111b2644efc090f8338be2fe2dd997b8aa39204"
     },
     {
-      "bytes": 92290,
+      "bytes": 92362,
       "path": "source/curated-records.json",
-      "sha256": "3dbe987c9517d04f3180c324365e1fedb74510c1a4ab891dd2e483a5f8b0a5bf"
+      "sha256": "5b045ea626c07d981a013419267060f90dfe3ea9d172674fec891f7ad05fed30"
+    },
+    {
+      "bytes": 1077,
+      "path": "source/input-manifest-v0.2.0.json",
+      "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+    },
+    {
+      "bytes": 230,
+      "path": "source/jsonld-context.json",
+      "sha256": "3e8758939d465a0a050ba0874e9dba8a5e2d99887996b7dd76e4d1bf0f1fe735"
+    },
+    {
+      "bytes": 2445,
+      "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+      "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+    },
+    {
+      "bytes": 2115,
+      "path": "source/publisher-registry.json",
+      "sha256": "32330e3f8ff0227c7711123836ce5a5e9ea55f34709b4e7128d3150b57a2226b"
     },
     {
       "bytes": 20992,
@@ -156,22 +251,120 @@
       "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
     },
     {
-      "bytes": 9776,
-      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
-      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+      "bytes": 14411,
+      "path": "source/source-register.json",
+      "sha256": "2bb17d398e73c9712820107d4e5784a0ec52eb3df59667a3f889e57daea38596"
     },
     {
-      "bytes": 14105,
-      "path": "source/source-register.json",
-      "sha256": "271aa0994711e418df218837f286b7601402947459f8483ba188278fc41fcb54"
+      "bytes": 3263,
+      "path": "source/type-kind-crosswalk.json",
+      "sha256": "b1d0e9ec400060ed594127a366afd9ee44ed7eb385eac2ed84f6da1652537033"
     }
   ],
   "network_access": false,
-  "observed_at": "2026-07-29T09:19:15Z",
-  "record_count": 2202,
-  "release_at": "2026-07-29T11:00:00Z",
+  "observed_at": "2026-07-29T18:00:00Z",
+  "record_count": 2203,
+  "release_at": "2026-07-29T17:00:00Z",
   "schema": "okf-hmlr-build-receipt.v1",
   "snapshot": {
+    "acquisition_snapshot": {
+      "files": [
+        {
+          "bytes": 5334493,
+          "path": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+          "record_count": 1866,
+          "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
+        },
+        {
+          "bytes": 2003949,
+          "path": "source/snapshots/2026-07-29T091915Z/github-repositories.json",
+          "record_count": 289,
+          "sha256": "f80da2f67404f54957235f0ad6f700bb74dfddbf811b7f170d1217abb7750cff"
+        },
+        {
+          "bytes": 20992,
+          "path": "source/snapshots/2026-07-29T091915Z/cddo-api-catalogue.json",
+          "record_count": 15,
+          "sha256": "7872682ca604aaa9fc98bb4cb26f5713f4c00936bfe52234d730ea51b4f827f3"
+        },
+        {
+          "bytes": 2445,
+          "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+          "record_count": 2,
+          "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+        }
+      ],
+      "lanes": {
+        "cddo-api-catalogue": {
+          "acquired": 15,
+          "errors": 0,
+          "expected": 15,
+          "terminal_outcome": {
+            "reason": "single-response-provider-filter-complete",
+            "record_count": 15,
+            "request_count": 1,
+            "rows_scanned": 231,
+            "status": "complete"
+          }
+        },
+        "github": {
+          "acquired": 289,
+          "errors": 0,
+          "expected": 289,
+          "terminal_outcome": {
+            "reason": "short-page",
+            "record_count": 289,
+            "request_count": 3,
+            "status": "complete"
+          }
+        },
+        "govuk-content": {
+          "acquired": 2,
+          "errors": 0,
+          "expected": 2,
+          "terminal_outcome": {
+            "record_count": 2,
+            "status": "complete"
+          }
+        },
+        "govuk-search": {
+          "acquired": 1866,
+          "errors": 0,
+          "expected": 1866,
+          "terminal_outcome": {
+            "reason": "declared-total-reconciled",
+            "record_count": 1866,
+            "request_count": 4,
+            "status": "complete"
+          }
+        }
+      },
+      "manifest_path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "mode": "frozen-public-metadata",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "snapshot_id": "2026-07-29T091915Z",
+      "source_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    "composite_inputs": [
+      {
+        "freshness_policy": "release-day-bounded-observation",
+        "id": "public-metadata-snapshot",
+        "kind": "immutable-acquisition-snapshot",
+        "observed_at": "2026-07-29T09:19:15Z",
+        "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "reuse_decision": "Reused unchanged because all three acquisition lanes completed on the release work date and their immutable envelopes remain checksum-valid.",
+        "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+      },
+      {
+        "freshness_policy": "release-candidate-observation",
+        "id": "govuk-content-locale-translations",
+        "kind": "bounded-content-api-observation",
+        "observed_at": "2026-07-29T18:00:00Z",
+        "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "reuse_decision": null,
+        "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+      }
+    ],
     "files": [
       {
         "bytes": 5334493,
@@ -190,6 +383,12 @@
         "path": "source/snapshots/2026-07-29T091915Z/cddo-api-catalogue.json",
         "record_count": 15,
         "sha256": "7872682ca604aaa9fc98bb4cb26f5713f4c00936bfe52234d730ea51b4f827f3"
+      },
+      {
+        "bytes": 2445,
+        "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "record_count": 2,
+        "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
       }
     ],
     "lanes": {
@@ -216,6 +415,15 @@
           "status": "complete"
         }
       },
+      "govuk-content": {
+        "acquired": 2,
+        "errors": 0,
+        "expected": 2,
+        "terminal_outcome": {
+          "record_count": 2,
+          "status": "complete"
+        }
+      },
       "govuk-search": {
         "acquired": 1866,
         "errors": 0,
@@ -228,11 +436,11 @@
         }
       }
     },
-    "manifest_path": "source/snapshots/2026-07-29T091915Z/manifest.json",
-    "mode": "frozen-public-metadata",
-    "observed_at": "2026-07-29T09:19:15Z",
-    "snapshot_id": "2026-07-29T091915Z",
-    "source_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "manifest_path": "source/input-manifest-v0.2.0.json",
+    "mode": "composite-frozen-public-metadata",
+    "observed_at": "2026-07-29T18:00:00Z",
+    "snapshot_id": "hmlr-public-metadata-v0.2.0",
+    "source_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
-  "status": "released-poc"
+  "status": "ai-generated-proof-of-concept"
 }

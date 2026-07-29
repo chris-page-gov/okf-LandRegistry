@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,24 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class EvaluateTests(unittest.TestCase):
+    def test_locked_worker_calibration_manifest_covers_question_suite(self) -> None:
+        questions_path = ROOT / "evaluation" / "questions.json"
+        questions_bytes = questions_path.read_bytes()
+        questions = json.loads(questions_bytes)
+        runtime = json.loads(
+            (ROOT / "evaluation" / "explorer-search-calibration-v0.2.0.json")
+            .read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            hashlib.sha256(questions_bytes).hexdigest(),
+            runtime["calibration_suite_sha256"],
+        )
+        self.assertEqual(
+            {question["id"] for question in questions["questions"]},
+            {journey["calibration_question_id"] for journey in runtime["journeys"]},
+        )
+        self.assertEqual(24, len(runtime["journeys"]))
+
     def test_canonical_removes_fragment_before_trailing_slash(self) -> None:
         self.assertEqual(
             "https://example.test/guide",
@@ -179,11 +198,72 @@ class EvaluateTests(unittest.TestCase):
         ranked = evaluate.rank("local land charges automation", records, contract)
         self.assertEqual(["specific"], [record["id"] for record in ranked])
 
+    def test_forbidden_targets_are_executable_negative_assertions(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        records = [
+            {
+                "id": "wrong-jurisdiction",
+                "title": "Property register",
+                "url": "https://www.ros.gov.uk/",
+                "curation": "source-native",
+                "heading_tokens": ["property", "register"],
+                "body_tokens": [],
+            }
+        ]
+        questions = [
+            {
+                "id": "q-negative",
+                "query": "property register",
+                "expected_sources": [],
+                "required_caveat_ids": ["CAV-BOUNDED-COVERAGE"],
+                "must_not_retrieve": [
+                    {
+                        "target_id": "NEG-CROSS-JURISDICTION",
+                        "canonical_url": "https://www.ros.gov.uk/",
+                        "max_rank": 5,
+                    }
+                ],
+            }
+        ]
+        rows, metrics = evaluate.evaluate_questions(questions, records, contract, 5)
+        self.assertFalse(rows[0]["must_not_retrieve_passed"])
+        self.assertEqual(1, rows[0]["must_not_retrieve_hits"][0]["rank"])
+        self.assertEqual(1, metrics["must_not_retrieve_hit_count"])
+        self.assertEqual(0.0, metrics["must_not_retrieve_pass_rate"])
+
+    def test_question_contract_requires_caveats_and_forbidden_targets(self) -> None:
+        payload = {
+            "suite_partition": "calibration",
+            "caveat_registry": [{"id": "CAV-ONE", "text": "One"}],
+            "questions": [
+                {
+                    "id": "Q1",
+                    "expected_sources": [
+                        {"canonical_url": "https://example.test/right"}
+                    ],
+                    "runtime_expected_source_url": "https://example.test/right",
+                    "required_caveat_ids": ["CAV-ONE"],
+                    "must_not_retrieve": [
+                        {
+                            "target_id": "NEG-ONE",
+                            "canonical_url": "https://example.test/wrong",
+                            "max_rank": 5,
+                        }
+                    ],
+                }
+            ],
+        }
+        evaluate.validate_question_contract(payload)
+        payload["questions"][0]["must_not_retrieve"] = []
+        with self.assertRaisesRegex(ValueError, "forbidden targets"):
+            evaluate.validate_question_contract(payload)
+
     def test_acceptance_review_requires_exact_independent_coverage(self) -> None:
         questions = [
             {
                 "id": "Q1",
                 "hard_failure_ids": ["HF-AUTHORITY", "HF-COVERAGE"],
+                "required_caveat_ids": ["CAV-AUTHORITY"],
             }
         ]
         review = {
@@ -208,6 +288,7 @@ class EvaluateTests(unittest.TestCase):
                         "HF-AUTHORITY",
                         "HF-COVERAGE",
                     ],
+                    "required_caveat_ids_verified": ["CAV-AUTHORITY"],
                     "hard_failures_observed": [],
                 }
             ],

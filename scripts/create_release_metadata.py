@@ -127,7 +127,7 @@ def create_metadata(
         (ROOT / "source" / "build-config.json").read_text(encoding="utf-8")
     )
     if (
-        config.get("status") != "released-poc"
+        config.get("status") != "ai-generated-proof-of-concept"
         or config.get("ai_generated_proof_of_concept") is not True
         or not isinstance(config.get("release_at"), str)
     ):

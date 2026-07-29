@@ -11,8 +11,12 @@ class ReleaseMetadataTests(unittest.TestCase):
         self.assertEqual(
             {
                 "attrs",
+                "cachetools",
+                "frozendict",
                 "jsonschema",
                 "jsonschema-specifications",
+                "lxml",
+                "pyld",
                 "referencing",
                 "rpds-py",
                 "ruamel-yaml",

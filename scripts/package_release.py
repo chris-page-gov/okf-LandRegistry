@@ -173,9 +173,12 @@ def main() -> int:
         config = json.loads(args.config.read_text(encoding="utf-8"))
         version = config["version"]
         release_at = config["release_at"]
-        if config.get("status") != "released-poc" or release_at is None:
+        if (
+            config.get("status") != "ai-generated-proof-of-concept"
+            or release_at is None
+        ):
             raise ReleasePackagingError(
-                "build config is not an approved released-poc configuration"
+                "build config is not an approved AI-generated proof-of-concept configuration"
             )
         output = (
             args.output

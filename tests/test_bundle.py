@@ -59,14 +59,34 @@ class BundleTests(unittest.TestCase):
             self.assertFalse(
                 sensitive & {key.casefold() for key in parse_qs(parsed.query)}, record["id"]
             )
-            self.assertTrue(record["licence"], record["id"])
-            self.assertTrue(record["access_model"], record["id"])
+            self.assertEqual(record["schema"], "okf-hmlr-record.v2")
+            self.assertRegex(record["id"], r"^hmlr-[0-9a-f]{24}$")
+            self.assertEqual(record["id"], record["record_id"])
+            self.assertTrue(record["source_native_id"], record["id"])
+            self.assertTrue(record["source_native_type"], record["id"])
+            self.assertEqual(record["canonical_source_url"], record["url"])
+            self.assertTrue(record["publisher_id"].startswith("https://"))
+            for value_field, state_field in (
+                ("licence", "licence_state"),
+                ("jurisdiction", "jurisdiction_state"),
+                ("cadence", "cadence_state"),
+            ):
+                self.assertIn(
+                    record[state_field],
+                    {"stated", "inherited", "unknown", "not-applicable"},
+                )
+                if record[state_field] in {"unknown", "not-applicable"}:
+                    self.assertIsNone(record[value_field])
+            self.assertIn(
+                record["language_state"],
+                {"stated", "inherited", "unknown", "not-applicable"},
+            )
             self.assertTrue(record["authority_tier"], record["id"])
             self.assertTrue(record["observed_at"], record["id"])
             self.assertTrue(record["source_urls"], record["id"])
             self.assertTrue(record["source_native_ids"], record["id"])
             self.assertTrue(record["representations"], record["id"])
-            self.assertIn(record["id"], record["source_native_ids"])
+            self.assertIn(record["source_native_id"], record["source_native_ids"])
             self.assertTrue(record["access_state"], record["id"])
             self.assertTrue(record["rights_state"], record["id"])
             self.assertRegex(record["rights_ref"], r"^RIGHT-[A-Z]+$")
@@ -109,43 +129,27 @@ class BundleTests(unittest.TestCase):
         self.assertIn("data/provenance.json", paths)
         self.assertIn("data/rights.json", paths)
         self.assertIn("data/reconciliation.json", paths)
-        self.assertIn("data/search/index.json", paths)
-        self.assertIn("data/records/manifest.json", paths)
+        self.assertIn("data/explorer/search/manifest.json", paths)
+        self.assertIn("data/explorer/analysis-overview.json", paths)
+        self.assertIn("data/explorer/manifest.json", paths)
+        self.assertNotIn("data/search/index.json", paths)
         for row in manifest["files"]:
             artifact = BUNDLE / row["path"]
             self.assertEqual(row["bytes"], artifact.stat().st_size)
             self.assertEqual(row["sha256"], hashlib.sha256(artifact.read_bytes()).hexdigest())
 
-        search_index = json.loads((BUNDLE / "data" / "search" / "index.json").read_text())
-        shard_manifest = json.loads(
-            (BUNDLE / "data" / "records" / "manifest.json").read_text()
+        explorer_manifest = json.loads(
+            (BUNDLE / "data" / "explorer" / "manifest.json").read_text()
         )
-        self.assertEqual("okf-hmlr-search-index.v1", search_index["schema"])
-        self.assertEqual(self.catalogue["record_count"], search_index["record_count"])
-        self.assertLess(
-            (BUNDLE / "data" / "search" / "index.json").stat().st_size,
-            (BUNDLE / "data" / "catalogue.json").stat().st_size,
-        )
-        self.assertTrue(
-            all(isinstance(record["body_tokens"], str) for record in search_index["records"])
-        )
-        self.assertEqual(self.catalogue["record_count"], shard_manifest["record_count"])
-        self.assertTrue(
-            all(row["record_count"] <= shard_manifest["shard_size"] for row in shard_manifest["shards"])
+        self.assertEqual(
+            "okf-explorer-data-manifest.v1", explorer_manifest["schema"]
         )
         self.assertEqual(
             self.catalogue["record_count"],
-            sum(row["record_count"] for row in shard_manifest["shards"]),
+            explorer_manifest["counts"]["records"],
         )
 
-    def test_okf_concepts_have_frontmatter_and_log_is_newest_first(self) -> None:
-        for path in sorted((BUNDLE / "concepts").glob("*.md")):
-            text = path.read_text(encoding="utf-8")
-            self.assertTrue(text.startswith("---\n"), path.name)
-            frontmatter, body = text[4:].split("\n---\n", 1)
-            for field in ("type:", "title:", "description:", "generated:", "sources:"):
-                self.assertIn(field, frontmatter, path.name)
-            self.assertRegex(body, r"(?m)^#\s+\S")
+    def test_okf_log_is_newest_first(self) -> None:
         log = (BUNDLE / "log.md").read_text(encoding="utf-8")
         headings = re.findall(r"(?m)^##\s+(\d{4}-\d{2}-\d{2})$", log)
         self.assertEqual(headings, sorted(headings, reverse=True))

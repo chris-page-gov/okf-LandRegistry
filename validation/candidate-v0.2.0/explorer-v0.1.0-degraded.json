@@ -1,0 +1,222 @@
+{
+  "schema": "okf-explorer-external-runtime-acceptance.v1",
+  "measured_at": "2026-07-29T18:26:57.693Z",
+  "status": "passed",
+  "consumer": {
+    "package": "@okf/explorer",
+    "version": "0.5.7",
+    "source_commit": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "source_dirty": false,
+    "dependency_lock_sha256": "25eb2cd4f1dd2f93ce89e3884e3d9293d490371bd55d4469bba0263ee083ffc1",
+    "runner_sha256": "dbfd6a1a4c004c5c76be4a40b2b5cf2033bd54f519d4727cd0207388b5ece24b",
+    "build_manifest_sha256": "a6c5b5872cccab4eddf948226385ebe8acad19a6df336d1626cb4e5a426ad7ff"
+  },
+  "bundle": {
+    "root_label": "okf-lr-v010.9sDENm",
+    "descriptor": "okf-explorer.json",
+    "identity": {
+      "schema": "okf-explorer-large-corpus.v1",
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+      "version": "0.1.0",
+      "snapshot": "2026-07-29T091915Z"
+    },
+    "expected_identity": {
+      "schema": "okf-explorer-large-corpus.v1",
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+      "version": "0.1.0",
+      "snapshot": "2026-07-29T091915Z"
+    },
+    "tree": {
+      "sha256": "c7edd6703216439485711b7395bb6c1bea738345f84e7ac1a0505bafcdac99d5",
+      "files": 43,
+      "bytes": 22168820
+    }
+  },
+  "journey_manifest": {
+    "path_label": "journeys.json",
+    "sha256": "bae111ba9457c8bd5133785a1d159488c7e188b17c98e9eec485eca18a11c2a4"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.CzvOfnb6.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/Jelbxwoa.js",
+      "status": 200,
+      "bytes": 27097,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/juNZNo31.js",
+      "status": 200,
+      "bytes": 48241,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.TB3fAUba.js",
+      "status": 200,
+      "bytes": 3963,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.Cb0gJOaH.js",
+      "status": 200,
+      "bytes": 234,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.DQ269OmA.css",
+      "status": 200,
+      "bytes": 79152,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.D_qQhDm7.js",
+      "status": 200,
+      "bytes": 588406,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.D-adNj2g.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 6168,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 3913,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/manifest.json",
+      "status": 200,
+      "bytes": 3582,
+      "elapsed_ms": 1
+    }
+  ],
+  "journeys": [
+    {
+      "id": "released-v0.1.0-is-explicitly-degraded",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4209/?bundle=http%3A%2F%2F127.0.0.1%3A4209%2Fbundle%2Fokf-explorer.json",
+        "title": "OKF Explorer",
+        "elapsed_ms": 65,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4209/?bundle=http%3A%2F%2F127.0.0.1%3A4209%2Fbundle%2Fokf-explorer.json"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/?bundle=http%3A%2F%2F127.0.0.1%3A4209%2Fbundle%2Fokf-explorer.json",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/entry/start.CzvOfnb6.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/chunks/Jelbxwoa.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/chunks/juNZNo31.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/entry/app.TB3fAUba.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/nodes/0.Cb0gJOaH.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/nodes/2.D_qQhDm7.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/assets/2.DQ269OmA.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/_app/immutable/nodes/1.D-adNj2g.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4209/bundle/data/manifest.json",
+          "resource_type": "fetch"
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    }
+  ],
+  "terminal": {
+    "outcome": "passed",
+    "journeys_total": 1,
+    "journeys_passed": 1,
+    "journeys_failed": 0
+  }
+}

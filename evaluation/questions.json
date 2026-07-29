@@ -1,9 +1,9 @@
 {
   "schema": "okf-explorer-evaluation-suite.v1",
-  "title": "HM Land Registry OKF v0.1.0 acceptance questions",
-  "description": "A bounded set of 24 independently AI-agent-reviewed competency and retrieval questions. Expected propositions are evidence-bound acceptance expectations, not legal answers or gold answers.",
-  "status": "reviewed-v0.1.0",
-  "verification_status": "independently-agent-reviewed",
+  "title": "HM Land Registry OKF v0.2.0 calibration questions",
+  "description": "A bounded calibration set of 24 competency and retrieval questions. Executable forbidden-target and required-caveat assertions supplement, but do not replace, reviewer-owned held-out cases.",
+  "status": "candidate-v0.2.0",
+  "verification_status": "requires-new-digest-bound-independent-review",
   "research_cutoff": "2026-07-29",
   "target_bundle": "../okf-explorer.json",
   "persona_catalogue": "../personas/personas-and-user-stories.json",
@@ -115,8 +115,8 @@
   "questions": [
     {
       "id": "LR-Q001",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "What does HM Land Registry cover?",
       "intent": "Find the official statement of HMLR's remit and avoid applying the bundle outside its jurisdiction or authority.",
@@ -144,21 +144,35 @@
         "HMLR registers ownership of land and property in England and Wales.",
         "The OKF bundle is a discovery aid and does not replace HMLR's authoritative records or services."
       ],
-    "near_miss_rule": "A result about Scotland, Northern Ireland, UK-wide housing statistics or a secondary catalogue does not establish HMLR's remit; an England-and-Wales label also does not prove that every linked dataset has complete coverage.",
-    "hard_failure_ids": [
-      "HF-AUTHORITY",
-      "HF-COVERAGE"
+      "near_miss_rule": "A result about Scotland, Northern Ireland, UK-wide housing statistics or a secondary catalogue does not establish HMLR's remit; an England-and-Wales label also does not prove that every linked dataset has complete coverage.",
+      "hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-COVERAGE"
       ],
       "tags": [
         "public",
         "scope",
         "authority"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q001-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/organisations/land-registry"
     },
     {
       "id": "LR-Q002",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "title register title summary title plan differences",
       "intent": "Distinguish the main property-information products and what each contains.",
@@ -197,12 +211,26 @@
         "conveyancing",
         "lending",
         "title-information"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q002-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/search-property-information-land-registry"
     },
     {
       "id": "LR-Q003",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "online copy or official copy proof of ownership",
       "intent": "Find the route and limitation that distinguishes informational downloads from official copies.",
@@ -243,12 +271,26 @@
         "public",
         "conveyancing",
         "official-copy"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q003-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
     },
     {
       "id": "LR-Q004",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "does a title plan show the exact legal boundary",
       "intent": "Retrieve authoritative boundary guidance and expose the general-boundaries limitation.",
@@ -287,12 +329,25 @@
         "conveyancing",
         "gis",
         "boundaries"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q004-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
     },
     {
       "id": "LR-Q005",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "practice guide general agreed determined boundaries",
       "intent": "Find the current official practice guidance needed to distinguish boundary concepts.",
@@ -328,12 +383,26 @@
         "conveyancing",
         "practice-guide",
         "boundaries"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q005-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
     },
     {
       "id": "LR-Q006",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "address search misses title search of the index map",
       "intent": "Find the official recovery route when a property address search may not reveal every affected title.",
@@ -377,12 +446,26 @@
         "conveyancing",
         "official-copy",
         "index-map"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q006-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
     },
     {
       "id": "LR-Q007",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "portal Business Gateway professional access requirements",
       "intent": "Distinguish professional service guidance from public discovery and make access restrictions visible.",
@@ -405,10 +488,10 @@
           "source_id": "SRC-PORTAL",
           "canonical_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
         },
-      {
-        "source_id": "SRC-BG-TECHDOC",
-        "canonical_url": "https://landregistry.github.io/bg-dev-pack-redesign/"
-      }
+        {
+          "source_id": "SRC-BG-TECHDOC",
+          "canonical_url": "https://landregistry.github.io/bg-dev-pack-redesign/"
+        }
       ],
       "expected_propositions": [
         "Portal and Business Gateway are professional service surfaces with approval or credential requirements.",
@@ -423,12 +506,26 @@
         "conveyancing",
         "api",
         "restricted-access"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q007-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
     },
     {
       "id": "LR-Q008",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "what mortgage or lender information is in title information",
       "intent": "Find what title information says about a lender or discharged mortgage without overstating evidential completeness.",
@@ -446,21 +543,21 @@
         "title register"
       ],
       "expected_min_results": 1,
-  "expected_sources": [
-    {
-      "source_id": "SRC-PROPERTY-SERVICE",
-      "canonical_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
-    },
-    {
-      "source_id": "SRC-PROPERTY-SERVICE",
-      "canonical_url": "https://www.gov.uk/search-property-information-land-registry"
-    }
-  ],
-  "expected_propositions": [
-    "Official register guidance says the title register may show whether a mortgage has been discharged, while the title summary may show a lender's name and address when there is a mortgage.",
-    "The current property-information service promises only whether the property has a mortgage; downloaded online information is not official proof and the official-copy route remains distinct."
-  ],
-  "near_miss_rule": "A summary that only says a mortgage is present or absent is not evidence of lender identity, discharge status or absence of other charge entries; an informational online copy is not official proof.",
+      "expected_sources": [
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+        },
+        {
+          "source_id": "SRC-PROPERTY-SERVICE",
+          "canonical_url": "https://www.gov.uk/search-property-information-land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "Official register guidance says the title register may show whether a mortgage has been discharged, while the title summary may show a lender's name and address when there is a mortgage.",
+        "The current property-information service promises only whether the property has a mortgage; downloaded online information is not official proof and the official-copy route remains distinct."
+      ],
+      "near_miss_rule": "A summary that only says a mortgage is present or absent is not evidence of lender identity, discharge status or absence of other charge entries; an informational online copy is not official proof.",
       "hard_failure_ids": [
         "HF-AUTHORITY"
       ],
@@ -468,12 +565,25 @@
         "lending",
         "mortgage",
         "title-information"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q008-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
     },
     {
       "id": "LR-Q009",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "Price Paid Data current property value limitations",
       "intent": "Retrieve the official Price Paid Data description, temporal coverage and reuse limitations.",
@@ -510,14 +620,28 @@
         "lending",
         "valuation",
         "price-paid-data"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q009-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
     },
     {
       "id": "LR-Q010",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
-  "query": "data.gov.uk land ownership catalogue modified date versus OCOD publisher dataset release date",
+      "query": "data.gov.uk land ownership catalogue modified date versus OCOD publisher dataset release date",
       "intent": "Test whether the bundle keeps catalogue, observation, release and registration dates separate.",
       "persona_ids": [
         "LR-P03",
@@ -527,10 +651,10 @@
         "LR-S05"
       ],
       "expected_terms": [
-    "data.gov.uk catalogue modified",
-    "OCOD",
-    "publisher release",
-    "covered month"
+        "data.gov.uk catalogue modified",
+        "OCOD",
+        "publisher release",
+        "covered month"
       ],
       "expected_min_results": 1,
       "expected_sources": [
@@ -544,10 +668,10 @@
         }
       ],
       "expected_propositions": [
-    "The data.gov.uk collection modification timestamp describes catalogue metadata, not the underlying dataset release, register update or legal currency.",
-    "The OCOD publisher page and file identity are the operational evidence for release cadence and covered month; observation, bundle-build and registration dates remain distinct."
-  ],
-  "near_miss_rule": "A recent catalogue, page, observation or bundle timestamp cannot repair an unknown publisher release date or covered month.",
+        "The data.gov.uk collection modification timestamp describes catalogue metadata, not the underlying dataset release, register update or legal currency.",
+        "The OCOD publisher page and file identity are the operational evidence for release cadence and covered month; observation, bundle-build and registration dates remain distinct."
+      ],
+      "near_miss_rule": "A recent catalogue, page, observation or bundle timestamp cannot repair an unknown publisher release date or covered month.",
       "hard_failure_ids": [
         "HF-DATE-CURRENCY",
         "HF-AUTHORITY"
@@ -556,14 +680,28 @@
         "lending",
         "provenance",
         "dates"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q010-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
     },
     {
       "id": "LR-Q011",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
-  "query": "HM Land Registry publisher spatial datasets format cost licence update API GIS file size",
+      "query": "HM Land Registry publisher spatial datasets format cost licence update API GIS file size",
       "intent": "Discover the publisher catalogue and compare spatial products by format, access and GIS requirement.",
       "persona_ids": [
         "LR-P04"
@@ -578,38 +716,54 @@
         "API"
       ],
       "expected_min_results": 1,
-  "expected_sources": [
-    {
-      "source_id": "SRC-ULPD",
-      "canonical_url": "https://use-land-property-data.service.gov.uk/"
-    },
-    {
-      "source_id": "SRC-GOVUK-HMLR",
-      "canonical_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
-    }
-  ],
-  "expected_propositions": [
-    "The publisher-operated Use land and property data catalogue is the operational route for current format, cost, licence, update cadence, API availability and product-specific tooling information.",
-    "The Geospatial Commission catalogue is a 2020 discovery snapshot covering only some HMLR datasets; its page-modification date is not dataset currency and underlying product licences vary.",
-    "Some spatial downloads are large and require GIS software; the current product page controls the applicable details."
-  ],
-  "near_miss_rule": "A generic or 2020 catalogue row alone cannot establish current access, licence, release cadence, API availability, file size or completeness; follow the publisher-operated product page.",
-  "hard_failure_ids": [
-    "HF-LICENCE-ACCESS",
-    "HF-AUTHORITY",
-    "HF-DATE-CURRENCY",
-    "HF-COVERAGE"
+      "expected_sources": [
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/"
+        },
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
+        }
+      ],
+      "expected_propositions": [
+        "The publisher-operated Use land and property data catalogue is the operational route for current format, cost, licence, update cadence, API availability and product-specific tooling information.",
+        "The Geospatial Commission catalogue is a 2020 discovery snapshot covering only some HMLR datasets; its page-modification date is not dataset currency and underlying product licences vary.",
+        "Some spatial downloads are large and require GIS software; the current product page controls the applicable details."
+      ],
+      "near_miss_rule": "A generic or 2020 catalogue row alone cannot establish current access, licence, release cadence, API availability, file size or completeness; follow the publisher-operated product page.",
+      "hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY",
+        "HF-DATE-CURRENCY",
+        "HF-COVERAGE"
       ],
       "tags": [
         "data",
         "gis",
         "formats"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION",
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q011-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
     },
     {
       "id": "LR-Q012",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "INSPIRE polygon indicative or legal boundary",
       "intent": "Verify that spatial discovery polygons are not presented as exact legal title or charge boundaries.",
@@ -650,12 +804,25 @@
         "gis",
         "local-authority",
         "boundaries"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q012-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/llc"
     },
     {
       "id": "LR-Q013",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "which local authorities are in Local Land Charges INSPIRE data",
       "intent": "Find the dated authority-level coverage statement and known migration limitation.",
@@ -679,17 +846,17 @@
           "source_id": "SRC-ULPD",
           "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/llc"
         },
-    {
-      "source_id": "SRC-GOVUK-HMLR",
-      "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme"
         }
       ],
       "expected_propositions": [
-    "Only migrated local-authority register data is available through the national Local Land Charges data or service; not every authority has migrated.",
-    "Coverage must be checked against a named authority list and as-of date; a planned transfer date is not evidence that migration has completed.",
-    "The monthly INSPIRE dataset is further limited to the publisher's stated theme groups."
-  ],
-  "near_miss_rule": "A headline denominator, an England-and-Wales label or a planned transfer date does not prove current migration or inclusion in the monthly INSPIRE file.",
+        "Only migrated local-authority register data is available through the national Local Land Charges data or service; not every authority has migrated.",
+        "Coverage must be checked against a named authority list and as-of date; a planned transfer date is not evidence that migration has completed.",
+        "The monthly INSPIRE dataset is further limited to the publisher's stated theme groups."
+      ],
+      "near_miss_rule": "A headline denominator, an England-and-Wales label or a planned transfer date does not prove current migration or inclusion in the monthly INSPIRE file.",
       "hard_failure_ids": [
         "HF-COVERAGE",
         "HF-DATE-CURRENCY"
@@ -698,14 +865,28 @@
         "gis",
         "local-authority",
         "coverage"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q013-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/llc"
     },
     {
       "id": "LR-Q014",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
-  "query": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata",
+      "query": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata",
       "intent": "Test whether spatial records retain format, CRS or coordinate context, vintage, authority and language metadata where the source supplies them.",
       "persona_ids": [
         "LR-P04",
@@ -716,43 +897,58 @@
         "LR-S06"
       ],
       "expected_terms": [
-    "GML",
-    "British National Grid",
-    "EPSG:27700",
-    "Welsh place names",
-    "language metadata"
+        "GML",
+        "British National Grid",
+        "EPSG:27700",
+        "Welsh place names",
+        "language metadata"
       ],
       "expected_min_results": 1,
       "expected_sources": [
-    {
-      "source_id": "SRC-ULPD",
-      "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
-    },
-    {
-      "source_id": "SRC-ULPD",
-      "canonical_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
+        },
+        {
+          "source_id": "SRC-ULPD",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
         }
       ],
       "expected_propositions": [
-    "HMLR's INSPIRE GML is captured against British National Grid; reprojection may be required and can introduce positional error.",
-    "The accessibility statement says some Welsh place names in INSPIRE are not coded as a different language and may be mispronounced by screen readers; the bundle must preserve explicit language identity rather than silently normalize labels."
-  ],
-  "near_miss_rule": "A precise CRS or reprojected polygon does not make an indicative polygon an exact legal boundary, and an English-looking label does not justify deleting Welsh language identity.",
-  "hard_failure_ids": [
-    "HF-LEGAL-BOUNDARY",
-    "HF-WELSH-LANGUAGE",
-    "HF-ACCESSIBILITY"
+        "HMLR's INSPIRE GML is captured against British National Grid; reprojection may be required and can introduce positional error.",
+        "The accessibility statement says some Welsh place names in INSPIRE are not coded as a different language and may be mispronounced by screen readers; the bundle must preserve explicit language identity rather than silently normalize labels."
+      ],
+      "near_miss_rule": "A precise CRS or reprojected polygon does not make an indicative polygon an exact legal boundary, and an English-looking label does not justify deleting Welsh language identity.",
+      "hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-WELSH-LANGUAGE",
+        "HF-ACCESSIBILITY"
       ],
       "tags": [
         "gis",
         "metadata",
         "welsh"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-ACCESSIBLE-JOURNEY",
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-LANGUAGE-DISTINCTION"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q014-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
     },
     {
       "id": "LR-Q015",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "Use land and property data API base URL version datasets",
       "intent": "Retrieve the publisher-operated API contract, version and supported dataset scope.",
@@ -788,12 +984,26 @@
         "api",
         "integration",
         "contract"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q015-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/api-documentation"
     },
     {
       "id": "LR-Q016",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "what HMLR API data is public and what requires an account licence key",
       "intent": "Distinguish public API documentation and example metadata from authenticated dataset access.",
@@ -813,6 +1023,10 @@
       "expected_min_results": 1,
       "expected_sources": [
         {
+          "source_id": "SRC-ULPD-API",
+          "canonical_url": "https://use-land-property-data.service.gov.uk/api-documentation"
+        },
+        {
           "source_id": "SRC-ULPD",
           "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
         }
@@ -830,12 +1044,26 @@
         "api",
         "access",
         "licensing"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q016-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/api-documentation"
     },
     {
       "id": "LR-Q017",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "anonymous automation permission credentials terms portal Business Gateway Local Land Charges",
       "intent": "Ensure restricted portal, Business Gateway, local-search and authenticated data routes are discoverable without being invoked.",
@@ -848,12 +1076,12 @@
         "LR-S08"
       ],
       "expected_terms": [
-    "portal",
-    "Business Gateway",
-    "Local Land Charges",
-    "credentials",
-    "terms",
-    "automation"
+        "portal",
+        "Business Gateway",
+        "Local Land Charges",
+        "credentials",
+        "terms",
+        "automation"
       ],
       "expected_min_results": 1,
       "expected_sources": [
@@ -861,22 +1089,22 @@
           "source_id": "SRC-PORTAL",
           "canonical_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
         },
-    {
-      "source_id": "SRC-BG-TECHDOC",
-      "canonical_url": "https://landregistry.github.io/bg-dev-pack-redesign/"
-    },
-    {
-      "source_id": "SRC-LLC-SERVICE",
-      "canonical_url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions"
+        {
+          "source_id": "SRC-BG-TECHDOC",
+          "canonical_url": "https://landregistry.github.io/bg-dev-pack-redesign/"
+        },
+        {
+          "source_id": "SRC-LLC-SERVICE",
+          "canonical_url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions"
         }
       ],
       "expected_propositions": [
-    "Portal access is for approved professional customers; public guidance does not grant access or permission to automate.",
-    "Business Gateway documentation is public, but test and production calls require approved access and governing terms; documentation is not authorization.",
-    "Local Land Charges terms prohibit automated software agents from searching, copying or monitoring the service.",
-    "The bundle indexes public metadata only and never invokes restricted services or stores credentials, session state or signed links."
-  ],
-  "near_miss_rule": "A publicly reachable landing page, robots access, sample contract or developer documentation is not authorization for anonymous automation; permission must be established from service-specific access rules and terms.",
+        "Portal access is for approved professional customers; public guidance does not grant access or permission to automate.",
+        "Business Gateway documentation is public, but test and production calls require approved access and governing terms; documentation is not authorization.",
+        "Local Land Charges terms prohibit automated software agents from searching, copying or monitoring the service.",
+        "The bundle indexes public metadata only and never invokes restricted services or stores credentials, session state or signed links."
+      ],
+      "near_miss_rule": "A publicly reachable landing page, robots access, sample contract or developer documentation is not authorization for anonymous automation; permission must be established from service-specific access rules and terms.",
       "hard_failure_ids": [
         "HF-RESTRICTED-AUTOMATION",
         "HF-LICENCE-ACCESS"
@@ -886,12 +1114,26 @@
         "conveyancing",
         "restricted-access",
         "safety"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q017-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
     },
     {
       "id": "LR-Q018",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "OCOD monthly complete file change only update",
       "intent": "Find the distribution and refresh contract needed for a reproducible monthly update.",
@@ -930,12 +1172,26 @@
         "api",
         "refresh",
         "ocod"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q018-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
     },
     {
       "id": "LR-Q019",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "search local land charges coverage account official certificate",
       "intent": "Find how public and official local-land-charge searches differ and whether an authority is covered.",
@@ -974,12 +1230,27 @@
         "local-authority",
         "public",
         "local-land-charges"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q019-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://search-local-land-charges.service.gov.uk/"
     },
     {
       "id": "LR-Q020",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "local land charge planning condition title boundary differences",
       "intent": "Prevent conflation of local land charges, planning information, title registration and mapped boundaries.",
@@ -1022,12 +1293,27 @@
         "local-authority",
         "planning",
         "semantic-boundary"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q020-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://search-local-land-charges.service.gov.uk/"
     },
     {
       "id": "LR-Q021",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "OCOD licence address data third party rights",
       "intent": "Retrieve the dataset-specific licence and keep third-party address-data conditions visible.",
@@ -1064,12 +1350,26 @@
         "licensing",
         "provenance",
         "ocod"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q021-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/ocod"
     },
     {
       "id": "LR-Q022",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "Price Paid Data OGL attribution Royal Mail Ordnance Survey",
       "intent": "Find the required attribution and layered address-data reuse conditions for Price Paid Data.",
@@ -1105,12 +1405,25 @@
         "licensing",
         "lending",
         "price-paid-data"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q022-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
     },
     {
       "id": "LR-Q023",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "Use land and property data accessibility keyboard focus WCAG",
       "intent": "Retrieve the applicable accessibility statement and test the bundle's equivalent critical journey.",
@@ -1135,25 +1448,39 @@
         }
       ],
       "expected_propositions": [
-    "At the observation date the publisher statement reports partial WCAG 2.2 AA compliance and known focus, keyboard or map, language and screen-reader limitations.",
-    "The statement was last reviewed on 26 September 2024 and reports testing in September 2024; remediation dates that passed in January 2025 do not prove fixes, so current defect status is unknown until rechecked.",
-    "The OKF site must separately test its own search, filter, result and source-link journey rather than inherit the source service's claim."
-  ],
-  "near_miss_rule": "A planned remediation date, an old test result or a passing automated audit is not evidence that a defect is fixed or that the complete keyboard and screen-reader task works.",
-  "hard_failure_ids": [
-    "HF-ACCESSIBILITY",
-    "HF-DATE-CURRENCY"
+        "At the observation date the publisher statement reports partial WCAG 2.2 AA compliance and known focus, keyboard or map, language and screen-reader limitations.",
+        "The statement was last reviewed on 26 September 2024 and reports testing in September 2024; remediation dates that passed in January 2025 do not prove fixes, so current defect status is unknown until rechecked.",
+        "The OKF site must separately test its own search, filter, result and source-link journey rather than inherit the source service's claim."
+      ],
+      "near_miss_rule": "A planned remediation date, an old test result or a passing automated audit is not evidence that a defect is fixed or that the complete keyboard and screen-reader task works.",
+      "hard_failure_ids": [
+        "HF-ACCESSIBILITY",
+        "HF-DATE-CURRENCY"
       ],
       "tags": [
         "accessibility",
         "api",
         "wcag"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-ACCESSIBLE-JOURNEY",
+        "CAV-DATE-SEPARATION"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q023-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/accessibility-statement"
     },
     {
       "id": "LR-Q024",
-      "status": "reviewed-v0.1.0",
-      "verification_status": "independently-agent-reviewed",
+      "status": "candidate-v0.2.0",
+      "verification_status": "requires-new-digest-bound-independent-review",
       "question_type": "competency-and-retrieval",
       "query": "HM Land Registry Welsh language services bilingual registers",
       "intent": "Find the official Welsh-language commitment and preserve bilingual service and register context.",
@@ -1177,24 +1504,72 @@
           "source_id": "SRC-GOVUK-HMLR",
           "canonical_url": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
         },
-    {
-      "source_id": "SRC-GOVUK-HMLR",
-      "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme"
+        {
+          "source_id": "SRC-GOVUK-HMLR",
+          "canonical_url": "https://www.gov.uk/government/publications/hm-land-registry-welsh-language-scheme/hm-land-registry-welsh-language-scheme"
         }
       ],
       "expected_propositions": [
-    "HMLR says Welsh and English are treated equally in Wales and identifies Welsh or bilingual contexts for public services, correspondence, publications and register or address information.",
-    "Welsh availability is service- and publication-specific; the bundle must label English and Welsh explicitly and must not infer that every linked item is bilingual."
-  ],
-  "near_miss_rule": "An English-only result is incomplete when the official source declares a Welsh route or bilingual context; conversely, the scheme is not proof that every service or document is bilingual.",
-  "hard_failure_ids": [
-    "HF-WELSH-LANGUAGE"
+        "HMLR says Welsh and English are treated equally in Wales and identifies Welsh or bilingual contexts for public services, correspondence, publications and register or address information.",
+        "Welsh availability is service- and publication-specific; the bundle must label English and Welsh explicitly and must not infer that every linked item is bilingual."
+      ],
+      "near_miss_rule": "An English-only result is incomplete when the official source declares a Welsh route or bilingual context; conversely, the scheme is not proof that every service or document is bilingual.",
+      "hard_failure_ids": [
+        "HF-WELSH-LANGUAGE"
       ],
       "tags": [
         "welsh",
         "accessibility",
         "public"
-      ]
+      ],
+      "suite_partition": "calibration",
+      "required_caveat_ids": [
+        "CAV-LANGUAGE-DISTINCTION"
+      ],
+      "must_not_retrieve": [
+        {
+          "target_id": "NEG-LR-Q024-CROSS-JURISDICTION",
+          "canonical_url": "https://www.ros.gov.uk/",
+          "max_rank": 10,
+          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss."
+        }
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
+    }
+  ],
+  "suite_partition": "calibration",
+  "caveat_registry": [
+    {
+      "id": "CAV-BOUNDARY-NOT-CONCLUSION",
+      "text": "Discovery geometry, title-plan lines and general boundaries are not exact legal boundary conclusions."
+    },
+    {
+      "id": "CAV-RIGHTS-AND-ACCESS",
+      "text": "Public discovery does not establish open, free or unrestricted access or reuse."
+    },
+    {
+      "id": "CAV-DATE-SEPARATION",
+      "text": "Observation, publication, catalogue, release and legal currency dates remain distinct."
+    },
+    {
+      "id": "CAV-SOURCE-AUTHORITY",
+      "text": "The bundle is a discovery aid; canonical official sources control authoritative claims."
+    },
+    {
+      "id": "CAV-NO-RESTRICTED-AUTOMATION",
+      "text": "Do not authenticate to or automate paid, portal, Business Gateway or terms-restricted services."
+    },
+    {
+      "id": "CAV-BOUNDED-COVERAGE",
+      "text": "Coverage is bounded to named source lanes and dated denominators."
+    },
+    {
+      "id": "CAV-ACCESSIBLE-JOURNEY",
+      "text": "Critical discovery and evidence inspection require an accessible non-visual journey."
+    },
+    {
+      "id": "CAV-LANGUAGE-DISTINCTION",
+      "text": "English and Welsh source identities and availability remain distinct."
     }
   ]
 }

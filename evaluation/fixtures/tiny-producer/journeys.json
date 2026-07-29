@@ -1,0 +1,56 @@
+{
+  "schema": "okf-explorer-journeys.v1",
+  "bundle_descriptor": "okf-explorer.json",
+  "expected_identity": {
+    "schema": "okf-explorer-bundle.v0",
+    "id": "urn:okf:hmlr:fixture:tiny-producer",
+    "version": "0.2.0-fixture",
+    "snapshot": "tiny-producer-fixture"
+  },
+  "journeys": [
+    {
+      "id": "positive-record-and-negative-control",
+      "actions": [
+        {
+          "type": "goto",
+          "hash": "#alpha"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel h2:has-text(\"Alpha positive control record\")"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "visible",
+          "selector": "main"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel",
+          "includes": "Alpha positive control record"
+        },
+        {
+          "type": "not_text",
+          "selector": ".right-panel",
+          "includes": "Negative control record"
+        },
+        {
+          "type": "url_hash",
+          "equals": "#alpha"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/okf-explorer.json"
+        },
+        {
+          "type": "not_requested",
+          "includes": "/bundle/forbidden.json"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    }
+  ]
+}

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import functools
 import hashlib
 import html
 import json
@@ -30,7 +31,7 @@ from urllib.parse import parse_qsl, urldefrag, urljoin, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "bundle"
 PUBLICATION_BASE = "https://chris-page-gov.github.io/okf-LandRegistry/"
-BUILD_VERSION = "0.1.0"
+BUILD_VERSION = "0.2.0"
 RESEARCH_CUTOFF = "2026-07-29"
 SHARD_SIZE = 250
 GENERATED_MARKER = ".okf-generated"
@@ -149,10 +150,13 @@ def load_build_config() -> dict[str, Any]:
     missing = [key for key in required if not clean_text(config.get(key))]
     if missing:
         raise ValueError(f"source/build-config.json lacks {', '.join(missing)}")
-    allowed_statuses = {"reviewed-scaffold-not-approved", "released-poc"}
+    allowed_statuses = {
+        "reviewed-scaffold-not-approved",
+        "ai-generated-proof-of-concept",
+    }
     if config["status"] not in allowed_statuses:
         raise ValueError(f"unsupported build status: {config['status']!r}")
-    if config["status"] == "released-poc":
+    if config["status"] == "ai-generated-proof-of-concept":
         if not clean_text(config.get("release_at")):
             raise ValueError("a released proof of concept requires release_at")
         if config.get("ai_generated_proof_of_concept") is not True:
@@ -421,12 +425,116 @@ def source_controls() -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, An
     return sources, rights
 
 
+@functools.lru_cache(maxsize=1)
+def load_type_kind_crosswalk() -> tuple[dict[str, str], set[str]]:
+    path = ROOT / "source" / "type-kind-crosswalk.json"
+    payload = load_json(path)
+    if payload.get("schema") != "okf-hmlr-type-kind-crosswalk.v1":
+        raise ValueError("type-to-kind crosswalk has an unsupported schema")
+    if payload.get("version") != BUILD_VERSION:
+        raise ValueError("type-to-kind crosswalk and builder versions differ")
+    allowed = payload.get("allowed_kinds")
+    mapping = payload.get("mapping")
+    if (
+        not isinstance(allowed, list)
+        or not allowed
+        or len(allowed) != len(set(allowed))
+        or not isinstance(mapping, dict)
+        or not mapping
+    ):
+        raise ValueError("type-to-kind crosswalk is incomplete")
+    allowed_set = set(allowed)
+    unknown = set(mapping.values()) - allowed_set
+    if unknown:
+        raise ValueError(f"type-to-kind crosswalk uses unknown kinds: {sorted(unknown)}")
+    return mapping, allowed_set
+
+
+@functools.lru_cache(maxsize=1)
+def load_publisher_registry() -> dict[str, str]:
+    path = ROOT / "source" / "publisher-registry.json"
+    payload = load_json(path)
+    if payload.get("schema") != "okf-hmlr-publisher-registry.v1":
+        raise ValueError("publisher registry has an unsupported schema")
+    if payload.get("version") != BUILD_VERSION:
+        raise ValueError("publisher registry and builder versions differ")
+    rows = payload.get("publishers")
+    if not isinstance(rows, list) or not rows:
+        raise ValueError("publisher registry must contain publishers")
+    registry: dict[str, str] = {}
+    for row in rows:
+        name = clean_text(row.get("name")) if isinstance(row, dict) else ""
+        identifier = ensure_https(clean_text(row.get("id"))) if name else ""
+        if not name or not identifier or name in registry:
+            raise ValueError("publisher registry names must be non-empty and unique")
+        registry[name] = identifier
+    return registry
+
+
+def load_composite_input_manifest(snapshot_dir: Path) -> dict[str, Any]:
+    path = ROOT / "source" / f"input-manifest-v{BUILD_VERSION}.json"
+    payload = load_json(path)
+    if (
+        payload.get("schema") != "okf-hmlr-composite-input-manifest.v1"
+        or payload.get("version") != BUILD_VERSION
+    ):
+        raise ValueError("composite input manifest does not match the build version")
+    rows = payload.get("inputs")
+    if not isinstance(rows, list) or len(rows) < 2:
+        raise ValueError("composite input manifest requires bounded source inputs")
+    by_id = {clean_text(row.get("id")): row for row in rows if isinstance(row, dict)}
+    if len(by_id) != len(rows) or "" in by_id:
+        raise ValueError("composite input IDs must be non-empty and unique")
+    snapshot_row = by_id.get("public-metadata-snapshot")
+    if not snapshot_row:
+        raise ValueError("composite input manifest lacks the acquisition snapshot")
+    expected_snapshot_path = (
+        snapshot_dir.resolve() / "manifest.json"
+    ).relative_to(ROOT).as_posix()
+    if snapshot_row.get("path") != expected_snapshot_path:
+        raise ValueError("composite input manifest selects a different snapshot")
+    for row in rows:
+        input_path = ROOT / clean_text(row.get("path"))
+        if not input_path.is_file() or input_path.is_symlink():
+            raise ValueError(f"composite input is missing or unsafe: {input_path}")
+        if clean_text(row.get("sha256")) != sha256_file(input_path):
+            raise ValueError(f"composite input digest differs: {input_path}")
+        if not clean_text(row.get("freshness_policy")):
+            raise ValueError(f"composite input lacks a freshness policy: {input_path}")
+    return payload
+
+
 def authority_role(tier: str) -> str:
     return {
         "A": "publisher-authoritative-source",
         "B": "official-operational-source",
         "C": "official-discovery-reference",
     }.get(tier, "unassessed-source")
+
+
+def governed_optional_text(value: Any, *, field: str) -> tuple[str | None, str]:
+    rendered = clean_text(value)
+    placeholder = rendered.casefold()
+    placeholder_values = {
+        "check-source",
+        "not stated",
+        "not declared in repository metadata",
+        "source-specific",
+        "source-specific; hm land registry normally covers england and wales",
+        "technical source; jurisdiction is project-specific",
+        "check source-specific crown copyright and reuse terms",
+        "check publisher-operated contract",
+    }
+    if not rendered or placeholder in placeholder_values:
+        return None, "unknown"
+    if field == "jurisdiction" and placeholder == "not-applicable":
+        return None, "not-applicable"
+    return rendered, "stated"
+
+
+def record_id_for(source_family: str, source_native_id: str) -> str:
+    identity = f"{source_family}\0{source_native_id}".encode("utf-8")
+    return "hmlr-" + hashlib.sha256(identity).hexdigest()[:24]
 
 
 def normal_record(record: dict[str, Any]) -> dict[str, Any]:
@@ -450,25 +558,60 @@ def normal_record(record: dict[str, Any]) -> dict[str, Any]:
     ]
 
     source_family = clean_text(record["source_family"])
+    source_native_id = clean_text(record["id"])
+    source_native_type = clean_text(record["record_type"])
+    type_mapping, _allowed_kinds = load_type_kind_crosswalk()
+    if source_native_type not in type_mapping:
+        raise ValueError(
+            f"source-native type is absent from the governed crosswalk: "
+            f"{source_native_type!r}"
+        )
+    publisher = clean_text(record.get("publisher")) or "HM Land Registry"
+    publisher_registry = load_publisher_registry()
+    if publisher not in publisher_registry:
+        raise ValueError(f"publisher is absent from the governed registry: {publisher!r}")
+    jurisdiction, jurisdiction_state = governed_optional_text(
+        record.get("jurisdiction"), field="jurisdiction"
+    )
+    licence, licence_state = governed_optional_text(
+        record.get("licence"), field="licence"
+    )
+    cadence, cadence_state = governed_optional_text(
+        record.get("cadence"), field="cadence"
+    )
+    languages = string_list(record.get("language") or record.get("languages"))
     normalized = {
-        "id": clean_text(record["id"]),
+        "schema": "okf-hmlr-record.v2",
+        "id": source_native_id,
+        "source_native_id": source_native_id,
+        "source_native_type": source_native_type,
+        "canonical_source_url": canonical_url,
         "title": clean_text(record["title"]),
         "description": clean_text(record.get("description")),
         "url": canonical_url,
-        "publisher": clean_text(record.get("publisher")) or "HM Land Registry",
+        "publisher": publisher,
+        "publisher_id": publisher_registry[publisher],
         "authority_tier": authority_tier(record.get("authority_tier"), source_family),
-        "record_type": clean_text(record["record_type"]),
+        "record_type": source_native_type,
+        "kind": type_mapping[source_native_type],
         "source_family": source_family,
-        "jurisdiction": clean_text(record.get("jurisdiction"))
-        or "Source-specific; HM Land Registry normally covers England and Wales",
+        "jurisdiction": jurisdiction,
+        "jurisdiction_state": jurisdiction_state,
         "audience": string_list(record.get("audience")),
-        "access_model": clean_text(record.get("access_model")) or "check-source",
-        "authentication": clean_text(record.get("authentication")) or "check-source",
-        "licence": clean_text(record.get("licence")) or "check-source",
-        "cadence": clean_text(record.get("cadence")) or "not stated",
+        "access_model": governed_optional_text(
+            record.get("access_model"), field="access_model"
+        )[0],
+        "authentication": governed_optional_text(
+            record.get("authentication"), field="authentication"
+        )[0],
+        "licence": licence,
+        "licence_state": licence_state,
+        "cadence": cadence,
+        "cadence_state": cadence_state,
         "formats": string_list(record.get("formats")),
         "topics": string_list(record.get("topics")),
-        "languages": string_list(record.get("language") or record.get("languages")),
+        "languages": languages,
+        "language_state": "stated" if languages else "unknown",
         "curation": clean_text(record.get("curation")) or "source-native",
         "lifecycle_state": clean_text(record.get("lifecycle_state")) or "unknown",
         "publisher_last_updated": clean_text(record.get("publisher_last_updated")) or None,
@@ -478,6 +621,8 @@ def normal_record(record: dict[str, Any]) -> dict[str, Any]:
         "source_urls": sorted(set(source_urls)),
         "equivalent_urls": sorted(set(equivalent_urls)),
     }
+    if clean_text(record.get("translation_group")):
+        normalized["translation_group"] = clean_text(record["translation_group"])
     return normalized
 
 
@@ -621,6 +766,86 @@ def normalize_cddo(item: dict[str, Any], observed_at: str) -> dict[str, Any]:
             "source_urls": source_urls,
         }
     )
+
+
+def content_observation_records(
+    composite_manifest: dict[str, Any],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    row = next(
+        (
+            item
+            for item in composite_manifest["inputs"]
+            if item["id"] == "govuk-content-locale-translations"
+        ),
+        None,
+    )
+    if row is None:
+        raise ValueError("composite input manifest lacks the Content API observation")
+    path = ROOT / row["path"]
+    payload = load_json(path)
+    if payload.get("schema") != "okf-hmlr-govuk-content-observation.v1":
+        raise ValueError("Content API observation has an unsupported schema")
+    terminal = payload.get("terminal_outcome")
+    observations = payload.get("observations")
+    if (
+        not isinstance(terminal, dict)
+        or terminal.get("status") != "complete"
+        or not isinstance(observations, list)
+        or terminal.get("succeeded") != len(observations)
+        or terminal.get("failed") != 0
+    ):
+        raise ValueError("Content API observation did not terminate successfully")
+    records: dict[tuple[str, str], dict[str, Any]] = {}
+    for observation in observations:
+        metadata = observation.get("metadata")
+        if not isinstance(metadata, dict):
+            raise ValueError("Content API observation metadata must be an object")
+        translations = metadata.get("available_translations")
+        if not isinstance(translations, list) or not translations:
+            raise ValueError("Content API observation lacks available translations")
+        for translation in translations:
+            if not isinstance(translation, dict):
+                raise ValueError("Content API translation metadata must be an object")
+            content_id = clean_text(translation.get("content_id"))
+            locale = clean_text(translation.get("locale"))
+            url = clean_text(translation.get("web_url"))
+            if not content_id or locale not in {"en", "cy"} or not url:
+                raise ValueError("Content API translation identity is incomplete")
+            key = (content_id, locale)
+            records[key] = normal_record(
+                {
+                    "id": f"govuk-content:{content_id}:{locale}",
+                    "title": translation.get("title"),
+                    "description": (
+                        "GOV.UK Content API locale and translation metadata; "
+                        "rendered publication content is intentionally excluded."
+                    ),
+                    "url": url,
+                    "publisher": "HM Land Registry",
+                    "authority_tier": "A",
+                    "record_type": translation.get("document_type") or "guidance",
+                    "source_family": "govuk-content",
+                    "access_model": "public-web",
+                    "authentication": "none for this publication metadata",
+                    "formats": ["HTML"],
+                    "topics": ["Welsh language", "translation"],
+                    "languages": [locale],
+                    "publisher_last_updated": translation.get("public_updated_at"),
+                    "observed_at": payload.get("observed_at"),
+                    "translation_group": content_id,
+                    "caveats": [
+                        "Locale and translation relationships come from bounded Content API metadata.",
+                        "Rendered bodies, contacts, details and attachments are outside this bundle.",
+                    ],
+                    "source_urls": [url],
+                }
+            )
+    return list(records.values()), {
+        "path": row["path"],
+        "sha256": row["sha256"],
+        "observed_at": payload["observed_at"],
+        "record_count": len(records),
+    }
 
 
 def newest_snapshot() -> Path | None:
@@ -839,7 +1064,7 @@ def govern_record(
                 if governed["curation"] == "reviewed"
                 else "normalized-frozen-source-metadata"
             ),
-            "source_native_ids": [governed["id"]],
+            "source_native_ids": [governed["source_native_id"]],
             "source_families": [family_id],
             "evidence_refs": EVIDENCE_BY_SOURCE_FAMILY[family_id],
         }
@@ -886,6 +1111,21 @@ def merge_records(
             {value for item in ordered for value in item["evidence_refs"]}
         )
         selected["derivations"] = sorted({item["derivation"] for item in ordered})
+        selected["languages"] = sorted(
+            {value for item in ordered for value in item.get("languages", [])}
+        )
+        selected["language_state"] = (
+            "stated" if selected["languages"] else "unknown"
+        )
+        translation_groups = {
+            clean_text(item.get("translation_group"))
+            for item in ordered
+            if clean_text(item.get("translation_group"))
+        }
+        if len(translation_groups) > 1:
+            raise ValueError(f"record has conflicting translation groups: {url}")
+        if translation_groups:
+            selected["translation_group"] = next(iter(translation_groups))
         selected["representations"] = [
             {
                 "id": item["id"],
@@ -899,6 +1139,11 @@ def merge_records(
             }
             for item in ordered
         ]
+        selected_native_id = selected["source_native_id"]
+        record_id = record_id_for(selected["source_family"], selected_native_id)
+        selected["record_id"] = record_id
+        selected["record_id_scheme"] = "sha256(source_family NUL source_native_id)-24"
+        selected["id"] = record_id
         records.append(selected)
         if len(ordered) > 1:
             collisions.append(
@@ -933,7 +1178,7 @@ def merge_records(
 
 
 def counter(records: list[dict[str, Any]], key: str) -> dict[str, int]:
-    values = Counter(record[key] for record in records)
+    values = Counter(clean_text(record.get(key)) or "unknown" for record in records)
     return dict(sorted(values.items(), key=lambda item: item[0].casefold()))
 
 
@@ -951,9 +1196,11 @@ def make_descriptor(
     curated: dict[str, Any],
     config: dict[str, Any],
     reconciliation: dict[str, Any],
+    explorer_projection: dict[str, Any],
 ) -> dict[str, Any]:
     publication_base = publication_base.rstrip("/") + "/"
     types = counter(records, "record_type")
+    kinds = counter(records, "kind")
     sources = counter(records, "source_family")
     return {
         "@context": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/context.jsonld",
@@ -973,14 +1220,38 @@ def make_descriptor(
         "generated_at": config["generated_at"],
         "release_at": config.get("release_at"),
         "snapshot": snapshot["snapshot_id"],
+        "data_plane_manifest_root_sha256": explorer_projection[
+            "manifest_root_sha256"
+        ],
         "core_conformance": "OKF v0.2 Markdown concept layer",
         "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
         "semantic_descriptor": urljoin(publication_base, "okf-bundle.jsonld"),
+        "semantic_serializations": {
+            "canonical": {
+                "format": "JSON-LD",
+                "path": "okf-bundle.jsonld",
+            },
+            "reference_only": [
+                {
+                    "format": "YAML-LD",
+                    "status": "deferred",
+                    "reason": (
+                        "Reference-only in the approved v0.2 profile; no "
+                        "YAML-LD conformance artifact is claimed."
+                    ),
+                }
+            ],
+        },
         "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
         "counts": {
             "records": len(records),
+            "datasets": sum(record["kind"] == "dataset" for record in records),
+            "resources": len(records),
+            "publishers": explorer_projection["counts"]["publishers"],
+            "relationships": explorer_projection["counts"]["relationships"],
             "sources": len(sources),
             "record_types": len(types),
+            "kinds": len(kinds),
             "topics": len(list_counter(records, "topics")),
             "curated_records": curated["record_count"],
             "source_representations": reconciliation["input_representations"],
@@ -989,11 +1260,18 @@ def make_descriptor(
         "entrypoints": {
             "okf_index": "index.md",
             "okf_log": "log.md",
-            "data_manifest": "data/manifest.json",
+            "data_manifest": explorer_projection["data_manifest"]["path"],
+            "overview_index": explorer_projection["overview_index"]["path"],
+            "analysis_overview": explorer_projection["analysis_overview"]["path"],
+            "record_locator": explorer_projection["record_locator"]["path"],
+            "relationship_adjacency": explorer_projection[
+                "relationship_adjacency"
+            ]["path"],
+            "search_manifest": explorer_projection["search_manifest"]["path"],
             "catalogue": "data/catalogue.json",
             "catalogue_csv": "data/catalogue.csv",
             "catalogue_html": "catalogue-index.html",
-            "search_manifest": "data/search/manifest.json",
+            "inventory_manifest": "data/manifest.json",
             "coverage": "data/coverage.json",
             "provenance": "data/provenance.json",
             "rights": "data/rights.json",
@@ -1003,11 +1281,21 @@ def make_descriptor(
             "viewer": "https://chris-page-gov.github.io/okf-explorer/",
             "site": "./",
         },
+        "entrypoint_integrity": {
+            "data_manifest": explorer_projection["data_manifest"],
+            "overview_index": explorer_projection["overview_index"],
+            "analysis_overview": explorer_projection["analysis_overview"],
+            "record_locator": explorer_projection["record_locator"],
+            "relationship_adjacency": explorer_projection[
+                "relationship_adjacency"
+            ],
+            "search_manifest": explorer_projection["search_manifest"],
+        },
         "scope": {
             "kind": "bounded-public-metadata-discovery",
             "metadata_only": True,
             "complete_for_govuk_hmlr_filter_at_snapshot": snapshot["mode"]
-            == "frozen-public-metadata",
+            == "composite-frozen-public-metadata",
             "complete_hmlr_public_estate": False,
             "research_cutoff": RESEARCH_CUTOFF,
             "excludes": [
@@ -1033,9 +1321,9 @@ def make_descriptor(
         },
         "performance": {
             "startup_mode": "overview-first",
-            "search": "compact client-side index",
-            "full_record_hydration": "lazy bounded record shards",
-            "relationship_hydration": "not applicable in scaffold",
+            "search": "bounded in-browser index over Explorer record chunks",
+            "full_record_hydration": "integrity-bound chunks",
+            "relationship_hydration": "integrity-bound deterministic chunks",
         },
         "extensions": {
             "okf-hmlr-discovery.v1": {
@@ -1071,41 +1359,109 @@ def jsonld_projection(
     config: dict[str, Any],
 ) -> dict[str, Any]:
     publication_base = publication_base.rstrip("/") + "/"
-    graph = []
-    type_map = {
-        "dataset": "Dataset",
-        "api": "WebAPI",
-        "software-repository": "SoftwareSourceCode",
+    graph: list[dict[str, Any]] = []
+    catalog_id = urljoin(publication_base, "okf-bundle.jsonld")
+    record_refs: list[dict[str, str]] = []
+    dataset_refs: list[dict[str, str]] = []
+    publisher_nodes: dict[str, dict[str, Any]] = {}
+    rights_nodes: dict[str, dict[str, Any]] = {}
+    activity_nodes: dict[str, dict[str, Any]] = {}
+    entity_types = {
+        "dataset": ["dcat:Dataset", "schema:Dataset"],
+        "service": ["dcat:DataService", "schema:Service"],
+        "API": ["dcat:DataService", "schema:WebAPI"],
+        "repository": ["schema:SoftwareSourceCode"],
+        "statistics": ["schema:Dataset"],
+        "guidance": ["schema:CreativeWork"],
+        "form": ["schema:DigitalDocument"],
+        "news": ["schema:NewsArticle"],
+        "corporate": ["schema:CreativeWork"],
+        "legislation": ["schema:Legislation"],
+        "other": ["schema:CreativeWork"],
     }
     for record in records:
-        schema_type = type_map.get(record["record_type"], "CreativeWork")
+        record_node_id = urljoin(publication_base, f"records/{record['record_id']}")
+        publisher_id = record["publisher_id"]
+        rights_id = urljoin(publication_base, f"rights/{record['rights_ref']}")
+        activity_id = urljoin(
+            publication_base,
+            "activities/"
+            + record["source_family"]
+            + "-"
+            + hashlib.sha256(record["observed_at"].encode("utf-8")).hexdigest()[:12],
+        )
+        publisher_nodes[publisher_id] = {
+            "@id": publisher_id,
+            "@type": "schema:Organization",
+            "schema:name": record["publisher"],
+            "schema:url": publisher_id,
+        }
+        rights_nodes[rights_id] = {
+            "@id": rights_id,
+            "@type": "dcterms:RightsStatement",
+            "dcterms:identifier": record["rights_ref"],
+            "schema:name": record["rights_state"],
+        }
+        activity_nodes[activity_id] = {
+            "@id": activity_id,
+            "@type": "prov:Activity",
+            "dcterms:identifier": record["source_family"],
+            "prov:endedAtTime": record["observed_at"],
+        }
+        record_refs.append({"@id": record_node_id})
+        if record["kind"] == "dataset":
+            dataset_refs.append({"@id": record["canonical_source_url"]})
         graph.append(
             {
-                "@id": record["url"],
-                "@type": schema_type,
-                "name": record["title"],
-                "description": record["description"],
-                "url": record["url"],
-                "publisher": {"@type": "Organization", "name": record["publisher"]},
-                "dateModified": record["publisher_last_updated"],
-                "isPartOf": {"@id": urljoin(publication_base, "okf-bundle.jsonld")},
+                "@id": record_node_id,
+                "@type": "dcat:CatalogRecord",
+                "dcterms:identifier": record["record_id"],
+                "dcterms:source": [
+                    {"@id": source_url} for source_url in record["source_urls"]
+                ],
+                "dcterms:rights": {"@id": rights_id},
+                "foaf:primaryTopic": {"@id": record["canonical_source_url"]},
+                "prov:wasGeneratedBy": {"@id": activity_id},
             }
         )
+        entity: dict[str, Any] = {
+            "@id": record["canonical_source_url"],
+            "@type": entity_types[record["kind"]],
+            "schema:name": record["title"],
+            "schema:description": record["description"],
+            "schema:url": record["canonical_source_url"],
+            "dcterms:publisher": {"@id": publisher_id},
+            "dcterms:rights": {"@id": rights_id},
+            "dcterms:type": record["source_native_type"],
+            "dcterms:language": record["languages"],
+            "dcterms:isPartOf": {"@id": catalog_id},
+            "prov:wasDerivedFrom": [
+                {"@id": source_url} for source_url in record["source_urls"]
+            ],
+            "prov:wasGeneratedBy": {"@id": activity_id},
+        }
+        if record["publisher_last_updated"]:
+            entity["dcterms:modified"] = record["publisher_last_updated"]
+        if record["licence"] is not None:
+            entity["dcterms:license"] = record["licence"]
+        graph.append(
+            entity
+        )
+    graph.extend(publisher_nodes[key] for key in sorted(publisher_nodes))
+    graph.extend(rights_nodes[key] for key in sorted(rights_nodes))
+    graph.extend(activity_nodes[key] for key in sorted(activity_nodes))
     return {
-        "@context": {
-            "@vocab": "https://schema.org/",
-            "dcat": "http://www.w3.org/ns/dcat#",
-            "prov": "http://www.w3.org/ns/prov#",
-        },
-        "@id": urljoin(publication_base, "okf-bundle.jsonld"),
-        "@type": "DataCatalog",
-        "name": "HM Land Registry public-estate OKF",
-        "description": (
+        "@context": urljoin(publication_base, "context.jsonld"),
+        "@id": catalog_id,
+        "@type": ["dcat:Catalog", "schema:DataCatalog"],
+        "schema:name": "HM Land Registry public-estate OKF",
+        "schema:description": (
             "Independent metadata-only projection; source authority remains external."
         ),
-        "dateModified": config["generated_at"],
-        "temporalCoverage": snapshot["observed_at"],
-        "dataset": [{"@id": record["url"]} for record in records],
+        "dcterms:modified": config["generated_at"],
+        "dcterms:temporal": snapshot["observed_at"],
+        "dcat:record": record_refs,
+        "schema:dataset": dataset_refs,
         "@graph": graph,
     }
 
@@ -1121,22 +1477,32 @@ def csv_safe(value: Any) -> Any:
 def write_csv(path: Path, records: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = [
+        "schema",
         "id",
+        "record_id",
+        "record_id_scheme",
+        "source_native_id",
+        "source_native_type",
+        "canonical_source_url",
         "title",
         "description",
         "url",
         "publisher",
+        "publisher_id",
         "authority_tier",
         "record_type",
+        "kind",
         "source_family",
         "source_families",
         "source_native_ids",
         "jurisdiction",
+        "jurisdiction_state",
         "audience",
         "access_model",
         "access_state",
         "authentication",
         "licence",
+        "licence_state",
         "rights_state",
         "rights_ref",
         "authority_role",
@@ -1144,9 +1510,11 @@ def write_csv(path: Path, records: list[dict[str, Any]]) -> None:
         "lifecycle_state",
         "evidence_refs",
         "cadence",
+        "cadence_state",
         "formats",
         "topics",
         "languages",
+        "language_state",
         "curation",
         "publisher_last_updated",
         "observed_at",
@@ -1204,7 +1572,11 @@ def concept_document(
 def write_control_concepts(
     output: Path, snapshot: dict[str, Any], config: dict[str, Any]
 ) -> None:
-    concept_status = "released" if config["status"] == "released-poc" else "draft"
+    concept_status = (
+        "released"
+        if config["status"] == "ai-generated-proof-of-concept"
+        else "draft"
+    )
     index = """---
 okf_version: "0.2"
 ---
@@ -1315,7 +1687,7 @@ and loss of Welsh-language distinctions.
         "- Normalized only public discovery metadata; no authenticated, paid, "
         "personal or bulk source records were acquired.\n"
         f"- Generated `{config['status']}` provenance, rights, reconciliation, "
-        "search shards and static Pages catalogue offline.\n",
+        "one Explorer runtime search plane and a static Pages catalogue offline.\n",
         encoding="utf-8",
     )
     concept_dir = output / "concepts"
@@ -1332,6 +1704,8 @@ def copy_pages(output: Path) -> None:
         if path.is_dir():
             continue
         relative = path.relative_to(pages)
+        if relative.as_posix() in {"app.js", "search-contract.json"}:
+            continue
         destination = output / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(path, destination)
@@ -1456,7 +1830,7 @@ def write_search_and_shards(
     }
     write_json(records_dir / "manifest.json", records_manifest)
     search_manifest = {
-        "schema": "okf-static-search.v2",
+        "schema": "okf-hmlr-site-search.v1",
         "index": "index.json",
         "records_manifest": "../records/manifest.json",
         "contract": "../../search-contract.json",
@@ -1487,6 +1861,734 @@ def write_search_and_shards(
     }
     write_json(output / "data" / "search" / "manifest.json", search_manifest)
     return search_manifest, shard_files
+
+
+def explorer_name(kind: str, source_identity: str) -> str:
+    """Return a stable, URL-safe projection name without replacing source identity."""
+    return f"{kind}-{sha256_bytes(source_identity.encode('utf-8'))[:24]}"
+
+
+def explorer_reference(output: Path, path: Path) -> dict[str, Any]:
+    return {
+        "path": path.relative_to(output).as_posix(),
+        "bytes": path.stat().st_size,
+        "sha256": sha256_file(path),
+    }
+
+
+def explorer_facet_rows(values: Counter[str]) -> list[dict[str, Any]]:
+    return [
+        {"value": value, "count": count}
+        for value, count in sorted(
+            values.items(), key=lambda item: (-item[1], item[0].casefold())
+        )
+    ]
+
+
+def explorer_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [clean_text(item) for item in value if clean_text(item)]
+    text = clean_text(value)
+    return [text] if text else []
+
+
+def compact_canonical_json(value: Any) -> bytes:
+    return (
+        json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        + "\n"
+    ).encode("utf-8")
+
+
+def explorer_worker_tokens(value: str) -> list[str]:
+    normalized = "".join(
+        character
+        for character in unicodedata.normalize("NFKD", clean_text(value)).casefold()
+        if not unicodedata.combining(character)
+    )
+    return sorted(
+        {
+            match.group(0).strip("._-")
+            for match in re.finditer(r"[a-z0-9][a-z0-9._-]*", normalized)
+            if len(match.group(0).strip("._-")) >= 2
+        }
+    )
+
+
+def explorer_search_field_values(
+    record: dict[str, Any], field: str
+) -> list[str]:
+    aliases = {
+        "format": "formats",
+        "geography": "geography",
+        "language": "language",
+        "topic": "topics",
+    }
+    value = record.get(aliases.get(field, field))
+    if isinstance(value, list):
+        return sorted({clean_text(item) for item in value if clean_text(item)})
+    text = clean_text(value)
+    return [text] if text else []
+
+
+def write_explorer_search(
+    output: Path,
+    datasets: list[dict[str, Any]],
+    facets_path: Path,
+    dataset_references: list[dict[str, Any]],
+    snapshot_id: str,
+) -> dict[str, Any]:
+    search_dir = output / "data" / "explorer" / "search"
+    weights = {
+        "title": 16,
+        "publisher": 8,
+        "description": 5,
+        "caveats": 5,
+        "topics": 4,
+        "record_type": 4,
+        "source": 3,
+        "tags": 3,
+        "url": 2,
+    }
+    masks = {
+        "title": 1,
+        "publisher": 2,
+        "description": 4,
+        "caveats": 4,
+        "topics": 8,
+        "record_type": 16,
+        "source": 32,
+        "tags": 64,
+        "url": 128,
+    }
+    postings: dict[str, list[list[int]]] = {}
+    document_frequency: Counter[str] = Counter()
+    for dataset in datasets:
+        ordinal = int(dataset["ordinal"])
+        token_scores: dict[str, list[int]] = {}
+        fields = {
+            "title": clean_text(dataset.get("title")),
+            "publisher": clean_text(dataset.get("publisher_title")),
+            "description": clean_text(dataset.get("notes")),
+            "caveats": " ".join(
+                clean_text(value)
+                for value in dataset.get("caveats", [])
+                if clean_text(value)
+            ),
+            "topics": " ".join(dataset.get("topics", [])),
+            "record_type": clean_text(dataset.get("record_type")),
+            "source": " ".join(
+                clean_text(dataset.get(key))
+                for key in ("source_tier", "source_adapter", "authority_role")
+            ),
+            "tags": " ".join(dataset.get("tags", [])),
+            "url": clean_text(dataset.get("url")),
+        }
+        for field, value in fields.items():
+            for token in explorer_worker_tokens(value):
+                score, mask = token_scores.get(token, [0, 0])
+                token_scores[token] = [
+                    score + weights[field],
+                    mask | masks[field],
+                ]
+        for token, (score, mask) in token_scores.items():
+            postings.setdefault(token, []).append([ordinal, score, mask])
+            document_frequency[token] += 1
+
+    postings_by_partition: dict[str, dict[str, list[list[int]]]] = {}
+    lexicon_by_partition: dict[str, list[dict[str, Any]]] = {}
+    logical_to_partition: dict[str, str] = {}
+    for token in sorted(postings):
+        logical = re.sub(r"[^a-z0-9]", "", token)[:2] or "_"
+        partition = logical[:1] or "_"
+        postings_path = (
+            output / "data" / "explorer" / "search" / f"postings-{partition}.json"
+        )
+        logical_to_partition[logical] = partition
+        postings_by_partition.setdefault(partition, {})[token] = postings[token]
+        lexicon_by_partition.setdefault(partition, []).append(
+            {
+                "token": token,
+                "df": document_frequency[token],
+                "postings": postings_path.relative_to(output).as_posix(),
+            }
+        )
+
+    lexicon_entrypoints: dict[str, str] = {}
+    postings_entrypoints: list[str] = []
+    shard_groups: dict[str, list[dict[str, Any]]] = {
+        "lexicon": [],
+        "postings": [],
+        "result_docs": [],
+        "filters": [],
+        "support": [],
+    }
+    for partition in sorted(postings_by_partition):
+        postings_path = search_dir / f"postings-{partition}.json"
+        lexicon_path = search_dir / f"lexicon-{partition}.json"
+        write_compact_json(
+            postings_path,
+            {"tokens": postings_by_partition[partition]},
+        )
+        write_compact_json(lexicon_path, lexicon_by_partition[partition])
+        postings_entrypoints.append(postings_path.relative_to(output).as_posix())
+        for logical, observed_partition in logical_to_partition.items():
+            if observed_partition == partition:
+                lexicon_entrypoints[logical] = lexicon_path.relative_to(
+                    output
+                ).as_posix()
+        for group, path in (
+            ("postings", postings_path),
+            ("lexicon", lexicon_path),
+        ):
+            reference = explorer_reference(output, path)
+            reference["snapshot"] = snapshot_id
+            shard_groups[group].append(reference)
+
+    result_doc_paths = [reference["path"] for reference in dataset_references]
+    for reference in dataset_references:
+        row = dict(reference)
+        row["snapshot"] = snapshot_id
+        shard_groups["result_docs"].append(row)
+
+    filter_entrypoints: dict[str, str] = {}
+    filter_keys = [
+        "access",
+        "access_state",
+        "audience",
+        "content_type",
+        "format",
+        "geography",
+        "language",
+        "licence",
+        "lifecycle_state",
+        "publisher",
+        "kind",
+        "record_type",
+        "rights_state",
+        "service",
+        "source_family",
+        "topic",
+        "update_frequency",
+    ]
+    for key in filter_keys:
+        values: dict[str, list[int]] = {}
+        for dataset in datasets:
+            ordinal = int(dataset["ordinal"])
+            for value in explorer_search_field_values(dataset, key):
+                values.setdefault(value, []).append(ordinal)
+        path = search_dir / "filters" / f"{key}.json"
+        write_compact_json(
+            path,
+            {
+                "schema": "okf-static-filter-postings.v1",
+                "key": key,
+                "values": dict(sorted(values.items())),
+            },
+        )
+        filter_entrypoints[key] = path.relative_to(output).as_posix()
+        reference = explorer_reference(output, path)
+        reference["snapshot"] = snapshot_id
+        shard_groups["filters"].append(reference)
+
+    doc_map_path = search_dir / "doc-map.json"
+    sort_values_path = search_dir / "sort-values.json"
+    write_compact_json(
+        doc_map_path,
+        {str(dataset["ordinal"]): dataset["open"] for dataset in datasets},
+    )
+    write_compact_json(
+        sort_values_path,
+        [
+            [
+                clean_text(dataset.get("timestamp")),
+                clean_text(dataset.get("title")),
+                None,
+            ]
+            for dataset in datasets
+        ],
+    )
+    for path in (doc_map_path, sort_values_path):
+        reference = explorer_reference(output, path)
+        reference["snapshot"] = snapshot_id
+        shard_groups["support"].append(reference)
+
+    metadata = {
+        "schema": "okf-search-shard-metadata.v1",
+        "snapshot": snapshot_id,
+        "shards": shard_groups,
+    }
+    metadata_path = search_dir / "shards.json"
+    write_json(metadata_path, metadata)
+    shard_manifest_sha256 = sha256_bytes(
+        compact_canonical_json(metadata["shards"])
+    )
+    metadata_reference = explorer_reference(output, metadata_path)
+    manifest = {
+        "schema": "okf-static-search.v2",
+        "snapshot": snapshot_id,
+        "token_min_length": 2,
+        "prefix_min_length": 3,
+        "lexicon_shard_length": 2,
+        "result_limit": 200,
+        "result_doc_chunk_size": SHARD_SIZE,
+        "weights": weights,
+        "field_masks": masks,
+        "counts": {
+            "documents": len(datasets),
+            "tokens": len(postings),
+            "postings": sum(len(rows) for rows in postings.values()),
+            "postings_shards": len(postings_entrypoints),
+            "uncapped_postings": sum(document_frequency.values()),
+            "max_postings_per_token": 50_000,
+        },
+        "entrypoints": {
+            "lexicon": dict(sorted(lexicon_entrypoints.items())),
+            "prefixes": {},
+            "postings": postings_entrypoints,
+            "result_docs": result_doc_paths,
+            "facets": explorer_reference(output, facets_path),
+            "doc_map": doc_map_path.relative_to(output).as_posix(),
+            "filter_postings": filter_entrypoints,
+            "sort_values": sort_values_path.relative_to(output).as_posix(),
+        },
+        "shard_metadata": metadata_reference,
+        "shard_manifest_sha256": shard_manifest_sha256,
+    }
+    manifest_path = search_dir / "manifest.json"
+    write_json(manifest_path, manifest)
+    return explorer_reference(output, manifest_path)
+
+
+def explorer_relationship_bucket(route: str) -> str:
+    value = 0x811C9DC5
+    for byte in route.encode("utf-8"):
+        value ^= byte
+        value = (value * 0x01000193) & 0xFFFFFFFF
+    return f"{(value >> 24) & 0xFF:02x}"
+
+
+def write_explorer_record_locator(
+    output: Path,
+    datasets: list[dict[str, Any]],
+    dataset_references: list[dict[str, Any]],
+    snapshot_id: str,
+) -> dict[str, Any]:
+    locator_dir = output / "data" / "explorer" / "locator"
+    locations = {
+        dataset["route"]: [
+            int(dataset["ordinal"]) // SHARD_SIZE,
+            int(dataset["ordinal"]) % SHARD_SIZE,
+        ]
+        for dataset in datasets
+    }
+    locations_path = locator_dir / "routes.json"
+    write_compact_json(locations_path, locations)
+    locations_reference = explorer_reference(output, locations_path)
+    buckets = {
+        explorer_relationship_bucket(route): locations_reference
+        for route in sorted(locations)
+    }
+    locator = {
+        "schema": "okf-record-locator-sharded.v1",
+        "algorithm": "fnv1a32-prefix-2",
+        "snapshot": snapshot_id,
+        "records": len(datasets),
+        "chunk_size": SHARD_SIZE,
+        "record_chunks": dataset_references,
+        "bucket_count": len(buckets),
+        "buckets": dict(sorted(buckets.items())),
+    }
+    locator_path = locator_dir / "manifest.json"
+    write_json(locator_path, locator)
+    return explorer_reference(output, locator_path)
+
+
+def write_explorer_relationship_adjacency(
+    output: Path,
+    relationships: list[dict[str, Any]],
+    snapshot_id: str,
+) -> dict[str, Any]:
+    """Write bounded route-to-relationship buckets for targeted Explorer views."""
+    adjacency_dir = output / "data" / "explorer" / "adjacency"
+    by_route: dict[str, list[dict[str, Any]]] = {}
+    for relationship in relationships:
+        for route in {
+            clean_text(relationship.get("source")),
+            clean_text(relationship.get("target")),
+        }:
+            if route:
+                by_route.setdefault(route, []).append(relationship)
+
+    by_bucket: dict[str, dict[str, list[dict[str, Any]]]] = {}
+    for route, rows in sorted(by_route.items()):
+        bucket = explorer_relationship_bucket(route)
+        by_bucket.setdefault(bucket, {})[route] = rows
+
+    buckets: dict[str, dict[str, Any]] = {}
+    for bucket, rows in sorted(by_bucket.items()):
+        path = adjacency_dir / f"{bucket}.json"
+        write_compact_json(path, rows)
+        buckets[bucket] = explorer_reference(output, path)
+
+    manifest = {
+        "schema": "okf-relationship-adjacency.v1",
+        "algorithm": "fnv1a32-prefix-2",
+        "snapshot": snapshot_id,
+        "routes": len(by_route),
+        "relationships": len(relationships),
+        "buckets": buckets,
+    }
+    manifest_path = adjacency_dir / "manifest.json"
+    write_json(manifest_path, manifest)
+    return explorer_reference(output, manifest_path)
+
+
+def write_explorer_projection(
+    output: Path,
+    records: list[dict[str, Any]],
+    snapshot: dict[str, Any],
+    config: dict[str, Any],
+) -> dict[str, Any]:
+    """Write the pinned OKF Explorer large-corpus data-plane projection."""
+    projection_dir = output / "data" / "explorer"
+    dataset_rows: list[dict[str, Any]] = []
+    resource_rows: list[dict[str, Any]] = []
+    relationship_rows: list[dict[str, Any]] = []
+    publisher_counts = Counter(clean_text(record["publisher_id"]) for record in records)
+    publisher_titles = {
+        clean_text(record["publisher_id"]): clean_text(record["publisher"])
+        for record in records
+    }
+    publisher_names = {
+        publisher: explorer_name("publisher", publisher)
+        for publisher in sorted(publisher_counts, key=str.casefold)
+    }
+    if len(set(publisher_names.values())) != len(publisher_names):
+        raise ValueError("Explorer publisher projection identity collision")
+
+    dataset_names: dict[str, str] = {}
+    for ordinal, record in enumerate(records):
+        source_identity = clean_text(record["id"])
+        name = explorer_name("record", source_identity)
+        if name in dataset_names:
+            raise ValueError(
+                "Explorer record projection identity collision: "
+                f"{source_identity} and {dataset_names[name]}"
+            )
+        dataset_names[name] = source_identity
+        publisher_id = clean_text(record["publisher_id"])
+        publisher_title = clean_text(record["publisher"])
+        publisher_name = publisher_names[publisher_id]
+        source_url = clean_text(record["url"])
+        host = urlparse(source_url).hostname or ""
+        resource_id = explorer_name("source", source_identity)
+        dataset = dict(record)
+        dataset.update(
+            {
+                "name": name,
+                "route": f"dataset/{name}",
+                "open": f"dataset/{name}",
+                "ordinal": ordinal,
+                "title": clean_text(record["title"]),
+                "notes": clean_text(record.get("description")),
+                "context_note": " ".join(
+                    clean_text(value)
+                    for value in record.get("caveats", [])
+                    if clean_text(value)
+                ),
+                "publisher": publisher_name,
+                "publisher_title": publisher_title,
+                "publisher_id": publisher_id,
+                "resource_count": 1,
+                "resource_ids": [resource_id],
+                "tags": explorer_list(record.get("topics")),
+                "timestamp": clean_text(
+                    record.get("publisher_last_updated")
+                    or record.get("observed_at")
+                ),
+                "license_title": (
+                    clean_text(record.get("licence"))
+                    or "Not stated by the source."
+                ),
+                "license_basis": " / ".join(
+                    value
+                    for value in (
+                        clean_text(record.get("rights_state")),
+                        clean_text(record.get("rights_ref")),
+                    )
+                    if value
+                ),
+                "host": host,
+                "url": source_url,
+                "state": clean_text(record.get("lifecycle_state")),
+                "type": clean_text(record.get("kind")),
+                "kind": clean_text(record.get("kind")),
+                "record_type": clean_text(record.get("kind")),
+                "source_native_type": clean_text(record.get("source_native_type")),
+                "source_tier": clean_text(record.get("authority_tier")),
+                "source_adapter": clean_text(record.get("source_family")),
+                "content_type": clean_text(record.get("kind")),
+                "service": clean_text(record.get("source_family")),
+                "access": (
+                    clean_text(record.get("access_model"))
+                    or "Not stated by the source."
+                ),
+                "geography": (
+                    explorer_list(record.get("jurisdiction"))
+                    or ["Not stated by the source."]
+                ),
+                "language": (
+                    explorer_list(record.get("languages"))
+                    or ["Not stated by the source."]
+                ),
+                "update_frequency": (
+                    clean_text(record.get("cadence"))
+                    or "Not stated by the source."
+                ),
+                "provenance": {
+                    "source_native_ids": list(record.get("source_native_ids", [])),
+                    "source_urls": list(record.get("source_urls", [])),
+                    "evidence_refs": list(record.get("evidence_refs", [])),
+                    "observed_at": clean_text(record.get("observed_at")),
+                    "derivation": clean_text(record.get("derivation")),
+                },
+            }
+        )
+        dataset_rows.append(dataset)
+        source_format = next(iter(record.get("formats", [])), "Web")
+        resource_rows.append(
+            {
+                "id": resource_id,
+                "dataset": name,
+                "route": f"resource/{resource_id}",
+                "name": "Recorded public source",
+                "description": (
+                    "Source route retained from the bounded metadata snapshot; "
+                    "check the publisher for current content, access and terms."
+                ),
+                "format": source_format,
+                "source_format": source_format,
+                "host": host,
+                "url": source_url,
+                "position": 0,
+                "state": clean_text(record.get("lifecycle_state")),
+                "provenance": {
+                    "record_id": source_identity,
+                    "observed_at": clean_text(record.get("observed_at")),
+                    "evidence_refs": list(record.get("evidence_refs", [])),
+                },
+            }
+        )
+
+    publisher_rows = [
+        {
+            "name": publisher_names[publisher_id],
+            "route": f"publisher/{publisher_names[publisher_id]}",
+            "title": publisher_titles[publisher_id],
+            "url": publisher_id,
+            "description": (
+                "Stable publisher identity from the governed registry. Source "
+                "authority remains with the linked official publisher."
+            ),
+            "dataset_count": publisher_counts[publisher_id],
+            "resource_count": publisher_counts[publisher_id],
+            "state": "observed",
+        }
+        for publisher_id in sorted(publisher_counts, key=str.casefold)
+    ]
+
+    translations: dict[str, list[dict[str, Any]]] = {}
+    by_record_id = {record["record_id"]: record for record in records}
+    for record in records:
+        group = clean_text(record.get("translation_group"))
+        if group:
+            translations.setdefault(group, []).append(record)
+    for group, members in sorted(translations.items()):
+        english = next(
+            (record for record in members if "en" in record.get("languages", [])),
+            None,
+        )
+        if english is None:
+            raise ValueError(f"translation group lacks an English record: {group}")
+        target_name = explorer_name("record", english["record_id"])
+        for translated in sorted(members, key=lambda item: item["record_id"]):
+            if translated["record_id"] == english["record_id"]:
+                continue
+            source_name = explorer_name("record", translated["record_id"])
+            relationship_rows.append(
+                {
+                    "source": f"dataset/{source_name}",
+                    "target": f"dataset/{target_name}",
+                    "kind": "translation of",
+                    "predicate": "translation_of",
+                    "authority": "observed",
+                    "derivation": (
+                        "GOV.UK Content API available_translations metadata "
+                        f"for content identity {group}."
+                    ),
+                    "observed_at": clean_text(translated.get("observed_at")),
+                    "evidence": list(translated.get("evidence_refs", [])),
+                    "rights": clean_text(translated.get("rights_state")),
+                }
+            )
+
+    facet_keys = [
+        "access",
+        "access_state",
+        "audience",
+        "content_type",
+        "format",
+        "geography",
+        "language",
+        "licence",
+        "lifecycle_state",
+        "publisher",
+        "kind",
+        "record_type",
+        "rights_state",
+        "service",
+        "source_family",
+        "topic",
+        "update_frequency",
+    ]
+    facets = {
+        key: explorer_facet_rows(
+            Counter(
+                value
+                for dataset in dataset_rows
+                for value in explorer_search_field_values(dataset, key)
+            )
+        )
+        for key in facet_keys
+    }
+    counts = {
+        "records": len(dataset_rows),
+        "datasets": sum(record["kind"] == "dataset" for record in records),
+        "resources": len(resource_rows),
+        "publishers": len(publisher_rows),
+        "relationships": len(relationship_rows),
+    }
+    notices = [
+        "Independent AI-generated proof of concept; not an HM Land Registry service or endorsement.",
+        "Metadata discovery only: not legal advice, proof of ownership, priority or an exact-boundary service.",
+        "Public access is not treated as blanket open rights; check each record and its current source terms.",
+        "Coverage is bounded to named, dated and reconciled source lanes, not the complete HMLR public estate.",
+    ]
+    overview = {
+        "schema": "okf-explorer-overview.v1",
+        "title": "HM Land Registry public-estate metadata overview",
+        "generated_at": config["generated_at"],
+        "snapshot": snapshot["snapshot_id"],
+        "counts": counts,
+        "facet_previews": {
+            key: rows[:12] for key, rows in sorted(facets.items())
+        },
+        "format_counts": facets["format"][:20],
+        "notices": notices,
+    }
+    analysis_overview = {
+        "schema": "okf-explorer-analysis.v1",
+        "generated_at": config["generated_at"],
+        "snapshot": snapshot["snapshot_id"],
+        "summary": {
+            "title": overview["title"],
+            "description": (
+                "Overview-first metadata discovery across the governed HM Land "
+                "Registry public-estate source lanes."
+            ),
+            "notices": notices,
+        },
+    }
+    overview_path = projection_dir / "overview.json"
+    analysis_overview_path = projection_dir / "analysis-overview.json"
+    facets_path = projection_dir / "facets.json"
+    write_json(overview_path, overview)
+    write_json(analysis_overview_path, analysis_overview)
+    write_json(facets_path, facets)
+
+    chunk_sets = {
+        "datasets": dataset_rows,
+        "resources": resource_rows,
+        "publishers": publisher_rows,
+        "relationships": relationship_rows,
+    }
+    chunk_references: dict[str, list[dict[str, Any]]] = {}
+    for kind, rows in chunk_sets.items():
+        references = []
+        for offset in range(0, len(rows), SHARD_SIZE):
+            shard_number = offset // SHARD_SIZE
+            path = projection_dir / f"{kind}-{shard_number:03d}.json"
+            write_compact_json(path, rows[offset : offset + SHARD_SIZE])
+            references.append(explorer_reference(output, path))
+        chunk_references[kind] = references
+
+    record_locator_reference = write_explorer_record_locator(
+        output,
+        dataset_rows,
+        chunk_references["datasets"],
+        snapshot["snapshot_id"],
+    )
+    relationship_adjacency_reference = write_explorer_relationship_adjacency(
+        output,
+        relationship_rows,
+        snapshot["snapshot_id"],
+    )
+    search_manifest_reference = write_explorer_search(
+        output,
+        dataset_rows,
+        facets_path,
+        chunk_references["datasets"],
+        snapshot["snapshot_id"],
+    )
+    governed_references = [
+        explorer_reference(output, path)
+        for path in sorted(projection_dir.rglob("*"))
+        if path.is_file()
+    ]
+    manifest_root_sha256 = sha256_bytes(canonical_json(governed_references))
+    manifest = {
+        "schema": "okf-explorer-data-manifest.v1",
+        "title": "HM Land Registry public-estate Explorer data plane",
+        "generated_at": config["generated_at"],
+        "snapshot": snapshot["snapshot_id"],
+        "counts": counts,
+        "indexes": {
+            "overview": overview_path.relative_to(output).as_posix(),
+            "analysis": analysis_overview_path.relative_to(output).as_posix(),
+            "facets": facets_path.relative_to(output).as_posix(),
+            "record_locator": record_locator_reference,
+            "relationship_adjacency": relationship_adjacency_reference,
+            "search": search_manifest_reference["path"],
+        },
+        "chunks": chunk_references,
+        "integrity": {
+            "algorithm": "sha256",
+            "manifest_root_sha256": manifest_root_sha256,
+            "scope": "canonical ordered references to overview, facets and chunks",
+        },
+        "performance": {
+            "startup_mode": "overview-first",
+            "full_index_max_records": len(dataset_rows),
+            "chunk_size": SHARD_SIZE,
+        },
+    }
+    manifest_path = projection_dir / "manifest.json"
+    write_json(manifest_path, manifest)
+    return {
+        "counts": counts,
+        "data_manifest": explorer_reference(output, manifest_path),
+        "overview_index": explorer_reference(output, overview_path),
+        "analysis_overview": explorer_reference(output, analysis_overview_path),
+        "record_locator": record_locator_reference,
+        "relationship_adjacency": relationship_adjacency_reference,
+        "search_manifest": search_manifest_reference,
+        "manifest_root_sha256": manifest_root_sha256,
+    }
 
 
 def write_static_catalogue(output: Path, records: list[dict[str, Any]]) -> None:
@@ -1595,18 +2697,29 @@ def governed_input_receipts(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
     paths = [
         ROOT / "scripts" / "build.py",
         ROOT / "scripts" / "acquire.py",
+        ROOT / "scripts" / "observe_govuk_content.py",
         ROOT / "scripts" / "check_domain_profile.py",
+        ROOT / "scripts" / "check_okf.py",
+        ROOT / "scripts" / "change_impact.py",
         ROOT / "scripts" / "evaluate.py",
+        ROOT / "schemas" / "artifact-dependency-graph.schema.json",
         ROOT / "schemas" / "domain-profile.schema.json",
+        ROOT / "contracts" / "okf-explorer.consumer-lock.json",
         ROOT / "source" / "build-config.json",
         ROOT / "source" / "curated-records.json",
+        ROOT / "source" / "type-kind-crosswalk.json",
+        ROOT / "source" / "publisher-registry.json",
+        ROOT / "source" / "jsonld-context.json",
         ROOT / "source" / "source-register.json",
         ROOT / "pages" / "search-contract.json",
         ROOT / "evaluation" / "questions.json",
         ROOT / "evaluation" / "journeys.json",
+        ROOT / "evaluation" / "explorer-v0.2.0-journeys.json",
+        ROOT / "evaluation" / "explorer-search-calibration-v0.2.0.json",
         ROOT / "personas" / "personas-and-user-stories.json",
         ROOT / "governance" / "requirements.json",
         ROOT / "governance" / "ai-model-usage.json",
+        ROOT / "governance" / "artifact-dependency-graph.json",
         ROOT / "governance" / "risk-register.json",
         ROOT / "governance" / "rights-review.json",
         ROOT / "governance" / "traceability.json",
@@ -1614,6 +2727,11 @@ def governed_input_receipts(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
         ROOT / "domain-profile" / "CHECKSUMS.sha256",
     ]
     paths.extend(path for path in sorted((ROOT / "pages").rglob("*")) if path.is_file())
+    paths.extend(
+        path
+        for path in sorted((ROOT / "evaluation").rglob("*"))
+        if path.is_file() and path.name != "acceptance-review.json"
+    )
     manifest_path = snapshot.get("manifest_path")
     if manifest_path:
         paths.append(ROOT / manifest_path)
@@ -1718,6 +2836,42 @@ def build(
         raise ValueError("build config version and builder version differ")
     sources, rights = source_controls()
     discovered, snapshot = snapshot_records(snapshot_dir)
+    if snapshot_dir is None:
+        raise ValueError("v0.2.0 requires the governed composite input manifest")
+    composite_manifest = load_composite_input_manifest(snapshot_dir.resolve())
+    content_records, content_meta = content_observation_records(composite_manifest)
+    acquisition_snapshot = dict(snapshot)
+    discovered.extend(content_records)
+    snapshot.update(
+        {
+            "snapshot_id": "hmlr-public-metadata-v0.2.0",
+            "observed_at": max(snapshot["observed_at"], content_meta["observed_at"]),
+            "mode": "composite-frozen-public-metadata",
+            "source_manifest_sha256": sha256_file(
+                ROOT / "source" / f"input-manifest-v{BUILD_VERSION}.json"
+            ),
+            "manifest_path": f"source/input-manifest-v{BUILD_VERSION}.json",
+            "acquisition_snapshot": acquisition_snapshot,
+            "composite_inputs": composite_manifest["inputs"],
+        }
+    )
+    snapshot["lanes"]["govuk-content"] = {
+        "expected": content_meta["record_count"],
+        "acquired": content_meta["record_count"],
+        "errors": 0,
+        "terminal_outcome": {
+            "status": "complete",
+            "record_count": content_meta["record_count"],
+        },
+    }
+    snapshot["files"].append(
+        {
+            "path": content_meta["path"],
+            "bytes": (ROOT / content_meta["path"]).stat().st_size,
+            "sha256": content_meta["sha256"],
+            "record_count": content_meta["record_count"],
+        }
+    )
     curated, curated_meta = curated_records()
     discovered = [govern_record(record, sources, rights) for record in discovered]
     curated = [govern_record(record, sources, rights) for record in curated]
@@ -1763,6 +2917,7 @@ def build(
             "lanes": lanes,
             "by_source_family": counter(records, "source_family"),
             "by_record_type": counter(records, "record_type"),
+            "by_kind": counter(records, "kind"),
             "by_access_model": counter(records, "access_model"),
             "by_authority_tier": counter(records, "authority_tier"),
             "by_topic": list_counter(records, "topics"),
@@ -1824,9 +2979,11 @@ def build(
         )
         evaluation = load_json(ROOT / "evaluation" / "questions.json")
         write_json(staging / "data" / "evaluation.json", evaluation)
-        write_search_and_shards(staging, records)
+        explorer_projection = write_explorer_projection(
+            staging, records, snapshot, config
+        )
         write_static_catalogue(staging, records)
-        subprocess.run(
+        evaluation_process = subprocess.run(
             [
                 sys.executable,
                 str(ROOT / "scripts" / "evaluate.py"),
@@ -1838,9 +2995,17 @@ def build(
                 "0",
             ],
             cwd=ROOT,
-            check=True,
+            check=False,
             capture_output=True,
+            text=True,
         )
+        if evaluation_process.returncode != 0:
+            detail = (
+                evaluation_process.stderr.strip()
+                or evaluation_process.stdout.strip()
+                or f"exit {evaluation_process.returncode}"
+            )
+            raise ValueError(f"evaluation failed: {detail}")
 
         descriptor = make_descriptor(
             publication_base,
@@ -1849,8 +3014,13 @@ def build(
             curated_meta,
             config,
             reconciliation,
+            explorer_projection,
         )
         write_json(staging / "okf-explorer.json", descriptor)
+        write_json(
+            staging / "context.jsonld",
+            load_json(ROOT / "source" / "jsonld-context.json"),
+        )
         write_json(
             staging / "okf-bundle.jsonld",
             jsonld_projection(publication_base, snapshot, records, config),

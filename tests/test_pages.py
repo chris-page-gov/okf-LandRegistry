@@ -36,41 +36,49 @@ class PagesTests(unittest.TestCase):
         tags = [tag for tag, _attrs in parser.tags]
         self.assertIn("main", tags)
         self.assertIn("nav", tags)
-        self.assertIn("form", tags)
-        self.assertIn("noscript", tags)
+        self.assertNotIn("form", tags)
         self.assertTrue(
             any(tag == "a" and attrs.get("href") == "#main" for tag, attrs in parser.tags)
         )
-        self.assertTrue(
-            any(attrs.get("aria-live") for _tag, attrs in parser.tags),
-            "a live status region is required",
-        )
+        self.assertIn("sole interactive search runtime", html)
+        self.assertIn("./catalogue-index.html", html)
         self.assertIn('content="default-src', html)
         self.assertIn("ai-generated proof of concept", html.casefold())
-        self.assertIn("version 0.1.0", html.casefold())
+        self.assertIn("version 0.2.0", html.casefold())
         self.assertIn("29 July 2026", html)
 
-    def test_javascript_uses_safe_dom_apis(self) -> None:
-        script = (BUNDLE / "app.js").read_text(encoding="utf-8")
-        forbidden = ("innerHTML", "outerHTML", "document.write", "eval(", "new Function")
-        for token in forbidden:
-            self.assertNotIn(token, script)
-        self.assertIn("URLSearchParams", script)
-        self.assertIn("createElement", script)
-        self.assertIn("aria", script.casefold())
-        self.assertIn('applyFilters({ writeUrl: false })', script)
-        self.assertIn("Key caveat", script)
-        self.assertIn('metadataRow("Geography"', script)
-        self.assertIn('"Languages"', script)
-        self.assertIn("./data/search/index.json", script)
-        self.assertIn("./data/records/records-", script)
-        self.assertNotIn('fetch("./data/catalogue.json"', script)
+    def test_pages_do_not_ship_a_second_search_runtime(self) -> None:
+        self.assertFalse((BUNDLE / "app.js").exists())
+        self.assertFalse((BUNDLE / "search-contract.json").exists())
+        self.assertFalse((BUNDLE / "data" / "search").exists())
+        descriptor = json.loads((BUNDLE / "okf-explorer.json").read_text())
+        self.assertIn("search_manifest", descriptor["entrypoints"])
+        self.assertIn("analysis_overview", descriptor["entrypoints"])
+        self.assertNotIn("catalogue_search_manifest", descriptor["entrypoints"])
 
-    def test_authored_cards_label_governed_source_routes(self) -> None:
-        script = (PAGES / "app.js").read_text(encoding="utf-8")
-        self.assertIn("Governed source and evidence routes", script)
-        self.assertIn("Primary record", script)
-        self.assertIn("Supporting source", script)
+    def test_explorer_analysis_overview_surfaces_governed_safety_notices(self) -> None:
+        descriptor = json.loads((BUNDLE / "okf-explorer.json").read_text())
+        reference = descriptor["entrypoint_integrity"]["analysis_overview"]
+        analysis = json.loads((BUNDLE / reference["path"]).read_text())
+        self.assertEqual("okf-explorer-analysis.v1", analysis["schema"])
+        notices = analysis["summary"]["notices"]
+        self.assertTrue(any("not legal advice" in notice for notice in notices))
+
+    def test_jsonld_is_canonical_and_yamld_is_reference_only(self) -> None:
+        descriptor = json.loads((BUNDLE / "okf-explorer.json").read_text())
+        serializations = descriptor["semantic_serializations"]
+        self.assertEqual("JSON-LD", serializations["canonical"]["format"])
+        self.assertEqual("okf-bundle.jsonld", serializations["canonical"]["path"])
+        self.assertEqual(
+            [{"format": "YAML-LD", "status": "deferred", "reason": serializations["reference_only"][0]["reason"]}],
+            serializations["reference_only"],
+        )
+        self.assertFalse(any(BUNDLE.glob("*.yamlld")))
+
+    def test_authored_page_delegates_interaction_to_the_pinned_explorer(self) -> None:
+        html = (PAGES / "index.html").read_text(encoding="utf-8")
+        self.assertIn("chris-page-gov.github.io/okf-explorer/", html)
+        self.assertIn("okf-explorer.json", html)
 
     def test_no_javascript_catalogue_is_navigable(self) -> None:
         authored = (BUNDLE / "index.html").read_text(encoding="utf-8")
@@ -88,12 +96,15 @@ class PagesTests(unittest.TestCase):
 
     def test_site_has_no_external_runtime_dependencies(self) -> None:
         html = (BUNDLE / "index.html").read_text(encoding="utf-8")
-        external_runtime = re.compile(
-            r"""(?:src|href)=["']https?://""", flags=re.IGNORECASE
-        )
-        for match in external_runtime.finditer(html):
-            before = html[max(0, match.start() - 20) : match.start()]
-            self.assertIn("<a", before, "only normal source links may be external")
+        parser = StructureParser()
+        parser.feed(html)
+        for tag, attrs in parser.tags:
+            source = attrs.get("src")
+            if source:
+                self.assertFalse(
+                    source.startswith(("http://", "https://")),
+                    "scripts, styles and images must remain local",
+                )
 
     def test_web_manifest_and_accessibility_page(self) -> None:
         manifest = json.loads((BUNDLE / "manifest.webmanifest").read_text())

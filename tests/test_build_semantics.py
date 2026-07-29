@@ -8,15 +8,117 @@ from pathlib import Path
 from scripts.build import (
     ROOT,
     ai_usage_projection,
+    load_publisher_registry,
+    load_type_kind_crosswalk,
     load_ai_model_usage,
     load_build_config,
     normal_record,
     normalize_govuk,
+    record_id_for,
     write_search_and_shards,
 )
 
 
 class BuildSemanticsTests(unittest.TestCase):
+    def test_type_crosswalk_is_exhaustive_for_every_current_source_type(self) -> None:
+        mapping, allowed = load_type_kind_crosswalk()
+        govuk = json.loads(
+            (
+                ROOT
+                / "source"
+                / "snapshots"
+                / "2026-07-29T091915Z"
+                / "govuk-search.json"
+            ).read_text()
+        )
+        curated = json.loads((ROOT / "source" / "curated-records.json").read_text())
+        source_types = {
+            item.get("content_store_document_type")
+            or item.get("format")
+            or "govuk-content"
+            for item in govuk["results"]
+        }
+        source_types.update(record["record_type"] for record in curated["records"])
+        source_types.update({"api-catalogue-record", "software-repository"})
+        self.assertFalse(source_types - set(mapping))
+        self.assertFalse(set(mapping.values()) - allowed)
+
+    def test_record_ids_and_publisher_ids_are_stable_and_collision_checked(self) -> None:
+        first = record_id_for("govuk-search", "native-id")
+        self.assertEqual(first, record_id_for("govuk-search", "native-id"))
+        self.assertNotEqual(first, record_id_for("govuk-content", "native-id"))
+        self.assertRegex(first, r"^hmlr-[0-9a-f]{24}$")
+        registry = load_publisher_registry()
+        self.assertEqual(len(registry), len(set(registry.values())))
+        self.assertTrue(all(value.startswith("https://") for value in registry.values()))
+
+    def test_prose_placeholders_become_null_with_controlled_states(self) -> None:
+        record = normal_record(
+            {
+                "id": "fixture-placeholders",
+                "title": "Placeholder fixture",
+                "url": "https://www.gov.uk/example/placeholders",
+                "record_type": "guidance",
+                "source_family": "govuk-hmlr",
+                "jurisdiction": (
+                    "Source-specific; HM Land Registry normally covers England "
+                    "and Wales"
+                ),
+                "licence": "check-source",
+                "cadence": "not stated",
+            }
+        )
+        for field in ("jurisdiction", "licence", "cadence"):
+            self.assertIsNone(record[field])
+            self.assertEqual("unknown", record[f"{field}_state"])
+        self.assertEqual([], record["languages"])
+        self.assertEqual("unknown", record["language_state"])
+
+    def test_welsh_translation_and_placeholder_absence_in_candidate(self) -> None:
+        catalogue = json.loads(
+            (ROOT / "bundle" / "data" / "catalogue.json").read_text()
+        )
+        records = catalogue["records"]
+        groups: dict[str, list[dict]] = {}
+        for record in records:
+            if record.get("translation_group"):
+                groups.setdefault(record["translation_group"], []).append(record)
+        self.assertTrue(groups)
+        self.assertTrue(
+            any(
+                {"en", "cy"}
+                <= {
+                    language
+                    for record in group
+                    for language in record["languages"]
+                }
+                for group in groups.values()
+            )
+        )
+        forbidden = {
+            "check-source",
+            "not stated",
+            "not declared in repository metadata",
+            "source-specific; hm land registry normally covers england and wales",
+            "technical source; jurisdiction is project-specific",
+            "check publisher-operated contract",
+        }
+        rendered = json.dumps(records, ensure_ascii=False).casefold()
+        for placeholder in forbidden:
+            self.assertNotIn(f'"{placeholder}"', rendered)
+        relationships = []
+        manifest = json.loads(
+            (ROOT / "bundle" / "data" / "explorer" / "manifest.json").read_text()
+        )
+        for reference in manifest["chunks"]["relationships"]:
+            relationships.extend(
+                json.loads((ROOT / "bundle" / reference["path"]).read_text())
+            )
+        self.assertIn(
+            "translation_of",
+            {relationship["predicate"] for relationship in relationships},
+        )
+
     def test_ai_usage_ledger_is_explicit_about_unknown_and_subscription_costs(
         self,
     ) -> None:

@@ -3,7 +3,7 @@ type: "Scope and Authority"
 title: "Scope and authority"
 description: "The bounded jurisdiction, inclusions, exclusions and authority model."
 resource: "https://www.gov.uk/government/organisations/land-registry/about"
-generated: {"by": "process:hmlr-okf-builder", "at": "2026-07-29T09:19:47Z"}
+generated: {"by": "process:hmlr-okf-builder", "at": "2026-07-29T15:30:00Z"}
 status: "released"
 sources: [{"id": "official-source", "resource": "https://www.gov.uk/government/organisations/land-registry/about"}]
 ---

@@ -2,7 +2,6 @@
   "by_access_model": {
     "account-and-licence download and authenticated API; commercial use is paid": 2,
     "approved professional account": 1,
-    "check publisher-operated contract": 15,
     "documentation public; operational API authenticated and licence-gated": 1,
     "free account service": 1,
     "free account-and-licence download; authenticated API available": 2,
@@ -26,13 +25,26 @@
     "public search subject to terms and fees": 1,
     "public terms; operational search subject to service restrictions and fees": 1,
     "public-repository": 289,
-    "public-web": 1866,
-    "public-web guidance; linked searches and products may require an account and payment": 1
+    "public-web": 1867,
+    "public-web guidance; linked searches and products may require an account and payment": 1,
+    "unknown": 15
   },
   "by_authority_tier": {
-    "A": 1894,
+    "A": 1895,
     "B": 290,
     "C": 18
+  },
+  "by_kind": {
+    "API": 17,
+    "corporate": 326,
+    "dataset": 14,
+    "form": 134,
+    "guidance": 335,
+    "legislation": 3,
+    "news": 601,
+    "repository": 290,
+    "service": 11,
+    "statistics": 472
   },
   "by_record_type": {
     "about": 1,
@@ -66,7 +78,7 @@
     "form": 133,
     "forms-collection": 1,
     "geospatial-dataset": 2,
-    "guidance": 125,
+    "guidance": 126,
     "guidance-collection": 1,
     "guide": 10,
     "help-service": 1,
@@ -120,8 +132,9 @@
     "cross-government-data-catalogues": 1,
     "customer-help": 1,
     "github": 290,
+    "govuk-content": 2,
     "govuk-hmlr": 25,
-    "govuk-search": 1843,
+    "govuk-search": 1842,
     "linked-data": 1,
     "local-land-charges": 3,
     "portal": 1,
@@ -146,6 +159,7 @@
     "Shell": 6,
     "TypeScript": 2,
     "Vue": 1,
+    "Welsh language": 2,
     "about": 1,
     "about our services": 1,
     "accessibility": 2,
@@ -177,6 +191,7 @@
     "bilingual-register": 1,
     "bilingual-services": 2,
     "boundaries": 2,
+    "boundary": 1,
     "british-national-grid": 2,
     "bulk-data": 1,
     "business-e-services": 1,
@@ -268,7 +283,7 @@
     "govuk": 8,
     "govuk-design-system": 1,
     "govuk-frontend": 6,
-    "guidance": 123,
+    "guidance": 122,
     "guide": 10,
     "help": 1,
     "history": 1,
@@ -278,6 +293,7 @@
     "index": 4,
     "index-map": 1,
     "index-template": 1,
+    "indicative-polygon": 1,
     "inspire": 4,
     "integration": 1,
     "jinja": 5,
@@ -289,6 +305,8 @@
     "language-metadata": 1,
     "leasehold": 1,
     "leases": 2,
+    "legal": 1,
+    "legal-boundary": 1,
     "legal-currency": 2,
     "legal-practice": 1,
     "legislation": 3,
@@ -335,6 +353,7 @@
     "personal-data": 1,
     "planning-conditions": 2,
     "policy paper": 1,
+    "polygon": 1,
     "polygons": 3,
     "portal": 3,
     "postgres": 1,
@@ -424,6 +443,7 @@
     "transaction": 2,
     "transactions": 2,
     "transformation": 1,
+    "translation": 2,
     "transparency": 223,
     "uprn": 1,
     "user-centred-design": 1,
@@ -439,12 +459,12 @@
     "wtforms": 3
   },
   "completeness_claim": "Complete only for the exact frozen GOV.UK organisation-filter response, GitHub public-repository listing and provider-filtered CDDO rows when a frozen snapshot is present; not complete for the whole HMLR public estate.",
-  "input_representations": 2225,
+  "input_representations": 2227,
   "lanes": {
     "blog": {
       "acquired": 1,
       "acquisition": "Index metadata only in this scaffold; no article-body crawl.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": null,
       "errors": 0,
@@ -456,7 +476,7 @@
     "business-gateway-docs": {
       "acquired": 1,
       "acquisition": "Documentation, schema and contract metadata only; no test or production calls.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": null,
       "errors": 0,
@@ -468,7 +488,7 @@
     "cddo-api-catalogue": {
       "acquired": 15,
       "acquisition": "Bounded CSV scan filtered exactly to provider hm-land-registry.",
-      "collisions": 0,
+      "collisions": 16,
       "curated_inputs": 1,
       "denominator_as_of": "2026-07-29",
       "errors": 0,
@@ -480,7 +500,7 @@
     "cross-government-data-catalogues": {
       "acquired": 1,
       "acquisition": "Curated discovery references only in the initial scaffold.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": null,
       "errors": 0,
@@ -492,7 +512,7 @@
     "customer-help": {
       "acquired": 1,
       "acquisition": "Top-level help and contact-route metadata only.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": null,
       "errors": 0,
@@ -504,7 +524,7 @@
     "github": {
       "acquired": 289,
       "acquisition": "Bounded public repository metadata through the unauthenticated GitHub REST API.",
-      "collisions": 0,
+      "collisions": 290,
       "curated_inputs": 1,
       "denominator_as_of": "2026-07-29",
       "errors": 0,
@@ -514,21 +534,21 @@
       "retained": 290
     },
     "govuk-content": {
-      "acquired": 0,
-      "acquisition": "Potential targeted metadata enrichment for routes already enumerated by GOV.UK Search; outside the initial automated lane.",
-      "collisions": 0,
+      "acquired": 2,
+      "acquisition": "Bounded locale and available-translations metadata observation for already-enumerated GOV.UK routes. Bodies, contacts, details and attachments are excluded.",
+      "collisions": 2,
       "curated_inputs": 0,
-      "denominator_as_of": null,
+      "denominator_as_of": "2026-07-29",
       "errors": 0,
       "excluded": 0,
-      "expected": null,
-      "normalized": 0,
-      "retained": 0
+      "expected": 2,
+      "normalized": 2,
+      "retained": 2
     },
     "govuk-hmlr": {
       "acquired": 25,
       "acquisition": "Curated metadata plus the exhaustive GOV.UK Search lane.",
-      "collisions": 0,
+      "collisions": 25,
       "curated_inputs": 25,
       "denominator_as_of": null,
       "errors": 0,
@@ -540,7 +560,7 @@
     "govuk-search": {
       "acquired": 1866,
       "acquisition": "Bounded paginated JSON metadata census. No page bodies or attachments.",
-      "collisions": 23,
+      "collisions": 1866,
       "curated_inputs": 0,
       "denominator_as_of": "2026-07-29",
       "errors": 0,
@@ -552,7 +572,7 @@
     "linked-data": {
       "acquired": 1,
       "acquisition": "Service and documentation metadata only; no unbounded SPARQL or resource crawl.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": null,
       "errors": 0,
@@ -564,7 +584,7 @@
     "local-land-charges": {
       "acquired": 3,
       "acquisition": "Terms and public service-description metadata only; never automate a search.",
-      "collisions": 0,
+      "collisions": 3,
       "curated_inputs": 3,
       "denominator_as_of": null,
       "errors": 0,
@@ -576,7 +596,7 @@
     "portal": {
       "acquired": 1,
       "acquisition": "Public guidance metadata only; no portal authentication or transaction.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": null,
       "errors": 0,
@@ -588,7 +608,7 @@
     "property-information": {
       "acquired": 3,
       "acquisition": "Public service-description metadata only; no account creation, search or purchase.",
-      "collisions": 0,
+      "collisions": 3,
       "curated_inputs": 3,
       "denominator_as_of": null,
       "errors": 0,
@@ -600,7 +620,7 @@
     "ulpd": {
       "acquired": 15,
       "acquisition": "Curated catalogue and technical metadata only; no bulk data download.",
-      "collisions": 0,
+      "collisions": 15,
       "curated_inputs": 15,
       "denominator_as_of": "2026-07-29",
       "errors": 0,
@@ -612,7 +632,7 @@
     "ulpd-api": {
       "acquired": 1,
       "acquisition": "Documentation metadata only; the API is never called by this bundle.",
-      "collisions": 0,
+      "collisions": 1,
       "curated_inputs": 1,
       "denominator_as_of": "2026-07-29",
       "errors": 0,
@@ -622,10 +642,108 @@
       "retained": 1
     }
   },
-  "merged_representations": 23,
-  "records": 2202,
+  "merged_representations": 24,
+  "records": 2203,
   "schema": "okf-hmlr-coverage.v2",
   "snapshot": {
+    "acquisition_snapshot": {
+      "files": [
+        {
+          "bytes": 5334493,
+          "path": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+          "record_count": 1866,
+          "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
+        },
+        {
+          "bytes": 2003949,
+          "path": "source/snapshots/2026-07-29T091915Z/github-repositories.json",
+          "record_count": 289,
+          "sha256": "f80da2f67404f54957235f0ad6f700bb74dfddbf811b7f170d1217abb7750cff"
+        },
+        {
+          "bytes": 20992,
+          "path": "source/snapshots/2026-07-29T091915Z/cddo-api-catalogue.json",
+          "record_count": 15,
+          "sha256": "7872682ca604aaa9fc98bb4cb26f5713f4c00936bfe52234d730ea51b4f827f3"
+        },
+        {
+          "bytes": 2445,
+          "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+          "record_count": 2,
+          "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+        }
+      ],
+      "lanes": {
+        "cddo-api-catalogue": {
+          "acquired": 15,
+          "errors": 0,
+          "expected": 15,
+          "terminal_outcome": {
+            "reason": "single-response-provider-filter-complete",
+            "record_count": 15,
+            "request_count": 1,
+            "rows_scanned": 231,
+            "status": "complete"
+          }
+        },
+        "github": {
+          "acquired": 289,
+          "errors": 0,
+          "expected": 289,
+          "terminal_outcome": {
+            "reason": "short-page",
+            "record_count": 289,
+            "request_count": 3,
+            "status": "complete"
+          }
+        },
+        "govuk-content": {
+          "acquired": 2,
+          "errors": 0,
+          "expected": 2,
+          "terminal_outcome": {
+            "record_count": 2,
+            "status": "complete"
+          }
+        },
+        "govuk-search": {
+          "acquired": 1866,
+          "errors": 0,
+          "expected": 1866,
+          "terminal_outcome": {
+            "reason": "declared-total-reconciled",
+            "record_count": 1866,
+            "request_count": 4,
+            "status": "complete"
+          }
+        }
+      },
+      "manifest_path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "mode": "frozen-public-metadata",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "snapshot_id": "2026-07-29T091915Z",
+      "source_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    "composite_inputs": [
+      {
+        "freshness_policy": "release-day-bounded-observation",
+        "id": "public-metadata-snapshot",
+        "kind": "immutable-acquisition-snapshot",
+        "observed_at": "2026-07-29T09:19:15Z",
+        "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "reuse_decision": "Reused unchanged because all three acquisition lanes completed on the release work date and their immutable envelopes remain checksum-valid.",
+        "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+      },
+      {
+        "freshness_policy": "release-candidate-observation",
+        "id": "govuk-content-locale-translations",
+        "kind": "bounded-content-api-observation",
+        "observed_at": "2026-07-29T18:00:00Z",
+        "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "reuse_decision": null,
+        "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+      }
+    ],
     "files": [
       {
         "bytes": 5334493,
@@ -644,6 +762,12 @@
         "path": "source/snapshots/2026-07-29T091915Z/cddo-api-catalogue.json",
         "record_count": 15,
         "sha256": "7872682ca604aaa9fc98bb4cb26f5713f4c00936bfe52234d730ea51b4f827f3"
+      },
+      {
+        "bytes": 2445,
+        "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "record_count": 2,
+        "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
       }
     ],
     "lanes": {
@@ -670,6 +794,15 @@
           "status": "complete"
         }
       },
+      "govuk-content": {
+        "acquired": 2,
+        "errors": 0,
+        "expected": 2,
+        "terminal_outcome": {
+          "record_count": 2,
+          "status": "complete"
+        }
+      },
       "govuk-search": {
         "acquired": 1866,
         "errors": 0,
@@ -682,10 +815,10 @@
         }
       }
     },
-    "manifest_path": "source/snapshots/2026-07-29T091915Z/manifest.json",
-    "mode": "frozen-public-metadata",
-    "observed_at": "2026-07-29T09:19:15Z",
-    "snapshot_id": "2026-07-29T091915Z",
-    "source_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "manifest_path": "source/input-manifest-v0.2.0.json",
+    "mode": "composite-frozen-public-metadata",
+    "observed_at": "2026-07-29T18:00:00Z",
+    "snapshot_id": "hmlr-public-metadata-v0.2.0",
+    "source_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   }
 }

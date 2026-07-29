@@ -1,8 +1,8 @@
 {
   "schema": "okf-explorer-interaction-suite.v1",
-  "title": "HM Land Registry OKF first-release interaction journeys",
-  "description": "Candidate browser journeys for a static search, filter and record-detail publication. The journeys use the OKF Explorer interaction vocabulary and make no authenticated or transactional request.",
-  "status": "first-release-candidate",
+  "title": "HM Land Registry OKF v0.2.0 reference interaction hypotheses",
+  "description": "Reference-only calibration hypotheses retained for traceability. Executable release journeys are in explorer-v0.2.0-journeys.json and run in the exact pinned Explorer consumer.",
+  "status": "reference-only-superseded-by-executable-runtime-journeys",
   "target_bundle": "../okf-explorer.json",
   "question_suite": "questions.json",
   "persona_catalogue": "../personas/personas-and-user-stories.json",
@@ -934,5 +934,6 @@
         }
       ]
     }
-  ]
+  ],
+  "runtime_journey_manifest": "explorer-v0.2.0-journeys.json"
 }

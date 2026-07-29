@@ -1,0 +1,35 @@
+{
+  "schema": "okf-explorer-journeys.v1",
+  "bundle_descriptor": "okf-explorer.json",
+  "expected_identity": {
+    "schema": "okf-explorer-large-corpus.v1",
+    "id": "https://example.invalid/okf-hmlr-malformed/okf-explorer.json",
+    "version": "0.2.0-fixture",
+    "snapshot": "malformed-fixture"
+  },
+  "journeys": [
+    {
+      "id": "malformed-kind-fails-closed",
+      "actions": [
+        {
+          "type": "goto"
+        },
+        {
+          "type": "wait_for",
+          "selector": "text=Large-corpus descriptor identity mismatch"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "Large-corpus descriptor identity mismatch"
+        },
+        {
+          "type": "not_requested",
+          "includes": "/bundle/data/"
+        }
+      ]
+    }
+  ]
+}
