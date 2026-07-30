@@ -55,6 +55,10 @@
       "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
     },
     {
+      "path": "validation/candidate-v0.2.0/change-impact-final-assurance-cda70f6.json",
+      "sha256": "bbee61885c63439a313a74cfdeb6751857f7a481bc208c800c79574c4cb99fda"
+    },
+    {
       "path": "validation/candidate-v0.2.0/evidence/automated-validation.json",
       "sha256": "007607003882d3b6b81775410c9595336b77c1e657c57ea6abdf1026d282dc39"
     },
@@ -68,7 +72,7 @@
     },
     {
       "path": "validation/candidate-v0.2.0/evidence/reproducibility.json",
-      "sha256": "fa74aa642bc8766c020ce6ae83bf208fe744803080282b4f0b7e3ee2bc1d807c"
+      "sha256": "f616f894b3c14b8457d381dd5b563d1de7e76963d14d78b2416c7c93ca4b0adb"
     },
     {
       "path": "validation/candidate-v0.2.0/evidence/supply-chain-validation.json",

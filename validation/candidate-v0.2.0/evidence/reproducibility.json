@@ -10,6 +10,15 @@
     "clean-build-b": "pass",
     "committed-bundle-identical": "pass"
   },
+  "change_impact": {
+    "decision": "manual-review-required",
+    "manual_review_result": "The 23 paths are review/evidence, candidate-package tooling, documentation and tests. No governed bundle, profile or frozen-source path changed; no generated path is unexplained.",
+    "path": "validation/candidate-v0.2.0/change-impact-final-assurance-cda70f6.json",
+    "release_approval_required": true,
+    "sha256": "bbee61885c63439a313a74cfdeb6751857f7a481bc208c800c79574c4cb99fda",
+    "stage1_review_required": false,
+    "unexplained_generated_paths": 0
+  },
   "comparisons": [
     {
       "differences": 0,

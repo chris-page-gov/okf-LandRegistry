@@ -28,6 +28,7 @@ validation/candidate-v0.2.0/evidence/release-metadata/provenance.json
 validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json
 validation/candidate-v0.2.0/evidence/reproducibility.json
 validation/candidate-v0.2.0/evidence/supply-chain-validation.json
+validation/candidate-v0.2.0/change-impact-final-assurance-cda70f6.json
 validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json
 validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json
 validation/reviews/passed-a3e0bdf7-portable-collation/ADOPTION.md
