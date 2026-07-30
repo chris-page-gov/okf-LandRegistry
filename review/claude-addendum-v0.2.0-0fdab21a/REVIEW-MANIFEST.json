@@ -1,0 +1,94 @@
+{
+  "schema": "okf-hmlr-independent-review-addendum-packet.v1",
+  "purpose": "Independent addendum for the Explorer/Python consumer-tree collation correction",
+  "release_authorized": false,
+  "public_url_verified": false,
+  "candidate": {
+    "version": "0.2.0",
+    "product_status": "ai-generated-proof-of-concept",
+    "candidate_git_commit": "8a60539d4fce183aec2d0e7265573027657159ab",
+    "bundle_release_root_sha256": "0fdab21a1f48b66168be7a03dc673305207b41ac526fe98d10a0594a64920b6f",
+    "bundle_tree_sha256": "91bc8aca396840ded0991e26436c43fef097137226868c92a8c2fb35a1c213b8",
+    "bundle_tree_file_count": 148,
+    "bundle_tree_bytes": 31525576,
+    "bundle_checksums_file_sha256": "a418fc2575555e996011500500abd738e44cea034932f8d0f3d89975499b327a",
+    "build_receipt_sha256": "57fb0e714013d564d1b8f69671b679e21d5ad329a333570aec1ef94812f9b75f",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "profile_checksums_file_sha256": "4dd7c27b2fa4943b4197b9564cf10dd03411d5f980f256936e60f3739fd0d261",
+    "source_input_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc",
+    "record_count": 2203
+  },
+  "correction": {
+    "base_candidate_git_commit": "099c8ebcc884073df1f81d3b0c49e63a6318b235",
+    "base_bundle_release_root_sha256": "50506bff278625e98814548221d5f3ea6e75e19dec2947fed71b0db6ed3325a6",
+    "previous_runtime_tree_sha256": "b10d6d996561ff7ea08fe495c2b4e5f66273d3325b1b68378d3ca5f470e6ec79",
+    "previous_python_bytewise_tree_sha256": "5fc13c6300fbf057261efbf57a5e76a52de4a5ca3f589bc873be2cc80db967b4",
+    "evaluator_sha256": "f2fa9153646f6d4c66b4a997ae89216a9e55d62a3bbad475b8c4e7429ed1db18",
+    "evaluator_tests_sha256": "faaee04b5414fd454da9aaed62cfeb74f862ded44cbb874de1823ba27e2fb74b",
+    "change_impact_sha256": "ca9c62d9428125704df9b3cc2976606aa2cc4c0a202ea0fc35eb453e83f60403",
+    "change_impact_decision": "manual-review-required",
+    "stage1_review_required": true,
+    "root_cause_analysis_sha256": "f6afb7b40ee5d85860c24f207d454409202a983ddd67d0a4a33c9c612e8ef134"
+  },
+  "evaluation": {
+    "suite_sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d",
+    "search_contract_sha256": "fd71d4ec3565b09c981c80d4c830b573d4e8275517a44ff039929809446892ef",
+    "diagnostic_report_sha256": "c4d0691bb6aedbde2a0381b1d6d25492235e883556d1dee6f360f5d5cd9ed04c",
+    "search_journey_manifest_sha256": "b00936fcaee53cd481e307c8bf9279416b0d80ae91fefcba2d22b4591d709753",
+    "product_journey_manifest_sha256": "f721e6c9915484d72ac38b3630926a0461ff7fe417f39651a1a8e79546968431",
+    "search_runtime_receipt_sha256": "272377caad2de41ff0e56fc9d6a338dfe9280f9f5731049a36286db1bef69466",
+    "product_runtime_receipt_sha256": "9fb09f249f07563364ec28ce2a6aeb6ed1954b398b5324f3b43d852f1c8c250e",
+    "search_journeys_passed": 26,
+    "search_journeys_failed": 0,
+    "product_journeys_passed": 6,
+    "product_journeys_failed": 0,
+    "question_count": 24,
+    "prior_reviewer_owned_held_out_cases": 8
+  },
+  "consumer": {
+    "name": "OKF Explorer",
+    "version": "0.5.7",
+    "commit": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "source_dirty": false,
+    "executable_tree_sha256": "fc11e903cb4eb59f7a1f51aee50478f5ddb024fcc2156b088984b02897e68275",
+    "dependency_lock_sha256": "25eb2cd4f1dd2f93ce89e3884e3d9293d490371bd55d4469bba0263ee083ffc1",
+    "runner_sha256": "dbfd6a1a4c004c5c76be4a40b2b5cf2033bd54f519d4727cd0207388b5ece24b",
+    "consumer_lock_sha256": "2ae9e949085b02ffcb5ab0e777303418a6f553832952cf97e694689e9ada31a9"
+  },
+  "previous_decisions": {
+    "stage1_status": "fail",
+    "stage1_sha256": "7fb8883bc1b2a429b8f91891476e7ef2ffe76b46b172aeada5a6c3cc950d49ae",
+    "g5_status": "fail",
+    "g5_sha256": "453d768fc72f3dc3c7de5774d1cfa612338f42c7f8d49f4733ef3dc6cb5a4bec",
+    "summary_sha256": "799f1106aeebcf3f7eb1a5f47ebeeb9e23410da0c7adb0c52af133e4d9e04b40",
+    "sole_blocker": "consumer-tree digest mismatch",
+    "substantive_question_reviews_passed": 24,
+    "reviewer_owned_held_out_cases_passed": 8,
+    "hard_failures_observed": 0,
+    "reuse_policy": "Only the same reviewer may carry forward its own substantive judgements, and only after independently proving the catalogue, suite, search contract and journeys are unchanged."
+  },
+  "roles": {
+    "prospective_project_owner": {
+      "identity": "Chris Page-PoC",
+      "role": "project-owner",
+      "decision_status": "not_requested"
+    },
+    "independent_reviewer": {
+      "identity": "Claude Opus 5, as disclosed in the previous decisions",
+      "must_differ_from_owner": true,
+      "must_be_independent_of_candidate_implementation": true
+    }
+  },
+  "expected_outputs": [
+    "stage1-review-v0.2.0-collation-fixed.json",
+    "evaluation-acceptance-review-v0.2.0-collation-fixed.json",
+    "formal-evaluation-acceptance-v0.2.0-collation-fixed.json",
+    "claude-independent-review-summary-collation-fixed.md"
+  ],
+  "excluded_release_actions": [
+    "Land Registry G9 owner approval",
+    "deployment variable changes",
+    "GitHub release or Pages deployment",
+    "public URL verification or sharing"
+  ]
+}
