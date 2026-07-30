@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import locale
 import math
 import re
 from pathlib import Path
@@ -23,18 +22,15 @@ RELEASE_ROOT_MARKER = "# release-root-sha256: "
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 RUNTIME_JOURNEY_SCHEMA = "okf-explorer-journeys.v1"
 RUNTIME_RECEIPT_SCHEMA = "okf-explorer-external-runtime-acceptance.v1"
-EXPLORER_COLLATION_LOCALES = (
-    "en_US.UTF-8",
-    "en_US.utf8",
-    "en_GB.UTF-8",
-    "en_GB.utf8",
+EXPLORER_ASCII_PUNCTUATION_ORDER = (
+    " _-,;:!?." + "'\"" + "()[]{}@*/\\&#%`^+<=>|~$"
 )
-EXPLORER_COLLATION_SENTINEL = (
-    "access_state.json",
-    "access.json",
-    "catalogue-index.html",
-    "CHECKSUMS.sha256",
-)
+EXPLORER_ASCII_PUNCTUATION_WEIGHTS = {
+    character: index
+    for index, character in enumerate(EXPLORER_ASCII_PUNCTUATION_ORDER)
+}
+EXPLORER_ASCII_DIGIT_OFFSET = len(EXPLORER_ASCII_PUNCTUATION_ORDER)
+EXPLORER_ASCII_LETTER_OFFSET = EXPLORER_ASCII_DIGIT_OFFSET + 10
 
 
 def tokens(value: str, contract: dict) -> set[str]:
@@ -218,66 +214,66 @@ def load_records(bundle: Path) -> tuple[list[dict], dict]:
     }
 
 
-def explorer_ordered_bundle_files(bundle: Path) -> list[Path]:
-    """Reproduce the locked Explorer v0.5.7 runner's ``localeCompare`` order.
+def explorer_ascii_collation_key(value: str) -> tuple[tuple[int, ...], tuple[int, ...]]:
+    """Return the pinned Node/ICU collation key for printable ASCII names.
 
-    The pinned Node runner recursively sorts each directory by the default
-    English ICU collation before hashing the file rows. Python's ordinary
-    path sort is bytewise and places uppercase ``CHECKSUMS.sha256`` and
-    punctuation differently, producing a false tree mismatch over identical
-    bytes. Select an available English locale only when its sentinel ordering
-    exactly matches the locked runner; otherwise fail closed.
+    Explorer v0.5.7 calls ``entry.name.localeCompare`` with the locked Node
+    runtime's default English ICU collation. Depending on operating-system
+    locale databases would make the formal verifier unavailable on standard
+    CI images. The bundle contract therefore permits printable ASCII names
+    only, and this key embeds the observed primary punctuation/digit/letter
+    weights plus the lower-before-upper tertiary case weight.
     """
 
-    previous_locale = locale.setlocale(locale.LC_COLLATE)
-    selected_locale = None
-    try:
-        for candidate in EXPLORER_COLLATION_LOCALES:
-            try:
-                locale.setlocale(locale.LC_COLLATE, candidate)
-            except locale.Error:
-                continue
-            if (
-                tuple(
-                    sorted(
-                        EXPLORER_COLLATION_SENTINEL,
-                        key=locale.strxfrm,
-                    )
-                )
-                == EXPLORER_COLLATION_SENTINEL
-            ):
-                selected_locale = candidate
-                break
-        if selected_locale is None:
-            raise ValueError(
-                "no locale reproduces the locked Explorer v0.5.7 path collation"
+    primary: list[int] = []
+    case: list[int] = []
+    for character in value:
+        if character in EXPLORER_ASCII_PUNCTUATION_WEIGHTS:
+            primary.append(EXPLORER_ASCII_PUNCTUATION_WEIGHTS[character])
+            case.append(0)
+        elif "0" <= character <= "9":
+            primary.append(
+                EXPLORER_ASCII_DIGIT_OFFSET + ord(character) - ord("0")
             )
+            case.append(0)
+        elif "a" <= character <= "z":
+            primary.append(
+                EXPLORER_ASCII_LETTER_OFFSET + ord(character) - ord("a")
+            )
+            case.append(0)
+        elif "A" <= character <= "Z":
+            primary.append(
+                EXPLORER_ASCII_LETTER_OFFSET + ord(character) - ord("A")
+            )
+            case.append(1)
+        else:
+            raise ValueError(
+                "locked Explorer v0.5.7 tree identity accepts only printable "
+                f"ASCII path names: {value!r}"
+            )
+    return tuple(primary), tuple(case)
 
-        files: list[Path] = []
 
-        def visit(directory: Path) -> None:
-            entries = list(directory.iterdir())
-            for entry in entries:
-                if not entry.name.isascii():
-                    raise ValueError(
-                        "locked Explorer v0.5.7 tree identity accepts only "
-                        f"ASCII path names: {entry}"
-                    )
-            entries.sort(key=lambda entry: locale.strxfrm(entry.name))
-            for entry in entries:
-                if entry.is_symlink():
-                    raise ValueError(
-                        f"bundle tree contains a symbolic link: {entry}"
-                    )
-                if entry.is_dir():
-                    visit(entry)
-                elif entry.is_file():
-                    files.append(entry)
+def explorer_ordered_bundle_files(bundle: Path) -> list[Path]:
+    """Reproduce the locked Explorer v0.5.7 runner's recursive file order."""
 
-        visit(bundle)
-        return files
-    finally:
-        locale.setlocale(locale.LC_COLLATE, previous_locale)
+    files: list[Path] = []
+
+    def visit(directory: Path) -> None:
+        entries = sorted(
+            directory.iterdir(),
+            key=lambda entry: explorer_ascii_collation_key(entry.name),
+        )
+        for entry in entries:
+            if entry.is_symlink():
+                raise ValueError(f"bundle tree contains a symbolic link: {entry}")
+            if entry.is_dir():
+                visit(entry)
+            elif entry.is_file():
+                files.append(entry)
+
+    visit(bundle)
+    return files
 
 
 def bundle_tree_identity(bundle: Path) -> dict:

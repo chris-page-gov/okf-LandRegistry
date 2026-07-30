@@ -52,24 +52,42 @@ self-reference.
 `scripts/evaluate.py` now reproduces the locked runner's recursive English
 collation. It:
 
-1. selects an available English locale only when a sentinel ordering matches
-   the locked Node runner;
-2. rejects non-ASCII path names for this compatibility algorithm;
-3. rejects symbolic links;
-4. restores the process locale after collecting paths; and
-5. fails closed if no matching locale exists.
+1. uses an embedded printable-ASCII primary and case-weight table regression
+   checked against the locked Node runner;
+2. does not depend on operating-system locale packages;
+3. rejects non-ASCII path names for this compatibility algorithm; and
+4. rejects symbolic links.
 
 Regression tests assert both the critical filename ordering and exact equality
 with the committed `v0.5.7` receipt tree.
 
-The frozen source observations, 2,203-record catalogue, question suite and
-journey manifests are unchanged by this correction. The corrected evaluator
-is a governed build input recorded in `build-receipt.json`, however, so an
-honest deterministic rebuild changed that receipt, `CHECKSUMS.sha256` and the
-release root from `50506bff…` to `0fdab21a…`. Both exact Explorer journey
-manifests were therefore rerun over the rebuilt bundle; their replacement
-receipts agree on consumer tree `91bc8aca…`.
+## CI portability follow-up
 
-A fresh independent decision bound to `0fdab21a…` is still required because
+The first correction depended on an installed English operating-system
+locale. It passed on the macOS release worktree and produced candidate root
+`0fdab21a…`, but GitHub Actions run `30517178183` failed closed because its
+Ubuntu image did not expose any of the selected locales. That was a
+portability defect in the formal verifier, not a content or Explorer defect.
+
+The final implementation embeds the pinned Node runner's printable-ASCII
+primary and case weights. A regression test covers every printable ASCII
+character in addition to the exact receipt tree, and non-ASCII path names
+still fail closed. The verifier no longer depends on host locale packages.
+
+The frozen source observations, 2,203-record catalogue, question suite,
+search contract and journey manifests remain unchanged. Because the evaluator
+is a governed build input recorded in `build-receipt.json`, each correction
+required an honest rebuild:
+
+| Candidate | Release root | Consumer tree | Outcome |
+|---|---|---|---|
+| Claude-reviewed candidate | `50506bff…` | Node `b10d6d99…`; old Python `5fc13c63…` | independent review failed closed |
+| Host-locale correction | `0fdab21a…` | `91bc8aca…` | local checks passed; GitHub CI exposed missing locale |
+| Portable final correction | `a3e0bdf7…` | `09ad960c…` | 137 tests and both exact Explorer suites pass locally |
+
+Both exact Explorer journey manifests were rerun for the final bundle. The
+search receipt passes 26/26 and the product receipt passes 6/6.
+
+A fresh independent decision bound to `a3e0bdf7…` is still required because
 the submitted decisions are explicitly `fail`; this analysis cannot convert
 them to `pass`.

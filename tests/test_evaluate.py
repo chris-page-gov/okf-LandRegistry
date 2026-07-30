@@ -19,7 +19,7 @@ class EvaluateTests(unittest.TestCase):
                 ROOT
                 / "validation"
                 / "candidate-v0.2.0"
-                / "explorer-search-runtime-collation-fixed-0fdab21a.json"
+                / "explorer-search-runtime-portable-collation-a3e0bdf7.json"
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(
@@ -52,6 +52,32 @@ class EvaluateTests(unittest.TestCase):
                 expected,
                 evaluate.bundle_tree_identity(bundle)["sha256"],
             )
+            self.assertEqual(
+                ordered_names,
+                sorted(
+                    ordered_names,
+                    key=evaluate.explorer_ascii_collation_key,
+                ),
+            )
+
+    def test_runtime_tree_collation_is_portable_and_fail_closed(self) -> None:
+        node_ascii_order = (
+            " _-,;:!?." + "'\"" + "()[]{}@*/\\&#%`^+<=>|~$"
+            + "0123456789"
+            + "".join(
+                character + character.upper()
+                for character in "abcdefghijklmnopqrstuvwxyz"
+            )
+        )
+        self.assertEqual(
+            list(node_ascii_order),
+            sorted(
+                node_ascii_order,
+                key=evaluate.explorer_ascii_collation_key,
+            ),
+        )
+        with self.assertRaisesRegex(ValueError, "printable ASCII"):
+            evaluate.explorer_ascii_collation_key("café.json")
 
     def test_locked_worker_calibration_manifest_covers_question_suite(self) -> None:
         questions_path = ROOT / "evaluation" / "questions.json"
