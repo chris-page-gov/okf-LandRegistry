@@ -1,0 +1,165 @@
+{
+  "affected": {
+    "gate_work": [
+      {
+        "gate": "G1",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G2",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G3",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G4",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G5",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G6",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G7",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G8",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G9",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      }
+    ],
+    "generated_artifacts": [],
+    "release_gates": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "requirement_ids": [],
+    "risk_ids": [],
+    "test_ids": [],
+    "tests": [],
+    "validation_refs": []
+  },
+  "changed_paths": [
+    "review/owner-g9-v0.2.0-a3e0bdf7/OWNER-G9-CHECKLIST.md",
+    "review/owner-g9-v0.2.0-a3e0bdf7/OWNER-G9-STATUS.json",
+    "review/owner-g9-v0.2.0-a3e0bdf7/README-FIRST.md"
+  ],
+  "changes": [
+    {
+      "paths": [
+        "review/owner-g9-v0.2.0-a3e0bdf7/OWNER-G9-CHECKLIST.md"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "review/owner-g9-v0.2.0-a3e0bdf7/OWNER-G9-STATUS.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "review/owner-g9-v0.2.0-a3e0bdf7/README-FIRST.md"
+      ],
+      "status": "A"
+    }
+  ],
+  "comparison": {
+    "base": "a322de0d10c95924f60013aa6616e5eff4562eb0",
+    "head": "3f514ce49ca0f2b4f8f1df8866941cfd993d22aa",
+    "mode": "git"
+  },
+  "control_sha256": {
+    "requirements": "241871106424710de309fd56f63989ba2fbf657c8a32a1b9309b7d808973a5c5",
+    "risks": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e",
+    "traceability": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
+  },
+  "decision": "manual-review-required",
+  "explained_generated_paths": [],
+  "graph": {
+    "path": "governance/artifact-dependency-graph.json",
+    "schema_path": "schemas/artifact-dependency-graph.schema.json",
+    "schema_sha256": "e7105f0b3d190fcbefb68da63efe460148e2e8119bf6684ccc7eeef16fa6a24f",
+    "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1",
+    "unknown_change_policy": "all-gates-and-manual-review",
+    "version": "1.0.0"
+  },
+  "limitations": [
+    "This report selects work; it does not pass or waive a validation gate.",
+    "Current release evidence remains bound to the exact governed release root.",
+    "G9 remains a project-owner decision for the exact candidate digest."
+  ],
+  "manual_review_required": true,
+  "matched_stages": [],
+  "release_approval_required": true,
+  "schema": "okf-change-impact-report.v1",
+  "stage1_review_required": false,
+  "unexplained_generated_paths": [],
+  "unmatched_paths": [
+    "review/owner-g9-v0.2.0-a3e0bdf7/OWNER-G9-CHECKLIST.md",
+    "review/owner-g9-v0.2.0-a3e0bdf7/OWNER-G9-STATUS.json",
+    "review/owner-g9-v0.2.0-a3e0bdf7/README-FIRST.md"
+  ]
+}
