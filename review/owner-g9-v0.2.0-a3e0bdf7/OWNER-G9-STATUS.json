@@ -1,0 +1,21 @@
+{
+  "candidate": {
+    "archive_sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d",
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "version": "0.2.0"
+  },
+  "decision": "not_made",
+  "generated_at": "2026-07-30T11:00:11Z",
+  "owner": {
+    "identity": "Chris Page-PoC",
+    "role": "project-owner"
+  },
+  "prerequisites": {
+    "exact_g1_g8_receipts": "not_assembled",
+    "independent_g6_review": "not_completed",
+    "independent_release_recommendation": "not_completed"
+  },
+  "schema": "okf-hmlr-owner-g9-status.v1",
+  "warning": "This status document is not an approval, release record, deployment instruction or public-URL verification."
+}
