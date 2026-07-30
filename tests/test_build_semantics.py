@@ -13,6 +13,7 @@ from scripts.build import (
     load_ai_model_usage,
     load_build_config,
     normal_record,
+    normalize_cddo,
     normalize_govuk,
     record_id_for,
     write_search_and_shards,
@@ -73,6 +74,35 @@ class BuildSemanticsTests(unittest.TestCase):
             self.assertEqual("unknown", record[f"{field}_state"])
         self.assertEqual([], record["languages"])
         self.assertEqual("unknown", record["language_state"])
+
+    def test_language_aliases_are_normalized_to_bcp47(self) -> None:
+        record = normal_record(
+            {
+                "id": "fixture-languages",
+                "title": "Language fixture",
+                "url": "https://www.gov.uk/example/languages",
+                "record_type": "guidance",
+                "source_family": "govuk-hmlr",
+                "languages": ["English", "Welsh"],
+            }
+        )
+        self.assertEqual(["cy", "en"], record["languages"])
+
+    def test_business_gateway_catalogue_rows_fail_closed_as_restricted(self) -> None:
+        record = normalize_cddo(
+            {
+                "name": "Official Copy Document Availability",
+                "description": "Automate a production request against an endpoint.",
+                "url": "https://businessgateway.landregistry.gov.uk/bg2/s1/v1",
+            },
+            "2026-07-29T09:19:15Z",
+        )
+        self.assertIn("Business e-services approval", record["authentication"])
+        self.assertIn("restricted", record["description"].casefold())
+        self.assertNotIn("automate a production request", record["description"])
+        self.assertTrue(
+            any("do not authenticate" in caveat for caveat in record["caveats"])
+        )
 
     def test_welsh_translation_and_placeholder_absence_in_candidate(self) -> None:
         catalogue = json.loads(

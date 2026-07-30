@@ -29,7 +29,41 @@ class EvaluateTests(unittest.TestCase):
             {question["id"] for question in questions["questions"]},
             {journey["calibration_question_id"] for journey in runtime["journeys"]},
         )
-        self.assertEqual(24, len(runtime["journeys"]))
+        self.assertEqual(26, len(runtime["journeys"]))
+        question_by_id = {
+            question["id"]: question for question in questions["questions"]
+        }
+        for journey in runtime["journeys"]:
+            question = question_by_id[journey["calibration_question_id"]]
+            assertions = journey["assertions"]
+            expected_urls = {
+                source["canonical_url"]
+                for source in question["expected_sources"]
+            }
+            self.assertIn(journey["runtime_expected_source_url"], expected_urls)
+            self.assertTrue(
+                any(
+                    assertion.get("type") == "attribute"
+                    and assertion.get("name") == "href"
+                    and assertion.get("equals")
+                    == journey["runtime_expected_source_url"]
+                    for assertion in assertions
+                )
+            )
+            asserted_caveats = {
+                assertion.get("includes")
+                for assertion in assertions
+                if assertion.get("type") == "text"
+            }
+            self.assertLessEqual(set(journey["required_caveat_ids"]), asserted_caveats)
+        for question in questions["questions"]:
+            declared = {
+                caveat_id
+                for journey in runtime["journeys"]
+                if journey["calibration_question_id"] == question["id"]
+                for caveat_id in journey["required_caveat_ids"]
+            }
+            self.assertEqual(set(question["required_caveat_ids"]), declared)
 
     def test_canonical_removes_fragment_before_trailing_slash(self) -> None:
         self.assertEqual(
@@ -248,6 +282,7 @@ class EvaluateTests(unittest.TestCase):
                             "target_id": "NEG-ONE",
                             "canonical_url": "https://example.test/wrong",
                             "max_rank": 5,
+                            "reason": "A bounded executable near miss.",
                         }
                     ],
                 }
@@ -308,13 +343,117 @@ class EvaluateTests(unittest.TestCase):
             review, questions, "a" * 64, "b" * 64
         )
         self.assertEqual(0, result["hard_failure_count"])
-        self.assertEqual(1.0, result["caveat_coverage"])
+        self.assertEqual(
+            1.0, result["independent_review_caveat_coverage"]
+        )
+        self.assertEqual(
+            1.0, result["independent_review_source_resolution_coverage"]
+        )
 
         review["question_reviews"][0]["hard_failures_observed"] = ["HF-COVERAGE"]
         with self.assertRaisesRegex(ValueError, "hard failure was observed"):
             evaluate.validate_acceptance_review(
                 review, questions, "a" * 64, "b" * 64
             )
+
+    def test_forbidden_targets_must_exist_in_candidate_and_fit_k(self) -> None:
+        questions = [
+            {
+                "id": "Q1",
+                "expected_sources": [
+                    {"canonical_url": "https://example.test/right"}
+                ],
+                "must_not_retrieve": [
+                    {
+                        "target_id": "NEG-ONE",
+                        "canonical_url": "https://example.test/wrong",
+                        "max_rank": 5,
+                    }
+                ],
+            }
+        ]
+        records = [
+            {
+                "url": "https://example.test/right",
+                "equivalent_urls": [],
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "absent from the candidate"):
+            evaluate.validate_forbidden_targets(questions, records, 10)
+        records.append(
+            {
+                "url": "https://example.test/wrong",
+                "equivalent_urls": [],
+            }
+        )
+        evaluate.validate_forbidden_targets(questions, records, 10)
+        with self.assertRaisesRegex(ValueError, "cannot execute"):
+            evaluate.validate_forbidden_targets(questions, records, 4)
+
+    def test_runtime_evidence_measures_source_and_caveat_assertions(self) -> None:
+        questions = [
+            {
+                "id": "Q1",
+                "runtime_expected_source_url": "https://example.test/right",
+                "expected_sources": [
+                    {"canonical_url": "https://example.test/right"}
+                ],
+                "required_caveat_ids": ["CAV-ONE"],
+            }
+        ]
+        with tempfile.TemporaryDirectory(prefix=".test-runtime-", dir=ROOT) as name:
+            root = Path(name)
+            bundle = root / "bundle"
+            bundle.mkdir()
+            (bundle / "okf-explorer.json").write_text("{}\n", encoding="utf-8")
+            manifest = {
+                "schema": evaluate.RUNTIME_JOURNEY_SCHEMA,
+                "calibration_suite_sha256": "a" * 64,
+                "journeys": [
+                    {
+                        "id": "q1",
+                        "calibration_question_id": "Q1",
+                        "runtime_expected_source_url": "https://example.test/right",
+                        "required_caveat_ids": ["CAV-ONE"],
+                        "assertions": [
+                            {
+                                "type": "attribute",
+                                "name": "href",
+                                "equals": "https://example.test/right",
+                            },
+                            {"type": "text", "includes": "CAV-ONE"},
+                        ],
+                    }
+                ],
+            }
+            manifest_path = root / "journeys.json"
+            manifest_path.write_text(
+                json.dumps(manifest, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            receipt = {
+                "schema": evaluate.RUNTIME_RECEIPT_SCHEMA,
+                "status": "passed",
+                "journey_manifest": {
+                    "sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+                },
+                "bundle": {"tree": evaluate.bundle_tree_identity(bundle)},
+                "journeys": [
+                    {"id": "q1", "terminal": {"status": "passed"}}
+                ],
+            }
+            receipt_path = root / "receipt.json"
+            receipt_path.write_text(
+                json.dumps(receipt, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            result = evaluate.validate_runtime_evidence(
+                manifest_path,
+                receipt_path,
+                questions,
+                "a" * 64,
+                bundle,
+            )
+        self.assertEqual(1.0, result["source_resolution_coverage"])
+        self.assertEqual(1.0, result["required_caveat_assertion_coverage"])
 
 
 if __name__ == "__main__":

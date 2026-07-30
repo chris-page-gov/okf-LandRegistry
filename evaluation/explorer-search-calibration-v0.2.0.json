@@ -2,7 +2,7 @@
   "schema": "okf-explorer-journeys.v1",
   "title": "HM Land Registry v0.2.0 locked-worker calibration journeys",
   "suite_partition": "calibration",
-  "calibration_suite_sha256": "c6d00626c50d3a50b29e0576ca529e3b0110eb270606feebeb3cde232b7dad9b",
+  "calibration_suite_sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d",
   "bundle_descriptor": "okf-explorer.json",
   "expected_identity": {
     "schema": "okf-explorer-large-corpus.v1",
@@ -29,6 +29,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -45,6 +53,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/organisations/land-registry\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/organisations/land-registry"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDED-COVERAGE"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -69,6 +93,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Search for land and property information\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Search for land and property information\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -85,6 +117,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/search-property-information-land-registry\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/search-property-information-land-registry"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDARY-NOT-CONCLUSION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -109,6 +157,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Portal official copies and searches of the index map\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Portal official copies and searches of the index map\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -125,6 +181,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -148,6 +220,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry plans: boundaries (PG40 supplement 3)\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry plans: boundaries (PG40 supplement 3)\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -164,6 +244,17 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDARY-NOT-CONCLUSION"
         },
         {
           "type": "console_clean"
@@ -188,6 +279,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry plans: boundaries (PG40 supplement 3)\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry plans: boundaries (PG40 supplement 3)\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -204,6 +303,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDARY-NOT-CONCLUSION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -228,6 +343,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Portal official copies and searches of the index map\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Portal official copies and searches of the index map\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -244,6 +367,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-NO-RESTRICTED-AUTOMATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -268,6 +407,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry portal\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry portal\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -284,6 +431,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-NO-RESTRICTED-AUTOMATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
         },
         {
           "type": "console_clean"
@@ -307,6 +470,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Title register and title summary information\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Title register and title summary information\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -323,6 +494,17 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/get-information-about-property-and-land/search-the-register\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/get-information-about-property-and-land/search-the-register"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -347,6 +529,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Price Paid Data\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Price Paid Data\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -363,6 +553,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-DATE-SEPARATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -387,6 +593,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Land and property ownership data collection\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Land and property ownership data collection\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -403,6 +617,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-DATE-SEPARATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -429,6 +659,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry Geospatial Data Catalogue\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry Geospatial Data Catalogue\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -445,6 +683,32 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDED-COVERAGE"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-DATE-SEPARATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -468,6 +732,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Local land charges spatial data (INSPIRE)\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Local land charges spatial data (INSPIRE)\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -484,6 +756,17 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/datasets/llc\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/datasets/llc"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDARY-NOT-CONCLUSION"
         },
         {
           "type": "console_clean"
@@ -508,6 +791,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Local land charges spatial data (INSPIRE)\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Local land charges spatial data (INSPIRE)\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -526,6 +817,22 @@
           "includes": "/bundle/data/explorer/search/manifest.json"
         },
         {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/datasets/llc\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/datasets/llc"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDED-COVERAGE"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-DATE-SEPARATION"
+        },
+        {
           "type": "console_clean"
         }
       ]
@@ -536,7 +843,6 @@
       "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/accessibility-statement",
       "required_caveat_ids": [
         "CAV-ACCESSIBLE-JOURNEY",
-        "CAV-BOUNDARY-NOT-CONCLUSION",
         "CAV-LANGUAGE-DISTINCTION"
       ],
       "actions": [
@@ -549,6 +855,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Use land and property data accessibility statement\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Use land and property data accessibility statement\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -565,6 +879,80 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/accessibility-statement\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/accessibility-statement"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-ACCESSIBLE-JOURNEY"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-LANGUAGE-DISTINCTION"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "search-lr-q014-boundary",
+      "calibration_question_id": "LR-Q014",
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "actions": [
+        {
+          "type": "goto",
+          "params": {
+            "q": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata"
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": "strong:text-is(\"INSPIRE index polygons technical guidance\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"INSPIRE index polygons technical guidance\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "INSPIRE index polygons technical guidance"
+        },
+        {
+          "type": "url_param",
+          "name": "q",
+          "equals": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDARY-NOT-CONCLUSION"
         },
         {
           "type": "console_clean"
@@ -589,6 +977,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Use land and property data API v1\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Use land and property data API v1\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -605,6 +1001,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/api-documentation\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/api-documentation"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-NO-RESTRICTED-AUTOMATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -629,6 +1041,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Use land and property data API v1\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Use land and property data API v1\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -645,6 +1065,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/api-documentation\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/api-documentation"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-NO-RESTRICTED-AUTOMATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
         },
         {
           "type": "console_clean"
@@ -669,6 +1105,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry portal\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry portal\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -685,6 +1129,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-NO-RESTRICTED-AUTOMATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
         },
         {
           "type": "console_clean"
@@ -709,6 +1169,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Overseas companies that own property in England and Wales\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Overseas companies that own property in England and Wales\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -725,6 +1193,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/datasets/ocod\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/datasets/ocod"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-DATE-SEPARATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -750,6 +1234,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Search for local land charges\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Search for local land charges\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -768,6 +1260,27 @@
           "includes": "/bundle/data/explorer/search/manifest.json"
         },
         {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://search-local-land-charges.service.gov.uk/\"] >> nth=0",
+          "name": "href",
+          "equals": "https://search-local-land-charges.service.gov.uk/"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDED-COVERAGE"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-NO-RESTRICTED-AUTOMATION"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
+        },
+        {
           "type": "console_clean"
         }
       ]
@@ -777,7 +1290,6 @@
       "calibration_question_id": "LR-Q020",
       "runtime_expected_source_url": "https://search-local-land-charges.service.gov.uk/",
       "required_caveat_ids": [
-        "CAV-BOUNDARY-NOT-CONCLUSION",
         "CAV-BOUNDED-COVERAGE",
         "CAV-SOURCE-AUTHORITY"
       ],
@@ -791,6 +1303,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Search for local land charges\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Search for local land charges\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -807,6 +1327,80 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://search-local-land-charges.service.gov.uk/\"] >> nth=0",
+          "name": "href",
+          "equals": "https://search-local-land-charges.service.gov.uk/"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDED-COVERAGE"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "search-lr-q020-boundary",
+      "calibration_question_id": "LR-Q020",
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/llc",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "actions": [
+        {
+          "type": "goto",
+          "params": {
+            "q": "local land charge planning condition title boundary differences"
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": "strong:text-is(\"Local land charges spatial data (INSPIRE)\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Local land charges spatial data (INSPIRE)\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "Local land charges spatial data (INSPIRE)"
+        },
+        {
+          "type": "url_param",
+          "name": "q",
+          "equals": "local land charge planning condition title boundary differences"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/datasets/llc\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/datasets/llc"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-BOUNDARY-NOT-CONCLUSION"
         },
         {
           "type": "console_clean"
@@ -831,6 +1425,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Overseas companies that own property in England and Wales\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Overseas companies that own property in England and Wales\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -847,6 +1449,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/datasets/ocod\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/datasets/ocod"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-SOURCE-AUTHORITY"
         },
         {
           "type": "console_clean"
@@ -870,6 +1488,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Price Paid Data\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Price Paid Data\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -886,6 +1512,17 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-RIGHTS-AND-ACCESS"
         },
         {
           "type": "console_clean"
@@ -910,6 +1547,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"Use land and property data accessibility statement\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"Use land and property data accessibility statement\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -926,6 +1571,22 @@
         {
           "type": "requested",
           "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://use-land-property-data.service.gov.uk/accessibility-statement\"] >> nth=0",
+          "name": "href",
+          "equals": "https://use-land-property-data.service.gov.uk/accessibility-statement"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-ACCESSIBLE-JOURNEY"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-DATE-SEPARATION"
         },
         {
           "type": "console_clean"
@@ -949,6 +1610,14 @@
         {
           "type": "wait_for",
           "selector": "strong:text-is(\"HM Land Registry Welsh Language Scheme\") >> nth=0"
+        },
+        {
+          "type": "click",
+          "selector": "strong:text-is(\"HM Land Registry Welsh Language Scheme\") >> nth=0"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .context-note"
         }
       ],
       "assertions": [
@@ -967,9 +1636,24 @@
           "includes": "/bundle/data/explorer/search/manifest.json"
         },
         {
+          "type": "attribute",
+          "selector": ".right-panel a[href=\"https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme\"] >> nth=0",
+          "name": "href",
+          "equals": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel .context-note",
+          "includes": "CAV-LANGUAGE-DISTINCTION"
+        },
+        {
           "type": "console_clean"
         }
       ]
     }
-  ]
+  ],
+  "runtime_assertion_contract": {
+    "canonical_source_url": "selected-record href equality",
+    "required_caveat_ids": "all required IDs visible in selected-record context note"
+  }
 }

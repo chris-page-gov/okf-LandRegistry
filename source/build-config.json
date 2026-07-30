@@ -2,13 +2,14 @@
   "schema": "okf-hmlr-build-config.v1",
   "version": "0.2.0",
   "status": "ai-generated-proof-of-concept",
+  "publication_state": "digest-bound-external-evidence",
   "generated_at": "2026-07-29T15:30:00Z",
-  "release_at": "2026-07-29T17:00:00Z",
+  "release_at": null,
   "ai_generated_proof_of_concept": true,
   "publication_base": "https://chris-page-gov.github.io/okf-LandRegistry/",
   "notes": [
     "generated_at is a reviewed release-candidate input so identical frozen inputs produce identical bytes.",
-    "release_at records the deterministic v0.2.0 candidate-freeze time input.",
-    "The release is approved only as an AI-generated proof of concept for the exact digest recorded by DEC-RELEASE."
+    "release_at remains null in candidate bytes so approval cannot be claimed before the exact digest exists.",
+    "Publication authority, approval time and owner identity belong only in digest-bound external release evidence."
   ]
 }

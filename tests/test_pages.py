@@ -46,6 +46,8 @@ class PagesTests(unittest.TestCase):
         self.assertIn("ai-generated proof of concept", html.casefold())
         self.assertIn("version 0.2.0", html.casefold())
         self.assertIn("29 July 2026", html)
+        self.assertIn("do not assert publication approval", html)
+        self.assertNotIn("Approved for publication", html)
 
     def test_pages_do_not_ship_a_second_search_runtime(self) -> None:
         self.assertFalse((BUNDLE / "app.js").exists())

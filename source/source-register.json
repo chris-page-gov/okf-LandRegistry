@@ -272,6 +272,7 @@
       "caveats": [
         "Catalogue rows may lag publisher-operated documentation.",
         "Licence and authentication fields can be absent.",
+        "Rows whose canonical endpoint host is businessgateway.landregistry.gov.uk inherit RIGHT-RESTRICTED and approved-professional-user access; CDDO catalogue publication never makes the service public or anonymous.",
         "An older sibling-bundle seed contained 27 HMLR records; the frozen live provider-filtered snapshot returned 15."
       ]
     },

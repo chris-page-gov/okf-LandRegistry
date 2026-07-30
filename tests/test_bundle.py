@@ -98,6 +98,28 @@ class BundleTests(unittest.TestCase):
                 all(reference.startswith("EV-") for reference in record["evidence_refs"])
             )
             self.assertTrue(set(record["evidence_refs"]) <= evidence_ids)
+            self.assertTrue(record["caveat_ids"], record["id"])
+            self.assertTrue(
+                all(value.startswith("CAV-") for value in record["caveat_ids"])
+            )
+
+    def test_business_gateway_records_are_restricted_and_safely_described(self) -> None:
+        records = [
+            record
+            for record in self.catalogue["records"]
+            if urlparse(record["url"]).hostname
+            == "businessgateway.landregistry.gov.uk"
+        ]
+        self.assertEqual(15, len(records))
+        for record in records:
+            self.assertEqual("approved-professional-users", record["access_state"])
+            self.assertEqual("restricted-service", record["rights_state"])
+            self.assertEqual("RIGHT-RESTRICTED", record["rights_ref"])
+            self.assertIn(
+                "CAV-NO-RESTRICTED-AUTOMATION", record["caveat_ids"]
+            )
+            self.assertIn("Business e-services approval", record["authentication"])
+            self.assertNotIn("automate the collection", record["description"].casefold())
 
     def test_collision_reconciliation_preserves_every_representation(self) -> None:
         reconciliation = json.loads(

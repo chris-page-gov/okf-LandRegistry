@@ -65,6 +65,12 @@
       "index_sha256": "e799a2fdae65cf423682a5d2694a7c3f1d6a404249df0d379fd50820b26f0fc3"
     }
   },
+  "compatibility_window": {
+    "policy": "exact-version-only",
+    "minimum_version": "0.5.7",
+    "maximum_version": "0.5.7",
+    "rationale": "The v0.2.0 proof of concept is certified only against the exact executable Explorer identity recorded in this lock. Widening the window requires the same fixture and full-candidate browser journeys against every newly admitted consumer version."
+  },
   "descriptor": {
     "schema": "okf-explorer-large-corpus.v1",
     "kind": "okf-large-corpus",

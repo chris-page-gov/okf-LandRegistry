@@ -10,7 +10,7 @@
     },
     {
       "count": 15,
-      "value": "Not stated by the source."
+      "value": "approved Business Gateway customer integration"
     },
     {
       "count": 4,
@@ -115,8 +115,12 @@
   ],
   "access_state": [
     {
-      "count": 2179,
+      "count": 2164,
       "value": "public"
+    },
+    {
+      "count": 16,
+      "value": "approved-professional-users"
     },
     {
       "count": 15,
@@ -129,10 +133,6 @@
     {
       "count": 3,
       "value": "public-search-with-terms-and-fees"
-    },
-    {
-      "count": 1,
-      "value": "approved-professional-users"
     },
     {
       "count": 1,
@@ -587,20 +587,12 @@
       "value": "Not stated by the source."
     },
     {
-      "count": 3,
-      "value": "English"
-    },
-    {
-      "count": 2,
-      "value": "Welsh"
-    },
-    {
-      "count": 1,
-      "value": "cy"
-    },
-    {
-      "count": 1,
+      "count": 4,
       "value": "en"
+    },
+    {
+      "count": 3,
+      "value": "cy"
     }
   ],
   "licence": [
@@ -889,16 +881,16 @@
       "value": "open-with-conditions"
     },
     {
-      "count": 308,
+      "count": 293,
       "value": "metadata-only"
+    },
+    {
+      "count": 24,
+      "value": "restricted-service"
     },
     {
       "count": 15,
       "value": "bespoke-or-paid"
-    },
-    {
-      "count": 9,
-      "value": "restricted-service"
     }
   ],
   "service": [

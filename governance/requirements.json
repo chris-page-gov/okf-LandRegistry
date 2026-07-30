@@ -2,7 +2,7 @@
   "schema": "okf-governance-requirements.v1",
   "project": "HM Land Registry public-estate OKF Bundle",
   "project_status": "ai-generated-proof-of-concept",
-  "release_approved": true,
+  "release_approved": false,
   "research_cutoff": "2026-07-29",
   "requirements": [
     {

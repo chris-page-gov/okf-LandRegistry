@@ -1,9 +1,10 @@
 # Accessibility
 
-Status: WCAG 2.2 Level AA is the design target. Version 0.1.0 passed automated
-and agent-assisted keyboard, reflow and no-JavaScript release journeys. It has
-not had an independent human accessibility audit or representative-user test
-and makes no conformance claim.
+Status: WCAG 2.2 Level AA is the design target for the v0.2.0 PoC candidate.
+Historical v0.1.0 evidence cannot approve this candidate. v0.2.0 requires
+fresh automated and assisted journeys; it has not had an independent human
+accessibility audit or representative-user test and makes no conformance
+claim.
 
 ## Commitment and boundary
 

@@ -22,7 +22,7 @@
     "sources": 15,
     "topics": 314
   },
-  "data_plane_manifest_root_sha256": "6a2d5a00d6d539e9d44cb17e61100450aad6f4a76b6a7ad3be9fc3b3c8a8acec",
+  "data_plane_manifest_root_sha256": "e628e66632f8e1cbdc6e38b23188351d1e2c0e9722a5ff141c3e0f3fc4bef0e8",
   "description": "Independent, metadata-only discovery bundle for HM Land Registry publications, services, datasets, APIs and official repositories.",
   "entrypoint_integrity": {
     "analysis_overview": {
@@ -31,19 +31,19 @@
       "sha256": "7fdb32eafcd392de199c404161820367650dfdc2cb48f5c55c416da0cdd31331"
     },
     "data_manifest": {
-      "bytes": 4964,
+      "bytes": 4970,
       "path": "data/explorer/manifest.json",
-      "sha256": "af61f598ddb735ca913d368ec9006e2b5e079a130e699f82a614e02533508978"
+      "sha256": "30c692a50a935bc438cb7f803385ebd1db10921283e232e60cd5c65e406a707b"
     },
     "overview_index": {
-      "bytes": 15684,
+      "bytes": 15581,
       "path": "data/explorer/overview.json",
-      "sha256": "d7b6af08a583880f8e090478ce5e51bac2185e666f46e6f5078b550c2e0bc110"
+      "sha256": "157174ad93a146447e1acd6dbccb1c18d5819e6ff3b3fd1ccf5cd545fc4a2a3e"
     },
     "record_locator": {
-      "bytes": 46803,
+      "bytes": 46809,
       "path": "data/explorer/locator/manifest.json",
-      "sha256": "04d0870faee1a28f34f1d12ddba149077974acba3a2fe7285e4fd3b4bae6a646"
+      "sha256": "b3f7fd6dcc298b7e247ded3c21bd862ba89d17d0b9b1da33fd3d590119e03fe0"
     },
     "relationship_adjacency": {
       "bytes": 526,
@@ -51,9 +51,9 @@
       "sha256": "8513ec1bb47a7ce5b3f7fb62cc28f1f3d457d04be1193de8f0d4a7c609731198"
     },
     "search_manifest": {
-      "bytes": 21829,
+      "bytes": 21574,
       "path": "data/explorer/search/manifest.json",
-      "sha256": "71e47731c115ff707b6660dcd53b245becb3b8f4099779dfa6b4d342f34ea0ba"
+      "sha256": "5132df106c7a2a63aa2529c3b9e15a871f854c6c0c7bbf189e3abb4312c74436"
     }
   },
   "entrypoints": {
@@ -84,7 +84,8 @@
       "authenticated_calls_enabled": false,
       "mode": "metadata-only",
       "personal_property_records_included": false,
-      "record_level_rights": true
+      "record_level_rights": true,
+      "release_authority": "Not asserted by bundle bytes; consult exact-digest external release evidence."
     },
     "okf-pages-publication.v1": {
       "descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
@@ -102,8 +103,9 @@
     "startup_mode": "overview-first"
   },
   "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+  "publication_state": "digest-bound-external-evidence",
   "publisher": "https://github.com/chris-page-gov/okf-LandRegistry",
-  "release_at": "2026-07-29T17:00:00Z",
+  "release_at": null,
   "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
   "rights": {
     "record_level": true,

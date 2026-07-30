@@ -76,6 +76,11 @@ class ExplorerConsumerContractTests(unittest.TestCase):
             harness["command"][:5],
             ["pnpm", "--dir", "apps/okf-explorer", "acceptance:bundle", "--"],
         )
+        compatibility = self.lock["compatibility_window"]
+        self.assertEqual(compatibility["policy"], "exact-version-only")
+        self.assertEqual(compatibility["minimum_version"], "0.5.7")
+        self.assertEqual(compatibility["maximum_version"], "0.5.7")
+        self.assertIn("full-candidate browser journeys", compatibility["rationale"])
 
     def test_released_v010_descriptor_is_explicitly_degraded(self) -> None:
         result = subprocess.run(

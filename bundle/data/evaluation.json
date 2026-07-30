@@ -148,10 +148,10 @@
       "intent": "Find the official statement of HMLR's remit and avoid applying the bundle outside its jurisdiction or authority.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q001-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts",
+          "max_rank": 3,
+          "reason": "An annual-report collection is an organisational publication, not the authoritative remit statement, and must not outrank it.",
+          "target_id": "NEG-LR-Q001-HM-LAND-REGISTRY-ANNUAL-REPORTS"
         }
       ],
       "near_miss_rule": "A result about Scotland, Northern Ireland, UK-wide housing statistics or a secondary catalogue does not establish HMLR's remit; an England-and-Wales label also does not prove that every linked dataset has complete coverage.",
@@ -204,10 +204,10 @@
       "intent": "Distinguish the main property-information products and what each contains.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q002-CROSS-JURISDICTION"
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/llc",
+          "max_rank": 5,
+          "reason": "A Local Land Charges polygon dataset does not explain the distinct evidential roles of a title summary, register and plan.",
+          "target_id": "NEG-LR-Q002-LOCAL-LAND-CHARGES-POLYGONS"
         }
       ],
       "near_miss_rule": "A result that treats the three products as interchangeable or describes the title plan as exact is not correct.",
@@ -266,10 +266,10 @@
       "intent": "Find the route and limitation that distinguishes informational downloads from official copies.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q003-CROSS-JURISDICTION"
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/bg2/s1/v1",
+          "max_rank": 4,
+          "reason": "A restricted ordering endpoint must not outrank public guidance explaining cost, access and evidential status.",
+          "target_id": "NEG-LR-Q003-BUSINESS-GATEWAY-OFFICIAL-COPY"
         }
       ],
       "near_miss_rule": "Merely linking to a paid download without explaining its evidential status is insufficient.",
@@ -321,10 +321,10 @@
       "intent": "Retrieve authoritative boundary guidance and expose the general-boundaries limitation.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q004-CROSS-JURISDICTION"
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/nps",
+          "max_rank": 9,
+          "reason": "A precise polygon product must not outrank guidance explaining that title-plan geometry is not an exact legal boundary.",
+          "target_id": "NEG-LR-Q004-NATIONAL-POLYGON-SERVICE"
         }
       ],
       "near_miss_rule": "A map scale, red edging or coordinate precision does not establish an exact legal boundary.",
@@ -379,10 +379,10 @@
       "intent": "Find the current official practice guidance needed to distinguish boundary concepts.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q005-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-agreed-notice-to-note-a-charge-e-an1",
+          "max_rank": 3,
+          "reason": "A portal transaction containing the word agreed is not guidance on agreed or determined boundaries.",
+          "target_id": "NEG-LR-Q005-AGREED-NOTICE-PORTAL"
         }
       ],
       "near_miss_rule": "A blog post, forum answer or old PDF without a current canonical guide route is not sufficient authority.",
@@ -442,10 +442,10 @@
       "intent": "Find the official recovery route when a property address search may not reveal every affected title.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q006-CROSS-JURISDICTION"
+          "canonical_url": "https://github.com/LandRegistry/address-search-api",
+          "max_rank": 6,
+          "reason": "A source-code repository for address search is not the documented index-map process and must not outrank it.",
+          "target_id": "NEG-LR-Q006-ADDRESS-SEARCH-CODE"
         }
       ],
       "near_miss_rule": "Retrying broader address text is not equivalent to the documented index-map process.",
@@ -501,10 +501,10 @@
       "intent": "Distinguish professional service guidance from public discovery and make access restrictions visible.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
+          "canonical_url": "https://www.gov.uk/guidance/direct-integration-with-business-gateway",
           "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q007-CROSS-JURISDICTION"
+          "reason": "A public integration guide is not evidence of anonymous production access and must not displace the official access route.",
+          "target_id": "NEG-LR-Q007-DIRECT-INTEGRATION-GUIDE"
         }
       ],
       "near_miss_rule": "A public developer page is not evidence that the production service is anonymous or open for unrestricted automation.",
@@ -560,10 +560,10 @@
       "intent": "Find what title information says about a lender or discharged mortgage without overstating evidential completeness.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q008-CROSS-JURISDICTION"
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl",
+          "max_rank": 7,
+          "reason": "A restricted ownership-verification service must not displace public guidance about what title information can establish.",
+          "target_id": "NEG-LR-Q008-ONLINE-OWNER-VERIFICATION"
         }
       ],
       "near_miss_rule": "A summary that only says a mortgage is present or absent is not evidence of lender identity, discharge status or absence of other charge entries; an informational online copy is not official proof.",
@@ -615,10 +615,10 @@
       "intent": "Retrieve the official Price Paid Data description, temporal coverage and reuse limitations.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q009-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/news/april-2016-price-paid-data",
+          "max_rank": 2,
+          "reason": "A historic monthly release notice must not outrank the current dataset guidance or be treated as a present valuation.",
+          "target_id": "NEG-LR-Q009-HISTORIC-PRICE-PAID-NEWS"
         }
       ],
       "near_miss_rule": "A historic transaction amount is not a current valuation or proof of the current registered proprietor.",
@@ -675,10 +675,10 @@
       "intent": "Test whether the bundle keeps catalogue, observation, release and registration dates separate.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q010-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+          "max_rank": 3,
+          "reason": "A broad catalogue record cannot substitute its modification date for the publisher dataset release identity.",
+          "target_id": "NEG-LR-Q010-GEOSPATIAL-CATALOGUE"
         }
       ],
       "near_miss_rule": "A recent catalogue, page, observation or bundle timestamp cannot repair an unknown publisher release date or covered month.",
@@ -738,10 +738,10 @@
       "intent": "Discover the publisher catalogue and compare spatial products by format, access and GIS requirement.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q011-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-update-a-business-unit-account",
+          "max_rank": 2,
+          "reason": "An account-administration page sharing the word update is not publisher evidence for dataset formats, costs, licences or cadence.",
+          "target_id": "NEG-LR-Q011-PORTAL-ACCOUNT-UPDATE"
         }
       ],
       "near_miss_rule": "A generic or 2020 catalogue row alone cannot establish current access, licence, release cadence, API availability, file size or completeness; follow the publisher-operated product page.",
@@ -798,10 +798,10 @@
       "intent": "Verify that spatial discovery polygons are not presented as exact legal title or charge boundaries.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q012-CROSS-JURISDICTION"
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/nps",
+          "max_rank": 3,
+          "reason": "Another polygon product cannot establish that INSPIRE geometry is an exact legal boundary.",
+          "target_id": "NEG-LR-Q012-NATIONAL-POLYGON-SERVICE"
         }
       ],
       "near_miss_rule": "Displaying a polygon on a precise basemap does not upgrade its legal meaning.",
@@ -859,10 +859,10 @@
       "intent": "Find the dated authority-level coverage statement and known migration limitation.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q013-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/news/five-local-authorities-join-hm-land-registry-s-local-land-charges-register",
+          "max_rank": 3,
+          "reason": "A migration news item is not the current bounded authority list or monthly dataset denominator.",
+          "target_id": "NEG-LR-Q013-MIGRATION-NEWS"
         }
       ],
       "near_miss_rule": "A headline denominator, an England-and-Wales label or a planned transfer date does not prove current migration or inclusion in the monthly INSPIRE file.",
@@ -922,10 +922,10 @@
       "intent": "Test whether spatial records retain format, CRS or coordinate context, vintage, authority and language metadata where the source supplies them.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q014-CROSS-JURISDICTION"
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/inspire",
+          "max_rank": 3,
+          "reason": "The dataset landing page alone does not establish accessibility, language handling or exact-boundary meaning.",
+          "target_id": "NEG-LR-Q014-INDEX-POLYGON-DATASET"
         }
       ],
       "near_miss_rule": "A precise CRS or reprojected polygon does not make an indicative polygon an exact legal boundary, and an English-looking label does not justify deleting Welsh language identity.",
@@ -980,10 +980,10 @@
       "intent": "Retrieve the publisher-operated API contract, version and supported dataset scope.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl",
           "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q015-CROSS-JURISDICTION"
+          "reason": "A restricted Business Gateway endpoint is not the public ULPD API contract and must not enter its top ten results.",
+          "target_id": "NEG-LR-Q015-BUSINESS-GATEWAY-BANKRUPTCY"
         }
       ],
       "near_miss_rule": "An API catalogue entry without the publisher contract cannot establish current operations or authentication.",
@@ -1039,10 +1039,10 @@
       "intent": "Distinguish public API documentation and example metadata from authenticated dataset access.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/bg2/api/v1/official-searches-of-whole",
           "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q016-CROSS-JURISDICTION"
+          "reason": "A certificate-gated Business Gateway endpoint must not be presented among the top ten as public anonymous API data.",
+          "target_id": "NEG-LR-Q016-BUSINESS-GATEWAY-OFFICIAL-SEARCH"
         }
       ],
       "near_miss_rule": "A publicly visible API URL or example response does not authorize anonymous bulk download.",
@@ -1107,10 +1107,10 @@
       "intent": "Ensure restricted portal, Business Gateway, local-search and authenticated data routes are discoverable without being invoked.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q017-CROSS-JURISDICTION"
+          "canonical_url": "https://search-local-land-charges.service.gov.uk/",
+          "max_rank": 2,
+          "reason": "A publicly reachable service landing page is not permission for anonymous automation and must not outrank its terms.",
+          "target_id": "NEG-LR-Q017-LOCAL-LAND-CHARGES-LANDING"
         }
       ],
       "near_miss_rule": "A publicly reachable landing page, robots access, sample contract or developer documentation is not authorization for anonymous automation; permission must be established from service-specific access rules and terms.",
@@ -1165,10 +1165,10 @@
       "intent": "Find the distribution and refresh contract needed for a reproducible monthly update.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q018-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+          "max_rank": 1,
+          "reason": "Another monthly dataset cannot substitute for OCOD complete-file and change-only release identity.",
+          "target_id": "NEG-LR-Q018-PRICE-PAID-DATA"
         }
       ],
       "near_miss_rule": "A page last-updated date is not a substitute for the file's release identity or covered month.",
@@ -1224,10 +1224,10 @@
       "intent": "Find how public and official local-land-charge searches differ and whether an authority is covered.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q019-CROSS-JURISDICTION"
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl",
+          "max_rank": 2,
+          "reason": "A restricted Business Gateway search must not outrank the public service route, coverage statement and terms.",
+          "target_id": "NEG-LR-Q019-BUSINESS-GATEWAY-LLC-SEARCH"
         }
       ],
       "near_miss_rule": "A free personal search is not automatically an official search certificate.",
@@ -1287,10 +1287,10 @@
       "intent": "Prevent conflation of local land charges, planning information, title registration and mapped boundaries.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
+          "canonical_url": "https://www.gov.uk/government/publications/exact-line-of-boundary-registration-db",
           "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q020-CROSS-JURISDICTION"
+          "reason": "An exact-boundary application form does not establish the legal scope of a local land charge or title.",
+          "target_id": "NEG-LR-Q020-EXACT-BOUNDARY-FORM"
         }
       ],
       "near_miss_rule": "A matching polygon or planning-related label does not prove the legal scope of a charge or registered title.",
@@ -1345,10 +1345,10 @@
       "intent": "Retrieve the dataset-specific licence and keep third-party address-data conditions visible.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q021-CROSS-JURISDICTION"
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl",
+          "max_rank": 9,
+          "reason": "A restricted ownership service cannot establish OCOD address-field reuse rights and must not enter the top nine.",
+          "target_id": "NEG-LR-Q021-ONLINE-OWNER-VERIFICATION"
         }
       ],
       "near_miss_rule": "Public catalogue access or Crown ownership does not establish unrestricted redistribution of every field.",
@@ -1400,10 +1400,10 @@
       "intent": "Find the required attribution and layered address-data reuse conditions for Price Paid Data.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q022-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/news/additional-price-paid-data-to-be-released-in-october",
+          "max_rank": 2,
+          "reason": "A historic release announcement cannot replace current OGL and third-party address-data conditions.",
+          "target_id": "NEG-LR-Q022-HISTORIC-PRICE-PAID-NEWS"
         }
       ],
       "near_miss_rule": "Stating only OGL without the address-data conditions is incomplete.",
@@ -1456,10 +1456,10 @@
       "intent": "Retrieve the applicable accessibility statement and test the bundle's equivalent critical journey.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q023-CROSS-JURISDICTION"
+          "canonical_url": "https://use-land-property-data.service.gov.uk/",
+          "max_rank": 1,
+          "reason": "A general service landing page is not an accessibility statement or evidence of WCAG conformance.",
+          "target_id": "NEG-LR-Q023-ULPD-LANDING"
         }
       ],
       "near_miss_rule": "A planned remediation date, an old test result or a passing automated audit is not evidence that a defect is fixed or that the complete keyboard and screen-reader task works.",
@@ -1515,10 +1515,10 @@
       "intent": "Find the official Welsh-language commitment and preserve bilingual service and register context.",
       "must_not_retrieve": [
         {
-          "canonical_url": "https://www.ros.gov.uk/",
-          "max_rank": 10,
-          "reason": "A Registers of Scotland result cannot satisfy an HM Land Registry question about England and Wales; it is an executable cross-jurisdiction near miss.",
-          "target_id": "NEG-LR-Q024-CROSS-JURISDICTION"
+          "canonical_url": "https://www.gov.uk/government/organisations/land-registry",
+          "max_rank": 4,
+          "reason": "A general English organisational page must not outrank explicit Welsh-language routes for a Welsh-service query.",
+          "target_id": "NEG-LR-Q024-GENERAL-HMLR-PAGE"
         }
       ],
       "near_miss_rule": "An English-only result is incomplete when the official source declares a Welsh route or bilingual context; conversely, the scheme is not proof that every service or document is bilingual.",

@@ -1,0 +1,673 @@
+{
+  "schema": "okf-hmlr-evaluation-acceptance-review.v1",
+  "status": "fail",
+  "candidate_git_commit": "9955823144e05cad295dc51ac0558d2f9174a464",
+  "suite_sha256": "c6d00626c50d3a50b29e0576ca529e3b0110eb270606feebeb3cde232b7dad9b",
+  "bundle_release_root_sha256": "e07fafe25bbd816f790f6a604aa7e99ab529dda51ec7d106e94d2e57485a217d",
+  "reviewer": {
+    "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+    "role": "independent evaluation reviewer",
+    "kind": "AI-agent",
+    "reviewed_at": "2026-07-30T03:16:03Z",
+    "independent_of_retrieval_implementation": true,
+    "scope_separation": "This reviewer did not author or tune the retrieval implementation under test. It did not write pages/search-contract.json, the tokenisation, weighting, minimum-should-match or ranking logic in scripts/evaluate.py, the Explorer search worker or its shards, the question suite, the calibration journeys or any validator. It executed the packet's own reviewer-search.py read-only against the frozen bundle and formed its own judgement about whether the suite's expectations and safety rules are correct. The calibration report was treated as implementation evidence and its judgements were not copied; every expected target rank and every metric quoted here was recomputed independently. This reviewer holds no owner, release or deployment authority, created no Land Registry G9 approval, set no deployment variable and verified no public URL."
+  },
+  "review_scope": "Independent verification of all 24 calibration questions LR-Q001 to LR-Q024 across six dimensions each (expected authoritative source target or governed alias, every expected proposition, the near-miss or forbidden-target rule, every required caveat ID, the exact declared hard-failure IDs, and whether any hard failure was observed), plus eight reviewer-owned held-out adversarial cases actually executed against the frozen candidate. Inputs read in full: evaluation/questions.json, evaluation/explorer-search-calibration-v0.2.0.json, evaluation/explorer-v0.2.0-journeys.json, evaluation/journeys.json, pages/search-contract.json, scripts/evaluate.py, scripts/check_okf.py, scripts/check_domain_profile.py, the complete 2,203-record catalogue with its coverage, reconciliation, provenance, rights and manifest ledgers, the source register, publisher registry, type-kind crosswalk and curated records, the governance controls, the consumer lock, and the exact-candidate validation receipts.",
+  "independently_recomputed_metrics": {
+    "method": "Recomputed by this reviewer from candidate/bundle/data/catalogue.json using candidate/pages/search-contract.json and the ranking function in candidate/scripts/evaluate.py, at k=10, without reference to the calibration report's own numbers.",
+    "record_source": "catalogue-fallback (data/catalogue.json, schema okf-hmlr-catalogue.v2, snapshot hmlr-public-metadata-v0.2.0); bundle/data/search/index.json is absent, so this is the same substrate the calibration baseline used and is not the Explorer search shards",
+    "records_scored": 2203,
+    "distinct_expected_canonical_targets": 39,
+    "mean_reciprocal_rank": 0.9167,
+    "first_expected_target_success_at_5": 1.0,
+    "first_expected_target_success_at_10": 1.0,
+    "all_expected_targets_success_at_10": 1.0,
+    "expected_target_micro_recall_at_10": 1.0,
+    "expected_targets_missing_from_catalogue": 0,
+    "governed_threshold_comparison": "Meets and exceeds the release-assurance.md G5 retrieval thresholds of MRR >= 0.80, Recall@10 >= 0.90 and every declared expected target or governed alias present in the top 10. Retrieval is not the reason this review fails.",
+    "must_not_retrieve_pass_rate": 1.0,
+    "must_not_retrieve_pass_rate_note": "This 1.00 is not evidence of safe ranking. All 24 questions declare the same single forbidden target https://www.ros.gov.uk/, which appears in zero of the 2,203 records, so the rate is mathematically forced to 1.00 regardless of retrieval behaviour. See finding EF-001."
+  },
+  "question_reviews": [
+    {
+      "question_id": "LR-Q001",
+      "query": "What does HM Land Registry cover?",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-COVERAGE"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the HM Land Registry organisation record (kind corporate, authority_role publisher-authoritative-source, licence OGL v3.0 subject to stated exceptions and third-party rights) and its caveats. Both propositions hold against the record: the England-and-Wales remit is carried by 'The remit is England and Wales; UK-wide products state their own coverage', and the discovery-aid limit by 'The bundle is independent and does not speak for HM Land Registry'. CAV-BOUNDED-COVERAGE and CAV-SOURCE-AUTHORITY are both substantively present. HF-AUTHORITY and HF-COVERAGE reviewed against the record and the reconciled DEN-GOVUK denominator of 1,866; no completeness claim is made without a denominator and no derived assertion is dressed as an HMLR statement. Near-miss rule not verifiable as an executable control: the sole forbidden target ros.gov.uk is absent from all 2,203 records, so the assertion cannot fail. The narrative rule about Scotland, Northern Ireland and UK-wide statistics is itself correct."
+    },
+    {
+      "question_id": "LR-Q002",
+      "query": "title register title summary title plan differences",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the 'Search for land and property information' service record (access_state authenticated-and-paid, rights_state restricted-service, licence 'service terms and statutory access rules; purchased documents are not open-data distributions'). Both propositions hold: the record distinguishes the products and carries 'A title plan normally shows general boundaries, not exact legal boundaries'. CAV-BOUNDARY-NOT-CONCLUSION and CAV-SOURCE-AUTHORITY are present, the latter via 'Downloaded copies are not proof of ownership and differ from official copies'. HF-LEGAL-BOUNDARY and HF-AUTHORITY reviewed; the record never upgrades a title plan to an exact boundary and never presents a download as official proof. Near-miss control inert as recorded for the whole suite; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q003",
+      "query": "online copy or official copy proof of ownership",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 9; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the property-information service record and the portal official-copies guidance record (the latter access_state public, licence 'GOV.UK content terms; portal products and operation have separate conditions'). Both propositions hold: 'Downloaded copies are not proof of ownership and differ from official copies' and 'Official copies, ordinary online downloads and index-map searches are distinct products and procedures'. CAV-RIGHTS-AND-ACCESS is carried by the authenticated-and-paid access state and the explicit statement that purchased documents are not open-data distributions; CAV-SOURCE-AUTHORITY by the evidential-status wording. HF-AUTHORITY and HF-LICENCE-ACCESS reviewed; no fee-bearing route is presented as free or open. Near-miss control inert; the narrative rule correctly rejects a bare paid-download link."
+    },
+    {
+      "question_id": "LR-Q004",
+      "query": "does a title plan show the exact legal boundary",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the PG40 supplement 3 boundaries guidance record (access public, licence OGL v3.0 subject to exceptions). Both propositions hold: the record states 'A title-plan line normally shows a general boundary, not the exact legal boundary' and the determined-boundary status is treated as distinct rather than inferable from map precision. CAV-BOUNDARY-NOT-CONCLUSION is present and explicit. HF-LEGAL-BOUNDARY reviewed as the single applicable class and not observed; the record additionally carries 'Practice guidance does not decide a particular dispute or replace legal advice'. Near-miss control inert; the narrative rule about scale, red edging and coordinate precision is correct and is echoed in the INSPIRE technical-guidance record."
+    },
+    {
+      "question_id": "LR-Q005",
+      "query": "practice guide general agreed determined boundaries",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the same PG40 supplement 3 record, reached by a practice-guide phrasing. Both propositions hold; the guide identity and its update context are inspectable via publisher_last_updated, observed_at and cadence_state. CAV-BOUNDARY-NOT-CONCLUSION and CAV-SOURCE-AUTHORITY are both present, the latter via 'Practice guidance does not decide a particular dispute or replace legal advice'. HF-AUTHORITY and HF-LEGAL-BOUNDARY reviewed and not observed. Near-miss control inert; the narrative rule correctly rejects a blog post, forum answer or undated PDF as sufficient authority, and the suite's exclusion of forum content is consistent with that."
+    },
+    {
+      "question_id": "LR-Q006",
+      "query": "address search misses title search of the index map",
+      "source_resolution": true,
+      "source_resolution_evidence": "all three expected targets retrieved, ranks 1, 2 and 5; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the portal official-copies guidance record, the index-map search guidance record and the property-information service record. Both propositions hold: the index-map route is represented as a distinct documented procedure, and the incompleteness of an address-only search is carried by 'Some land is unregistered, some interests are not registrable and pending applications may not yet appear'. CAV-NO-RESTRICTED-AUTOMATION is strongly present ('The bundle does not operate the portal or authorise a search'; 'This bundle does not search the service, create an account or buy documents'); CAV-SOURCE-AUTHORITY via 'Search metadata is a discovery record, not the full document or legal advice'. HF-AUTHORITY and HF-RESTRICTED-AUTOMATION reviewed and not observed on these targets. Noted honestly: the index-map record carries licence null and licence_state unknown, which is correct fail-closed behaviour rather than an inferred open licence. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q007",
+      "query": "portal Business Gateway professional access requirements",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 2 and 3; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the HM Land Registry portal service record (access_state approved-professional-users, rights_state restricted-service, rights_ref RIGHT-RESTRICTED) and the Business Gateway developer pack record (access_state documentation-public-service-restricted, rights_state restricted-service). Both propositions hold and are carried explicitly: 'Public guidance does not grant portal access', 'The bundle never signs in or performs a transaction', 'Documentation discovery does not authorise test or production calls', 'Public documentation is not permission for anonymous or automated operation'. CAV-NO-RESTRICTED-AUTOMATION and CAV-RIGHTS-AND-ACCESS are both present. HF-RESTRICTED-AUTOMATION and HF-LICENCE-ACCESS reviewed and not observed on these two declared targets. Important scope note: this question tests exactly the boundary that blocking finding BF-002 breaches elsewhere. The two records the question names are labelled correctly; the 15 businessgateway.landregistry.gov.uk endpoint records, which no question in the suite references, are not. The question passes while the risk it exists to control is unmitigated on records outside its reach. Near-miss control inert; the narrative rule is correct and is precisely the rule BF-002 violates."
+    },
+    {
+      "question_id": "LR-Q008",
+      "query": "what mortgage or lender information is in title information",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the 'Title register and title summary information' guidance record and the property-information service record. The first proposition is verifiable almost verbatim from the record caveat 'The title summary may show a lender's name and address when there is a mortgage; the title register may show whether a mortgage has been discharged'; the second from 'The current property-information service promises only whether the property has a mortgage, so cite this guidance route for lender or discharge wording' and 'Downloaded online information is not official proof'. CAV-SOURCE-AUTHORITY is present as the single required caveat. HF-AUTHORITY reviewed and not observed. This is one of the better-evidenced rows in the suite: the expected proposition and the record caveat were clearly written against each other. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q009",
+      "query": "Price Paid Data current property value limitations",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Price Paid Data dataset record (access public, rights open-with-conditions, licence 'OGL v3.0 with required HMLR attribution and additional conditions for third-party address data'). Both propositions hold: the transaction-not-valuation distinction is supported by 'Registration and publication lag the underlying sale' and the stated inclusion criteria, and the coverage/update/accuracy notes are carried by 'The latest month is incomplete and is added to in later releases'. CAV-DATE-SEPARATION is strongly present. CAV-SOURCE-AUTHORITY is the weakest instance in the suite: it is satisfied at record level only indirectly, via authority_role publisher-authoritative-source and repeated deference to 'the publisher's stated inclusion criteria', and at bundle level by the descriptor authority block. It is covered but by the thinnest margin of any of the 24, and the absence of CAV-* linkage in records (warning W-001) is why this required a judgement rather than a check. HF-DATE-CURRENCY and HF-AUTHORITY reviewed and not observed. Near-miss control inert; the narrative rule that a historic price is neither a current valuation nor proof of current proprietorship is correct."
+    },
+    {
+      "question_id": "LR-Q010",
+      "query": "data.gov.uk land ownership catalogue modified date versus OCOD publisher dataset release date",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the data.gov.uk land-and-property-ownership collection record (authority_role official-discovery-reference, rights metadata-only) and the OCOD dataset record. Both propositions hold and are carried explicitly: 'Catalogue modification time is not dataset release, registration or legal currency', 'Publisher-operated HMLR pages control current access, licence and operational facts', and 'The publisher page and file identity, not a catalogue or bundle timestamp, establish the stated release cadence and covered month; this dataset is not the live legal register'. CAV-DATE-SEPARATION and CAV-SOURCE-AUTHORITY are both present and unusually precise. HF-DATE-CURRENCY and HF-AUTHORITY reviewed and not observed. The record-level date fields (publisher_last_updated, observed_at, cadence_state, plus catalogue generated_at, observed_at and release_at) implement the separation structurally, not only in prose. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q011",
+      "query": "HM Land Registry publisher spatial datasets format cost licence update API GIS file size",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 2 and 10; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION",
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY",
+        "HF-DATE-CURRENCY",
+        "HF-COVERAGE"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Use land and property data catalogue record and the HM Land Registry Geospatial Data Catalogue record (both access mixed, rights bespoke-or-paid). All three propositions hold: the publisher catalogue as operational route, the Geospatial Commission catalogue as a bounded and potentially stale discovery snapshot ('The catalogue can be stale relative to publisher dataset pages'; 'Catalogue timestamps are not dataset currency timestamps'; 'It covers some, not necessarily all, location-linked HMLR datasets'), and the GIS/large-file point ('Some files are multi-gigabyte and require specialist tools'). All four required caveats are present: CAV-BOUNDED-COVERAGE via 'covers some, not necessarily all' and the 14-entry re-enumeration caveat, CAV-DATE-SEPARATION via the timestamp caveat, CAV-RIGHTS-AND-ACCESS via bespoke-or-paid with dataset-specific licence terms, CAV-SOURCE-AUTHORITY via the staleness caveat. All four hard-failure classes reviewed and none observed. This is the most demanding row in the suite and it is the best evidenced."
+    },
+    {
+      "question_id": "LR-Q012",
+      "query": "INSPIRE polygon indicative or legal boundary",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 5; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Local Land Charges INSPIRE spatial dataset record and the PG40 supplement 3 record. Both propositions hold: 'The polygons are indicative; source documents held by the originating authority determine definitive extent' and, from the guidance record, the general-boundary rule. CAV-BOUNDARY-NOT-CONCLUSION is present on both targets. HF-LEGAL-BOUNDARY reviewed as the single applicable class and not observed; notably the dataset record does not merely omit an exact-boundary claim, it names the authority that does determine definitive extent. Near-miss control inert; the narrative rule that a precise basemap does not upgrade legal meaning is correct and is reinforced by the INSPIRE technical-guidance record's CRS caveat."
+    },
+    {
+      "question_id": "LR-Q013",
+      "query": "which local authorities are in Local Land Charges INSPIRE data",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-COVERAGE",
+        "HF-DATE-CURRENCY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Local Land Charges INSPIRE dataset record and the Local Land Charges Programme guidance record. All three propositions hold: 'Not every local authority has migrated its local land charges data', 'Authority coverage changes and must be checked at the point of search', 'Planned transfer dates are forecasts, not evidence of completed migration', and 'Only charges in the stated INSPIRE theme groups are represented'. CAV-BOUNDED-COVERAGE and CAV-DATE-SEPARATION are both present, the second in the specific and useful form of distinguishing a forecast date from a completed migration. HF-COVERAGE and HF-DATE-CURRENCY reviewed and not observed. Both records also carry the CON29 exclusion, which correctly bounds the charge record against the separate enquiry regime. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q014",
+      "query": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 2 and 3; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-ACCESSIBLE-JOURNEY",
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-LANGUAGE-DISTINCTION"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-WELSH-LANGUAGE",
+        "HF-ACCESSIBILITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the INSPIRE index polygons technical guidance record and the Use land and property data accessibility statement record (the only record besides the Welsh-scheme records with language_state 'stated'). Both propositions hold: 'The source GML uses British National Grid (EPSG:27700); reprojection may introduce positional error', 'A coordinate reference system does not make an indicative polygon an exact legal boundary', and the Welsh place-name screen-reader defect with the explicit refusal to treat a source defect as licence to drop language metadata. All three required caveats are present: CAV-ACCESSIBLE-JOURNEY, CAV-BOUNDARY-NOT-CONCLUSION and CAV-LANGUAGE-DISTINCTION. HF-LEGAL-BOUNDARY, HF-WELSH-LANGUAGE and HF-ACCESSIBILITY reviewed and not observed on these targets. Related warning: the languages vocabulary inconsistency recorded as W-004 in the Stage 1 review weakens the language distinction this question depends on, though it does not falsify either proposition. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q015",
+      "query": "Use land and property data API base URL version datasets",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-AUTHORITY",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Use land and property data API v1 record (access_state authenticated, rights_state restricted-service, rights_ref RIGHT-RESTRICTED). Both propositions hold: the versioned RESTful JSON contract is represented, and publisher primacy over a catalogue row is carried by 'underlying dataset licence controls use; documentation terms may differ' together with the record's authority_role. CAV-NO-RESTRICTED-AUTOMATION is present in the strongest form in the suite: 'The bundle must not call this authenticated API' and 'Signed download URLs expire and are credentials; never log or publish them'. CAV-SOURCE-AUTHORITY is present. HF-AUTHORITY and HF-RESTRICTED-AUTOMATION reviewed and not observed on this target. This record demonstrates that the project can label an authenticated endpoint correctly, which is what makes the 15 mislabelled Business Gateway records in BF-002 a curation failure rather than a modelling gap. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q016",
+      "query": "what HMLR API data is public and what requires an account licence key",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the ULPD API v1 record and the OCOD dataset record. Both propositions hold: public documentation and example data are distinguished from anonymous dataset access, and the account/licence/API-key requirement is explicit; 'API availability does not alter dataset licence restrictions' carries the key distinction directly. CAV-NO-RESTRICTED-AUTOMATION and CAV-RIGHTS-AND-ACCESS are both present. HF-LICENCE-ACCESS and HF-RESTRICTED-AUTOMATION reviewed and not observed on these targets. Near-miss control inert; the narrative rule that a visible API URL or example response does not authorise anonymous bulk download is correct, and is exactly the inference that BF-002 makes available for the Business Gateway host."
+    },
+    {
+      "question_id": "LR-Q017",
+      "query": "anonymous automation permission credentials terms portal Business Gateway Local Land Charges",
+      "source_resolution": true,
+      "source_resolution_evidence": "all three expected targets retrieved, ranks 1, 2 and 4; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the portal service record, the Business Gateway developer pack record and the Local Land Charges terms record. All four propositions hold and are carried nearly verbatim: 'Public guidance does not grant portal access', 'Documentation discovery does not authorise test or production calls', 'The terms prohibit automated software agents from searching, copying or monitoring the service', 'Public access to the terms or start page is not permission for anonymous automation', and 'The bundle never signs in or performs a transaction'. CAV-NO-RESTRICTED-AUTOMATION and CAV-RIGHTS-AND-ACCESS are both present across all three targets. HF-RESTRICTED-AUTOMATION and HF-LICENCE-ACCESS reviewed and not observed on the declared targets, and I confirmed independently that no acquisition of the Local Land Charges service occurred: the bundle holds only terms and service-description metadata, consistent with CONSTRAINT-LLC-AUTOMATION. This is the suite's flagship safety question and on its own targets it is correct. It nonetheless does not reach the 15 Business Gateway endpoint records, which are the concrete instance of the risk it describes; see BF-002 and held-out cases HO-004 and HO-008. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q018",
+      "query": "OCOD monthly complete file change only update",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the OCOD dataset record. Both propositions hold: the complete-monthly-file and change-only distributions are represented, and refresh discipline is carried by 'The publisher page and file identity, not a catalogue or bundle timestamp, establish the stated release cadence and covered month'. CAV-DATE-SEPARATION and CAV-SOURCE-AUTHORITY are both present. HF-DATE-CURRENCY and HF-AUTHORITY reviewed and not observed. The record also states 'Pending register updates are absent until completed and published' and 'this dataset is not the live legal register', which correctly prevents a refresh cadence being read as register currency. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q019",
+      "query": "search local land charges coverage account official certificate",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-COVERAGE",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the 'Search for local land charges' service record (access_state public-search-with-terms-and-fees, rights_state restricted-service, rights_ref RIGHT-RESTRICTED, licence stated). Both propositions hold: 'Coverage depends on local-authority migration and must be checked at search time' and the account/official-certificate distinction with its access and fee implications, reinforced by 'The official result, not this metadata record, controls a transaction'. All three required caveats are present: CAV-BOUNDED-COVERAGE, CAV-NO-RESTRICTED-AUTOMATION ('Automated software agents must not search, copy or monitor the service') and CAV-RIGHTS-AND-ACCESS. HF-LICENCE-ACCESS, HF-COVERAGE and HF-RESTRICTED-AUTOMATION reviewed and not observed. This record is the correct template that the Business Gateway records in BF-002 fail to follow. Near-miss control inert; the narrative rule distinguishing a free personal search from an official search certificate is correct."
+    },
+    {
+      "question_id": "LR-Q020",
+      "query": "local land charge planning condition title boundary differences",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY",
+        "HF-COVERAGE"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Local Land Charges search service record and the Local Land Charges INSPIRE dataset record. Both propositions hold: the charge/planning/title/spatial entities are kept distinct across the two records, and the CON29 exclusion on both prevents the charge record being read as the complete planning record. All three required caveats are present: CAV-BOUNDARY-NOT-CONCLUSION via the indicative-polygon caveat, CAV-BOUNDED-COVERAGE via the migration caveat, CAV-SOURCE-AUTHORITY via 'The official result, not this metadata record, controls a transaction'. HF-LEGAL-BOUNDARY, HF-AUTHORITY and HF-COVERAGE reviewed and not observed. Near-miss control inert; the narrative rule that a matching polygon or planning label does not prove the legal scope of a charge or title is correct."
+    },
+    {
+      "question_id": "LR-Q021",
+      "query": "OCOD licence address data third party rights",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the OCOD dataset record (rights_state bespoke-or-paid, licence 'dataset-specific licence containing third-party address-rights conditions'). Both propositions hold: the dataset-specific licence is named rather than generalised, and third-party address conditions are explicit via 'Address data carries Ordnance Survey and Royal Mail rights'. CAV-RIGHTS-AND-ACCESS and CAV-SOURCE-AUTHORITY are both present. HF-LICENCE-ACCESS and HF-AUTHORITY reviewed and not observed. The record additionally distinguishes legal registered ownership from beneficial ownership, which is a correct and material restraint beyond what the question asked. Near-miss control inert; the narrative rule that public access or Crown ownership does not establish unrestricted redistribution of every field is correct."
+    },
+    {
+      "question_id": "LR-Q022",
+      "query": "Price Paid Data OGL attribution Royal Mail Ordnance Survey",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-LICENCE-ACCESS"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Price Paid Data dataset record. Both propositions hold: the licence field states 'OGL v3.0 with required HMLR attribution and additional conditions for third-party address data', and the layered condition is carried by 'Address fields include Ordnance Survey and Royal Mail rights not fully licensed by the OGL'. CAV-RIGHTS-AND-ACCESS is present as the single required caveat, and the record does not state OGL bare, which is exactly what the near-miss rule warns against. HF-LICENCE-ACCESS reviewed as the single applicable class and not observed. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q023",
+      "query": "Use land and property data accessibility keyboard focus WCAG",
+      "source_resolution": true,
+      "source_resolution_evidence": "first expected target at rank 1; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-ACCESSIBLE-JOURNEY",
+        "CAV-DATE-SEPARATION"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-ACCESSIBILITY",
+        "HF-DATE-CURRENCY"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the Use land and property data accessibility statement record. All three propositions hold and the temporal honesty is notably good: 'The statement reported partial WCAG 2.2 AA compliance at the observation date', 'The live statement was last reviewed on 26 September 2024 and reports September 2024 testing; January 2025 remediation targets are past, so current remediation status is unknown without retesting', and 'The source service's statement does not establish accessibility of this bundle'. CAV-ACCESSIBLE-JOURNEY and CAV-DATE-SEPARATION are both present. HF-ACCESSIBILITY and HF-DATE-CURRENCY reviewed and not observed; the record refuses to convert a lapsed remediation target into a fixed defect, which is the specific error the question targets. Limitation stated plainly: this reviewer assessed the accessibility propositions from declared metadata and static markup only and performed no assistive-technology, keyboard or zoom testing, so the third proposition's requirement that the OKF site test its own journey is verified as a stated obligation, not as a completed test. Near-miss control inert; the narrative rule is correct."
+    },
+    {
+      "question_id": "LR-Q024",
+      "query": "HM Land Registry Welsh language services bilingual registers",
+      "source_resolution": true,
+      "source_resolution_evidence": "both expected targets retrieved, ranks 1 and 2; every declared expected canonical target resolves to a record in the frozen catalogue and is retrieved within the top 10 by the packet's own search contract",
+      "expected_propositions_verified": true,
+      "near_miss_rule_verified": false,
+      "caveat_coverage": true,
+      "required_caveat_ids_verified": [
+        "CAV-LANGUAGE-DISTINCTION"
+      ],
+      "hard_failure_ids_reviewed": [
+        "HF-WELSH-LANGUAGE"
+      ],
+      "hard_failures_observed": [],
+      "review_finding": "Evidence considered: the HM Land Registry Welsh Language Scheme organisation record and the Welsh Language Scheme publication record (both language_state 'stated'). Both propositions hold: the equal-treatment commitment and bilingual contexts are represented, and the anti-over-generalisation restraint is explicit in 'The scheme is not proof that every HM Land Registry service, register entry or publication is bilingual' and 'Welsh availability is service- and publication-specific; do not infer that every linked item is bilingual', with 'Preserve explicit English and Welsh language identity' carrying the labelling duty. CAV-LANGUAGE-DISTINCTION is present as the single required caveat. HF-WELSH-LANGUAGE reviewed as the single applicable class and not observed on these two targets: nothing is suppressed, mistranslated or falsely described as unavailable. Qualification recorded rather than waived: these two records encode languages as ['English','Welsh'] while the .cy Welsh glossary uses ['cy'] and its English counterpart ['en'], and a third Welsh Language Scheme route carries language_state 'unknown' with an empty languages array. The distinction the question requires exists but is split across two vocabularies and is incomplete on one route, which is warning W-004 in the Stage 1 review. Near-miss control inert; the narrative rule is correct in both directions."
+    }
+  ],
+  "held_out_adversarial": [
+    {
+      "id": "HO-001",
+      "query": "exact legal boundary of my property title plan definitive registered extent",
+      "risk_class": "legal and exact-boundary misuse",
+      "applicable_hard_failure_ids": [
+        "HF-LEGAL-BOUNDARY",
+        "HF-AUTHORITY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Executed with reviewer-search.py at k=6. The query presupposes that an exact legal boundary is obtainable. Every returned record contradicted the presupposition rather than accommodating it: Local Land Charges INSPIRE at rank 1 with 'The polygons are indicative; source documents held by the originating authority determine definitive extent', the property-information service at rank 2 with 'A title plan normally shows general boundaries, not exact legal boundaries', PG40 supplement 3 at rank 4 with the general-boundary rule, and the National Polygon Service elsewhere with 'Polygons show indicative position and extent, not exact legal boundaries'. No record asserted or implied a definitive extent, so HF-LEGAL-BOUNDARY was not observed, and no derived assertion was presented as an official determination, so HF-AUTHORITY was not observed. Precision accepted with one observation: the authoritative boundary guidance ranked fourth, behind two datasets and a paid service, for a question that is squarely about boundary authority. That is a ranking-quality remark, not a safety failure, since the corrective caveat appears on every higher-ranked result."
+    },
+    {
+      "id": "HO-002",
+      "query": "free open data bulk download title register no licence needed reuse commercially",
+      "risk_class": "rights, licence and access inference",
+      "applicable_hard_failure_ids": [
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Executed at k=6. The query asserts free, unlicensed, commercially reusable bulk access to the register. The bundle refused the premise on every axis. 'HM Land Registry public data' returned with 'Free access is not the same as open redistribution', 'Ordnance Survey, Royal Mail, GeoPlace and other third-party rights may apply' and 'Recheck the dataset-specific licence before every use or redistribution'. The personal information charter returned with 'Statutory public access to register information does not make all personal data open data'. OCOD and the LLC INSPIRE dataset returned as bespoke-or-paid with dataset-specific licences and third-party address rights. The National Polygon Service returned with an observed price of GBP 20,000 plus VAT, correctly surfacing a paid product against a query demanding free access. No title-register bulk data exists in the bundle to return. HF-LICENCE-ACCESS and HF-AUTHORITY not observed. This is the strongest safe-behaviour result in the held-out set."
+    },
+    {
+      "id": "HO-003",
+      "query": "automate script scrape local land charges search monitor service",
+      "risk_class": "restricted-service automation",
+      "applicable_hard_failure_ids": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Executed at k=6. The query requests exactly the operation the Local Land Charges terms prohibit. Ranks 1 and 2 were the service record and its terms record, both carrying the prohibition explicitly: 'Automated software agents must not search, copy or monitor the service' and 'Public access to the terms or start page is not permission for anonymous automation', with 'Recheck the live terms before use because service conditions can change'. Both are access_state public-search-with-terms-and-fees, rights_state restricted-service, rights_ref RIGHT-RESTRICTED. No endpoint, credential, session token or automation recipe for this service was exposed, and I confirmed the bundle holds no acquired search results from it. HF-RESTRICTED-AUTOMATION and HF-LICENCE-ACCESS not observed for this host. Precision accepted: ranks 3 to 6 are topically related LLC publications with correct discovery-record caveats."
+    },
+    {
+      "id": "HO-004",
+      "query": "who owns this house find current owner name proprietor address",
+      "risk_class": "personal data and restricted automation",
+      "applicable_hard_failure_ids": [
+        "HF-RESTRICTED-AUTOMATION",
+        "HF-LICENCE-ACCESS",
+        "HF-AUTHORITY"
+      ],
+      "status": "fail",
+      "new_critical_category": true,
+      "precision_acceptable": false,
+      "safety_behavior_verified": false,
+      "review_finding": "Executed at k=6; 4 results returned. Personal-data containment held: no owner name, address, title number or property-level record exists anywhere in the bundle, which I confirmed by scanning all 2,203 records for name, postcode, email and title-number patterns with zero hits. However rank 1 was 'Online Owner Verification', whose url and canonical_source_url are the live Business Gateway production endpoint https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl, published with access_state 'public', rights_state 'metadata-only', rights_ref 'RIGHT-CDDO', licence_state 'unknown', licence null, authentication null, access_model null, and only two generic catalogue caveats, neither of which is a restricted-automation caveat. Its published description advertises real-time verification of property ownership against HMLR titles, historical name matching from 2005 onwards, partial matching and other-legal-owner flagging, and supplies the test-environment endpoint substitution to bgtest.landregistry.gov.uk. I established by inspection that this pattern holds for all 15 businessgateway.landregistry.gov.uk records: 15 of 15 are access_state 'public' with licence_state 'unknown', 15 of 15 carry no restricted-automation caveat, and 15 of 15 republish production or test call instructions, one of them including 'automate the collection of correspondence and responses'. The same bundle labels the other two restricted hosts correctly, so this is a curation failure specific to one family rather than a modelling limitation. Against the project's own definitions HF-RESTRICTED-AUTOMATION is observed ('appears to authorize automated access to an authenticated, paid, portal, Business Gateway or terms-restricted service') and HF-LICENCE-ACCESS is observed ('implies open, free or reusable access where an account, fee, bespoke licence or other restriction applies'); release-assurance.md independently lists 'a restricted service called or described as an anonymous public API' as a publication-blocking hard failure. This is a new critical category because the string 'businessgateway' appears zero times in evaluation/questions.json, so no declared expected or forbidden target in the 24-question suite can reach it. Precision is not accepted: a query seeking a named individual's property ownership should not surface a restricted ownership-verification endpoint as its top result. No endpoint was contacted; the finding rests entirely on published record metadata."
+    },
+    {
+      "id": "HO-005",
+      "query": "complete up to date list of all registered property England and Wales today",
+      "risk_class": "coverage and currency overstatement",
+      "applicable_hard_failure_ids": [
+        "HF-COVERAGE",
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Executed at k=6. The query demands completeness and same-day currency, both of which the bundle declines. OCOD and CCOD returned at ranks 1 and 2, each stating its exclusions explicitly ('Private individuals, UK companies with overseas addresses and charities are excluded'; 'Private individuals, overseas companies and charities are excluded'), each distinguishing legal registered ownership from beneficial ownership, and each stating 'Pending register updates are absent until completed and published' and that the dataset is not the live legal register. Property Alert returned at rank 5 correctly labelled authenticated-and-paid with 'An alert does not block an application or prove fraud'. The Land Registration Act 2002 returned at rank 6 with 'Check whether viewing original, revised or prospective text' and 'Legislation is not legal advice'. No result claimed complete coverage, and no observation, catalogue or build date was offered as register currency. HF-COVERAGE, HF-DATE-CURRENCY and HF-AUTHORITY not observed."
+    },
+    {
+      "id": "HO-006",
+      "query": "Cymraeg Welsh language only version of register and services",
+      "risk_class": "Welsh-language distinction",
+      "applicable_hard_failure_ids": [
+        "HF-WELSH-LANGUAGE",
+        "HF-COVERAGE"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": false,
+      "safety_behavior_verified": true,
+      "review_finding": "Executed at k=6. Safety behaviour verified. Ranks 1 and 2 were the two Welsh Language Scheme records, both language_state 'stated', carrying exactly the two restraints the risk requires: 'The scheme is not proof that every HM Land Registry service, register entry or publication is bilingual' and 'Welsh availability is service- and publication-specific; do not infer that every linked item is bilingual', with 'Preserve explicit English and Welsh language identity'. Nothing was suppressed, merged into English without a distinction, or falsely described as unavailable, so HF-WELSH-LANGUAGE was not observed, and no bilingual-parity claim was made, so HF-COVERAGE was not observed. Precision is not accepted, for two reasons that are ranking and modelling remarks rather than safety failures. First, ranks 4 to 6 were Business Gateway SOAP endpoints with no relationship to a Welsh-language query, which is noise driven by shared tokens. Second, the .cy Welsh glossary record, which is arguably the single most relevant Welsh-language artifact in the bundle, did not appear in the top 6 at all; it encodes languages as ['cy'] while the scheme records encode ['English','Welsh'], and that vocabulary split is warning W-004 in the Stage 1 review. A Welsh-language filter over this bundle would return different sets depending on which encoding a consumer chose."
+    },
+    {
+      "id": "HO-007",
+      "query": "WCAG 2.2 AA certified fully accessible conformance statement compliant",
+      "risk_class": "accessibility conformance overstatement",
+      "applicable_hard_failure_ids": [
+        "HF-ACCESSIBILITY",
+        "HF-DATE-CURRENCY",
+        "HF-AUTHORITY"
+      ],
+      "status": "pass",
+      "new_critical_category": false,
+      "precision_acceptable": true,
+      "safety_behavior_verified": true,
+      "review_finding": "Executed at k=6; 1 result returned. The query invites a certification claim and none was made. The Use land and property data accessibility statement returned with 'The statement reported partial WCAG 2.2 AA compliance at the observation date', 'The source service's statement does not establish accessibility of this bundle', and 'The live statement was last reviewed on 26 September 2024 and reports September 2024 testing; January 2025 remediation targets are past, so current remediation status is unknown without retesting'. The bundle therefore refused to convert partial compliance into certification, refused to inherit a source service's claim, and refused to treat a lapsed remediation target as a completed fix. I separately confirmed the generated site makes no conformance claim. HF-ACCESSIBILITY, HF-DATE-CURRENCY and HF-AUTHORITY not observed. Precision accepted: the single result is the correct and only applicable record, and the minimum-should-match rule suppressing weaker matches is the desired behaviour here. Limitation restated: this was a metadata and static-markup assessment with no assistive-technology testing, so it is not an accessibility audit."
+    },
+    {
+      "id": "HO-008",
+      "query": "official copy proof of ownership instant download certificate no fee",
+      "risk_class": "source authority, evidential status and fee inference",
+      "applicable_hard_failure_ids": [
+        "HF-AUTHORITY",
+        "HF-LICENCE-ACCESS",
+        "HF-RESTRICTED-AUTOMATION"
+      ],
+      "status": "fail",
+      "new_critical_category": true,
+      "precision_acceptable": false,
+      "safety_behavior_verified": false,
+      "review_finding": "Executed at k=6; 5 results returned. The evidential-status half of the query was handled correctly. Ranks 1 and 2 carried 'Downloaded copies are not proof of ownership and differ from official copies' and 'Downloaded online information is not official proof; use the official-copy route where evidential status matters', both access_state authenticated-and-paid with 'purchased documents are not open-data distributions', so the free-and-instant premise was refused and HF-AUTHORITY was not observed. The failure is the licence and automation axis. Against a query explicitly demanding 'no fee', ranks 3 and 4 were the Business Gateway endpoints 'Official Copy Document Availability' (https://businessgateway.landregistry.gov.uk/bg2/s1/v1) and 'Official Copy Document Availability V2', both published with access_state 'public' and licence_state 'unknown', both lacking any restricted-automation or fee caveat, and both republishing RESTful call instructions for ordering official copies by title number. Presenting fee-bearing, approval-gated official-copy endpoints as public with an unknown licence, immediately beneath results that correctly explain the official-copy route is paid and distinct, implies exactly the free anonymous route the query asked for. HF-LICENCE-ACCESS and HF-RESTRICTED-AUTOMATION are therefore observed, independently corroborating HO-004 on a different query and a different pair of records in the same family. This confirms the new critical category is systematic across the 15-record Business Gateway family rather than incidental to one record. No endpoint was contacted."
+    }
+  ],
+  "held_out_execution": {
+    "executed": true,
+    "harness": "reviewer-search.py, run from the packet root against candidate/bundle",
+    "invocation_pattern": "python3 reviewer-search.py --query \"<QUERY>\" --k 6",
+    "bundle_release_root_reported_by_harness": "e07fafe25bbd816f790f6a604aa7e99ab529dda51ec7d106e94d2e57485a217d",
+    "cases_executed": 8,
+    "minimum_required": 6,
+    "cases_passed": 6,
+    "cases_failed": 2,
+    "new_critical_categories_open": 1,
+    "risk_classes_covered": [
+      "legal and exact-boundary misuse (HO-001)",
+      "rights, licence and access inference (HO-002)",
+      "restricted-service automation (HO-003)",
+      "personal data and restricted automation (HO-004)",
+      "coverage and currency overstatement (HO-005)",
+      "Welsh-language distinction (HO-006)",
+      "accessibility conformance overstatement (HO-007)",
+      "source authority, evidential status and fee inference (HO-008)"
+    ],
+    "provenance": "All eight queries were composed by this reviewer for this review. None is copied from evaluation/questions.json, from the calibration journeys, or from any earlier review; the earlier Opus review and the v0.1.0 acceptance decision were absent from the packet and were not consulted or reconstructed.",
+    "restrictions_observed": "No account created, no payment made, no authenticated API called, no restricted service searched or automated, no credential, certificate, session or signed link handled or stored, and no live publisher endpoint contacted. All findings rest on the frozen bundle's published metadata."
+  },
+  "blocking_findings": [
+    {
+      "id": "EF-001",
+      "title": "The near-miss control cannot fail for any question",
+      "affects": "all 24 questions",
+      "detail": "Every question declares exactly one must_not_retrieve entry and all 24 are the identical URL https://www.ros.gov.uk/ at max_rank 10. That URL is absent from all 2,203 records; the catalogue spans 13 hosts and none is ros.gov.uk. evaluate.py enforces must_not_retrieve_pass_rate == 1.0 as a hard gate, and validate_question_contract checks only that the forbidden list is non-empty and structurally valid. The reported perfect pass rate therefore carries no information about retrieval safety. This is why near_miss_rule_verified is false on all 24 rows: the narrative near_miss_rule text was individually assessed and is sound in every case, but the executable control that the gate actually measures discriminates nothing and could not have detected the two hard failures this review found. Remedy: declare forbidden targets that exist in the catalogue and that the ranking function could plausibly return for the given query."
+    },
+    {
+      "id": "EF-002",
+      "title": "Hard failures observed in the held-out pass on the Business Gateway family, a category the suite cannot reach",
+      "affects": "HO-004 and HO-008; 15 catalogue records; no declared question",
+      "detail": "All 15 records whose canonical_source_url is a live businessgateway.landregistry.gov.uk endpoint are published with access_state 'public', rights_state 'metadata-only', rights_ref 'RIGHT-CDDO', licence_state 'unknown', licence null and authentication null; none carries a restricted-automation caveat; and 15 of 15 republish production or test-environment call instructions, including 'automate the collection of correspondence and responses'. HF-RESTRICTED-AUTOMATION and HF-LICENCE-ACCESS are observed under the suite's own definitions, and release-assurance.md separately lists 'a restricted service called or described as an anonymous public API' as publication-blocking. The suite structurally cannot detect this: 'businessgateway' occurs zero times in evaluation/questions.json. The same bundle labels the other two restricted hosts correctly (search-local-land-charges.service.gov.uk as public-search-with-terms-and-fees / restricted-service / RIGHT-RESTRICTED, propertyalert.landregistry.gov.uk as authenticated-and-paid / restricted-service / RIGHT-RESTRICTED) and LR-Q015 labels the authenticated ULPD API correctly, so the vocabulary exists and was simply not applied. This is a new critical category and remains open. Remedy: re-curate the 15 records, rebuild, and add coverage for this host."
+    },
+    {
+      "id": "EF-003",
+      "title": "Two of the four G5 pass criteria have no executed evidentiary basis",
+      "affects": "source resolution coverage and caveat coverage",
+      "detail": "release-assurance.md requires source and caveat coverage of 1.00. No catalogue record references any CAV-* identifier, so caveat coverage cannot be checked mechanically. evaluate.py's validate_acceptance_review measures neither: it returns hard-coded source_resolution_coverage 1.0, caveat_coverage 1.0 and hard_failure_count 0 taken from the reviewer's own assertions, and the report then presents them as metrics. The 24 Explorer calibration journeys assert only that the expected record title appears in the body, that the q URL parameter round-trips, that the search manifest was requested, and that the console is clean; verified programmatically, 0 of 24 assert that runtime_expected_source_url appears and 0 of 24 assert any required caveat, even though both fields are declared on every journey. This reviewer verified caveat coverage semantically for all 24 questions and found it substantively strong, so the finding is that the control is unmeasured, not that the caveats are absent. Remedy: assert the expected canonical source URL and at least one required caveat in the journeys, and stop reporting reviewer assertions as measured coverage."
+    },
+    {
+      "id": "EF-004",
+      "title": "Evaluator defaults sit far below the governed thresholds",
+      "affects": "scripts/evaluate.py",
+      "detail": "Defaults are k=5, min_expected_source_success_at_k=0.50, min_mrr=0.0, min_expected_target_recall_at_k=0.0 and min_all_expected_target_success_at_k=0.0, against governed requirements of MRR >= 0.80, Recall@10 >= 0.90 and all declared targets in the top 10. A default run would pass at half the governed source-success bar with no MRR or all-target constraint at all, so the governed criterion depends on invocation discipline rather than the tool failing closed. This candidate happens to clear the real thresholds comfortably, which is why this is recorded as a control weakness rather than a scoring dispute. Remedy: make the governed thresholds the defaults or fail closed when they are absent."
+    }
+  ],
+  "warnings": [
+    "The scored substrate is not the shipped consumer index. bundle/data/search/index.json does not exist, so evaluate.py and this reviewer's harness both fell back to data/catalogue.json with tokenisation computed on the fly, while the Explorer consumes data/explorer/search/ shards. record_source self-reports 'catalogue-fallback', so this is disclosed, but the deterministic numbers do not characterise the ranking users will experience.",
+    "Ranking noise on narrow-topic queries. HO-006 returned three unrelated Business Gateway SOAP endpoints in the top 6 for a Welsh-language query, and the most relevant Welsh artifact (the .cy glossary) did not appear at all. HO-001 ranked the authoritative boundary guidance fourth for a boundary-authority question. Neither is a safety failure; both indicate the lexical baseline rewards token overlap over authority role.",
+    "LR-Q009's CAV-SOURCE-AUTHORITY is the thinnest caveat match in the suite, satisfied indirectly through authority_role and repeated deference to publisher-stated criteria rather than by an explicit record caveat. It is covered, but it is the row most exposed to the missing CAV-* linkage described in EF-003.",
+    "The languages vocabulary is split between BCP-47 codes and English display names for the same distinction, and one Welsh Language Scheme route is unlabelled. This weakens CAV-LANGUAGE-DISTINCTION and the HF-WELSH-LANGUAGE control that LR-Q014 and LR-Q024 depend on, and it makes a consumer-side language filter encoding-dependent.",
+    "Expected propositions were verified against the frozen candidate and its recorded source evidence, not against live publisher pages. The suite itself correctly frames them as bounded acceptance expectations rather than gold answers, and this review does not upgrade them."
+  ],
+  "limitations": [
+    "This is an AI-agent evaluation review. It is not independent human HM Land Registry assurance, not human domain expertise in land registration, not legal advice, not a licence or intellectual-property audit, not a privacy or data-protection assessment, not a security assessment, not an accessibility audit or conformance assertion, and not participant or user research. RISK-015 remains a residual risk that this review does not discharge.",
+    "No live official source was fetched and no publisher page was re-observed. Source drift since the 2026-07-29 research cutoff is possible and unmeasured.",
+    "No restricted service was contacted, no account created, no payment made, no authenticated API called, and no credential, certificate, session or signed link handled. The Business Gateway findings rest entirely on published record metadata, not on probing any endpoint.",
+    "Accessibility dimensions were assessed from declared statements, record metadata and static markup only. No keyboard, screen-reader, focus, zoom or contrast testing was performed, so HF-ACCESSIBILITY was reviewed as a metadata and display-obligation question rather than as an executed accessibility test.",
+    "Welsh-language dimensions were assessed from source-native labels and language metadata. This reviewer did not evaluate Welsh translation quality and offers no bilingual-parity conclusion.",
+    "Retrieval evidence characterises the deterministic lexical calibration baseline over the catalogue fallback, not the pinned Explorer search worker in a browser. No browser journey was executed by this reviewer; the existing Explorer receipts were read as evidence, not reproduced.",
+    "This reviewer is not the project owner. No Land Registry G9 approval was created, no deployment variable was set, no publication was authorised, and no public or Pages URL was visited or verified."
+  ],
+  "summary": "Land Registry G5 acceptance is fail. All 24 questions were independently reviewed across all six required dimensions, and eight reviewer-owned held-out adversarial cases were actually executed against the frozen candidate, exceeding the minimum of six. Retrieval is genuinely good and was recomputed independently: MRR 0.9167, first-target success at 5 and at 10 both 1.00, all-expected-targets-in-top-10 1.00, micro recall 39 of 39 distinct expected canonical targets, zero expected targets missing from the catalogue, comfortably clearing the governed thresholds. Caveat quality in the data is strong and was checked record by record for every question. Four findings block acceptance. The sole executable forbidden target is absent from the catalogue, so the near-miss control is mathematically incapable of failing and its perfect pass rate is uninformative, which is why near_miss_rule_verified is false on all 24 rows. Two held-out cases, HO-004 and HO-008, observed HF-RESTRICTED-AUTOMATION and HF-LICENCE-ACCESS on the 15-record Business Gateway family, which is published as access_state public with unknown licence, no restricted-automation caveat and verbatim production and test call instructions, and which no question in the suite can reach; that new critical category remains open. Two of the four G5 pass criteria, source resolution coverage and caveat coverage, are satisfied by reviewer assertion rather than measurement, and no executed artefact anywhere in the packet tests caveat visibility. The evaluator's defaults sit far below the governed thresholds. No hard failure was observed within the 24 declared questions themselves, and hard_failures_observed is an explicit empty array on every row for that reason; the failures are in the held-out pass, which is precisely what a held-out pass is for. Missing evidence has not been converted into a recommendation."
+}

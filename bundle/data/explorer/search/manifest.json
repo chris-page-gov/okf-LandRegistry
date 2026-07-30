@@ -2,17 +2,17 @@
   "counts": {
     "documents": 2203,
     "max_postings_per_token": 50000,
-    "postings": 98391,
+    "postings": 98124,
     "postings_shards": 34,
-    "tokens": 5350,
-    "uncapped_postings": 98391
+    "tokens": 5273,
+    "uncapped_postings": 98124
   },
   "entrypoints": {
     "doc_map": "data/explorer/search/doc-map.json",
     "facets": {
-      "bytes": 42902,
+      "bytes": 42815,
       "path": "data/explorer/facets.json",
-      "sha256": "8f5a4dde7f0b562bb81b0f44a9c66bd71466a4d2ace037e2816152cd9cc25f19"
+      "sha256": "fa0dc67c32898394bec85a0b809c6c763f02ac94ff50575018f5170234bf7f40"
     },
     "filter_postings": {
       "access": "data/explorer/search/filters/access.json",
@@ -100,7 +100,6 @@
       "81": "data/explorer/search/lexicon-8.json",
       "82": "data/explorer/search/lexicon-8.json",
       "83": "data/explorer/search/lexicon-8.json",
-      "90": "data/explorer/search/lexicon-9.json",
       "aa": "data/explorer/search/lexicon-a.json",
       "ab": "data/explorer/search/lexicon-a.json",
       "ac": "data/explorer/search/lexicon-a.json",
@@ -260,16 +259,11 @@
       "my": "data/explorer/search/lexicon-m.json",
       "na": "data/explorer/search/lexicon-n.json",
       "ne": "data/explorer/search/lexicon-n.json",
-      "nf": "data/explorer/search/lexicon-n.json",
       "ng": "data/explorer/search/lexicon-n.json",
-      "nh": "data/explorer/search/lexicon-n.json",
       "ni": "data/explorer/search/lexicon-n.json",
-      "nm": "data/explorer/search/lexicon-n.json",
       "no": "data/explorer/search/lexicon-n.json",
       "np": "data/explorer/search/lexicon-n.json",
-      "nt": "data/explorer/search/lexicon-n.json",
       "nu": "data/explorer/search/lexicon-n.json",
-      "nw": "data/explorer/search/lexicon-n.json",
       "ob": "data/explorer/search/lexicon-o.json",
       "oc": "data/explorer/search/lexicon-o.json",
       "of": "data/explorer/search/lexicon-o.json",
@@ -372,7 +366,8 @@
       "ww": "data/explorer/search/lexicon-w.json",
       "ya": "data/explorer/search/lexicon-y.json",
       "ye": "data/explorer/search/lexicon-y.json",
-      "yo": "data/explorer/search/lexicon-y.json"
+      "yo": "data/explorer/search/lexicon-y.json",
+      "ze": "data/explorer/search/lexicon-z.json"
     },
     "postings": [
       "data/explorer/search/postings-0.json",
@@ -384,7 +379,6 @@
       "data/explorer/search/postings-6.json",
       "data/explorer/search/postings-7.json",
       "data/explorer/search/postings-8.json",
-      "data/explorer/search/postings-9.json",
       "data/explorer/search/postings-a.json",
       "data/explorer/search/postings-b.json",
       "data/explorer/search/postings-c.json",
@@ -408,7 +402,8 @@
       "data/explorer/search/postings-u.json",
       "data/explorer/search/postings-v.json",
       "data/explorer/search/postings-w.json",
-      "data/explorer/search/postings-y.json"
+      "data/explorer/search/postings-y.json",
+      "data/explorer/search/postings-z.json"
     ],
     "prefixes": {},
     "result_docs": [
@@ -440,11 +435,11 @@
   "result_doc_chunk_size": 250,
   "result_limit": 200,
   "schema": "okf-static-search.v2",
-  "shard_manifest_sha256": "4888334f29350f34b030d8347997f2e631fa8563f943eb704719a7c43dd63ea7",
+  "shard_manifest_sha256": "42b56c5700be58a71b05d5a886b5e0014ca90f2df5aafad78162d3add4142c3c",
   "shard_metadata": {
-    "bytes": 22599,
+    "bytes": 22606,
     "path": "data/explorer/search/shards.json",
-    "sha256": "578f1396501d858defff69a7851b0e0e45e81263117228eba6982aea84f7e9ef"
+    "sha256": "d65125e9de526a01fcf23523b39dbed447e81be2de9e8dcf462b25bcb9568f92"
   },
   "snapshot": "hmlr-public-metadata-v0.2.0",
   "token_min_length": 2,

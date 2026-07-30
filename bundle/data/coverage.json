@@ -1,6 +1,7 @@
 {
   "by_access_model": {
     "account-and-licence download and authenticated API; commercial use is paid": 2,
+    "approved Business Gateway customer integration": 15,
     "approved professional account": 1,
     "documentation public; operational API authenticated and licence-gated": 1,
     "free account service": 1,
@@ -26,8 +27,7 @@
     "public terms; operational search subject to service restrictions and fees": 1,
     "public-repository": 289,
     "public-web": 1867,
-    "public-web guidance; linked searches and products may require an account and payment": 1,
-    "unknown": 15
+    "public-web guidance; linked searches and products may require an account and payment": 1
   },
   "by_authority_tier": {
     "A": 1895,

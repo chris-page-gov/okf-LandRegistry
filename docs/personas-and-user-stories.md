@@ -1,7 +1,7 @@
 # Personas And User Stories
 
-Status: v0.1.0 evidence-led hypotheses, independently agent-reviewed at the
-research cut-off of 29 July 2026.
+Status: v0.2.0 evidence-led candidate hypotheses at the research cut-off of
+29 July 2026. Fresh exact-candidate independent review is required.
 
 These personas are evidence-led task hypotheses for the HM Land Registry OKF
 bundle. They are behavioural roles, not demographic profiles, and they do not
@@ -21,10 +21,10 @@ requirements. They are not assumptions about a person's identity. The
 accessible-service and Wales-focused personas make those needs testable rather
 than leaving them as unowned overlays.
 
-Expected answers in the evaluation suite were independently agent-reviewed
-against their named official sources and frozen snapshot for v0.1.0. They are
-bounded acceptance expectations, not verified legal answers or
-participant-validated findings.
+Expected propositions in the evaluation suite are bounded acceptance
+expectations, not verified legal answers or participant-validated findings.
+The v0.1.0 review is historical; v0.2.0 requires a fresh independent review
+against the frozen candidate.
 
 ## Persona Hypotheses
 

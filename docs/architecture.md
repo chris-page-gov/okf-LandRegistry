@@ -104,6 +104,10 @@ Explorer identity and loader assumptions live in
 and contract changes select `tests.test_explorer_contract`. This prevents a
 schema-valid producer artifact from being treated as usable until the selected
 Explorer consumer has loaded its descriptor and referenced assets.
+The v0.2.0 compatibility window is deliberately narrow: only Explorer
+`v0.5.7` at the recorded executable commit is certified. Admitting any other
+consumer version requires rerunning the positive, degraded and malformed
+fixtures and the complete candidate journeys with that exact executable.
 That edge implements `REQ-019`, mitigates `RISK-016` and selects
 `VAL-EXPLORER-CONSUMER`.
 

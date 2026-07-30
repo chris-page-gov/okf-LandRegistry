@@ -70,6 +70,7 @@ PUBLIC_SOURCE_HOSTS = {
     "www.legislation.gov.uk",
     "www.nationalarchives.gov.uk",
 }
+RESTRICTED_BUSINESS_GATEWAY_HOST = "businessgateway.landregistry.gov.uk"
 RIGHTS_BY_SOURCE_FAMILY = {
     "govuk-search": "RIGHT-GOVUK",
     "govuk-content": "RIGHT-GOVUK",
@@ -146,7 +147,7 @@ def load_json(path: Path) -> Any:
 def load_build_config() -> dict[str, Any]:
     path = ROOT / "source" / "build-config.json"
     config = load_json(path)
-    required = ("generated_at", "status", "version")
+    required = ("generated_at", "publication_state", "status", "version")
     missing = [key for key in required if not clean_text(config.get(key))]
     if missing:
         raise ValueError(f"source/build-config.json lacks {', '.join(missing)}")
@@ -156,32 +157,21 @@ def load_build_config() -> dict[str, Any]:
     }
     if config["status"] not in allowed_statuses:
         raise ValueError(f"unsupported build status: {config['status']!r}")
+    allowed_publication_states = {"digest-bound-external-evidence"}
+    if config["publication_state"] not in allowed_publication_states:
+        raise ValueError(
+            f"unsupported publication state: {config['publication_state']!r}"
+        )
     if config["status"] == "ai-generated-proof-of-concept":
-        if not clean_text(config.get("release_at")):
-            raise ValueError("a released proof of concept requires release_at")
         if config.get("ai_generated_proof_of_concept") is not True:
             raise ValueError(
-                "a released proof of concept requires the AI-generation disclosure"
+                "an AI-generated proof of concept requires the AI-generation disclosure"
             )
-        profile = load_json(ROOT / "domain-profile" / "domain-profile.json")
-        release_decisions = [
-            row
-            for row in profile.get("decisions", [])
-            if row.get("id") == "DEC-RELEASE"
-        ]
-        if (
-            profile.get("status") != "approved"
-            or len(release_decisions) != 1
-            or release_decisions[0].get("status") != "accepted"
-        ):
-            raise ValueError("released output requires an approved domain profile")
-        requirements = load_json(ROOT / "governance" / "requirements.json")
-        rights = load_json(ROOT / "governance" / "rights-review.json")
-        if (
-            requirements.get("release_approved") is not True
-            or rights.get("release_approved") is not True
-        ):
-            raise ValueError("released output requires approved governance and rights")
+    if config.get("release_at") is not None:
+        raise ValueError(
+            "release_at must remain null in candidate bytes; exact publication "
+            "approval and time belong in digest-bound external release evidence"
+        )
     return config
 
 
@@ -532,6 +522,75 @@ def governed_optional_text(value: Any, *, field: str) -> tuple[str | None, str]:
     return rendered, "stated"
 
 
+def normalized_languages(value: Any) -> list[str]:
+    aliases = {
+        "cy": "cy",
+        "cymraeg": "cy",
+        "welsh": "cy",
+        "en": "en",
+        "english": "en",
+    }
+    normalized: set[str] = set()
+    for item in string_list(value):
+        key = item.casefold()
+        if key not in aliases:
+            raise ValueError(
+                f"language value is not a governed BCP-47 value or alias: {item!r}"
+            )
+        normalized.add(aliases[key])
+    return sorted(normalized)
+
+
+def caveat_ids_for(record: dict[str, Any]) -> list[str]:
+    """Bind visible prose caveats to the governed evaluation caveat vocabulary."""
+
+    rendered = " ".join(
+        [
+            clean_text(record.get("title")),
+            clean_text(record.get("description")),
+            " ".join(ordered_string_list(record.get("caveats"))),
+            clean_text(record.get("access_model")),
+            clean_text(record.get("authentication")),
+            clean_text(record.get("rights_ref")),
+            clean_text(record.get("rights_state")),
+        ]
+    ).casefold()
+    caveat_ids = {
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION",
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY",
+    }
+    if (
+        record.get("rights_ref") == "RIGHT-RESTRICTED"
+        or "restricted" in rendered
+        or "authenticat" in rendered
+        or "business gateway" in rendered
+        or "portal" in rendered
+        or "paid" in rendered
+    ):
+        caveat_ids.add("CAV-NO-RESTRICTED-AUTOMATION")
+    if any(
+        token in rendered
+        for token in (
+            "boundar",
+            "indicative polygon",
+            "index polygon",
+            "title plan",
+        )
+    ) or ("polygon" in rendered and "indicative" in rendered):
+        caveat_ids.add("CAV-BOUNDARY-NOT-CONCLUSION")
+    if "accessib" in rendered or "wcag" in rendered or "screen reader" in rendered:
+        caveat_ids.add("CAV-ACCESSIBLE-JOURNEY")
+    if (
+        set(record.get("languages", [])) & {"cy", "en"}
+        or "welsh" in rendered
+        or "cymraeg" in rendered
+    ):
+        caveat_ids.add("CAV-LANGUAGE-DISTINCTION")
+    return sorted(caveat_ids)
+
+
 def record_id_for(source_family: str, source_native_id: str) -> str:
     identity = f"{source_family}\0{source_native_id}".encode("utf-8")
     return "hmlr-" + hashlib.sha256(identity).hexdigest()[:24]
@@ -579,7 +638,7 @@ def normal_record(record: dict[str, Any]) -> dict[str, Any]:
     cadence, cadence_state = governed_optional_text(
         record.get("cadence"), field="cadence"
     )
-    languages = string_list(record.get("language") or record.get("languages"))
+    languages = normalized_languages(record.get("language") or record.get("languages"))
     normalized = {
         "schema": "okf-hmlr-record.v2",
         "id": source_native_id,
@@ -618,6 +677,7 @@ def normal_record(record: dict[str, Any]) -> dict[str, Any]:
         "observed_at": clean_text(record.get("observed_at"))
         or f"{RESEARCH_CUTOFF}T00:00:00Z",
         "caveats": ordered_string_list(record.get("caveats")),
+        "caveat_ids": [],
         "source_urls": sorted(set(source_urls)),
         "equivalent_urls": sorted(set(equivalent_urls)),
     }
@@ -738,11 +798,52 @@ def normalize_cddo(item: dict[str, Any], observed_at: str) -> dict[str, Any]:
     source_urls = [url]
     if documentation.startswith("https://"):
         source_urls.append(documentation)
+    is_restricted_business_gateway = (
+        urlparse(url).hostname or ""
+    ).casefold() == RESTRICTED_BUSINESS_GATEWAY_HOST
+    access_model = (
+        "approved Business Gateway customer integration"
+        if is_restricted_business_gateway
+        else "check publisher-operated contract"
+    )
+    authentication = (
+        "Business e-services approval and certificate-based access"
+        if is_restricted_business_gateway
+        else "check publisher-operated contract"
+    )
+    caveats = [
+        "CDDO catalogue metadata is a discovery seed, not the operational API contract.",
+        "Verify status, version, authentication and rights against publisher-operated documentation.",
+    ]
+    if is_restricted_business_gateway:
+        caveats.insert(
+            0,
+            (
+                "Restricted Business Gateway service: do not authenticate, call, "
+                "search, monitor or automate it from this metadata record."
+            ),
+        )
+        caveats.insert(
+            1,
+            (
+                "A publicly visible endpoint or developer description does not "
+                "establish anonymous access, zero price or open reuse rights."
+            ),
+        )
+    description = (
+        (
+            "CDDO discovery record for an HM Land Registry Business Gateway "
+            "product. Operation is restricted; use publisher-operated "
+            "documentation for current access, authentication, fees and terms."
+        )
+        if is_restricted_business_gateway
+        else item.get("description")
+    )
     return normal_record(
         {
             "id": stable_id("cddo-api", url or name),
             "title": name,
-            "description": item.get("description"),
+            "description": description,
             "url": url,
             "publisher": "HM Land Registry",
             "authority_tier": "C",
@@ -751,18 +852,15 @@ def normalize_cddo(item: dict[str, Any], observed_at: str) -> dict[str, Any]:
             "jurisdiction": item.get("areaServed")
             or "Source-specific; HM Land Registry normally covers England and Wales",
             "audience": ["developer"],
-            "access_model": "check publisher-operated contract",
-            "authentication": "check publisher-operated contract",
+            "access_model": access_model,
+            "authentication": authentication,
             "licence": item.get("license") or "not stated",
             "cadence": "catalogue-maintained",
             "formats": ["API"],
             "topics": ["API", "discovery catalogue"],
             "publisher_last_updated": item.get("dateUpdated"),
             "observed_at": observed_at,
-            "caveats": [
-                "CDDO catalogue metadata is a discovery seed, not the operational API contract.",
-                "Verify status, version, authentication and rights against publisher-operated documentation.",
-            ],
+            "caveats": caveats,
             "source_urls": source_urls,
         }
     )
@@ -1051,12 +1149,26 @@ def govern_record(
     family = sources.get(family_id)
     if family is None:
         raise ValueError(f"record uses unknown source family: {family_id}")
-    rights_ref = RIGHTS_BY_SOURCE_FAMILY[family_id]
+    host = (urlparse(governed["canonical_source_url"]).hostname or "").casefold()
+    restricted_business_gateway = host == RESTRICTED_BUSINESS_GATEWAY_HOST
+    rights_ref = (
+        "RIGHT-RESTRICTED"
+        if restricted_business_gateway
+        else RIGHTS_BY_SOURCE_FAMILY[family_id]
+    )
     assessment = rights[rights_ref]
     governed.update(
         {
-            "access_state": clean_text(family.get("access_state")) or "unknown",
-            "rights_state": clean_text(family.get("rights_state")) or "unknown",
+            "access_state": (
+                "approved-professional-users"
+                if restricted_business_gateway
+                else clean_text(family.get("access_state")) or "unknown"
+            ),
+            "rights_state": (
+                "restricted-service"
+                if restricted_business_gateway
+                else clean_text(family.get("rights_state")) or "unknown"
+            ),
             "rights_ref": rights_ref,
             "authority_role": authority_role(governed["authority_tier"]),
             "derivation": (
@@ -1066,14 +1178,62 @@ def govern_record(
             ),
             "source_native_ids": [governed["source_native_id"]],
             "source_families": [family_id],
-            "evidence_refs": EVIDENCE_BY_SOURCE_FAMILY[family_id],
+            "evidence_refs": sorted(
+                set(EVIDENCE_BY_SOURCE_FAMILY[family_id])
+                | ({"EV-BG-DOCS"} if restricted_business_gateway else set())
+            ),
         }
     )
+    governed["caveat_ids"] = caveat_ids_for(governed)
     if assessment.get("status") not in {"permitted", "conditional", "prohibited"}:
         raise ValueError(f"rights assessment {rights_ref} has an unsupported status")
     if governed["access_state"] == "unknown" or governed["rights_state"] == "unknown":
         raise ValueError(f"record rights fail closed: {governed['id']}")
     return governed
+
+
+def validate_evaluation_caveat_bindings(records: list[dict[str, Any]]) -> None:
+    payload = load_json(ROOT / "evaluation" / "questions.json")
+    caveat_registry = {
+        clean_text(row.get("id"))
+        for row in payload.get("caveat_registry", [])
+        if isinstance(row, dict)
+    }
+    if not caveat_registry or "" in caveat_registry:
+        raise ValueError("evaluation caveat registry is missing or invalid")
+    by_url: dict[str, dict[str, Any]] = {}
+    for record in records:
+        record_caveats = set(record.get("caveat_ids", []))
+        if not record_caveats or not record_caveats <= caveat_registry:
+            raise ValueError(
+                f"record has invalid evaluation caveat bindings: {record['id']}"
+            )
+        for url in [record["url"], *record.get("equivalent_urls", [])]:
+            by_url[url.rstrip("/")] = record
+    for question in payload.get("questions", []):
+        question_id = clean_text(question.get("id")) or "unknown"
+        expected_records = []
+        for source in question.get("expected_sources", []):
+            url = clean_text(source.get("canonical_url")).rstrip("/")
+            record = by_url.get(url)
+            if record is None:
+                raise ValueError(
+                    f"{question_id}: expected source is absent from the candidate"
+                )
+            expected_records.append(record)
+        runtime_url = clean_text(question.get("runtime_expected_source_url")).rstrip("/")
+        if runtime_url not in by_url:
+            raise ValueError(f"{question_id}: runtime source is absent from the candidate")
+        required = set(question.get("required_caveat_ids", []))
+        available = {
+            caveat_id
+            for record in expected_records
+            for caveat_id in record["caveat_ids"]
+        }
+        if not required or not required <= available:
+            raise ValueError(
+                f"{question_id}: required caveats are not bound to expected records"
+            )
 
 
 def merge_records(
@@ -1126,6 +1286,13 @@ def merge_records(
             raise ValueError(f"record has conflicting translation groups: {url}")
         if translation_groups:
             selected["translation_group"] = next(iter(translation_groups))
+        selected["caveat_ids"] = sorted(
+            {
+                value
+                for item in ordered
+                for value in item.get("caveat_ids", [])
+            }
+        )
         selected["representations"] = [
             {
                 "id": item["id"],
@@ -1210,6 +1377,7 @@ def make_descriptor(
         "okf_version": "0.2",
         "version": config["version"],
         "status": config["status"],
+        "publication_state": config["publication_state"],
         "title": "HM Land Registry public-estate OKF",
         "description": (
             "Independent, metadata-only discovery bundle for HM Land Registry "
@@ -1330,6 +1498,10 @@ def make_descriptor(
                 "mode": "metadata-only",
                 "ai_generated_proof_of_concept": config.get(
                     "ai_generated_proof_of_concept", False
+                ),
+                "release_authority": (
+                    "Not asserted by bundle bytes; consult exact-digest "
+                    "external release evidence."
                 ),
                 "authenticated_calls_enabled": False,
                 "personal_property_records_included": False,
@@ -1519,6 +1691,7 @@ def write_csv(path: Path, records: list[dict[str, Any]]) -> None:
         "publisher_last_updated",
         "observed_at",
         "caveats",
+        "caveat_ids",
         "source_urls",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -1532,6 +1705,7 @@ def write_csv(path: Path, records: list[dict[str, Any]]) -> None:
                 "topics",
                 "languages",
                 "caveats",
+                "caveat_ids",
                 "source_urls",
                 "source_families",
                 "source_native_ids",
@@ -2296,10 +2470,15 @@ def write_explorer_projection(
                 "ordinal": ordinal,
                 "title": clean_text(record["title"]),
                 "notes": clean_text(record.get("description")),
-                "context_note": " ".join(
-                    clean_text(value)
-                    for value in record.get("caveats", [])
-                    if clean_text(value)
+                "context_note": (
+                    " ".join(
+                        clean_text(value)
+                        for value in record.get("caveats", [])
+                        if clean_text(value)
+                    )
+                    + " Caveat controls: "
+                    + ", ".join(record.get("caveat_ids", []))
+                    + "."
                 ),
                 "publisher": publisher_name,
                 "publisher_title": publisher_title,
@@ -2878,6 +3057,7 @@ def build(
     records, reconciliation = merge_records(discovered, curated)
     if not records:
         raise ValueError("refusing to publish an empty catalogue")
+    validate_evaluation_caveat_bindings(records)
     input_receipts = governed_input_receipts(snapshot)
 
     with tempfile.TemporaryDirectory(prefix=".okf-build-", dir=ROOT) as temp_name:
@@ -2894,6 +3074,7 @@ def build(
             "schema": "okf-hmlr-catalogue.v2",
             "title": "HM Land Registry public-estate metadata catalogue",
             "status": config["status"],
+            "publication_state": config["publication_state"],
             "research_cutoff": RESEARCH_CUTOFF,
             "observed_at": snapshot["observed_at"],
             "generated_at": config["generated_at"],
@@ -2957,6 +3138,8 @@ def build(
             "schema": "okf-hmlr-rights-projection.v1",
             "review_state": rights_governance["review_state"],
             "release_approved": rights_governance["release_approved"],
+            "release_authority": rights_governance["release_authority"],
+            "field_semantics": rights_governance["field_semantics"],
             "source": {
                 "path": "governance/rights-review.json",
                 "sha256": sha256_file(ROOT / "governance" / "rights-review.json"),
@@ -2968,6 +3151,7 @@ def build(
                     "access_state": record["access_state"],
                     "rights_state": record["rights_state"],
                     "rights_ref": record["rights_ref"],
+                    "caveat_ids": record["caveat_ids"],
                 }
                 for record in records
             ],
@@ -2991,8 +3175,6 @@ def build(
                 str(staging),
                 "--output",
                 str(staging / "data" / "evaluation-report.json"),
-                "--min-expected-source-success-at-k",
-                "0",
             ],
             cwd=ROOT,
             check=False,
@@ -3041,6 +3223,7 @@ def build(
             "governed_inputs": input_receipts,
             "record_count": len(records),
             "status": config["status"],
+            "publication_state": config["publication_state"],
         }
         write_json(staging / "build-receipt.json", receipt)
         root_digest = write_checksums(staging)

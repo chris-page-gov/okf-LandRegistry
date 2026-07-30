@@ -1,6 +1,6 @@
 {
   "builder": "scripts/build.py/0.2.0",
-  "builder_sha256": "e20c4e6bcf403367c9eb6b425fbee17e4bf749ce3e6ce0745b6ffe334d19e490",
+  "builder_sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8",
   "curated_source": {
     "observed_at": "2026-07-29T07:53:38Z",
     "record_count": 55,
@@ -11,9 +11,9 @@
   "generated_at": "2026-07-29T15:30:00Z",
   "governed_inputs": [
     {
-      "bytes": 7866,
+      "bytes": 8263,
       "path": "contracts/okf-explorer.consumer-lock.json",
-      "sha256": "b03bdbb401e1621efc97d156bfc75cc30f3f75b03e5226cce14adaa5e9fc8bea"
+      "sha256": "2ae9e949085b02ffcb5ab0e777303418a6f553832952cf97e694689e9ada31a9"
     },
     {
       "bytes": 608,
@@ -26,9 +26,9 @@
       "sha256": "66f043a4bbae9df27609418c2698066423af60033fda0f9d36d08b8a241b6985"
     },
     {
-      "bytes": 27864,
+      "bytes": 51435,
       "path": "evaluation/explorer-search-calibration-v0.2.0.json",
-      "sha256": "5351914a559f7cf702248421d345c574976cd0314d61353ff8b99cf3d6fdc0a1"
+      "sha256": "b00936fcaee53cd481e307c8bf9279416b0d80ae91fefcba2d22b4591d709753"
     },
     {
       "bytes": 5753,
@@ -76,9 +76,9 @@
       "sha256": "d8e42633d4eba03419345b2fd367b6dc80dd82fcb7cb41ae035e840a936810ce"
     },
     {
-      "bytes": 60798,
+      "bytes": 61224,
       "path": "evaluation/questions.json",
-      "sha256": "c6d00626c50d3a50b29e0576ca529e3b0110eb270606feebeb3cde232b7dad9b"
+      "sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d"
     },
     {
       "bytes": 4091,
@@ -91,14 +91,14 @@
       "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1"
     },
     {
-      "bytes": 10443,
+      "bytes": 10444,
       "path": "governance/requirements.json",
-      "sha256": "5ec8d101e05cff23398dbbcf022d7558670e8601a8f688be7ece9966e92fa88b"
+      "sha256": "241871106424710de309fd56f63989ba2fbf657c8a32a1b9309b7d808973a5c5"
     },
     {
-      "bytes": 8377,
+      "bytes": 8659,
       "path": "governance/rights-review.json",
-      "sha256": "bdae341b08952dc7d0cbcebd476e8c4abe7caae2f3b1adb346a36c0516d3dae0"
+      "sha256": "887aadc255cdf966c580c12d3217a7036ccaf8bf8e086cae13cf4537e3a732fc"
     },
     {
       "bytes": 12227,
@@ -136,9 +136,9 @@
       "sha256": "4f02d089de903ea29856d9623f61f3becdb88bab72963ba58252b8373ee008be"
     },
     {
-      "bytes": 8927,
+      "bytes": 9016,
       "path": "pages/index.html",
-      "sha256": "1749e24dd6daca8ef2f03a5d66ea9bd7a7845cdcb7d24170a5dc0276cf295a33"
+      "sha256": "594f958173a70bbc518f1f31acd5472fa5130e32c3f07be3ba3c06fa3dad7f42"
     },
     {
       "bytes": 389,
@@ -176,9 +176,9 @@
       "sha256": "e3d51b0fc18532a3acfe9b5c6b7c8e8c483634edba2be5d8ffdb8482a6aa75f7"
     },
     {
-      "bytes": 121968,
+      "bytes": 128732,
       "path": "scripts/build.py",
-      "sha256": "e20c4e6bcf403367c9eb6b425fbee17e4bf749ce3e6ce0745b6ffe334d19e490"
+      "sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8"
     },
     {
       "bytes": 25965,
@@ -196,9 +196,9 @@
       "sha256": "c19ca429fe6d0039e051d873acd11f69c801959f218cd311359cf9b5b7ae2a38"
     },
     {
-      "bytes": 27358,
+      "bytes": 38010,
       "path": "scripts/evaluate.py",
-      "sha256": "db0e7af2532615980d161a6369994093c0a840f666eede292dc9d75815dae38f"
+      "sha256": "af0b3aaac51b479b192edc69acab070f77b88c1745a2186064ef4cbb289df9f2"
     },
     {
       "bytes": 6014,
@@ -206,9 +206,9 @@
       "sha256": "9db59ba97e3b08d6789a8ea980db1f95790859cd8863d23e4b9f0974fd22528a"
     },
     {
-      "bytes": 634,
+      "bytes": 705,
       "path": "source/build-config.json",
-      "sha256": "0b264d415549519fc0dbae411111b2644efc090f8338be2fe2dd997b8aa39204"
+      "sha256": "af1f39287c77ec56a4d61047759ed12e81130e17d00472e9f0afeb88ff958249"
     },
     {
       "bytes": 92362,
@@ -251,9 +251,9 @@
       "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
     },
     {
-      "bytes": 14411,
+      "bytes": 14632,
       "path": "source/source-register.json",
-      "sha256": "2bb17d398e73c9712820107d4e5784a0ec52eb3df59667a3f889e57daea38596"
+      "sha256": "131359d2231724f71be6208dcade1caa98eadd466b28f5c09bbe1132084def73"
     },
     {
       "bytes": 3263,
@@ -263,8 +263,9 @@
   ],
   "network_access": false,
   "observed_at": "2026-07-29T18:00:00Z",
+  "publication_state": "digest-bound-external-evidence",
   "record_count": 2203,
-  "release_at": "2026-07-29T17:00:00Z",
+  "release_at": null,
   "schema": "okf-hmlr-build-receipt.v1",
   "snapshot": {
     "acquisition_snapshot": {
