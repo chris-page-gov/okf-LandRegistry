@@ -1,0 +1,50 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+  },
+  "gates": {
+    "G1": {
+      "status": "ready_for_receipt"
+    },
+    "G2": {
+      "status": "ready_for_receipt"
+    },
+    "G3": {
+      "independent_review": "stage1-review.json rights_access_privacy_and_restricted_services",
+      "status": "ready_for_receipt"
+    },
+    "G4": {
+      "status": "ready_for_receipt"
+    },
+    "G5": {
+      "independent_review": "evaluation-acceptance-review.json",
+      "status": "ready_for_receipt"
+    },
+    "G6": {
+      "blocker": "Independent user-facing/accessibility/security/performance review not completed for this exact evidence set.",
+      "status": "blocked"
+    },
+    "G7": {
+      "status": "ready_for_receipt"
+    },
+    "G8": {
+      "status": "ready_for_receipt"
+    },
+    "G9": {
+      "blockers": [
+        "G6 has no independent pass.",
+        "No independent release recommendation covers the complete G1-G8 evidence.",
+        "Project owner Chris Page-PoC has not made the exact digest-bound decision."
+      ],
+      "status": "not_authorised"
+    }
+  },
+  "generated_at": "2026-07-30T11:00:11Z",
+  "notes": [
+    "This is a status index, not a gate receipt or approval.",
+    "The canonical v0.1.0 receipts remain immutable and are not reused for v0.2.0.",
+    "No public URL has been deployed or verified."
+  ],
+  "schema": "okf-hmlr-v0.2.0-pre-g9-gate-status.v1"
+}

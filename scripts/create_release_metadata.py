@@ -129,15 +129,19 @@ def create_metadata(
     if (
         config.get("status") != "ai-generated-proof-of-concept"
         or config.get("ai_generated_proof_of_concept") is not True
-        or not isinstance(config.get("release_at"), str)
     ):
-        raise ReleaseEvidenceError("build config is not a released AI PoC")
+        raise ReleaseEvidenceError("build config is not an AI PoC candidate")
 
     archive_receipt = json.loads(
         archive_receipt_path.read_text(encoding="utf-8")
     )
+    archive_schema = archive_receipt.get("schema")
     if (
-        archive_receipt.get("schema") != "okf-hmlr-release-archive.v1"
+        archive_schema
+        not in {
+            "okf-hmlr-release-archive.v1",
+            "okf-hmlr-candidate-archive.v1",
+        }
         or archive_receipt.get("release_root_sha256")
         != candidate.release_root_sha256
     ):
@@ -155,7 +159,24 @@ def create_metadata(
     workflow = ROOT / ".github" / "workflows" / "pages.yml"
     pins = action_pins(workflow)
     output = safe_output_directory(output_directory)
-    created = config["release_at"]
+    if archive_schema == "okf-hmlr-candidate-archive.v1":
+        if (
+            archive_receipt.get("publication_state") != "unreleased-candidate"
+            or config.get("release_at") is not None
+            or config.get("publication_state")
+            != "digest-bound-external-evidence"
+            or archive_receipt.get("candidate_at") != config.get("generated_at")
+        ):
+            raise ReleaseEvidenceError(
+                "candidate archive does not match the unreleased build configuration"
+            )
+        created = archive_receipt["candidate_at"]
+    else:
+        if not isinstance(config.get("release_at"), str):
+            raise ReleaseEvidenceError(
+                "release archive requires a released build timestamp"
+            )
+        created = config["release_at"]
     version = config["version"]
 
     project_spdx = "SPDXRef-Package-okf-landregistry"

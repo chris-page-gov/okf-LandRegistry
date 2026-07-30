@@ -1,0 +1,59 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+  },
+  "checks": {
+    "byte-identical": "pass",
+    "clean-build-a": "pass",
+    "clean-build-b": "pass",
+    "committed-bundle-identical": "pass"
+  },
+  "comparisons": [
+    {
+      "differences": 0,
+      "left": "committed-bundle",
+      "right": "clean-build-a",
+      "status": "pass"
+    },
+    {
+      "differences": 0,
+      "left": "clean-build-a",
+      "right": "clean-build-b",
+      "status": "pass"
+    }
+  ],
+  "executed_at": "2026-07-30T11:00:11Z",
+  "network_access_during_build": false,
+  "outputs": [
+    {
+      "id": "committed-bundle",
+      "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/build.py",
+        "--output-dir",
+        ".okf-build-a.<temporary>/bundle"
+      ],
+      "id": "clean-build-a",
+      "record_count": 2203,
+      "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/build.py",
+        "--output-dir",
+        ".okf-build-b.<temporary>/bundle"
+      ],
+      "id": "clean-build-b",
+      "record_count": 2203,
+      "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+    }
+  ],
+  "schema": "okf-hmlr-v0.2.0-reproducibility-evidence.v1",
+  "status": "pass"
+}

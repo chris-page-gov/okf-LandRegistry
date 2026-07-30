@@ -29,6 +29,12 @@ an HM Land Registry service.
 - Label every unverified link clearly as unverified.
 - Use deterministic tools for bounded checks. Do not escalate model effort
   beyond the normal workflow without recording why it is necessary.
+- Package G8 bytes as an `unreleased-candidate` archive while `release_at`
+  remains null. Do not invent a publication time to break the G8-before-G9
+  dependency.
+- Distinguish source evidence, independent review, gate receipts, owner
+  approval, RC deployment, public verification and final promotion. Completion
+  of one layer must not be described as completion of a later layer.
 
 ## Two-stage workflow
 

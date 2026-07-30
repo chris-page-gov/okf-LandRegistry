@@ -1,0 +1,139 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "executed_at": "2026-07-30T11:00:11Z",
+  "gates": {
+    "G1": {
+      "checks": {
+        "json-yaml-equivalent": "pass",
+        "profile-pack-rehashed": "pass",
+        "references-closed": "pass",
+        "schema-valid": "pass"
+      },
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_domain_profile.py",
+        "domain-profile/domain-profile.json",
+        "--equivalent",
+        "domain-profile/domain-profile.yaml"
+      ],
+      "evidence": [
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
+      ],
+      "result": "Domain profile schema, JSON/YAML equivalence and checksum pack passed; the independent Stage 1 decision also passed for the exact candidate.",
+      "status": "pass"
+    },
+    "G2": {
+      "checks": {
+        "envelopes-rehashed": "pass",
+        "media-types-valid": "pass",
+        "omissions-explicit": "pass",
+        "terminal-outcomes-complete": "pass"
+      },
+      "evidence": [
+        "source/input-manifest-v0.2.0.json",
+        "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "bundle/build-receipt.json"
+      ],
+      "result": "The 2,170 immutable acquired records and bounded Content API observation rehash through the composite manifest. Request receipts, media types, terminal outcomes, caps and omitted source layers are explicit. No live source was fetched during this validation.",
+      "status": "pass"
+    },
+    "G3": {
+      "checks": {
+        "field-inventory-reviewed": "pass",
+        "independent-rights-review": "pass",
+        "prohibited-content-absent": "pass",
+        "rights-access-complete": "pass"
+      },
+      "evidence": [
+        "governance/rights-review.json",
+        "governance/risk-register.json",
+        "bundle/data/rights.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
+      ],
+      "independent_reviewer": {
+        "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+        "reviewed_at": "2026-07-30T06:36:46Z",
+        "scope": "stage1-review.json scope_reviews.rights_access_privacy_and_restricted_services"
+      },
+      "result": "All 2,203 records carry explicit access, rights, rights_ref, caveat and evidence fields. The independent review passed the rights, access, privacy and restricted-service scope and reported no blocking finding. It is not a human legal, licence, privacy or security audit.",
+      "status": "pass"
+    },
+    "G4": {
+      "checks": {
+        "checksums-valid": "pass",
+        "data-plane-valid": "pass",
+        "okf-core-valid": "pass",
+        "routes-valid": "pass"
+      },
+      "commands": [
+        [
+          ".venv/bin/python",
+          "scripts/check_okf.py"
+        ],
+        [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ]
+      ],
+      "evidence": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/data/manifest.json",
+        "bundle/data/explorer/manifest.json",
+        "bundle/okf-bundle.jsonld"
+      ],
+      "result": {
+        "jsonld_graph_references_valid": true,
+        "okf_checker_status": "conformant",
+        "record_count": 2203,
+        "tests_failed": 0,
+        "tests_passed": 137,
+        "tests_run": 137
+      },
+      "status": "pass"
+    },
+    "G5": {
+      "checks": {
+        "hard-failures-zero": "pass",
+        "independent-question-review": "pass",
+        "mrr-threshold": "pass",
+        "recall-at-10-threshold": "pass",
+        "source-caveat-coverage": "pass"
+      },
+      "evidence": [
+        "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/formal-evaluation-acceptance.json",
+        "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+        "evaluation/questions.json"
+      ],
+      "formal_rerun": {
+        "all_expected_targets_success_at_10": 1.0,
+        "expected_source_success_at_10": 1.0,
+        "expected_target_recall_at_10": 1.0,
+        "hard_failure_count": 0,
+        "mean_reciprocal_rank": 0.9166666666666666,
+        "must_not_retrieve_pass_rate": 1.0,
+        "question_count": 24,
+        "required_caveat_assertion_coverage": 1.0,
+        "status": "pass"
+      },
+      "status": "pass"
+    }
+  },
+  "schema": "okf-hmlr-v0.2.0-automated-validation-evidence.v1",
+  "status": "pass"
+}

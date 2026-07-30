@@ -1,0 +1,11 @@
+{
+  "bytes": 2133201,
+  "candidate_at": "2026-07-29T15:30:00Z",
+  "file_count": 148,
+  "path": "dist/okf-landregistry-0.2.0.zip",
+  "publication_state": "unreleased-candidate",
+  "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+  "schema": "okf-hmlr-candidate-archive.v1",
+  "sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d",
+  "version": "0.2.0"
+}

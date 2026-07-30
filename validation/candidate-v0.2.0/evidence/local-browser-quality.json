@@ -1,0 +1,112 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "consumer_tree_sha256": "09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+  },
+  "checks": {
+    "automated-journeys": "pass",
+    "manual-accessibility-journeys": "candidate",
+    "performance-budgets": "pass",
+    "security-critical-zero": "pass"
+  },
+  "environment": {
+    "accessibility_engine": "axe-core 4.12.1",
+    "browser_driver": "Playwright 1.62.0",
+    "browser_engine": "Chromium headless",
+    "served_origin": "http://127.0.0.1:8765"
+  },
+  "executed_at": "2026-07-30T11:00:00Z",
+  "explorer_journeys": {
+    "consumer_commit": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "product": {
+      "journeys_failed": 0,
+      "journeys_passed": 6,
+      "receipt": "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json",
+      "status": "pass"
+    },
+    "search": {
+      "journeys_failed": 0,
+      "journeys_passed": 26,
+      "receipt": "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+      "status": "pass"
+    }
+  },
+  "local_pages": [
+    {
+      "axe_incomplete": 0,
+      "axe_passes": 19,
+      "axe_violations": 0,
+      "console_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false,
+      "http_status": 200,
+      "page_errors": 0,
+      "path": "/",
+      "viewport_width": 1280
+    },
+    {
+      "axe_incomplete": 0,
+      "axe_passes": 19,
+      "axe_violations": 0,
+      "console_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false,
+      "http_status": 200,
+      "page_errors": 0,
+      "path": "/accessibility.html",
+      "viewport_width": 1280
+    },
+    {
+      "axe_incomplete": 0,
+      "axe_passes": 18,
+      "axe_violations": 0,
+      "console_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false,
+      "http_status": 200,
+      "page_errors": 0,
+      "path": "/catalogue-index.html",
+      "viewport_width": 1280
+    },
+    {
+      "axe_incomplete": 1,
+      "axe_passes": 19,
+      "axe_violations": 0,
+      "console_errors": 0,
+      "failed_requests": 0,
+      "horizontal_overflow": false,
+      "http_status": 200,
+      "page_errors": 0,
+      "path": "/",
+      "viewport_width": 320
+    }
+  ],
+  "manual_agent_checks": {
+    "first_tab_target": {
+      "href": "#main",
+      "status": "pass",
+      "text": "Skip to the catalogue"
+    },
+    "human_accessibility_audit_performed": false,
+    "one_h1_and_landmarks": "pass",
+    "publication_claim_absent": "pass",
+    "proof_of_concept_and_version_visible": "pass",
+    "storage_and_cookies_created": 0
+  },
+  "performance": {
+    "bundle_bytes": 31525576,
+    "bundle_files": 148,
+    "eager_whole_corpus_payload": false,
+    "lazy_explorer_shards": true,
+    "shell_gzip_bytes": 6558,
+    "shell_raw_bytes": 24394
+  },
+  "review_state": {
+    "independent_g6_review": "not_completed",
+    "reason": "The authoring agent may record deterministic and browser observations but cannot serve as the independent G6 reviewer.",
+    "required_next_step": "An independent reviewer must review the exact receipts, local browser evidence, accessibility limitations, security checks and bounded-lazy performance claim."
+  },
+  "schema": "okf-hmlr-v0.2.0-local-browser-quality-evidence.v1",
+  "status": "candidate"
+}
