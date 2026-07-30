@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import locale
 import math
 import re
 from pathlib import Path
@@ -22,6 +23,18 @@ RELEASE_ROOT_MARKER = "# release-root-sha256: "
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 RUNTIME_JOURNEY_SCHEMA = "okf-explorer-journeys.v1"
 RUNTIME_RECEIPT_SCHEMA = "okf-explorer-external-runtime-acceptance.v1"
+EXPLORER_COLLATION_LOCALES = (
+    "en_US.UTF-8",
+    "en_US.utf8",
+    "en_GB.UTF-8",
+    "en_GB.utf8",
+)
+EXPLORER_COLLATION_SENTINEL = (
+    "access_state.json",
+    "access.json",
+    "catalogue-index.html",
+    "CHECKSUMS.sha256",
+)
 
 
 def tokens(value: str, contract: dict) -> set[str]:
@@ -205,14 +218,72 @@ def load_records(bundle: Path) -> tuple[list[dict], dict]:
     }
 
 
+def explorer_ordered_bundle_files(bundle: Path) -> list[Path]:
+    """Reproduce the locked Explorer v0.5.7 runner's ``localeCompare`` order.
+
+    The pinned Node runner recursively sorts each directory by the default
+    English ICU collation before hashing the file rows. Python's ordinary
+    path sort is bytewise and places uppercase ``CHECKSUMS.sha256`` and
+    punctuation differently, producing a false tree mismatch over identical
+    bytes. Select an available English locale only when its sentinel ordering
+    exactly matches the locked runner; otherwise fail closed.
+    """
+
+    previous_locale = locale.setlocale(locale.LC_COLLATE)
+    selected_locale = None
+    try:
+        for candidate in EXPLORER_COLLATION_LOCALES:
+            try:
+                locale.setlocale(locale.LC_COLLATE, candidate)
+            except locale.Error:
+                continue
+            if (
+                tuple(
+                    sorted(
+                        EXPLORER_COLLATION_SENTINEL,
+                        key=locale.strxfrm,
+                    )
+                )
+                == EXPLORER_COLLATION_SENTINEL
+            ):
+                selected_locale = candidate
+                break
+        if selected_locale is None:
+            raise ValueError(
+                "no locale reproduces the locked Explorer v0.5.7 path collation"
+            )
+
+        files: list[Path] = []
+
+        def visit(directory: Path) -> None:
+            entries = list(directory.iterdir())
+            for entry in entries:
+                if not entry.name.isascii():
+                    raise ValueError(
+                        "locked Explorer v0.5.7 tree identity accepts only "
+                        f"ASCII path names: {entry}"
+                    )
+            entries.sort(key=lambda entry: locale.strxfrm(entry.name))
+            for entry in entries:
+                if entry.is_symlink():
+                    raise ValueError(
+                        f"bundle tree contains a symbolic link: {entry}"
+                    )
+                if entry.is_dir():
+                    visit(entry)
+                elif entry.is_file():
+                    files.append(entry)
+
+        visit(bundle)
+        return files
+    finally:
+        locale.setlocale(locale.LC_COLLATE, previous_locale)
+
+
 def bundle_tree_identity(bundle: Path) -> dict:
     rows = []
     total_bytes = 0
-    for path in sorted(bundle.rglob("*")):
-        if path.is_symlink():
-            raise ValueError(f"bundle tree contains a symbolic link: {path}")
-        if not path.is_file():
-            continue
+    for path in explorer_ordered_bundle_files(bundle):
         relative = path.relative_to(bundle).as_posix()
         payload = path.read_bytes()
         total_bytes += len(payload)

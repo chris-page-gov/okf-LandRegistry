@@ -13,6 +13,46 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class EvaluateTests(unittest.TestCase):
+    def test_runtime_tree_identity_matches_pinned_explorer_receipt(self) -> None:
+        receipt = json.loads(
+            (
+                ROOT
+                / "validation"
+                / "candidate-v0.2.0"
+                / "explorer-search-runtime-collation-fixed-0fdab21a.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            receipt["bundle"]["tree"],
+            evaluate.bundle_tree_identity(ROOT / "bundle"),
+        )
+
+    def test_runtime_tree_identity_uses_locked_explorer_collation(self) -> None:
+        with tempfile.TemporaryDirectory(prefix=".test-tree-", dir=ROOT) as name:
+            bundle = Path(name)
+            ordered_names = [
+                "access_state.json",
+                "access.json",
+                "catalogue-index.html",
+                "CHECKSUMS.sha256",
+            ]
+            for filename in reversed(ordered_names):
+                (bundle / filename).write_text(filename, encoding="utf-8")
+            rows = [
+                (
+                    f"{hashlib.sha256(filename.encode()).hexdigest()}  "
+                    f"{filename}"
+                )
+                for filename in ordered_names
+            ]
+            expected = hashlib.sha256(
+                ("\n".join(rows) + "\n").encode()
+            ).hexdigest()
+            self.assertEqual(
+                expected,
+                evaluate.bundle_tree_identity(bundle)["sha256"],
+            )
+
     def test_locked_worker_calibration_manifest_covers_question_suite(self) -> None:
         questions_path = ROOT / "evaluation" / "questions.json"
         questions_bytes = questions_path.read_bytes()

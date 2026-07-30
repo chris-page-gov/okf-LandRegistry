@@ -78,6 +78,13 @@ Warnings require a written disposition; a hard failure cannot be waived.
 
 “Pending” and “not run” are not passes.
 
+The locked Explorer `v0.5.7` runtime receipt hashes every supplied bundle file
+in the runner's recursive English `localeCompare` path order. Formal G5
+verification must reproduce that consumer algorithm rather than Python's
+bytewise path order. The receipt tree includes `CHECKSUMS.sha256`; this is not
+self-referential because that file contains the separate governed release root
+calculated over the other bundle members, not the runtime tree digest.
+
 The release and gate reviewer identities for v0.2.0 must be disclosed in the
 exact-candidate receipts. AI-agent review is not independent human legal,
 licence or accessibility assurance; `RISK-015` remains a residual risk for
