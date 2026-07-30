@@ -119,7 +119,8 @@ python3 scripts/evaluate.py \
   --min-mrr 0.80
 ```
 
-That command is a deterministic calibration diagnostic, not G5 acceptance.
+That command is a deterministic calibration diagnostic, not Land Registry G5
+acceptance.
 Only a new independent review bound to the frozen v0.2.0 question-suite,
 bundle and consumer digests may generate the final acceptance receipt. The
 existing `evaluation/acceptance-review.json` belongs to released v0.1.0
@@ -151,9 +152,10 @@ default branch and requires the repository variable
 `OKF_RELEASE_ROOT_SHA256` to name the exact owner-approved release root. Pull
 requests run verification without deployment.
 
-For a beginner-level explanation of the remaining Stage 1, G5 and G9 blocks,
-the exact-candidate evidence still required, and the complete RC-to-public
-procedure, see the
+For a beginner-level explanation of the remaining Stage 1, Land Registry G5
+and Land Registry G9 blocks, the difference between the project and Foundry
+gate catalogues, the exact-candidate evidence still required, and the complete
+RC-to-public procedure, see the
 [`v0.2.0 release tracker and public website guide`](docs/v0.2.0-release-tracker-and-publication-guide.md).
 
 ## Rights and responsible use

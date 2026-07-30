@@ -1,8 +1,49 @@
 # Release assurance
 
-Status: v0.2.0 AI-generated PoC release contract. The authoritative G1–G8
-states and G9 owner decision are published under `validation/` and bind one
-exact candidate.
+Status: v0.2.0 AI-generated PoC release contract. The authoritative Land
+Registry G1–G8 states and Land Registry G9 owner decision are published under
+`validation/` and bind one exact candidate.
+
+## Which gate catalogue?
+
+This document defines the project-specific **Land Registry release-evidence
+gate catalogue v1**, represented by `okf-gate-receipt.v1` receipts. It is not
+the generic Foundry G0–G9 catalogue.
+
+Always qualify a gate reference when the surrounding context is not
+unambiguous. For example:
+
+- `Land Registry G5 — evaluation`;
+- `Land Registry G9 — independent review and owner approval`;
+- `Foundry G8 — RC and public validation`; and
+- `Foundry G9 — promotion`.
+
+The two catalogues organize evidence at different levels and do not have a
+one-to-one number mapping:
+
+| Generic Foundry gate | Land Registry evidence that contributes | Important difference |
+|---|---|---|
+| Foundry G0 — domain contract | Land Registry G0 and G1 | The project separates decision readiness from the validated discovery profile. |
+| Foundry G1 — tiny fixture | Land Registry G4 and G6 | Producer, malformed-descriptor and pinned-Explorer fixture evidence is distributed across integrity and user-facing quality. |
+| Foundry G2 — acquisition | Land Registry G2 | This is the closest direct match. |
+| Foundry G3 — core and semantic integrity | Land Registry G3 and G4 | The project separates rights/privacy/safety from structural and semantic integrity. |
+| Foundry G4 — Explorer and federation | Land Registry G4 and G6 | The project is not a federation; consumer integrity and browser journeys are recorded separately. |
+| Foundry G5 — optional enrichment | Not applicable for v0.2.0 | `DEC-ENRICHMENT` prohibits public model-assisted enrichment in this release. Land Registry G5 is unrelated: it is evaluation. |
+| Foundry G6 — evaluation | Land Registry G5 | This is the numbering collision most likely to cause confusion. |
+| Foundry G7 — frozen candidate | Land Registry G3, G6, G7 and G8 | Security, accessibility, performance, reproducibility and package evidence are split across project gates. |
+| Foundry G8 — RC and public validation | Land Registry G6 and G8, followed by the post-approval public browser check | A local G1–G8 pass does not prove the undeployed public URL. |
+| Foundry G9 — promotion | Post-approval byte-identity comparison and final promotion | Land Registry G9 happens earlier and means owner approval of the candidate; it is not final promotion. |
+
+The project workflow therefore requires both:
+
+1. Land Registry G1–G8 evidence and Land Registry G9 owner approval before
+   deployment; and
+2. the generic Foundry G8 public check and Foundry G9 byte-identical promotion
+   after an RC is deployed.
+
+See the
+[v0.2.0 release tracker and public website guide](v0.2.0-release-tracker-and-publication-guide.md)
+for the beginner explanation and ordered review process.
 
 ## Evidence rule
 
@@ -22,9 +63,9 @@ Warnings require a written disposition; a hard failure cannot be waived.
 
 ## Gates
 
-| Gate | Required evidence | Pass criterion | v0.2.0 acceptance |
+| Land Registry gate | Required evidence | Pass criterion | v0.2.0 acceptance |
 |---|---|---|---|
-| G0 — decision readiness | decision register, consumer lock, dependency graph and named owners | no blocking decision open; release identity remains explicitly candidate until G9 | required before G1–G8 evidence is assembled |
+| G0 — decision readiness | decision register, consumer lock, dependency graph and named owners | no blocking decision open; release identity remains explicitly candidate until Land Registry G9 | required before Land Registry G1–G8 evidence is assembled |
 | G1 — discovery profile | `VAL-DOMAIN-PROFILE`, checksums and pack root | JSON/YAML schema-valid and equivalent; references closed; pack rehashes | exact-candidate receipt required |
 | G2 — source snapshot | `VAL-SNAPSHOT`, terminal-outcome and coverage ledgers | all envelopes rehash; one outcome per expected item; omissions explicit | exact-candidate receipt required |
 | G3 — rights, privacy and safety | `VAL-RIGHTS`, rights review and sampled records | zero prohibited content, secrets, signed URLs or personal-level records; every record has access/rights state | exact-candidate receipt required |
@@ -65,7 +106,8 @@ Aggregate scores never average away a hard failure.
 
 The first-release suite contains 24 reviewed questions spanning personas,
 source families, access/rights states, stale/conflicting metadata, spatial
-caveats, Welsh access and unsafe/unanswerable cases. Before G5 can pass, a
+caveats, Welsh access and unsafe/unanswerable cases. Before Land Registry G5
+can pass, a
 reviewer independent of the retrieval implementation verifies expected
 propositions and near misses against the frozen snapshot. The retained
 first-release expectations were reviewed by an independent AI agent and must
@@ -91,7 +133,7 @@ An approved release record must name:
 - profile and source snapshot digests;
 - canonical repository and Pages URL;
 - exact artifact manifest;
-- pass receipts for G1–G8;
+- pass receipts for Land Registry G1–G8;
 - known limitations and residual risks;
 - source observation cutoff and supported refresh policy;
 - licence/attribution statement; and
