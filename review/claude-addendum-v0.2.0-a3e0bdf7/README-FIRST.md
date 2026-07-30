@@ -16,14 +16,16 @@ before hashing:
 - the Python evaluator used bytewise path order.
 
 A fingerprint changes when the lines being fingerprinted are reordered, even
-when every file byte is identical. The Python evaluator now deliberately
-reproduces the pinned Explorer's ordering and fails closed if the required
-ordering is unavailable.
+when every file byte is identical. The first correction used an installed
+English operating-system locale. That passed locally but correctly failed in
+GitHub Actions because the Ubuntu runner did not provide that locale. The
+final evaluator embeds the pinned runner's printable-ASCII ordering, rejects
+non-ASCII paths and no longer depends on host locale packages.
 
 Because the evaluator's own hash is recorded in the generated build receipt,
 the correction changed that receipt and therefore produced a new governed
 bundle root. The exact Explorer search and product journeys were rerun against
-the rebuilt bundle. Both now bind consumer tree `91bc8aca…`.
+the rebuilt bundle. Both now bind consumer tree `09ad960c…`.
 
 ## What Chris should do
 
@@ -34,10 +36,10 @@ the rebuilt bundle. Both now bind consumer tree `91bc8aca…`.
 2. Ask the reviewer to open `CLAUDE-ADDENDUM-PROMPT.md` and follow its
    copy-ready prompt without changing the candidate identities.
 3. Return these four complete files:
-   - `stage1-review-v0.2.0-collation-fixed.json`;
-   - `evaluation-acceptance-review-v0.2.0-collation-fixed.json`;
-   - `formal-evaluation-acceptance-v0.2.0-collation-fixed.json`; and
-   - `claude-independent-review-summary-collation-fixed.md`.
+   - `stage1-review-v0.2.0-portable-collation.json`;
+   - `evaluation-acceptance-review-v0.2.0-portable-collation.json`;
+   - `formal-evaluation-acceptance-v0.2.0-portable-collation.json`; and
+   - `claude-independent-review-summary-portable-collation.md`.
 4. Do not approve Land Registry G9 yet. G9 follows only after these outputs
    pass validation and exact-candidate Land Registry G1–G8 evidence exists.
 
@@ -45,11 +47,11 @@ the rebuilt bundle. Both now bind consumer tree `91bc8aca…`.
 
 - Candidate version: `0.2.0`
 - Governed correction commit:
-  `8a60539d4fce183aec2d0e7265573027657159ab`
+  `40482c865dc4332162f1e93756d94ca93abe3559`
 - Bundle release root:
-  `0fdab21a1f48b66168be7a03dc673305207b41ac526fe98d10a0594a64920b6f`
+  `a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704`
 - Runtime consumer tree:
-  `91bc8aca396840ded0991e26436c43fef097137226868c92a8c2fb35a1c213b8`
+  `09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c`
 - Stage 1 profile-pack root:
   `47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95`
 - Evaluation-suite SHA-256:
@@ -66,7 +68,7 @@ question suite, search contract and both journey manifests are unchanged.
 The correction changes:
 
 - the Python implementation of the consumer-tree ordering;
-- two regression tests;
+- portable full-ASCII and exact-tree regression tests;
 - release-assurance documentation;
 - the derived build receipt and checksum root; and
 - replacement diagnostic and real-browser receipts.

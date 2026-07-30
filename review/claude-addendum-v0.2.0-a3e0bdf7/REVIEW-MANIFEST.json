@@ -6,13 +6,13 @@
   "candidate": {
     "version": "0.2.0",
     "product_status": "ai-generated-proof-of-concept",
-    "candidate_git_commit": "8a60539d4fce183aec2d0e7265573027657159ab",
-    "bundle_release_root_sha256": "0fdab21a1f48b66168be7a03dc673305207b41ac526fe98d10a0594a64920b6f",
-    "bundle_tree_sha256": "91bc8aca396840ded0991e26436c43fef097137226868c92a8c2fb35a1c213b8",
+    "candidate_git_commit": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "bundle_release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "bundle_tree_sha256": "09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c",
     "bundle_tree_file_count": 148,
     "bundle_tree_bytes": 31525576,
-    "bundle_checksums_file_sha256": "a418fc2575555e996011500500abd738e44cea034932f8d0f3d89975499b327a",
-    "build_receipt_sha256": "57fb0e714013d564d1b8f69671b679e21d5ad329a333570aec1ef94812f9b75f",
+    "bundle_checksums_file_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "build_receipt_sha256": "bb451051f6082a2aa5ab0e75ab485a203d31d4ee52f9e36f2ac40617a5331b36",
     "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
     "profile_checksums_file_sha256": "4dd7c27b2fa4943b4197b9564cf10dd03411d5f980f256936e60f3739fd0d261",
     "source_input_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc",
@@ -23,12 +23,17 @@
     "base_bundle_release_root_sha256": "50506bff278625e98814548221d5f3ea6e75e19dec2947fed71b0db6ed3325a6",
     "previous_runtime_tree_sha256": "b10d6d996561ff7ea08fe495c2b4e5f66273d3325b1b68378d3ca5f470e6ec79",
     "previous_python_bytewise_tree_sha256": "5fc13c6300fbf057261efbf57a5e76a52de4a5ca3f589bc873be2cc80db967b4",
-    "evaluator_sha256": "f2fa9153646f6d4c66b4a997ae89216a9e55d62a3bbad475b8c4e7429ed1db18",
-    "evaluator_tests_sha256": "faaee04b5414fd454da9aaed62cfeb74f862ded44cbb874de1823ba27e2fb74b",
-    "change_impact_sha256": "ca9c62d9428125704df9b3cc2976606aa2cc4c0a202ea0fc35eb453e83f60403",
+    "intermediate_host_locale_commit": "8a60539d4fce183aec2d0e7265573027657159ab",
+    "intermediate_host_locale_release_root_sha256": "0fdab21a1f48b66168be7a03dc673305207b41ac526fe98d10a0594a64920b6f",
+    "intermediate_host_locale_tree_sha256": "91bc8aca396840ded0991e26436c43fef097137226868c92a8c2fb35a1c213b8",
+    "failed_ci_run": "https://github.com/chris-page-gov/okf-LandRegistry/actions/runs/30517178183",
+    "failed_ci_reason": "required English operating-system locale unavailable on the Ubuntu runner",
+    "evaluator_sha256": "f460b5d0347272cae2a0b1b9e79418958707d75767b7b290763b748ce74e55f0",
+    "evaluator_tests_sha256": "38cf2170797f9e20e07fd3ae4be28b94612c3bddf94670130eb45f480d5d7e25",
+    "change_impact_sha256": "0a1d9d1c3525f3d4f88ec9b8074feb6b3c2fd75142f5efb9cccd7d4e05dc02d9",
     "change_impact_decision": "manual-review-required",
     "stage1_review_required": true,
-    "root_cause_analysis_sha256": "f6afb7b40ee5d85860c24f207d454409202a983ddd67d0a4a33c9c612e8ef134"
+    "root_cause_analysis_sha256": "e4d8555dbadb508d526513e6553c25a854f72e75c9fa9746b9aa3dcaf2198b8d"
   },
   "evaluation": {
     "suite_sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d",
@@ -36,8 +41,8 @@
     "diagnostic_report_sha256": "c4d0691bb6aedbde2a0381b1d6d25492235e883556d1dee6f360f5d5cd9ed04c",
     "search_journey_manifest_sha256": "b00936fcaee53cd481e307c8bf9279416b0d80ae91fefcba2d22b4591d709753",
     "product_journey_manifest_sha256": "f721e6c9915484d72ac38b3630926a0461ff7fe417f39651a1a8e79546968431",
-    "search_runtime_receipt_sha256": "272377caad2de41ff0e56fc9d6a338dfe9280f9f5731049a36286db1bef69466",
-    "product_runtime_receipt_sha256": "9fb09f249f07563364ec28ce2a6aeb6ed1954b398b5324f3b43d852f1c8c250e",
+    "search_runtime_receipt_sha256": "8b2ac792ead76a29dc8e1c04f19b54ad862e16d0fcf3ae12c0bbd22a0442dd7d",
+    "product_runtime_receipt_sha256": "71b9608618a142873dc13ec1ca9d35dac2330871468542024332b9dc65141b06",
     "search_journeys_passed": 26,
     "search_journeys_failed": 0,
     "product_journeys_passed": 6,
@@ -80,10 +85,10 @@
     }
   },
   "expected_outputs": [
-    "stage1-review-v0.2.0-collation-fixed.json",
-    "evaluation-acceptance-review-v0.2.0-collation-fixed.json",
-    "formal-evaluation-acceptance-v0.2.0-collation-fixed.json",
-    "claude-independent-review-summary-collation-fixed.md"
+    "stage1-review-v0.2.0-portable-collation.json",
+    "evaluation-acceptance-review-v0.2.0-portable-collation.json",
+    "formal-evaluation-acceptance-v0.2.0-portable-collation.json",
+    "claude-independent-review-summary-portable-collation.md"
   ],
   "excluded_release_actions": [
     "Land Registry G9 owner approval",
