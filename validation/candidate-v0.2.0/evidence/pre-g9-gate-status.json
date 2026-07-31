@@ -5,42 +5,44 @@
   },
   "gates": {
     "G1": {
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G2": {
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G3": {
       "independent_review": "stage1-review.json rights_access_privacy_and_restricted_services",
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G4": {
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G5": {
       "independent_review": "evaluation-acceptance-review.json",
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G6": {
-      "blocker": "Independent user-facing/accessibility/security/performance review not completed for this exact evidence set.",
-      "status": "blocked"
+      "independent_review": "validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json",
+      "status": "receipt_assembled"
     },
     "G7": {
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G8": {
-      "status": "ready_for_receipt"
+      "status": "receipt_assembled"
     },
     "G9": {
       "blockers": [
-        "G6 has no independent pass.",
-        "No independent release recommendation covers the complete G1-G8 evidence.",
         "Project owner Chris Page-PoC has not made the exact digest-bound decision."
       ],
-      "status": "not_authorised"
+      "prerequisites": {
+        "g1_g8_receipt_index": "validation/v0.2.0-pre-g9/pre-g9-evidence.json",
+        "independent_release_recommendation": "validation/reviews/passed-a3e0bdf7-release-review/independent-release-recommendation.json"
+      },
+      "status": "ready_for_owner_review"
     }
   },
-  "generated_at": "2026-07-30T11:00:11Z",
+  "generated_at": "2026-07-31T21:52:47Z",
   "notes": [
     "This is a status index, not a gate receipt or approval.",
     "The canonical v0.1.0 receipts remain immutable and are not reused for v0.2.0.",

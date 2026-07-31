@@ -103,6 +103,8 @@ from scripts.check_release_evidence import (
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_SCHEMA = "okf-release-assembly-input.v1"
+PRE_G9_INPUT_SCHEMA = "okf-pre-g9-assembly-input.v1"
+PRE_G9_MANIFEST_SCHEMA = "okf-pre-g9-evidence-manifest.v1"
 OUTPUT_RECEIPT_DIRECTORY = "receipts"
 GATE_INPUT_KEYS = frozenset(
     {
@@ -224,6 +226,17 @@ def _output_paths(output_directory: Path) -> dict[str, Path]:
     }
     paths["G9"] = output_directory / "release-record.json"
     paths["manifest"] = output_directory / "release-evidence.json"
+    return paths
+
+
+def _pre_g9_output_paths(output_directory: Path) -> dict[str, Path]:
+    paths = {
+        gate: output_directory
+        / OUTPUT_RECEIPT_DIRECTORY
+        / f"{gate.lower()}.json"
+        for gate in GATE_RECEIPTS
+    }
+    paths["manifest"] = output_directory / "pre-g9-evidence.json"
     return paths
 
 
@@ -795,6 +808,137 @@ def _write_documents_atomically(
         shutil.rmtree(staging_root, ignore_errors=True)
 
 
+def assemble_pre_g9_evidence(
+    repository_root: Path,
+    *,
+    input_path: Path,
+    candidate_commit_sha: str,
+    output_directory: Path = Path("validation/pre-g9"),
+    schema_path: Path = Path("schemas/release-evidence.schema.json"),
+    checksums_path: Path = Path("bundle/CHECKSUMS.sha256"),
+    profile_checksums_path: Path = Path("domain-profile/CHECKSUMS.sha256"),
+    build_receipt_path: Path = Path("bundle/build-receipt.json"),
+    replace: bool = False,
+) -> CandidateIdentity:
+    """Assemble exact G1-G8 receipts for owner review without creating G9."""
+
+    root = repository_root.resolve()
+    input_file = repository_argument(
+        root, input_path, purpose="pre-G9 assembly input"
+    )
+    schema_file = repository_argument(
+        root, schema_path, purpose="release evidence schema"
+    )
+    output = _safe_output_directory(root, output_directory)
+    paths = _pre_g9_output_paths(output)
+    _preflight_output_paths(root, output, paths, replace=replace)
+
+    forbidden_paths = {path.resolve() for path in paths.values()}
+    if input_file.resolve() in forbidden_paths:
+        raise ReleaseEvidenceError(
+            "pre-G9 assembly input cannot be a generated output path"
+        )
+
+    input_document = load_json(input_file)
+    _exact_keys(
+        input_document,
+        {"schema", "generated_at", "gates"},
+        label="pre-G9 assembly input",
+    )
+    if input_document["schema"] != PRE_G9_INPUT_SCHEMA:
+        raise ReleaseEvidenceError(
+            "pre-G9 assembly input schema must be "
+            f"{PRE_G9_INPUT_SCHEMA!r}"
+        )
+    generated_at = _non_empty_string(
+        input_document["generated_at"], label="generated_at"
+    )
+    raw_gates = _object(input_document["gates"], label="gates")
+    expected_gates = set(GATE_RECEIPTS)
+    if set(raw_gates) != expected_gates:
+        missing = sorted(expected_gates - set(raw_gates))
+        extra = sorted(set(raw_gates) - expected_gates)
+        raise ReleaseEvidenceError(
+            "pre-G9 input must map exactly G1-G8; "
+            f"missing={missing}, extra={extra}"
+        )
+
+    candidate = candidate_identity_from_repository(
+        root,
+        checksums_path=checksums_path,
+        profile_checksums_path=profile_checksums_path,
+        build_receipt_path=build_receipt_path,
+        candidate_commit_sha=candidate_commit_sha,
+    )
+    validate_governed_candidate_commit(
+        root,
+        candidate_commit_sha=candidate_commit_sha,
+        build_receipt_path=build_receipt_path,
+    )
+
+    validator = schema_validator(schema_file)
+    identity_registry: dict[str, tuple[str, bool]] = {}
+    gate_bytes: dict[str, bytes] = {}
+    gate_hashes: dict[str, str] = {}
+    for gate in GATE_RECEIPTS:
+        receipt = _gate_receipt(
+            root,
+            gate=gate,
+            raw_gate=raw_gates[gate],
+            candidate=candidate,
+            forbidden_paths=forbidden_paths,
+            identity_registry=identity_registry,
+        )
+        validate_document_schema(
+            validator, receipt, label=f"{gate} assembled pre-G9 receipt"
+        )
+        validate_gate_receipt(
+            root,
+            receipt,
+            gate=gate,
+            expected_candidate=candidate,
+        )
+        encoded = canonical_json_bytes(receipt)
+        gate_bytes[gate] = encoded
+        gate_hashes[gate] = sha256_bytes(encoded)
+
+    receipt_references = [
+        {
+            "gate": gate,
+            "path": paths[gate].relative_to(root).as_posix(),
+            "sha256": gate_hashes[gate],
+        }
+        for gate in GATE_RECEIPTS
+    ]
+    manifest = {
+        "schema": PRE_G9_MANIFEST_SCHEMA,
+        "status": "ready_for_owner_review",
+        "generated_at": generated_at,
+        "candidate": asdict(candidate),
+        "receipts": receipt_references,
+        "limitations": [
+            "This manifest contains G1-G8 receipts only; it is not G9 owner approval.",
+            "It does not authorise deployment, publication or any public-URL claim.",
+        ],
+    }
+
+    documents = {
+        paths[gate]: gate_bytes[gate] for gate in GATE_RECEIPTS
+    }
+    documents[paths["manifest"]] = canonical_json_bytes(manifest)
+    _write_documents_atomically(output, documents=documents)
+
+    for gate in GATE_RECEIPTS:
+        if sha256_file(paths[gate]) != gate_hashes[gate]:
+            raise ReleaseEvidenceError(
+                f"post-write pre-G9 receipt digest mismatch for {gate}"
+            )
+    written_manifest = load_json(paths["manifest"])
+    if written_manifest != manifest:
+        raise ReleaseEvidenceError("post-write pre-G9 manifest mismatch")
+    return candidate
+
+
 def assemble_release_evidence(
     repository_root: Path,
     *,
@@ -1007,10 +1151,23 @@ def main() -> int:
         action="store_true",
         help="replace only the known generated receipt/manifest files",
     )
+    parser.add_argument(
+        "--pre-g9",
+        action="store_true",
+        help=(
+            "assemble G1-G8 receipts and a non-approval owner-review index; "
+            "do not create a G9 record"
+        ),
+    )
     args = parser.parse_args()
 
     try:
-        candidate = assemble_release_evidence(
+        assembler = (
+            assemble_pre_g9_evidence
+            if args.pre_g9
+            else assemble_release_evidence
+        )
+        candidate = assembler(
             args.repository_root,
             input_path=args.input,
             candidate_commit_sha=args.candidate_commit_sha,
@@ -1028,9 +1185,10 @@ def main() -> int:
         )
         return 1
 
+    evidence_kind = "pre-G9 G1-G8" if args.pre_g9 else "G1-G9 release"
     print(
-        "assembled release evidence without running checks for exact candidate: "
-        f"commit {candidate.candidate_commit_sha}, "
+        f"assembled {evidence_kind} evidence without running checks for exact "
+        f"candidate: commit {candidate.candidate_commit_sha}, "
         f"release root {candidate.release_root_sha256}"
     )
     return 0

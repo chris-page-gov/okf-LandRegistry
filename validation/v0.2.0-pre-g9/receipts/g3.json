@@ -1,0 +1,113 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "field-inventory-reviewed",
+      "status": "pass",
+      "summary": "The exact 2,203-record metadata-only projection and its state fields were reviewed."
+    },
+    {
+      "id": "independent-rights-review",
+      "status": "pass",
+      "summary": "The independent Stage 1 reviewer passed rights, access, privacy and restricted-service scope for this exact candidate; no human legal audit is claimed."
+    },
+    {
+      "id": "prohibited-content-absent",
+      "status": "pass",
+      "summary": "Tests and independent review found no property-level or personal records, credentials, signed URLs or prohibited service automation."
+    },
+    {
+      "id": "rights-access-complete",
+      "status": "pass",
+      "summary": "Every record resolves to explicit access, rights, licence, assessment and caveat states."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.2.0/evidence/automated-validation.json",
+      "sha256": "007607003882d3b6b81775410c9595336b77c1e657c57ea6abdf1026d282dc39"
+    },
+    {
+      "path": "governance/rights-review.json",
+      "sha256": "887aadc255cdf966c580c12d3217a7036ccaf8bf8e086cae13cf4537e3a732fc"
+    },
+    {
+      "path": "governance/risk-register.json",
+      "sha256": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e"
+    },
+    {
+      "path": "bundle/data/rights.json",
+      "sha256": "0eaa10ad6f287ec87b169dc465e9a92367f519b1ebbdc4c849132f33e0ba3527"
+    },
+    {
+      "path": "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json",
+      "sha256": "b4833a8bdf91768b9110e60fc5ba19d73a95ca9de05310314f91e869c2ccb985"
+    }
+  ],
+  "executed_at": "2026-07-30T11:00:11Z",
+  "failures": [],
+  "gate": "G3",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-07-30T06:36:46Z",
+        "role": "independent-stage1-reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-07-30T06:36:46Z",
+      "execution_mode": "document-review",
+      "id": "field-inventory-reviewed",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-30T06:36:46Z",
+      "execution_mode": "automated-agent",
+      "id": "independent-rights-review",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-30T06:36:46Z",
+      "execution_mode": "document-review",
+      "id": "prohibited-content-absent",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-30T06:36:46Z",
+      "execution_mode": "document-review",
+      "id": "rights-access-complete",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_bundle"
+    ],
+    "name": "rights-safety-and-prohibited-content-validator",
+    "sha256": "7997f10b1875cca1f35c8791f6560a353f0476e0ad06a86bdc558652fbf13ad6",
+    "version": "v0.2.0-a3e0bdf7"
+  },
+  "waivers": []
+}

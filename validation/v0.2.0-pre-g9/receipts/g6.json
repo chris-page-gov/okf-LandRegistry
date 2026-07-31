@@ -1,0 +1,99 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "automated-journeys",
+      "status": "pass",
+      "summary": "The pinned Explorer passed 26 of 26 search and 6 of 6 product journeys; local pages had no console, page or request failures."
+    },
+    {
+      "id": "manual-accessibility-journeys",
+      "status": "pass",
+      "summary": "AI-assisted accessibility journeys and independent browser checks passed for this PoC; no human audit or WCAG conformance is claimed."
+    },
+    {
+      "id": "performance-budgets",
+      "status": "pass",
+      "summary": "The 24,394-byte raw authored shell does not eagerly load the corpus and the pinned Explorer uses lazy shards."
+    },
+    {
+      "id": "security-critical-zero",
+      "status": "pass",
+      "summary": "Independent bounded static and browser review found no critical security issue, external runtime dependency, secret or prohibited claim."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.2.0/evidence/local-browser-quality.json",
+      "sha256": "76c92c54f2ca49750c195d7535949ea57934d12797324434837ad3b23b5a0e73"
+    },
+    {
+      "path": "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+      "sha256": "8b2ac792ead76a29dc8e1c04f19b54ad862e16d0fcf3ae12c0bbd22a0442dd7d"
+    },
+    {
+      "path": "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json",
+      "sha256": "71b9608618a142873dc13ec1ca9d35dac2330871468542024332b9dc65141b06"
+    },
+    {
+      "path": "validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json",
+      "sha256": "952e3fb6eef6922453bf07ed7e4e4d26ab8a5d0a87bf8e1d0184ecd105bd8c8c"
+    },
+    {
+      "path": "docs/accessibility.md",
+      "sha256": "da672cf96770444c6c5c4d596743b11ac5dc18b6bc6565a4b00d0ba5cab46954"
+    }
+  ],
+  "executed_at": "2026-07-31T21:52:47Z",
+  "failures": [],
+  "gate": "G6",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-07-31T21:52:47Z",
+        "role": "independent-g6-reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-07-31T21:52:47Z",
+      "execution_mode": "interactive-browser",
+      "id": "accessibility-and-limitations-review",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-07-31T21:52:47Z",
+      "execution_mode": "interactive-browser",
+      "id": "security-and-performance-review",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_pages"
+    ],
+    "name": "browser-accessibility-security-performance-review",
+    "sha256": "a19ed1f4b3b2b84de0d87d8d1d48f1cd7ab3402e7bece11fb181be3f04e69204",
+    "version": "v0.2.0-a3e0bdf7"
+  },
+  "waivers": []
+}

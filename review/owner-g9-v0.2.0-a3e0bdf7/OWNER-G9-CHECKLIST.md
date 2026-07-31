@@ -35,18 +35,37 @@ to the new bytes.
 
 Read these in order:
 
-1. the independent G6 review;
-2. the independent release recommendation;
-3. `validation/candidate-v0.2.0/evidence/pre-g9-gate-status.json`;
-4. `docs/product-contract.md`;
-5. `governance/risk-register.json`;
-6. `governance/rights-review.json`;
-7. `docs/v0.2.0-release-tracker-and-publication-guide.md`; and
-8. the final generated G1–G8 receipt hashes before signing G9.
+1. the [independent G6 review](../../validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json);
+2. the [independent release recommendation](../../validation/reviews/passed-a3e0bdf7-release-review/independent-release-recommendation.json);
+3. the [exact G1–G8 receipt index](../../validation/v0.2.0-pre-g9/pre-g9-evidence.json);
+4. [`docs/product-contract.md`](../../docs/product-contract.md);
+5. [`governance/risk-register.json`](../../governance/risk-register.json);
+6. [`governance/rights-review.json`](../../governance/rights-review.json); and
+7. the [beginner release tracker](../../docs/v0.2.0-release-tracker-and-publication-guide.md).
 
 Check that the independent recommendation says `recommend_approval`, not
 `withhold_approval`, and that it covers this exact root and archive. Check that
 every G1–G8 receipt says `pass` with no failure or waiver.
+
+## Exact G1–G8 receipt hashes
+
+The pre-G9 index SHA-256 is
+`23017105c0926a11f9525e3a244756730924e3a089bcd618d44c995d4e848d0f`.
+It contains these exact receipt hashes:
+
+| Gate | Beginner meaning | Receipt SHA-256 |
+|---|---|---|
+| G1 | Is the discovery profile valid and internally closed? | `0531c3487a4473854c977292e471e87d2b94fd9e7a8e39418fd74a1029990d95` |
+| G2 | Are the frozen source observations complete and honestly bounded? | `0a99cfabcc7b5aaadd921cbd6dac0bdc0286afc9dadab742b61356df9d751e72` |
+| G3 | Are rights, access, privacy and prohibited-content controls satisfied? | `168d418251bdc2e4d43240d95cfc7af71928b9aea2e791d196eae88eb13c9e1b` |
+| G4 | Is the OKF/data bundle structurally valid and usable by the pinned Explorer? | `5846810cd7e1dd9969f4be1af38acb2c648ed294dc5f32d222287c46823fb2bb` |
+| G5 | Does independently reviewed search evaluation pass its safety and retrieval thresholds? | `4c84f1b902c36c8151fb43f615f057c9fccefbe574afa0ae80a6770978eef1a2` |
+| G6 | Do the user-facing, accessibility, security and performance checks pass at PoC assurance level? | `aa2a554fe5745f2d1e626516445415efb1fc035b65e06f0769f8d0280d087788` |
+| G7 | Can the candidate be rebuilt twice with identical bytes and reconciled changes? | `57fb28fe8cc78d99e495b535fea0c71e5bd6adb03045d1a12c3bddd2851691ba` |
+| G8 | Is the archive, dependency/workflow provenance and SBOM complete? | `117403872d62ea8cd2503245b606d0dfee16690553c8f6835d21870fdf8990ef` |
+
+Every receipt records `status: pass`, no failure and no waiver. The index
+records `ready_for_owner_review`; it is not G9 approval.
 
 ## Claims you would authorise
 
@@ -77,7 +96,7 @@ The release must not claim:
 
 ## Residual risks you must review
 
-Review every entry `RISK-001` through `RISK-015` in
+Review every entry `RISK-001` through `RISK-017` in
 `governance/risk-register.json`. In particular:
 
 - users may mistake discovery metadata for legal evidence;
@@ -85,7 +104,11 @@ Review every entry `RISK-001` through `RISK-015` in
 - coverage remains bounded and incomplete;
 - language and Welsh discovery remain limited;
 - the project has no representative-user study; and
-- independent review is AI-agent review, not a human audit.
+- independent review is AI-agent review, not a human audit;
+- a structurally valid bundle could still be unusable in its declared
+  consumer, controlled here by the pinned-Explorer journeys; and
+- a change-impact heuristic could omit work or reuse stale evidence,
+  controlled here by fail-closed all-gates selection and manual review.
 
 G9 does not erase these risks. It records that you have seen them and accept
 them for a clearly labelled RC under the stated controls.
@@ -106,16 +129,19 @@ waivers or immediate final promotion.
 If, and only if, the independent G6 decision passes and the independent
 release reviewer recommends approval, you can send:
 
-> I, Chris Page-PoC, acting as project owner, approve HM Land Registry
-> public-estate OKF v0.2.0 candidate commit
+> I, Chris Page-PoC, acting as project owner, approve the independently
+> produced HM Land Registry public-estate OKF proof-of-concept v0.2.0
+> candidate commit
 > 40482c865dc4332162f1e93756d94ca93abe3559, bundle release root
 > a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704
 > and candidate archive SHA-256
 > 7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d
+> and pre-G9 G1–G8 receipt-index SHA-256
+> 23017105c0926a11f9525e3a244756730924e3a089bcd618d44c995d4e848d0f
 > for one release-candidate deployment to the planned canonical route. I
-> have reviewed the exact G1–G8 results, permitted and prohibited claims,
+> have reviewed the exact G1–G8 receipts, permitted and prohibited claims,
 > source cutoff, rights statement, all residual risks RISK-001 through
-> RISK-015, and the absence of completed independent human audits and user
+> RISK-017, and the absence of completed independent human audits and user
 > research. This approval is conditional on the deployed URL serving the
 > identical bytes and passing the real-browser identity and journey check
 > before it is shared as verified or promoted.

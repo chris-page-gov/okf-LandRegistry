@@ -61,6 +61,13 @@ Every gate produces a machine-readable receipt containing:
 A receipt from a different digest is not evidence for the candidate.
 Warnings require a written disposition; a hard failure cannot be waived.
 
+Before G9, `scripts/assemble_release_evidence.py --pre-g9` may assemble the
+exact G1–G8 receipts and a `ready_for_owner_review` index from an input that
+contains no owner decision. This lets the owner inspect the actual receipt
+hashes before deciding. The pre-G9 index is not a release-evidence manifest,
+contains no G9 record and cannot authorise deployment or publication. A later
+approved G1–G9 assembly must reproduce the same G1–G8 receipt bytes.
+
 ## Gates
 
 | Land Registry gate | Required evidence | Pass criterion | v0.2.0 acceptance |

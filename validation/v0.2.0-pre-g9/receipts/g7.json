@@ -1,0 +1,72 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "byte-identical",
+      "status": "pass",
+      "summary": "The two clean output trees have zero byte differences."
+    },
+    {
+      "id": "clean-build-a",
+      "status": "pass",
+      "summary": "The first isolated offline build produced release root a3e0bdf7...a704."
+    },
+    {
+      "id": "clean-build-b",
+      "status": "pass",
+      "summary": "The second isolated offline build produced release root a3e0bdf7...a704."
+    },
+    {
+      "id": "committed-bundle-identical",
+      "status": "pass",
+      "summary": "The committed candidate bundle and clean build A have zero byte differences."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.2.0/evidence/reproducibility.json",
+      "sha256": "470b56add3c4a02a1398ca1b17f69d5bd068d5eddd3f325d0ffa3bffe92c4876"
+    },
+    {
+      "path": "validation/candidate-v0.2.0/change-impact-final-release-review-a3e0bdf7.json",
+      "sha256": "453dde63cae27bc5ba7bc5e089fd78f404f371e3774c61e7aa587da86534d142"
+    },
+    {
+      "path": "bundle/build-receipt.json",
+      "sha256": "bb451051f6082a2aa5ab0e75ab485a203d31d4ee52f9e36f2ac40617a5331b36"
+    },
+    {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9"
+    }
+  ],
+  "executed_at": "2026-07-30T11:00:11Z",
+  "failures": [],
+  "gate": "G7",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "scripts/build.py",
+      "--output-dir",
+      "<isolated-output>/bundle"
+    ],
+    "name": "offline-deterministic-builder-and-byte-comparator",
+    "sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8",
+    "version": "v0.2.0-a3e0bdf7"
+  },
+  "waivers": []
+}

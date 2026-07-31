@@ -9,7 +9,10 @@ import subprocess
 import tempfile
 import unittest
 
-from scripts.assemble_release_evidence import assemble_release_evidence
+from scripts.assemble_release_evidence import (
+    assemble_pre_g9_evidence,
+    assemble_release_evidence,
+)
 from scripts.check_release_evidence import (
     GATE_RECEIPTS,
     REVIEWED_GATES,
@@ -311,6 +314,74 @@ class AssembleReleaseEvidenceTests(unittest.TestCase):
             asdict(candidate),
             release["candidate"],
         )
+
+    def test_pre_g9_assembly_produces_only_exact_g1_g8_receipts(self) -> None:
+        document = self.fixture.read_input()
+        document.pop("release")
+        document["schema"] = "okf-pre-g9-assembly-input.v1"
+        self.fixture.rewrite_input(document)
+
+        assemble_pre_g9_evidence(
+            self.fixture.root,
+            input_path=Path("release-input.json"),
+            candidate_commit_sha=self.fixture.candidate_commit_sha,
+        )
+
+        output = self.fixture.root / "validation" / "pre-g9"
+        manifest = json.loads(
+            (output / "pre-g9-evidence.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual("ready_for_owner_review", manifest["status"])
+        self.assertEqual(
+            list(GATE_RECEIPTS),
+            [receipt["gate"] for receipt in manifest["receipts"]],
+        )
+        self.assertFalse((output / "release-record.json").exists())
+        self.assertFalse((output / "release-evidence.json").exists())
+        for reference in manifest["receipts"]:
+            receipt = self.fixture.root / reference["path"]
+            self.assertEqual(reference["sha256"], sha256_file(receipt))
+
+    def test_pre_g9_receipts_equal_later_release_receipts(self) -> None:
+        full_input = self.fixture.read_input()
+        pre_g9_input = dict(full_input)
+        pre_g9_input.pop("release")
+        pre_g9_input["schema"] = "okf-pre-g9-assembly-input.v1"
+        self.fixture.rewrite_input(pre_g9_input)
+        assemble_pre_g9_evidence(
+            self.fixture.root,
+            input_path=Path("release-input.json"),
+            candidate_commit_sha=self.fixture.candidate_commit_sha,
+        )
+        pre_g9_receipts = {
+            gate: (
+                self.fixture.root
+                / "validation"
+                / "pre-g9"
+                / "receipts"
+                / f"{gate.lower()}.json"
+            ).read_bytes()
+            for gate in GATE_RECEIPTS
+        }
+
+        self.fixture.rewrite_input(full_input)
+        assemble_release_evidence(
+            self.fixture.root,
+            input_path=Path("release-input.json"),
+            candidate_commit_sha=self.fixture.candidate_commit_sha,
+            output_directory=Path("validation/final"),
+        )
+        final_receipts = {
+            gate: (
+                self.fixture.root
+                / "validation"
+                / "final"
+                / "receipts"
+                / f"{gate.lower()}.json"
+            ).read_bytes()
+            for gate in GATE_RECEIPTS
+        }
+        self.assertEqual(pre_g9_receipts, final_receipts)
 
     def test_non_pass_check_fails_before_writing_receipts(self) -> None:
         document = self.fixture.read_input()

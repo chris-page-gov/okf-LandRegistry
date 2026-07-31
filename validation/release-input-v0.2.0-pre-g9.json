@@ -1,0 +1,486 @@
+{
+  "schema": "okf-pre-g9-assembly-input.v1",
+  "generated_at": "2026-07-31T21:52:47Z",
+  "gates": {
+    "G1": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "domain-profile-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/check_domain_profile.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/check_domain_profile.py",
+          "domain-profile/domain-profile.json",
+          "--equivalent",
+          "domain-profile/domain-profile.yaml"
+        ]
+      },
+      "checks": {
+        "schema-valid": {
+          "status": "pass",
+          "summary": "The pinned domain-profile schema accepts the exact v0.2.0 profile."
+        },
+        "json-yaml-equivalent": {
+          "status": "pass",
+          "summary": "The JSON and YAML profile forms are equivalent after parsing."
+        },
+        "references-closed": {
+          "status": "pass",
+          "summary": "Profile, evidence, requirement, decision, risk and trace references resolve."
+        },
+        "profile-pack-rehashed": {
+          "status": "pass",
+          "summary": "All profile-pack members and the declared pack root rehash exactly."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G2": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "frozen-snapshot-and-build-semantics-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/build.py",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_acquire",
+          "tests.test_bundle"
+        ]
+      },
+      "checks": {
+        "envelopes-rehashed": {
+          "status": "pass",
+          "summary": "The 2,170 immutable source records and bounded Content API observation rehash through the composite input manifest."
+        },
+        "media-types-valid": {
+          "status": "pass",
+          "summary": "Every request receipt records an allowed media type and bounded successful response."
+        },
+        "terminal-outcomes-complete": {
+          "status": "pass",
+          "summary": "Every expected acquisition lane has a reconciled terminal outcome."
+        },
+        "omissions-explicit": {
+          "status": "pass",
+          "summary": "Caps, omitted source layers and the bounded-coverage limitation are explicit."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "source/input-manifest-v0.2.0.json",
+        "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "bundle/build-receipt.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G3": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "rights-safety-and-prohibited-content-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "tests/test_bundle.py",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_bundle"
+        ]
+      },
+      "checks": {
+        "field-inventory-reviewed": {
+          "status": "pass",
+          "summary": "The exact 2,203-record metadata-only projection and its state fields were reviewed."
+        },
+        "rights-access-complete": {
+          "status": "pass",
+          "summary": "Every record resolves to explicit access, rights, licence, assessment and caveat states."
+        },
+        "prohibited-content-absent": {
+          "status": "pass",
+          "summary": "Tests and independent review found no property-level or personal records, credentials, signed URLs or prohibited service automation."
+        },
+        "independent-rights-review": {
+          "status": "pass",
+          "summary": "The independent Stage 1 reviewer passed rights, access, privacy and restricted-service scope for this exact candidate; no human legal audit is claimed."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "governance/rights-review.json",
+        "governance/risk-register.json",
+        "bundle/data/rights.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+            "kind": "ai-agent",
+            "role": "independent-stage1-reviewer",
+            "reviewed_at": "2026-07-30T06:36:46Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "field-inventory-reviewed": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "document-review"
+        },
+        "independent-rights-review": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "automated-agent"
+        },
+        "prohibited-content-absent": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "document-review"
+        },
+        "rights-access-complete": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G4": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "okf-data-plane-and-route-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/check_okf.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/check_okf.py"
+        ]
+      },
+      "checks": {
+        "okf-core-valid": {
+          "status": "pass",
+          "summary": "The pinned real OKF checker reports the exact candidate conformant."
+        },
+        "data-plane-valid": {
+          "status": "pass",
+          "summary": "Catalogue, JSON-LD, compact search index, shards, rights and provenance reconcile to 2,203 records."
+        },
+        "checksums-valid": {
+          "status": "pass",
+          "summary": "All 147 governed member entries and release root rehash exactly."
+        },
+        "routes-valid": {
+          "status": "pass",
+          "summary": "Local pages, manifests, descriptor routes and pinned Explorer selected-record paths resolve."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "bundle/CHECKSUMS.sha256",
+        "bundle/data/manifest.json",
+        "bundle/data/explorer/manifest.json",
+        "bundle/okf-bundle.jsonld",
+        "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G5": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "retrieval-and-formal-acceptance-evaluator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/evaluate.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/evaluate.py",
+          "--k",
+          "10",
+          "--min-expected-source-success-at-k",
+          "1.0",
+          "--min-expected-target-recall-at-k",
+          "0.90",
+          "--min-all-expected-target-success-at-k",
+          "1.0",
+          "--min-mrr",
+          "0.80",
+          "--acceptance-review",
+          "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+          "--runtime-journeys",
+          "evaluation/explorer-search-calibration-v0.2.0.json",
+          "--runtime-receipt",
+          "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json"
+        ]
+      },
+      "checks": {
+        "independent-question-review": {
+          "status": "pass",
+          "summary": "All 24 questions and eight reviewer-owned held-out cases have an independent exact-candidate acceptance review."
+        },
+        "hard-failures-zero": {
+          "status": "pass",
+          "summary": "The independent review and formal evaluator report zero hard failures and no forbidden-target hit."
+        },
+        "mrr-threshold": {
+          "status": "pass",
+          "summary": "Mean reciprocal rank is 0.916667 against the required minimum 0.80."
+        },
+        "recall-at-10-threshold": {
+          "status": "pass",
+          "summary": "Expected-target recall at 10 and all-target success are both 1.0."
+        },
+        "source-caveat-coverage": {
+          "status": "pass",
+          "summary": "Expected-source success, source resolution and required-caveat coverage are all 1.0."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/formal-evaluation-acceptance.json",
+        "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+        "evaluation/questions.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+            "kind": "ai-agent",
+            "role": "independent-evaluation-reviewer",
+            "reviewed_at": "2026-07-30T06:36:46Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "hard-failure-review": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "document-review"
+        },
+        "independent-question-review": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "automated-agent"
+        },
+        "source-caveat-coverage": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G6": {
+      "status": "pass",
+      "executed_at": "2026-07-31T21:52:47Z",
+      "validator": {
+        "name": "browser-accessibility-security-performance-review",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "tests/test_pages.py",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_pages"
+        ]
+      },
+      "checks": {
+        "automated-journeys": {
+          "status": "pass",
+          "summary": "The pinned Explorer passed 26 of 26 search and 6 of 6 product journeys; local pages had no console, page or request failures."
+        },
+        "manual-accessibility-journeys": {
+          "status": "pass",
+          "summary": "AI-assisted accessibility journeys and independent browser checks passed for this PoC; no human audit or WCAG conformance is claimed."
+        },
+        "security-critical-zero": {
+          "status": "pass",
+          "summary": "Independent bounded static and browser review found no critical security issue, external runtime dependency, secret or prohibited claim."
+        },
+        "performance-budgets": {
+          "status": "pass",
+          "summary": "The 24,394-byte raw authored shell does not eagerly load the corpus and the pinned Explorer uses lazy shards."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/local-browser-quality.json",
+        "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+        "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json",
+        "validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json",
+        "docs/accessibility.md"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+            "kind": "ai-agent",
+            "role": "independent-g6-reviewer",
+            "reviewed_at": "2026-07-31T21:52:47Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "accessibility-and-limitations-review": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-31T21:52:47Z",
+          "execution_mode": "interactive-browser"
+        },
+        "security-and-performance-review": {
+          "status": "pass",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-31T21:52:47Z",
+          "execution_mode": "interactive-browser"
+        }
+      }
+    },
+    "G7": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "offline-deterministic-builder-and-byte-comparator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/build.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/build.py",
+          "--output-dir",
+          "<isolated-output>/bundle"
+        ]
+      },
+      "checks": {
+        "clean-build-a": {
+          "status": "pass",
+          "summary": "The first isolated offline build produced release root a3e0bdf7...a704."
+        },
+        "clean-build-b": {
+          "status": "pass",
+          "summary": "The second isolated offline build produced release root a3e0bdf7...a704."
+        },
+        "byte-identical": {
+          "status": "pass",
+          "summary": "The two clean output trees have zero byte differences."
+        },
+        "committed-bundle-identical": {
+          "status": "pass",
+          "summary": "The committed candidate bundle and clean build A have zero byte differences."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/reproducibility.json",
+        "validation/candidate-v0.2.0/change-impact-final-release-review-a3e0bdf7.json",
+        "bundle/build-receipt.json",
+        "bundle/CHECKSUMS.sha256"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G8": {
+      "status": "pass",
+      "executed_at": "2026-07-30T11:00:11Z",
+      "validator": {
+        "name": "candidate-package-sbom-and-provenance-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/package_release.py",
+        "command": [
+          ".venv/bin/python",
+          "scripts/package_release.py",
+          "--output",
+          "dist/okf-landregistry-0.2.0.zip",
+          "--receipt",
+          "validation/candidate-v0.2.0/evidence/release-candidate-archive.json"
+        ]
+      },
+      "checks": {
+        "artifact-manifest-complete": {
+          "status": "pass",
+          "summary": "The deterministic unreleased-candidate archive contains all 148 bundle files and reproduces both governed identities."
+        },
+        "dependency-provenance": {
+          "status": "pass",
+          "summary": "Eleven Python dependencies are version and hash locked and represented in the SPDX document."
+        },
+        "workflow-provenance": {
+          "status": "pass",
+          "summary": "The workflow uses full history, five SHA-pinned actions and the fail-closed owner release-root variable."
+        },
+        "sbom-recorded": {
+          "status": "pass",
+          "summary": "An SPDX 2.3 SBOM and deterministic provenance document bind the candidate root and archive."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.2.0/evidence/supply-chain-validation.json",
+        "validation/candidate-v0.2.0/evidence/release-candidate-archive.json",
+        "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json",
+        "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json",
+        "dist/okf-landregistry-0.2.0.zip",
+        "requirements-lock.txt",
+        ".github/workflows/pages.yml",
+        "validation/reviews/passed-a3e0bdf7-release-review/independent-release-recommendation.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    }
+  }
+}

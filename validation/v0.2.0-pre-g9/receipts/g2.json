@@ -1,0 +1,77 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "envelopes-rehashed",
+      "status": "pass",
+      "summary": "The 2,170 immutable source records and bounded Content API observation rehash through the composite input manifest."
+    },
+    {
+      "id": "media-types-valid",
+      "status": "pass",
+      "summary": "Every request receipt records an allowed media type and bounded successful response."
+    },
+    {
+      "id": "omissions-explicit",
+      "status": "pass",
+      "summary": "Caps, omitted source layers and the bounded-coverage limitation are explicit."
+    },
+    {
+      "id": "terminal-outcomes-complete",
+      "status": "pass",
+      "summary": "Every expected acquisition lane has a reconciled terminal outcome."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.2.0/evidence/automated-validation.json",
+      "sha256": "007607003882d3b6b81775410c9595336b77c1e657c57ea6abdf1026d282dc39"
+    },
+    {
+      "path": "source/input-manifest-v0.2.0.json",
+      "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+    },
+    {
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    {
+      "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+      "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+    },
+    {
+      "path": "bundle/build-receipt.json",
+      "sha256": "bb451051f6082a2aa5ab0e75ab485a203d31d4ee52f9e36f2ac40617a5331b36"
+    }
+  ],
+  "executed_at": "2026-07-30T11:00:11Z",
+  "failures": [],
+  "gate": "G2",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_acquire",
+      "tests.test_bundle"
+    ],
+    "name": "frozen-snapshot-and-build-semantics-validator",
+    "sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8",
+    "version": "v0.2.0-a3e0bdf7"
+  },
+  "waivers": []
+}
