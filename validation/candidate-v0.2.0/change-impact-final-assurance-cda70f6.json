@@ -1,0 +1,510 @@
+{
+  "affected": {
+    "gate_work": [
+      {
+        "gate": "G1",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G2",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-SNAPSHOT"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G3",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-RIGHTS"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G4",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-DATA-PLANE",
+            "VAL-EXPLORER-CONSUMER"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G5",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-EVALUATION"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G6",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-ACCESSIBILITY",
+            "VAL-EXPLORER-CONSUMER"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G7",
+        "selected_by": {
+          "stages": [
+            "release-assurance-tooling"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-CHANGE-IMPACT",
+            "VAL-REPRODUCIBILITY"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G8",
+        "selected_by": {
+          "stages": [
+            "release-assurance-tooling",
+            "documentation"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G9",
+        "selected_by": {
+          "stages": [
+            "release-assurance-tooling",
+            "documentation"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      }
+    ],
+    "generated_artifacts": [
+      "dist/**",
+      "validation/**"
+    ],
+    "release_gates": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "requirement_ids": [
+      "REQ-002",
+      "REQ-003",
+      "REQ-005",
+      "REQ-010",
+      "REQ-012",
+      "REQ-014",
+      "REQ-017",
+      "REQ-018",
+      "REQ-019",
+      "REQ-020"
+    ],
+    "risk_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011",
+      "RISK-012",
+      "RISK-013",
+      "RISK-014",
+      "RISK-015",
+      "RISK-016",
+      "RISK-017"
+    ],
+    "test_ids": [
+      "change-impact",
+      "explorer-contract",
+      "links",
+      "package-release",
+      "release-approval",
+      "release-evidence",
+      "release-metadata",
+      "workflow"
+    ],
+    "tests": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_change_impact",
+          "-v"
+        ],
+        "description": "Dependency-graph schema, closure and fail-closed impact checks.",
+        "id": "change-impact"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_explorer_contract",
+          "-v"
+        ],
+        "description": "Pinned OKF Explorer descriptor, manifest, asset and loader compatibility.",
+        "id": "explorer-contract"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_links",
+          "-v"
+        ],
+        "description": "Local Markdown link closure.",
+        "id": "links"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_package_release",
+          "-v"
+        ],
+        "description": "Deterministic release archive behavior.",
+        "id": "package-release"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_release_approval",
+          "-v"
+        ],
+        "description": "Exact release-root approval checks.",
+        "id": "release-approval"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_assemble_release_evidence",
+          "tests.test_release_evidence",
+          "-v"
+        ],
+        "description": "Release evidence assembly and exact-candidate validation.",
+        "id": "release-evidence"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_release_metadata",
+          "-v"
+        ],
+        "description": "SBOM and provenance metadata generation.",
+        "id": "release-metadata"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_workflow",
+          "-v"
+        ],
+        "description": "Pinned workflow and Pages publication controls.",
+        "id": "workflow"
+      }
+    ],
+    "validation_refs": [
+      "VAL-ACCESSIBILITY",
+      "VAL-CHANGE-IMPACT",
+      "VAL-DATA-PLANE",
+      "VAL-EVALUATION",
+      "VAL-EXPLORER-CONSUMER",
+      "VAL-REPRODUCIBILITY",
+      "VAL-RIGHTS",
+      "VAL-SNAPSHOT"
+    ]
+  },
+  "changed_paths": [
+    "AGENTS.md",
+    "dist/okf-landregistry-0.2.0.zip",
+    "docs/v0.2.0-release-tracker-and-publication-guide.md",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/CLAUDE-RELEASE-REVIEW-PROMPT.md",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/PACKET-FILES.txt",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/README-FIRST.md",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/REVIEW-MANIFEST.json",
+    "scripts/create_release_metadata.py",
+    "scripts/package_release.py",
+    "tests/test_package_release.py",
+    "validation/candidate-v0.2.0/evidence/automated-validation.json",
+    "validation/candidate-v0.2.0/evidence/local-browser-quality.json",
+    "validation/candidate-v0.2.0/evidence/pre-g9-gate-status.json",
+    "validation/candidate-v0.2.0/evidence/release-candidate-archive.json",
+    "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json",
+    "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json",
+    "validation/candidate-v0.2.0/evidence/reproducibility.json",
+    "validation/candidate-v0.2.0/evidence/supply-chain-validation.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/ADOPTION.md",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/formal-evaluation-acceptance.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/summary.md"
+  ],
+  "changes": [
+    {
+      "paths": [
+        "AGENTS.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "dist/okf-landregistry-0.2.0.zip"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "docs/v0.2.0-release-tracker-and-publication-guide.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "review/claude-release-review-v0.2.0-a3e0bdf7/CLAUDE-RELEASE-REVIEW-PROMPT.md"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "review/claude-release-review-v0.2.0-a3e0bdf7/PACKET-FILES.txt"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "review/claude-release-review-v0.2.0-a3e0bdf7/README-FIRST.md"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "review/claude-release-review-v0.2.0-a3e0bdf7/REVIEW-MANIFEST.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "scripts/create_release_metadata.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "scripts/package_release.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_package_release.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/automated-validation.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/local-browser-quality.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/pre-g9-gate-status.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/release-candidate-archive.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/reproducibility.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evidence/supply-chain-validation.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/passed-a3e0bdf7-portable-collation/ADOPTION.md"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/passed-a3e0bdf7-portable-collation/formal-evaluation-acceptance.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/passed-a3e0bdf7-portable-collation/summary.md"
+      ],
+      "status": "A"
+    }
+  ],
+  "comparison": {
+    "base": "acfb649e1ec20dcedcd920fa153a61c93c54e788",
+    "head": "cda70f673d88b2d72a675430f3716de90bd10db3",
+    "mode": "git"
+  },
+  "control_sha256": {
+    "requirements": "241871106424710de309fd56f63989ba2fbf657c8a32a1b9309b7d808973a5c5",
+    "risks": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e",
+    "traceability": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
+  },
+  "decision": "manual-review-required",
+  "explained_generated_paths": [
+    "dist/okf-landregistry-0.2.0.zip",
+    "validation/candidate-v0.2.0/evidence/automated-validation.json",
+    "validation/candidate-v0.2.0/evidence/local-browser-quality.json",
+    "validation/candidate-v0.2.0/evidence/pre-g9-gate-status.json",
+    "validation/candidate-v0.2.0/evidence/release-candidate-archive.json",
+    "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json",
+    "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json",
+    "validation/candidate-v0.2.0/evidence/reproducibility.json",
+    "validation/candidate-v0.2.0/evidence/supply-chain-validation.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/ADOPTION.md",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/formal-evaluation-acceptance.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json",
+    "validation/reviews/passed-a3e0bdf7-portable-collation/summary.md"
+  ],
+  "graph": {
+    "path": "governance/artifact-dependency-graph.json",
+    "schema_path": "schemas/artifact-dependency-graph.schema.json",
+    "schema_sha256": "e7105f0b3d190fcbefb68da63efe460148e2e8119bf6684ccc7eeef16fa6a24f",
+    "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1",
+    "unknown_change_policy": "all-gates-and-manual-review",
+    "version": "1.0.0"
+  },
+  "limitations": [
+    "This report selects work; it does not pass or waive a validation gate.",
+    "Current release evidence remains bound to the exact governed release root.",
+    "G9 remains a project-owner decision for the exact candidate digest."
+  ],
+  "manual_review_required": true,
+  "matched_stages": [
+    {
+      "id": "release-assurance-tooling",
+      "input_matches": [
+        "scripts/create_release_metadata.py",
+        "scripts/package_release.py"
+      ],
+      "matched_paths": [
+        "scripts/create_release_metadata.py",
+        "scripts/package_release.py",
+        "tests/test_package_release.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_package_release.py"
+      ]
+    },
+    {
+      "id": "documentation",
+      "input_matches": [
+        "AGENTS.md",
+        "docs/v0.2.0-release-tracker-and-publication-guide.md"
+      ],
+      "matched_paths": [
+        "AGENTS.md",
+        "docs/v0.2.0-release-tracker-and-publication-guide.md"
+      ],
+      "validation_input_matches": []
+    }
+  ],
+  "release_approval_required": true,
+  "schema": "okf-change-impact-report.v1",
+  "stage1_review_required": false,
+  "unexplained_generated_paths": [],
+  "unmatched_paths": [
+    "review/claude-release-review-v0.2.0-a3e0bdf7/CLAUDE-RELEASE-REVIEW-PROMPT.md",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/PACKET-FILES.txt",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/README-FIRST.md",
+    "review/claude-release-review-v0.2.0-a3e0bdf7/REVIEW-MANIFEST.json"
+  ]
+}

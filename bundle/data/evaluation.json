@@ -1,5 +1,39 @@
 {
-  "description": "A bounded set of 24 independently AI-agent-reviewed competency and retrieval questions. Expected propositions are evidence-bound acceptance expectations, not legal answers or gold answers.",
+  "caveat_registry": [
+    {
+      "id": "CAV-BOUNDARY-NOT-CONCLUSION",
+      "text": "Discovery geometry, title-plan lines and general boundaries are not exact legal boundary conclusions."
+    },
+    {
+      "id": "CAV-RIGHTS-AND-ACCESS",
+      "text": "Public discovery does not establish open, free or unrestricted access or reuse."
+    },
+    {
+      "id": "CAV-DATE-SEPARATION",
+      "text": "Observation, publication, catalogue, release and legal currency dates remain distinct."
+    },
+    {
+      "id": "CAV-SOURCE-AUTHORITY",
+      "text": "The bundle is a discovery aid; canonical official sources control authoritative claims."
+    },
+    {
+      "id": "CAV-NO-RESTRICTED-AUTOMATION",
+      "text": "Do not authenticate to or automate paid, portal, Business Gateway or terms-restricted services."
+    },
+    {
+      "id": "CAV-BOUNDED-COVERAGE",
+      "text": "Coverage is bounded to named source lanes and dated denominators."
+    },
+    {
+      "id": "CAV-ACCESSIBLE-JOURNEY",
+      "text": "Critical discovery and evidence inspection require an accessible non-visual journey."
+    },
+    {
+      "id": "CAV-LANGUAGE-DISTINCTION",
+      "text": "English and Welsh source identities and availability remain distinct."
+    }
+  ],
+  "description": "A bounded calibration set of 24 competency and retrieval questions. Executable forbidden-target and required-caveat assertions supplement, but do not replace, reviewer-owned held-out cases.",
   "direct_source_baseline": {
     "comparison_dimensions": [
       "correct official route",
@@ -112,6 +146,14 @@
       ],
       "id": "LR-Q001",
       "intent": "Find the official statement of HMLR's remit and avoid applying the bundle outside its jurisdiction or authority.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/collections/hm-land-registry-annual-reports-and-accounts",
+          "max_rank": 3,
+          "reason": "An annual-report collection is an organisational publication, not the authoritative remit statement, and must not outrank it.",
+          "target_id": "NEG-LR-Q001-HM-LAND-REGISTRY-ANNUAL-REPORTS"
+        }
+      ],
       "near_miss_rule": "A result about Scotland, Northern Ireland, UK-wide housing statistics or a secondary catalogue does not establish HMLR's remit; an England-and-Wales label also does not prove that every linked dataset has complete coverage.",
       "persona_ids": [
         "LR-P01",
@@ -119,16 +161,22 @@
       ],
       "query": "What does HM Land Registry cover?",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/organisations/land-registry",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S01"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "public",
         "scope",
         "authority"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -154,6 +202,14 @@
       ],
       "id": "LR-Q002",
       "intent": "Distinguish the main property-information products and what each contains.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/llc",
+          "max_rank": 5,
+          "reason": "A Local Land Charges polygon dataset does not explain the distinct evidential roles of a title summary, register and plan.",
+          "target_id": "NEG-LR-Q002-LOCAL-LAND-CHARGES-POLYGONS"
+        }
+      ],
       "near_miss_rule": "A result that treats the three products as interchangeable or describes the title plan as exact is not correct.",
       "persona_ids": [
         "LR-P01",
@@ -162,17 +218,23 @@
       ],
       "query": "title register title summary title plan differences",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/search-property-information-land-registry",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S02"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "public",
         "conveyancing",
         "lending",
         "title-information"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -202,6 +264,14 @@
       ],
       "id": "LR-Q003",
       "intent": "Find the route and limitation that distinguishes informational downloads from official copies.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/bg2/s1/v1",
+          "max_rank": 4,
+          "reason": "A restricted ordering endpoint must not outrank public guidance explaining cost, access and evidential status.",
+          "target_id": "NEG-LR-Q003-BUSINESS-GATEWAY-OFFICIAL-COPY"
+        }
+      ],
       "near_miss_rule": "Merely linking to a paid download without explaining its evidential status is insufficient.",
       "persona_ids": [
         "LR-P01",
@@ -209,16 +279,22 @@
       ],
       "query": "online copy or official copy proof of ownership",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S02"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "public",
         "conveyancing",
         "official-copy"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -243,6 +319,14 @@
       ],
       "id": "LR-Q004",
       "intent": "Retrieve authoritative boundary guidance and expose the general-boundaries limitation.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/nps",
+          "max_rank": 9,
+          "reason": "A precise polygon product must not outrank guidance explaining that title-plan geometry is not an exact legal boundary.",
+          "target_id": "NEG-LR-Q004-NATIONAL-POLYGON-SERVICE"
+        }
+      ],
       "near_miss_rule": "A map scale, red edging or coordinate precision does not establish an exact legal boundary.",
       "persona_ids": [
         "LR-P01",
@@ -252,17 +336,22 @@
       ],
       "query": "does a title plan show the exact legal boundary",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S03"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "public",
         "conveyancing",
         "gis",
         "boundaries"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -288,22 +377,36 @@
       ],
       "id": "LR-Q005",
       "intent": "Find the current official practice guidance needed to distinguish boundary concepts.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-agreed-notice-to-note-a-charge-e-an1",
+          "max_rank": 3,
+          "reason": "A portal transaction containing the word agreed is not guidance on agreed or determined boundaries.",
+          "target_id": "NEG-LR-Q005-AGREED-NOTICE-PORTAL"
+        }
+      ],
       "near_miss_rule": "A blog post, forum answer or old PDF without a current canonical guide route is not sufficient authority.",
       "persona_ids": [
         "LR-P02"
       ],
       "query": "practice guide general agreed determined boundaries",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/publications/hm-land-registry-plans-boundaries-pg40s3",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S03"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "conveyancing",
         "practice-guide",
         "boundaries"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -337,22 +440,36 @@
       ],
       "id": "LR-Q006",
       "intent": "Find the official recovery route when a property address search may not reveal every affected title.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://github.com/LandRegistry/address-search-api",
+          "max_rank": 6,
+          "reason": "A source-code repository for address search is not the documented index-map process and must not outrank it.",
+          "target_id": "NEG-LR-Q006-ADDRESS-SEARCH-CODE"
+        }
+      ],
       "near_miss_rule": "Retrying broader address text is not equivalent to the documented index-map process.",
       "persona_ids": [
         "LR-P02"
       ],
       "query": "address search misses title search of the index map",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S04"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "conveyancing",
         "official-copy",
         "index-map"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -382,6 +499,14 @@
       ],
       "id": "LR-Q007",
       "intent": "Distinguish professional service guidance from public discovery and make access restrictions visible.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/guidance/direct-integration-with-business-gateway",
+          "max_rank": 10,
+          "reason": "A public integration guide is not evidence of anonymous production access and must not displace the official access route.",
+          "target_id": "NEG-LR-Q007-DIRECT-INTEGRATION-GUIDE"
+        }
+      ],
       "near_miss_rule": "A public developer page is not evidence that the production service is anonymous or open for unrestricted automation.",
       "persona_ids": [
         "LR-P02",
@@ -389,16 +514,22 @@
       ],
       "query": "portal Business Gateway professional access requirements",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S04"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "conveyancing",
         "api",
         "restricted-access"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -427,6 +558,14 @@
       ],
       "id": "LR-Q008",
       "intent": "Find what title information says about a lender or discharged mortgage without overstating evidential completeness.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl",
+          "max_rank": 7,
+          "reason": "A restricted ownership-verification service must not displace public guidance about what title information can establish.",
+          "target_id": "NEG-LR-Q008-ONLINE-OWNER-VERIFICATION"
+        }
+      ],
       "near_miss_rule": "A summary that only says a mortgage is present or absent is not evidence of lender identity, discharge status or absence of other charge entries; an informational online copy is not official proof.",
       "persona_ids": [
         "LR-P02",
@@ -434,16 +573,21 @@
       ],
       "query": "what mortgage or lender information is in title information",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/get-information-about-property-and-land/search-the-register",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S05"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "lending",
         "mortgage",
         "title-information"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -469,6 +613,14 @@
       ],
       "id": "LR-Q009",
       "intent": "Retrieve the official Price Paid Data description, temporal coverage and reuse limitations.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/news/april-2016-price-paid-data",
+          "max_rank": 2,
+          "reason": "A historic monthly release notice must not outrank the current dataset guidance or be treated as a present valuation.",
+          "target_id": "NEG-LR-Q009-HISTORIC-PRICE-PAID-NEWS"
+        }
+      ],
       "near_miss_rule": "A historic transaction amount is not a current valuation or proof of the current registered proprietor.",
       "persona_ids": [
         "LR-P03",
@@ -476,16 +628,22 @@
       ],
       "query": "Price Paid Data current property value limitations",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S05"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "lending",
         "valuation",
         "price-paid-data"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -515,6 +673,14 @@
       ],
       "id": "LR-Q010",
       "intent": "Test whether the bundle keeps catalogue, observation, release and registration dates separate.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+          "max_rank": 3,
+          "reason": "A broad catalogue record cannot substitute its modification date for the publisher dataset release identity.",
+          "target_id": "NEG-LR-Q010-GEOSPATIAL-CATALOGUE"
+        }
+      ],
       "near_miss_rule": "A recent catalogue, page, observation or bundle timestamp cannot repair an unknown publisher release date or covered month.",
       "persona_ids": [
         "LR-P03",
@@ -522,16 +688,22 @@
       ],
       "query": "data.gov.uk land ownership catalogue modified date versus OCOD publisher dataset release date",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.data.gov.uk/collections/land-and-property/land-and-property-ownership",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S05"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "lending",
         "provenance",
         "dates"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -564,22 +736,38 @@
       ],
       "id": "LR-Q011",
       "intent": "Discover the publisher catalogue and compare spatial products by format, access and GIS requirement.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/guidance/land-registry-portal-update-a-business-unit-account",
+          "max_rank": 2,
+          "reason": "An account-administration page sharing the word update is not publisher evidence for dataset formats, costs, licences or cadence.",
+          "target_id": "NEG-LR-Q011-PORTAL-ACCOUNT-UPDATE"
+        }
+      ],
       "near_miss_rule": "A generic or 2020 catalogue row alone cannot establish current access, licence, release cadence, API availability, file size or completeness; follow the publisher-operated product page.",
       "persona_ids": [
         "LR-P04"
       ],
       "query": "HM Land Registry publisher spatial datasets format cost licence update API GIS file size",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION",
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/publications/geospatial-commission-data-catalogue-hm-land-registry",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S06"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "data",
         "gis",
         "formats"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -608,6 +796,14 @@
       ],
       "id": "LR-Q012",
       "intent": "Verify that spatial discovery polygons are not presented as exact legal title or charge boundaries.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/nps",
+          "max_rank": 3,
+          "reason": "Another polygon product cannot establish that INSPIRE geometry is an exact legal boundary.",
+          "target_id": "NEG-LR-Q012-NATIONAL-POLYGON-SERVICE"
+        }
+      ],
       "near_miss_rule": "Displaying a polygon on a precise basemap does not upgrade its legal meaning.",
       "persona_ids": [
         "LR-P02",
@@ -616,16 +812,21 @@
       ],
       "query": "INSPIRE polygon indicative or legal boundary",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/llc",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S03"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "gis",
         "local-authority",
         "boundaries"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -656,6 +857,14 @@
       ],
       "id": "LR-Q013",
       "intent": "Find the dated authority-level coverage statement and known migration limitation.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/news/five-local-authorities-join-hm-land-registry-s-local-land-charges-register",
+          "max_rank": 3,
+          "reason": "A migration news item is not the current bounded authority list or monthly dataset denominator.",
+          "target_id": "NEG-LR-Q013-MIGRATION-NEWS"
+        }
+      ],
       "near_miss_rule": "A headline denominator, an England-and-Wales label or a planned transfer date does not prove current migration or inclusion in the monthly INSPIRE file.",
       "persona_ids": [
         "LR-P04",
@@ -664,16 +873,22 @@
       ],
       "query": "which local authorities are in Local Land Charges INSPIRE data",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-DATE-SEPARATION"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/llc",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S07"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "gis",
         "local-authority",
         "coverage"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -705,6 +920,14 @@
       ],
       "id": "LR-Q014",
       "intent": "Test whether spatial records retain format, CRS or coordinate context, vintage, authority and language metadata where the source supplies them.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/inspire",
+          "max_rank": 3,
+          "reason": "The dataset landing page alone does not establish accessibility, language handling or exact-boundary meaning.",
+          "target_id": "NEG-LR-Q014-INDEX-POLYGON-DATASET"
+        }
+      ],
       "near_miss_rule": "A precise CRS or reprojected polygon does not make an indicative polygon an exact legal boundary, and an English-looking label does not justify deleting Welsh language identity.",
       "persona_ids": [
         "LR-P04",
@@ -713,16 +936,23 @@
       ],
       "query": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-ACCESSIBLE-JOURNEY",
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-LANGUAGE-DISTINCTION"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/accessibility-statement",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S06"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "gis",
         "metadata",
         "welsh"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -748,22 +978,36 @@
       ],
       "id": "LR-Q015",
       "intent": "Retrieve the publisher-operated API contract, version and supported dataset scope.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl",
+          "max_rank": 10,
+          "reason": "A restricted Business Gateway endpoint is not the public ULPD API contract and must not enter its top ten results.",
+          "target_id": "NEG-LR-Q015-BUSINESS-GATEWAY-BANKRUPTCY"
+        }
+      ],
       "near_miss_rule": "An API catalogue entry without the publisher contract cannot establish current operations or authentication.",
       "persona_ids": [
         "LR-P05"
       ],
       "query": "Use land and property data API base URL version datasets",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S08"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "api",
         "integration",
         "contract"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -772,6 +1016,10 @@
         "Authenticated dataset access requires the documented account, licence acceptance and API key."
       ],
       "expected_sources": [
+        {
+          "canonical_url": "https://use-land-property-data.service.gov.uk/api-documentation",
+          "source_id": "SRC-ULPD-API"
+        },
         {
           "canonical_url": "https://use-land-property-data.service.gov.uk/datasets/ocod",
           "source_id": "SRC-ULPD"
@@ -789,6 +1037,14 @@
       ],
       "id": "LR-Q016",
       "intent": "Distinguish public API documentation and example metadata from authenticated dataset access.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/bg2/api/v1/official-searches-of-whole",
+          "max_rank": 10,
+          "reason": "A certificate-gated Business Gateway endpoint must not be presented among the top ten as public anonymous API data.",
+          "target_id": "NEG-LR-Q016-BUSINESS-GATEWAY-OFFICIAL-SEARCH"
+        }
+      ],
       "near_miss_rule": "A publicly visible API URL or example response does not authorize anonymous bulk download.",
       "persona_ids": [
         "LR-P05",
@@ -796,16 +1052,22 @@
       ],
       "query": "what HMLR API data is public and what requires an account licence key",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/api-documentation",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S08"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "api",
         "access",
         "licensing"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -843,6 +1105,14 @@
       ],
       "id": "LR-Q017",
       "intent": "Ensure restricted portal, Business Gateway, local-search and authenticated data routes are discoverable without being invoked.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://search-local-land-charges.service.gov.uk/",
+          "max_rank": 2,
+          "reason": "A publicly reachable service landing page is not permission for anonymous automation and must not outrank its terms.",
+          "target_id": "NEG-LR-Q017-LOCAL-LAND-CHARGES-LANDING"
+        }
+      ],
       "near_miss_rule": "A publicly reachable landing page, robots access, sample contract or developer documentation is not authorization for anonymous automation; permission must be established from service-specific access rules and terms.",
       "persona_ids": [
         "LR-P02",
@@ -851,17 +1121,23 @@
       ],
       "query": "anonymous automation permission credentials terms portal Business Gateway Local Land Charges",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S08"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "api",
         "conveyancing",
         "restricted-access",
         "safety"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -887,6 +1163,14 @@
       ],
       "id": "LR-Q018",
       "intent": "Find the distribution and refresh contract needed for a reproducible monthly update.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+          "max_rank": 1,
+          "reason": "Another monthly dataset cannot substitute for OCOD complete-file and change-only release identity.",
+          "target_id": "NEG-LR-Q018-PRICE-PAID-DATA"
+        }
+      ],
       "near_miss_rule": "A page last-updated date is not a substitute for the file's release identity or covered month.",
       "persona_ids": [
         "LR-P04",
@@ -895,17 +1179,23 @@
       ],
       "query": "OCOD monthly complete file change only update",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-DATE-SEPARATION",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/ocod",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S09"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "data",
         "api",
         "refresh",
         "ocod"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -932,6 +1222,14 @@
       ],
       "id": "LR-Q019",
       "intent": "Find how public and official local-land-charge searches differ and whether an authority is covered.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl",
+          "max_rank": 2,
+          "reason": "A restricted Business Gateway search must not outrank the public service route, coverage statement and terms.",
+          "target_id": "NEG-LR-Q019-BUSINESS-GATEWAY-LLC-SEARCH"
+        }
+      ],
       "near_miss_rule": "A free personal search is not automatically an official search certificate.",
       "persona_ids": [
         "LR-P01",
@@ -940,16 +1238,23 @@
       ],
       "query": "search local land charges coverage account official certificate",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-NO-RESTRICTED-AUTOMATION",
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "runtime_expected_source_url": "https://search-local-land-charges.service.gov.uk/",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S07"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "local-authority",
         "public",
         "local-land-charges"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -980,6 +1285,14 @@
       ],
       "id": "LR-Q020",
       "intent": "Prevent conflation of local land charges, planning information, title registration and mapped boundaries.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/publications/exact-line-of-boundary-registration-db",
+          "max_rank": 10,
+          "reason": "An exact-boundary application form does not establish the legal scope of a local land charge or title.",
+          "target_id": "NEG-LR-Q020-EXACT-BOUNDARY-FORM"
+        }
+      ],
       "near_miss_rule": "A matching polygon or planning-related label does not prove the legal scope of a charge or registered title.",
       "persona_ids": [
         "LR-P02",
@@ -988,16 +1301,23 @@
       ],
       "query": "local land charge planning condition title boundary differences",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-BOUNDARY-NOT-CONCLUSION",
+        "CAV-BOUNDED-COVERAGE",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://search-local-land-charges.service.gov.uk/",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S07"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "local-authority",
         "planning",
         "semantic-boundary"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -1023,6 +1343,14 @@
       ],
       "id": "LR-Q021",
       "intent": "Retrieve the dataset-specific licence and keep third-party address-data conditions visible.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl",
+          "max_rank": 9,
+          "reason": "A restricted ownership service cannot establish OCOD address-field reuse rights and must not enter the top nine.",
+          "target_id": "NEG-LR-Q021-ONLINE-OWNER-VERIFICATION"
+        }
+      ],
       "near_miss_rule": "Public catalogue access or Crown ownership does not establish unrestricted redistribution of every field.",
       "persona_ids": [
         "LR-P05",
@@ -1030,16 +1358,22 @@
       ],
       "query": "OCOD licence address data third party rights",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-RIGHTS-AND-ACCESS",
+        "CAV-SOURCE-AUTHORITY"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/datasets/ocod",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S10"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "licensing",
         "provenance",
         "ocod"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -1064,6 +1398,14 @@
       ],
       "id": "LR-Q022",
       "intent": "Find the required attribution and layered address-data reuse conditions for Price Paid Data.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/news/additional-price-paid-data-to-be-released-in-october",
+          "max_rank": 2,
+          "reason": "A historic release announcement cannot replace current OGL and third-party address-data conditions.",
+          "target_id": "NEG-LR-Q022-HISTORIC-PRICE-PAID-NEWS"
+        }
+      ],
       "near_miss_rule": "Stating only OGL without the address-data conditions is incomplete.",
       "persona_ids": [
         "LR-P03",
@@ -1071,16 +1413,21 @@
       ],
       "query": "Price Paid Data OGL attribution Royal Mail Ordnance Survey",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-RIGHTS-AND-ACCESS"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S10"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "licensing",
         "lending",
         "price-paid-data"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -1107,6 +1454,14 @@
       ],
       "id": "LR-Q023",
       "intent": "Retrieve the applicable accessibility statement and test the bundle's equivalent critical journey.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://use-land-property-data.service.gov.uk/",
+          "max_rank": 1,
+          "reason": "A general service landing page is not an accessibility statement or evidence of WCAG conformance.",
+          "target_id": "NEG-LR-Q023-ULPD-LANDING"
+        }
+      ],
       "near_miss_rule": "A planned remediation date, an old test result or a passing automated audit is not evidence that a defect is fixed or that the complete keyboard and screen-reader task works.",
       "persona_ids": [
         "LR-P05",
@@ -1114,16 +1469,22 @@
       ],
       "query": "Use land and property data accessibility keyboard focus WCAG",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-ACCESSIBLE-JOURNEY",
+        "CAV-DATE-SEPARATION"
+      ],
+      "runtime_expected_source_url": "https://use-land-property-data.service.gov.uk/accessibility-statement",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S11"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "accessibility",
         "api",
         "wcag"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     },
     {
       "expected_min_results": 1,
@@ -1152,6 +1513,14 @@
       ],
       "id": "LR-Q024",
       "intent": "Find the official Welsh-language commitment and preserve bilingual service and register context.",
+      "must_not_retrieve": [
+        {
+          "canonical_url": "https://www.gov.uk/government/organisations/land-registry",
+          "max_rank": 4,
+          "reason": "A general English organisational page must not outrank explicit Welsh-language routes for a Welsh-service query.",
+          "target_id": "NEG-LR-Q024-GENERAL-HMLR-PAGE"
+        }
+      ],
       "near_miss_rule": "An English-only result is incomplete when the official source declares a Welsh route or bilingual context; conversely, the scheme is not proof that every service or document is bilingual.",
       "persona_ids": [
         "LR-P01",
@@ -1160,16 +1529,21 @@
       ],
       "query": "HM Land Registry Welsh language services bilingual registers",
       "question_type": "competency-and-retrieval",
-      "status": "reviewed-v0.1.0",
+      "required_caveat_ids": [
+        "CAV-LANGUAGE-DISTINCTION"
+      ],
+      "runtime_expected_source_url": "https://www.gov.uk/government/organisations/land-registry/about/welsh-language-scheme",
+      "status": "candidate-v0.2.0",
       "story_ids": [
         "LR-S12"
       ],
+      "suite_partition": "calibration",
       "tags": [
         "welsh",
         "accessibility",
         "public"
       ],
-      "verification_status": "independently-agent-reviewed"
+      "verification_status": "requires-new-digest-bound-independent-review"
     }
   ],
   "research_cutoff": "2026-07-29",
@@ -1192,9 +1566,10 @@
     }
   },
   "schema": "okf-explorer-evaluation-suite.v1",
-  "status": "reviewed-v0.1.0",
+  "status": "candidate-v0.2.0",
   "suite_boundary": "The suite samples critical first-release roles and risks. It does not claim complete coverage of HM Land Registry services, users, law, guidance, datasets or APIs.",
+  "suite_partition": "calibration",
   "target_bundle": "../okf-explorer.json",
-  "title": "HM Land Registry OKF v0.1.0 acceptance questions",
-  "verification_status": "independently-agent-reviewed"
+  "title": "HM Land Registry OKF v0.2.0 calibration questions",
+  "verification_status": "requires-new-digest-bound-independent-review"
 }

@@ -1,7 +1,8 @@
 # Evaluation And Quality
 
-Status: 24-question v0.1.0 acceptance suite, independently agent-reviewed at
-the research cut-off of 29 July 2026.
+Status: 24-question v0.2.0 calibration candidate at the research cut-off of
+29 July 2026. The v0.1.0 acceptance review is historical and cannot approve
+changed questions, bundle bytes or a different consumer digest.
 
 The evaluation scaffold tests whether a static HM Land Registry OKF
 publication helps people find official evidence while preserving legal,
@@ -11,19 +12,25 @@ provide legal advice or authorize access to a transactional service.
 
 Machine-readable assets:
 
-- [`../evaluation/questions.json`](../evaluation/questions.json) — 24 reviewed
-  competency and retrieval questions;
+- [`../evaluation/questions.json`](../evaluation/questions.json) — 24
+  calibration questions with executable forbidden targets and required
+  caveat IDs;
 - [`../evaluation/journeys.json`](../evaluation/journeys.json) — 12 static
-  search/filter/detail journeys using
-  `okf-explorer-interaction-suite.v1`; and
+  reference-only search/filter/detail hypotheses;
+- [`../evaluation/explorer-v0.2.0-journeys.json`](../evaluation/explorer-v0.2.0-journeys.json)
+  — executable identity, safety, state, resource and relationship journeys;
+- [`../evaluation/explorer-search-calibration-v0.2.0.json`](../evaluation/explorer-search-calibration-v0.2.0.json)
+  — all 24 positive retrieval queries executed by the exact pinned Explorer
+  search worker; and
 - [`../personas/personas-and-user-stories.json`](../personas/personas-and-user-stories.json)
   — explicit question → story → persona traceability.
 
 Expected propositions are bounded acceptance expectations, not verified legal
-answers. For v0.1.0 a reviewer independent of the retrieval implementation
-checked them against named official sources and the frozen snapshot. The
-review was AI-agent-assisted, not human domain assurance or participant
-research.
+answers. The deterministic calibration baseline executes each
+`must_not_retrieve` assertion. A new independent v0.2.0 review must verify
+required caveat IDs and expected propositions against named official sources
+after the candidate is frozen. Reviewer-owned held-out cases remain outside
+the calibration suite.
 
 ## First-Release Coverage
 
@@ -51,8 +58,10 @@ For every question:
 1. open each `expected_sources` canonical URL;
 2. record the official page, dataset or contract identity and observation time;
 3. verify the expected propositions and near-miss rule;
-4. compare the direct-source result with the static bundle result; and
-5. record disagreement, inaccessible evidence or source drift rather than
+4. execute every `must_not_retrieve` target and verify every
+   `required_caveat_id`;
+5. compare the direct-source result with the static bundle result; and
+6. record disagreement, inaccessible evidence or source drift rather than
    silently changing the expected answer.
 
 The baseline never creates an account, pays for a document, submits a search or
@@ -137,8 +146,8 @@ node ../okf-explorer/scripts/evaluate_okf_explorer.mjs \
   --journeys evaluation/journeys.json
 ```
 
-Browser execution becomes a release gate only after the static site publishes
-the facet keys and values declared in `evaluation/journeys.json`. Record
+Browser execution uses the exact locked Explorer version and the two v0.2.0
+journey manifests. `evaluation/journeys.json` is reference-only. Record
 screenshots or traces only with reproducible viewport, bundle digest, route and
 capture context; conversational screenshots are not a durable baseline.
 

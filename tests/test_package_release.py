@@ -6,7 +6,11 @@ import tempfile
 import unittest
 import zipfile
 
-from scripts.package_release import ReleasePackagingError, create_release_archive
+from scripts.package_release import (
+    ReleasePackagingError,
+    create_candidate_archive,
+    create_release_archive,
+)
 
 
 def sha256(path: Path) -> str:
@@ -33,6 +37,24 @@ def write_bundle(root: Path) -> Path:
 
 
 class PackageReleaseTests(unittest.TestCase):
+    def test_candidate_archive_does_not_assert_release(self) -> None:
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            bundle = write_bundle(root)
+            result = create_candidate_archive(
+                bundle=bundle,
+                output=root / "candidate.zip",
+                version="0.2.0",
+                candidate_at="2026-07-29T15:30:00Z",
+            )
+            self.assertEqual(
+                result["schema"], "okf-hmlr-candidate-archive.v1"
+            )
+            self.assertEqual(
+                result["publication_state"], "unreleased-candidate"
+            )
+            self.assertNotIn("release_at", result)
+
     def test_archive_is_deterministic_and_contains_verified_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as name:
             root = Path(name)

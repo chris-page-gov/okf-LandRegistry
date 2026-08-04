@@ -1,0 +1,76 @@
+{
+  "schema": "okf-hmlr-independent-review-packet.v2",
+  "purpose": "Renewed Stage 1 and Land Registry G5 independent review of the remediated candidate",
+  "release_authorized": false,
+  "public_url_verified": false,
+  "candidate": {
+    "version": "0.2.0",
+    "product_status": "ai-generated-proof-of-concept",
+    "candidate_git_commit": "099c8ebcc884073df1f81d3b0c49e63a6318b235",
+    "bundle_release_root_sha256": "50506bff278625e98814548221d5f3ea6e75e19dec2947fed71b0db6ed3325a6",
+    "bundle_tree_sha256": "b10d6d996561ff7ea08fe495c2b4e5f66273d3325b1b68378d3ca5f470e6ec79",
+    "bundle_checksums_file_sha256": "7d3657d5ee2fd3c1a05466391717cd6d96b41e8213c070efb273d90c8e19a5f4",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "profile_checksums_file_sha256": "4dd7c27b2fa4943b4197b9564cf10dd03411d5f980f256936e60f3739fd0d261",
+    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6",
+    "record_count": 2203
+  },
+  "evaluation": {
+    "suite_sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d",
+    "diagnostic_report_sha256": "c4d0691bb6aedbde2a0381b1d6d25492235e883556d1dee6f360f5d5cd9ed04c",
+    "runtime_journey_manifest_sha256": "b00936fcaee53cd481e307c8bf9279416b0d80ae91fefcba2d22b4591d709753",
+    "runtime_receipt_sha256": "9b69523e2e8a88a8f449fc1f03161a1a267b6af71b399bb20380d02ef9ce8e46",
+    "runtime_journeys_passed": 26,
+    "runtime_journeys_failed": 0,
+    "question_count": 24,
+    "minimum_reviewer_owned_held_out_cases": 6
+  },
+  "consumer": {
+    "name": "OKF Explorer",
+    "version": "0.5.7",
+    "commit": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "executable_tree_sha256": "fc11e903cb4eb59f7a1f51aee50478f5ddb024fcc2156b088984b02897e68275",
+    "lock_file_sha256": "2ae9e949085b02ffcb5ab0e777303418a6f553832952cf97e694689e9ada31a9",
+    "search_receipt_sha256": "9b69523e2e8a88a8f449fc1f03161a1a267b6af71b399bb20380d02ef9ce8e46",
+    "product_receipt_sha256": "1c7211d98241ad848b2b9a2fd26994d9b01083d6d7cfdca1e37e9b0b09cfc05a"
+  },
+  "controls": {
+    "artifact_dependency_graph_sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1",
+    "requirements_sha256": "241871106424710de309fd56f63989ba2fbf657c8a32a1b9309b7d808973a5c5",
+    "risk_register_sha256": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e",
+    "rights_review_sha256": "887aadc255cdf966c580c12d3217a7036ccaf8bf8e086cae13cf4537e3a732fc",
+    "change_impact_sha256": "772f73cff34ed6c66a74222099559cfd7045e6d4d125da2605d733a0aa4e81be",
+    "change_impact_decision": "manual-review-required",
+    "stage1_review_required": true
+  },
+  "roles": {
+    "prospective_project_owner": {
+      "identity": "Chris Page-PoC",
+      "role": "project-owner",
+      "decision_status": "not_requested"
+    },
+    "independent_reviewer": {
+      "identity": null,
+      "must_differ_from_owner": true,
+      "must_be_independent_of_candidate_implementation": true
+    }
+  },
+  "prior_review": {
+    "candidate_root_sha256": "e07fafe25bbd816f790f6a604aa7e99ab529dda51ec7d106e94d2e57485a217d",
+    "stage1_outcome": "fail",
+    "g5_status": "fail",
+    "use": "historical findings and remediation-closure evidence only",
+    "prohibited_use": "copying decisions, question judgements or held-out cases into the new review"
+  },
+  "expected_outputs": [
+    "stage1-review-v0.2.0-remediated.json",
+    "evaluation-acceptance-review-v0.2.0-remediated.json",
+    "claude-independent-review-summary-remediated.md"
+  ],
+  "excluded_release_actions": [
+    "Land Registry G9 owner approval",
+    "deployment variable changes",
+    "GitHub release or Pages deployment",
+    "public URL verification or sharing"
+  ]
+}

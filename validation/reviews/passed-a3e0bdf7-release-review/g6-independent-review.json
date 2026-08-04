@@ -1,0 +1,85 @@
+{
+  "schema": "okf-hmlr-g6-independent-review.v1",
+  "status": "pass",
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "consumer_tree_sha256": "09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c"
+  },
+  "reviewer": {
+    "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+    "kind": "ai-agent",
+    "role": "independent-g6-reviewer",
+    "reviewed_at": "2026-07-31T21:52:47Z",
+    "independent": true,
+    "scope_separation": "This reviewer did not author or remediate any part of the candidate: not scripts/build.py, the domain profile, the source register or curated records, the schemas, the search contract, the ranking function, the pages or CSS, the Explorer consumer or its lock, the runtime harness, the evaluation suite, the journeys, or any validator, test or evidence file. It is the same reviewer that produced the adopted Stage 1 and G5 portable-collation decisions for this exact candidate. Its inputs for this G6 review were the frozen packet, the manifest digests it rehashed itself, the release archive it extracted and independently re-hashed, and read-only browser execution of the extracted static bundle served from a local loopback origin. No public URL was deployed, visited or verified."
+  },
+  "identity_preflight": {
+    "status": "pass",
+    "manifest_files_rehashed": "34 of 34 files in REVIEW-MANIFEST.json rehash OK",
+    "bundle_members_via_checksums": "147 member lines in bundle/CHECKSUMS.sha256",
+    "release_root_independently_derived": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704, reproduced as the bytewise-sorted sha256 manifest over the 147 member lines (excluding CHECKSUMS.sha256 itself)",
+    "consumer_tree_independently_derived": "09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c, reproduced from the extracted release archive by recursive Node ASCII-collation ordering (148 files, 31,525,576 bytes)",
+    "archive_verified": "dist/okf-landregistry-0.2.0.zip rehashes to 7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d and its 148-file contents reproduce BOTH the release root and the consumer tree, so the archive is the exact candidate bundle",
+    "receipts_bind_candidate": "both Explorer receipts declare consumer @okf/explorer 0.5.7 at commit afd940b6de2d09809ae94dfc77c128936ac7928a (source_dirty false) and tree 09ad960c...; search 26/26 passed, product 6/6 passed",
+    "adopted_decisions_bind_candidate": "the adopted Stage 1 (pass) and G5 (pass, formal gate g5_acceptance pass) decisions bind commit 40482c8... and root a3e0bdf7...; the adopted G5 file digest 1fd52653... equals the review_sha256 this reviewer's own formal gate recorded, confirming reviewer continuity"
+  },
+  "checks": {
+    "automated-journeys": {
+      "status": "pass",
+      "finding": "The pinned Explorer runtime search receipt (sha256 8b2ac792...) records 26 of 26 journeys passed and the product receipt (71b9608618...) records 6 of 6 passed, both against consumer tree 09ad960c... at Explorer commit afd940b6... with source_dirty false. This reviewer independently confirmed the receipts bind that tree and that the extracted archive reproduces it. The local-browser-quality evidence records the three authored pages (/, /accessibility.html, /catalogue-index.html) at 1280px returning HTTP 200 with zero axe violations, zero console errors, zero failed requests and no horizontal overflow. This reviewer independently re-served the extracted bundle and confirmed / , /catalogue-index.html and /accessibility.html return 200, the landing page loads only its own local stylesheet (no scripts, no external requests), and the no-JavaScript catalogue index states its 2,203 discovery records without any script tag."
+    },
+    "manual-accessibility-journeys": {
+      "status": "pass",
+      "finding": "This gate is satisfied for the AI proof-of-concept level, and explicitly NOT as WCAG conformance or human assurance. The project declares AI-agent-assisted keyboard, focus, semantics, reflow and visible-limitation journeys, and the accessibility statement states plainly that no independent human audit or representative assistive-technology test has been done and that no conformance is claimed (GAP-HUMAN-RESEARCH, RISK-015). This reviewer independently corroborated the assisted claims by loading the extracted landing page in a headless Chromium at 320 CSS pixels: exactly one H1; header, nav, main and footer landmarks present; a logical H1-H2-H2-H3-H3-H3-H2-H2 heading sequence with no skipped level; document lang=en; the first focusable element is the visible skip link 'Skip to the catalogue' targeting an existing #main; and no horizontal overflow at 320px. The single mobile axe 'incomplete' item was examined rather than treated silently: this reviewer ran axe-core 4.12.1 (the same engine version the evidence used) at 320px and reproduced exactly 0 violations and 1 incomplete. The incomplete is rule 'color-contrast' (serious) on #page-title and .lede, with axe's stated reason 'Element's background color could not be determined because it partially overlaps other elements'. This reviewer independently computed the actual contrast: #page-title is rgb(24,20,26) on the effective cream background rgb(247,244,236) = 16.56:1, and .lede is rgb(63,56,65) on the same = 10.31:1, both far exceeding WCAG AA (4.5:1 normal, 3:1 large). The overlapping elements are decorative '.parcel' outline shapes whose background-color is rgba(0,0,0,0) (fully transparent), so they paint nothing behind the glyphs and cannot reduce contrast; a screenshot confirmed the dark heading is clearly legible on the cream field. The 'incomplete' is therefore benign axe uncertainty from bounding-box overlap of transparent decorations, not a contrast failure, and there are zero violations at every tested viewport. No critical or serious accessibility DEFECT was found."
+    },
+    "security-critical-zero": {
+      "status": "pass",
+      "finding": "This is a bounded static-PoC review, not a penetration test. This reviewer independently confirmed: every HTML page (index, catalogue-index, accessibility, 404) carries a restrictive Content-Security-Policy meta with default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self' -- no external origin, no inline script or style, no object embedding. The served landing page produced zero console messages, zero errors, zero cookies, zero localStorage and zero sessionStorage entries, and issued no request other than the page and its one local stylesheet. All external URLs in the bundle are official-source discovery destinations (www.gov.uk, github.com, use-land-property-data, legislation.gov.uk, search-local-land-charges, landregistry subdomains) plus the project's own github.io -- no CDN, font host, analytics or tracker. A whole-bundle scan found no 'Approved for publication' claim, no WCAG-conformance or 'fully accessible' or 'production-ready' or endorsement claim, and the required 'AI-generated proof of concept', 'not an HM Land Registry service or endorsement' and version-0.2.0 disclosures are present. The adopted Stage 1 review already found zero credentials, tokens, private keys, signed URLs, personal-level records or prohibited content across all 2,203 records, and the corrected 15 Business Gateway records are restricted-service rather than public. No critical browser error, unexpected runtime request, external runtime dependency, unsafe content path, secret or prohibited-content instance was observed."
+    },
+    "performance-budgets": {
+      "status": "pass",
+      "finding": "The governed v0.2.0 requirement is bounded lazy metadata with no eager whole-corpus initial payload; the contract defines no fixed numeric budget and this reviewer invented none. This reviewer independently confirmed the initial authored shell is 24,394 raw bytes = index.html (9,016) + styles.css (15,378), gzip approximately 6.5 KB, and that the landing page contains zero script tags and fetches nothing beyond its one local stylesheet, so it does not eagerly load the 148-file / 31,525,576-byte bundle. The Explorer is an explicit opt-in link ('Open in OKF Explorer' to okf-explorer.json / the pinned viewer); the runtime search receipt shows the Explorer loading its manifest, overview and search shards lazily rather than a single whole-corpus payload. eager_whole_corpus_payload is false and lazy_explorer_shards is true in the evidence, both consistent with this reviewer's independent observation. The bounded-lazy budget requirement is met."
+    }
+  },
+  "reviewed_checks": {
+    "accessibility-and-limitations-review": {
+      "status": "pass",
+      "completed_at": "2026-07-31T21:52:47Z",
+      "execution_mode": "document-review-plus-independent-browser-execution",
+      "note": "Reviewed docs/accessibility.md, the bundle accessibility statement and the local-browser-quality evidence, and independently executed axe-core 4.12.1, keyboard/landmark/heading checks and a 320px screenshot against the extracted bundle. The declared assisted journeys are accepted for this AI PoC gate; no human audit, representative assistive-technology test or WCAG conformance is claimed. GAP-HUMAN-RESEARCH and RISK-015 remain open and are disclosed on the public statement."
+    },
+    "security-and-performance-review": {
+      "status": "pass",
+      "completed_at": "2026-07-31T21:52:47Z",
+      "execution_mode": "document-review-plus-independent-browser-execution",
+      "note": "Reviewed the CSP, static tests (tests/test_pages.py, test_bundle.py, test_explorer_contract.py) cited by the evidence and the supply-chain/provenance records, and independently confirmed CSP presence, absence of external runtime requests, absence of storage/cookies, the bounded shell size and lazy Explorer behaviour in a headless browser."
+    }
+  },
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "id": "G6-W-001",
+      "title": "Accessibility assurance is AI-assisted, not human",
+      "detail": "The manual-accessibility-journeys pass recognises AI-agent-assisted and independently-automated journeys as sufficient for this proof-of-concept gate only. No independent human accessibility audit and no representative assistive-technology or participant test has been performed. This is disclosed on the public accessibility statement and tracked as GAP-HUMAN-RESEARCH and RISK-015. No WCAG conformance is claimed."
+    },
+    {
+      "id": "G6-W-002",
+      "title": "One benign axe 'incomplete' persists by design",
+      "detail": "The mobile color-contrast incomplete will recur on any run because it is caused by transparent decorative '.parcel' shapes whose bounding boxes overlap the hero text, which prevents axe from auto-resolving the background. The underlying contrast is 16.56:1 and 10.31:1 and passes; this is a needs-review artifact, not a defect. If the project wishes to eliminate the flag it could give the hero text an explicit solid background or move the decorative layer's stacking context, but this is optional polish, not a release blocker."
+    },
+    {
+      "id": "G6-W-003",
+      "title": "Browser evidence observed on a local loopback serve of the candidate archive",
+      "detail": "This reviewer's independent browser checks were performed against the exact candidate bundle extracted from the digest-verified release archive and served from http://127.0.0.1. This is not, and is not claimed to be, verification of any deployed public URL. No public Land Registry v0.2.0 URL has been deployed or verified."
+    }
+  ],
+  "limitations": [
+    "This is an AI-agent review. It is not independent human accessibility, security, legal, licence, privacy or domain assurance, and it is not a WCAG conformance assertion or a penetration test.",
+    "Accessibility was evaluated with automated tooling (axe-core 4.12.1), static markup inspection, keyboard/landmark/heading checks and a single 320px screenshot in headless Chromium. No screen reader, no forced-colours/high-contrast pass, no representative-user test and no human audit were performed.",
+    "Security was evaluated as a bounded static review: CSP, runtime requests, storage, console, external dependencies, secrets and prohibited content. No fuzzing, dependency CVE scan or server-side testing was performed (the site is static).",
+    "No public URL was deployed, visited or verified; the browser observations used a local loopback serve of the digest-verified candidate archive.",
+    "This reviewer is not the project owner and makes no Land Registry G9 decision, sets no deployment variable, authorises no publication and claims no HM Land Registry endorsement."
+  ],
+  "summary": "Land Registry G6 (user-facing quality) is PASS for the exact candidate (commit 40482c8..., root a3e0bdf7..., consumer tree 09ad960c...), on independently reproduced evidence. Identity preflight succeeded: all 34 manifest files rehash OK, the release root and consumer tree were independently derived, the release archive was verified and shown to reproduce both digests, and both Explorer receipts bind the exact tree and Explorer commit. All four required checks pass. automated-journeys: 26/26 search and 6/6 product journeys, pages 200 OK with zero console errors and no external requests. manual-accessibility-journeys: accepted for the AI PoC gate with no conformance claim; this reviewer independently ran axe-core 4.12.1 at 320px (0 violations, 1 incomplete), and examined the single incomplete rather than treating it silently -- it is a benign color-contrast needs-review flag caused by transparent decorative overlays, with actual contrast of 16.56:1 and 10.31:1 that comfortably passes. security-critical-zero: strict CSP, no external runtime dependencies, no scripts on the landing page, no cookies or storage, no secrets and no prohibited or approval claims. performance-budgets: bounded lazy, a 24,394-byte raw shell with no eager whole-corpus payload and lazy Explorer shards. No blocking finding. Three warnings (AI-assisted not human accessibility; the benign persistent incomplete; local-serve rather than public-URL verification) are recorded and none blocks. This G6 pass is an independent AI-agent review only; it is not owner approval, not human assurance, not WCAG conformance, not HMLR endorsement, and not verification of any deployed public URL."
+}

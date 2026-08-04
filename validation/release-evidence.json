@@ -1,58 +1,58 @@
 {
   "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
   "candidate": {
-    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
-    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
-    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
-  "generated_at": "2026-07-29T12:26:52Z",
+  "generated_at": "2026-08-04T13:35:32Z",
   "receipts": [
     {
       "gate": "G1",
       "path": "validation/receipts/g1.json",
-      "sha256": "dbf8b015ca95bbd02a5322a5eee1aeb8b9d85cb17ee86fb15474e3a42b0d6509"
+      "sha256": "0531c3487a4473854c977292e471e87d2b94fd9e7a8e39418fd74a1029990d95"
     },
     {
       "gate": "G2",
       "path": "validation/receipts/g2.json",
-      "sha256": "0e5d6ccb5b4c4017634462c5c6a3048985dcfdc91ec7145f6bc15adf0f36bb0d"
+      "sha256": "0a99cfabcc7b5aaadd921cbd6dac0bdc0286afc9dadab742b61356df9d751e72"
     },
     {
       "gate": "G3",
       "path": "validation/receipts/g3.json",
-      "sha256": "7bc66490eece1f0087e0cf049d5df3460ba28482b41491b6b8dff1bd4affdb54"
+      "sha256": "168d418251bdc2e4d43240d95cfc7af71928b9aea2e791d196eae88eb13c9e1b"
     },
     {
       "gate": "G4",
       "path": "validation/receipts/g4.json",
-      "sha256": "cd1511a5a442a17e9c6f5ab57ed238966d64ddaf2ad2395243f9e0bac060a029"
+      "sha256": "5846810cd7e1dd9969f4be1af38acb2c648ed294dc5f32d222287c46823fb2bb"
     },
     {
       "gate": "G5",
       "path": "validation/receipts/g5.json",
-      "sha256": "a15a7895a7add642309ff0721dafe63125ddb06637d312349d71bbae1fc0c4a0"
+      "sha256": "4c84f1b902c36c8151fb43f615f057c9fccefbe574afa0ae80a6770978eef1a2"
     },
     {
       "gate": "G6",
       "path": "validation/receipts/g6.json",
-      "sha256": "d5cc97c724f9b7ce7fab1b5881c2b37ac855732daac75bccd2945651309712e7"
+      "sha256": "aa2a554fe5745f2d1e626516445415efb1fc035b65e06f0769f8d0280d087788"
     },
     {
       "gate": "G7",
       "path": "validation/receipts/g7.json",
-      "sha256": "6cb82b82101335a9b0d55ae07f9415bb28706934e4dc1aa74cbb501e7d15df5f"
+      "sha256": "57fb28fe8cc78d99e495b535fea0c71e5bd6adb03045d1a12c3bddd2851691ba"
     },
     {
       "gate": "G8",
       "path": "validation/receipts/g8.json",
-      "sha256": "1bcee8efa667b10df102f524fe61cb48c54aed795a39f7b5bbbfb605c2a703c6"
+      "sha256": "117403872d62ea8cd2503245b606d0dfee16690553c8f6835d21870fdf8990ef"
     },
     {
       "gate": "G9",
       "path": "validation/release-record.json",
-      "sha256": "6a50ff8e542c59d7d270aff20a6ce0582e58e8d66a350361cc456bcd1474657d"
+      "sha256": "46aadf4563f878285de3155124870be7144ec91f9f00e825c0e297b5618e2c11"
     }
   ],
   "schema": "okf-release-evidence-manifest.v1",

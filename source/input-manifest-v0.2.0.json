@@ -1,0 +1,25 @@
+{
+  "schema": "okf-hmlr-composite-input-manifest.v1",
+  "version": "0.2.0",
+  "assembled_at": "2026-07-29T18:00:00Z",
+  "inputs": [
+    {
+      "id": "public-metadata-snapshot",
+      "kind": "immutable-acquisition-snapshot",
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "freshness_policy": "release-day-bounded-observation",
+      "reuse_decision": "Reused unchanged because all three acquisition lanes completed on the release work date and their immutable envelopes remain checksum-valid."
+    },
+    {
+      "id": "govuk-content-locale-translations",
+      "kind": "bounded-content-api-observation",
+      "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+      "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7",
+      "observed_at": "2026-07-29T18:00:00Z",
+      "freshness_policy": "release-candidate-observation",
+      "reuse_decision": null
+    }
+  ]
+}

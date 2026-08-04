@@ -1,8 +1,8 @@
 {
   "schema": "okf-governance-requirements.v1",
   "project": "HM Land Registry public-estate OKF Bundle",
-  "project_status": "released-poc",
-  "release_approved": true,
+  "project_status": "ai-generated-proof-of-concept",
+  "release_approved": false,
   "research_cutoff": "2026-07-29",
   "requirements": [
     {
@@ -183,6 +183,26 @@
       "rationale": "Successful generation or deployment is not release authorisation.",
       "source_refs": ["DEC-RELEASE", "GAP-OWNER-APPROVAL"],
       "verification_refs": [],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-019",
+      "class": "consumer-compatibility",
+      "priority": "must",
+      "statement": "Every declared public consumer shall be version-locked and executed against a tiny fixture and the exact release candidate; the canonical public deep link shall be exercised again after deployment.",
+      "rationale": "Producer schemas and static file checks cannot prove that a real consumer can load, search, navigate and resolve the published artifact.",
+      "source_refs": ["DEC-ARCHITECTURE"],
+      "verification_refs": ["VAL-EXPLORER-CONSUMER"],
+      "release_gate": true
+    },
+    {
+      "id": "REQ-020",
+      "class": "change-impact",
+      "priority": "must",
+      "statement": "A machine-readable artifact-dependency graph shall map governed inputs to generated outputs, consumer contracts and release gates; change-impact selection shall fail closed, and evidence may be carried forward only when every declared dependency root is unchanged.",
+      "rationale": "Selective correction is safe only when affected artifacts and assurance evidence are derived from an explicit, validated transitive dependency model.",
+      "source_refs": ["DEC-ARCHITECTURE", "DEC-SNAPSHOT"],
+      "verification_refs": ["VAL-CHANGE-IMPACT", "VAL-REPRODUCIBILITY"],
       "release_gate": true
     }
   ]

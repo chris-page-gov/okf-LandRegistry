@@ -1,0 +1,43 @@
+{
+  "schema": "okf-hmlr-evaluation-acceptance-review.v1",
+  "status": "not_reviewed",
+  "candidate_git_commit": "099c8ebcc884073df1f81d3b0c49e63a6318b235",
+  "suite_sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d",
+  "bundle_release_root_sha256": "50506bff278625e98814548221d5f3ea6e75e19dec2947fed71b0db6ed3325a6",
+  "reviewer": {
+    "identity": null,
+    "role": "independent evaluation reviewer",
+    "kind": "AI-agent",
+    "reviewed_at": null,
+    "independent_of_retrieval_implementation": null,
+    "scope_separation": null
+  },
+  "review_scope": null,
+  "question_reviews": [
+    {
+      "question_id": "REPEAT_FOR_EACH_LR_Q001_THROUGH_LR_Q024",
+      "source_resolution": null,
+      "expected_propositions_verified": null,
+      "near_miss_rule_verified": null,
+      "caveat_coverage": null,
+      "required_caveat_ids_verified": [],
+      "hard_failure_ids_reviewed": [],
+      "hard_failures_observed": null,
+      "review_finding": null
+    }
+  ],
+  "held_out_adversarial": [
+    {
+      "id": "REVIEWER_OWNED_UNIQUE_ID",
+      "query": null,
+      "applicable_hard_failure_ids": [],
+      "status": "not_reviewed",
+      "new_critical_category": null,
+      "precision_acceptable": null,
+      "safety_behavior_verified": null,
+      "review_finding": null
+    }
+  ],
+  "limitations": [],
+  "summary": null
+}

@@ -10,28 +10,71 @@
   "core_conformance": "OKF v0.2 Markdown concept layer",
   "counts": {
     "curated_records": 55,
-    "merged_representations": 23,
+    "datasets": 14,
+    "kinds": 10,
+    "merged_representations": 24,
+    "publishers": 13,
     "record_types": 77,
-    "records": 2202,
-    "source_representations": 2225,
-    "sources": 14,
-    "topics": 307
+    "records": 2203,
+    "relationships": 1,
+    "resources": 2203,
+    "source_representations": 2227,
+    "sources": 15,
+    "topics": 314
   },
+  "data_plane_manifest_root_sha256": "e628e66632f8e1cbdc6e38b23188351d1e2c0e9722a5ff141c3e0f3fc4bef0e8",
   "description": "Independent, metadata-only discovery bundle for HM Land Registry publications, services, datasets, APIs and official repositories.",
+  "entrypoint_integrity": {
+    "analysis_overview": {
+      "bytes": 790,
+      "path": "data/explorer/analysis-overview.json",
+      "sha256": "7fdb32eafcd392de199c404161820367650dfdc2cb48f5c55c416da0cdd31331"
+    },
+    "data_manifest": {
+      "bytes": 4970,
+      "path": "data/explorer/manifest.json",
+      "sha256": "30c692a50a935bc438cb7f803385ebd1db10921283e232e60cd5c65e406a707b"
+    },
+    "overview_index": {
+      "bytes": 15581,
+      "path": "data/explorer/overview.json",
+      "sha256": "157174ad93a146447e1acd6dbccb1c18d5819e6ff3b3fd1ccf5cd545fc4a2a3e"
+    },
+    "record_locator": {
+      "bytes": 46809,
+      "path": "data/explorer/locator/manifest.json",
+      "sha256": "b3f7fd6dcc298b7e247ded3c21bd862ba89d17d0b9b1da33fd3d590119e03fe0"
+    },
+    "relationship_adjacency": {
+      "bytes": 526,
+      "path": "data/explorer/adjacency/manifest.json",
+      "sha256": "8513ec1bb47a7ce5b3f7fb62cc28f1f3d457d04be1193de8f0d4a7c609731198"
+    },
+    "search_manifest": {
+      "bytes": 21574,
+      "path": "data/explorer/search/manifest.json",
+      "sha256": "5132df106c7a2a63aa2529c3b9e15a871f854c6c0c7bbf189e3abb4312c74436"
+    }
+  },
   "entrypoints": {
     "ai_usage_and_cost": "data/ai-usage.json",
+    "analysis_overview": "data/explorer/analysis-overview.json",
     "catalogue": "data/catalogue.json",
     "catalogue_csv": "data/catalogue.csv",
     "catalogue_html": "catalogue-index.html",
     "coverage": "data/coverage.json",
-    "data_manifest": "data/manifest.json",
+    "data_manifest": "data/explorer/manifest.json",
     "evaluation": "data/evaluation.json",
+    "inventory_manifest": "data/manifest.json",
     "okf_index": "index.md",
     "okf_log": "log.md",
+    "overview_index": "data/explorer/overview.json",
     "provenance": "data/provenance.json",
     "reconciliation": "data/reconciliation.json",
+    "record_locator": "data/explorer/locator/manifest.json",
+    "relationship_adjacency": "data/explorer/adjacency/manifest.json",
     "rights": "data/rights.json",
-    "search_manifest": "data/search/manifest.json",
+    "search_manifest": "data/explorer/search/manifest.json",
     "site": "./",
     "viewer": "https://chris-page-gov.github.io/okf-explorer/"
   },
@@ -41,26 +84,28 @@
       "authenticated_calls_enabled": false,
       "mode": "metadata-only",
       "personal_property_records_included": false,
-      "record_level_rights": true
+      "record_level_rights": true,
+      "release_authority": "Not asserted by bundle bytes; consult exact-digest external release evidence."
     },
     "okf-pages-publication.v1": {
       "descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
       "site": "https://chris-page-gov.github.io/okf-LandRegistry/"
     }
   },
-  "generated_at": "2026-07-29T09:19:47Z",
+  "generated_at": "2026-07-29T15:30:00Z",
   "kind": "okf-large-corpus",
-  "observed_at": "2026-07-29T09:19:15Z",
+  "observed_at": "2026-07-29T18:00:00Z",
   "okf_version": "0.2",
   "performance": {
-    "full_record_hydration": "lazy bounded record shards",
-    "relationship_hydration": "not applicable in scaffold",
-    "search": "compact client-side index",
+    "full_record_hydration": "integrity-bound chunks",
+    "relationship_hydration": "integrity-bound deterministic chunks",
+    "search": "bounded in-browser index over Explorer record chunks",
     "startup_mode": "overview-first"
   },
   "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+  "publication_state": "digest-bound-external-evidence",
   "publisher": "https://github.com/chris-page-gov/okf-LandRegistry",
-  "release_at": "2026-07-29T11:00:00Z",
+  "release_at": null,
   "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
   "rights": {
     "record_level": true,
@@ -82,10 +127,23 @@
     "research_cutoff": "2026-07-29"
   },
   "semantic_descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld",
-  "snapshot": "2026-07-29T091915Z",
-  "status": "released-poc",
+  "semantic_serializations": {
+    "canonical": {
+      "format": "JSON-LD",
+      "path": "okf-bundle.jsonld"
+    },
+    "reference_only": [
+      {
+        "format": "YAML-LD",
+        "reason": "Reference-only in the approved v0.2 profile; no YAML-LD conformance artifact is claimed.",
+        "status": "deferred"
+      }
+    ]
+  },
+  "snapshot": "hmlr-public-metadata-v0.2.0",
+  "status": "ai-generated-proof-of-concept",
   "title": "HM Land Registry public-estate OKF",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "vocabulary": {
     "publisher_plural": "source publishers",
     "publisher_singular": "source publisher",

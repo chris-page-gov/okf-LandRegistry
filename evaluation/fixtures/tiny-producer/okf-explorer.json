@@ -1,0 +1,26 @@
+{
+  "schema": "okf-explorer-bundle.v0",
+  "bundle_id": "urn:okf:hmlr:fixture:tiny-producer",
+  "version": "0.2.0-fixture",
+  "snapshot_id": "tiny-producer-fixture",
+  "okf_version": "0.2",
+  "meta": {
+    "title": "Land Registry tiny producer fixture"
+  },
+  "nodes": {
+    "alpha": {
+      "id": "alpha",
+      "title": "Alpha positive control record",
+      "type": "Dataset",
+      "description": "A deterministic positive record for the actual-consumer harness.",
+      "body": "# Alpha\n\nThe pinned Explorer rendered this positive control."
+    },
+    "negative-control": {
+      "id": "negative-control",
+      "title": "Negative control record",
+      "type": "Guidance",
+      "description": "This record must not replace Alpha in the selected-record journey."
+    }
+  },
+  "edges": []
+}

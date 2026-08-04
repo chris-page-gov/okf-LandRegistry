@@ -1,0 +1,10 @@
+{
+  "@id": "https://example.invalid/okf-hmlr-degraded/okf-explorer.json",
+  "schema": "okf-explorer-large-corpus.v1",
+  "kind": "okf-large-corpus",
+  "version": "0.2.0-fixture",
+  "snapshot": "degraded-fixture",
+  "title": "Degraded descriptor fixture",
+  "entrypoints": {},
+  "entrypoint_integrity": {}
+}

@@ -1,6 +1,6 @@
 # Standards profile
 
-Status: v0.1.0 PoC standards profile. A listed standard is not a blanket
+Status: v0.2.0 PoC candidate standards profile. A listed standard is not a blanket
 conformance claim.
 
 ## Applicability vocabulary

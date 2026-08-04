@@ -53,13 +53,15 @@ def declared_release_root(checksums_path: Path) -> str:
     return roots[0]
 
 
-def release_timestamp(value: str) -> tuple[int, int, int, int, int, int]:
+def archive_timestamp(value: str) -> tuple[int, int, int, int, int, int]:
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except (TypeError, ValueError) as exc:
-        raise ReleasePackagingError("release_at must be an ISO 8601 timestamp") from exc
+        raise ReleasePackagingError(
+            "archive timestamp must be an ISO 8601 timestamp"
+        ) from exc
     if parsed.tzinfo is None:
-        raise ReleasePackagingError("release_at must include a timezone")
+        raise ReleasePackagingError("archive timestamp must include a timezone")
     utc = parsed.astimezone(timezone.utc)
     if utc.year < 1980:
         raise ReleasePackagingError("ZIP timestamps cannot predate 1980")
@@ -101,7 +103,7 @@ def create_release_archive(
         raise ReleasePackagingError(f"bundle verification failed: {exc}") from exc
 
     files = bundle_files(bundle)
-    fixed_time = release_timestamp(release_at)
+    fixed_time = archive_timestamp(release_at)
     output = output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     if output.is_symlink():
@@ -157,6 +159,33 @@ def create_release_archive(
     }
 
 
+def create_candidate_archive(
+    *,
+    bundle: Path,
+    output: Path,
+    version: str,
+    candidate_at: str,
+) -> dict[str, object]:
+    """Package reviewed candidate bytes without asserting publication.
+
+    G8 must bind the archive before G9 can approve it. Candidate configuration
+    therefore keeps ``release_at`` null and uses its deterministic
+    ``generated_at`` value only as the ZIP member timestamp.
+    """
+
+    result = create_release_archive(
+        bundle=bundle,
+        output=output,
+        version=version,
+        release_at=candidate_at,
+    )
+    result.pop("release_at")
+    result["schema"] = "okf-hmlr-candidate-archive.v1"
+    result["candidate_at"] = candidate_at
+    result["publication_state"] = "unreleased-candidate"
+    return result
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bundle", type=Path, default=DEFAULT_BUNDLE)
@@ -172,22 +201,41 @@ def main() -> int:
     try:
         config = json.loads(args.config.read_text(encoding="utf-8"))
         version = config["version"]
-        release_at = config["release_at"]
-        if config.get("status") != "released-poc" or release_at is None:
+        release_at = config.get("release_at")
+        candidate_at = config.get("generated_at")
+        if config.get("status") != "ai-generated-proof-of-concept":
             raise ReleasePackagingError(
-                "build config is not an approved released-poc configuration"
+                "build config is not an approved AI-generated proof-of-concept configuration"
             )
         output = (
             args.output
             if args.output is not None
             else ROOT / "dist" / f"okf-landregistry-{version}.zip"
         )
-        result = create_release_archive(
-            bundle=args.bundle,
-            output=output,
-            version=version,
-            release_at=release_at,
-        )
+        if isinstance(release_at, str):
+            result = create_release_archive(
+                bundle=args.bundle,
+                output=output,
+                version=version,
+                release_at=release_at,
+            )
+        elif (
+            release_at is None
+            and config.get("publication_state")
+            == "digest-bound-external-evidence"
+            and isinstance(candidate_at, str)
+        ):
+            result = create_candidate_archive(
+                bundle=args.bundle,
+                output=output,
+                version=version,
+                candidate_at=candidate_at,
+            )
+        else:
+            raise ReleasePackagingError(
+                "build config supplies neither a released timestamp nor a "
+                "digest-bound candidate timestamp"
+            )
         try:
             result["path"] = Path(str(result["path"])).relative_to(ROOT).as_posix()
         except ValueError:

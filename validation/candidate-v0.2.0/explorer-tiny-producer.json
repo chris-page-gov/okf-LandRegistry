@@ -1,0 +1,210 @@
+{
+  "schema": "okf-explorer-external-runtime-acceptance.v1",
+  "measured_at": "2026-07-29T18:26:08.657Z",
+  "status": "passed",
+  "consumer": {
+    "package": "@okf/explorer",
+    "version": "0.5.7",
+    "source_commit": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "source_dirty": false,
+    "dependency_lock_sha256": "25eb2cd4f1dd2f93ce89e3884e3d9293d490371bd55d4469bba0263ee083ffc1",
+    "runner_sha256": "dbfd6a1a4c004c5c76be4a40b2b5cf2033bd54f519d4727cd0207388b5ece24b",
+    "build_manifest_sha256": "a6c5b5872cccab4eddf948226385ebe8acad19a6df336d1626cb4e5a426ad7ff"
+  },
+  "bundle": {
+    "root_label": "tiny-producer",
+    "descriptor": "okf-explorer.json",
+    "identity": {
+      "schema": "okf-explorer-bundle.v0",
+      "id": "urn:okf:hmlr:fixture:tiny-producer",
+      "version": "0.2.0-fixture",
+      "snapshot": "tiny-producer-fixture"
+    },
+    "expected_identity": {
+      "schema": "okf-explorer-bundle.v0",
+      "id": "urn:okf:hmlr:fixture:tiny-producer",
+      "version": "0.2.0-fixture",
+      "snapshot": "tiny-producer-fixture"
+    },
+    "tree": {
+      "sha256": "0e1b0c3b394aa7db3e10bedbb6a1527b5bfed055a255f0a9f733a0991a50b456",
+      "files": 2,
+      "bytes": 2119
+    }
+  },
+  "journey_manifest": {
+    "path_label": "journeys.json",
+    "sha256": "13b8e11fb7aa2f38f237ae12df3976fd61baa7534aed5f882e4cdcc9e47b7464"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.CzvOfnb6.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/Jelbxwoa.js",
+      "status": 200,
+      "bytes": 27097,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/juNZNo31.js",
+      "status": 200,
+      "bytes": 48241,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.TB3fAUba.js",
+      "status": 200,
+      "bytes": 3963,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.Cb0gJOaH.js",
+      "status": 200,
+      "bytes": 234,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.DQ269OmA.css",
+      "status": 200,
+      "bytes": 79152,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.D_qQhDm7.js",
+      "status": 200,
+      "bytes": 588406,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.D-adNj2g.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 6168,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 797,
+      "elapsed_ms": 0
+    }
+  ],
+  "journeys": [
+    {
+      "id": "positive-record-and-negative-control",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4206/?bundle=http%3A%2F%2F127.0.0.1%3A4206%2Fbundle%2Fokf-explorer.json#alpha",
+        "title": "OKF Explorer",
+        "elapsed_ms": 73,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4206/?bundle=http%3A%2F%2F127.0.0.1%3A4206%2Fbundle%2Fokf-explorer.json#alpha"
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/?bundle=http%3A%2F%2F127.0.0.1%3A4206%2Fbundle%2Fokf-explorer.json",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/entry/start.CzvOfnb6.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/chunks/Jelbxwoa.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/chunks/juNZNo31.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/entry/app.TB3fAUba.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/nodes/0.Cb0gJOaH.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/nodes/2.D_qQhDm7.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/assets/2.DQ269OmA.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/_app/immutable/nodes/1.D-adNj2g.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4206/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    }
+  ],
+  "terminal": {
+    "outcome": "passed",
+    "journeys_total": 1,
+    "journeys_passed": 1,
+    "journeys_failed": 0
+  }
+}

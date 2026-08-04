@@ -1,13 +1,14 @@
 {
   "schema": "okf-rights-review.v1",
   "project": "HM Land Registry public-estate OKF Bundle",
-  "review_state": "approved-for-v0.1.0-ai-poc",
-  "release_approved": true,
+  "review_state": "policy-reviewed-for-v0.2.0-candidate",
+  "release_approved": false,
+  "release_authority": "This policy review permits candidate generation only. It does not approve publication. Exact-digest G3 evidence, independent review and the project-owner G9 decision remain external release evidence.",
   "reviewed_at": "2026-07-29",
   "review_method": {
     "reviewer_kind": "ai-agent",
     "reviewer_identity": "Codex rights and provenance review",
-    "decision_scope": "Metadata-only v0.1.0 AI-generated proof of concept; final G3 evidence must bind the exact release digest.",
+    "decision_scope": "Metadata-only v0.2.0 AI-generated proof-of-concept candidate generation; final G3 evidence and owner approval must bind the exact release digest.",
     "human_legal_or_licence_audit": "not_completed"
   },
   "research_cutoff": "2026-07-29",
@@ -127,7 +128,7 @@
   "open_items": [
     "No independent human legal or licence audit has been completed; retain this limitation as release residual RISK-015.",
     "Live rights, terms and privacy page bodies are not archived in the repository; revalidate publisher-operated routes for every later release.",
-    "Dataset and repository rights remain per-source and volatile; this approval does not authorise source-data or source-code redistribution.",
-    "Final field-inventory, safety-scan and independent rights receipts must bind the exact v0.1.0 digest before publication."
+    "Dataset and repository rights remain per-source and volatile; this policy review does not authorise source-data or source-code redistribution.",
+    "Final field-inventory, safety-scan and independent rights receipts must bind the exact v0.2.0 digest before publication."
   ]
 }

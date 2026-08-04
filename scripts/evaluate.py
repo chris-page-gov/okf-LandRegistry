@@ -15,10 +15,22 @@ from urllib.parse import urldefrag
 ROOT = Path(__file__).resolve().parents[1]
 SEARCH_CONTRACT = ROOT / "pages" / "search-contract.json"
 SEARCH_INDEX_SCHEMA = "okf-hmlr-search-index.v1"
-CATALOGUE_SCHEMA = "okf-hmlr-catalogue.v1"
+CATALOGUE_SCHEMA = "okf-hmlr-catalogue.v2"
+CATALOGUE_SCHEMAS = {"okf-hmlr-catalogue.v1", CATALOGUE_SCHEMA}
 ACCEPTANCE_REVIEW_SCHEMA = "okf-hmlr-evaluation-acceptance-review.v1"
 RELEASE_ROOT_MARKER = "# release-root-sha256: "
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
+RUNTIME_JOURNEY_SCHEMA = "okf-explorer-journeys.v1"
+RUNTIME_RECEIPT_SCHEMA = "okf-explorer-external-runtime-acceptance.v1"
+EXPLORER_ASCII_PUNCTUATION_ORDER = (
+    " _-,;:!?." + "'\"" + "()[]{}@*/\\&#%`^+<=>|~$"
+)
+EXPLORER_ASCII_PUNCTUATION_WEIGHTS = {
+    character: index
+    for index, character in enumerate(EXPLORER_ASCII_PUNCTUATION_ORDER)
+}
+EXPLORER_ASCII_DIGIT_OFFSET = len(EXPLORER_ASCII_PUNCTUATION_ORDER)
+EXPLORER_ASCII_LETTER_OFFSET = EXPLORER_ASCII_DIGIT_OFFSET + 10
 
 
 def tokens(value: str, contract: dict) -> set[str]:
@@ -187,7 +199,7 @@ def load_records(bundle: Path) -> tuple[list[dict], dict]:
 
     catalogue_path = bundle / "data" / "catalogue.json"
     payload = json.loads(catalogue_path.read_text(encoding="utf-8"))
-    if payload.get("schema") != CATALOGUE_SCHEMA:
+    if payload.get("schema") not in CATALOGUE_SCHEMAS:
         raise ValueError(f"unsupported catalogue fallback: {catalogue_path}")
     records = payload.get("records")
     if not isinstance(records, list):
@@ -202,6 +214,252 @@ def load_records(bundle: Path) -> tuple[list[dict], dict]:
     }
 
 
+def explorer_ascii_collation_key(value: str) -> tuple[tuple[int, ...], tuple[int, ...]]:
+    """Return the pinned Node/ICU collation key for printable ASCII names.
+
+    Explorer v0.5.7 calls ``entry.name.localeCompare`` with the locked Node
+    runtime's default English ICU collation. Depending on operating-system
+    locale databases would make the formal verifier unavailable on standard
+    CI images. The bundle contract therefore permits printable ASCII names
+    only, and this key embeds the observed primary punctuation/digit/letter
+    weights plus the lower-before-upper tertiary case weight.
+    """
+
+    primary: list[int] = []
+    case: list[int] = []
+    for character in value:
+        if character in EXPLORER_ASCII_PUNCTUATION_WEIGHTS:
+            primary.append(EXPLORER_ASCII_PUNCTUATION_WEIGHTS[character])
+            case.append(0)
+        elif "0" <= character <= "9":
+            primary.append(
+                EXPLORER_ASCII_DIGIT_OFFSET + ord(character) - ord("0")
+            )
+            case.append(0)
+        elif "a" <= character <= "z":
+            primary.append(
+                EXPLORER_ASCII_LETTER_OFFSET + ord(character) - ord("a")
+            )
+            case.append(0)
+        elif "A" <= character <= "Z":
+            primary.append(
+                EXPLORER_ASCII_LETTER_OFFSET + ord(character) - ord("A")
+            )
+            case.append(1)
+        else:
+            raise ValueError(
+                "locked Explorer v0.5.7 tree identity accepts only printable "
+                f"ASCII path names: {value!r}"
+            )
+    return tuple(primary), tuple(case)
+
+
+def explorer_ordered_bundle_files(bundle: Path) -> list[Path]:
+    """Reproduce the locked Explorer v0.5.7 runner's recursive file order."""
+
+    files: list[Path] = []
+
+    def visit(directory: Path) -> None:
+        entries = sorted(
+            directory.iterdir(),
+            key=lambda entry: explorer_ascii_collation_key(entry.name),
+        )
+        for entry in entries:
+            if entry.is_symlink():
+                raise ValueError(f"bundle tree contains a symbolic link: {entry}")
+            if entry.is_dir():
+                visit(entry)
+            elif entry.is_file():
+                files.append(entry)
+
+    visit(bundle)
+    return files
+
+
+def bundle_tree_identity(bundle: Path) -> dict:
+    rows = []
+    total_bytes = 0
+    for path in explorer_ordered_bundle_files(bundle):
+        relative = path.relative_to(bundle).as_posix()
+        payload = path.read_bytes()
+        total_bytes += len(payload)
+        rows.append(f"{sha256_bytes(payload)}  {relative}")
+    manifest = ("\n".join(rows) + "\n").encode("utf-8")
+    return {
+        "sha256": sha256_bytes(manifest),
+        "files": len(rows),
+        "bytes": total_bytes,
+    }
+
+
+def validate_forbidden_targets(
+    questions: list[dict], records: list[dict], k: int
+) -> None:
+    available_urls = {
+        url
+        for record in records
+        for url in record_urls(record)
+    }
+    for question in questions:
+        question_id = question["id"]
+        expected_urls = {
+            canonical(source["canonical_url"])
+            for source in question.get("expected_sources", [])
+        }
+        for target in question["must_not_retrieve"]:
+            target_url = canonical(target["canonical_url"])
+            if target_url not in available_urls:
+                raise ValueError(
+                    f"{question_id}: forbidden target is absent from the candidate"
+                )
+            if target_url in expected_urls:
+                raise ValueError(
+                    f"{question_id}: forbidden target is also an expected target"
+                )
+            if target["max_rank"] > k:
+                raise ValueError(
+                    f"{question_id}: k={k} cannot execute forbidden max_rank "
+                    f"{target['max_rank']}"
+                )
+
+
+def validate_runtime_evidence(
+    manifest_path: Path,
+    receipt_path: Path,
+    questions: list[dict],
+    suite_sha256: str,
+    bundle: Path,
+) -> dict:
+    manifest_bytes = manifest_path.read_bytes()
+    manifest = json.loads(manifest_bytes)
+    if manifest.get("schema") != RUNTIME_JOURNEY_SCHEMA:
+        raise ValueError("runtime journey manifest has an unsupported schema")
+    if manifest.get("calibration_suite_sha256") != suite_sha256:
+        raise ValueError("runtime journey manifest does not match the question suite")
+    journey_rows = manifest.get("journeys")
+    if not isinstance(journey_rows, list):
+        raise ValueError("runtime journey manifest lacks journeys")
+    journeys: dict[str, list[dict]] = {}
+    journey_ids: set[str] = set()
+    for row in journey_rows:
+        if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+            raise ValueError("runtime journey manifest contains an invalid journey")
+        if row["id"] in journey_ids:
+            raise ValueError("runtime journey manifest contains a duplicate journey ID")
+        journey_ids.add(row["id"])
+        journeys.setdefault(row.get("calibration_question_id"), []).append(row)
+    question_ids = {question["id"] for question in questions}
+    if set(journeys) != question_ids:
+        raise ValueError("runtime journey coverage is not exact")
+
+    source_assertions = 0
+    caveat_assertions = 0
+    required_caveat_assertions = 0
+    for question in questions:
+        question_id = question["id"]
+        expected_sources = {
+            source["canonical_url"] for source in question["expected_sources"]
+        }
+        runtime_source_asserted = False
+        asserted_caveats: set[str] = set()
+        declared_caveats: set[str] = set()
+        for journey in journeys[question_id]:
+            source_url = journey.get("runtime_expected_source_url")
+            if source_url not in expected_sources:
+                raise ValueError(f"{question_id}: runtime source metadata differs")
+            journey_caveats = set(journey.get("required_caveat_ids", []))
+            if not journey_caveats <= set(question["required_caveat_ids"]):
+                raise ValueError(f"{question_id}: runtime caveat metadata differs")
+            declared_caveats.update(journey_caveats)
+            assertions = journey.get("assertions")
+            if not isinstance(assertions, list):
+                raise ValueError(f"{question_id}: runtime assertions are absent")
+            if not any(
+                assertion.get("type") == "attribute"
+                and assertion.get("name") == "href"
+                and assertion.get("equals") == source_url
+                for assertion in assertions
+            ):
+                raise ValueError(
+                    f"{question_id}: declared runtime source URL is not asserted"
+                )
+            runtime_source_asserted |= (
+                source_url == question["runtime_expected_source_url"]
+            )
+            asserted_caveats.update(
+                assertion.get("includes")
+                for assertion in assertions
+                if assertion.get("type") == "text"
+                and isinstance(assertion.get("includes"), str)
+                and assertion["includes"].startswith("CAV-")
+            )
+        if not runtime_source_asserted:
+            raise ValueError(f"{question_id}: canonical runtime source is not asserted")
+        source_assertions += 1
+        expected_caveats = set(question["required_caveat_ids"])
+        if (
+            declared_caveats != expected_caveats
+            or not expected_caveats <= asserted_caveats
+        ):
+            raise ValueError(f"{question_id}: required caveats are not all asserted")
+        caveat_assertions += int(bool(expected_caveats))
+        required_caveat_assertions += len(asserted_caveats & expected_caveats)
+
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    if (
+        receipt.get("schema") != RUNTIME_RECEIPT_SCHEMA
+        or receipt.get("status") != "passed"
+    ):
+        raise ValueError("runtime journey receipt is not passed")
+    receipt_manifest = receipt.get("journey_manifest")
+    if (
+        not isinstance(receipt_manifest, dict)
+        or receipt_manifest.get("sha256") != sha256_bytes(manifest_bytes)
+    ):
+        raise ValueError("runtime receipt does not bind the journey manifest")
+    receipt_bundle = receipt.get("bundle")
+    actual_tree = bundle_tree_identity(bundle)
+    if (
+        not isinstance(receipt_bundle, dict)
+        or receipt_bundle.get("tree") != actual_tree
+    ):
+        raise ValueError("runtime receipt does not bind the exact bundle tree")
+    receipt_journeys = receipt.get("journeys")
+    if not isinstance(receipt_journeys, list):
+        raise ValueError("runtime receipt lacks journey outcomes")
+    receipt_by_id = {
+        row.get("id"): row for row in receipt_journeys if isinstance(row, dict)
+    }
+    expected_journey_ids = {row["id"] for row in journey_rows}
+    if (
+        set(receipt_by_id) != expected_journey_ids
+        or len(receipt_by_id) != len(receipt_journeys)
+    ):
+        raise ValueError("runtime receipt journey coverage is not exact")
+    for journey_id, row in receipt_by_id.items():
+        if row.get("terminal", {}).get("status") != "passed":
+            raise ValueError(f"{journey_id}: runtime journey did not pass")
+
+    count = len(questions)
+    required_count = sum(
+        len(set(question["required_caveat_ids"])) for question in questions
+    )
+    return {
+        "manifest_path": str(manifest_path),
+        "manifest_sha256": sha256_bytes(manifest_bytes),
+        "receipt_path": str(receipt_path),
+        "receipt_sha256": sha256_bytes(receipt_path.read_bytes()),
+        "bundle_tree": actual_tree,
+        "journey_count": len(journey_rows),
+        "question_count": count,
+        "source_resolution_coverage": source_assertions / count if count else 0,
+        "caveat_coverage": caveat_assertions / count if count else 0,
+        "required_caveat_assertion_coverage": (
+            required_caveat_assertions / required_count if required_count else 0
+        ),
+    }
+
+
 def evaluate_questions(
     questions: list[dict], records: list[dict], contract: dict, k: int
 ) -> tuple[list[dict], dict]:
@@ -211,6 +469,11 @@ def evaluate_questions(
     all_target_questions = 0
     matched_target_count = 0
     expected_target_count = 0
+    forbidden_target_count = 0
+    forbidden_target_hits = 0
+    questions_without_forbidden_hits = 0
+    forbidden_failure_question_ids = []
+    required_caveat_assertion_count = 0
     for question in questions:
         ranked = rank(question["query"], records, contract)
         expected = {
@@ -233,6 +496,35 @@ def evaluate_questions(
         matched_target_count += len(matched_at_k)
         expected_target_count += len(expected)
         reciprocal_ranks.append(0 if first_rank is None else 1 / first_rank)
+        forbidden_hits: list[dict] = []
+        forbidden_targets = question.get("must_not_retrieve", [])
+        forbidden_target_count += len(forbidden_targets)
+        for target in forbidden_targets:
+            target_url = canonical(target["canonical_url"])
+            max_rank = int(target.get("max_rank", k))
+            matching_rank = next(
+                (
+                    index
+                    for index, record in enumerate(ranked, start=1)
+                    if index <= max_rank and target_url in record_urls(record)
+                ),
+                None,
+            )
+            if matching_rank is not None:
+                forbidden_hits.append(
+                    {
+                        "target_id": target["target_id"],
+                        "canonical_url": target_url,
+                        "rank": matching_rank,
+                        "max_rank": max_rank,
+                    }
+                )
+        forbidden_target_hits += len(forbidden_hits)
+        questions_without_forbidden_hits += int(not forbidden_hits)
+        if forbidden_hits:
+            forbidden_failure_question_ids.append(question["id"])
+        required_caveat_ids = sorted(set(question.get("required_caveat_ids", [])))
+        required_caveat_assertion_count += len(required_caveat_ids)
         rows.append(
             {
                 "question_id": question["id"],
@@ -245,6 +537,9 @@ def evaluate_questions(
                     url: target_ranks.get(url) for url in sorted(expected)
                 },
                 "matched_expected_targets": sorted(matched_at_k),
+                "must_not_retrieve_passed": not forbidden_hits,
+                "must_not_retrieve_hits": forbidden_hits,
+                "required_caveat_ids": required_caveat_ids,
                 "expected_target_recall_at_k": (
                     len(matched_at_k) / len(expected) if expected else 0
                 ),
@@ -266,6 +561,13 @@ def evaluate_questions(
             else 0
         ),
         "mean_reciprocal_rank": sum(reciprocal_ranks) / count if count else 0,
+        "must_not_retrieve_pass_rate": (
+            questions_without_forbidden_hits / count if count else 0
+        ),
+        "must_not_retrieve_target_count": forbidden_target_count,
+        "must_not_retrieve_hit_count": forbidden_target_hits,
+        "must_not_retrieve_failed_question_ids": forbidden_failure_question_ids,
+        "required_caveat_assertion_count": required_caveat_assertion_count,
         "hard_failures_evaluated": False,
     }
     return rows, metrics
@@ -296,7 +598,10 @@ def validate_acceptance_review(
             raise ValueError(f"evaluation reviewer lacks {field}")
 
     expected_by_id = {
-        question["id"]: set(question.get("hard_failure_ids", []))
+        question["id"]: {
+            "hard_failure_ids": set(question.get("hard_failure_ids", [])),
+            "required_caveat_ids": set(question.get("required_caveat_ids", [])),
+        }
         for question in questions
     }
     reviews = review.get("question_reviews")
@@ -308,7 +613,10 @@ def validate_acceptance_review(
     if set(review_by_id) != set(expected_by_id) or len(reviews) != len(review_by_id):
         raise ValueError("evaluation acceptance review question coverage is not exact")
 
-    for question_id, hard_failure_ids in expected_by_id.items():
+    source_resolution_passes = 0
+    caveat_coverage_passes = 0
+    hard_failure_count = 0
+    for question_id, expected in expected_by_id.items():
         row = review_by_id[question_id]
         for field in (
             "source_resolution",
@@ -318,10 +626,19 @@ def validate_acceptance_review(
         ):
             if row.get(field) is not True:
                 raise ValueError(f"{question_id}: {field} is not passed")
+        source_resolution_passes += int(row["source_resolution"] is True)
+        caveat_coverage_passes += int(row["caveat_coverage"] is True)
         reviewed_ids = set(row.get("hard_failure_ids_reviewed", []))
-        if reviewed_ids != hard_failure_ids:
+        if reviewed_ids != expected["hard_failure_ids"]:
             raise ValueError(f"{question_id}: hard-failure review coverage differs")
-        if row.get("hard_failures_observed") != []:
+        caveat_ids = set(row.get("required_caveat_ids_verified", []))
+        if caveat_ids != expected["required_caveat_ids"]:
+            raise ValueError(f"{question_id}: required-caveat coverage differs")
+        observed = row.get("hard_failures_observed")
+        if not isinstance(observed, list):
+            raise ValueError(f"{question_id}: hard failures are not an array")
+        hard_failure_count += len(observed)
+        if observed:
             raise ValueError(f"{question_id}: a hard failure was observed")
 
     adversarial = review.get("held_out_adversarial")
@@ -345,14 +662,80 @@ def validate_acceptance_review(
     if len(adversarial_ids) != len(adversarial):
         raise ValueError("duplicate held-out adversarial review ID")
 
+    question_count = len(review_by_id)
     return {
         "reviewer": reviewer,
-        "question_review_count": len(review_by_id),
+        "question_review_count": question_count,
         "held_out_adversarial_count": len(adversarial),
-        "source_resolution_coverage": 1.0,
-        "caveat_coverage": 1.0,
-        "hard_failure_count": 0,
+        "independent_review_source_resolution_coverage": (
+            source_resolution_passes / question_count if question_count else 0
+        ),
+        "independent_review_caveat_coverage": (
+            caveat_coverage_passes / question_count if question_count else 0
+        ),
+        "hard_failure_count": hard_failure_count,
     }
+
+
+def validate_question_contract(payload: dict) -> None:
+    if payload.get("suite_partition") != "calibration":
+        raise ValueError("question suite must declare the calibration partition")
+    caveats = payload.get("caveat_registry")
+    if not isinstance(caveats, list) or not caveats:
+        raise ValueError("question suite lacks a caveat registry")
+    caveat_ids = {
+        row.get("id")
+        for row in caveats
+        if isinstance(row, dict) and isinstance(row.get("id"), str)
+    }
+    if len(caveat_ids) != len(caveats):
+        raise ValueError("question suite has invalid or duplicate caveat IDs")
+    questions = payload.get("questions")
+    if not isinstance(questions, list) or not questions:
+        raise ValueError("question suite lacks questions")
+    for question in questions:
+        question_id = question.get("id", "unknown")
+        expected_urls = {
+            canonical(source["canonical_url"])
+            for source in question.get("expected_sources", [])
+            if isinstance(source, dict)
+            and isinstance(source.get("canonical_url"), str)
+        }
+        runtime_expected = question.get("runtime_expected_source_url")
+        if (
+            not isinstance(runtime_expected, str)
+            or canonical(runtime_expected) not in expected_urls
+        ):
+            raise ValueError(
+                f"{question_id}: runtime expected source is not a declared target"
+            )
+        required = question.get("required_caveat_ids")
+        if not isinstance(required, list) or not required or not set(required) <= caveat_ids:
+            raise ValueError(f"{question_id}: required caveat IDs are invalid")
+        forbidden = question.get("must_not_retrieve")
+        if not isinstance(forbidden, list) or not forbidden:
+            raise ValueError(f"{question_id}: executable forbidden targets are absent")
+        target_ids: set[str] = set()
+        for target in forbidden:
+            if not isinstance(target, dict):
+                raise ValueError(f"{question_id}: invalid forbidden target")
+            target_id = target.get("target_id")
+            url = target.get("canonical_url")
+            max_rank = target.get("max_rank")
+            reason = target.get("reason")
+            if (
+                not isinstance(target_id, str)
+                or not target_id
+                or target_id in target_ids
+                or not isinstance(url, str)
+                or not url.startswith("https://")
+                or not isinstance(max_rank, int)
+                or max_rank < 1
+                or not isinstance(reason, str)
+                or not reason.strip()
+            ):
+                raise ValueError(f"{question_id}: invalid forbidden target")
+            target_ids.add(target_id)
 
 
 def main() -> int:
@@ -361,13 +744,13 @@ def main() -> int:
     parser.add_argument(
         "--output", type=Path, default=ROOT / "evaluation" / "latest-report.json"
     )
-    parser.add_argument("--k", type=int, default=5)
+    parser.add_argument("--k", type=int, default=10)
     parser.add_argument(
         "--min-expected-source-success-at-k",
         "--min-recall-at-k",
         dest="min_expected_source_success_at_k",
         type=float,
-        default=0.50,
+        default=1.0,
         help=(
             "Minimum question-level source success for this retrieval diagnostic; "
             "--min-recall-at-k is retained as a compatibility alias"
@@ -376,19 +759,19 @@ def main() -> int:
     parser.add_argument(
         "--min-expected-target-recall-at-k",
         type=float,
-        default=0.0,
+        default=0.90,
         help="Minimum micro recall across distinct expected canonical target URLs.",
     )
     parser.add_argument(
         "--min-mrr",
         type=float,
-        default=0.0,
+        default=0.80,
         help="Minimum mean reciprocal rank of the first expected canonical source.",
     )
     parser.add_argument(
         "--min-all-expected-target-success-at-k",
         type=float,
-        default=0.0,
+        default=1.0,
         help=(
             "Minimum fraction of questions for which every declared expected "
             "canonical target or governed source alias is retrieved in the top k."
@@ -402,12 +785,30 @@ def main() -> int:
             "and produce a formal G5 acceptance result."
         ),
     )
+    parser.add_argument(
+        "--runtime-journeys",
+        type=Path,
+        help="Exact locked-Explorer journey manifest used for formal G5 evidence.",
+    )
+    parser.add_argument(
+        "--runtime-receipt",
+        type=Path,
+        help="Passed locked-Explorer receipt for --runtime-journeys and --bundle.",
+    )
     args = parser.parse_args()
 
     questions_path = ROOT / "evaluation" / "questions.json"
     questions_bytes = questions_path.read_bytes()
     questions = json.loads(questions_bytes)
+    try:
+        validate_question_contract(questions)
+    except ValueError as exc:
+        raise SystemExit(f"evaluation question contract failed closed: {exc}") from exc
     records, record_source = load_records(args.bundle)
+    try:
+        validate_forbidden_targets(questions["questions"], records, args.k)
+    except ValueError as exc:
+        raise SystemExit(f"evaluation question contract failed closed: {exc}") from exc
     bundle_snapshot = record_source["snapshot_id"]
     catalogue_path = args.bundle / "data" / "catalogue.json"
     if bundle_snapshot is None and catalogue_path.is_file():
@@ -429,9 +830,16 @@ def main() -> int:
         and metrics["all_expected_targets_success_at_k"]
         >= args.min_all_expected_target_success_at_k
         and metrics["mean_reciprocal_rank"] >= args.min_mrr
+        and metrics["must_not_retrieve_pass_rate"] == 1.0
     )
     acceptance = None
+    runtime_evidence = None
     if args.acceptance_review:
+        if not args.runtime_journeys or not args.runtime_receipt:
+            raise SystemExit(
+                "formal G5 acceptance requires --runtime-journeys and "
+                "--runtime-receipt from the locked Explorer"
+            )
         try:
             review_bytes = args.acceptance_review.read_bytes()
             review = json.loads(review_bytes)
@@ -441,21 +849,39 @@ def main() -> int:
                 sha256_bytes(questions_bytes),
                 bundle_release_root(args.bundle),
             )
+            runtime_evidence = validate_runtime_evidence(
+                args.runtime_journeys,
+                args.runtime_receipt,
+                questions["questions"],
+                sha256_bytes(questions_bytes),
+                args.bundle,
+            )
         except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
             raise SystemExit(f"evaluation acceptance review failed closed: {exc}") from exc
         metrics.update(
             {
                 "hard_failures_evaluated": True,
                 "hard_failure_count": acceptance["hard_failure_count"],
-                "source_resolution_coverage": acceptance[
+                "source_resolution_coverage": runtime_evidence[
                     "source_resolution_coverage"
                 ],
-                "caveat_coverage": acceptance["caveat_coverage"],
+                "caveat_coverage": runtime_evidence["caveat_coverage"],
+                "required_caveat_assertion_coverage": runtime_evidence[
+                    "required_caveat_assertion_coverage"
+                ],
             }
         )
         acceptance["review_sha256"] = sha256_bytes(review_bytes)
 
-    acceptance_met = metric_thresholds_met and acceptance is not None
+    acceptance_met = (
+        metric_thresholds_met
+        and acceptance is not None
+        and runtime_evidence is not None
+        and metrics["hard_failure_count"] == 0
+        and metrics["source_resolution_coverage"] == 1.0
+        and metrics["caveat_coverage"] == 1.0
+        and metrics["required_caveat_assertion_coverage"] == 1.0
+    )
     report = {
         "schema": (
             "okf-hmlr-evaluation-acceptance.v1"
@@ -477,6 +903,9 @@ def main() -> int:
             else "not-evaluated"
         ),
         "bundle_snapshot": bundle_snapshot,
+        "evaluation_partition": "calibration",
+        "retrieval_engine": "deterministic-lexical-calibration-baseline",
+        "public_runtime_search": False,
         "record_source": record_source,
         "question_count": len(rows),
         "k": args.k,
@@ -499,6 +928,10 @@ def main() -> int:
             "mean_reciprocal_rank": (
                 "Mean reciprocal rank of the first expected canonical source URL."
             ),
+            "must_not_retrieve_pass_rate": (
+                "Fraction of calibration questions for which no declared "
+                "forbidden canonical target appears at or above its maximum rank."
+            ),
         },
         "diagnostic_thresholds": {
             "expected_source_success_at_k": args.min_expected_source_success_at_k,
@@ -510,9 +943,11 @@ def main() -> int:
         },
         "diagnostic_threshold_met": metric_thresholds_met,
         "acceptance_review": acceptance,
+        "locked_explorer_runtime_evidence": runtime_evidence,
         "limitations": (
             [
                 "This deterministic baseline is a retrieval diagnostic only.",
+                "It is a calibration baseline, not the locked Explorer search worker.",
                 "It is not an independent G5 acceptance evaluation and cannot satisfy G5.",
                 "Reviewed expected propositions are bounded acceptance expectations, not gold answers.",
                 (

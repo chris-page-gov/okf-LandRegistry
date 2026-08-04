@@ -44,7 +44,7 @@ jobs:
       - name: Run deterministic and safety tests
         run: python -m unittest discover -s tests -v
 
-      - name: Run the independently reviewed first-release acceptance suite
+      - name: Run the v0.2.0 calibration retrieval diagnostic
         run: >-
           python scripts/evaluate.py
           --k 10
@@ -52,7 +52,6 @@ jobs:
           --min-expected-target-recall-at-k 0.90
           --min-all-expected-target-success-at-k 1.0
           --min-mrr 0.80
-          --acceptance-review evaluation/acceptance-review.json
 
       - name: Confirm committed and verified publication bytes match
         run: |
@@ -66,6 +65,7 @@ jobs:
           fi
 
       - name: Validate exact-candidate G1-G9 release evidence
+        if: github.event_name != 'pull_request'
         run: python scripts/check_release_evidence.py
 
       - name: Confirm the exact release root is approved

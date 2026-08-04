@@ -1,7 +1,8 @@
 # Sources, rights, privacy and ethics
 
-Status: approved policy for the metadata-only v0.1.0 AI-generated proof of
-concept. Exact-digest release evidence is still required. The review was
+Status: policy-reviewed for the metadata-only v0.2.0 AI-generated
+proof-of-concept candidate. Exact-digest release evidence and owner approval
+are still required. The review was
 AI-assisted and no independent human legal or licence audit has been
 completed. This document records project controls and is not legal advice.
 

@@ -1,0 +1,9 @@
+{
+  "@id": "https://example.invalid/okf-hmlr-malformed/okf-explorer.json",
+  "schema": "okf-explorer-large-corpus.v1",
+  "kind": "not-an-okf-large-corpus",
+  "version": "0.2.0-fixture",
+  "snapshot": "malformed-fixture",
+  "title": "Malformed descriptor fixture",
+  "entrypoints": {}
+}

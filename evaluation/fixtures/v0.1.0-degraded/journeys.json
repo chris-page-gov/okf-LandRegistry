@@ -1,0 +1,38 @@
+{
+  "schema": "okf-explorer-journeys.v1",
+  "bundle_descriptor": "okf-explorer.json",
+  "expected_identity": {
+    "schema": "okf-explorer-large-corpus.v1",
+    "id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+    "version": "0.1.0",
+    "snapshot": "2026-07-29T091915Z"
+  },
+  "journeys": [
+    {
+      "id": "released-v0.1.0-is-explicitly-degraded",
+      "actions": [
+        {
+          "type": "goto"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".error"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "visible",
+          "selector": ".error"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/manifest.json"
+        },
+        {
+          "type": "not_requested",
+          "includes": "/bundle/data/catalogue.json"
+        }
+      ]
+    }
+  ]
+}

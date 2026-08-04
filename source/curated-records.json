@@ -416,7 +416,7 @@
       "licence": "Open Government Licence v3.0 plus required HM Land Registry and Ordnance Survey attribution conditions",
       "cadence": "monthly, on the sixth day for the preceding month",
       "formats": ["GML"],
-      "topics": ["local-land-charges", "inspire", "polygons", "geospatial-data", "planning-conditions", "title-boundaries", "concept-differences"],
+      "topics": ["local-land-charges", "inspire", "polygon", "polygons", "indicative-polygon", "boundary", "legal", "legal-boundary", "geospatial-data", "planning-conditions", "title-boundaries", "concept-differences"],
       "publisher_last_updated": "2026-07-06",
       "observed_at": "2026-07-29T07:53:38Z",
       "caveats": [

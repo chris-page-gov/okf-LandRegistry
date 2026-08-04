@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "generated_at": "2026-07-31T21:52:47Z",
+  "limitations": [
+    "This manifest contains G1-G8 receipts only; it is not G9 owner approval.",
+    "It does not authorise deployment, publication or any public-URL claim."
+  ],
+  "receipts": [
+    {
+      "gate": "G1",
+      "path": "validation/v0.2.0-pre-g9/receipts/g1.json",
+      "sha256": "0531c3487a4473854c977292e471e87d2b94fd9e7a8e39418fd74a1029990d95"
+    },
+    {
+      "gate": "G2",
+      "path": "validation/v0.2.0-pre-g9/receipts/g2.json",
+      "sha256": "0a99cfabcc7b5aaadd921cbd6dac0bdc0286afc9dadab742b61356df9d751e72"
+    },
+    {
+      "gate": "G3",
+      "path": "validation/v0.2.0-pre-g9/receipts/g3.json",
+      "sha256": "168d418251bdc2e4d43240d95cfc7af71928b9aea2e791d196eae88eb13c9e1b"
+    },
+    {
+      "gate": "G4",
+      "path": "validation/v0.2.0-pre-g9/receipts/g4.json",
+      "sha256": "5846810cd7e1dd9969f4be1af38acb2c648ed294dc5f32d222287c46823fb2bb"
+    },
+    {
+      "gate": "G5",
+      "path": "validation/v0.2.0-pre-g9/receipts/g5.json",
+      "sha256": "4c84f1b902c36c8151fb43f615f057c9fccefbe574afa0ae80a6770978eef1a2"
+    },
+    {
+      "gate": "G6",
+      "path": "validation/v0.2.0-pre-g9/receipts/g6.json",
+      "sha256": "aa2a554fe5745f2d1e626516445415efb1fc035b65e06f0769f8d0280d087788"
+    },
+    {
+      "gate": "G7",
+      "path": "validation/v0.2.0-pre-g9/receipts/g7.json",
+      "sha256": "57fb28fe8cc78d99e495b535fea0c71e5bd6adb03045d1a12c3bddd2851691ba"
+    },
+    {
+      "gate": "G8",
+      "path": "validation/v0.2.0-pre-g9/receipts/g8.json",
+      "sha256": "117403872d62ea8cd2503245b606d0dfee16690553c8f6835d21870fdf8990ef"
+    }
+  ],
+  "schema": "okf-pre-g9-evidence-manifest.v1",
+  "status": "ready_for_owner_review"
+}

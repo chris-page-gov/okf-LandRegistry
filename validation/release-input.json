@@ -1,13 +1,13 @@
 {
   "schema": "okf-release-assembly-input.v1",
-  "generated_at": "2026-07-29T12:26:52Z",
+  "generated_at": "2026-08-04T13:35:32Z",
   "gates": {
     "G1": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:27Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
         "name": "domain-profile-validator",
-        "version": "v1-candidate-edbe2cb",
+        "version": "v0.2.0-a3e0bdf7",
         "artifact_path": "scripts/check_domain_profile.py",
         "command": [
           ".venv/bin/python",
@@ -20,11 +20,11 @@
       "checks": {
         "schema-valid": {
           "status": "pass",
-          "summary": "The pinned domain-profile schema accepts the exact candidate profile."
+          "summary": "The pinned domain-profile schema accepts the exact v0.2.0 profile."
         },
         "json-yaml-equivalent": {
           "status": "pass",
-          "summary": "JSON and YAML canonical forms are byte-equivalent after parsing."
+          "summary": "The JSON and YAML profile forms are equivalent after parsing."
         },
         "references-closed": {
           "status": "pass",
@@ -32,13 +32,15 @@
         },
         "profile-pack-rehashed": {
           "status": "pass",
-          "summary": "Every profile-pack file and the declared pack root rehash exactly."
+          "summary": "All profile-pack members and the declared pack root rehash exactly."
         }
       },
       "evidence": [
-        "validation/evidence/profile-validation.json",
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
         "domain-profile/CHECKSUMS.sha256",
-        "domain-profile/domain-profile.json"
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
       ],
       "failures": [],
       "waivers": [],
@@ -50,10 +52,10 @@
     },
     "G2": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:27Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
         "name": "frozen-snapshot-and-build-semantics-validator",
-        "version": "v1-candidate-edbe2cb",
+        "version": "v0.2.0-a3e0bdf7",
         "artifact_path": "scripts/build.py",
         "command": [
           ".venv/bin/python",
@@ -66,24 +68,26 @@
       "checks": {
         "envelopes-rehashed": {
           "status": "pass",
-          "summary": "All three frozen source envelopes match their manifest and build-receipt hashes."
+          "summary": "The 2,170 immutable source records and bounded Content API observation rehash through the composite input manifest."
         },
         "media-types-valid": {
           "status": "pass",
-          "summary": "Every request receipt records an allowed media type and successful bounded response."
+          "summary": "Every request receipt records an allowed media type and bounded successful response."
         },
         "terminal-outcomes-complete": {
           "status": "pass",
-          "summary": "GOV.UK, GitHub and CDDO lanes each have one reconciled complete terminal outcome."
+          "summary": "Every expected acquisition lane has a reconciled terminal outcome."
         },
         "omissions-explicit": {
           "status": "pass",
-          "summary": "Scope exclusions and the absence of a whole-estate denominator are explicit."
+          "summary": "Caps, omitted source layers and the bounded-coverage limitation are explicit."
         }
       },
       "evidence": [
-        "validation/evidence/acquisition-validation.json",
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "source/input-manifest-v0.2.0.json",
         "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
         "bundle/build-receipt.json"
       ],
       "failures": [],
@@ -96,43 +100,42 @@
     },
     "G3": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:25Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
         "name": "rights-safety-and-prohibited-content-validator",
-        "version": "v1-candidate-edbe2cb",
+        "version": "v0.2.0-a3e0bdf7",
         "artifact_path": "tests/test_bundle.py",
         "command": [
           ".venv/bin/python",
           "-m",
           "unittest",
-          "tests.test_bundle.BundleTests.test_forbidden_raw_content_and_secret_shapes_absent",
-          "tests.test_bundle.BundleTests.test_record_identity_urls_and_rights_are_explicit",
-          "tests.test_bundle.BundleTests.test_current_snapshot_receipts_are_rehashed_and_reconciled"
+          "tests.test_bundle"
         ]
       },
       "checks": {
         "field-inventory-reviewed": {
           "status": "pass",
-          "summary": "The exact 2,202-record public-field projection was structurally inventoried and reviewed."
+          "summary": "The exact 2,203-record metadata-only projection and its state fields were reviewed."
         },
         "rights-access-complete": {
           "status": "pass",
-          "summary": "Every record resolves to explicit access, rights, licence and assessment states."
+          "summary": "Every record resolves to explicit access, rights, licence, assessment and caveat states."
         },
         "prohibited-content-absent": {
           "status": "pass",
-          "summary": "Structural tests and targeted scans found no prohibited property-level, personal, credential or signed-download content."
+          "summary": "Tests and independent review found no property-level or personal records, credentials, signed URLs or prohibited service automation."
         },
         "independent-rights-review": {
           "status": "pass",
-          "summary": "An independent AI-agent reviewed the exact field and rights projection; no human legal or licence audit is claimed."
+          "summary": "The independent Stage 1 reviewer passed rights, access, privacy and restricted-service scope for this exact candidate; no human legal audit is claimed."
         }
       },
       "evidence": [
-        "validation/rights-safety.json",
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
         "governance/rights-review.json",
         "governance/risk-register.json",
-        "validation/evidence/independent-release-review.json"
+        "bundle/data/rights.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json"
       ],
       "failures": [],
       "waivers": [],
@@ -140,10 +143,10 @@
         "mode": "automated-agent-review",
         "reviewers": [
           {
-            "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+            "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
             "kind": "ai-agent",
-            "role": "independent-rights-reviewer",
-            "reviewed_at": "2026-07-29T12:08:25Z",
+            "role": "independent-stage1-reviewer",
+            "reviewed_at": "2026-07-30T06:36:46Z",
             "independent": true
           }
         ]
@@ -151,66 +154,67 @@
       "reviewed_checks": {
         "field-inventory-reviewed": {
           "status": "pass",
-          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
-          "completed_at": "2026-07-29T12:08:25Z",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
           "execution_mode": "document-review"
         },
         "independent-rights-review": {
           "status": "pass",
-          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
-          "completed_at": "2026-07-29T12:08:25Z",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
           "execution_mode": "automated-agent"
         },
         "prohibited-content-absent": {
           "status": "pass",
-          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
-          "completed_at": "2026-07-29T12:08:25Z",
-          "execution_mode": "automated-agent"
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
+          "execution_mode": "document-review"
         },
         "rights-access-complete": {
           "status": "pass",
-          "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
-          "completed_at": "2026-07-29T12:08:25Z",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
           "execution_mode": "document-review"
         }
       }
     },
     "G4": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:27Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
-        "name": "bundle-and-exact-root-validator",
-        "version": "v1-candidate-edbe2cb",
-        "artifact_path": "scripts/check_release_approval.py",
+        "name": "okf-data-plane-and-route-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/check_okf.py",
         "command": [
-          "OKF_RELEASE_ROOT_SHA256=a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
           ".venv/bin/python",
-          "scripts/check_release_approval.py"
+          "scripts/check_okf.py"
         ]
       },
       "checks": {
         "okf-core-valid": {
           "status": "pass",
-          "summary": "The OKF control-plane descriptor and referenced concept documents pass repository contract tests."
+          "summary": "The pinned real OKF checker reports the exact candidate conformant."
         },
         "data-plane-valid": {
           "status": "pass",
-          "summary": "The catalogue, compact search index, nine shards, rights and provenance artifacts reconcile to 2,202 records."
+          "summary": "Catalogue, JSON-LD, compact search index, shards, rights and provenance reconcile to 2,203 records."
         },
         "checksums-valid": {
           "status": "pass",
-          "summary": "All 42 governed artifact entries and release root rehash exactly."
+          "summary": "All 147 governed member entries and release root rehash exactly."
         },
         "routes-valid": {
           "status": "pass",
-          "summary": "All local HTML, manifest and descriptor routes resolve without external runtime dependencies."
+          "summary": "Local pages, manifests, descriptor routes and pinned Explorer selected-record paths resolve."
         }
       },
       "evidence": [
-        "validation/evidence/bundle-validation.json",
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
         "bundle/CHECKSUMS.sha256",
         "bundle/data/manifest.json",
-        "bundle/data/records/manifest.json"
+        "bundle/data/explorer/manifest.json",
+        "bundle/okf-bundle.jsonld",
+        "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json"
       ],
       "failures": [],
       "waivers": [],
@@ -222,10 +226,10 @@
     },
     "G5": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:13Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
-        "name": "retrieval-diagnostic-and-formal-acceptance-evaluator",
-        "version": "v1-candidate-edbe2cb",
+        "name": "retrieval-and-formal-acceptance-evaluator",
+        "version": "v0.2.0-a3e0bdf7",
         "artifact_path": "scripts/evaluate.py",
         "command": [
           ".venv/bin/python",
@@ -241,37 +245,41 @@
           "--min-mrr",
           "0.80",
           "--acceptance-review",
-          "evaluation/acceptance-review.json",
-          "--output",
-          "validation/evidence/evaluation-acceptance.json"
+          "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+          "--runtime-journeys",
+          "evaluation/explorer-search-calibration-v0.2.0.json",
+          "--runtime-receipt",
+          "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json"
         ]
       },
       "checks": {
         "independent-question-review": {
           "status": "pass",
-          "summary": "All 24 questions, eight hard-failure types and eight held-out adversarial cases received independent AI-agent review."
+          "summary": "All 24 questions and eight reviewer-owned held-out cases have an independent exact-candidate acceptance review."
         },
         "hard-failures-zero": {
           "status": "pass",
-          "summary": "The independent acceptance review and formal evaluator report zero hard failures."
+          "summary": "The independent review and formal evaluator report zero hard failures and no forbidden-target hit."
         },
         "mrr-threshold": {
           "status": "pass",
-          "summary": "Mean reciprocal rank is 0.864583 against a required minimum of 0.80."
+          "summary": "Mean reciprocal rank is 0.916667 against the required minimum 0.80."
         },
         "recall-at-10-threshold": {
           "status": "pass",
-          "summary": "Expected-target recall at 10 is 38/38 (1.0), with all-target question success of 1.0."
+          "summary": "Expected-target recall at 10 and all-target success are both 1.0."
         },
         "source-caveat-coverage": {
           "status": "pass",
-          "summary": "Independent source-resolution and caveat coverage are both 1.0."
+          "summary": "Expected-source success, source resolution and required-caveat coverage are all 1.0."
         }
       },
       "evidence": [
-        "evaluation/acceptance-review.json",
-        "evaluation/questions.json",
-        "validation/evidence/evaluation-acceptance.json"
+        "validation/candidate-v0.2.0/evidence/automated-validation.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/evaluation-acceptance-review.json",
+        "validation/reviews/passed-a3e0bdf7-portable-collation/formal-evaluation-acceptance.json",
+        "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+        "evaluation/questions.json"
       ],
       "failures": [],
       "waivers": [],
@@ -279,10 +287,10 @@
         "mode": "automated-agent-review",
         "reviewers": [
           {
-            "identity": "Codex independent source catalogue agent /root/source_catalogue",
+            "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
             "kind": "ai-agent",
             "role": "independent-evaluation-reviewer",
-            "reviewed_at": "2026-07-29T12:08:13Z",
+            "reviewed_at": "2026-07-30T06:36:46Z",
             "independent": true
           }
         ]
@@ -290,60 +298,61 @@
       "reviewed_checks": {
         "hard-failure-review": {
           "status": "pass",
-          "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
-          "completed_at": "2026-07-29T12:08:13Z",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
           "execution_mode": "document-review"
         },
         "independent-question-review": {
           "status": "pass",
-          "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
-          "completed_at": "2026-07-29T12:08:13Z",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
           "execution_mode": "automated-agent"
         },
         "source-caveat-coverage": {
           "status": "pass",
-          "reviewer_identity": "Codex independent source catalogue agent /root/source_catalogue",
-          "completed_at": "2026-07-29T12:08:13Z",
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-30T06:36:46Z",
           "execution_mode": "document-review"
         }
       }
     },
     "G6": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:17:59Z",
+      "executed_at": "2026-07-31T21:52:47Z",
       "validator": {
-        "name": "pages-browser-accessibility-security-performance-validator",
-        "version": "v1-candidate-edbe2cb",
+        "name": "browser-accessibility-security-performance-review",
+        "version": "v0.2.0-a3e0bdf7",
         "artifact_path": "tests/test_pages.py",
         "command": [
           ".venv/bin/python",
           "-m",
           "unittest",
-          "tests.test_pages",
-          "plus Playwright 1.62 and axe-core 4.12.1 exact-candidate journeys"
+          "tests.test_pages"
         ]
       },
       "checks": {
         "automated-journeys": {
           "status": "pass",
-          "summary": "Static tests, Playwright journeys and axe scans pass on the exact local candidate."
+          "summary": "The pinned Explorer passed 26 of 26 search and 6 of 6 product journeys; local pages had no console, page or request failures."
         },
         "manual-accessibility-journeys": {
           "status": "pass",
-          "summary": "Agent-assisted interactive keyboard, focus, history, no-JavaScript, contrast and 320px reflow checks pass; this is not a human audit."
+          "summary": "AI-assisted accessibility journeys and independent browser checks passed for this PoC; no human audit or WCAG conformance is claimed."
         },
         "security-critical-zero": {
           "status": "pass",
-          "summary": "No critical browser/security finding, console error, storage use, third-party runtime request or unsafe DOM sink was found."
+          "summary": "Independent bounded static and browser review found no critical security issue, external runtime dependency, secret or prohibited claim."
         },
         "performance-budgets": {
           "status": "pass",
-          "summary": "Authored shell, search-index and total-bundle byte budgets pass with lazy 24-record initial rendering."
+          "summary": "The 24,394-byte raw authored shell does not eagerly load the corpus and the pinned Explorer uses lazy shards."
         }
       },
       "evidence": [
-        "validation/evidence/browser-accessibility-security-performance.json",
-        "validation/evidence/user-facing-independent-review.json",
+        "validation/candidate-v0.2.0/evidence/local-browser-quality.json",
+        "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+        "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json",
+        "validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json",
         "docs/accessibility.md"
       ],
       "failures": [],
@@ -352,10 +361,10 @@
         "mode": "automated-agent-review",
         "reviewers": [
           {
-            "identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+            "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
             "kind": "ai-agent",
             "role": "independent-g6-reviewer",
-            "reviewed_at": "2026-07-29T12:17:59Z",
+            "reviewed_at": "2026-07-31T21:52:47Z",
             "independent": true
           }
         ]
@@ -363,43 +372,44 @@
       "reviewed_checks": {
         "accessibility-and-limitations-review": {
           "status": "pass",
-          "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
-          "completed_at": "2026-07-29T12:17:59Z",
-          "execution_mode": "document-review"
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-31T21:52:47Z",
+          "execution_mode": "interactive-browser"
         },
         "security-and-performance-review": {
           "status": "pass",
-          "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
-          "completed_at": "2026-07-29T12:17:59Z",
-          "execution_mode": "document-review"
+          "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+          "completed_at": "2026-07-31T21:52:47Z",
+          "execution_mode": "interactive-browser"
         }
       }
     },
     "G7": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:08:27Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
         "name": "offline-deterministic-builder-and-byte-comparator",
-        "version": "v1-candidate-edbe2cb",
+        "version": "v0.2.0-a3e0bdf7",
         "artifact_path": "scripts/build.py",
         "command": [
           ".venv/bin/python",
           "scripts/build.py",
-          "three exact-input builds followed by diff -qr comparisons"
+          "--output-dir",
+          "<isolated-output>/bundle"
         ]
       },
       "checks": {
         "clean-build-a": {
           "status": "pass",
-          "summary": "The first isolated output build produced release root a3c15f0e...80c3c."
+          "summary": "The first isolated offline build produced release root a3e0bdf7...a704."
         },
         "clean-build-b": {
           "status": "pass",
-          "summary": "The second isolated output build produced release root a3c15f0e...80c3c."
+          "summary": "The second isolated offline build produced release root a3e0bdf7...a704."
         },
         "byte-identical": {
           "status": "pass",
-          "summary": "The two clean bundle trees have zero byte differences."
+          "summary": "The two clean output trees have zero byte differences."
         },
         "committed-bundle-identical": {
           "status": "pass",
@@ -407,7 +417,8 @@
         }
       },
       "evidence": [
-        "validation/evidence/reproducibility.json",
+        "validation/candidate-v0.2.0/evidence/reproducibility.json",
+        "validation/candidate-v0.2.0/change-impact-final-release-review-a3e0bdf7.json",
         "bundle/build-receipt.json",
         "bundle/CHECKSUMS.sha256"
       ],
@@ -421,49 +432,47 @@
     },
     "G8": {
       "status": "pass",
-      "executed_at": "2026-07-29T12:25:32Z",
+      "executed_at": "2026-07-30T11:00:11Z",
       "validator": {
-        "name": "release-package-sbom-and-provenance-generator",
-        "version": "v1-candidate-edbe2cb",
-        "artifact_path": "scripts/create_release_metadata.py",
+        "name": "candidate-package-sbom-and-provenance-validator",
+        "version": "v0.2.0-a3e0bdf7",
+        "artifact_path": "scripts/package_release.py",
         "command": [
           ".venv/bin/python",
           "scripts/package_release.py",
+          "--output",
+          "dist/okf-landregistry-0.2.0.zip",
           "--receipt",
-          "validation/evidence/release-archive.json",
-          "then",
-          ".venv/bin/python",
-          "scripts/create_release_metadata.py",
-          "--candidate-commit-sha",
-          "edbe2cb61a3d916bc149519ad489f957c5ee3a38"
+          "validation/candidate-v0.2.0/evidence/release-candidate-archive.json"
         ]
       },
       "checks": {
         "artifact-manifest-complete": {
           "status": "pass",
-          "summary": "The deterministic archive contains all 43 candidate bundle files under a versioned prefix and rehashes."
+          "summary": "The deterministic unreleased-candidate archive contains all 148 bundle files and reproduces both governed identities."
         },
         "dependency-provenance": {
           "status": "pass",
-          "summary": "Seven Python dependencies are version/hash locked and represented in the SPDX document."
+          "summary": "Eleven Python dependencies are version and hash locked and represented in the SPDX document."
         },
         "workflow-provenance": {
           "status": "pass",
-          "summary": "All five GitHub Actions uses are pinned to full commit SHA values and recorded in provenance."
+          "summary": "The workflow uses full history, five SHA-pinned actions and the fail-closed owner release-root variable."
         },
         "sbom-recorded": {
           "status": "pass",
-          "summary": "An SPDX 2.3 SBOM records the project and seven locked dependencies."
+          "summary": "An SPDX 2.3 SBOM and deterministic provenance document bind the candidate root and archive."
         }
       },
       "evidence": [
-        "validation/evidence/supply-chain-validation.json",
-        "validation/evidence/release-archive.json",
-        "validation/evidence/sbom.spdx.json",
-        "validation/evidence/provenance.json",
-        "dist/okf-landregistry-0.1.0.zip",
+        "validation/candidate-v0.2.0/evidence/supply-chain-validation.json",
+        "validation/candidate-v0.2.0/evidence/release-candidate-archive.json",
+        "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json",
+        "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json",
+        "dist/okf-landregistry-0.2.0.zip",
         "requirements-lock.txt",
-        ".github/workflows/pages.yml"
+        ".github/workflows/pages.yml",
+        "validation/reviews/passed-a3e0bdf7-release-review/independent-release-recommendation.json"
       ],
       "failures": [],
       "waivers": [],
@@ -476,7 +485,7 @@
   },
   "release": {
     "status": "approved",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "canonical_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
     "claims_reviewed": true,
     "residual_risks_reviewed": true,
@@ -495,25 +504,27 @@
       "RISK-012",
       "RISK-013",
       "RISK-014",
-      "RISK-015"
+      "RISK-015",
+      "RISK-016",
+      "RISK-017"
     ],
     "human_audit": {
       "status": "not_completed",
       "residual_risk_id": "RISK-015",
-      "notes": "Independent AI-agent evidence review is complete, but no independent human domain, legal, licence, privacy or accessibility audit and no representative-user study was performed."
+      "notes": "Approval is limited to the explicitly labelled AI-generated proof of concept. No independent human domain, legal, licence, privacy, security or accessibility audit and no representative-user study were completed."
     },
     "owner_approval": {
       "identity": "chris-page-gov",
-      "kind": "organisation",
+      "kind": "human",
       "role": "project-owner",
-      "approved_at": "2026-07-29T12:19:07Z",
+      "approved_at": "2026-08-04T13:35:32Z",
       "approved": true
     },
     "independent_review": {
-      "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+      "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "kind": "ai-agent",
       "role": "release-reviewer",
-      "reviewed_at": "2026-07-29T12:25:44Z",
+      "reviewed_at": "2026-07-31T21:52:47Z",
       "independent": true,
       "outcome": "recommend_approval"
     }

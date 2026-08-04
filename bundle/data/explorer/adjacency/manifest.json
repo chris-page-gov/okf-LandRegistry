@@ -1,0 +1,19 @@
+{
+  "algorithm": "fnv1a32-prefix-2",
+  "buckets": {
+    "04": {
+      "bytes": 451,
+      "path": "data/explorer/adjacency/04.json",
+      "sha256": "18cee767dd38ac38e291d7ebd24ce4b32d9cc26da6d59b2a871832cf86a2e4c9"
+    },
+    "32": {
+      "bytes": 451,
+      "path": "data/explorer/adjacency/32.json",
+      "sha256": "87949d60605373c717fc4cbadcea804a5d91655b8eb7ba5af1c438f66c12c181"
+    }
+  },
+  "relationships": 1,
+  "routes": 2,
+  "schema": "okf-relationship-adjacency.v1",
+  "snapshot": "hmlr-public-metadata-v0.2.0"
+}

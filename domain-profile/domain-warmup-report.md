@@ -1,6 +1,6 @@
 # HM Land Registry domain warm-up
 
-Status: **approved profile for the v0.1.0 AI-generated PoC**
+Status: **approved profile for the v0.2.0 AI-generated PoC candidate**
 Research cut-off: **29 July 2026**
 
 ## Recommendation
@@ -116,6 +116,13 @@ resolution, primary-target MRR of at least 0.80, Recall@10 of at least 0.90
 after independent verification, and no new critical category in the second
 held-out adversarial pass.
 
+The large-corpus architecture also requires a pinned consumer contract and a
+governed artifact-dependency graph. Stage 2 must first execute a tiny bundle
+through every selected consumer, then execute the exact release candidate in
+the pinned OKF Explorer and repeat the canonical deep link after deployment.
+Impact analysis may select affected checks, but evidence is reusable only when
+all of its declared dependency roots remain byte-identical.
+
 ## Residual gaps
 
 - No global page denominator exists across all associated HMLR domains.
@@ -128,7 +135,7 @@ held-out adversarial pass.
 - Owner approval is exact-digest scoped; every later version requires a new G9
   decision.
 
-None of these prevents the clearly labelled v0.1.0 PoC. They do prevent claims
+None of these prevents the clearly labelled v0.2.0 PoC. They do prevent claims
 of full source coverage, production readiness, legal authority, bilingual
 parity, accessibility conformance or human preference.
 
@@ -143,7 +150,7 @@ are recorded as gaps instead of being silently treated as complete.
 ## Handoff
 
 The build may proceed against this approved profile because no open decision is
-marked `blocking_for_build`. Publication is limited to the exact v0.1.0 digest
-accepted by `DEC-RELEASE` and recorded in G9. The exact profile, evidence
+marked `blocking_for_build`. Publication is limited to the exact v0.2.0 digest
+accepted by the project owner and recorded in G9. The exact profile, evidence
 register, traceability and checksums—not the research transcript—are the Stage
 2 inputs.

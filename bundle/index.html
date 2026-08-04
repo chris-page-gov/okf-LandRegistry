@@ -16,7 +16,6 @@
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
     <link rel="manifest" href="./manifest.webmanifest">
-    <script src="./app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to the catalogue</a>
@@ -68,11 +67,12 @@
         </div>
         <aside class="status-card" aria-labelledby="status-title">
           <p class="status-label">Release posture</p>
-          <h2 id="status-title">Version 0.1.0 · released PoC</h2>
+          <h2 id="status-title">Version 0.2.0 · AI-generated proof of concept</h2>
           <p>
-            Approved for publication as an AI-generated proof of concept. Not
-            HM Land Registry, legal advice, proof of ownership or an
-            exact-boundary service.
+            These bytes do not assert publication approval. Check the
+            digest-bound release evidence before treating a deployment as
+            approved. This is not HM Land Registry, legal advice, proof of
+            ownership or an exact-boundary service.
           </p>
           <a href="https://www.gov.uk/government/organisations/land-registry">
             Go to HM Land Registry on GOV.UK
@@ -82,11 +82,11 @@
 
       <section class="facts" aria-label="Catalogue overview">
         <div>
-          <strong id="stat-records">—</strong>
+          <strong id="stat-records">2,203</strong>
           <span>public metadata records</span>
         </div>
         <div>
-          <strong id="stat-sources">—</strong>
+          <strong id="stat-sources">15</strong>
           <span>source families</span>
         </div>
         <div>
@@ -136,129 +136,35 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Bounded catalogue</p>
-            <h2 id="catalogue-title">Search the public estate</h2>
+            <h2 id="catalogue-title">Explore the public estate</h2>
           </div>
           <p>
-            Results are static snapshot metadata. Opening a result takes you to
-            its external source; this site never signs in or calls a restricted
-            service.
+            The pinned OKF Explorer is the sole interactive search runtime.
+            Opening a result takes you to its external source; neither this
+            site nor the Explorer signs in to a restricted service.
           </p>
         </div>
 
-        <form id="search-form" class="search-panel" role="search">
-          <div class="search-field">
-            <label for="search">Search titles, summaries, topics and caveats</label>
-            <div class="search-input-wrap">
-              <span aria-hidden="true">⌕</span>
-              <input
-                id="search"
-                name="q"
-                type="search"
-                autocomplete="off"
-                placeholder="Try “price paid”, “boundary” or “Business Gateway”"
-              >
-            </div>
-          </div>
-
-          <details class="filter-drawer" open>
-            <summary>Filter the catalogue</summary>
-            <div class="filter-grid">
-              <div>
-                <label for="filter-content-type">Content type</label>
-                <select id="filter-content-type" data-filter="content_type">
-                  <option value="">All content types</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-service">Source family / service</label>
-                <select id="filter-service" data-filter="service">
-                  <option value="">All source families</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-audience">Audience</label>
-                <select id="filter-audience" data-filter="audience">
-                  <option value="">All audiences</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-access">Access</label>
-                <select id="filter-access" data-filter="access">
-                  <option value="">All access models</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-format">Format</label>
-                <select id="filter-format" data-filter="format">
-                  <option value="">All formats</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-geography">Geography</label>
-                <select id="filter-geography" data-filter="geography">
-                  <option value="">All geographies</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-licence">Licence</label>
-                <select id="filter-licence" data-filter="licence">
-                  <option value="">All licence states</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-language">Language</label>
-                <select id="filter-language" data-filter="language">
-                  <option value="">All languages</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-update-frequency">Update frequency</label>
-                <select id="filter-update-frequency" data-filter="update_frequency">
-                  <option value="">All update frequencies</option>
-                </select>
-              </div>
-              <div>
-                <label for="filter-topic">Topic</label>
-                <select id="filter-topic" data-filter="topic">
-                  <option value="">All topics</option>
-                </select>
-              </div>
-            </div>
-          </details>
-
-          <div class="search-actions">
-            <div>
-              <label for="sort">Sort by</label>
-              <select id="sort" name="sort">
-                <option value="relevance">Relevance</option>
-                <option value="title">Title A–Z</option>
-                <option value="latest">Most recently updated</option>
-              </select>
-            </div>
-            <button id="clear-filters" class="text-button" type="button">Clear search and filters</button>
-          </div>
-        </form>
-
-        <div class="result-toolbar">
-          <p id="result-status" role="status" aria-live="polite" aria-atomic="true">
-            Loading the catalogue…
+        <div class="search-panel">
+          <p>
+            Search and filter this frozen bundle in the exact pinned Explorer,
+            or use the complete static catalogue without JavaScript.
           </p>
-          <a href="./data/catalogue.csv" download>Download metadata CSV</a>
-        </div>
-
-        <div id="results" class="results" aria-busy="true"></div>
-        <button id="load-more" class="button button-more" type="button" hidden>
-          Show more results
-        </button>
-
-        <noscript>
-          <div class="noscript">
-            JavaScript is needed for local filtering. Browse the
-            <a href="./catalogue-index.html">complete static catalogue</a>, or
-            download the metadata as <a href="./data/catalogue.json">JSON</a>
-            or <a href="./data/catalogue.csv">CSV</a>.
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://chris-page-gov.github.io/okf-explorer/?bundle=https%3A%2F%2Fchris-page-gov.github.io%2Fokf-LandRegistry%2Fokf-explorer.json"
+            >Open in OKF Explorer</a>
+            <a class="button button-quiet" href="./catalogue-index.html">
+              Browse the static catalogue
+            </a>
           </div>
-        </noscript>
+          <p>
+            Machine-readable metadata:
+            <a href="./data/catalogue.json">JSON</a> or
+            <a href="./data/catalogue.csv">CSV</a>.
+          </p>
+        </div>
       </section>
 
       <section id="method" class="method" aria-labelledby="method-title">

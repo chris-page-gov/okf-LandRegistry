@@ -6,6 +6,34 @@ will use semantic versioning where it fits the artifact lifecycle.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-29
+
+### Fixed
+
+- Replaced the incompatible large-corpus inventory entrypoint with the
+  Explorer overview, chunk, search, record-locator and relationship-adjacency
+  contracts required by the real OKF Explorer loader.
+- Added a consumer regression journey covering load, search, safety caveat,
+  deep link, resources, relationships, console output and requested resources.
+- Corrected scalar geography projection so values remain whole jurisdictions
+  rather than character fragments.
+- Corrected selected-record resource hydration in OKF Explorer.
+
+### Added
+
+- A pinned Explorer consumer lock and fail-closed compatibility validation.
+- A governed v2 record contract, source-type crosswalk, publisher registry,
+  bounded Content API translation observations and corrected JSON-LD graph.
+- A governed artifact-dependency graph and change-impact classifier mapping
+  inputs to generated planes, consumers and release gates.
+- Foundry workflow requirements for two-stage real-consumer fixtures,
+  bidirectional compatibility and post-deployment deep-link checks.
+
+### Release lineage
+
+- The unpublished v0.1.1 candidate was superseded and folded into v0.2.0. No
+  v0.1.1 tag, archive or release is created.
+
 ## [0.1.0] - 2026-07-29
 
 ### Added
@@ -41,5 +69,6 @@ will use semantic versioning where it fits the artifact lifecycle.
 - Personas and evaluation expectations are evidence-led AI-assisted
   hypotheses, not findings from representative participants.
 
-[Unreleased]: https://github.com/chris-page-gov/okf-LandRegistry/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/chris-page-gov/okf-LandRegistry/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/chris-page-gov/okf-LandRegistry/releases/tag/v0.2.0
 [0.1.0]: https://github.com/chris-page-gov/okf-LandRegistry/releases/tag/v0.1.0

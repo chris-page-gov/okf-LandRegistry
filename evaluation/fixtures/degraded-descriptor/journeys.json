@@ -1,0 +1,35 @@
+{
+  "schema": "okf-explorer-journeys.v1",
+  "bundle_descriptor": "okf-explorer.json",
+  "expected_identity": {
+    "schema": "okf-explorer-large-corpus.v1",
+    "id": "https://example.invalid/okf-hmlr-degraded/okf-explorer.json",
+    "version": "0.2.0-fixture",
+    "snapshot": "degraded-fixture"
+  },
+  "journeys": [
+    {
+      "id": "missing-manifest-is-explicitly-degraded",
+      "actions": [
+        {
+          "type": "goto"
+        },
+        {
+          "type": "wait_for",
+          "selector": "text=large-corpus descriptor has no data manifest"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "large-corpus descriptor has no data manifest"
+        },
+        {
+          "type": "not_requested",
+          "includes": "/bundle/data/"
+        }
+      ]
+    }
+  ]
+}

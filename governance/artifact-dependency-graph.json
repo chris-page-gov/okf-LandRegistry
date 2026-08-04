@@ -1,0 +1,943 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/artifact-dependency-graph.schema.json",
+  "all_release_gates": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7",
+    "G8",
+    "G9"
+  ],
+  "generated_roots": [
+    "bundle/**",
+    "dist/**",
+    "validation/**"
+  ],
+  "schema": "okf-artifact-dependency-graph.v1",
+  "stages": [
+    {
+      "description": "Reviewed Stage 1 scope, authority, evidence, standards and acceptance contract.",
+      "id": "domain-profile",
+      "inputs": [
+        "domain-profile/**",
+        "schemas/domain-profile.schema.json",
+        "scripts/check_domain_profile.py"
+      ],
+      "validation_inputs": [
+        "tests/test_domain_profile.py"
+      ],
+      "outputs": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json"
+      ],
+      "release_gates": [
+        "G1",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-003",
+        "REQ-005",
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-007",
+        "RISK-010",
+        "RISK-014",
+        "RISK-015",
+        "RISK-016",
+        "RISK-017"
+      ],
+      "stage1_review": true,
+      "test_ids": [
+        "domain-profile",
+        "bundle"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
+        "VAL-DOMAIN-PROFILE",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Bounded acquisition, frozen source envelopes, denominators and source-family controls.",
+      "id": "source-snapshot",
+      "inputs": [
+        "research/source-family-inventory.json",
+        "scripts/acquire.py",
+        "scripts/observe_govuk_content.py",
+        "source/input-manifest-v0.2.0.json",
+        "source/observations/**",
+        "source/snapshots/**",
+        "source/source-register.json"
+      ],
+      "validation_inputs": [
+        "tests/test_acquire.py",
+        "tests/test_observe_govuk_content.py"
+      ],
+      "outputs": [
+        "bundle/**",
+        "bundle/data/explorer/**"
+      ],
+      "release_gates": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-013",
+        "REQ-014",
+        "REQ-017",
+        "REQ-019"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-003",
+        "RISK-004",
+        "RISK-005",
+        "RISK-006",
+        "RISK-007",
+        "RISK-008",
+        "RISK-010",
+        "RISK-011",
+        "RISK-016"
+      ],
+      "stage1_review": true,
+      "test_ids": [
+        "acquisition",
+        "bundle",
+        "evaluation",
+        "explorer-contract"
+      ],
+      "validation_refs": [
+        "VAL-SNAPSHOT",
+        "VAL-RIGHTS",
+        "VAL-OKF",
+        "VAL-DATA-PLANE",
+        "VAL-EVALUATION",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Curated metadata and release configuration consumed by the offline deterministic build.",
+      "id": "build-inputs",
+      "inputs": [
+        "source/build-config.json",
+        "source/curated-records.json",
+        "source/jsonld-context.json",
+        "source/publisher-registry.json",
+        "source/type-kind-crosswalk.json"
+      ],
+      "validation_inputs": [
+        "tests/test_jsonld.py"
+      ],
+      "outputs": [
+        "bundle/**"
+      ],
+      "release_gates": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-003",
+        "RISK-004",
+        "RISK-006",
+        "RISK-007",
+        "RISK-008",
+        "RISK-009",
+        "RISK-010",
+        "RISK-011",
+        "RISK-014",
+        "RISK-016"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "build-semantics",
+        "bundle",
+        "evaluation",
+        "explorer-contract",
+        "jsonld",
+        "okf",
+        "pages"
+      ],
+      "validation_refs": [
+        "VAL-SNAPSHOT",
+        "VAL-RIGHTS",
+        "VAL-OKF",
+        "VAL-DATA-PLANE",
+        "VAL-EVALUATION",
+        "VAL-ACCESSIBILITY",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Monolithic deterministic generator, including OKF control/data planes and the Explorer projection.",
+      "id": "bundle-build-engine",
+      "inputs": [
+        "scripts/build.py"
+      ],
+      "validation_inputs": [
+        "tests/test_build_semantics.py",
+        "tests/test_bundle.py"
+      ],
+      "outputs": [
+        "bundle/**"
+      ],
+      "release_gates": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-015",
+        "REQ-016",
+        "REQ-017",
+        "REQ-019"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-003",
+        "RISK-004",
+        "RISK-005",
+        "RISK-006",
+        "RISK-007",
+        "RISK-008",
+        "RISK-009",
+        "RISK-010",
+        "RISK-011",
+        "RISK-012",
+        "RISK-013",
+        "RISK-016"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "build-semantics",
+        "bundle",
+        "evaluation",
+        "explorer-contract",
+        "jsonld",
+        "okf",
+        "pages"
+      ],
+      "validation_refs": [
+        "VAL-SNAPSHOT",
+        "VAL-RIGHTS",
+        "VAL-OKF",
+        "VAL-DATA-PLANE",
+        "VAL-EVALUATION",
+        "VAL-ACCESSIBILITY",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Pinned OKF Explorer consumer version, asset identity and loader compatibility contract.",
+      "id": "explorer-consumer-contract",
+      "inputs": [
+        "contracts/okf-explorer.consumer-lock.json"
+      ],
+      "validation_inputs": [
+        "tests/test_explorer_contract.py"
+      ],
+      "outputs": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json"
+      ],
+      "release_gates": [
+        "G4",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-008",
+        "REQ-009",
+        "REQ-011",
+        "REQ-013",
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019"
+      ],
+      "risk_ids": [
+        "RISK-008",
+        "RISK-010",
+        "RISK-011",
+        "RISK-014",
+        "RISK-015",
+        "RISK-016"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "bundle",
+        "explorer-contract"
+      ],
+      "validation_refs": [
+        "VAL-OKF",
+        "VAL-DATA-PLANE",
+        "VAL-ACCESSIBILITY",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Normative requirements, risks, rights, traceability and AI-usage disclosure.",
+      "id": "governance-policy",
+      "inputs": [
+        "governance/ai-model-usage.json",
+        "governance/requirements.json",
+        "governance/rights-review.json",
+        "governance/risk-register.json",
+        "governance/traceability.json"
+      ],
+      "validation_inputs": [
+        "tests/test_traceability.py"
+      ],
+      "outputs": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json",
+        "bundle/data/ai-usage.json",
+        "bundle/data/rights.json"
+      ],
+      "release_gates": [
+        "G3",
+        "G4",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-015",
+        "REQ-016",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-003",
+        "RISK-004",
+        "RISK-005",
+        "RISK-006",
+        "RISK-007",
+        "RISK-008",
+        "RISK-009",
+        "RISK-010",
+        "RISK-011",
+        "RISK-012",
+        "RISK-013",
+        "RISK-014",
+        "RISK-015",
+        "RISK-016",
+        "RISK-017"
+      ],
+      "stage1_review": true,
+      "test_ids": [
+        "build-semantics",
+        "bundle",
+        "explorer-contract",
+        "jsonld",
+        "traceability"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
+        "VAL-RIGHTS",
+        "VAL-DATA-PLANE",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Authored static site shell, no-JavaScript fallback and browser search contract.",
+      "id": "pages-presentation",
+      "inputs": [
+        "pages/**"
+      ],
+      "validation_inputs": [
+        "tests/test_pages.py"
+      ],
+      "outputs": [
+        "bundle/.nojekyll",
+        "bundle/404.html",
+        "bundle/CHECKSUMS.sha256",
+        "bundle/accessibility.html",
+        "bundle/app.js",
+        "bundle/build-receipt.json",
+        "bundle/favicon.svg",
+        "bundle/index.html",
+        "bundle/manifest.webmanifest",
+        "bundle/search-contract.json",
+        "bundle/styles.css",
+        "bundle/data/evaluation-report.json",
+        "bundle/data/search/**"
+      ],
+      "release_gates": [
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-017",
+        "REQ-019"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-006",
+        "RISK-009",
+        "RISK-010",
+        "RISK-011",
+        "RISK-012",
+        "RISK-016"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "bundle",
+        "evaluation",
+        "explorer-contract",
+        "pages"
+      ],
+      "validation_refs": [
+        "VAL-DATA-PLANE",
+        "VAL-EVALUATION",
+        "VAL-ACCESSIBILITY",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Persona, story, question, journey and deterministic evaluation contracts.",
+      "id": "evaluation-suite",
+      "inputs": [
+        "evaluation/**",
+        "personas/**",
+        "scripts/evaluate.py"
+      ],
+      "validation_inputs": [
+        "tests/test_evaluate.py",
+        "tests/test_traceability.py"
+      ],
+      "outputs": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json",
+        "bundle/data/evaluation-report.json",
+        "bundle/data/evaluation.json"
+      ],
+      "release_gates": [
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-010",
+        "REQ-014",
+        "REQ-015",
+        "REQ-016",
+        "REQ-017"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-006",
+        "RISK-013",
+        "RISK-015"
+      ],
+      "stage1_review": true,
+      "test_ids": [
+        "bundle",
+        "evaluation",
+        "traceability"
+      ],
+      "validation_refs": [
+        "VAL-EVALUATION",
+        "VAL-ACCESSIBILITY",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Release evidence assembly, exact-root approval, archive, metadata and CI deployment controls.",
+      "id": "release-assurance-tooling",
+      "inputs": [
+        ".gitignore",
+        ".github/workflows/**",
+        "pyproject.toml",
+        "requirements-dev.txt",
+        "requirements-lock.txt",
+        "schemas/release-evidence.schema.json",
+        "scripts/assemble_release_evidence.py",
+        "scripts/check_release_approval.py",
+        "scripts/check_release_evidence.py",
+        "scripts/check_okf.py",
+        "scripts/create_release_metadata.py",
+        "scripts/package_release.py"
+      ],
+      "validation_inputs": [
+        "tests/test_assemble_release_evidence.py",
+        "tests/test_package_release.py",
+        "tests/test_okf.py",
+        "tests/test_release_approval.py",
+        "tests/test_release_evidence.py",
+        "tests/test_release_metadata.py",
+        "tests/test_workflow.py"
+      ],
+      "outputs": [
+        "dist/**",
+        "validation/**"
+      ],
+      "release_gates": [
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-010",
+        "RISK-014",
+        "RISK-015",
+        "RISK-016",
+        "RISK-017"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "change-impact",
+        "explorer-contract",
+        "package-release",
+        "release-approval",
+        "release-evidence",
+        "release-metadata",
+        "workflow"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Executable change-impact policy and its schema, documentation and tests.",
+      "id": "impact-control",
+      "inputs": [
+        "governance/artifact-dependency-graph.json",
+        "schemas/artifact-dependency-graph.schema.json",
+        "scripts/change_impact.py"
+      ],
+      "validation_inputs": [
+        "tests/test_change_impact.py"
+      ],
+      "outputs": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json"
+      ],
+      "release_gates": [
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-010",
+        "RISK-014",
+        "RISK-015",
+        "RISK-017"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "change-impact"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Product, architecture, safety, maintenance and repository-facing explanatory material.",
+      "id": "documentation",
+      "inputs": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CITATION.cff",
+        "LICENSE.md",
+        "README.md",
+        "SECURITY.md",
+        "docs/**",
+        "governance/README.md",
+        "schemas/README.md",
+        "troubleshooting/**"
+      ],
+      "validation_inputs": [
+        "tests/test_links.py"
+      ],
+      "outputs": [],
+      "release_gates": [
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-003",
+        "REQ-005",
+        "REQ-010",
+        "REQ-012",
+        "REQ-014",
+        "REQ-017",
+        "REQ-018"
+      ],
+      "risk_ids": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-003",
+        "RISK-006",
+        "RISK-007",
+        "RISK-009",
+        "RISK-010",
+        "RISK-012",
+        "RISK-013",
+        "RISK-014",
+        "RISK-015"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "links"
+      ],
+      "validation_refs": []
+    }
+  ],
+  "tests": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_acquire",
+        "-v"
+      ],
+      "description": "Bounded URL, receipt and snapshot-manifest acquisition checks.",
+      "id": "acquisition",
+      "repository_paths": ["tests/test_acquire.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_build_semantics",
+        "-v"
+      ],
+      "description": "Focused normalization, search-projection and usage-ledger semantics.",
+      "id": "build-semantics",
+      "repository_paths": ["tests/test_build_semantics.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_bundle",
+        "-v"
+      ],
+      "description": "Generated bundle integrity, safety and deterministic rebuild checks.",
+      "id": "bundle",
+      "repository_paths": ["tests/test_bundle.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_change_impact",
+        "-v"
+      ],
+      "description": "Dependency-graph schema, closure and fail-closed impact checks.",
+      "id": "change-impact",
+      "repository_paths": ["tests/test_change_impact.py"]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check_domain_profile.py",
+        "domain-profile/domain-profile.json",
+        "--equivalent",
+        "domain-profile/domain-profile.yaml"
+      ],
+      "description": "Stage 1 schema, equivalence and reference closure.",
+      "id": "domain-profile",
+      "repository_paths": ["scripts/check_domain_profile.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_evaluate",
+        "-v"
+      ],
+      "description": "Retrieval, expected-target and acceptance-review behavior.",
+      "id": "evaluation",
+      "repository_paths": ["tests/test_evaluate.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_explorer_contract",
+        "-v"
+      ],
+      "description": "Pinned OKF Explorer descriptor, manifest, asset and loader compatibility.",
+      "id": "explorer-contract",
+      "repository_paths": ["tests/test_explorer_contract.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_links",
+        "-v"
+      ],
+      "description": "Local Markdown link closure.",
+      "id": "links",
+      "repository_paths": ["tests/test_links.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_jsonld",
+        "-v"
+      ],
+      "description": "Pinned-context JSON-LD expansion, catalogue ranges and semantic identity closure.",
+      "id": "jsonld",
+      "repository_paths": ["tests/test_jsonld.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_okf",
+        "-v"
+      ],
+      "description": "Pinned executable OKF v0.2 Markdown structural validation.",
+      "id": "okf",
+      "repository_paths": ["tests/test_okf.py", "scripts/check_okf.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_package_release",
+        "-v"
+      ],
+      "description": "Deterministic release archive behavior.",
+      "id": "package-release",
+      "repository_paths": ["tests/test_package_release.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_pages",
+        "-v"
+      ],
+      "description": "Static Pages semantics, progressive enhancement and local routes.",
+      "id": "pages",
+      "repository_paths": ["tests/test_pages.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_release_approval",
+        "-v"
+      ],
+      "description": "Exact release-root approval checks.",
+      "id": "release-approval",
+      "repository_paths": ["tests/test_release_approval.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_assemble_release_evidence",
+        "tests.test_release_evidence",
+        "-v"
+      ],
+      "description": "Release evidence assembly and exact-candidate validation.",
+      "id": "release-evidence",
+      "repository_paths": [
+        "tests/test_assemble_release_evidence.py",
+        "tests/test_release_evidence.py"
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_release_metadata",
+        "-v"
+      ],
+      "description": "SBOM and provenance metadata generation.",
+      "id": "release-metadata",
+      "repository_paths": ["tests/test_release_metadata.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_traceability",
+        "-v"
+      ],
+      "description": "Question, story, persona and journey reference closure.",
+      "id": "traceability",
+      "repository_paths": ["tests/test_traceability.py"]
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_workflow",
+        "-v"
+      ],
+      "description": "Pinned workflow and Pages publication controls.",
+      "id": "workflow",
+      "repository_paths": ["tests/test_workflow.py"]
+    }
+  ],
+  "unknown_change_policy": "all-gates-and-manual-review",
+  "validation_gate_map": {
+    "VAL-ACCESSIBILITY": ["G6"],
+    "VAL-CHANGE-IMPACT": ["G7"],
+    "VAL-DATA-PLANE": ["G4"],
+    "VAL-DOMAIN-PROFILE": ["G1"],
+    "VAL-EVALUATION": ["G5"],
+    "VAL-EXPLORER-CONSUMER": ["G4", "G6"],
+    "VAL-OKF": ["G4"],
+    "VAL-REPRODUCIBILITY": ["G7"],
+    "VAL-RIGHTS": ["G3"],
+    "VAL-SNAPSHOT": ["G2"]
+  },
+  "version": "1.0.0"
+}

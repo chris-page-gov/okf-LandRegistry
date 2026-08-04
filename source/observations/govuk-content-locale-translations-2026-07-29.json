@@ -1,0 +1,56 @@
+{
+  "body_retained": false,
+  "contacts_retained": false,
+  "details_retained": false,
+  "observations": [
+    {
+      "api_url": "https://www.gov.uk/api/content/government/publications/land-registry-welsh-glossary-of-legal-terms",
+      "final_url": "https://www.gov.uk/api/content/government/publications/land-registry-welsh-glossary-of-legal-terms",
+      "http_status": 200,
+      "metadata": {
+        "available_translations": [
+          {
+            "base_path": "/government/publications/land-registry-welsh-glossary-of-legal-terms.cy",
+            "content_id": "4a43de8b-16c6-4a80-aedd-7a72786a29eb",
+            "document_type": "guidance",
+            "locale": "cy",
+            "public_updated_at": "2016-04-04T23:00:00Z",
+            "schema_name": "publication",
+            "title": "Geirfa o dermau cyfreithiol Cofrestrfa Tir EF",
+            "web_url": "https://www.gov.uk/government/publications/land-registry-welsh-glossary-of-legal-terms.cy"
+          },
+          {
+            "base_path": "/government/publications/land-registry-welsh-glossary-of-legal-terms",
+            "content_id": "4a43de8b-16c6-4a80-aedd-7a72786a29eb",
+            "document_type": "guidance",
+            "locale": "en",
+            "public_updated_at": "2016-04-04T23:00:00Z",
+            "schema_name": "publication",
+            "title": "HM Land Registry Welsh glossary of legal terms",
+            "web_url": "https://www.gov.uk/government/publications/land-registry-welsh-glossary-of-legal-terms"
+          }
+        ],
+        "base_path": "/government/publications/land-registry-welsh-glossary-of-legal-terms",
+        "content_id": "4a43de8b-16c6-4a80-aedd-7a72786a29eb",
+        "document_type": "guidance",
+        "locale": "en",
+        "public_updated_at": "2016-04-05T00:00:00+01:00",
+        "schema_name": "publication",
+        "title": "HM Land Registry Welsh glossary of legal terms",
+        "web_url": "https://www.gov.uk/government/publications/land-registry-welsh-glossary-of-legal-terms",
+        "withdrawn": false
+      },
+      "response_bytes": 13077,
+      "response_sha256": "b6392d38d929b51e8474bc271671968b0b91e2133cfe01d5d7292bba52e72ecd"
+    }
+  ],
+  "observed_at": "2026-07-29T18:00:00Z",
+  "schema": "okf-hmlr-govuk-content-observation.v1",
+  "scope": "locale-and-available-translations-only",
+  "terminal_outcome": {
+    "failed": 0,
+    "requested": 1,
+    "status": "complete",
+    "succeeded": 1
+  }
+}

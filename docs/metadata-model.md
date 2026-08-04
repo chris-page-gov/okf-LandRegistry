@@ -1,6 +1,6 @@
 # Metadata model
 
-Status: v0.1.0 PoC model. Source-native semantics remain authoritative.
+Status: v0.2.0 PoC candidate model. Source-native semantics remain authoritative.
 
 ## Design rules
 

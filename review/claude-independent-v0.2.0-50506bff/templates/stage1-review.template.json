@@ -1,0 +1,68 @@
+{
+  "schema": "okf-hmlr-stage1-independent-review.v1",
+  "status": "not_reviewed",
+  "outcome": "not_reviewed",
+  "candidate_git_commit": "099c8ebcc884073df1f81d3b0c49e63a6318b235",
+  "bundle_release_root_sha256": "50506bff278625e98814548221d5f3ea6e75e19dec2947fed71b0db6ed3325a6",
+  "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+  "reviewer": {
+    "identity": null,
+    "role": "independent-stage1-reviewer",
+    "kind": "AI-agent",
+    "reviewed_at": null,
+    "independent": null,
+    "scope_separation": null
+  },
+  "scope_reviews": {
+    "scope_audiences_and_coverage": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "sources_and_authority": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "rights_access_privacy_and_restricted_services": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "personas_tasks_caveats_and_hard_failures": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "record_identity_state_and_semantic_model": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "consumer_lock_and_compatibility_window": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "dependency_graph_and_release_process": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "public_claims_and_prohibited_claims": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "prior_finding_closure": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "limitations_and_residual_gaps": {
+      "status": "not_reviewed",
+      "finding": null
+    },
+    "material_change_required": {
+      "status": "not_reviewed",
+      "required": null,
+      "finding": null
+    }
+  },
+  "blocking_findings": [],
+  "warnings": [],
+  "required_changes": [],
+  "limitations": [],
+  "summary": null
+}

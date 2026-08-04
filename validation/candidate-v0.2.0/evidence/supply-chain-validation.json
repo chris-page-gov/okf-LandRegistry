@@ -1,0 +1,48 @@
+{
+  "archive": {
+    "bytes": 2133201,
+    "file_count": 148,
+    "first_sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d",
+    "path": "dist/okf-landregistry-0.2.0.zip",
+    "publication_state": "unreleased-candidate",
+    "receipt": "validation/candidate-v0.2.0/evidence/release-candidate-archive.json",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "second_sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d",
+    "status": "byte-identical"
+  },
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+  },
+  "checks": {
+    "artifact-manifest-complete": "pass",
+    "dependency-provenance": "pass",
+    "sbom-recorded": "pass",
+    "workflow-provenance": "pass"
+  },
+  "dependency_lock": {
+    "hash_enforced": true,
+    "package_count": 11,
+    "path": "requirements-lock.txt",
+    "sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2"
+  },
+  "executed_at": "2026-07-30T11:00:11Z",
+  "provenance": {
+    "path": "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json",
+    "sha256": "d127b9a7692c63b90aba02c7047c20dd3bba04745c9e6f057c1d413d645a5b83"
+  },
+  "sbom": {
+    "format": "SPDX-2.3",
+    "path": "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json",
+    "sha256": "33a632f32d960869c111e88b931e8e40695014385918cbca9f10a1e1fc10714a"
+  },
+  "schema": "okf-hmlr-v0.2.0-supply-chain-validation-evidence.v1",
+  "status": "pass",
+  "workflow": {
+    "full_history_checkout": true,
+    "path": ".github/workflows/pages.yml",
+    "sha256": "1ad10b94ead66f776ce675246945459da42d2f163ad9ad751e51d1e32413bf5d",
+    "sha_pinned_actions": 5,
+    "unversioned_actions": 0
+  }
+}

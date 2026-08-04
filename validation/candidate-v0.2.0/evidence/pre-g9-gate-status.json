@@ -1,0 +1,52 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704"
+  },
+  "gates": {
+    "G1": {
+      "status": "receipt_assembled"
+    },
+    "G2": {
+      "status": "receipt_assembled"
+    },
+    "G3": {
+      "independent_review": "stage1-review.json rights_access_privacy_and_restricted_services",
+      "status": "receipt_assembled"
+    },
+    "G4": {
+      "status": "receipt_assembled"
+    },
+    "G5": {
+      "independent_review": "evaluation-acceptance-review.json",
+      "status": "receipt_assembled"
+    },
+    "G6": {
+      "independent_review": "validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json",
+      "status": "receipt_assembled"
+    },
+    "G7": {
+      "status": "receipt_assembled"
+    },
+    "G8": {
+      "status": "receipt_assembled"
+    },
+    "G9": {
+      "blockers": [
+        "Project owner Chris Page-PoC has not made the exact digest-bound decision."
+      ],
+      "prerequisites": {
+        "g1_g8_receipt_index": "validation/v0.2.0-pre-g9/pre-g9-evidence.json",
+        "independent_release_recommendation": "validation/reviews/passed-a3e0bdf7-release-review/independent-release-recommendation.json"
+      },
+      "status": "ready_for_owner_review"
+    }
+  },
+  "generated_at": "2026-07-31T21:52:47Z",
+  "notes": [
+    "This is a status index, not a gate receipt or approval.",
+    "The canonical v0.1.0 receipts remain immutable and are not reused for v0.2.0.",
+    "No public URL has been deployed or verified."
+  ],
+  "schema": "okf-hmlr-v0.2.0-pre-g9-gate-status.v1"
+}

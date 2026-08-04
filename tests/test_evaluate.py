@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,124 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class EvaluateTests(unittest.TestCase):
+    def test_runtime_tree_identity_matches_pinned_explorer_receipt(self) -> None:
+        receipt = json.loads(
+            (
+                ROOT
+                / "validation"
+                / "candidate-v0.2.0"
+                / "explorer-search-runtime-portable-collation-a3e0bdf7.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            receipt["bundle"]["tree"],
+            evaluate.bundle_tree_identity(ROOT / "bundle"),
+        )
+
+    def test_runtime_tree_identity_uses_locked_explorer_collation(self) -> None:
+        with tempfile.TemporaryDirectory(prefix=".test-tree-", dir=ROOT) as name:
+            bundle = Path(name)
+            ordered_names = [
+                "access_state.json",
+                "access.json",
+                "catalogue-index.html",
+                "CHECKSUMS.sha256",
+            ]
+            for filename in reversed(ordered_names):
+                (bundle / filename).write_text(filename, encoding="utf-8")
+            rows = [
+                (
+                    f"{hashlib.sha256(filename.encode()).hexdigest()}  "
+                    f"{filename}"
+                )
+                for filename in ordered_names
+            ]
+            expected = hashlib.sha256(
+                ("\n".join(rows) + "\n").encode()
+            ).hexdigest()
+            self.assertEqual(
+                expected,
+                evaluate.bundle_tree_identity(bundle)["sha256"],
+            )
+            self.assertEqual(
+                ordered_names,
+                sorted(
+                    ordered_names,
+                    key=evaluate.explorer_ascii_collation_key,
+                ),
+            )
+
+    def test_runtime_tree_collation_is_portable_and_fail_closed(self) -> None:
+        node_ascii_order = (
+            " _-,;:!?." + "'\"" + "()[]{}@*/\\&#%`^+<=>|~$"
+            + "0123456789"
+            + "".join(
+                character + character.upper()
+                for character in "abcdefghijklmnopqrstuvwxyz"
+            )
+        )
+        self.assertEqual(
+            list(node_ascii_order),
+            sorted(
+                node_ascii_order,
+                key=evaluate.explorer_ascii_collation_key,
+            ),
+        )
+        with self.assertRaisesRegex(ValueError, "printable ASCII"):
+            evaluate.explorer_ascii_collation_key("café.json")
+
+    def test_locked_worker_calibration_manifest_covers_question_suite(self) -> None:
+        questions_path = ROOT / "evaluation" / "questions.json"
+        questions_bytes = questions_path.read_bytes()
+        questions = json.loads(questions_bytes)
+        runtime = json.loads(
+            (ROOT / "evaluation" / "explorer-search-calibration-v0.2.0.json")
+            .read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            hashlib.sha256(questions_bytes).hexdigest(),
+            runtime["calibration_suite_sha256"],
+        )
+        self.assertEqual(
+            {question["id"] for question in questions["questions"]},
+            {journey["calibration_question_id"] for journey in runtime["journeys"]},
+        )
+        self.assertEqual(26, len(runtime["journeys"]))
+        question_by_id = {
+            question["id"]: question for question in questions["questions"]
+        }
+        for journey in runtime["journeys"]:
+            question = question_by_id[journey["calibration_question_id"]]
+            assertions = journey["assertions"]
+            expected_urls = {
+                source["canonical_url"]
+                for source in question["expected_sources"]
+            }
+            self.assertIn(journey["runtime_expected_source_url"], expected_urls)
+            self.assertTrue(
+                any(
+                    assertion.get("type") == "attribute"
+                    and assertion.get("name") == "href"
+                    and assertion.get("equals")
+                    == journey["runtime_expected_source_url"]
+                    for assertion in assertions
+                )
+            )
+            asserted_caveats = {
+                assertion.get("includes")
+                for assertion in assertions
+                if assertion.get("type") == "text"
+            }
+            self.assertLessEqual(set(journey["required_caveat_ids"]), asserted_caveats)
+        for question in questions["questions"]:
+            declared = {
+                caveat_id
+                for journey in runtime["journeys"]
+                if journey["calibration_question_id"] == question["id"]
+                for caveat_id in journey["required_caveat_ids"]
+            }
+            self.assertEqual(set(question["required_caveat_ids"]), declared)
+
     def test_canonical_removes_fragment_before_trailing_slash(self) -> None:
         self.assertEqual(
             "https://example.test/guide",
@@ -179,11 +298,73 @@ class EvaluateTests(unittest.TestCase):
         ranked = evaluate.rank("local land charges automation", records, contract)
         self.assertEqual(["specific"], [record["id"] for record in ranked])
 
+    def test_forbidden_targets_are_executable_negative_assertions(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        records = [
+            {
+                "id": "wrong-jurisdiction",
+                "title": "Property register",
+                "url": "https://www.ros.gov.uk/",
+                "curation": "source-native",
+                "heading_tokens": ["property", "register"],
+                "body_tokens": [],
+            }
+        ]
+        questions = [
+            {
+                "id": "q-negative",
+                "query": "property register",
+                "expected_sources": [],
+                "required_caveat_ids": ["CAV-BOUNDED-COVERAGE"],
+                "must_not_retrieve": [
+                    {
+                        "target_id": "NEG-CROSS-JURISDICTION",
+                        "canonical_url": "https://www.ros.gov.uk/",
+                        "max_rank": 5,
+                    }
+                ],
+            }
+        ]
+        rows, metrics = evaluate.evaluate_questions(questions, records, contract, 5)
+        self.assertFalse(rows[0]["must_not_retrieve_passed"])
+        self.assertEqual(1, rows[0]["must_not_retrieve_hits"][0]["rank"])
+        self.assertEqual(1, metrics["must_not_retrieve_hit_count"])
+        self.assertEqual(0.0, metrics["must_not_retrieve_pass_rate"])
+
+    def test_question_contract_requires_caveats_and_forbidden_targets(self) -> None:
+        payload = {
+            "suite_partition": "calibration",
+            "caveat_registry": [{"id": "CAV-ONE", "text": "One"}],
+            "questions": [
+                {
+                    "id": "Q1",
+                    "expected_sources": [
+                        {"canonical_url": "https://example.test/right"}
+                    ],
+                    "runtime_expected_source_url": "https://example.test/right",
+                    "required_caveat_ids": ["CAV-ONE"],
+                    "must_not_retrieve": [
+                        {
+                            "target_id": "NEG-ONE",
+                            "canonical_url": "https://example.test/wrong",
+                            "max_rank": 5,
+                            "reason": "A bounded executable near miss.",
+                        }
+                    ],
+                }
+            ],
+        }
+        evaluate.validate_question_contract(payload)
+        payload["questions"][0]["must_not_retrieve"] = []
+        with self.assertRaisesRegex(ValueError, "forbidden targets"):
+            evaluate.validate_question_contract(payload)
+
     def test_acceptance_review_requires_exact_independent_coverage(self) -> None:
         questions = [
             {
                 "id": "Q1",
                 "hard_failure_ids": ["HF-AUTHORITY", "HF-COVERAGE"],
+                "required_caveat_ids": ["CAV-AUTHORITY"],
             }
         ]
         review = {
@@ -208,6 +389,7 @@ class EvaluateTests(unittest.TestCase):
                         "HF-AUTHORITY",
                         "HF-COVERAGE",
                     ],
+                    "required_caveat_ids_verified": ["CAV-AUTHORITY"],
                     "hard_failures_observed": [],
                 }
             ],
@@ -227,13 +409,117 @@ class EvaluateTests(unittest.TestCase):
             review, questions, "a" * 64, "b" * 64
         )
         self.assertEqual(0, result["hard_failure_count"])
-        self.assertEqual(1.0, result["caveat_coverage"])
+        self.assertEqual(
+            1.0, result["independent_review_caveat_coverage"]
+        )
+        self.assertEqual(
+            1.0, result["independent_review_source_resolution_coverage"]
+        )
 
         review["question_reviews"][0]["hard_failures_observed"] = ["HF-COVERAGE"]
         with self.assertRaisesRegex(ValueError, "hard failure was observed"):
             evaluate.validate_acceptance_review(
                 review, questions, "a" * 64, "b" * 64
             )
+
+    def test_forbidden_targets_must_exist_in_candidate_and_fit_k(self) -> None:
+        questions = [
+            {
+                "id": "Q1",
+                "expected_sources": [
+                    {"canonical_url": "https://example.test/right"}
+                ],
+                "must_not_retrieve": [
+                    {
+                        "target_id": "NEG-ONE",
+                        "canonical_url": "https://example.test/wrong",
+                        "max_rank": 5,
+                    }
+                ],
+            }
+        ]
+        records = [
+            {
+                "url": "https://example.test/right",
+                "equivalent_urls": [],
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "absent from the candidate"):
+            evaluate.validate_forbidden_targets(questions, records, 10)
+        records.append(
+            {
+                "url": "https://example.test/wrong",
+                "equivalent_urls": [],
+            }
+        )
+        evaluate.validate_forbidden_targets(questions, records, 10)
+        with self.assertRaisesRegex(ValueError, "cannot execute"):
+            evaluate.validate_forbidden_targets(questions, records, 4)
+
+    def test_runtime_evidence_measures_source_and_caveat_assertions(self) -> None:
+        questions = [
+            {
+                "id": "Q1",
+                "runtime_expected_source_url": "https://example.test/right",
+                "expected_sources": [
+                    {"canonical_url": "https://example.test/right"}
+                ],
+                "required_caveat_ids": ["CAV-ONE"],
+            }
+        ]
+        with tempfile.TemporaryDirectory(prefix=".test-runtime-", dir=ROOT) as name:
+            root = Path(name)
+            bundle = root / "bundle"
+            bundle.mkdir()
+            (bundle / "okf-explorer.json").write_text("{}\n", encoding="utf-8")
+            manifest = {
+                "schema": evaluate.RUNTIME_JOURNEY_SCHEMA,
+                "calibration_suite_sha256": "a" * 64,
+                "journeys": [
+                    {
+                        "id": "q1",
+                        "calibration_question_id": "Q1",
+                        "runtime_expected_source_url": "https://example.test/right",
+                        "required_caveat_ids": ["CAV-ONE"],
+                        "assertions": [
+                            {
+                                "type": "attribute",
+                                "name": "href",
+                                "equals": "https://example.test/right",
+                            },
+                            {"type": "text", "includes": "CAV-ONE"},
+                        ],
+                    }
+                ],
+            }
+            manifest_path = root / "journeys.json"
+            manifest_path.write_text(
+                json.dumps(manifest, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            receipt = {
+                "schema": evaluate.RUNTIME_RECEIPT_SCHEMA,
+                "status": "passed",
+                "journey_manifest": {
+                    "sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+                },
+                "bundle": {"tree": evaluate.bundle_tree_identity(bundle)},
+                "journeys": [
+                    {"id": "q1", "terminal": {"status": "passed"}}
+                ],
+            }
+            receipt_path = root / "receipt.json"
+            receipt_path.write_text(
+                json.dumps(receipt, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            result = evaluate.validate_runtime_evidence(
+                manifest_path,
+                receipt_path,
+                questions,
+                "a" * 64,
+                bundle,
+            )
+        self.assertEqual(1.0, result["source_resolution_coverage"])
+        self.assertEqual(1.0, result["required_caveat_assertion_coverage"])
 
 
 if __name__ == "__main__":

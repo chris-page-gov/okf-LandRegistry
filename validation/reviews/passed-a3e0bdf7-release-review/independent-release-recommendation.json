@@ -1,0 +1,92 @@
+{
+  "schema": "okf-hmlr-independent-release-recommendation.v1",
+  "candidate": {
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "archive_sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d"
+  },
+  "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
+  "kind": "ai-agent",
+  "role": "release-reviewer",
+  "reviewed_at": "2026-07-31T21:52:47Z",
+  "independent": true,
+  "outcome": "recommend_approval",
+  "identity_preflight": {
+    "status": "pass",
+    "manifest_files_rehashed": "34 of 34 OK",
+    "release_root_independently_derived": "a3e0bdf7... over 147 members (bytewise, excl CHECKSUMS.sha256)",
+    "consumer_tree_independently_derived": "09ad960c... over 148 files (Node ASCII collation) from the extracted archive",
+    "archive_verified": "7f92e51c...; 148 files reproduce both the release root and the consumer tree",
+    "no_v0_1_0_reuse": "No v0.1.0 receipt is reused as v0.2.0 evidence. The only occurrence of the string in the evidence set is pre-g9-gate-status.json's note that the v0.1.0 receipts remain immutable and are NOT reused. All G1-G5 automated evidence and the adopted reviews bind commit 40482c8 / root a3e0bdf7."
+  },
+  "gate_findings": {
+    "G1": {
+      "status": "pass",
+      "finding": "VAL-DOMAIN-PROFILE exact-candidate evidence: check_domain_profile.py reports schema-valid, JSON/YAML equivalent, references closed and the profile pack rehashes to root 47f0a5c1... The adopted Stage 1 decision also passed the discovery-profile scope for this exact candidate. Independently corroborated: the domain-profile CHECKSUMS.sha256 rehashes to the manifest value 4dd7c27b... and all six profile members verify."
+    },
+    "G2": {
+      "status": "pass",
+      "finding": "VAL-SNAPSHOT exact-candidate evidence: the 2,170 immutable acquired records and the bounded Content API observation rehash through the composite input manifest (source/input-manifest-v0.2.0.json, verified sha256 f4c30b27...); request receipts, media types, terminal outcomes, caps and omitted source layers are explicit; no live source was fetched during validation. Denominator reconciliation is sound (independently confirmed in the adopted Stage 1: 1,842 + 24 merges = 1,866 = DEN-GOVUK; 2,227 - 24 = 2,203 retained, 0 errors, 0 excluded)."
+    },
+    "G3": {
+      "status": "pass",
+      "finding": "VAL-RIGHTS exact-candidate evidence: all 2,203 records carry explicit access, rights, rights_ref, caveat and evidence fields; the candidate-scoped rights review (governance/rights-review.json, review_state policy-reviewed-for-v0.2.0-candidate, release_approved false) and the independent Stage 1 rights/access/privacy/restricted-service scope both pass with no blocking finding and zero prohibited content, secrets, signed URLs or personal-level records. The previously-flagged 15 Business Gateway endpoints are corrected to approved-professional-users / restricted-service / RIGHT-RESTRICTED with anti-automation caveats. This is not a human legal, licence, privacy or security audit (RISK-015)."
+    },
+    "G4": {
+      "status": "pass",
+      "finding": "VAL-OKF, VAL-DATA-PLANE and VAL-EXPLORER-CONSUMER exact-candidate evidence: check_okf.py reports conformant; 137 of 137 tests pass with 0 failures; JSON-LD graph references valid; record_count 2,203; checksums, manifest, explorer manifest and routes valid; and the pinned Explorer loads the descriptor, indexes and selected records (search 26/26, product 6/6). Independently corroborated: all 147 bundle members rehash OK and the consumer tree reproduces 09ad960c..."
+    },
+    "G5": {
+      "status": "pass",
+      "finding": "VAL-EVALUATION exact-candidate evidence with independent review: the adopted G5 acceptance review (24 distinct question reviews, 8 held-out adversarial cases, 0 hard failures) and the formal evaluator report bind this candidate. This reviewer independently executed the formal gate last round with the governed thresholds and it exited zero with g5_acceptance pass (MRR 0.9167 >= 0.80, expected-source success 1.00, target recall 1.00 >= 0.90, all-target 1.00, source and caveat coverage 1.00, zero must_not_retrieve violations). The adopted G5 file digest 1fd52653... equals the review_sha256 recorded by this reviewer's own formal gate, confirming continuity."
+    },
+    "G6": {
+      "status": "pass",
+      "finding": "This reviewer's own independent G6 decision (g6-independent-review-v0.2.0-a3e0bdf7.json) passes all four required checks: automated-journeys (26/26 search, 6/6 product), manual-accessibility-journeys (AI-assisted, no conformance claim; axe-core 4.12.1 reproduced 0 violations / 1 benign color-contrast incomplete that this reviewer examined and cleared with measured contrast of 16.56:1 and 10.31:1), security-critical-zero (strict CSP, no external dependencies, no secrets, no prohibited claims), and performance-budgets (bounded lazy 24,394-byte shell, no eager whole-corpus payload). No blocking finding."
+    },
+    "G7": {
+      "status": "pass",
+      "finding": "VAL-REPRODUCIBILITY and VAL-CHANGE-IMPACT exact-candidate evidence: two clean builds A and B are byte-identical to each other and to the committed bundle (0 differences), network_access_during_build is false, and both reproduce release root a3e0bdf7... The change-impact report (change-impact-final-assurance-cda70f6.json) reconciles the 23 changed paths as review/evidence, candidate-packaging tooling, documentation and tests with 0 unexplained generated paths and no governed bundle or profile path in the change set. This reviewer independently corroborated determinism by reproducing both the release root (147 members) and the consumer tree (148 files) from the digest-verified archive; this reviewer did not itself re-execute two builds (see limitations)."
+    },
+    "G8": {
+      "status": "pass",
+      "finding": "Package-integrity exact-candidate evidence: the release manifest, SPDX-2.3 SBOM (12 packages), SLSA-style provenance (offline deterministic build, builder script hash recorded, AI disclosure present) and checksums are all digest-bound to root a3e0bdf7...; the dependency lock enforces 11 hashed packages; the workflow uses a full-history checkout with 5 SHA-pinned actions and 0 unversioned actions. This reviewer independently verified the release-candidate archive rehashes to 7f92e51c... (byte-identical first==second) with publication_state 'unreleased-candidate', and that its 148 files reproduce both governed digests. The archive is deliberately an unreleased candidate: G8 binds it before G9 while publication authority stays in external owner evidence."
+    }
+  },
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "id": "REC-W-001",
+      "title": "All assurance in this recommendation is AI-agent or automated, not human",
+      "detail": "Every gate finding rests on deterministic tooling, the pinned-Explorer runtime, or this AI reviewer's own checks. No independent human legal, licence, privacy, security, accessibility or domain audit exists, and no representative-user or participant research has been done. This is disclosed throughout the candidate and tracked as RISK-015 (accepted-gap) and GAP-HUMAN-RESEARCH. It is appropriate for an explicitly labelled AI-generated proof of concept and must not be read as human assurance."
+    },
+    {
+      "id": "REC-W-002",
+      "title": "Carried-forward evaluation-apparatus warnings remain applicable",
+      "detail": "The adopted Stage 1 and G5 decisions record two non-blocking warnings that remain true: the 24 negative-control maximum ranks appear fitted to each target's observed rank rather than derived from an independent rationale (20 of 24 sit at observed-rank-minus-one, and three negatives never rank so cannot fire), and 32 of 48 required caveat assertions use caveat IDs that are declared on every record. Both are control-quality weaknesses in the evaluation harness, are materially mitigated (each runtime journey independently asserts the expected canonical source URL), make no claim untrue and block nothing. They should be strengthened before this suite is relied on as a regression barrier for a later release."
+    },
+    {
+      "id": "REC-W-003",
+      "title": "G7 corroborated by digest reproduction, not by independent build re-execution",
+      "detail": "This reviewer did not re-run the two clean builds itself; the deterministic-build claim was corroborated by independently reproducing the release root and consumer tree from the digest-verified archive and by reviewing the byte-identical A/B build evidence and the reconciled change-impact report. A fully independent reproducibility check would re-execute scripts/build.py from the frozen inputs, which this review did not do."
+    }
+  ],
+  "limitations": [
+    "This is an AI-agent release recommendation, not a decision. It recommends; it does not approve. Land Registry G9 and publication authority belong solely to the project owner (Chris Page-PoC), who has not made the exact digest-bound decision.",
+    "It is not independent human legal, licence, privacy, security, accessibility or domain assurance, and not participant research. RISK-015 remains an accepted residual risk.",
+    "No public URL was deployed, visited or verified. Browser evidence used a local loopback serve of the digest-verified candidate archive. No RC deployment, public-URL browser verification or byte-identical final promotion has occurred; those steps follow G9 and are outside this review.",
+    "The deterministic archive is an unreleased candidate archive (publication_state unreleased-candidate); binding it at G8 is not publication.",
+    "This reviewer set no deployment variable (the workflow gates deployment on an owner-set OKF_RELEASE_ROOT_SHA256 repository variable, which this reviewer must not and did not set), created no GitHub release and claimed no HM Land Registry status or endorsement."
+  ],
+  "residual_risk_ids_reviewed": [
+    "RISK-001", "RISK-002", "RISK-003", "RISK-004", "RISK-005", "RISK-006",
+    "RISK-007", "RISK-008", "RISK-009", "RISK-010", "RISK-011", "RISK-012",
+    "RISK-013", "RISK-014", "RISK-015", "RISK-016", "RISK-017"
+  ],
+  "residual_risk_notes": "RISK-001..011 are inherent hazards of a metadata discovery PoC carried as 'open' with permanent design controls (legal-reliance, boundary, rights-flattening, personal data, secrets, currency, coverage, catalogue-authority, accessibility-exclusion, supply-chain, untrusted-input); this reviewer confirmed the controls are implemented and that none of the release-assurance hard failures is present in the candidate. RISK-012 (Welsh) and RISK-013 (persona validation) are accepted, disclosed gaps. RISK-014 (CI mistaken for approval) is controlled: deployment is gated on an owner-set release-root variable and the candidate asserts no approval. RISK-015 (AI review not human assurance) is an accepted gap disclosed on the public statement. RISK-016 (valid-but-unusable bundle) is controlled by the pinned-Explorer runtime receipts. RISK-017 (change-impact heuristic gap) is controlled by the fail-closed all-gates-and-manual-review policy, exercised here.",
+  "gate_evidence_boundary": {
+    "exact_candidate_evidence": "Every G1-G8 finding above is supported by evidence digest-bound to commit 40482c8... / root a3e0bdf7...; no gate relies on a v0.1.0 receipt.",
+    "pending_owner_actions": "Land Registry G9 owner decision, setting the deployment variable, GitHub release, RC deployment, public-URL browser verification and byte-identical final promotion all remain outstanding and are not covered by this recommendation."
+  },
+  "summary": "Independent release recommendation: RECOMMEND_APPROVAL for the exact candidate (commit 40482c8..., root a3e0bdf7..., archive 7f92e51c...). Identity preflight passed with all digests independently reproduced, and no v0.1.0 receipt is reused. Every required Land Registry gate G1 through G8 passes with exact-candidate evidence and no waiver or blocking finding: G1 profile, G2 snapshot, G3 rights/privacy/safety, G4 OKF/data integrity (137/137 tests), and G5 evaluation (formal gate exit zero, zero hard failures) are supported by the automated validation and the adopted independent Stage 1 and G5 decisions; G6 is this reviewer's own independent pass across automated journeys, AI-assisted accessibility, zero-critical security and bounded-lazy performance; G7 reproducibility shows byte-identical clean builds with no network access, independently corroborated by digest reproduction; and G8 package integrity is digest-bound with SBOM, provenance, hash-pinned dependencies and SHA-pinned workflow actions, with the archive verified byte-identical and reproducing both governed digests. Three warnings are recorded (all assurance is AI/automated not human; carried-forward evaluation-apparatus warnings; G7 corroborated by digest reproduction rather than independent build re-execution); none blocks. This recommendation is not owner approval, not human or WCAG assurance, not HMLR endorsement, and not verification of any deployed public URL. Land Registry G9, the deployment variable, any GitHub release, RC deployment, public browser verification and byte-identical promotion remain the project owner's to decide and perform; the recommendation supports, but does not substitute for, that exact digest-bound owner decision."
+}

@@ -1,0 +1,2476 @@
+{
+  "access": [
+    {
+      "count": 1867,
+      "value": "public-web"
+    },
+    {
+      "count": 289,
+      "value": "public-repository"
+    },
+    {
+      "count": 15,
+      "value": "approved Business Gateway customer integration"
+    },
+    {
+      "count": 4,
+      "value": "public download"
+    },
+    {
+      "count": 2,
+      "value": "account-and-licence download and authenticated API; commercial use is paid"
+    },
+    {
+      "count": 2,
+      "value": "free account-and-licence download; authenticated API available"
+    },
+    {
+      "count": 2,
+      "value": "public catalogue metadata"
+    },
+    {
+      "count": 2,
+      "value": "public download and online view"
+    },
+    {
+      "count": 1,
+      "value": "approved professional account"
+    },
+    {
+      "count": 1,
+      "value": "documentation public; operational API authenticated and licence-gated"
+    },
+    {
+      "count": 1,
+      "value": "free account service"
+    },
+    {
+      "count": 1,
+      "value": "mixed: open download, account-and-licence, API and paid products"
+    },
+    {
+      "count": 1,
+      "value": "online account with chargeable products"
+    },
+    {
+      "count": 1,
+      "value": "paid annual licence with account download and authenticated API"
+    },
+    {
+      "count": 1,
+      "value": "public bulk download and public linked-data access"
+    },
+    {
+      "count": 1,
+      "value": "public documentation; test and production services restricted"
+    },
+    {
+      "count": 1,
+      "value": "public download and linked data"
+    },
+    {
+      "count": 1,
+      "value": "public download; submission routes vary"
+    },
+    {
+      "count": 1,
+      "value": "public guidance with links to an approved professional account service"
+    },
+    {
+      "count": 1,
+      "value": "public guidance with links to restricted professional services"
+    },
+    {
+      "count": 1,
+      "value": "public help pages and contact routes"
+    },
+    {
+      "count": 1,
+      "value": "public interactive tool"
+    },
+    {
+      "count": 1,
+      "value": "public query and resource access, subject to service and dataset conditions"
+    },
+    {
+      "count": 1,
+      "value": "public reports, downloads and report-generation tools"
+    },
+    {
+      "count": 1,
+      "value": "public repository metadata and source where a repository is public"
+    },
+    {
+      "count": 1,
+      "value": "public search subject to terms and fees"
+    },
+    {
+      "count": 1,
+      "value": "public terms; operational search subject to service restrictions and fees"
+    },
+    {
+      "count": 1,
+      "value": "public-web guidance; linked searches and products may require an account and payment"
+    }
+  ],
+  "access_state": [
+    {
+      "count": 2164,
+      "value": "public"
+    },
+    {
+      "count": 16,
+      "value": "approved-professional-users"
+    },
+    {
+      "count": 15,
+      "value": "mixed"
+    },
+    {
+      "count": 3,
+      "value": "authenticated-and-paid"
+    },
+    {
+      "count": 3,
+      "value": "public-search-with-terms-and-fees"
+    },
+    {
+      "count": 1,
+      "value": "authenticated"
+    },
+    {
+      "count": 1,
+      "value": "documentation-public-service-restricted"
+    }
+  ],
+  "audience": [
+    {
+      "count": 304,
+      "value": "developer"
+    },
+    {
+      "count": 31,
+      "value": "property-professionals"
+    },
+    {
+      "count": 28,
+      "value": "public"
+    },
+    {
+      "count": 28,
+      "value": "researchers"
+    },
+    {
+      "count": 16,
+      "value": "data-users"
+    },
+    {
+      "count": 11,
+      "value": "developers"
+    },
+    {
+      "count": 10,
+      "value": "policy-makers"
+    },
+    {
+      "count": 8,
+      "value": "commercial-reusers"
+    },
+    {
+      "count": 6,
+      "value": "analysts"
+    },
+    {
+      "count": 6,
+      "value": "gis-users"
+    },
+    {
+      "count": 6,
+      "value": "legal-professionals"
+    },
+    {
+      "count": 5,
+      "value": "conveyancers"
+    },
+    {
+      "count": 4,
+      "value": "applicants"
+    },
+    {
+      "count": 4,
+      "value": "buyers"
+    },
+    {
+      "count": 3,
+      "value": "lenders"
+    },
+    {
+      "count": 3,
+      "value": "local-authorities"
+    },
+    {
+      "count": 3,
+      "value": "service-users"
+    },
+    {
+      "count": 3,
+      "value": "software-suppliers"
+    },
+    {
+      "count": 2,
+      "value": "assistive-technology-users"
+    },
+    {
+      "count": 2,
+      "value": "data-engineers"
+    },
+    {
+      "count": 2,
+      "value": "owners"
+    },
+    {
+      "count": 2,
+      "value": "partners"
+    },
+    {
+      "count": 2,
+      "value": "property-owners"
+    },
+    {
+      "count": 2,
+      "value": "staff"
+    },
+    {
+      "count": 2,
+      "value": "welsh-language-users"
+    },
+    {
+      "count": 1,
+      "value": "accessibility-reviewers"
+    },
+    {
+      "count": 1,
+      "value": "api-portfolio-managers"
+    },
+    {
+      "count": 1,
+      "value": "automation-reviewers"
+    },
+    {
+      "count": 1,
+      "value": "business-customers"
+    },
+    {
+      "count": 1,
+      "value": "data-subjects"
+    },
+    {
+      "count": 1,
+      "value": "document-authors"
+    },
+    {
+      "count": 1,
+      "value": "historians"
+    },
+    {
+      "count": 1,
+      "value": "information-rights-practitioners"
+    },
+    {
+      "count": 1,
+      "value": "journalists"
+    },
+    {
+      "count": 1,
+      "value": "licensed-data-users"
+    },
+    {
+      "count": 1,
+      "value": "media"
+    },
+    {
+      "count": 1,
+      "value": "Parliament"
+    },
+    {
+      "count": 1,
+      "value": "provenance-reviewers"
+    },
+    {
+      "count": 1,
+      "value": "semantic-web-users"
+    },
+    {
+      "count": 1,
+      "value": "service-managers"
+    },
+    {
+      "count": 1,
+      "value": "suppliers"
+    }
+  ],
+  "content_type": [
+    {
+      "count": 601,
+      "value": "news"
+    },
+    {
+      "count": 472,
+      "value": "statistics"
+    },
+    {
+      "count": 335,
+      "value": "guidance"
+    },
+    {
+      "count": 326,
+      "value": "corporate"
+    },
+    {
+      "count": 290,
+      "value": "repository"
+    },
+    {
+      "count": 134,
+      "value": "form"
+    },
+    {
+      "count": 17,
+      "value": "API"
+    },
+    {
+      "count": 14,
+      "value": "dataset"
+    },
+    {
+      "count": 11,
+      "value": "service"
+    },
+    {
+      "count": 3,
+      "value": "legislation"
+    }
+  ],
+  "format": [
+    {
+      "count": 1887,
+      "value": "HTML"
+    },
+    {
+      "count": 290,
+      "value": "Git"
+    },
+    {
+      "count": 21,
+      "value": "JSON metadata"
+    },
+    {
+      "count": 15,
+      "value": "API"
+    },
+    {
+      "count": 14,
+      "value": "PDF"
+    },
+    {
+      "count": 12,
+      "value": "CSV"
+    },
+    {
+      "count": 5,
+      "value": "JSON API metadata"
+    },
+    {
+      "count": 4,
+      "value": "XML"
+    },
+    {
+      "count": 3,
+      "value": "GML"
+    },
+    {
+      "count": 3,
+      "value": "RDF linked data"
+    },
+    {
+      "count": 1,
+      "value": "CSV metadata"
+    },
+    {
+      "count": 1,
+      "value": "DOC"
+    },
+    {
+      "count": 1,
+      "value": "email"
+    },
+    {
+      "count": 1,
+      "value": "ESRI Shapefile"
+    },
+    {
+      "count": 1,
+      "value": "Git repositories"
+    },
+    {
+      "count": 1,
+      "value": "JPG"
+    },
+    {
+      "count": 1,
+      "value": "JSON"
+    },
+    {
+      "count": 1,
+      "value": "ODS"
+    },
+    {
+      "count": 1,
+      "value": "ODT"
+    },
+    {
+      "count": 1,
+      "value": "online transactions"
+    },
+    {
+      "count": 1,
+      "value": "PDF products"
+    },
+    {
+      "count": 1,
+      "value": "RDF"
+    },
+    {
+      "count": 1,
+      "value": "RSS or Atom feed"
+    },
+    {
+      "count": 1,
+      "value": "search products"
+    },
+    {
+      "count": 1,
+      "value": "SPARQL results"
+    },
+    {
+      "count": 1,
+      "value": "TXT"
+    },
+    {
+      "count": 1,
+      "value": "Welsh-language representations"
+    },
+    {
+      "count": 1,
+      "value": "WSDL"
+    },
+    {
+      "count": 1,
+      "value": "XSD"
+    },
+    {
+      "count": 1,
+      "value": "ZIP"
+    }
+  ],
+  "geography": [
+    {
+      "count": 2149,
+      "value": "Not stated by the source."
+    },
+    {
+      "count": 37,
+      "value": "England and Wales"
+    },
+    {
+      "count": 2,
+      "value": "England and Wales, limited to migrated local authorities"
+    },
+    {
+      "count": 2,
+      "value": "United Kingdom accessibility-law context"
+    },
+    {
+      "count": 2,
+      "value": "Wales"
+    },
+    {
+      "count": 1,
+      "value": "API-specific"
+    },
+    {
+      "count": 1,
+      "value": "Dataset-specific"
+    },
+    {
+      "count": 1,
+      "value": "England and Wales, limited to migrated local-authority data"
+    },
+    {
+      "count": 1,
+      "value": "England and Wales, with UK-wide coverage for UK HPI reports"
+    },
+    {
+      "count": 1,
+      "value": "England and Wales, with UK-wide coverage where a dataset says so"
+    },
+    {
+      "count": 1,
+      "value": "Historical register coverage under the 1862 Act"
+    },
+    {
+      "count": 1,
+      "value": "not applicable; repository-specific"
+    },
+    {
+      "count": 1,
+      "value": "primarily England and Wales"
+    },
+    {
+      "count": 1,
+      "value": "United Kingdom data-protection context; operational remit England and Wales"
+    },
+    {
+      "count": 1,
+      "value": "United Kingdom freedom-of-information context; operational remit England and Wales"
+    },
+    {
+      "count": 1,
+      "value": "United Kingdom, with nation-specific availability and history"
+    }
+  ],
+  "kind": [
+    {
+      "count": 601,
+      "value": "news"
+    },
+    {
+      "count": 472,
+      "value": "statistics"
+    },
+    {
+      "count": 335,
+      "value": "guidance"
+    },
+    {
+      "count": 326,
+      "value": "corporate"
+    },
+    {
+      "count": 290,
+      "value": "repository"
+    },
+    {
+      "count": 134,
+      "value": "form"
+    },
+    {
+      "count": 17,
+      "value": "API"
+    },
+    {
+      "count": 14,
+      "value": "dataset"
+    },
+    {
+      "count": 11,
+      "value": "service"
+    },
+    {
+      "count": 3,
+      "value": "legislation"
+    }
+  ],
+  "language": [
+    {
+      "count": 2198,
+      "value": "Not stated by the source."
+    },
+    {
+      "count": 4,
+      "value": "en"
+    },
+    {
+      "count": 3,
+      "value": "cy"
+    }
+  ],
+  "licence": [
+    {
+      "count": 192,
+      "value": "MIT"
+    },
+    {
+      "count": 8,
+      "value": "Open Government Licence v3.0 for eligible content, subject to exceptions"
+    },
+    {
+      "count": 5,
+      "value": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions"
+    },
+    {
+      "count": 4,
+      "value": "NOASSERTION"
+    },
+    {
+      "count": 3,
+      "value": "Crown copyright and legislation.gov.uk reuse terms"
+    },
+    {
+      "count": 2,
+      "value": "dataset-specific licence containing third-party address-rights conditions"
+    },
+    {
+      "count": 2,
+      "value": "Open Government Licence v3.0 plus required HM Land Registry and Ordnance Survey attribution conditions"
+    },
+    {
+      "count": 2,
+      "value": "Open Government Licence v3.0 with publisher attribution and link to the dataset explanation"
+    },
+    {
+      "count": 2,
+      "value": "service terms, copyright and database-right restrictions"
+    },
+    {
+      "count": 2,
+      "value": "three dataset-specific licence types: direct use, exploration and commercial"
+    },
+    {
+      "count": 1,
+      "value": "AGPL-3.0"
+    },
+    {
+      "count": 1,
+      "value": "Apache-2.0"
+    },
+    {
+      "count": 1,
+      "value": "bespoke National Polygon Service licence with Ordnance Survey and GeoPlace rights and attribution"
+    },
+    {
+      "count": 1,
+      "value": "catalogue and record-specific; underlying publisher terms control reuse"
+    },
+    {
+      "count": 1,
+      "value": "catalogue-repository terms; listed APIs retain their own terms"
+    },
+    {
+      "count": 1,
+      "value": "Crown copyright and source-specific reuse terms"
+    },
+    {
+      "count": 1,
+      "value": "dataset-specific: Open Government Licence, bespoke, direct-use, exploration or commercial terms"
+    },
+    {
+      "count": 1,
+      "value": "Dataset-specific; do not infer a common licence from collection membership"
+    },
+    {
+      "count": 1,
+      "value": "eligible GOV.UK content may be OGL v3.0 subject to exceptions; purchased register products are not open-data distributions"
+    },
+    {
+      "count": 1,
+      "value": "GOV.UK blog terms and article-specific third-party rights"
+    },
+    {
+      "count": 1,
+      "value": "GOV.UK content terms; personal information remains subject to data-protection and statutory rules"
+    },
+    {
+      "count": 1,
+      "value": "GOV.UK content terms; portal products and operation have separate conditions"
+    },
+    {
+      "count": 1,
+      "value": "GOV.UK content terms; underlying publications retain their own rights"
+    },
+    {
+      "count": 1,
+      "value": "GPL-2.0"
+    },
+    {
+      "count": 1,
+      "value": "guidance content terms; the linked dataset retains its stated licence and attribution conditions"
+    },
+    {
+      "count": 1,
+      "value": "Open Government Licence v3.0 for eligible GOV.UK content, subject to stated exceptions and third-party rights"
+    },
+    {
+      "count": 1,
+      "value": "Open Government Licence v3.0 subject to the series' stated reuse conditions"
+    },
+    {
+      "count": 1,
+      "value": "Open Government Licence v3.0 subject to the source's stated conditions"
+    },
+    {
+      "count": 1,
+      "value": "Open Government Licence v3.0 with publisher attribution"
+    },
+    {
+      "count": 1,
+      "value": "Open Government Licence v3.0 with required HMLR attribution and additional conditions for third-party address data"
+    },
+    {
+      "count": 1,
+      "value": "Open Government Licence v3.0, subject to the catalogue's stated conditions"
+    },
+    {
+      "count": 1,
+      "value": "Page under applicable GOV.UK terms; referenced datasets retain their own licences and third-party rights"
+    },
+    {
+      "count": 1,
+      "value": "portal and Business e-services terms"
+    },
+    {
+      "count": 1,
+      "value": "repository-specific; absence of a licence is not permission to reuse code"
+    },
+    {
+      "count": 1,
+      "value": "service and content terms; user-generated forum content is excluded"
+    },
+    {
+      "count": 1,
+      "value": "service and documentation terms are product-specific"
+    },
+    {
+      "count": 1,
+      "value": "service content terms; linked datasets retain separate rights"
+    },
+    {
+      "count": 1,
+      "value": "service terms and statutory access rules; purchased documents are not open-data distributions"
+    },
+    {
+      "count": 1,
+      "value": "service terms; alerts and property information are not an open dataset"
+    },
+    {
+      "count": 1,
+      "value": "service terms; calculator output is not a substitute for the current Fee Order and guidance"
+    },
+    {
+      "count": 1,
+      "value": "underlying dataset licence controls use; documentation terms may differ"
+    },
+    {
+      "count": 1,
+      "value": "underlying dataset-specific terms and third-party rights apply"
+    }
+  ],
+  "lifecycle_state": [
+    {
+      "count": 1914,
+      "value": "unknown"
+    },
+    {
+      "count": 204,
+      "value": "archived"
+    },
+    {
+      "count": 85,
+      "value": "active"
+    }
+  ],
+  "publisher": [
+    {
+      "count": 2181,
+      "value": "publisher-5f7670365c7dc347f281bbef"
+    },
+    {
+      "count": 3,
+      "value": "publisher-23f32a13da7e6036563c0e02"
+    },
+    {
+      "count": 3,
+      "value": "publisher-442957362e2b7c8769d4f715"
+    },
+    {
+      "count": 3,
+      "value": "publisher-af595ff60a3906deeb2a3b8d"
+    },
+    {
+      "count": 3,
+      "value": "publisher-be5e86f588117d1c9877d517"
+    },
+    {
+      "count": 2,
+      "value": "publisher-38e5005965d76daca430b36c"
+    },
+    {
+      "count": 2,
+      "value": "publisher-6b13c39ece52c806aea66c94"
+    },
+    {
+      "count": 1,
+      "value": "publisher-123caa39958ac86f29e4cd21"
+    },
+    {
+      "count": 1,
+      "value": "publisher-1dff2ee65ad31287d5839d4f"
+    },
+    {
+      "count": 1,
+      "value": "publisher-50c25a45ded43c689b469aa4"
+    },
+    {
+      "count": 1,
+      "value": "publisher-6f1f5e5de077c2f9902eeed2"
+    },
+    {
+      "count": 1,
+      "value": "publisher-afea69e90349dd92c0d037ed"
+    },
+    {
+      "count": 1,
+      "value": "publisher-be40ec162ac53206f39ca3bc"
+    }
+  ],
+  "record_type": [
+    {
+      "count": 601,
+      "value": "news"
+    },
+    {
+      "count": 472,
+      "value": "statistics"
+    },
+    {
+      "count": 335,
+      "value": "guidance"
+    },
+    {
+      "count": 326,
+      "value": "corporate"
+    },
+    {
+      "count": 290,
+      "value": "repository"
+    },
+    {
+      "count": 134,
+      "value": "form"
+    },
+    {
+      "count": 17,
+      "value": "API"
+    },
+    {
+      "count": 14,
+      "value": "dataset"
+    },
+    {
+      "count": 11,
+      "value": "service"
+    },
+    {
+      "count": 3,
+      "value": "legislation"
+    }
+  ],
+  "rights_state": [
+    {
+      "count": 1871,
+      "value": "open-with-conditions"
+    },
+    {
+      "count": 293,
+      "value": "metadata-only"
+    },
+    {
+      "count": 24,
+      "value": "restricted-service"
+    },
+    {
+      "count": 15,
+      "value": "bespoke-or-paid"
+    }
+  ],
+  "service": [
+    {
+      "count": 1842,
+      "value": "govuk-search"
+    },
+    {
+      "count": 290,
+      "value": "github"
+    },
+    {
+      "count": 25,
+      "value": "govuk-hmlr"
+    },
+    {
+      "count": 16,
+      "value": "cddo-api-catalogue"
+    },
+    {
+      "count": 15,
+      "value": "ulpd"
+    },
+    {
+      "count": 3,
+      "value": "local-land-charges"
+    },
+    {
+      "count": 3,
+      "value": "property-information"
+    },
+    {
+      "count": 2,
+      "value": "govuk-content"
+    },
+    {
+      "count": 1,
+      "value": "blog"
+    },
+    {
+      "count": 1,
+      "value": "business-gateway-docs"
+    },
+    {
+      "count": 1,
+      "value": "cross-government-data-catalogues"
+    },
+    {
+      "count": 1,
+      "value": "customer-help"
+    },
+    {
+      "count": 1,
+      "value": "linked-data"
+    },
+    {
+      "count": 1,
+      "value": "portal"
+    },
+    {
+      "count": 1,
+      "value": "ulpd-api"
+    }
+  ],
+  "source_family": [
+    {
+      "count": 1842,
+      "value": "govuk-search"
+    },
+    {
+      "count": 290,
+      "value": "github"
+    },
+    {
+      "count": 25,
+      "value": "govuk-hmlr"
+    },
+    {
+      "count": 16,
+      "value": "cddo-api-catalogue"
+    },
+    {
+      "count": 15,
+      "value": "ulpd"
+    },
+    {
+      "count": 3,
+      "value": "local-land-charges"
+    },
+    {
+      "count": 3,
+      "value": "property-information"
+    },
+    {
+      "count": 2,
+      "value": "govuk-content"
+    },
+    {
+      "count": 1,
+      "value": "blog"
+    },
+    {
+      "count": 1,
+      "value": "business-gateway-docs"
+    },
+    {
+      "count": 1,
+      "value": "cross-government-data-catalogues"
+    },
+    {
+      "count": 1,
+      "value": "customer-help"
+    },
+    {
+      "count": 1,
+      "value": "linked-data"
+    },
+    {
+      "count": 1,
+      "value": "portal"
+    },
+    {
+      "count": 1,
+      "value": "ulpd-api"
+    }
+  ],
+  "topic": [
+    {
+      "count": 305,
+      "value": "news story"
+    },
+    {
+      "count": 295,
+      "value": "press release"
+    },
+    {
+      "count": 223,
+      "value": "transparency"
+    },
+    {
+      "count": 212,
+      "value": "national statistics"
+    },
+    {
+      "count": 204,
+      "value": "archived"
+    },
+    {
+      "count": 141,
+      "value": "detailed guide"
+    },
+    {
+      "count": 133,
+      "value": "form"
+    },
+    {
+      "count": 122,
+      "value": "guidance"
+    },
+    {
+      "count": 122,
+      "value": "statistical data set"
+    },
+    {
+      "count": 110,
+      "value": "official statistics"
+    },
+    {
+      "count": 93,
+      "value": "Python"
+    },
+    {
+      "count": 76,
+      "value": "HTML"
+    },
+    {
+      "count": 48,
+      "value": "corporate report"
+    },
+    {
+      "count": 41,
+      "value": "JavaScript"
+    },
+    {
+      "count": 40,
+      "value": "document collection"
+    },
+    {
+      "count": 27,
+      "value": "statistics announcement"
+    },
+    {
+      "count": 24,
+      "value": "foi release"
+    },
+    {
+      "count": 16,
+      "value": "CSS"
+    },
+    {
+      "count": 15,
+      "value": "API"
+    },
+    {
+      "count": 15,
+      "value": "discovery catalogue"
+    },
+    {
+      "count": 13,
+      "value": "applications"
+    },
+    {
+      "count": 13,
+      "value": "digital-street"
+    },
+    {
+      "count": 13,
+      "value": "proof-of-concept"
+    },
+    {
+      "count": 12,
+      "value": "Ruby"
+    },
+    {
+      "count": 10,
+      "value": "guide"
+    },
+    {
+      "count": 9,
+      "value": "Kotlin"
+    },
+    {
+      "count": 8,
+      "value": "govuk"
+    },
+    {
+      "count": 6,
+      "value": "flask"
+    },
+    {
+      "count": 6,
+      "value": "govuk-frontend"
+    },
+    {
+      "count": 6,
+      "value": "land-registration"
+    },
+    {
+      "count": 6,
+      "value": "Shell"
+    },
+    {
+      "count": 5,
+      "value": "consultation outcome"
+    },
+    {
+      "count": 5,
+      "value": "frontend"
+    },
+    {
+      "count": 5,
+      "value": "geospatial-data"
+    },
+    {
+      "count": 5,
+      "value": "jinja"
+    },
+    {
+      "count": 5,
+      "value": "local-land-charges"
+    },
+    {
+      "count": 5,
+      "value": "statutory guidance"
+    },
+    {
+      "count": 4,
+      "value": "automation-boundary"
+    },
+    {
+      "count": 4,
+      "value": "components"
+    },
+    {
+      "count": 4,
+      "value": "design"
+    },
+    {
+      "count": 4,
+      "value": "index"
+    },
+    {
+      "count": 4,
+      "value": "inspire"
+    },
+    {
+      "count": 4,
+      "value": "language"
+    },
+    {
+      "count": 4,
+      "value": "prototype"
+    },
+    {
+      "count": 4,
+      "value": "registered-titles"
+    },
+    {
+      "count": 4,
+      "value": "restricted-access"
+    },
+    {
+      "count": 3,
+      "value": "addresses"
+    },
+    {
+      "count": 3,
+      "value": "anonymous"
+    },
+    {
+      "count": 3,
+      "value": "answer"
+    },
+    {
+      "count": 3,
+      "value": "crs"
+    },
+    {
+      "count": 3,
+      "value": "docker"
+    },
+    {
+      "count": 3,
+      "value": "legislation"
+    },
+    {
+      "count": 3,
+      "value": "licensed-data"
+    },
+    {
+      "count": 3,
+      "value": "official-copies"
+    },
+    {
+      "count": 3,
+      "value": "polygons"
+    },
+    {
+      "count": 3,
+      "value": "portal"
+    },
+    {
+      "count": 3,
+      "value": "python"
+    },
+    {
+      "count": 3,
+      "value": "searches"
+    },
+    {
+      "count": 3,
+      "value": "terms"
+    },
+    {
+      "count": 3,
+      "value": "wtforms"
+    },
+    {
+      "count": 2,
+      "value": "accessibility"
+    },
+    {
+      "count": 2,
+      "value": "bilingual-services"
+    },
+    {
+      "count": 2,
+      "value": "boundaries"
+    },
+    {
+      "count": 2,
+      "value": "british-national-grid"
+    },
+    {
+      "count": 2,
+      "value": "business-gateway"
+    },
+    {
+      "count": 2,
+      "value": "C#"
+    },
+    {
+      "count": 2,
+      "value": "catalogue-metadata"
+    },
+    {
+      "count": 2,
+      "value": "concept-differences"
+    },
+    {
+      "count": 2,
+      "value": "conveyancing"
+    },
+    {
+      "count": 2,
+      "value": "corporate-ownership"
+    },
+    {
+      "count": 2,
+      "value": "credentials"
+    },
+    {
+      "count": 2,
+      "value": "customer-groups"
+    },
+    {
+      "count": 2,
+      "value": "demo"
+    },
+    {
+      "count": 2,
+      "value": "development-environment"
+    },
+    {
+      "count": 2,
+      "value": "discharge"
+    },
+    {
+      "count": 2,
+      "value": "discovery-metadata"
+    },
+    {
+      "count": 2,
+      "value": "docker-compose"
+    },
+    {
+      "count": 2,
+      "value": "epsg-27700"
+    },
+    {
+      "count": 2,
+      "value": "fees"
+    },
+    {
+      "count": 2,
+      "value": "hmlr"
+    },
+    {
+      "count": 2,
+      "value": "Java"
+    },
+    {
+      "count": 2,
+      "value": "landregistry"
+    },
+    {
+      "count": 2,
+      "value": "leases"
+    },
+    {
+      "count": 2,
+      "value": "legal-currency"
+    },
+    {
+      "count": 2,
+      "value": "lender"
+    },
+    {
+      "count": 2,
+      "value": "local-authorities"
+    },
+    {
+      "count": 2,
+      "value": "macros"
+    },
+    {
+      "count": 2,
+      "value": "monitoring"
+    },
+    {
+      "count": 2,
+      "value": "mortgage"
+    },
+    {
+      "count": 2,
+      "value": "new-build"
+    },
+    {
+      "count": 2,
+      "value": "nginx"
+    },
+    {
+      "count": 2,
+      "value": "operational-statistics"
+    },
+    {
+      "count": 2,
+      "value": "organisation"
+    },
+    {
+      "count": 2,
+      "value": "ownership"
+    },
+    {
+      "count": 2,
+      "value": "performance"
+    },
+    {
+      "count": 2,
+      "value": "PHP"
+    },
+    {
+      "count": 2,
+      "value": "planning-conditions"
+    },
+    {
+      "count": 2,
+      "value": "postgresql"
+    },
+    {
+      "count": 2,
+      "value": "proof-of-ownership"
+    },
+    {
+      "count": 2,
+      "value": "Puppet"
+    },
+    {
+      "count": 2,
+      "value": "redis"
+    },
+    {
+      "count": 2,
+      "value": "release-date"
+    },
+    {
+      "count": 2,
+      "value": "statistics"
+    },
+    {
+      "count": 2,
+      "value": "strategy"
+    },
+    {
+      "count": 2,
+      "value": "styles"
+    },
+    {
+      "count": 2,
+      "value": "template"
+    },
+    {
+      "count": 2,
+      "value": "title-boundaries"
+    },
+    {
+      "count": 2,
+      "value": "title-register"
+    },
+    {
+      "count": 2,
+      "value": "transaction"
+    },
+    {
+      "count": 2,
+      "value": "transactions"
+    },
+    {
+      "count": 2,
+      "value": "translation"
+    },
+    {
+      "count": 2,
+      "value": "TypeScript"
+    },
+    {
+      "count": 2,
+      "value": "wales"
+    },
+    {
+      "count": 2,
+      "value": "Welsh language"
+    },
+    {
+      "count": 2,
+      "value": "welsh-language"
+    },
+    {
+      "count": 2,
+      "value": "welsh-place-names"
+    },
+    {
+      "count": 2,
+      "value": "widgets"
+    },
+    {
+      "count": 1,
+      "value": "1862-act"
+    },
+    {
+      "count": 1,
+      "value": "about"
+    },
+    {
+      "count": 1,
+      "value": "about our services"
+    },
+    {
+      "count": 1,
+      "value": "accounts"
+    },
+    {
+      "count": 1,
+      "value": "address-data"
+    },
+    {
+      "count": 1,
+      "value": "address-search"
+    },
+    {
+      "count": 1,
+      "value": "agreed-boundary"
+    },
+    {
+      "count": 1,
+      "value": "ai"
+    },
+    {
+      "count": 1,
+      "value": "alembic"
+    },
+    {
+      "count": 1,
+      "value": "alerts"
+    },
+    {
+      "count": 1,
+      "value": "alpha"
+    },
+    {
+      "count": 1,
+      "value": "alternative-formats"
+    },
+    {
+      "count": 1,
+      "value": "annual-report"
+    },
+    {
+      "count": 1,
+      "value": "anonymously"
+    },
+    {
+      "count": 1,
+      "value": "anthology"
+    },
+    {
+      "count": 1,
+      "value": "api"
+    },
+    {
+      "count": 1,
+      "value": "api-catalogue"
+    },
+    {
+      "count": 1,
+      "value": "archive"
+    },
+    {
+      "count": 1,
+      "value": "authentication"
+    },
+    {
+      "count": 1,
+      "value": "automated-agents"
+    },
+    {
+      "count": 1,
+      "value": "avoidable-requisitions"
+    },
+    {
+      "count": 1,
+      "value": "beta-proposition"
+    },
+    {
+      "count": 1,
+      "value": "bilingual-register"
+    },
+    {
+      "count": 1,
+      "value": "boundary"
+    },
+    {
+      "count": 1,
+      "value": "bulk-data"
+    },
+    {
+      "count": 1,
+      "value": "business-e-services"
+    },
+    {
+      "count": 1,
+      "value": "business-plan"
+    },
+    {
+      "count": 1,
+      "value": "buying-homes"
+    },
+    {
+      "count": 1,
+      "value": "cadastral-parcels"
+    },
+    {
+      "count": 1,
+      "value": "calculator"
+    },
+    {
+      "count": 1,
+      "value": "capybara"
+    },
+    {
+      "count": 1,
+      "value": "case study"
+    },
+    {
+      "count": 1,
+      "value": "change-only"
+    },
+    {
+      "count": 1,
+      "value": "chromedriver"
+    },
+    {
+      "count": 1,
+      "value": "closed call for evidence"
+    },
+    {
+      "count": 1,
+      "value": "companies"
+    },
+    {
+      "count": 1,
+      "value": "complaints procedure"
+    },
+    {
+      "count": 1,
+      "value": "complete-file"
+    },
+    {
+      "count": 1,
+      "value": "component"
+    },
+    {
+      "count": 1,
+      "value": "config"
+    },
+    {
+      "count": 1,
+      "value": "configuration"
+    },
+    {
+      "count": 1,
+      "value": "contact"
+    },
+    {
+      "count": 1,
+      "value": "containers"
+    },
+    {
+      "count": 1,
+      "value": "cordapp"
+    },
+    {
+      "count": 1,
+      "value": "correspondence"
+    },
+    {
+      "count": 1,
+      "value": "covenants"
+    },
+    {
+      "count": 1,
+      "value": "cross-government"
+    },
+    {
+      "count": 1,
+      "value": "cucumber"
+    },
+    {
+      "count": 1,
+      "value": "cymraeg"
+    },
+    {
+      "count": 1,
+      "value": "data"
+    },
+    {
+      "count": 1,
+      "value": "data-catalogue"
+    },
+    {
+      "count": 1,
+      "value": "data-protection"
+    },
+    {
+      "count": 1,
+      "value": "dataset-metadata"
+    },
+    {
+      "count": 1,
+      "value": "datasets"
+    },
+    {
+      "count": 1,
+      "value": "db2"
+    },
+    {
+      "count": 1,
+      "value": "delivery"
+    },
+    {
+      "count": 1,
+      "value": "design-system"
+    },
+    {
+      "count": 1,
+      "value": "determined-boundary"
+    },
+    {
+      "count": 1,
+      "value": "develop-property"
+    },
+    {
+      "count": 1,
+      "value": "developer-resources"
+    },
+    {
+      "count": 1,
+      "value": "developer-tools"
+    },
+    {
+      "count": 1,
+      "value": "digital-services"
+    },
+    {
+      "count": 1,
+      "value": "Dockerfile"
+    },
+    {
+      "count": 1,
+      "value": "documents"
+    },
+    {
+      "count": 1,
+      "value": "downloads"
+    },
+    {
+      "count": 1,
+      "value": "equality and diversity"
+    },
+    {
+      "count": 1,
+      "value": "eslint"
+    },
+    {
+      "count": 1,
+      "value": "eslintconfig"
+    },
+    {
+      "count": 1,
+      "value": "estate-plans"
+    },
+    {
+      "count": 1,
+      "value": "explainers"
+    },
+    {
+      "count": 1,
+      "value": "fee-order"
+    },
+    {
+      "count": 1,
+      "value": "flask-wtf"
+    },
+    {
+      "count": 1,
+      "value": "focus"
+    },
+    {
+      "count": 1,
+      "value": "forms"
+    },
+    {
+      "count": 1,
+      "value": "fraud"
+    },
+    {
+      "count": 1,
+      "value": "freedom-of-information"
+    },
+    {
+      "count": 1,
+      "value": "freehold"
+    },
+    {
+      "count": 1,
+      "value": "gds"
+    },
+    {
+      "count": 1,
+      "value": "general-boundary"
+    },
+    {
+      "count": 1,
+      "value": "gml"
+    },
+    {
+      "count": 1,
+      "value": "gov-uk"
+    },
+    {
+      "count": 1,
+      "value": "gov-uk-prototype-kit"
+    },
+    {
+      "count": 1,
+      "value": "governance"
+    },
+    {
+      "count": 1,
+      "value": "govuk-design-system"
+    },
+    {
+      "count": 1,
+      "value": "help"
+    },
+    {
+      "count": 1,
+      "value": "history"
+    },
+    {
+      "count": 1,
+      "value": "house-price-index"
+    },
+    {
+      "count": 1,
+      "value": "house-prices"
+    },
+    {
+      "count": 1,
+      "value": "index-map"
+    },
+    {
+      "count": 1,
+      "value": "index-template"
+    },
+    {
+      "count": 1,
+      "value": "indicative-polygon"
+    },
+    {
+      "count": 1,
+      "value": "integration"
+    },
+    {
+      "count": 1,
+      "value": "keyboard"
+    },
+    {
+      "count": 1,
+      "value": "land-register"
+    },
+    {
+      "count": 1,
+      "value": "language-metadata"
+    },
+    {
+      "count": 1,
+      "value": "leasehold"
+    },
+    {
+      "count": 1,
+      "value": "legal"
+    },
+    {
+      "count": 1,
+      "value": "legal-boundary"
+    },
+    {
+      "count": 1,
+      "value": "legal-practice"
+    },
+    {
+      "count": 1,
+      "value": "licence"
+    },
+    {
+      "count": 1,
+      "value": "licensing"
+    },
+    {
+      "count": 1,
+      "value": "linked-data"
+    },
+    {
+      "count": 1,
+      "value": "logstash"
+    },
+    {
+      "count": 1,
+      "value": "map"
+    },
+    {
+      "count": 1,
+      "value": "maps"
+    },
+    {
+      "count": 1,
+      "value": "market-trends"
+    },
+    {
+      "count": 1,
+      "value": "media enquiries"
+    },
+    {
+      "count": 1,
+      "value": "migration"
+    },
+    {
+      "count": 1,
+      "value": "new-build-property"
+    },
+    {
+      "count": 1,
+      "value": "news"
+    },
+    {
+      "count": 1,
+      "value": "notifications"
+    },
+    {
+      "count": 1,
+      "value": "notify"
+    },
+    {
+      "count": 1,
+      "value": "nunjucks"
+    },
+    {
+      "count": 1,
+      "value": "ocod"
+    },
+    {
+      "count": 1,
+      "value": "official-statistics"
+    },
+    {
+      "count": 1,
+      "value": "online-copy"
+    },
+    {
+      "count": 1,
+      "value": "open-data"
+    },
+    {
+      "count": 1,
+      "value": "our governance"
+    },
+    {
+      "count": 1,
+      "value": "overseas-companies"
+    },
+    {
+      "count": 1,
+      "value": "ownership-data"
+    },
+    {
+      "count": 1,
+      "value": "page-modification"
+    },
+    {
+      "count": 1,
+      "value": "patterns"
+    },
+    {
+      "count": 1,
+      "value": "personal-data"
+    },
+    {
+      "count": 1,
+      "value": "policy paper"
+    },
+    {
+      "count": 1,
+      "value": "polygon"
+    },
+    {
+      "count": 1,
+      "value": "postgres"
+    },
+    {
+      "count": 1,
+      "value": "practice-guides"
+    },
+    {
+      "count": 1,
+      "value": "price-paid-data"
+    },
+    {
+      "count": 1,
+      "value": "prices"
+    },
+    {
+      "count": 1,
+      "value": "privacy"
+    },
+    {
+      "count": 1,
+      "value": "processing-times"
+    },
+    {
+      "count": 1,
+      "value": "procurement"
+    },
+    {
+      "count": 1,
+      "value": "professional-guidance"
+    },
+    {
+      "count": 1,
+      "value": "programme"
+    },
+    {
+      "count": 1,
+      "value": "prompt"
+    },
+    {
+      "count": 1,
+      "value": "property-fraud"
+    },
+    {
+      "count": 1,
+      "value": "property-sales"
+    },
+    {
+      "count": 1,
+      "value": "property-searches"
+    },
+    {
+      "count": 1,
+      "value": "property-summary"
+    },
+    {
+      "count": 1,
+      "value": "prototypes"
+    },
+    {
+      "count": 1,
+      "value": "provenance"
+    },
+    {
+      "count": 1,
+      "value": "public-guidance"
+    },
+    {
+      "count": 1,
+      "value": "public-sector-data-sharing"
+    },
+    {
+      "count": 1,
+      "value": "public-value"
+    },
+    {
+      "count": 1,
+      "value": "publication-scheme"
+    },
+    {
+      "count": 1,
+      "value": "publications"
+    },
+    {
+      "count": 1,
+      "value": "quality"
+    },
+    {
+      "count": 1,
+      "value": "rabbitmq"
+    },
+    {
+      "count": 1,
+      "value": "rdf"
+    },
+    {
+      "count": 1,
+      "value": "react"
+    },
+    {
+      "count": 1,
+      "value": "recruitment"
+    },
+    {
+      "count": 1,
+      "value": "register-information"
+    },
+    {
+      "count": 1,
+      "value": "registered-title"
+    },
+    {
+      "count": 1,
+      "value": "repositories"
+    },
+    {
+      "count": 1,
+      "value": "reprojection"
+    },
+    {
+      "count": 1,
+      "value": "requisitions"
+    },
+    {
+      "count": 1,
+      "value": "research"
+    },
+    {
+      "count": 1,
+      "value": "rest"
+    },
+    {
+      "count": 1,
+      "value": "restricted-data"
+    },
+    {
+      "count": 1,
+      "value": "restrictive-covenants"
+    },
+    {
+      "count": 1,
+      "value": "risk"
+    },
+    {
+      "count": 1,
+      "value": "rules"
+    },
+    {
+      "count": 1,
+      "value": "schemas"
+    },
+    {
+      "count": 1,
+      "value": "screen-readers"
+    },
+    {
+      "count": 1,
+      "value": "scss"
+    },
+    {
+      "count": 1,
+      "value": "selenium"
+    },
+    {
+      "count": 1,
+      "value": "selling-homes"
+    },
+    {
+      "count": 1,
+      "value": "service-performance"
+    },
+    {
+      "count": 1,
+      "value": "services"
+    },
+    {
+      "count": 1,
+      "value": "soap"
+    },
+    {
+      "count": 1,
+      "value": "social media use"
+    },
+    {
+      "count": 1,
+      "value": "source-code"
+    },
+    {
+      "count": 1,
+      "value": "sparql"
+    },
+    {
+      "count": 1,
+      "value": "spatial-metadata"
+    },
+    {
+      "count": 1,
+      "value": "speech"
+    },
+    {
+      "count": 1,
+      "value": "sqlalchemy"
+    },
+    {
+      "count": 1,
+      "value": "statutory-register"
+    },
+    {
+      "count": 1,
+      "value": "styleguide"
+    },
+    {
+      "count": 1,
+      "value": "support"
+    },
+    {
+      "count": 1,
+      "value": "technical-guidance"
+    },
+    {
+      "count": 1,
+      "value": "third-party-rights"
+    },
+    {
+      "count": 1,
+      "value": "title-descriptors"
+    },
+    {
+      "count": 1,
+      "value": "title-plan"
+    },
+    {
+      "count": 1,
+      "value": "title-plans"
+    },
+    {
+      "count": 1,
+      "value": "title-polygons"
+    },
+    {
+      "count": 1,
+      "value": "title-search"
+    },
+    {
+      "count": 1,
+      "value": "title-summary"
+    },
+    {
+      "count": 1,
+      "value": "training"
+    },
+    {
+      "count": 1,
+      "value": "transformation"
+    },
+    {
+      "count": 1,
+      "value": "uprn"
+    },
+    {
+      "count": 1,
+      "value": "user-centred-design"
+    },
+    {
+      "count": 1,
+      "value": "user-research"
+    },
+    {
+      "count": 1,
+      "value": "vintage"
+    },
+    {
+      "count": 1,
+      "value": "Vue"
+    },
+    {
+      "count": 1,
+      "value": "wcag-2.2"
+    },
+    {
+      "count": 1,
+      "value": "wiremock"
+    },
+    {
+      "count": 1,
+      "value": "written statement"
+    }
+  ],
+  "update_frequency": [
+    {
+      "count": 1844,
+      "value": "Not stated by the source."
+    },
+    {
+      "count": 289,
+      "value": "event-driven"
+    },
+    {
+      "count": 16,
+      "value": "catalogue-maintained"
+    },
+    {
+      "count": 3,
+      "value": "monthly, on the second working day for the preceding month"
+    },
+    {
+      "count": 3,
+      "value": "revised text changes as amendments take effect"
+    },
+    {
+      "count": 2,
+      "value": "continuously maintained"
+    },
+    {
+      "count": 2,
+      "value": "monthly, on the sixth working day for the preceding month"
+    },
+    {
+      "count": 2,
+      "value": "updated as services and practice change"
+    },
+    {
+      "count": 2,
+      "value": "updated when the language scheme changes"
+    },
+    {
+      "count": 1,
+      "value": "annual"
+    },
+    {
+      "count": 1,
+      "value": "annual or plan-period publication"
+    },
+    {
+      "count": 1,
+      "value": "catalogue maintained independently of API publishers"
+    },
+    {
+      "count": 1,
+      "value": "catalogue maintained; individual datasets have independent cadences"
+    },
+    {
+      "count": 1,
+      "value": "continuous"
+    },
+    {
+      "count": 1,
+      "value": "dataset-specific"
+    },
+    {
+      "count": 1,
+      "value": "event-driven alerts"
+    },
+    {
+      "count": 1,
+      "value": "every six months, normally on the fifteenth working day after the period"
+    },
+    {
+      "count": 1,
+      "value": "forms revised when law, policy or process changes"
+    },
+    {
+      "count": 1,
+      "value": "guidance changes with the service"
+    },
+    {
+      "count": 1,
+      "value": "individual guides updated as law and practice change"
+    },
+    {
+      "count": 1,
+      "value": "irregular"
+    },
+    {
+      "count": 1,
+      "value": "live service with changing authority coverage"
+    },
+    {
+      "count": 1,
+      "value": "live service with maintained guidance and roadmap"
+    },
+    {
+      "count": 1,
+      "value": "live service; guidance and fees change"
+    },
+    {
+      "count": 1,
+      "value": "live terms; recheck before use"
+    },
+    {
+      "count": 1,
+      "value": "maintained as datasets change"
+    },
+    {
+      "count": 1,
+      "value": "maintained with product and schema releases"
+    },
+    {
+      "count": 1,
+      "value": "maintained with the dataset"
+    },
+    {
+      "count": 1,
+      "value": "monthly"
+    },
+    {
+      "count": 1,
+      "value": "monthly, normally on the fifteenth working day for the preceding month"
+    },
+    {
+      "count": 1,
+      "value": "monthly, normally on the twentieth working day"
+    },
+    {
+      "count": 1,
+      "value": "monthly, on the first Sunday for the preceding month"
+    },
+    {
+      "count": 1,
+      "value": "monthly, on the sixth day for the preceding month"
+    },
+    {
+      "count": 1,
+      "value": "quarterly, normally on the fifteenth working day after the quarter"
+    },
+    {
+      "count": 1,
+      "value": "rarely updated"
+    },
+    {
+      "count": 1,
+      "value": "regularly updated"
+    },
+    {
+      "count": 1,
+      "value": "reviewed as publication practice changes"
+    },
+    {
+      "count": 1,
+      "value": "reviewed as publishing practice changes"
+    },
+    {
+      "count": 1,
+      "value": "reviewed as the service changes"
+    },
+    {
+      "count": 1,
+      "value": "static"
+    },
+    {
+      "count": 1,
+      "value": "strategy-period publication with updates or replacement"
+    },
+    {
+      "count": 1,
+      "value": "updated as authorities migrate and programme policy changes"
+    },
+    {
+      "count": 1,
+      "value": "updated as portal workflows change"
+    },
+    {
+      "count": 1,
+      "value": "updated when fees or rules change"
+    },
+    {
+      "count": 1,
+      "value": "updated when land-registration practice changes"
+    },
+    {
+      "count": 1,
+      "value": "updated when policy or products change"
+    },
+    {
+      "count": 1,
+      "value": "updated when processing or law changes"
+    },
+    {
+      "count": 1,
+      "value": "updated when the Fee Order or service routes change"
+    },
+    {
+      "count": 1,
+      "value": "versioned API; dataset resources follow their own release schedules"
+    }
+  ]
+}

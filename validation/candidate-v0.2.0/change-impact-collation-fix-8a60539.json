@@ -1,0 +1,380 @@
+{
+  "affected": {
+    "gate_work": [
+      {
+        "gate": "G1",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G2",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-SNAPSHOT"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G3",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-RIGHTS"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G4",
+        "selected_by": {
+          "stages": [],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-DATA-PLANE"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G5",
+        "selected_by": {
+          "stages": [
+            "evaluation-suite"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-EVALUATION"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G6",
+        "selected_by": {
+          "stages": [
+            "evaluation-suite"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-ACCESSIBILITY"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G7",
+        "selected_by": {
+          "stages": [
+            "evaluation-suite"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": [
+            "VAL-REPRODUCIBILITY"
+          ]
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G8",
+        "selected_by": {
+          "stages": [
+            "evaluation-suite",
+            "documentation"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      },
+      {
+        "gate": "G9",
+        "selected_by": {
+          "stages": [
+            "evaluation-suite",
+            "documentation"
+          ],
+          "unknown_change_policy": true,
+          "validation_refs": []
+        },
+        "status": "not_run"
+      }
+    ],
+    "generated_artifacts": [
+      "bundle/CHECKSUMS.sha256",
+      "bundle/build-receipt.json",
+      "bundle/data/evaluation-report.json",
+      "bundle/data/evaluation.json"
+    ],
+    "release_gates": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "requirement_ids": [
+      "REQ-002",
+      "REQ-003",
+      "REQ-005",
+      "REQ-010",
+      "REQ-012",
+      "REQ-014",
+      "REQ-015",
+      "REQ-016",
+      "REQ-017",
+      "REQ-018"
+    ],
+    "risk_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011",
+      "RISK-012",
+      "RISK-013",
+      "RISK-014",
+      "RISK-015",
+      "RISK-016",
+      "RISK-017"
+    ],
+    "test_ids": [
+      "bundle",
+      "evaluation",
+      "links",
+      "traceability"
+    ],
+    "tests": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_bundle",
+          "-v"
+        ],
+        "description": "Generated bundle integrity, safety and deterministic rebuild checks.",
+        "id": "bundle"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_evaluate",
+          "-v"
+        ],
+        "description": "Retrieval, expected-target and acceptance-review behavior.",
+        "id": "evaluation"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_links",
+          "-v"
+        ],
+        "description": "Local Markdown link closure.",
+        "id": "links"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.test_traceability",
+          "-v"
+        ],
+        "description": "Question, story, persona and journey reference closure.",
+        "id": "traceability"
+      }
+    ],
+    "validation_refs": [
+      "VAL-ACCESSIBILITY",
+      "VAL-DATA-PLANE",
+      "VAL-EVALUATION",
+      "VAL-REPRODUCIBILITY",
+      "VAL-RIGHTS",
+      "VAL-SNAPSHOT"
+    ]
+  },
+  "changed_paths": [
+    "bundle/CHECKSUMS.sha256",
+    "bundle/build-receipt.json",
+    "docs/release-assurance.md",
+    "scripts/evaluate.py",
+    "tests/test_evaluate.py",
+    "validation/candidate-v0.2.0/evaluation-diagnostic-collation-fixed-0fdab21a.json",
+    "validation/candidate-v0.2.0/explorer-product-runtime-collation-fixed-0fdab21a.json",
+    "validation/candidate-v0.2.0/explorer-search-runtime-collation-fixed-0fdab21a.json",
+    "validation/reviews/failed-50506bff-tree-collation/ROOT-CAUSE-ANALYSIS.md",
+    "validation/reviews/failed-50506bff-tree-collation/evaluation-acceptance-review.json",
+    "validation/reviews/failed-50506bff-tree-collation/stage1-review.json",
+    "validation/reviews/failed-50506bff-tree-collation/summary.md"
+  ],
+  "changes": [
+    {
+      "paths": [
+        "bundle/CHECKSUMS.sha256"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "bundle/build-receipt.json"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "docs/release-assurance.md"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "scripts/evaluate.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "tests/test_evaluate.py"
+      ],
+      "status": "M"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/evaluation-diagnostic-collation-fixed-0fdab21a.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-product-runtime-collation-fixed-0fdab21a.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/candidate-v0.2.0/explorer-search-runtime-collation-fixed-0fdab21a.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/failed-50506bff-tree-collation/ROOT-CAUSE-ANALYSIS.md"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/failed-50506bff-tree-collation/evaluation-acceptance-review.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/failed-50506bff-tree-collation/stage1-review.json"
+      ],
+      "status": "A"
+    },
+    {
+      "paths": [
+        "validation/reviews/failed-50506bff-tree-collation/summary.md"
+      ],
+      "status": "A"
+    }
+  ],
+  "comparison": {
+    "base": "d4adc0265ced232bf35eaa752408b320c782f6e7",
+    "head": "8a60539d4fce183aec2d0e7265573027657159ab",
+    "mode": "git"
+  },
+  "control_sha256": {
+    "requirements": "241871106424710de309fd56f63989ba2fbf657c8a32a1b9309b7d808973a5c5",
+    "risks": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e",
+    "traceability": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
+  },
+  "decision": "manual-review-required",
+  "explained_generated_paths": [
+    "bundle/CHECKSUMS.sha256",
+    "bundle/build-receipt.json"
+  ],
+  "graph": {
+    "path": "governance/artifact-dependency-graph.json",
+    "schema_path": "schemas/artifact-dependency-graph.schema.json",
+    "schema_sha256": "e7105f0b3d190fcbefb68da63efe460148e2e8119bf6684ccc7eeef16fa6a24f",
+    "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1",
+    "unknown_change_policy": "all-gates-and-manual-review",
+    "version": "1.0.0"
+  },
+  "limitations": [
+    "This report selects work; it does not pass or waive a validation gate.",
+    "Current release evidence remains bound to the exact governed release root.",
+    "G9 remains a project-owner decision for the exact candidate digest."
+  ],
+  "manual_review_required": true,
+  "matched_stages": [
+    {
+      "id": "evaluation-suite",
+      "input_matches": [
+        "scripts/evaluate.py"
+      ],
+      "matched_paths": [
+        "scripts/evaluate.py",
+        "tests/test_evaluate.py"
+      ],
+      "validation_input_matches": [
+        "tests/test_evaluate.py"
+      ]
+    },
+    {
+      "id": "documentation",
+      "input_matches": [
+        "docs/release-assurance.md"
+      ],
+      "matched_paths": [
+        "docs/release-assurance.md"
+      ],
+      "validation_input_matches": []
+    }
+  ],
+  "release_approval_required": true,
+  "schema": "okf-change-impact-report.v1",
+  "stage1_review_required": true,
+  "unexplained_generated_paths": [
+    "validation/candidate-v0.2.0/evaluation-diagnostic-collation-fixed-0fdab21a.json",
+    "validation/candidate-v0.2.0/explorer-product-runtime-collation-fixed-0fdab21a.json",
+    "validation/candidate-v0.2.0/explorer-search-runtime-collation-fixed-0fdab21a.json",
+    "validation/reviews/failed-50506bff-tree-collation/ROOT-CAUSE-ANALYSIS.md",
+    "validation/reviews/failed-50506bff-tree-collation/evaluation-acceptance-review.json",
+    "validation/reviews/failed-50506bff-tree-collation/stage1-review.json",
+    "validation/reviews/failed-50506bff-tree-collation/summary.md"
+  ],
+  "unmatched_paths": [
+    "validation/candidate-v0.2.0/evaluation-diagnostic-collation-fixed-0fdab21a.json",
+    "validation/candidate-v0.2.0/explorer-product-runtime-collation-fixed-0fdab21a.json",
+    "validation/candidate-v0.2.0/explorer-search-runtime-collation-fixed-0fdab21a.json",
+    "validation/reviews/failed-50506bff-tree-collation/ROOT-CAUSE-ANALYSIS.md",
+    "validation/reviews/failed-50506bff-tree-collation/evaluation-acceptance-review.json",
+    "validation/reviews/failed-50506bff-tree-collation/stage1-review.json",
+    "validation/reviews/failed-50506bff-tree-collation/summary.md"
+  ]
+}

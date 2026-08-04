@@ -1,0 +1,58 @@
+{
+  "schema": "okf-hmlr-publisher-registry.v1",
+  "version": "0.2.0",
+  "publishers": [
+    {
+      "name": "Central Digital and Data Office",
+      "id": "https://www.gov.uk/government/organisations/central-digital-and-data-office"
+    },
+    {
+      "name": "Department for Business and Trade",
+      "id": "https://www.gov.uk/government/organisations/department-for-business-and-trade"
+    },
+    {
+      "name": "Department for Business, Energy & Industrial Strategy",
+      "id": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy"
+    },
+    {
+      "name": "Department for Business, Innovation & Skills",
+      "id": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills"
+    },
+    {
+      "name": "Department for Transport",
+      "id": "https://www.gov.uk/government/organisations/department-for-transport"
+    },
+    {
+      "name": "Government Digital Service and contributing publishers",
+      "id": "https://www.data.gov.uk/"
+    },
+    {
+      "name": "HM Courts & Tribunals Service",
+      "id": "https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service"
+    },
+    {
+      "name": "HM Land Registry",
+      "id": "https://www.gov.uk/government/organisations/land-registry"
+    },
+    {
+      "name": "HM Land Registry and UK House Price Index partners",
+      "id": "https://www.gov.uk/government/collections/uk-house-price-index-reports"
+    },
+    {
+      "name": "Ministry of Housing, Communities and Local Government",
+      "id": "https://www.gov.uk/government/organisations/ministry-of-housing-communities-local-government"
+    },
+    {
+      "name": "Office for National Statistics",
+      "id": "https://www.gov.uk/government/organisations/office-for-national-statistics"
+    },
+    {
+      "name": "Prime Minister's Office, 10 Downing Street",
+      "id": "https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street"
+    },
+    {
+      "name": "The National Archives",
+      "id": "https://www.gov.uk/government/organisations/the-national-archives"
+    }
+  ]
+}
