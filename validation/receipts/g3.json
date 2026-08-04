@@ -1,94 +1,98 @@
 {
   "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
   "candidate": {
-    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
-    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
-    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
   "checks": [
     {
       "id": "field-inventory-reviewed",
       "status": "pass",
-      "summary": "The exact 2,202-record public-field projection was structurally inventoried and reviewed."
+      "summary": "The exact 2,203-record metadata-only projection and its state fields were reviewed."
     },
     {
       "id": "independent-rights-review",
       "status": "pass",
-      "summary": "An independent AI-agent reviewed the exact field and rights projection; no human legal or licence audit is claimed."
+      "summary": "The independent Stage 1 reviewer passed rights, access, privacy and restricted-service scope for this exact candidate; no human legal audit is claimed."
     },
     {
       "id": "prohibited-content-absent",
       "status": "pass",
-      "summary": "Structural tests and targeted scans found no prohibited property-level, personal, credential or signed-download content."
+      "summary": "Tests and independent review found no property-level or personal records, credentials, signed URLs or prohibited service automation."
     },
     {
       "id": "rights-access-complete",
       "status": "pass",
-      "summary": "Every record resolves to explicit access, rights, licence and assessment states."
+      "summary": "Every record resolves to explicit access, rights, licence, assessment and caveat states."
     }
   ],
   "evidence": [
     {
-      "path": "validation/rights-safety.json",
-      "sha256": "2ca117a61b9e226f32abf87cb2af82f7f08597bfad8973efb177c1e8b655cd6b"
+      "path": "validation/candidate-v0.2.0/evidence/automated-validation.json",
+      "sha256": "007607003882d3b6b81775410c9595336b77c1e657c57ea6abdf1026d282dc39"
     },
     {
       "path": "governance/rights-review.json",
-      "sha256": "bdae341b08952dc7d0cbcebd476e8c4abe7caae2f3b1adb346a36c0516d3dae0"
+      "sha256": "887aadc255cdf966c580c12d3217a7036ccaf8bf8e086cae13cf4537e3a732fc"
     },
     {
       "path": "governance/risk-register.json",
-      "sha256": "8839dec7735b8844cac8cba766344ea2a22408678d248d7fa17c31c51f1ad60c"
+      "sha256": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e"
     },
     {
-      "path": "validation/evidence/independent-release-review.json",
-      "sha256": "6d0be01c3006cda56091551c7ef8f0fddbcea33f30f2ac4400f5e94211a42601"
+      "path": "bundle/data/rights.json",
+      "sha256": "0eaa10ad6f287ec87b169dc465e9a92367f519b1ebbdc4c849132f33e0ba3527"
+    },
+    {
+      "path": "validation/reviews/passed-a3e0bdf7-portable-collation/stage1-review.json",
+      "sha256": "b4833a8bdf91768b9110e60fc5ba19d73a95ca9de05310314f91e869c2ccb985"
     }
   ],
-  "executed_at": "2026-07-29T12:08:25Z",
+  "executed_at": "2026-07-30T11:00:11Z",
   "failures": [],
   "gate": "G3",
   "review": {
     "mode": "automated-agent-review",
     "reviewers": [
       {
-        "identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+        "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
         "independent": true,
         "kind": "ai-agent",
-        "reviewed_at": "2026-07-29T12:08:25Z",
-        "role": "independent-rights-reviewer"
+        "reviewed_at": "2026-07-30T06:36:46Z",
+        "role": "independent-stage1-reviewer"
       }
     ]
   },
   "reviewed_checks": [
     {
-      "completed_at": "2026-07-29T12:08:25Z",
+      "completed_at": "2026-07-30T06:36:46Z",
       "execution_mode": "document-review",
       "id": "field-inventory-reviewed",
-      "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "status": "pass"
     },
     {
-      "completed_at": "2026-07-29T12:08:25Z",
+      "completed_at": "2026-07-30T06:36:46Z",
       "execution_mode": "automated-agent",
       "id": "independent-rights-review",
-      "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "status": "pass"
     },
     {
-      "completed_at": "2026-07-29T12:08:25Z",
-      "execution_mode": "automated-agent",
+      "completed_at": "2026-07-30T06:36:46Z",
+      "execution_mode": "document-review",
       "id": "prohibited-content-absent",
-      "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "status": "pass"
     },
     {
-      "completed_at": "2026-07-29T12:08:25Z",
+      "completed_at": "2026-07-30T06:36:46Z",
       "execution_mode": "document-review",
       "id": "rights-access-complete",
-      "reviewer_identity": "Codex independent rights and profile review agent /root/profile_rights_check",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "status": "pass"
     }
   ],
@@ -99,13 +103,11 @@
       ".venv/bin/python",
       "-m",
       "unittest",
-      "tests.test_bundle.BundleTests.test_forbidden_raw_content_and_secret_shapes_absent",
-      "tests.test_bundle.BundleTests.test_record_identity_urls_and_rights_are_explicit",
-      "tests.test_bundle.BundleTests.test_current_snapshot_receipts_are_rehashed_and_reconciled"
+      "tests.test_bundle"
     ],
     "name": "rights-safety-and-prohibited-content-validator",
-    "sha256": "f0ff8d006cc684fb1a60432292a153b62ff99cafb92484c4221995bdc2c1d047",
-    "version": "v1-candidate-edbe2cb"
+    "sha256": "7997f10b1875cca1f35c8791f6560a353f0476e0ad06a86bdc558652fbf13ad6",
+    "version": "v0.2.0-a3e0bdf7"
   },
   "waivers": []
 }

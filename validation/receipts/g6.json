@@ -1,76 +1,84 @@
 {
   "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
   "candidate": {
-    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
-    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
-    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
   "checks": [
     {
       "id": "automated-journeys",
       "status": "pass",
-      "summary": "Static tests, Playwright journeys and axe scans pass on the exact local candidate."
+      "summary": "The pinned Explorer passed 26 of 26 search and 6 of 6 product journeys; local pages had no console, page or request failures."
     },
     {
       "id": "manual-accessibility-journeys",
       "status": "pass",
-      "summary": "Agent-assisted interactive keyboard, focus, history, no-JavaScript, contrast and 320px reflow checks pass; this is not a human audit."
+      "summary": "AI-assisted accessibility journeys and independent browser checks passed for this PoC; no human audit or WCAG conformance is claimed."
     },
     {
       "id": "performance-budgets",
       "status": "pass",
-      "summary": "Authored shell, search-index and total-bundle byte budgets pass with lazy 24-record initial rendering."
+      "summary": "The 24,394-byte raw authored shell does not eagerly load the corpus and the pinned Explorer uses lazy shards."
     },
     {
       "id": "security-critical-zero",
       "status": "pass",
-      "summary": "No critical browser/security finding, console error, storage use, third-party runtime request or unsafe DOM sink was found."
+      "summary": "Independent bounded static and browser review found no critical security issue, external runtime dependency, secret or prohibited claim."
     }
   ],
   "evidence": [
     {
-      "path": "validation/evidence/browser-accessibility-security-performance.json",
-      "sha256": "1271a5ec5473bb69444ce7d85de55367361aca5d47c624fdd586bf9f6a819494"
+      "path": "validation/candidate-v0.2.0/evidence/local-browser-quality.json",
+      "sha256": "76c92c54f2ca49750c195d7535949ea57934d12797324434837ad3b23b5a0e73"
     },
     {
-      "path": "validation/evidence/user-facing-independent-review.json",
-      "sha256": "848f1c97357ceab14b77b3da796555a12d74c9415fea6f1fcb085f2b12acb926"
+      "path": "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json",
+      "sha256": "8b2ac792ead76a29dc8e1c04f19b54ad862e16d0fcf3ae12c0bbd22a0442dd7d"
+    },
+    {
+      "path": "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json",
+      "sha256": "71b9608618a142873dc13ec1ca9d35dac2330871468542024332b9dc65141b06"
+    },
+    {
+      "path": "validation/reviews/passed-a3e0bdf7-release-review/g6-independent-review.json",
+      "sha256": "952e3fb6eef6922453bf07ed7e4e4d26ab8a5d0a87bf8e1d0184ecd105bd8c8c"
     },
     {
       "path": "docs/accessibility.md",
-      "sha256": "33dd0feff43f1c37a1affc9365c7e4b567ab6b012084c37bc75866a72606ffe3"
+      "sha256": "da672cf96770444c6c5c4d596743b11ac5dc18b6bc6565a4b00d0ba5cab46954"
     }
   ],
-  "executed_at": "2026-07-29T12:17:59Z",
+  "executed_at": "2026-07-31T21:52:47Z",
   "failures": [],
   "gate": "G6",
   "review": {
     "mode": "automated-agent-review",
     "reviewers": [
       {
-        "identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+        "identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
         "independent": true,
         "kind": "ai-agent",
-        "reviewed_at": "2026-07-29T12:17:59Z",
+        "reviewed_at": "2026-07-31T21:52:47Z",
         "role": "independent-g6-reviewer"
       }
     ]
   },
   "reviewed_checks": [
     {
-      "completed_at": "2026-07-29T12:17:59Z",
-      "execution_mode": "document-review",
+      "completed_at": "2026-07-31T21:52:47Z",
+      "execution_mode": "interactive-browser",
       "id": "accessibility-and-limitations-review",
-      "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "status": "pass"
     },
     {
-      "completed_at": "2026-07-29T12:17:59Z",
-      "execution_mode": "document-review",
+      "completed_at": "2026-07-31T21:52:47Z",
+      "execution_mode": "interactive-browser",
       "id": "security-and-performance-review",
-      "reviewer_identity": "Codex independent user-facing quality review agent /root/source_catalogue",
+      "reviewer_identity": "Claude Opus 5 (model ID claude-opus-5), Anthropic, operating as an autonomous review agent in the Claude Code CLI harness",
       "status": "pass"
     }
   ],
@@ -81,12 +89,11 @@
       ".venv/bin/python",
       "-m",
       "unittest",
-      "tests.test_pages",
-      "plus Playwright 1.62 and axe-core 4.12.1 exact-candidate journeys"
+      "tests.test_pages"
     ],
-    "name": "pages-browser-accessibility-security-performance-validator",
-    "sha256": "1251fe3e8329ff496e3bda42b8c01e6b5c8d5ce689f55f1e56adc9306a464954",
-    "version": "v1-candidate-edbe2cb"
+    "name": "browser-accessibility-security-performance-review",
+    "sha256": "a19ed1f4b3b2b84de0d87d8d1d48f1cd7ab3402e7bece11fb181be3f04e69204",
+    "version": "v0.2.0-a3e0bdf7"
   },
   "waivers": []
 }

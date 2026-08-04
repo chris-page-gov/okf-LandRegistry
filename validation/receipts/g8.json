@@ -1,65 +1,69 @@
 {
   "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
   "candidate": {
-    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
-    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
-    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
   "checks": [
     {
       "id": "artifact-manifest-complete",
       "status": "pass",
-      "summary": "The deterministic archive contains all 43 candidate bundle files under a versioned prefix and rehashes."
+      "summary": "The deterministic unreleased-candidate archive contains all 148 bundle files and reproduces both governed identities."
     },
     {
       "id": "dependency-provenance",
       "status": "pass",
-      "summary": "Seven Python dependencies are version/hash locked and represented in the SPDX document."
+      "summary": "Eleven Python dependencies are version and hash locked and represented in the SPDX document."
     },
     {
       "id": "sbom-recorded",
       "status": "pass",
-      "summary": "An SPDX 2.3 SBOM records the project and seven locked dependencies."
+      "summary": "An SPDX 2.3 SBOM and deterministic provenance document bind the candidate root and archive."
     },
     {
       "id": "workflow-provenance",
       "status": "pass",
-      "summary": "All five GitHub Actions uses are pinned to full commit SHA values and recorded in provenance."
+      "summary": "The workflow uses full history, five SHA-pinned actions and the fail-closed owner release-root variable."
     }
   ],
   "evidence": [
     {
-      "path": "validation/evidence/supply-chain-validation.json",
-      "sha256": "65eb624db5a484905608ad4070d526abaed84b44db4f76949e24c37074213468"
+      "path": "validation/candidate-v0.2.0/evidence/supply-chain-validation.json",
+      "sha256": "3f11964938b8e9a6bcefb4ee38593b3cb26d0fe9b48ad82338d7bdccce37f8c6"
     },
     {
-      "path": "validation/evidence/release-archive.json",
-      "sha256": "6f562e6c075c6671d51a74497128c4dc55824c52db939d7e0701243fc4571089"
+      "path": "validation/candidate-v0.2.0/evidence/release-candidate-archive.json",
+      "sha256": "a6d209d1af7a3e1bb0cd5c4c6c31199c67f48e8e7ba393ecad9a990c08fc51db"
     },
     {
-      "path": "validation/evidence/sbom.spdx.json",
-      "sha256": "2ea95edc04cc897047a004cc472a07a7ae4bc4c2a522570c35d2a7bf0ef6512b"
+      "path": "validation/candidate-v0.2.0/evidence/release-metadata/sbom.spdx.json",
+      "sha256": "33a632f32d960869c111e88b931e8e40695014385918cbca9f10a1e1fc10714a"
     },
     {
-      "path": "validation/evidence/provenance.json",
-      "sha256": "77e3148a1906ef6396aedd59b0147356c2b86487e594d227f218ffc215eae96e"
+      "path": "validation/candidate-v0.2.0/evidence/release-metadata/provenance.json",
+      "sha256": "d127b9a7692c63b90aba02c7047c20dd3bba04745c9e6f057c1d413d645a5b83"
     },
     {
-      "path": "dist/okf-landregistry-0.1.0.zip",
-      "sha256": "39ad20759dbd211da158f81c018b697d0fa8b5895fab9aab782113595d3b0dc5"
+      "path": "dist/okf-landregistry-0.2.0.zip",
+      "sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d"
     },
     {
       "path": "requirements-lock.txt",
-      "sha256": "2b34dff6da8650b0c1f1bb238866bd86075b2593882458d8ee68ac3a15b5ddf2"
+      "sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2"
     },
     {
       "path": ".github/workflows/pages.yml",
-      "sha256": "02cd32b471136b060549eb8f2316f52718ecf5f1a9a18ab194546ce3a4d2c636"
+      "sha256": "1ad10b94ead66f776ce675246945459da42d2f163ad9ad751e51d1e32413bf5d"
+    },
+    {
+      "path": "validation/reviews/passed-a3e0bdf7-release-review/independent-release-recommendation.json",
+      "sha256": "54aed4daf7215e110192b97c363015f39161172f3c9d1bb0ed44b7ae4f676d99"
     }
   ],
-  "executed_at": "2026-07-29T12:25:32Z",
+  "executed_at": "2026-07-30T11:00:11Z",
   "failures": [],
   "gate": "G8",
   "review": {
@@ -73,17 +77,14 @@
     "command": [
       ".venv/bin/python",
       "scripts/package_release.py",
+      "--output",
+      "dist/okf-landregistry-0.2.0.zip",
       "--receipt",
-      "validation/evidence/release-archive.json",
-      "then",
-      ".venv/bin/python",
-      "scripts/create_release_metadata.py",
-      "--candidate-commit-sha",
-      "edbe2cb61a3d916bc149519ad489f957c5ee3a38"
+      "validation/candidate-v0.2.0/evidence/release-candidate-archive.json"
     ],
-    "name": "release-package-sbom-and-provenance-generator",
-    "sha256": "c3187fe92cf5edf5a3b6b47898187df169710a6057a3fa1daa5b7db357eb383e",
-    "version": "v1-candidate-edbe2cb"
+    "name": "candidate-package-sbom-and-provenance-validator",
+    "sha256": "09fc0a0bec004bae58fa313e29dab133bc76d2d89aa2dfb13b9213f50dc261b2",
+    "version": "v0.2.0-a3e0bdf7"
   },
   "waivers": []
 }

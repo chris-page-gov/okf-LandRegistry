@@ -1,27 +1,27 @@
 {
   "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
   "candidate": {
-    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
-    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
-    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
   "checks": [
     {
       "id": "byte-identical",
       "status": "pass",
-      "summary": "The two clean bundle trees have zero byte differences."
+      "summary": "The two clean output trees have zero byte differences."
     },
     {
       "id": "clean-build-a",
       "status": "pass",
-      "summary": "The first isolated output build produced release root a3c15f0e...80c3c."
+      "summary": "The first isolated offline build produced release root a3e0bdf7...a704."
     },
     {
       "id": "clean-build-b",
       "status": "pass",
-      "summary": "The second isolated output build produced release root a3c15f0e...80c3c."
+      "summary": "The second isolated offline build produced release root a3e0bdf7...a704."
     },
     {
       "id": "committed-bundle-identical",
@@ -31,19 +31,23 @@
   ],
   "evidence": [
     {
-      "path": "validation/evidence/reproducibility.json",
-      "sha256": "9175751c025b122a11dfb8922f37ac6e2e926bbf4f9f6c84f49a444bb62bdd2d"
+      "path": "validation/candidate-v0.2.0/evidence/reproducibility.json",
+      "sha256": "470b56add3c4a02a1398ca1b17f69d5bd068d5eddd3f325d0ffa3bffe92c4876"
+    },
+    {
+      "path": "validation/candidate-v0.2.0/change-impact-final-release-review-a3e0bdf7.json",
+      "sha256": "453dde63cae27bc5ba7bc5e089fd78f404f371e3774c61e7aa587da86534d142"
     },
     {
       "path": "bundle/build-receipt.json",
-      "sha256": "7da5a7d69a11cc39d9d8123c3a07b16fc86ffa3bb8ebc04c2d92349261ae026d"
+      "sha256": "bb451051f6082a2aa5ab0e75ab485a203d31d4ee52f9e36f2ac40617a5331b36"
     },
     {
       "path": "bundle/CHECKSUMS.sha256",
-      "sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c"
+      "sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9"
     }
   ],
-  "executed_at": "2026-07-29T12:08:27Z",
+  "executed_at": "2026-07-30T11:00:11Z",
   "failures": [],
   "gate": "G7",
   "review": {
@@ -57,11 +61,12 @@
     "command": [
       ".venv/bin/python",
       "scripts/build.py",
-      "three exact-input builds followed by diff -qr comparisons"
+      "--output-dir",
+      "<isolated-output>/bundle"
     ],
     "name": "offline-deterministic-builder-and-byte-comparator",
-    "sha256": "1c1ad3970945caad0a4e51b1eccc45e7eec2db7db6e337a9ce71aec31baa24b4",
-    "version": "v1-candidate-edbe2cb"
+    "sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8",
+    "version": "v0.2.0-a3e0bdf7"
   },
   "waivers": []
 }

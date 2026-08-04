@@ -1,53 +1,61 @@
 {
   "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
   "candidate": {
-    "candidate_commit_sha": "edbe2cb61a3d916bc149519ad489f957c5ee3a38",
-    "checksums_sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c",
-    "profile_pack_root_sha256": "0534e05b3840ef4382d18ce1f4dec78676f9b423de4a7749053f1f7da9295480",
-    "release_root_sha256": "a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
-    "snapshot_manifest_sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
+    "release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
   "checks": [
     {
       "id": "checksums-valid",
       "status": "pass",
-      "summary": "All 42 governed artifact entries and release root rehash exactly."
+      "summary": "All 147 governed member entries and release root rehash exactly."
     },
     {
       "id": "data-plane-valid",
       "status": "pass",
-      "summary": "The catalogue, compact search index, nine shards, rights and provenance artifacts reconcile to 2,202 records."
+      "summary": "Catalogue, JSON-LD, compact search index, shards, rights and provenance reconcile to 2,203 records."
     },
     {
       "id": "okf-core-valid",
       "status": "pass",
-      "summary": "The OKF control-plane descriptor and referenced concept documents pass repository contract tests."
+      "summary": "The pinned real OKF checker reports the exact candidate conformant."
     },
     {
       "id": "routes-valid",
       "status": "pass",
-      "summary": "All local HTML, manifest and descriptor routes resolve without external runtime dependencies."
+      "summary": "Local pages, manifests, descriptor routes and pinned Explorer selected-record paths resolve."
     }
   ],
   "evidence": [
     {
-      "path": "validation/evidence/bundle-validation.json",
-      "sha256": "8b687de5a38d92689dfc3690e3ca3c961f706360f5fec02bb6550d2cb757c64e"
+      "path": "validation/candidate-v0.2.0/evidence/automated-validation.json",
+      "sha256": "007607003882d3b6b81775410c9595336b77c1e657c57ea6abdf1026d282dc39"
     },
     {
       "path": "bundle/CHECKSUMS.sha256",
-      "sha256": "fa911660f568e7a69c3aa63df7ac18f9c391da05dc7d24d6cd8d5a94e4c2617c"
+      "sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9"
     },
     {
       "path": "bundle/data/manifest.json",
-      "sha256": "00bf540271d5316c8ccd3c43e10aa91cdcaef2ebee707344dae96789254ba0a9"
+      "sha256": "8d900ba88d98added034abcfe566954297495cdcc0a649f00a3025d78c0b85c5"
     },
     {
-      "path": "bundle/data/records/manifest.json",
-      "sha256": "1aef0bd8d62cfbb613ec58cdeb9ffb6fc5064f22ae855218635b965f227c3d9b"
+      "path": "bundle/data/explorer/manifest.json",
+      "sha256": "30c692a50a935bc438cb7f803385ebd1db10921283e232e60cd5c65e406a707b"
+    },
+    {
+      "path": "bundle/okf-bundle.jsonld",
+      "sha256": "b7e0dfbed5061639e14ff777ae6c2e41961f38f368ce47ab6bcfad5a6720e7b2"
+    },
+    {
+      "path": "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json",
+      "sha256": "71b9608618a142873dc13ec1ca9d35dac2330871468542024332b9dc65141b06"
     }
   ],
-  "executed_at": "2026-07-29T12:08:27Z",
+  "executed_at": "2026-07-30T11:00:11Z",
   "failures": [],
   "gate": "G4",
   "review": {
@@ -59,13 +67,12 @@
   "status": "pass",
   "validator": {
     "command": [
-      "OKF_RELEASE_ROOT_SHA256=a3c15f0ee3c104e8b8f82ab770edd1b2ec9b16b2d72a9e2c4a6a1281e5b80c3c",
       ".venv/bin/python",
-      "scripts/check_release_approval.py"
+      "scripts/check_okf.py"
     ],
-    "name": "bundle-and-exact-root-validator",
-    "sha256": "e9045467986ed448957f32788a7c456bc53197834ebe655684eba2de6537db94",
-    "version": "v1-candidate-edbe2cb"
+    "name": "okf-data-plane-and-route-validator",
+    "sha256": "c19ca429fe6d0039e051d873acd11f69c801959f218cd311359cf9b5b7ae2a38",
+    "version": "v0.2.0-a3e0bdf7"
   },
   "waivers": []
 }
