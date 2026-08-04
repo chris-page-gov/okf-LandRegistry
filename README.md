@@ -4,13 +4,29 @@ An independent, metadata-only [OKF 0.2](https://github.com/GoogleCloudPlatform/k
 bundle for discovering HM Land Registry publications, services, datasets,
 developer resources and public repositories.
 
-Version 0.2.0 is an **AI-generated proof-of-concept candidate**. It was created
-with AI assistance; its new exact bytes still require the repository's
-digest-bound release review and owner approval. It has not had a
+Version 0.2.0 is an **AI-generated proof-of-concept release**. It was created
+with AI assistance and approved by the project owner for exact release root
+`a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704`.
+It has not had a
 representative-user study or independent human domain, legal, licence or
 accessibility audit. It is not produced or endorsed by HM Land Registry.
 It does not provide legal advice, prove ownership, establish a boundary or
 replace an official copy or live service.
+
+## Open in OKF Explorer
+
+[**Launch the HM Land Registry bundle in OKF Explorer**](https://chris-page-gov.github.io/okf-explorer/?bundle=https%3A%2F%2Fchris-page-gov.github.io%2Fokf-LandRegistry%2Fokf-explorer.json&view=reader#overview)
+
+The deployed v0.2.0 route has been checked in a real browser for bundle
+identity, overview loading, static search and selected-record hydration. It
+remains an independent metadata-discovery PoC, not an HM Land Registry service
+or a source of legal, ownership, priority or exact-boundary conclusions.
+
+Direct publication routes:
+
+- [GitHub Pages site](https://chris-page-gov.github.io/okf-LandRegistry/)
+- [OKF Explorer descriptor](https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json)
+- [Exact-digest release record](validation/release-record.json)
 
 ## What it covers
 
@@ -60,8 +76,9 @@ fixtures and exact post-deployment deep-link checks. The graph identifies the
 transitive checks affected by a change; unknown paths and generated-only edits
 fail closed to all release gates.
 
-The profile architecture is reviewed for the bounded v0.2.0 PoC; `DEC-RELEASE`
-still requires an exact-digest owner decision before publication.
+The profile architecture is reviewed for the bounded v0.2.0 PoC;
+`DEC-RELEASE` is closed for the exact release root named above. Any governed
+bundle change requires a new digest-bound decision.
 
 ## AI usage and cost disclosure
 
@@ -152,10 +169,9 @@ default branch and requires the repository variable
 `OKF_RELEASE_ROOT_SHA256` to name the exact owner-approved release root. Pull
 requests run verification without deployment.
 
-For a beginner-level explanation of the remaining Stage 1, Land Registry G5
-and Land Registry G9 blocks, the difference between the project and Foundry
-gate catalogues, the exact-candidate evidence still required, and the complete
-RC-to-public procedure, see the
+For a beginner-level explanation of Stage 1, Land Registry G5 and Land
+Registry G9, the difference between the project and Foundry gate catalogues,
+the exact-candidate evidence and the RC-to-public procedure, see the
 [`v0.2.0 release tracker and public website guide`](docs/v0.2.0-release-tracker-and-publication-guide.md).
 
 ## Rights and responsible use

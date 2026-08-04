@@ -6,7 +6,7 @@ will use semantic versioning where it fits the artifact lifecycle.
 
 ## [Unreleased]
 
-## [0.2.0] - 2026-07-29
+## [0.2.0] - 2026-08-04
 
 ### Fixed
 
@@ -21,6 +21,8 @@ will use semantic versioning where it fits the artifact lifecycle.
 
 ### Added
 
+- Added the browser-verified OKF Explorer launch route and exact public
+  descriptor links to the repository README.
 - A pinned Explorer consumer lock and fail-closed compatibility validation.
 - A governed v2 record contract, source-type crosswalk, publisher registry,
   bounded Content API translation observations and corrected JSON-LD graph.

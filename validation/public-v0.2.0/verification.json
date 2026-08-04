@@ -1,0 +1,94 @@
+{
+  "archive": {
+    "bytes": 2133201,
+    "file_count": 148,
+    "path": "dist/okf-landregistry-0.2.0.zip",
+    "reproduced_byte_identical": true,
+    "sha256": "7f92e51cfa75fee9e3517788a0bd1b9c36de34525ea18d13732da3d24b61120d"
+  },
+  "browser_verification": {
+    "browser_family": "Microsoft Edge",
+    "console_at_initial_load": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "identity": {
+      "bundle_title": "HM Land Registry public-estate OKF",
+      "overview_heading": "HM Land Registry public-estate metadata overview",
+      "records": 2203,
+      "relationships": 1,
+      "status_disclosure_visible": true
+    },
+    "journey": {
+      "matching_records": 67,
+      "query": "Price Paid Data",
+      "selected_record_id": "record-307ce66fafb19dbba066a70c",
+      "selected_record_title": "Additional Price Paid Data to be released in October",
+      "selected_route": "#dataset/record-307ce66fafb19dbba066a70c",
+      "status": "pass"
+    },
+    "observations": [
+      "The bundle loaded without the prior JSON resource path error.",
+      "The overview, counts, metadata-only caveats and AI-generated proof-of-concept disclosure rendered.",
+      "Static search completed and returned 67 matching records.",
+      "The selected record hydrated its detail card, catalogue-date qualification, source context and series context."
+    ],
+    "status": "pass"
+  },
+  "deployed_identity": {
+    "checksums_sha256": "1ddbe5ce950ba716b2d88e8d8fd4ef0b0c29596610819ee7994bd1d1d9a0f2d9",
+    "data_manifest_root_sha256": "e628e66632f8e1cbdc6e38b23188351d1e2c0e9722a5ff141c3e0f3fc4bef0e8",
+    "data_manifest_sha256": "30c692a50a935bc438cb7f803385ebd1db10921283e232e60cd5c65e406a707b",
+    "descriptor_sha256": "8bb0f29e03af2ced083c4d2d608ea42f9a55a389d8eafa28f7fe295bc272d431",
+    "entrypoints_checked": 20,
+    "entrypoints_failed": 0,
+    "http_status": 200,
+    "redirects": 0,
+    "representative_manifest_materials_checked": 12,
+    "remote_bytes_match_candidate": true,
+    "status": "pass"
+  },
+  "exact_byte_carry_forward": {
+    "basis": "The public descriptor, checksum manifest, data manifest and representative shards are byte-identical to the exact candidate exercised by the locked Explorer receipts.",
+    "consumer_commit": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "consumer_version": "0.5.7",
+    "product_journeys": {
+      "failed": 0,
+      "passed": 6,
+      "receipt": "validation/candidate-v0.2.0/explorer-product-runtime-portable-collation-a3e0bdf7.json"
+    },
+    "search_journeys": {
+      "failed": 0,
+      "passed": 26,
+      "receipt": "validation/candidate-v0.2.0/explorer-search-runtime-portable-collation-a3e0bdf7.json"
+    }
+  },
+  "limitations": [
+    "The public-browser observation is AI-agent-assisted, not an independent human accessibility, security, legal, licence, privacy or domain audit.",
+    "The representative public journey did not repeat every locked local journey; promotion relies on exact deployed-byte identity plus the full digest-bound local consumer receipts.",
+    "No representative-user study was performed.",
+    "The bundle remains metadata-only and must not be used for legal, ownership, priority or exact-boundary conclusions."
+  ],
+  "observed_at": "2026-08-04T13:57:37Z",
+  "promotion": {
+    "decision": "ready_for_byte_identical_final_release",
+    "owner_requested_final_release": true,
+    "status": "pass"
+  },
+  "public_routes": {
+    "descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+    "explorer": "https://chris-page-gov.github.io/okf-explorer/?bundle=https%3A%2F%2Fchris-page-gov.github.io%2Fokf-LandRegistry%2Fokf-explorer.json&view=reader#overview",
+    "site": "https://chris-page-gov.github.io/okf-LandRegistry/"
+  },
+  "release": {
+    "approved_release_root_sha256": "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+    "candidate_commit_sha": "40482c865dc4332162f1e93756d94ca93abe3559",
+    "deployment_commit_sha": "1844b5989ed482f9538d62db7a3c95c678103f6e",
+    "owner_approval_commit_sha": "29fad6e5a795c4a415b32a9b1785d10fbea94843",
+    "pages_workflow_run": "https://github.com/chris-page-gov/okf-LandRegistry/actions/runs/30915036956",
+    "version": "0.2.0"
+  },
+  "schema": "okf-hmlr-public-deployment-verification.v1",
+  "status": "pass",
+  "verification_scope": "public-byte-identity-and-representative-real-browser-journey"
+}
