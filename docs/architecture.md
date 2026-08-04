@@ -1,6 +1,6 @@
 # Architecture
 
-Status: v0.1.0 AI-generated PoC release architecture.
+Status: v0.1.1 AI-generated PoC release-candidate architecture.
 
 ## Architectural decision
 
@@ -59,6 +59,62 @@ flowchart LR
 8. **Approve and deploy.** Publish only the candidate whose checksums and
    receipts the owner approved.
 
+## Change-impact dependency graph
+
+`governance/artifact-dependency-graph.json` is the machine-readable
+source-to-artifact dependency control. Its nodes classify authored inputs and
+generated outputs, and attach the requirements, risks, validation references,
+focused tests and G1–G9 release gates that a change can affect. The graph is
+validated against
+`schemas/artifact-dependency-graph.schema.json` and against the live
+requirement, risk and validation IDs before it is used.
+This is the implementation control for `REQ-020`, `RISK-017` and
+`VAL-CHANGE-IMPACT`.
+
+Artifact-producing `inputs` are distinct from `validation_inputs`. A validator
+or test change selects its assurance surface but does not falsely predict that
+the generator changed public bytes. New test paths are unclassified until they
+are attached to a reviewed stage, so they fail closed rather than inheriting an
+arbitrary nearby test's authority.
+
+`scripts/change_impact.py` applies the graph to either an explicit path set or
+an exact Git commit comparison. It also follows existing governance
+traceability and requirement verification references. Its result is a
+deterministic planning report:
+
+```mermaid
+flowchart LR
+    A["Changed authored path"] --> B["Dependency graph stage"]
+    B --> C["Generated artifact patterns"]
+    B --> D["Requirements and risks"]
+    B --> E["Focused tests and validations"]
+    E --> F["Affected G1–G9 gates"]
+    C --> G["Generated diff reconciliation"]
+    H["Unknown or generated-only path"] --> I["All gates and manual review"]
+```
+
+This classifier fails closed. An unknown authored path, or a generated change
+without a declared changed input that predicts it, selects every release gate
+and requires manual graph review. Direct edits to `bundle/`, `dist/` or
+`validation/` are never accepted as a correction path.
+
+Selected downstream consumers are first-class dependencies. The pinned
+Explorer identity and loader assumptions live in
+`contracts/okf-explorer.consumer-lock.json`; source, build-engine, governance
+and contract changes select `tests.test_explorer_contract`. This prevents a
+schema-valid producer artifact from being treated as usable until the selected
+Explorer consumer has loaded its descriptor and referenced assets.
+That edge implements `REQ-019`, mitigates `RISK-016` and selects
+`VAL-EXPLORER-CONSUMER`.
+
+The graph reduces search and rerun effort; it does not weaken assurance.
+Current receipts remain bound to the exact release root, so any changed
+governed byte still requires replacement evidence for that exact candidate,
+and G9 remains an owner decision. The current generator is substantially
+monolithic, so a change to `scripts/build.py` intentionally has a broad
+`bundle/**` impact. Finer generator modules and per-plane digest roots can
+later narrow this edge without guessing about code semantics.
+
 ## Identity and versioning
 
 - Retain the source URL and every stable source-native identifier.
@@ -71,7 +127,7 @@ flowchart LR
 - Keep publisher dates, observation time, transformation time and bundle
   release time in separate fields.
 
-The canonical v0.1.0 namespace is
+The canonical v0.1.1 namespace is
 `https://chris-page-gov.github.io/okf-LandRegistry/id/`; `DEC-RELEASE` binds
 that identity to the exact approved digest.
 

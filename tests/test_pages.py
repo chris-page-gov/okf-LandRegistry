@@ -47,7 +47,7 @@ class PagesTests(unittest.TestCase):
         )
         self.assertIn('content="default-src', html)
         self.assertIn("ai-generated proof of concept", html.casefold())
-        self.assertIn("version 0.1.0", html.casefold())
+        self.assertIn("version 0.1.1", html.casefold())
         self.assertIn("29 July 2026", html)
 
     def test_javascript_uses_safe_dom_apis(self) -> None:

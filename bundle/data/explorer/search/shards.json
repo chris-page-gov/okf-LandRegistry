@@ -1,0 +1,586 @@
+{
+  "schema": "okf-search-shard-metadata.v1",
+  "shards": {
+    "filters": [
+      {
+        "bytes": 11422,
+        "path": "data/explorer/search/filters/access.json",
+        "sha256": "fbc1e3467a76c0c360400deb7367c01344dd787cd168c73807cc0e27acb9f651",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10155,
+        "path": "data/explorer/search/filters/access_state.json",
+        "sha256": "a40ddf32ced7a4973cd947c49130412ea658da09ebaf2633c3574ce50435d7ae",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 3077,
+        "path": "data/explorer/search/filters/audience.json",
+        "sha256": "641ad1e77acc2711bd5450dd7d864394f44e52296a2b8ddbeced759d5d8763fa",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 11594,
+        "path": "data/explorer/search/filters/content_type.json",
+        "sha256": "f5bfe9123b004370d8d9690cb29acd760d2493aa4d8bcaa52e14a076b28c29cc",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10680,
+        "path": "data/explorer/search/filters/format.json",
+        "sha256": "9a1a344c295df7a1534e179e87b0dfb0ba4e1e8d2970dbd913072ccf617a3196",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10849,
+        "path": "data/explorer/search/filters/geography.json",
+        "sha256": "fd083dc8b05753a6b2e3a477589337e3e8267a4de5d715d17bd525dab2b30b28",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 114,
+        "path": "data/explorer/search/filters/language.json",
+        "sha256": "959615ffc10bf4fba6968367d8050944ca257d2d8bb954e46146cd548dc1c3d8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 13171,
+        "path": "data/explorer/search/filters/licence.json",
+        "sha256": "fa30670855bb6753ef625f53aafe2725447218f5b927deb0334ed5256a1e3f2d",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10014,
+        "path": "data/explorer/search/filters/lifecycle_state.json",
+        "sha256": "d0844e4577a74d7ed6a43783edf43647d3eace11f1ef3bc596b32de472946211",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10517,
+        "path": "data/explorer/search/filters/publisher.json",
+        "sha256": "c926edfcce0fa6d53e9571927a31a3de0b200f6313336e163d89aec11d891b22",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 11593,
+        "path": "data/explorer/search/filters/record_type.json",
+        "sha256": "5527d2a63d5dbed05c573a3f056d054ed7686d024ee5d0a99071fa8158c19ace",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10061,
+        "path": "data/explorer/search/filters/rights_state.json",
+        "sha256": "4584839a15b2a3c02eb379826aa0b17b4923c35eeaa89506d619ffde9195157d",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10223,
+        "path": "data/explorer/search/filters/service.json",
+        "sha256": "f3fad8fd9ea3a66831215cbe53aa769994f3474a95fd377db5d2915662dd99c4",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 10229,
+        "path": "data/explorer/search/filters/source_family.json",
+        "sha256": "a5561267ac915bf6fe159e3d710392c5fe237f5049d993604519baf7d20253a8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 17423,
+        "path": "data/explorer/search/filters/topic.json",
+        "sha256": "bf48912640064490047e4db62a935e318cd2d1707892cac3a0a5d103f9317ede",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 12072,
+        "path": "data/explorer/search/filters/update_frequency.json",
+        "sha256": "a5b787bd7bab816ff3aeea89ad2d4515d03a1d45e7ef851d8daa618007354de8",
+        "snapshot": "2026-07-29T091915Z"
+      }
+    ],
+    "lexicon": [
+      {
+        "bytes": 223,
+        "path": "data/explorer/search/lexicon-0.json",
+        "sha256": "a3b32883d24c508d53536ab2794a9a1ac44e8021d9a2a45a61b9c480abae4092",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 1833,
+        "path": "data/explorer/search/lexicon-1.json",
+        "sha256": "72e21fd1f66562447969911f9fdaa1f65f7ba9dbb5791f680dd614ba0b05a946",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 3132,
+        "path": "data/explorer/search/lexicon-2.json",
+        "sha256": "d11d8b335d380983195b3244bbf714d78edaac1b3dbbf23f86834955f913c449",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 799,
+        "path": "data/explorer/search/lexicon-3.json",
+        "sha256": "01ed2e33ad50af3d60434363554c31c5bf2009689c1f69db319d84cfcb197e2a",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 506,
+        "path": "data/explorer/search/lexicon-4.json",
+        "sha256": "736d76be6bcc09074b10f4cfbd2e1dd5d844f951abe8f0121940564f5581f6c5",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 730,
+        "path": "data/explorer/search/lexicon-5.json",
+        "sha256": "9dfac361acac0701ed8a5ce1cdb4d8d697508eae710abe7049ed7c1b06d0b1d4",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 869,
+        "path": "data/explorer/search/lexicon-6.json",
+        "sha256": "8f90a955d77f0258fe51dd450511502a1bd88d164409a7eb32b973d0bddec846",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 506,
+        "path": "data/explorer/search/lexicon-7.json",
+        "sha256": "00b3c9c65e7e4b6eacf64d323a73035868e28b0ed1991a370ddd0bbe471e53df",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 218,
+        "path": "data/explorer/search/lexicon-8.json",
+        "sha256": "401d90f3b6d5f799c4a4531fb5e1f808d45927437f98cafab89d2ea591f1e1e7",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 74,
+        "path": "data/explorer/search/lexicon-9.json",
+        "sha256": "550d3d1dc8f59dc0d999ed98087430662fd5f45926d4eb2970e2dbfb5201e7ca",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 31482,
+        "path": "data/explorer/search/lexicon-a.json",
+        "sha256": "42baafa8035703a2eba0438aaf66ef69adaf50df92a6342ccbf7e86b4f48e6f8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 9268,
+        "path": "data/explorer/search/lexicon-b.json",
+        "sha256": "4f13181ddbd2f8926d869d87cd3e123acea3bc6dcc5914d84da45419f456f107",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 35179,
+        "path": "data/explorer/search/lexicon-c.json",
+        "sha256": "af592fa8b5b3153c14341b94b8aa006a84355ec56668472864cf2ad2eb56b4bf",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 25784,
+        "path": "data/explorer/search/lexicon-d.json",
+        "sha256": "e941dfb495014472cc67729ace8bf79291c01a920883ccc59796a41853a60f02",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 23211,
+        "path": "data/explorer/search/lexicon-e.json",
+        "sha256": "c843e611fdf11d99dd4390b9e66c29a768249e8dab3d07a80c105c91e56ae9d7",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 12282,
+        "path": "data/explorer/search/lexicon-f.json",
+        "sha256": "0d1250375ac9fb7d1ca0b8db0c330e2458f09af801a68b70c3721b4c7ea96311",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 9130,
+        "path": "data/explorer/search/lexicon-g.json",
+        "sha256": "a40ae9532a5b12db9f241c8941cd466f031f678593f569c98b57d766cd6f789a",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 34760,
+        "path": "data/explorer/search/lexicon-h.json",
+        "sha256": "8e037839720ad550c723260474fa1c6ef77580606fdbe4fc658d6b7e8e27eda0",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 12527,
+        "path": "data/explorer/search/lexicon-i.json",
+        "sha256": "b13b3029b326b601add129b52f81c78b8e28b90f2492f35a3fb3a64c4bd5f5b2",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 7848,
+        "path": "data/explorer/search/lexicon-j.json",
+        "sha256": "9961f71cd4d9a98fc542db744ea581a5b7c06959073209f0697ad8ac895638b3",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 2289,
+        "path": "data/explorer/search/lexicon-k.json",
+        "sha256": "714bad95158ca5104ebe70e234f15569184d70473adb897f63d5e101f51cd2e8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 38922,
+        "path": "data/explorer/search/lexicon-l.json",
+        "sha256": "d05891c113266b49237fc45d86f4914194494c4787510e61110796c0f49d4fa8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 14979,
+        "path": "data/explorer/search/lexicon-m.json",
+        "sha256": "d61fa1216e901f02108f5cee26204f44e51a2fbb91d01602bcbf660966a6a0ae",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 12564,
+        "path": "data/explorer/search/lexicon-n.json",
+        "sha256": "f79affadfbd44dc5308400db15b3f85f9307693a31c7c6503a5325c5c203e8f4",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 13422,
+        "path": "data/explorer/search/lexicon-o.json",
+        "sha256": "1c80296a96ab778bcf5724d09ee47c81990ac051f81676011819e5ad79a7f2dc",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 30657,
+        "path": "data/explorer/search/lexicon-p.json",
+        "sha256": "3c1e1a7a4678691b153f3de9e3e9ea2fe83178c9f35fc43cb3e60ae9dfd65297",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 1283,
+        "path": "data/explorer/search/lexicon-q.json",
+        "sha256": "42bce6189c69c774d068b189e8219c0b90228aa8a2d8604fc5def6b4c26c1102",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 20361,
+        "path": "data/explorer/search/lexicon-r.json",
+        "sha256": "3424e516dbd057c49a5483832729b30b2260407e5cf5daef365b78c9e7987bfb",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 27610,
+        "path": "data/explorer/search/lexicon-s.json",
+        "sha256": "d31c92b0cce6172b308d591e36a8fbc44b914ed7dc2d67ea5f1b9726ce3f92ea",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 14200,
+        "path": "data/explorer/search/lexicon-t.json",
+        "sha256": "c7c56050a50f0baa149c82e21ac1a4b7d939281acc1f61daf134b7a4eee9879c",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 67350,
+        "path": "data/explorer/search/lexicon-u.json",
+        "sha256": "e8792922e2459cc350e6bb92da688e43b5d5b436b5dbd73a3ae0baf83cc74657",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 3305,
+        "path": "data/explorer/search/lexicon-v.json",
+        "sha256": "f73c368c0523129071ed6aaaa3c668a2de3a1456a43ea92ce9b420d15f27bed0",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 9392,
+        "path": "data/explorer/search/lexicon-w.json",
+        "sha256": "2e8448ca7c7f1208be77e201ce65f60f239c98ed98f01efbf79cc3f9f9726a26",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 847,
+        "path": "data/explorer/search/lexicon-y.json",
+        "sha256": "224b8f45d917a78a37b3cbf0a62e1375fe45b5c1d5b1ce78c6c4e529cd28a14a",
+        "snapshot": "2026-07-29T091915Z"
+      }
+    ],
+    "postings": [
+      {
+        "bytes": 927,
+        "path": "data/explorer/search/postings-0.json",
+        "sha256": "dcf69b45636076a34082d6a041f4cffa941daa9a2b0771f696d371c3db3577c8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 984,
+        "path": "data/explorer/search/postings-1.json",
+        "sha256": "d09cb556cfa843d79ec4e3919cdd925de58979d51986501f6d3d46186ee59ec6",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 15857,
+        "path": "data/explorer/search/postings-2.json",
+        "sha256": "f8ccbc4279908c4ebc12675c2234e406902eca527e0948fd5ba39128b7d95c3d",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 483,
+        "path": "data/explorer/search/postings-3.json",
+        "sha256": "503fef1c7206141003157e7c3edb035b3ff52869fdc7709cd2abb3e99f245aa1",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 268,
+        "path": "data/explorer/search/postings-4.json",
+        "sha256": "30fcd013fd57cbff1382bb5123a14aaf142f18c99fbdfba2aea9d8fd43ce911e",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 942,
+        "path": "data/explorer/search/postings-5.json",
+        "sha256": "15522e0faec4268b03913e070d5e7019016ee576e88c399da9c705f9cc4cc7c0",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 234,
+        "path": "data/explorer/search/postings-6.json",
+        "sha256": "8e49881c54395b751a9934d0eca325e51442a2f5b5ef31eace310a723ffc80a1",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 162,
+        "path": "data/explorer/search/postings-7.json",
+        "sha256": "106f853a6e9ee5c39be766e70e552e0717b4bf1483fa05d53deecbf38a62a089",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 63,
+        "path": "data/explorer/search/postings-8.json",
+        "sha256": "cfb23728d386ca33e23bbe6dc3bd230e0635d58ea2597506f0233c38ab514333",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 30,
+        "path": "data/explorer/search/postings-9.json",
+        "sha256": "d22e8d443305647f079279297efd1aefed8053021796d07281db714d02535413",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 48831,
+        "path": "data/explorer/search/postings-a.json",
+        "sha256": "f77c7c5f2da2e1e2a037399181501e35eb8c7f010fe224b6506056bc85e5ec66",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 11899,
+        "path": "data/explorer/search/postings-b.json",
+        "sha256": "1137c764925a6952e32ba300e94df78a34f0ded65055f5a8fb1cf1b0d53de933",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 33702,
+        "path": "data/explorer/search/postings-c.json",
+        "sha256": "e8fb49b80c10f66394095fefda52dbeeb7ffefa8fa2e4575ece42e0782be61b6",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 32787,
+        "path": "data/explorer/search/postings-d.json",
+        "sha256": "5bfe155ecff26d525879e13bc9781add343dd9b89259fe2899c50a42806644c8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 19477,
+        "path": "data/explorer/search/postings-e.json",
+        "sha256": "f61340d1de724ca39516217dd2a952394122baf45d3e172f4df277aadc5831c9",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 26485,
+        "path": "data/explorer/search/postings-f.json",
+        "sha256": "b87fce69fc13aa025385f9f1512f398a4ccc2cbec548af8b40e8d11a05810bcf",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 61946,
+        "path": "data/explorer/search/postings-g.json",
+        "sha256": "8034454b3f903e185dc8ec34db388f41b7a81af9e87b5ab18d37d44dd6e2399a",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 83960,
+        "path": "data/explorer/search/postings-h.json",
+        "sha256": "e4bfb124523311086b5c9478ed63b8d5958612d1d14b55a048b048ba81cab7f9",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 33352,
+        "path": "data/explorer/search/postings-i.json",
+        "sha256": "7214093be3119295310c8610d4115352a93631101f7c23fed4108b7bc4c890c5",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 7534,
+        "path": "data/explorer/search/postings-j.json",
+        "sha256": "d10231d758c44f7435517cc73a01c368a02f0d522678a0be0395e1077bf4af20",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 923,
+        "path": "data/explorer/search/postings-k.json",
+        "sha256": "93c833632f5972f45c900b635095ca6875cb645bd5e99fb9a3c39c051a84bb45",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 50213,
+        "path": "data/explorer/search/postings-l.json",
+        "sha256": "a9302ed60bcb82165fd3f31d7fc4d6323bbe9a80ab15166b249febff4a8aab0d",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 16514,
+        "path": "data/explorer/search/postings-m.json",
+        "sha256": "24a1ee0f51c3a788cffb1fa9cd02a85f784dd2695999d81731aa6ce80462d302",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 30295,
+        "path": "data/explorer/search/postings-n.json",
+        "sha256": "d5a6cb6a56fca7bc5056ccc8fb40c05640b90fd6641f78d2847eb21ae908a429",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 29169,
+        "path": "data/explorer/search/postings-o.json",
+        "sha256": "6076f0f5bffde87524237be07be1600b16fb2ed3772f7629eb1c1ebcd1fc2257",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 73267,
+        "path": "data/explorer/search/postings-p.json",
+        "sha256": "d0a5147dacde5e88f74e05fdf5c050563546b94fd878cf75683851e2d2cde1d1",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 646,
+        "path": "data/explorer/search/postings-q.json",
+        "sha256": "be29e4e7b0ccc2f8ae058f5a8bf0c994226e4e49260ef329913c51897d37e899",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 50561,
+        "path": "data/explorer/search/postings-r.json",
+        "sha256": "9b0b03edc2f03446cd3a54d4e26552af140fb4a175906ca8d8fcf0c12f8ded0e",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 47451,
+        "path": "data/explorer/search/postings-s.json",
+        "sha256": "a0c6fa9cebc75350631b7ef439a018bceb709329cfdd30a2d4d1e2e10af70dd3",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 41106,
+        "path": "data/explorer/search/postings-t.json",
+        "sha256": "e526bd01afe9e3fc88c294b2608e326ab93ae1a293772c7bd9b8d27b59b5e741",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 47415,
+        "path": "data/explorer/search/postings-u.json",
+        "sha256": "3a277343d1b8380517d087bde90ee11b62baf767d3a72841ef6eb2316088d699",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 1745,
+        "path": "data/explorer/search/postings-v.json",
+        "sha256": "08ceccb938fcc619d91e0686912eec54afea81f20e184801ae7a231989499e7b",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 37697,
+        "path": "data/explorer/search/postings-w.json",
+        "sha256": "f1d2624b5402f30cf39fdcf09474c357ffe17c472e206b096975718b5e039537",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 1475,
+        "path": "data/explorer/search/postings-y.json",
+        "sha256": "00141fcd4bccfe6068272f26c5a819663bebd0205c924d8efb99f81423cb40c6",
+        "snapshot": "2026-07-29T091915Z"
+      }
+    ],
+    "result_docs": [
+      {
+        "bytes": 848243,
+        "path": "data/explorer/datasets-000.json",
+        "sha256": "0521d82ad57b056ed0f630f943ff7cadbab1b3069bba98d0dc717d8dd7b4d2a2",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 833455,
+        "path": "data/explorer/datasets-001.json",
+        "sha256": "c9d801be9bb6f2a808b425a2cc940d10bfc5d1c952fd34da8370bc02f05ce398",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 891919,
+        "path": "data/explorer/datasets-002.json",
+        "sha256": "629f651860336a1724ec87361575dffa0cce584463c1a586cdec86a227b40719",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 866117,
+        "path": "data/explorer/datasets-003.json",
+        "sha256": "58c95767716d3de7f79b51fbc2ce1fa858d95d0e36e59f133687a6103f879345",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 843677,
+        "path": "data/explorer/datasets-004.json",
+        "sha256": "4f239233968946f8bb3f34926d716a620e54cb02c0ecd138011bf34306ce9d1d",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 868300,
+        "path": "data/explorer/datasets-005.json",
+        "sha256": "8ca3115520ad9f19bcdb10ee1c4d2d78b3f1963d40ad40c838e7319e53439883",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 865653,
+        "path": "data/explorer/datasets-006.json",
+        "sha256": "6de5193231da800205d0045a0f1ae0bada3c49533690cafdf0f587c0378163b8",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 883971,
+        "path": "data/explorer/datasets-007.json",
+        "sha256": "1bc4a8177315b45222d987c44dedd81d0cddd2b927d25be9bfc31b735c79b98c",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 726429,
+        "path": "data/explorer/datasets-008.json",
+        "sha256": "ccb1ec22b6e5d459a25fdbd76bbe6e8e89c66a7ff99209ff7b05175208429f87",
+        "snapshot": "2026-07-29T091915Z"
+      }
+    ],
+    "support": [
+      {
+        "bytes": 106790,
+        "path": "data/explorer/search/doc-map.json",
+        "sha256": "385bc66050e1e7ab9c9a04e31bd1899995736068957cfccee2c877b0b04ee39a",
+        "snapshot": "2026-07-29T091915Z"
+      },
+      {
+        "bytes": 161172,
+        "path": "data/explorer/search/sort-values.json",
+        "sha256": "81d331b482e05e25752bf667b03854f32a8fa7f4d43ed9828497c6dabf5c49a7",
+        "snapshot": "2026-07-29T091915Z"
+      }
+    ]
+  },
+  "snapshot": "2026-07-29T091915Z"
+}

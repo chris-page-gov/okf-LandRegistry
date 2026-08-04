@@ -2,7 +2,7 @@
   "schema": "okf-governance-traceability.v1",
   "project_status": "released-poc",
   "research_cutoff": "2026-07-29",
-  "assurance_state": "passed-v0.1.0",
+  "assurance_state": "candidate-v0.1.1-pending-exact-gates",
   "rows": [
     {
       "requirement_ids": ["REQ-001", "REQ-006", "REQ-007"],
@@ -103,6 +103,40 @@
       "validation_refs": [],
       "implementation_state": "implemented",
       "verification_state": "pass"
+    },
+    {
+      "requirement_ids": ["REQ-019"],
+      "profile_refs": ["DEC-ARCHITECTURE", "VAL-EXPLORER-CONSUMER"],
+      "evidence_refs": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "artifact_paths": [
+        "contracts/okf-explorer.consumer-lock.json",
+        "docs/architecture.md",
+        "bundle/okf-explorer.json",
+        "bundle/data/explorer/manifest.json",
+        "tests/test_explorer_contract.py",
+        "apps/okf-explorer/tests/ui/targeted-large-corpus.spec.ts"
+      ],
+      "risk_ids": ["RISK-016"],
+      "validation_refs": ["VAL-EXPLORER-CONSUMER"],
+      "implementation_state": "implemented",
+      "verification_state": "candidate"
+    },
+    {
+      "requirement_ids": ["REQ-020"],
+      "profile_refs": ["DEC-ARCHITECTURE", "DEC-SNAPSHOT", "VAL-CHANGE-IMPACT"],
+      "evidence_refs": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "artifact_paths": [
+        "governance/artifact-dependency-graph.json",
+        "schemas/artifact-dependency-graph.schema.json",
+        "docs/architecture.md",
+        "docs/maintenance-and-reproducibility.md",
+        "scripts/change_impact.py",
+        "tests/test_change_impact.py"
+      ],
+      "risk_ids": ["RISK-017"],
+      "validation_refs": ["VAL-CHANGE-IMPACT", "VAL-REPRODUCIBILITY"],
+      "implementation_state": "implemented",
+      "verification_state": "candidate"
     }
   ]
 }

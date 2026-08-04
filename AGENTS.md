@@ -45,7 +45,8 @@ generator and rebuild.
 
 - `domain-profile/`: reviewed discovery contract and digest root.
 - `research/`: evidence-led source-family inventory.
-- `governance/`: normative requirements, traceability, risks and rights review.
+- `governance/`: normative requirements, traceability, risks, rights review and
+  the machine-readable artifact dependency graph.
 - `docs/`: product and assurance documentation.
 - `source/`: bounded curated inputs or immutable source snapshots.
 - `scripts/`: deterministic acquisition, build, validation and evaluation.
@@ -93,13 +94,16 @@ work and inspect the working tree before editing shared files.
 
 Before handing off a change:
 
-1. identify affected requirement, evidence, risk and rights IDs;
-2. update documentation and machine-readable control together;
-3. validate every changed JSON/YAML/CFF document;
-4. run the narrowest relevant tests, then the full gate suite when available;
-5. inspect semantic diffs and generated checksums;
-6. report checks actually run and gates still `not_run`; and
-7. never imply that local validation closes owner approval.
+1. classify authored paths with `scripts/change_impact.py` and review its
+   artifacts, controls, tests and gates;
+2. identify affected requirement, evidence, risk and rights IDs;
+3. update documentation and machine-readable control together;
+4. validate every changed JSON/YAML/CFF document;
+5. run the narrowest relevant tests, then the full gate suite when available;
+6. rebuild and reconcile every generated diff to a declared upstream edge;
+7. inspect semantic diffs and generated checksums;
+8. report checks actually run and gates still `not_run`; and
+9. never imply that local validation closes owner approval.
 
 Start with `docs/product-contract.md`, `docs/architecture.md`,
 `docs/sources-rights-and-ethics.md` and `docs/release-assurance.md`.

@@ -1,0 +1,188 @@
+{
+  "chunks": {
+    "datasets": [
+      {
+        "bytes": 848243,
+        "path": "data/explorer/datasets-000.json",
+        "sha256": "0521d82ad57b056ed0f630f943ff7cadbab1b3069bba98d0dc717d8dd7b4d2a2"
+      },
+      {
+        "bytes": 833455,
+        "path": "data/explorer/datasets-001.json",
+        "sha256": "c9d801be9bb6f2a808b425a2cc940d10bfc5d1c952fd34da8370bc02f05ce398"
+      },
+      {
+        "bytes": 891919,
+        "path": "data/explorer/datasets-002.json",
+        "sha256": "629f651860336a1724ec87361575dffa0cce584463c1a586cdec86a227b40719"
+      },
+      {
+        "bytes": 866117,
+        "path": "data/explorer/datasets-003.json",
+        "sha256": "58c95767716d3de7f79b51fbc2ce1fa858d95d0e36e59f133687a6103f879345"
+      },
+      {
+        "bytes": 843677,
+        "path": "data/explorer/datasets-004.json",
+        "sha256": "4f239233968946f8bb3f34926d716a620e54cb02c0ecd138011bf34306ce9d1d"
+      },
+      {
+        "bytes": 868300,
+        "path": "data/explorer/datasets-005.json",
+        "sha256": "8ca3115520ad9f19bcdb10ee1c4d2d78b3f1963d40ad40c838e7319e53439883"
+      },
+      {
+        "bytes": 865653,
+        "path": "data/explorer/datasets-006.json",
+        "sha256": "6de5193231da800205d0045a0f1ae0bada3c49533690cafdf0f587c0378163b8"
+      },
+      {
+        "bytes": 883971,
+        "path": "data/explorer/datasets-007.json",
+        "sha256": "1bc4a8177315b45222d987c44dedd81d0cddd2b927d25be9bfc31b735c79b98c"
+      },
+      {
+        "bytes": 726429,
+        "path": "data/explorer/datasets-008.json",
+        "sha256": "ccb1ec22b6e5d459a25fdbd76bbe6e8e89c66a7ff99209ff7b05175208429f87"
+      }
+    ],
+    "publishers": [
+      {
+        "bytes": 4490,
+        "path": "data/explorer/publishers-000.json",
+        "sha256": "df0fede2819a8459c4639bf2d6d2c6bb8b007e82eef1e4b7085d2443e567d366"
+      }
+    ],
+    "relationships": [
+      {
+        "bytes": 99878,
+        "path": "data/explorer/relationships-000.json",
+        "sha256": "8d5f27f16edc7b9349caee6c8d5e73dd385ddcf824001dc1f53ce593720c7910"
+      },
+      {
+        "bytes": 99359,
+        "path": "data/explorer/relationships-001.json",
+        "sha256": "de4adb6a4f01f6e84151b535759d81b9177fcc49362848f2dcde0438ce8bb7e3"
+      },
+      {
+        "bytes": 100459,
+        "path": "data/explorer/relationships-002.json",
+        "sha256": "d0f41c803b18ca5c9812668b2cd97f809b09f739609dd7fcfac6587c63fe4e4e"
+      },
+      {
+        "bytes": 100115,
+        "path": "data/explorer/relationships-003.json",
+        "sha256": "3f448c43309288fe83c365628514925c67db8058e54cc5cc2521204d0b410285"
+      },
+      {
+        "bytes": 99783,
+        "path": "data/explorer/relationships-004.json",
+        "sha256": "d8b2f7dbcff9845c81f05bfbfe51779952bf036358c319851f3421789eeed745"
+      },
+      {
+        "bytes": 99705,
+        "path": "data/explorer/relationships-005.json",
+        "sha256": "882959bbbbcb92c037f47f43b9926b79c37bb12f110ac4b239b187244a8fde1e"
+      },
+      {
+        "bytes": 100253,
+        "path": "data/explorer/relationships-006.json",
+        "sha256": "88bf2c3d09dbe88cebca33e9627b3e75338935378b7c6a3d2a194fdf3d0d8de5"
+      },
+      {
+        "bytes": 100502,
+        "path": "data/explorer/relationships-007.json",
+        "sha256": "4057466dfcf1677cbf40ac5823c62231ac68546d37a5495e34dc413773f472a7"
+      },
+      {
+        "bytes": 80992,
+        "path": "data/explorer/relationships-008.json",
+        "sha256": "6c06ade076811a8708ab487c51d2e40d7f90f92602441ba4107b376f2977dc9e"
+      }
+    ],
+    "resources": [
+      {
+        "bytes": 168936,
+        "path": "data/explorer/resources-000.json",
+        "sha256": "7a8d4acb7e6cdeaf87915bf21c815eed584d9c3266594f9373fdb5ed8552b19e"
+      },
+      {
+        "bytes": 166742,
+        "path": "data/explorer/resources-001.json",
+        "sha256": "da68a376f80e46d9fbb6948c806a7ec485b101640a659f135ed72315b9d584c0"
+      },
+      {
+        "bytes": 175651,
+        "path": "data/explorer/resources-002.json",
+        "sha256": "d72d72c01ad5e53e436f8ce6218d9e4ef6be0aeb7412ceac53233ac73e65ca30"
+      },
+      {
+        "bytes": 171177,
+        "path": "data/explorer/resources-003.json",
+        "sha256": "f799776f20edd39f1d838c38af731797ef9e559a9db3f5295312649a7387e9ef"
+      },
+      {
+        "bytes": 169019,
+        "path": "data/explorer/resources-004.json",
+        "sha256": "1ecd89b10c417306c356127825099b77612b03334972113627846585a51b7abc"
+      },
+      {
+        "bytes": 169027,
+        "path": "data/explorer/resources-005.json",
+        "sha256": "a389a1f127d5e482dc407abce49a79f79d5a4528d5c371c22188dc7ab032e4bc"
+      },
+      {
+        "bytes": 170552,
+        "path": "data/explorer/resources-006.json",
+        "sha256": "5171ca5497632b692591450b9f02d00283dae1122829d9043fe2121603e53e6f"
+      },
+      {
+        "bytes": 173904,
+        "path": "data/explorer/resources-007.json",
+        "sha256": "af68a4d8876b3ee1f90750206815bfeaafc7a734b25ff3a4cbb8ba10955b0eea"
+      },
+      {
+        "bytes": 144319,
+        "path": "data/explorer/resources-008.json",
+        "sha256": "83bebd3498fa0f9d518472fe90ed3beba0d3430560a8ce203cd61fb475d64a2d"
+      }
+    ]
+  },
+  "counts": {
+    "datasets": 2202,
+    "publishers": 13,
+    "records": 2202,
+    "relationships": 2202,
+    "resources": 2202
+  },
+  "generated_at": "2026-07-29T09:19:47Z",
+  "indexes": {
+    "facets": "data/explorer/facets.json",
+    "overview": "data/explorer/overview.json",
+    "record_locator": {
+      "bytes": 46794,
+      "path": "data/explorer/locator/manifest.json",
+      "sha256": "2a1526f52a5ae4a94053fe7a2900726e4720358342927b0912f51611de851a76"
+    },
+    "relationship_adjacency": {
+      "bytes": 44213,
+      "path": "data/explorer/adjacency/manifest.json",
+      "sha256": "dbd4819a2deb917615a16fc56538f1346ae8ec7b6d72abdd88aa8c3ce74a15f8"
+    },
+    "search": "data/explorer/search/manifest.json"
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "manifest_root_sha256": "dd6c460159e34e45154ff22471dcf373d7b771def57f0c29cef1f934c49435ee",
+    "scope": "canonical ordered references to overview, facets and chunks"
+  },
+  "performance": {
+    "chunk_size": 250,
+    "full_index_max_records": 2202,
+    "startup_mode": "overview-first"
+  },
+  "schema": "okf-explorer-data-manifest.v1",
+  "snapshot": "2026-07-29T091915Z",
+  "title": "HM Land Registry public-estate Explorer data plane"
+}

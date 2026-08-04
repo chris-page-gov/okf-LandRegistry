@@ -473,5 +473,5 @@
   ],
   "record_count": 2202,
   "records_manifest": "../records/manifest.json",
-  "schema": "okf-static-search.v2"
+  "schema": "okf-hmlr-site-search.v1"
 }

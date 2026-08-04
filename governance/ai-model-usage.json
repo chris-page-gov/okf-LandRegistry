@@ -1,12 +1,12 @@
 {
   "schema": "okf-hmlr-ai-model-usage.v1",
-  "release_version": "0.1.0",
+  "release_version": "0.1.1",
   "measurement_scope": {
     "id": "RELEASE-AUTHORING-TASK-2026-07-29",
-    "description": "AI-assisted research, authoring, review and release work performed in the Codex subscription task surface for the v0.1.0 proof of concept.",
+    "description": "AI-assisted research, authoring, correction, review and release work performed in the Codex subscription task surface through the v0.1.1 proof of concept.",
     "tracking_started_at": "2026-07-29T11:41:33Z",
-    "measurement_cutoff_at": "2026-07-29T12:04:29Z",
-    "coverage": "partial-from-goal-tracking-start-to-candidate-freeze",
+    "measurement_cutoff_at": "2026-07-29T15:30:00Z",
+    "coverage": "partial-v0.1.0-goal-reading-plus-unavailable-v0.1.1-correction-usage",
     "pre_tracking_usage": {
       "status": "unavailable",
       "input_tokens": null,
@@ -27,6 +27,18 @@
       "measured_total_tokens": 213364,
       "measurement_source": "Codex goal tracker reading at candidate freeze, 2026-07-29T12:04:29Z",
       "notes": "A measured total may be recorded even when the platform does not expose a trustworthy input/output split. Subagents and automatic continuation are included only to the extent represented by the goal tracker."
+    },
+    {
+      "id": "CODEX-SUBSCRIPTION-CORRECTION-2026-07-29",
+      "surface": "Codex subscription task surface",
+      "model": null,
+      "model_identification_status": "exact-model-identifier-not-supplied-as-billing-evidence",
+      "measurement_status": "unavailable",
+      "measured_input_tokens": null,
+      "measured_output_tokens": null,
+      "measured_total_tokens": null,
+      "measurement_source": "No active goal-level usage report was exposed for the v0.1.1 correction task at candidate freeze.",
+      "notes": "The correction used the subscription task surface and subagents, but the platform supplied no trustworthy task-level token total or input/output split; null is not zero."
     }
   ],
   "cost_accounting": {
@@ -53,7 +65,7 @@
     "retrospective_estimation": false,
     "subscription_is_api_spend": false,
     "zero_api_spend_means_zero_total_cost": false,
-    "candidate_freeze_record": "The available goal-level total was recorded at candidate freeze. The platform did not expose a trustworthy input/output split, pre-tracking total or task-level subscription allocation, so those fields remain null.",
+    "candidate_freeze_record": "The available v0.1.0 goal-level total is retained. No active goal-level usage report was exposed for the v0.1.1 correction, and the platform did not expose a trustworthy input/output split, pre-tracking total or task-level subscription allocation, so those fields remain null.",
     "human_audit": "not_performed"
   },
   "notes": [

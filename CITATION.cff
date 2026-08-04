@@ -7,7 +7,7 @@ type: dataset
 authors:
   - family-names: Page
     given-names: Chris
-version: 0.1.0
+version: 0.1.1
 date-released: 2026-07-29
 repository-code: https://github.com/chris-page-gov/okf-LandRegistry
 url: https://chris-page-gov.github.io/okf-LandRegistry/

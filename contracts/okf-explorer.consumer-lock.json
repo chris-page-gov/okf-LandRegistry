@@ -1,0 +1,255 @@
+{
+  "schema": "okf-explorer-consumer-lock.v1",
+  "locked_at": "2026-07-29",
+  "consumer": {
+    "name": "@okf/explorer",
+    "repository": "https://github.com/chris-page-gov/okf-explorer",
+    "release_tag": "v0.5.5",
+    "version": "0.5.5",
+    "commit_sha": "93abe5c13c22254754529af75168eded70f2a861",
+    "contract_sources": [
+      {
+        "path": "apps/okf-explorer/src/lib/types.ts",
+        "sha256": "64b5a9ca631bf32aa667252fb6787aad3820ac1f0f91dbf10516f35cb994a208"
+      },
+      {
+        "path": "apps/okf-explorer/src/lib/sources/fetch.ts",
+        "sha256": "6f81f92b41443c1474cd1d531b6f9ff126f23863ed36a998185fe68f1463077a"
+      },
+      {
+        "path": "apps/okf-explorer/src/lib/sources/largeCorpus.ts",
+        "sha256": "454d251e87fd586eee428fc2e71f24bb5bdb7dd0c178fedc50e9fb9ab8a7b1b6"
+      },
+      {
+        "path": "apps/okf-explorer/src/lib/sources/releaseDataPlane.ts",
+        "sha256": "6fa91c927af9b03798ccda04d75a38a51b8beb7e885004e27ef87554e66f6759"
+      },
+      {
+        "path": "apps/okf-explorer/src/lib/search/largeSearchContract.ts",
+        "sha256": "943f467653029e1d84c75dd24ce62e8b882184c025400fb5eed30e7362b37ee7"
+      },
+      {
+        "path": "apps/okf-explorer/src/workers/largeSearch.worker.ts",
+        "sha256": "211863343a95224998af38c2df9a63cfb5b66e3a3b5d558e0ee8ea856ee353b2"
+      },
+      {
+        "path": "apps/okf-explorer/src/routes/+page.svelte",
+        "sha256": "ac9dd85f027832163df4c292a93d5b92fe0f6ce75d6234ff6c5a5f7e07da2b93"
+      }
+    ]
+  },
+  "descriptor": {
+    "schema": "okf-explorer-large-corpus.v1",
+    "kind": "okf-large-corpus",
+    "required_fields": [
+      "schema",
+      "kind",
+      "title",
+      "snapshot",
+      "counts",
+      "entrypoints",
+      "entrypoint_integrity",
+      "data_plane_manifest_root_sha256"
+    ],
+    "required_runtime_entrypoints": [
+      "data_manifest",
+      "overview_index",
+      "record_locator",
+      "search_manifest"
+    ],
+    "separate_non_runtime_entrypoints": [
+      "catalogue_search_manifest",
+      "inventory_manifest"
+    ]
+  },
+  "data_manifest": {
+    "schema": "okf-explorer-data-manifest.v1",
+    "required_fields": [
+      "schema",
+      "title",
+      "generated_at",
+      "snapshot",
+      "counts",
+      "indexes",
+      "chunks",
+      "integrity",
+      "performance"
+    ],
+    "required_indexes": [
+      "overview",
+      "facets",
+      "record_locator",
+      "search"
+    ],
+    "required_chunk_kinds": [
+      "datasets",
+      "resources",
+      "publishers",
+      "relationships"
+    ],
+    "manifest_root_scope": "all-projection-files-except-data-manifest",
+    "manifest_root_order": "relative-path-lexicographic",
+    "manifest_root_serialization": "utf8-json-indent-2-sort-keys-final-newline"
+  },
+  "overview": {
+    "schema": "okf-explorer-overview.v1",
+    "required_fields": [
+      "schema",
+      "title",
+      "generated_at",
+      "snapshot",
+      "counts",
+      "facet_previews",
+      "notices"
+    ],
+    "minimum_notices": 4
+  },
+  "search": {
+    "supported_schemas": [
+      "okf-static-search.v1",
+      "okf-static-search.v2",
+      "gov-ckan-static-search.v1"
+    ],
+    "required_fields": [
+      "schema",
+      "snapshot",
+      "token_min_length",
+      "prefix_min_length",
+      "lexicon_shard_length",
+      "result_limit",
+      "result_doc_chunk_size",
+      "weights",
+      "field_masks",
+      "counts",
+      "entrypoints",
+      "shard_metadata",
+      "shard_manifest_sha256"
+    ],
+    "required_entrypoints": [
+      "lexicon",
+      "prefixes",
+      "postings",
+      "result_docs",
+      "facets",
+      "doc_map",
+      "filter_postings",
+      "sort_values"
+    ],
+    "required_search_fields": [
+      "title",
+      "publisher",
+      "description",
+      "topics",
+      "record_type",
+      "source",
+      "tags",
+      "url"
+    ],
+    "required_filter_keys": [
+      "access",
+      "access_state",
+      "audience",
+      "content_type",
+      "format",
+      "geography",
+      "language",
+      "licence",
+      "lifecycle_state",
+      "publisher",
+      "record_type",
+      "rights_state",
+      "service",
+      "source_family",
+      "topic",
+      "update_frequency"
+    ],
+    "required_shard_groups": [
+      "lexicon",
+      "postings",
+      "result_docs",
+      "filters",
+      "support"
+    ],
+    "shard_root_serialization": "utf8-compact-json-sort-keys-final-newline"
+  },
+  "record_locator": {
+    "schema": "okf-record-locator-sharded.v1",
+    "algorithm": "fnv1a32-prefix-2",
+    "required_fields": [
+      "schema",
+      "algorithm",
+      "snapshot",
+      "records",
+      "chunk_size",
+      "record_chunks",
+      "bucket_count",
+      "buckets"
+    ]
+  },
+  "projection": {
+    "required_dataset_fields": [
+      "id",
+      "name",
+      "route",
+      "open",
+      "ordinal",
+      "title",
+      "publisher",
+      "publisher_title",
+      "resource_count",
+      "resource_ids",
+      "source_native_ids",
+      "source_urls",
+      "evidence_refs",
+      "rights_ref",
+      "rights_state",
+      "provenance"
+    ],
+    "required_resource_fields": [
+      "id",
+      "dataset",
+      "route",
+      "name",
+      "url",
+      "provenance"
+    ],
+    "required_publisher_fields": [
+      "name",
+      "route",
+      "title",
+      "dataset_count",
+      "resource_count"
+    ],
+    "required_relationship_fields": [
+      "source",
+      "target",
+      "kind",
+      "predicate",
+      "authority",
+      "derivation",
+      "evidence",
+      "rights"
+    ],
+    "identity": {
+      "algorithm": "sha256-prefix",
+      "hex_characters": 24,
+      "dataset_name_prefix": "record-",
+      "resource_id_prefix": "source-",
+      "publisher_route_prefix": "publisher-",
+      "preserve_fields": [
+        "id",
+        "source_native_ids",
+        "source_urls",
+        "evidence_refs"
+      ]
+    }
+  },
+  "limits": {
+    "maximum_json_bytes": 67108864,
+    "maximum_full_index_records": 50000,
+    "maximum_relationship_rows": 300000,
+    "maximum_manifest_shard_references": 4096,
+    "maximum_postings_per_token": 50000,
+    "maximum_result_limit": 500
+  }
+}

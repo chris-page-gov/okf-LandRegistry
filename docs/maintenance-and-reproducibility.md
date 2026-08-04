@@ -1,6 +1,6 @@
 # Maintenance and reproducibility
 
-Status: operating procedure for the v0.1.0 AI-generated PoC and later
+Status: operating procedure for the v0.1.1 AI-generated PoC and later
 digest-bound releases.
 
 ## Two-stage lifecycle
@@ -77,6 +77,58 @@ refresh when:
 
 Every refresh creates a new immutable snapshot. Previously released artifacts
 remain reproducible and are not backpatched.
+
+## Dependency-led change impact
+
+Run the governed classifier before implementation so a correction begins with
+an explicit affected surface. This is the operating procedure for `REQ-020`
+and `VAL-CHANGE-IMPACT`:
+
+```bash
+.venv/bin/python scripts/change_impact.py \
+  --base <reviewed-base-commit> \
+  --head <candidate-commit>
+```
+
+For an uncommitted design check, provide every changed or expected generated
+path explicitly:
+
+```bash
+.venv/bin/python scripts/change_impact.py \
+  --path scripts/build.py \
+  --path bundle/okf-explorer.json \
+  --check
+```
+
+The canonical JSON report identifies predicted generated artifacts,
+requirements, risks, focused test commands, validations, gates and whether
+Stage 1 or manual review is required. Every selected gate is reported as
+`not_run`; the classifier cannot carry forward a pass. `--check` exits
+non-zero for an unknown path or an unexplained generated change. A Stage 1 flag
+is a workflow decision, not a command failure, and must still be acted on.
+
+Use the report in two passes:
+
+1. classify the authored change and review its predicted outputs and gates;
+2. rebuild from immutable inputs, then classify the complete authored and
+   generated diff together.
+
+Every changed generated path must match an output edge from at least one
+changed authored input. An extra path is evidence of an incomplete graph,
+unexpected generator behaviour or a hand edit; stop and investigate it. When
+a source path, output path, focused test, validation ID or gate mapping changes,
+update `governance/artifact-dependency-graph.json`, its tests and the related
+documentation in the same reviewed change.
+
+Test and validator files are declared as `validation_inputs`: they select the
+relevant checks and gates without claiming to generate bundle bytes. If a
+validator also becomes a governed build input, model that producer edge
+separately and review the resulting receipt/checksum outputs.
+
+The report selects work but cannot record a pass, waive a gate or approve a
+release. Under the present exact-root evidence model, every changed governed
+byte invalidates the old candidate identity even when the dependency graph
+correctly narrows which checks need new execution evidence.
 
 ## Change classification
 

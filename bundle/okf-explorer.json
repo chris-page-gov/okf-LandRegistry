@@ -10,28 +10,65 @@
   "core_conformance": "OKF v0.2 Markdown concept layer",
   "counts": {
     "curated_records": 55,
+    "datasets": 2202,
     "merged_representations": 23,
+    "publishers": 13,
     "record_types": 77,
     "records": 2202,
+    "relationships": 2202,
+    "resources": 2202,
     "source_representations": 2225,
     "sources": 14,
     "topics": 307
   },
+  "data_plane_manifest_root_sha256": "dd6c460159e34e45154ff22471dcf373d7b771def57f0c29cef1f934c49435ee",
   "description": "Independent, metadata-only discovery bundle for HM Land Registry publications, services, datasets, APIs and official repositories.",
+  "entrypoint_integrity": {
+    "data_manifest": {
+      "bytes": 6368,
+      "path": "data/explorer/manifest.json",
+      "sha256": "3deb8b957598a59e49bda3bf1cc765fcaf7955e8aa3315820b590a99f72b3e31"
+    },
+    "overview_index": {
+      "bytes": 15333,
+      "path": "data/explorer/overview.json",
+      "sha256": "4f85ccecfdbb895239621b6b746dc3fbe7043cec26f5b5ce8ff5fa4b720af1b5"
+    },
+    "record_locator": {
+      "bytes": 46794,
+      "path": "data/explorer/locator/manifest.json",
+      "sha256": "2a1526f52a5ae4a94053fe7a2900726e4720358342927b0912f51611de851a76"
+    },
+    "relationship_adjacency": {
+      "bytes": 44213,
+      "path": "data/explorer/adjacency/manifest.json",
+      "sha256": "dbd4819a2deb917615a16fc56538f1346ae8ec7b6d72abdd88aa8c3ce74a15f8"
+    },
+    "search_manifest": {
+      "bytes": 21626,
+      "path": "data/explorer/search/manifest.json",
+      "sha256": "83ca7797f16820baae1a5c908761b36385b7bbd4f2737a10dbfba6bfaa1d78d0"
+    }
+  },
   "entrypoints": {
     "ai_usage_and_cost": "data/ai-usage.json",
     "catalogue": "data/catalogue.json",
     "catalogue_csv": "data/catalogue.csv",
     "catalogue_html": "catalogue-index.html",
+    "catalogue_search_manifest": "data/search/manifest.json",
     "coverage": "data/coverage.json",
-    "data_manifest": "data/manifest.json",
+    "data_manifest": "data/explorer/manifest.json",
     "evaluation": "data/evaluation.json",
+    "inventory_manifest": "data/manifest.json",
     "okf_index": "index.md",
     "okf_log": "log.md",
+    "overview_index": "data/explorer/overview.json",
     "provenance": "data/provenance.json",
     "reconciliation": "data/reconciliation.json",
+    "record_locator": "data/explorer/locator/manifest.json",
+    "relationship_adjacency": "data/explorer/adjacency/manifest.json",
     "rights": "data/rights.json",
-    "search_manifest": "data/search/manifest.json",
+    "search_manifest": "data/explorer/search/manifest.json",
     "site": "./",
     "viewer": "https://chris-page-gov.github.io/okf-explorer/"
   },
@@ -53,9 +90,9 @@
   "observed_at": "2026-07-29T09:19:15Z",
   "okf_version": "0.2",
   "performance": {
-    "full_record_hydration": "lazy bounded record shards",
-    "relationship_hydration": "not applicable in scaffold",
-    "search": "compact client-side index",
+    "full_record_hydration": "integrity-bound chunks",
+    "relationship_hydration": "integrity-bound deterministic chunks",
+    "search": "bounded in-browser index over Explorer record chunks",
     "startup_mode": "overview-first"
   },
   "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",

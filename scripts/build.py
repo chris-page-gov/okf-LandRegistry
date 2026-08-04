@@ -30,7 +30,7 @@ from urllib.parse import parse_qsl, urldefrag, urljoin, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "bundle"
 PUBLICATION_BASE = "https://chris-page-gov.github.io/okf-LandRegistry/"
-BUILD_VERSION = "0.1.0"
+BUILD_VERSION = "0.1.1"
 RESEARCH_CUTOFF = "2026-07-29"
 SHARD_SIZE = 250
 GENERATED_MARKER = ".okf-generated"
@@ -951,6 +951,7 @@ def make_descriptor(
     curated: dict[str, Any],
     config: dict[str, Any],
     reconciliation: dict[str, Any],
+    explorer_projection: dict[str, Any],
 ) -> dict[str, Any]:
     publication_base = publication_base.rstrip("/") + "/"
     types = counter(records, "record_type")
@@ -973,12 +974,19 @@ def make_descriptor(
         "generated_at": config["generated_at"],
         "release_at": config.get("release_at"),
         "snapshot": snapshot["snapshot_id"],
+        "data_plane_manifest_root_sha256": explorer_projection[
+            "manifest_root_sha256"
+        ],
         "core_conformance": "OKF v0.2 Markdown concept layer",
         "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
         "semantic_descriptor": urljoin(publication_base, "okf-bundle.jsonld"),
         "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
         "counts": {
             "records": len(records),
+            "datasets": len(records),
+            "resources": len(records),
+            "publishers": explorer_projection["counts"]["publishers"],
+            "relationships": len(records),
             "sources": len(sources),
             "record_types": len(types),
             "topics": len(list_counter(records, "topics")),
@@ -989,11 +997,18 @@ def make_descriptor(
         "entrypoints": {
             "okf_index": "index.md",
             "okf_log": "log.md",
-            "data_manifest": "data/manifest.json",
+            "data_manifest": explorer_projection["data_manifest"]["path"],
+            "overview_index": explorer_projection["overview_index"]["path"],
+            "record_locator": explorer_projection["record_locator"]["path"],
+            "relationship_adjacency": explorer_projection[
+                "relationship_adjacency"
+            ]["path"],
+            "search_manifest": explorer_projection["search_manifest"]["path"],
             "catalogue": "data/catalogue.json",
             "catalogue_csv": "data/catalogue.csv",
             "catalogue_html": "catalogue-index.html",
-            "search_manifest": "data/search/manifest.json",
+            "catalogue_search_manifest": "data/search/manifest.json",
+            "inventory_manifest": "data/manifest.json",
             "coverage": "data/coverage.json",
             "provenance": "data/provenance.json",
             "rights": "data/rights.json",
@@ -1002,6 +1017,15 @@ def make_descriptor(
             "evaluation": "data/evaluation.json",
             "viewer": "https://chris-page-gov.github.io/okf-explorer/",
             "site": "./",
+        },
+        "entrypoint_integrity": {
+            "data_manifest": explorer_projection["data_manifest"],
+            "overview_index": explorer_projection["overview_index"],
+            "record_locator": explorer_projection["record_locator"],
+            "relationship_adjacency": explorer_projection[
+                "relationship_adjacency"
+            ],
+            "search_manifest": explorer_projection["search_manifest"],
         },
         "scope": {
             "kind": "bounded-public-metadata-discovery",
@@ -1033,9 +1057,9 @@ def make_descriptor(
         },
         "performance": {
             "startup_mode": "overview-first",
-            "search": "compact client-side index",
-            "full_record_hydration": "lazy bounded record shards",
-            "relationship_hydration": "not applicable in scaffold",
+            "search": "bounded in-browser index over Explorer record chunks",
+            "full_record_hydration": "integrity-bound chunks",
+            "relationship_hydration": "integrity-bound deterministic chunks",
         },
         "extensions": {
             "okf-hmlr-discovery.v1": {
@@ -1456,7 +1480,7 @@ def write_search_and_shards(
     }
     write_json(records_dir / "manifest.json", records_manifest)
     search_manifest = {
-        "schema": "okf-static-search.v2",
+        "schema": "okf-hmlr-site-search.v1",
         "index": "index.json",
         "records_manifest": "../records/manifest.json",
         "contract": "../../search-contract.json",
@@ -1487,6 +1511,663 @@ def write_search_and_shards(
     }
     write_json(output / "data" / "search" / "manifest.json", search_manifest)
     return search_manifest, shard_files
+
+
+def explorer_name(kind: str, source_identity: str) -> str:
+    """Return a stable, URL-safe projection name without replacing source identity."""
+    return f"{kind}-{sha256_bytes(source_identity.encode('utf-8'))[:24]}"
+
+
+def explorer_reference(output: Path, path: Path) -> dict[str, Any]:
+    return {
+        "path": path.relative_to(output).as_posix(),
+        "bytes": path.stat().st_size,
+        "sha256": sha256_file(path),
+    }
+
+
+def explorer_facet_rows(values: Counter[str]) -> list[dict[str, Any]]:
+    return [
+        {"value": value, "count": count}
+        for value, count in sorted(
+            values.items(), key=lambda item: (-item[1], item[0].casefold())
+        )
+    ]
+
+
+def explorer_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [clean_text(item) for item in value if clean_text(item)]
+    text = clean_text(value)
+    return [text] if text else []
+
+
+def compact_canonical_json(value: Any) -> bytes:
+    return (
+        json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        + "\n"
+    ).encode("utf-8")
+
+
+def explorer_worker_tokens(value: str) -> list[str]:
+    normalized = "".join(
+        character
+        for character in unicodedata.normalize("NFKD", clean_text(value)).casefold()
+        if not unicodedata.combining(character)
+    )
+    return sorted(
+        {
+            match.group(0).strip("._-")
+            for match in re.finditer(r"[a-z0-9][a-z0-9._-]*", normalized)
+            if len(match.group(0).strip("._-")) >= 2
+        }
+    )
+
+
+def explorer_search_field_values(
+    record: dict[str, Any], field: str
+) -> list[str]:
+    aliases = {
+        "format": "formats",
+        "geography": "geography",
+        "language": "language",
+        "topic": "topics",
+    }
+    value = record.get(aliases.get(field, field))
+    if isinstance(value, list):
+        return sorted({clean_text(item) for item in value if clean_text(item)})
+    text = clean_text(value)
+    return [text] if text else []
+
+
+def write_explorer_search(
+    output: Path,
+    datasets: list[dict[str, Any]],
+    facets_path: Path,
+    dataset_references: list[dict[str, Any]],
+    snapshot_id: str,
+) -> dict[str, Any]:
+    search_dir = output / "data" / "explorer" / "search"
+    weights = {
+        "title": 16,
+        "publisher": 8,
+        "description": 5,
+        "topics": 4,
+        "record_type": 4,
+        "source": 3,
+        "tags": 3,
+        "url": 2,
+    }
+    masks = {
+        "title": 1,
+        "publisher": 2,
+        "description": 4,
+        "topics": 8,
+        "record_type": 16,
+        "source": 32,
+        "tags": 64,
+        "url": 128,
+    }
+    postings: dict[str, list[list[int]]] = {}
+    document_frequency: Counter[str] = Counter()
+    for dataset in datasets:
+        ordinal = int(dataset["ordinal"])
+        token_scores: dict[str, list[int]] = {}
+        fields = {
+            "title": clean_text(dataset.get("title")),
+            "publisher": clean_text(dataset.get("publisher_title")),
+            "description": clean_text(dataset.get("notes")),
+            "topics": " ".join(dataset.get("topics", [])),
+            "record_type": clean_text(dataset.get("record_type")),
+            "source": " ".join(
+                clean_text(dataset.get(key))
+                for key in ("source_tier", "source_adapter", "authority_role")
+            ),
+            "tags": " ".join(dataset.get("tags", [])),
+            "url": clean_text(dataset.get("url")),
+        }
+        for field, value in fields.items():
+            for token in explorer_worker_tokens(value):
+                score, mask = token_scores.get(token, [0, 0])
+                token_scores[token] = [
+                    score + weights[field],
+                    mask | masks[field],
+                ]
+        for token, (score, mask) in token_scores.items():
+            postings.setdefault(token, []).append([ordinal, score, mask])
+            document_frequency[token] += 1
+
+    postings_by_partition: dict[str, dict[str, list[list[int]]]] = {}
+    lexicon_by_partition: dict[str, list[dict[str, Any]]] = {}
+    logical_to_partition: dict[str, str] = {}
+    for token in sorted(postings):
+        logical = re.sub(r"[^a-z0-9]", "", token)[:2] or "_"
+        partition = logical[:1] or "_"
+        postings_path = (
+            output / "data" / "explorer" / "search" / f"postings-{partition}.json"
+        )
+        logical_to_partition[logical] = partition
+        postings_by_partition.setdefault(partition, {})[token] = postings[token]
+        lexicon_by_partition.setdefault(partition, []).append(
+            {
+                "token": token,
+                "df": document_frequency[token],
+                "postings": postings_path.relative_to(output).as_posix(),
+            }
+        )
+
+    lexicon_entrypoints: dict[str, str] = {}
+    postings_entrypoints: list[str] = []
+    shard_groups: dict[str, list[dict[str, Any]]] = {
+        "lexicon": [],
+        "postings": [],
+        "result_docs": [],
+        "filters": [],
+        "support": [],
+    }
+    for partition in sorted(postings_by_partition):
+        postings_path = search_dir / f"postings-{partition}.json"
+        lexicon_path = search_dir / f"lexicon-{partition}.json"
+        write_compact_json(
+            postings_path,
+            {"tokens": postings_by_partition[partition]},
+        )
+        write_compact_json(lexicon_path, lexicon_by_partition[partition])
+        postings_entrypoints.append(postings_path.relative_to(output).as_posix())
+        for logical, observed_partition in logical_to_partition.items():
+            if observed_partition == partition:
+                lexicon_entrypoints[logical] = lexicon_path.relative_to(
+                    output
+                ).as_posix()
+        for group, path in (
+            ("postings", postings_path),
+            ("lexicon", lexicon_path),
+        ):
+            reference = explorer_reference(output, path)
+            reference["snapshot"] = snapshot_id
+            shard_groups[group].append(reference)
+
+    result_doc_paths = [reference["path"] for reference in dataset_references]
+    for reference in dataset_references:
+        row = dict(reference)
+        row["snapshot"] = snapshot_id
+        shard_groups["result_docs"].append(row)
+
+    filter_entrypoints: dict[str, str] = {}
+    filter_keys = [
+        "access",
+        "access_state",
+        "audience",
+        "content_type",
+        "format",
+        "geography",
+        "language",
+        "licence",
+        "lifecycle_state",
+        "publisher",
+        "record_type",
+        "rights_state",
+        "service",
+        "source_family",
+        "topic",
+        "update_frequency",
+    ]
+    for key in filter_keys:
+        values: dict[str, list[int]] = {}
+        for dataset in datasets:
+            ordinal = int(dataset["ordinal"])
+            for value in explorer_search_field_values(dataset, key):
+                values.setdefault(value, []).append(ordinal)
+        path = search_dir / "filters" / f"{key}.json"
+        write_compact_json(
+            path,
+            {
+                "schema": "okf-static-filter-postings.v1",
+                "key": key,
+                "values": dict(sorted(values.items())),
+            },
+        )
+        filter_entrypoints[key] = path.relative_to(output).as_posix()
+        reference = explorer_reference(output, path)
+        reference["snapshot"] = snapshot_id
+        shard_groups["filters"].append(reference)
+
+    doc_map_path = search_dir / "doc-map.json"
+    sort_values_path = search_dir / "sort-values.json"
+    write_compact_json(
+        doc_map_path,
+        {str(dataset["ordinal"]): dataset["open"] for dataset in datasets},
+    )
+    write_compact_json(
+        sort_values_path,
+        [
+            [
+                clean_text(dataset.get("timestamp")),
+                clean_text(dataset.get("title")),
+                None,
+            ]
+            for dataset in datasets
+        ],
+    )
+    for path in (doc_map_path, sort_values_path):
+        reference = explorer_reference(output, path)
+        reference["snapshot"] = snapshot_id
+        shard_groups["support"].append(reference)
+
+    metadata = {
+        "schema": "okf-search-shard-metadata.v1",
+        "snapshot": snapshot_id,
+        "shards": shard_groups,
+    }
+    metadata_path = search_dir / "shards.json"
+    write_json(metadata_path, metadata)
+    shard_manifest_sha256 = sha256_bytes(
+        compact_canonical_json(metadata["shards"])
+    )
+    metadata_reference = explorer_reference(output, metadata_path)
+    manifest = {
+        "schema": "okf-static-search.v2",
+        "snapshot": snapshot_id,
+        "token_min_length": 2,
+        "prefix_min_length": 3,
+        "lexicon_shard_length": 2,
+        "result_limit": 200,
+        "result_doc_chunk_size": SHARD_SIZE,
+        "weights": weights,
+        "field_masks": masks,
+        "counts": {
+            "documents": len(datasets),
+            "tokens": len(postings),
+            "postings": sum(len(rows) for rows in postings.values()),
+            "postings_shards": len(postings_entrypoints),
+            "uncapped_postings": sum(document_frequency.values()),
+            "max_postings_per_token": 50_000,
+        },
+        "entrypoints": {
+            "lexicon": dict(sorted(lexicon_entrypoints.items())),
+            "prefixes": {},
+            "postings": postings_entrypoints,
+            "result_docs": result_doc_paths,
+            "facets": explorer_reference(output, facets_path),
+            "doc_map": doc_map_path.relative_to(output).as_posix(),
+            "filter_postings": filter_entrypoints,
+            "sort_values": sort_values_path.relative_to(output).as_posix(),
+        },
+        "shard_metadata": metadata_reference,
+        "shard_manifest_sha256": shard_manifest_sha256,
+    }
+    manifest_path = search_dir / "manifest.json"
+    write_json(manifest_path, manifest)
+    return explorer_reference(output, manifest_path)
+
+
+def explorer_relationship_bucket(route: str) -> str:
+    value = 0x811C9DC5
+    for byte in route.encode("utf-8"):
+        value ^= byte
+        value = (value * 0x01000193) & 0xFFFFFFFF
+    return f"{(value >> 24) & 0xFF:02x}"
+
+
+def write_explorer_record_locator(
+    output: Path,
+    datasets: list[dict[str, Any]],
+    dataset_references: list[dict[str, Any]],
+    snapshot_id: str,
+) -> dict[str, Any]:
+    locator_dir = output / "data" / "explorer" / "locator"
+    locations = {
+        dataset["route"]: [
+            int(dataset["ordinal"]) // SHARD_SIZE,
+            int(dataset["ordinal"]) % SHARD_SIZE,
+        ]
+        for dataset in datasets
+    }
+    locations_path = locator_dir / "routes.json"
+    write_compact_json(locations_path, locations)
+    locations_reference = explorer_reference(output, locations_path)
+    buckets = {
+        explorer_relationship_bucket(route): locations_reference
+        for route in sorted(locations)
+    }
+    locator = {
+        "schema": "okf-record-locator-sharded.v1",
+        "algorithm": "fnv1a32-prefix-2",
+        "snapshot": snapshot_id,
+        "records": len(datasets),
+        "chunk_size": SHARD_SIZE,
+        "record_chunks": dataset_references,
+        "bucket_count": len(buckets),
+        "buckets": dict(sorted(buckets.items())),
+    }
+    locator_path = locator_dir / "manifest.json"
+    write_json(locator_path, locator)
+    return explorer_reference(output, locator_path)
+
+
+def write_explorer_relationship_adjacency(
+    output: Path,
+    relationships: list[dict[str, Any]],
+    snapshot_id: str,
+) -> dict[str, Any]:
+    """Write bounded route-to-relationship buckets for targeted Explorer views."""
+    adjacency_dir = output / "data" / "explorer" / "adjacency"
+    by_route: dict[str, list[dict[str, Any]]] = {}
+    for relationship in relationships:
+        for route in {
+            clean_text(relationship.get("source")),
+            clean_text(relationship.get("target")),
+        }:
+            if route:
+                by_route.setdefault(route, []).append(relationship)
+
+    by_bucket: dict[str, dict[str, list[dict[str, Any]]]] = {}
+    for route, rows in sorted(by_route.items()):
+        bucket = explorer_relationship_bucket(route)
+        by_bucket.setdefault(bucket, {})[route] = rows
+
+    buckets: dict[str, dict[str, Any]] = {}
+    for bucket, rows in sorted(by_bucket.items()):
+        path = adjacency_dir / f"{bucket}.json"
+        write_compact_json(path, rows)
+        buckets[bucket] = explorer_reference(output, path)
+
+    manifest = {
+        "schema": "okf-relationship-adjacency.v1",
+        "algorithm": "fnv1a32-prefix-2",
+        "snapshot": snapshot_id,
+        "routes": len(by_route),
+        "relationships": len(relationships),
+        "buckets": buckets,
+    }
+    manifest_path = adjacency_dir / "manifest.json"
+    write_json(manifest_path, manifest)
+    return explorer_reference(output, manifest_path)
+
+
+def write_explorer_projection(
+    output: Path,
+    records: list[dict[str, Any]],
+    snapshot: dict[str, Any],
+    config: dict[str, Any],
+) -> dict[str, Any]:
+    """Write the pinned OKF Explorer large-corpus data-plane projection."""
+    projection_dir = output / "data" / "explorer"
+    dataset_rows: list[dict[str, Any]] = []
+    resource_rows: list[dict[str, Any]] = []
+    relationship_rows: list[dict[str, Any]] = []
+    publisher_counts = Counter(clean_text(record["publisher"]) for record in records)
+    publisher_names = {
+        publisher: publisher
+        for publisher in sorted(publisher_counts, key=str.casefold)
+    }
+    if len(set(publisher_names.values())) != len(publisher_names):
+        raise ValueError("Explorer publisher projection identity collision")
+
+    dataset_names: dict[str, str] = {}
+    for ordinal, record in enumerate(records):
+        source_identity = clean_text(record["id"])
+        name = explorer_name("record", source_identity)
+        if name in dataset_names:
+            raise ValueError(
+                "Explorer record projection identity collision: "
+                f"{source_identity} and {dataset_names[name]}"
+            )
+        dataset_names[name] = source_identity
+        publisher_title = clean_text(record["publisher"])
+        publisher_name = publisher_names[publisher_title]
+        source_url = clean_text(record["url"])
+        host = urlparse(source_url).hostname or ""
+        resource_id = explorer_name("source", source_identity)
+        dataset = dict(record)
+        dataset.update(
+            {
+                "name": name,
+                "route": f"dataset/{name}",
+                "open": f"dataset/{name}",
+                "ordinal": ordinal,
+                "title": clean_text(record["title"]),
+                "notes": clean_text(record.get("description")),
+                "context_note": " ".join(
+                    clean_text(value)
+                    for value in record.get("caveats", [])
+                    if clean_text(value)
+                ),
+                "publisher": publisher_title,
+                "publisher_title": publisher_title,
+                "resource_count": 1,
+                "resource_ids": [resource_id],
+                "tags": explorer_list(record.get("topics")),
+                "timestamp": clean_text(
+                    record.get("publisher_last_updated")
+                    or record.get("observed_at")
+                ),
+                "license_title": clean_text(record.get("licence")),
+                "license_basis": " / ".join(
+                    value
+                    for value in (
+                        clean_text(record.get("rights_state")),
+                        clean_text(record.get("rights_ref")),
+                    )
+                    if value
+                ),
+                "host": host,
+                "url": source_url,
+                "state": clean_text(record.get("lifecycle_state")),
+                "type": clean_text(record.get("record_type")),
+                "source_tier": clean_text(record.get("authority_tier")),
+                "source_adapter": clean_text(record.get("source_family")),
+                "content_type": clean_text(record.get("record_type")),
+                "service": clean_text(record.get("source_family")),
+                "access": clean_text(record.get("access_model")),
+                "geography": explorer_list(record.get("jurisdiction")),
+                "language": explorer_list(record.get("languages")),
+                "update_frequency": clean_text(record.get("cadence")),
+                "provenance": {
+                    "source_native_ids": list(record.get("source_native_ids", [])),
+                    "source_urls": list(record.get("source_urls", [])),
+                    "evidence_refs": list(record.get("evidence_refs", [])),
+                    "observed_at": clean_text(record.get("observed_at")),
+                    "derivation": clean_text(record.get("derivation")),
+                },
+            }
+        )
+        dataset_rows.append(dataset)
+        source_format = next(iter(record.get("formats", [])), "Web")
+        resource_rows.append(
+            {
+                "id": resource_id,
+                "dataset": name,
+                "route": f"resource/{resource_id}",
+                "name": "Recorded public source",
+                "description": (
+                    "Source route retained from the bounded metadata snapshot; "
+                    "check the publisher for current content, access and terms."
+                ),
+                "format": source_format,
+                "source_format": source_format,
+                "host": host,
+                "url": source_url,
+                "position": 0,
+                "state": clean_text(record.get("lifecycle_state")),
+                "provenance": {
+                    "record_id": source_identity,
+                    "observed_at": clean_text(record.get("observed_at")),
+                    "evidence_refs": list(record.get("evidence_refs", [])),
+                },
+            }
+        )
+        relationship_rows.append(
+            {
+                "source": f"dataset/{name}",
+                "target": f"publisher/{publisher_name}",
+                "kind": "published by",
+                "predicate": "published_by",
+                "authority": "derived",
+                "derivation": (
+                    "Deterministic projection of the governed record publisher "
+                    "field; not a new source-authority claim."
+                ),
+                "observed_at": clean_text(record.get("observed_at")),
+                "evidence": list(record.get("evidence_refs", [])),
+                "rights": clean_text(record.get("rights_state")),
+            }
+        )
+
+    publisher_rows = [
+        {
+            "name": title,
+            "route": f"publisher/{publisher_names[title]}",
+            "title": title,
+            "description": (
+                "Publisher label projected from governed source metadata. "
+                "Source authority remains with the linked external publisher."
+            ),
+            "dataset_count": publisher_counts[title],
+            "resource_count": publisher_counts[title],
+            "state": "observed",
+        }
+        for title in sorted(publisher_counts, key=str.casefold)
+    ]
+
+    facet_keys = [
+        "access",
+        "access_state",
+        "audience",
+        "content_type",
+        "format",
+        "geography",
+        "language",
+        "licence",
+        "lifecycle_state",
+        "publisher",
+        "record_type",
+        "rights_state",
+        "service",
+        "source_family",
+        "topic",
+        "update_frequency",
+    ]
+    facets = {
+        key: explorer_facet_rows(
+            Counter(
+                value
+                for dataset in dataset_rows
+                for value in explorer_search_field_values(dataset, key)
+            )
+        )
+        for key in facet_keys
+    }
+    counts = {
+        "records": len(dataset_rows),
+        "datasets": len(dataset_rows),
+        "resources": len(resource_rows),
+        "publishers": len(publisher_rows),
+        "relationships": len(relationship_rows),
+    }
+    overview = {
+        "schema": "okf-explorer-overview.v1",
+        "title": "HM Land Registry public-estate metadata overview",
+        "generated_at": config["generated_at"],
+        "snapshot": snapshot["snapshot_id"],
+        "counts": counts,
+        "facet_previews": {
+            key: rows[:12] for key, rows in sorted(facets.items())
+        },
+        "format_counts": facets["format"][:20],
+        "notices": [
+            "Independent AI-generated proof of concept; not an HM Land Registry service or endorsement.",
+            "Metadata discovery only: not legal advice, proof of ownership, priority or an exact-boundary service.",
+            "Public access is not treated as blanket open rights; check each record and its current source terms.",
+            "Coverage is bounded to named, dated and reconciled source lanes, not the complete HMLR public estate.",
+        ],
+    }
+    overview_path = projection_dir / "overview.json"
+    facets_path = projection_dir / "facets.json"
+    write_json(overview_path, overview)
+    write_json(facets_path, facets)
+
+    chunk_sets = {
+        "datasets": dataset_rows,
+        "resources": resource_rows,
+        "publishers": publisher_rows,
+        "relationships": relationship_rows,
+    }
+    chunk_references: dict[str, list[dict[str, Any]]] = {}
+    for kind, rows in chunk_sets.items():
+        references = []
+        for offset in range(0, len(rows), SHARD_SIZE):
+            shard_number = offset // SHARD_SIZE
+            path = projection_dir / f"{kind}-{shard_number:03d}.json"
+            write_compact_json(path, rows[offset : offset + SHARD_SIZE])
+            references.append(explorer_reference(output, path))
+        chunk_references[kind] = references
+
+    record_locator_reference = write_explorer_record_locator(
+        output,
+        dataset_rows,
+        chunk_references["datasets"],
+        snapshot["snapshot_id"],
+    )
+    relationship_adjacency_reference = write_explorer_relationship_adjacency(
+        output,
+        relationship_rows,
+        snapshot["snapshot_id"],
+    )
+    search_manifest_reference = write_explorer_search(
+        output,
+        dataset_rows,
+        facets_path,
+        chunk_references["datasets"],
+        snapshot["snapshot_id"],
+    )
+    governed_references = [
+        explorer_reference(output, path)
+        for path in sorted(projection_dir.rglob("*"))
+        if path.is_file()
+    ]
+    manifest_root_sha256 = sha256_bytes(canonical_json(governed_references))
+    manifest = {
+        "schema": "okf-explorer-data-manifest.v1",
+        "title": "HM Land Registry public-estate Explorer data plane",
+        "generated_at": config["generated_at"],
+        "snapshot": snapshot["snapshot_id"],
+        "counts": counts,
+        "indexes": {
+            "overview": overview_path.relative_to(output).as_posix(),
+            "facets": facets_path.relative_to(output).as_posix(),
+            "record_locator": record_locator_reference,
+            "relationship_adjacency": relationship_adjacency_reference,
+            "search": search_manifest_reference["path"],
+        },
+        "chunks": chunk_references,
+        "integrity": {
+            "algorithm": "sha256",
+            "manifest_root_sha256": manifest_root_sha256,
+            "scope": "canonical ordered references to overview, facets and chunks",
+        },
+        "performance": {
+            "startup_mode": "overview-first",
+            "full_index_max_records": len(dataset_rows),
+            "chunk_size": SHARD_SIZE,
+        },
+    }
+    manifest_path = projection_dir / "manifest.json"
+    write_json(manifest_path, manifest)
+    return {
+        "counts": counts,
+        "data_manifest": explorer_reference(output, manifest_path),
+        "overview_index": explorer_reference(output, overview_path),
+        "record_locator": record_locator_reference,
+        "relationship_adjacency": relationship_adjacency_reference,
+        "search_manifest": search_manifest_reference,
+        "manifest_root_sha256": manifest_root_sha256,
+    }
 
 
 def write_static_catalogue(output: Path, records: list[dict[str, Any]]) -> None:
@@ -1596,8 +2277,11 @@ def governed_input_receipts(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
         ROOT / "scripts" / "build.py",
         ROOT / "scripts" / "acquire.py",
         ROOT / "scripts" / "check_domain_profile.py",
+        ROOT / "scripts" / "change_impact.py",
         ROOT / "scripts" / "evaluate.py",
+        ROOT / "schemas" / "artifact-dependency-graph.schema.json",
         ROOT / "schemas" / "domain-profile.schema.json",
+        ROOT / "contracts" / "okf-explorer.consumer-lock.json",
         ROOT / "source" / "build-config.json",
         ROOT / "source" / "curated-records.json",
         ROOT / "source" / "source-register.json",
@@ -1607,6 +2291,7 @@ def governed_input_receipts(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
         ROOT / "personas" / "personas-and-user-stories.json",
         ROOT / "governance" / "requirements.json",
         ROOT / "governance" / "ai-model-usage.json",
+        ROOT / "governance" / "artifact-dependency-graph.json",
         ROOT / "governance" / "risk-register.json",
         ROOT / "governance" / "rights-review.json",
         ROOT / "governance" / "traceability.json",
@@ -1825,6 +2510,9 @@ def build(
         evaluation = load_json(ROOT / "evaluation" / "questions.json")
         write_json(staging / "data" / "evaluation.json", evaluation)
         write_search_and_shards(staging, records)
+        explorer_projection = write_explorer_projection(
+            staging, records, snapshot, config
+        )
         write_static_catalogue(staging, records)
         subprocess.run(
             [
@@ -1849,6 +2537,7 @@ def build(
             curated_meta,
             config,
             reconciliation,
+            explorer_projection,
         )
         write_json(staging / "okf-explorer.json", descriptor)
         write_json(

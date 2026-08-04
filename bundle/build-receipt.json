@@ -1,6 +1,6 @@
 {
   "builder": "scripts/build.py/0.1.0",
-  "builder_sha256": "1c1ad3970945caad0a4e51b1eccc45e7eec2db7db6e337a9ce71aec31baa24b4",
+  "builder_sha256": "0b287669909d1e1b8c749fd976b7814015e328c1bc6eb69218a357d466b5d767",
   "curated_source": {
     "observed_at": "2026-07-29T07:53:38Z",
     "record_count": 55,
@@ -116,9 +116,9 @@
       "sha256": "e3d51b0fc18532a3acfe9b5c6b7c8e8c483634edba2be5d8ffdb8482a6aa75f7"
     },
     {
-      "bytes": 75144,
+      "bytes": 100770,
       "path": "scripts/build.py",
-      "sha256": "1c1ad3970945caad0a4e51b1eccc45e7eec2db7db6e337a9ce71aec31baa24b4"
+      "sha256": "0b287669909d1e1b8c749fd976b7814015e328c1bc6eb69218a357d466b5d767"
     },
     {
       "bytes": 7331,

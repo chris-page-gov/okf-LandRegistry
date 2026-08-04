@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/artifact-dependency-graph.schema.json",
+  "title": "OKF artifact dependency graph v1",
+  "description": "A fail-closed, machine-readable map from repository changes to generated artifacts, tests, requirements, risks and release gates.",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "unknown_change_policy",
+    "all_release_gates",
+    "generated_roots",
+    "validation_gate_map",
+    "tests",
+    "stages"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "schema": {
+      "const": "okf-artifact-dependency-graph.v1"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "unknown_change_policy": {
+      "const": "all-gates-and-manual-review"
+    },
+    "all_release_gates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/gateId"
+      }
+    },
+    "generated_roots": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/safePattern"
+      }
+    },
+    "validation_gate_map": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^VAL-[A-Z0-9-]+$"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "$ref": "#/$defs/gateId"
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/test"
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/stage"
+      }
+    }
+  },
+  "$defs": {
+    "nonEmpty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "safePattern": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\u0000).+$"
+    },
+    "gateId": {
+      "type": "string",
+      "pattern": "^G[1-9][0-9]*$"
+    },
+    "requirementId": {
+      "type": "string",
+      "pattern": "^REQ-[0-9]{3,}$"
+    },
+    "riskId": {
+      "type": "string",
+      "pattern": "^RISK-[0-9]{3,}$"
+    },
+    "validationId": {
+      "type": "string",
+      "pattern": "^VAL-[A-Z0-9-]+$"
+    },
+    "stringSet": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonEmpty"
+      }
+    },
+    "test": {
+      "type": "object",
+      "required": [
+        "id",
+        "command"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmpty"
+          }
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmpty"
+        }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "required": [
+        "id",
+        "inputs",
+        "validation_inputs",
+        "outputs",
+        "test_ids",
+        "requirement_ids",
+        "risk_ids",
+        "validation_refs",
+        "release_gates",
+        "stage1_review"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmpty"
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/safePattern"
+          }
+        },
+        "validation_inputs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/safePattern"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/safePattern"
+          }
+        },
+        "test_ids": {
+          "$ref": "#/$defs/stringSet"
+        },
+        "requirement_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/requirementId"
+          }
+        },
+        "risk_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/riskId"
+          }
+        },
+        "validation_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/validationId"
+          }
+        },
+        "release_gates": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/gateId"
+          }
+        },
+        "stage1_review": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

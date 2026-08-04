@@ -1,0 +1,775 @@
+{
+  "counts": {
+    "datasets": 2202,
+    "publishers": 13,
+    "records": 2202,
+    "relationships": 2202,
+    "resources": 2202
+  },
+  "facet_previews": {
+    "access": [
+      {
+        "count": 1866,
+        "value": "public-web"
+      },
+      {
+        "count": 289,
+        "value": "public-repository"
+      },
+      {
+        "count": 15,
+        "value": "check publisher-operated contract"
+      },
+      {
+        "count": 4,
+        "value": "public download"
+      },
+      {
+        "count": 2,
+        "value": "account-and-licence download and authenticated API; commercial use is paid"
+      },
+      {
+        "count": 2,
+        "value": "free account-and-licence download; authenticated API available"
+      },
+      {
+        "count": 2,
+        "value": "public catalogue metadata"
+      },
+      {
+        "count": 2,
+        "value": "public download and online view"
+      },
+      {
+        "count": 1,
+        "value": "approved professional account"
+      },
+      {
+        "count": 1,
+        "value": "documentation public; operational API authenticated and licence-gated"
+      },
+      {
+        "count": 1,
+        "value": "free account service"
+      },
+      {
+        "count": 1,
+        "value": "mixed: open download, account-and-licence, API and paid products"
+      }
+    ],
+    "access_state": [
+      {
+        "count": 2178,
+        "value": "public"
+      },
+      {
+        "count": 15,
+        "value": "mixed"
+      },
+      {
+        "count": 3,
+        "value": "authenticated-and-paid"
+      },
+      {
+        "count": 3,
+        "value": "public-search-with-terms-and-fees"
+      },
+      {
+        "count": 1,
+        "value": "approved-professional-users"
+      },
+      {
+        "count": 1,
+        "value": "authenticated"
+      },
+      {
+        "count": 1,
+        "value": "documentation-public-service-restricted"
+      }
+    ],
+    "audience": [
+      {
+        "count": 304,
+        "value": "developer"
+      },
+      {
+        "count": 31,
+        "value": "property-professionals"
+      },
+      {
+        "count": 28,
+        "value": "public"
+      },
+      {
+        "count": 28,
+        "value": "researchers"
+      },
+      {
+        "count": 16,
+        "value": "data-users"
+      },
+      {
+        "count": 11,
+        "value": "developers"
+      },
+      {
+        "count": 10,
+        "value": "policy-makers"
+      },
+      {
+        "count": 8,
+        "value": "commercial-reusers"
+      },
+      {
+        "count": 6,
+        "value": "analysts"
+      },
+      {
+        "count": 6,
+        "value": "gis-users"
+      },
+      {
+        "count": 6,
+        "value": "legal-professionals"
+      },
+      {
+        "count": 5,
+        "value": "conveyancers"
+      }
+    ],
+    "content_type": [
+      {
+        "count": 305,
+        "value": "news_story"
+      },
+      {
+        "count": 295,
+        "value": "press_release"
+      },
+      {
+        "count": 289,
+        "value": "software-repository"
+      },
+      {
+        "count": 222,
+        "value": "transparency"
+      },
+      {
+        "count": 212,
+        "value": "national_statistics"
+      },
+      {
+        "count": 141,
+        "value": "detailed_guide"
+      },
+      {
+        "count": 133,
+        "value": "form"
+      },
+      {
+        "count": 125,
+        "value": "guidance"
+      },
+      {
+        "count": 122,
+        "value": "statistical_data_set"
+      },
+      {
+        "count": 110,
+        "value": "official_statistics"
+      },
+      {
+        "count": 48,
+        "value": "corporate_report"
+      },
+      {
+        "count": 40,
+        "value": "document_collection"
+      }
+    ],
+    "format": [
+      {
+        "count": 1886,
+        "value": "HTML"
+      },
+      {
+        "count": 290,
+        "value": "Git"
+      },
+      {
+        "count": 21,
+        "value": "JSON metadata"
+      },
+      {
+        "count": 15,
+        "value": "API"
+      },
+      {
+        "count": 14,
+        "value": "PDF"
+      },
+      {
+        "count": 12,
+        "value": "CSV"
+      },
+      {
+        "count": 5,
+        "value": "JSON API metadata"
+      },
+      {
+        "count": 4,
+        "value": "XML"
+      },
+      {
+        "count": 3,
+        "value": "GML"
+      },
+      {
+        "count": 3,
+        "value": "RDF linked data"
+      },
+      {
+        "count": 1,
+        "value": "CSV metadata"
+      },
+      {
+        "count": 1,
+        "value": "DOC"
+      }
+    ],
+    "geography": [
+      {
+        "count": 1858,
+        "value": "Source-specific; HM Land Registry normally covers England and Wales"
+      },
+      {
+        "count": 289,
+        "value": "technical source; jurisdiction is project-specific"
+      },
+      {
+        "count": 37,
+        "value": "England and Wales"
+      },
+      {
+        "count": 2,
+        "value": "England and Wales, limited to migrated local authorities"
+      },
+      {
+        "count": 2,
+        "value": "United Kingdom accessibility-law context"
+      },
+      {
+        "count": 2,
+        "value": "Wales"
+      },
+      {
+        "count": 1,
+        "value": "API-specific"
+      },
+      {
+        "count": 1,
+        "value": "Dataset-specific"
+      },
+      {
+        "count": 1,
+        "value": "England and Wales, limited to migrated local-authority data"
+      },
+      {
+        "count": 1,
+        "value": "England and Wales, with UK-wide coverage for UK HPI reports"
+      },
+      {
+        "count": 1,
+        "value": "England and Wales, with UK-wide coverage where a dataset says so"
+      },
+      {
+        "count": 1,
+        "value": "Historical register coverage under the 1862 Act"
+      }
+    ],
+    "language": [
+      {
+        "count": 3,
+        "value": "English"
+      },
+      {
+        "count": 2,
+        "value": "Welsh"
+      }
+    ],
+    "licence": [
+      {
+        "count": 1843,
+        "value": "check source-specific Crown copyright and reuse terms"
+      },
+      {
+        "count": 192,
+        "value": "MIT"
+      },
+      {
+        "count": 90,
+        "value": "not declared in repository metadata"
+      },
+      {
+        "count": 15,
+        "value": "not stated"
+      },
+      {
+        "count": 8,
+        "value": "Open Government Licence v3.0 for eligible content, subject to exceptions"
+      },
+      {
+        "count": 5,
+        "value": "Open Government Licence v3.0 for eligible GOV.UK content, subject to exceptions"
+      },
+      {
+        "count": 4,
+        "value": "NOASSERTION"
+      },
+      {
+        "count": 3,
+        "value": "Crown copyright and legislation.gov.uk reuse terms"
+      },
+      {
+        "count": 2,
+        "value": "dataset-specific licence containing third-party address-rights conditions"
+      },
+      {
+        "count": 2,
+        "value": "Open Government Licence v3.0 plus required HM Land Registry and Ordnance Survey attribution conditions"
+      },
+      {
+        "count": 2,
+        "value": "Open Government Licence v3.0 with publisher attribution and link to the dataset explanation"
+      },
+      {
+        "count": 2,
+        "value": "service terms, copyright and database-right restrictions"
+      }
+    ],
+    "lifecycle_state": [
+      {
+        "count": 1913,
+        "value": "unknown"
+      },
+      {
+        "count": 204,
+        "value": "archived"
+      },
+      {
+        "count": 85,
+        "value": "active"
+      }
+    ],
+    "publisher": [
+      {
+        "count": 2180,
+        "value": "HM Land Registry"
+      },
+      {
+        "count": 3,
+        "value": "Department for Business, Energy & Industrial Strategy"
+      },
+      {
+        "count": 3,
+        "value": "Department for Business, Innovation & Skills"
+      },
+      {
+        "count": 3,
+        "value": "Department for Transport"
+      },
+      {
+        "count": 3,
+        "value": "The National Archives"
+      },
+      {
+        "count": 2,
+        "value": "Department for Business and Trade"
+      },
+      {
+        "count": 2,
+        "value": "HM Courts & Tribunals Service"
+      },
+      {
+        "count": 1,
+        "value": "Central Digital and Data Office"
+      },
+      {
+        "count": 1,
+        "value": "Government Digital Service and contributing publishers"
+      },
+      {
+        "count": 1,
+        "value": "HM Land Registry and UK House Price Index partners"
+      },
+      {
+        "count": 1,
+        "value": "Ministry of Housing, Communities and Local Government"
+      },
+      {
+        "count": 1,
+        "value": "Office for National Statistics"
+      }
+    ],
+    "record_type": [
+      {
+        "count": 305,
+        "value": "news_story"
+      },
+      {
+        "count": 295,
+        "value": "press_release"
+      },
+      {
+        "count": 289,
+        "value": "software-repository"
+      },
+      {
+        "count": 222,
+        "value": "transparency"
+      },
+      {
+        "count": 212,
+        "value": "national_statistics"
+      },
+      {
+        "count": 141,
+        "value": "detailed_guide"
+      },
+      {
+        "count": 133,
+        "value": "form"
+      },
+      {
+        "count": 125,
+        "value": "guidance"
+      },
+      {
+        "count": 122,
+        "value": "statistical_data_set"
+      },
+      {
+        "count": 110,
+        "value": "official_statistics"
+      },
+      {
+        "count": 48,
+        "value": "corporate_report"
+      },
+      {
+        "count": 40,
+        "value": "document_collection"
+      }
+    ],
+    "rights_state": [
+      {
+        "count": 1870,
+        "value": "open-with-conditions"
+      },
+      {
+        "count": 308,
+        "value": "metadata-only"
+      },
+      {
+        "count": 15,
+        "value": "bespoke-or-paid"
+      },
+      {
+        "count": 9,
+        "value": "restricted-service"
+      }
+    ],
+    "service": [
+      {
+        "count": 1843,
+        "value": "govuk-search"
+      },
+      {
+        "count": 290,
+        "value": "github"
+      },
+      {
+        "count": 25,
+        "value": "govuk-hmlr"
+      },
+      {
+        "count": 16,
+        "value": "cddo-api-catalogue"
+      },
+      {
+        "count": 15,
+        "value": "ulpd"
+      },
+      {
+        "count": 3,
+        "value": "local-land-charges"
+      },
+      {
+        "count": 3,
+        "value": "property-information"
+      },
+      {
+        "count": 1,
+        "value": "blog"
+      },
+      {
+        "count": 1,
+        "value": "business-gateway-docs"
+      },
+      {
+        "count": 1,
+        "value": "cross-government-data-catalogues"
+      },
+      {
+        "count": 1,
+        "value": "customer-help"
+      },
+      {
+        "count": 1,
+        "value": "linked-data"
+      }
+    ],
+    "source_family": [
+      {
+        "count": 1843,
+        "value": "govuk-search"
+      },
+      {
+        "count": 290,
+        "value": "github"
+      },
+      {
+        "count": 25,
+        "value": "govuk-hmlr"
+      },
+      {
+        "count": 16,
+        "value": "cddo-api-catalogue"
+      },
+      {
+        "count": 15,
+        "value": "ulpd"
+      },
+      {
+        "count": 3,
+        "value": "local-land-charges"
+      },
+      {
+        "count": 3,
+        "value": "property-information"
+      },
+      {
+        "count": 1,
+        "value": "blog"
+      },
+      {
+        "count": 1,
+        "value": "business-gateway-docs"
+      },
+      {
+        "count": 1,
+        "value": "cross-government-data-catalogues"
+      },
+      {
+        "count": 1,
+        "value": "customer-help"
+      },
+      {
+        "count": 1,
+        "value": "linked-data"
+      }
+    ],
+    "topic": [
+      {
+        "count": 305,
+        "value": "news story"
+      },
+      {
+        "count": 295,
+        "value": "press release"
+      },
+      {
+        "count": 223,
+        "value": "transparency"
+      },
+      {
+        "count": 212,
+        "value": "national statistics"
+      },
+      {
+        "count": 204,
+        "value": "archived"
+      },
+      {
+        "count": 141,
+        "value": "detailed guide"
+      },
+      {
+        "count": 133,
+        "value": "form"
+      },
+      {
+        "count": 123,
+        "value": "guidance"
+      },
+      {
+        "count": 122,
+        "value": "statistical data set"
+      },
+      {
+        "count": 110,
+        "value": "official statistics"
+      },
+      {
+        "count": 93,
+        "value": "Python"
+      },
+      {
+        "count": 76,
+        "value": "HTML"
+      }
+    ],
+    "update_frequency": [
+      {
+        "count": 1843,
+        "value": "source-specific"
+      },
+      {
+        "count": 289,
+        "value": "event-driven"
+      },
+      {
+        "count": 16,
+        "value": "catalogue-maintained"
+      },
+      {
+        "count": 3,
+        "value": "monthly, on the second working day for the preceding month"
+      },
+      {
+        "count": 3,
+        "value": "revised text changes as amendments take effect"
+      },
+      {
+        "count": 2,
+        "value": "continuously maintained"
+      },
+      {
+        "count": 2,
+        "value": "monthly, on the sixth working day for the preceding month"
+      },
+      {
+        "count": 2,
+        "value": "updated as services and practice change"
+      },
+      {
+        "count": 2,
+        "value": "updated when the language scheme changes"
+      },
+      {
+        "count": 1,
+        "value": "annual"
+      },
+      {
+        "count": 1,
+        "value": "annual or plan-period publication"
+      },
+      {
+        "count": 1,
+        "value": "catalogue maintained independently of API publishers"
+      }
+    ]
+  },
+  "format_counts": [
+    {
+      "count": 1886,
+      "value": "HTML"
+    },
+    {
+      "count": 290,
+      "value": "Git"
+    },
+    {
+      "count": 21,
+      "value": "JSON metadata"
+    },
+    {
+      "count": 15,
+      "value": "API"
+    },
+    {
+      "count": 14,
+      "value": "PDF"
+    },
+    {
+      "count": 12,
+      "value": "CSV"
+    },
+    {
+      "count": 5,
+      "value": "JSON API metadata"
+    },
+    {
+      "count": 4,
+      "value": "XML"
+    },
+    {
+      "count": 3,
+      "value": "GML"
+    },
+    {
+      "count": 3,
+      "value": "RDF linked data"
+    },
+    {
+      "count": 1,
+      "value": "CSV metadata"
+    },
+    {
+      "count": 1,
+      "value": "DOC"
+    },
+    {
+      "count": 1,
+      "value": "email"
+    },
+    {
+      "count": 1,
+      "value": "ESRI Shapefile"
+    },
+    {
+      "count": 1,
+      "value": "Git repositories"
+    },
+    {
+      "count": 1,
+      "value": "JPG"
+    },
+    {
+      "count": 1,
+      "value": "JSON"
+    },
+    {
+      "count": 1,
+      "value": "ODS"
+    },
+    {
+      "count": 1,
+      "value": "ODT"
+    },
+    {
+      "count": 1,
+      "value": "online transactions"
+    }
+  ],
+  "generated_at": "2026-07-29T09:19:47Z",
+  "notices": [
+    "Independent AI-generated proof of concept; not an HM Land Registry service or endorsement.",
+    "Metadata discovery only: not legal advice, proof of ownership, priority or an exact-boundary service.",
+    "Public access is not treated as blanket open rights; check each record and its current source terms.",
+    "Coverage is bounded to named, dated and reconciled source lanes, not the complete HMLR public estate."
+  ],
+  "schema": "okf-explorer-overview.v1",
+  "snapshot": "2026-07-29T091915Z",
+  "title": "HM Land Registry public-estate metadata overview"
+}

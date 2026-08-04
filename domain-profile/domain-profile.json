@@ -11,8 +11,8 @@
     ],
     "namespace_strategy": "https://chris-page-gov.github.io/okf-LandRegistry/id/ with source-native identifiers retained.",
     "profile_level": "large-corpus",
-    "refresh_strategy": "Acquire immutable, content-addressed source envelopes outside the public projection; build only from a frozen snapshot; publish later observations as a new snapshot rather than backpatching release bytes.",
-    "scale_assumptions": "At least 1,866 GOV.UK records plus up to 289 public repositories, 15 CDDO API rows, approximately 14 dataset records and control concepts; use lazy data entrypoints and bounded result rendering."
+    "refresh_strategy": "Acquire immutable, content-addressed source envelopes outside the public projection; build only from a frozen snapshot; use the governed artifact-dependency graph to select affected gates but fail closed where evidence cannot be carried forward; execute the pinned OKF Explorer consumer contract before publication; publish later observations as a new snapshot rather than backpatching release bytes.",
+    "scale_assumptions": "At least 1,866 GOV.UK records plus up to 289 public repositories, 15 CDDO API rows, approximately 14 dataset records and control concepts; use lazy, integrity-bound Explorer overview, chunk, search, locator and adjacency entrypoints with bounded result rendering."
   },
   "authority_model": {
     "decision_authorities": [
@@ -409,8 +409,7 @@
       ],
       "blocking_for_build": false,
       "consequences": [
-        "Supports the 1",
-        "866-record GOV.UK denominator; source families can later federate if governance diverges."
+        "Supports the 1,866-record GOV.UK denominator; actual consumer journeys become hard release gates; dependency analysis can select substantive reruns without carrying evidence across changed roots; source families can later federate if governance diverges."
       ],
       "due_point": "Reassess when full snapshot sizes and independent release cadences are measured.",
       "evidence_refs": [
@@ -420,7 +419,7 @@
       "id": "DEC-ARCHITECTURE",
       "owner": "Project owner through the scaffold request",
       "question": "Which OKF bundle shape fits the declared source population?",
-      "recommended_default": "Large-corpus descriptor with a Markdown control plane and lazy static data.",
+      "recommended_default": "Large-corpus descriptor with a Markdown control plane, integrity-bound lazy static data, a pinned OKF Explorer consumer contract and a governed artifact-dependency graph.",
       "status": "accepted"
     },
     {
@@ -466,7 +465,7 @@
       ],
       "blocking_for_build": false,
       "consequences": [
-        "Only the exact v0.1.0 digest named in G9 may be published as an AI-generated proof of concept.",
+        "Only the exact v0.1.1 digest named in G9 may be published as an AI-generated proof of concept.",
         "Later candidates remain unapproved until a new exact-digest decision."
       ],
       "due_point": "Repeat before every later release or canonical identity change.",
@@ -476,7 +475,7 @@
       "id": "DEC-RELEASE",
       "owner": "Project owner",
       "question": "Is the reviewed scaffold authorised for public release and a canonical GitHub Pages identity?",
-      "recommended_default": "Approve v0.1.0 only as an AI-generated proof of concept at the canonical Pages URL, subject to G1-G8 pass receipts and the exact-digest G9 record.",
+      "recommended_default": "Prepare v0.1.1 as an AI-generated proof of concept at the canonical Pages URL, but publish it only after G1-G8 pass receipts and an exact-digest G9 owner approval.",
       "status": "accepted"
     }
   ],
@@ -1357,7 +1356,7 @@
     },
     {
       "blocking": false,
-      "description": "Owner approval is exact-digest scoped; v0.1.0 is approved only as an AI-generated proof of concept.",
+      "description": "Owner approval is exact-digest scoped; v0.1.1 remains a candidate until its exact G9 record is approved as an AI-generated proof of concept.",
       "evidence_refs": [
         "EV-INVENTORY"
       ],
@@ -3294,6 +3293,24 @@
       "severity": "error",
       "target": "Complete generated bundle",
       "validator": "scripts/build.py --check"
+    },
+    {
+      "id": "VAL-EXPLORER-CONSUMER",
+      "method": "Execute a tiny fixture and the exact candidate in the pinned OKF Explorer; require load, search, facet, detail, resource, relationship and deep-link journeys without console or resource failures; repeat the canonical deep link after deployment.",
+      "receipt": "validation/explorer-consumer.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Pinned OKF Explorer consumer and public deep link",
+      "validator": "tests/test_explorer_contract.py and pinned browser acceptance suite"
+    },
+    {
+      "id": "VAL-CHANGE-IMPACT",
+      "method": "Validate the artifact-dependency graph, classify changed paths, select transitive outputs, consumers and gates, and fail closed on unknown or generated-only changes.",
+      "receipt": "validation/change-impact.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Authored inputs, generated outputs, consumer contracts and release gates",
+      "validator": "scripts/change_impact.py"
     }
   ],
   "version": "1"

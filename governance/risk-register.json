@@ -6,7 +6,7 @@
     "likelihood": "1 rare to 5 almost certain",
     "impact": "1 negligible to 5 severe",
     "score": "likelihood multiplied by impact",
-    "note": "Residual scores are accepted for the v0.1.0 AI-generated PoC only after controls pass against its digest-bound candidate."
+    "note": "Residual scores for v0.1.1 can be accepted only after controls pass against its digest-bound candidate and G9 records the owner decision."
   },
   "risks": [
     {
@@ -188,8 +188,8 @@
       "evidence_refs": ["EV-INVENTORY"],
       "residual": {"likelihood": 1, "impact": 4, "score": 4},
       "owner": "Project owner",
-      "status": "controlled-v0.1.0",
-      "release_disposition": "publish only when G9 and OKF_RELEASE_ROOT_SHA256 bind the exact v0.1.0 digest"
+      "status": "controlled-candidate-v0.1.1",
+      "release_disposition": "publish only when G9 and OKF_RELEASE_ROOT_SHA256 bind the exact v0.1.1 digest"
     },
     {
       "id": "RISK-015",
@@ -203,6 +203,48 @@
       "owner": "Project owner",
       "status": "accepted-gap",
       "release_disposition": "retain in G9 residual risks and prominently disclose the AI-generated PoC and incomplete human audit"
+    },
+    {
+      "id": "RISK-016",
+      "title": "Published bundle is syntactically valid but unusable in its declared consumer",
+      "cause": "Producer-only checks validate local shapes without executing the pinned OKF Explorer loader and user journeys.",
+      "harm": "Users receive an error or an empty experience at the canonical Explorer link, undermining trust and blocking discovery.",
+      "inherent": {
+        "likelihood": 4,
+        "impact": 4,
+        "score": 16
+      },
+      "controls": ["REQ-017", "REQ-019"],
+      "evidence_refs": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "residual": {
+        "likelihood": 1,
+        "impact": 4,
+        "score": 4
+      },
+      "owner": "Release reviewer",
+      "status": "controlled",
+      "release_disposition": "block release unless the pinned local journey and post-deployment canonical deep-link journey both pass"
+    },
+    {
+      "id": "RISK-017",
+      "title": "Change-impact heuristic omits an affected artifact or reuses stale evidence",
+      "cause": "An unknown path, incomplete dependency edge or monolithic receipt is treated as permission to skip a required rebuild or gate.",
+      "harm": "A correction is published with inconsistent generated output or assurance evidence from a different dependency state.",
+      "inherent": {
+        "likelihood": 3,
+        "impact": 4,
+        "score": 12
+      },
+      "controls": ["REQ-014", "REQ-017", "REQ-020"],
+      "evidence_refs": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "residual": {
+        "likelihood": 1,
+        "impact": 4,
+        "score": 4
+      },
+      "owner": "Release reviewer",
+      "status": "controlled",
+      "release_disposition": "unknown and generated-only changes select the full gate set; no receipt is reused across a changed declared root"
     }
   ]
 }
