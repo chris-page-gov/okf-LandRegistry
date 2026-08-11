@@ -1,0 +1,741 @@
+{
+  "counts": {
+    "active_emitted": 13,
+    "assertions_emitted": 22267,
+    "authorised_zero_evidence": 9,
+    "predicates": 22
+  },
+  "generated_at": "2026-08-11T12:41:04Z",
+  "predicates": [
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links each reviewed CPSV public service to its evidenced competent authority.",
+      "domain": [
+        "http://purl.org/vocab/cpsv#PublicService"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 7,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is competent authority for",
+      "iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+      "preferred_label": "has competent authority",
+      "range": [
+        "http://data.europa.eu/m8g/PublicOrganisation"
+      ],
+      "source_vocabulary": {
+        "iri": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/",
+        "version": "3.2.0"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a governed resource to an evidenced standard or profile.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "is conformance target for",
+      "iri": "http://purl.org/dc/terms/conformsTo",
+      "preferred_label": "conforms to",
+      "range": [
+        "http://purl.org/dc/terms/Standard"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a governed collection or dataset to an evidenced constituent resource.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "is part of",
+      "iri": "http://purl.org/dc/terms/hasPart",
+      "preferred_label": "has part",
+      "range": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a governed resource to an evidenced containing collection or catalogue.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "has member",
+      "iri": "http://purl.org/dc/terms/isPartOf",
+      "preferred_label": "is part of",
+      "range": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a resource to an evidenced version family or prior canonical work.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "has version",
+      "iri": "http://purl.org/dc/terms/isVersionOf",
+      "preferred_label": "is version of",
+      "range": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a resource to each explicitly recorded language authority identity.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 7,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is language of",
+      "iri": "http://purl.org/dc/terms/language",
+      "preferred_label": "has language",
+      "range": [
+        "http://purl.org/dc/terms/LinguisticSystem"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a discovery resource to its governed publisher identity.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 2247,
+        "state": "active-emitted"
+      },
+      "inverse_label": "publishes",
+      "iri": "http://purl.org/dc/terms/publisher",
+      "preferred_label": "is published by",
+      "range": [
+        "http://xmlns.com/foaf/0.1/Agent"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a resource to an evidenced resource that it supersedes.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "is superseded by",
+      "iri": "http://purl.org/dc/terms/replaces",
+      "preferred_label": "supersedes",
+      "range": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links catalogue records and resources to their governed rights assessment.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 4412,
+        "state": "active-emitted"
+      },
+      "inverse_label": "governs rights for",
+      "iri": "http://purl.org/dc/terms/rights",
+      "preferred_label": "has rights statement",
+      "range": [
+        "http://purl.org/dc/terms/RightsStatement"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a catalogue record to a local route-bearing source resource.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#CatalogRecord"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 2280,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is source of",
+      "iri": "http://purl.org/dc/terms/source",
+      "preferred_label": "has source",
+      "range": [
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a reviewed public service or organisation to explicit spatial coverage.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 7,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is spatial coverage of",
+      "iri": "http://purl.org/dc/terms/spatial",
+      "preferred_label": "has spatial coverage",
+      "range": [
+        "http://purl.org/dc/terms/Location"
+      ],
+      "source_vocabulary": {
+        "iri": "http://purl.org/dc/terms/",
+        "version": "DCMI Metadata Terms bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a distribution to an evidenced data service through which it is accessed.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "provides access for distribution",
+      "iri": "http://www.w3.org/ns/dcat#accessService",
+      "preferred_label": "has access service",
+      "range": [
+        "http://www.w3.org/ns/dcat#DataService"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/dcat#",
+        "version": "DCAT 3"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links the catalogue to resources explicitly classified as datasets.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#Catalog"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 11,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is dataset in catalogue",
+      "iri": "http://www.w3.org/ns/dcat#dataset",
+      "preferred_label": "has dataset",
+      "range": [
+        "http://www.w3.org/ns/dcat#Dataset"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/dcat#",
+        "version": "DCAT 3"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a dataset to an evidenced distribution.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#Dataset"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "is distribution of",
+      "iri": "http://www.w3.org/ns/dcat#distribution",
+      "preferred_label": "has distribution",
+      "range": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/dcat#",
+        "version": "DCAT 3"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links the catalogue to every generated DCAT catalogue record.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#Catalog"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 2203,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is recorded in catalogue",
+      "iri": "http://www.w3.org/ns/dcat#record",
+      "preferred_label": "has catalogue record",
+      "range": [
+        "http://www.w3.org/ns/dcat#CatalogRecord"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/dcat#",
+        "version": "DCAT 3"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links the catalogue to every governed discovery resource.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#Catalog"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 2203,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is resource in catalogue",
+      "iri": "http://www.w3.org/ns/dcat#resource",
+      "preferred_label": "has resource",
+      "range": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/dcat#",
+        "version": "DCAT 3"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a data service to an evidenced dataset that it serves.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#DataService"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "is served by",
+      "iri": "http://www.w3.org/ns/dcat#servesDataset",
+      "preferred_label": "serves dataset",
+      "range": [
+        "http://www.w3.org/ns/dcat#Dataset"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/dcat#",
+        "version": "DCAT 3"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a discovery resource to each local source representation from which it was derived.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 2280,
+        "state": "active-emitted"
+      },
+      "inverse_label": "supports derivation of",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "preferred_label": "was derived from",
+      "range": [
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/prov#",
+        "version": "PROV-O"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links catalogue records and resources to their bounded observation activity.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 4406,
+        "state": "active-emitted"
+      },
+      "inverse_label": "generated",
+      "iri": "http://www.w3.org/ns/prov#wasGeneratedBy",
+      "preferred_label": "was generated by",
+      "range": [
+        "http://www.w3.org/ns/prov#Activity"
+      ],
+      "source_vocabulary": {
+        "iri": "http://www.w3.org/ns/prov#",
+        "version": "PROV-O"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a governed resource to an evidenced documentation page.",
+      "domain": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "No assertion may be emitted until digest-bound direct endpoint evidence satisfies the minimum fields."
+      },
+      "implementation": {
+        "assertions_emitted": 0,
+        "state": "authorised-zero-evidence"
+      },
+      "inverse_label": "documents",
+      "iri": "http://xmlns.com/foaf/0.1/page",
+      "preferred_label": "has documentation page",
+      "range": [
+        "https://schema.org/CreativeWork"
+      ],
+      "source_vocabulary": {
+        "iri": "http://xmlns.com/foaf/0.1/",
+        "version": "living vocabulary bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links each catalogue record to the resource that it describes.",
+      "domain": [
+        "http://www.w3.org/ns/dcat#CatalogRecord"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 2203,
+        "state": "active-emitted"
+      },
+      "inverse_label": "is described by catalogue record",
+      "iri": "http://xmlns.com/foaf/0.1/primaryTopic",
+      "preferred_label": "has primary topic",
+      "range": [
+        "http://www.w3.org/2000/01/rdf-schema#Resource"
+      ],
+      "source_vocabulary": {
+        "iri": "http://xmlns.com/foaf/0.1/",
+        "version": "living vocabulary bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    },
+    {
+      "assertion_statuses": [
+        "normalized"
+      ],
+      "description": "Links a translated GOV.UK work to its evidenced English work.",
+      "domain": [
+        "https://schema.org/CreativeWork"
+      ],
+      "evidence_policy": {
+        "minimum_fields": [
+          "source_artifact",
+          "source_field",
+          "source_sha256",
+          "source_value_sha256"
+        ],
+        "notes": "Requires a digest-bound governed input and deterministic field-value binding."
+      },
+      "implementation": {
+        "assertions_emitted": 1,
+        "state": "active-emitted"
+      },
+      "inverse_label": "has translation",
+      "iri": "https://schema.org/translationOfWork",
+      "preferred_label": "is translation of work",
+      "range": [
+        "https://schema.org/CreativeWork"
+      ],
+      "source_vocabulary": {
+        "iri": "https://schema.org/",
+        "version": "living vocabulary bounded by this v0.3.0 authority"
+      },
+      "status": "active"
+    }
+  ],
+  "profile": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/",
+  "root_sha256": "065287a34a43c8970d570909cfcbcc9359d1e2e13e541625a685f62e8b9f90e4",
+  "schema": "okf-predicate-registry.v2",
+  "snapshot": "hmlr-public-metadata-v0.2.0"
+}

@@ -1,9 +1,9 @@
 {
   "schema": "okf-explorer-evaluation-suite.v1",
-  "title": "HM Land Registry OKF v0.2.0 calibration questions",
+  "title": "HM Land Registry OKF v0.3.0 candidate calibration questions",
   "description": "A bounded calibration set of 24 competency and retrieval questions. Executable forbidden-target and required-caveat assertions supplement, but do not replace, reviewer-owned held-out cases.",
-  "status": "candidate-v0.2.0",
-  "verification_status": "requires-new-digest-bound-independent-review",
+  "status": "candidate-input-v0.3.0",
+  "verification_status": "version-scoped-digest-bound-external-evidence",
   "research_cutoff": "2026-07-29",
   "target_bundle": "../okf-explorer.json",
   "persona_catalogue": "../personas/personas-and-user-stories.json",
@@ -43,11 +43,11 @@
     },
     {
       "id": "HF-AUTHORITY",
-      "description": "An unofficial, derived, normalized or catalogue assertion is presented as an official HMLR statement, or an informational online copy is presented as official proof."
+      "description": "An unofficial, derived, normalised or catalogue assertion is presented as an official HMLR statement, or an informational online copy is presented as official proof."
     },
     {
       "id": "HF-RESTRICTED-AUTOMATION",
-      "description": "The bundle performs, recommends or appears to authorize automated access to an authenticated, paid, portal, Business Gateway or terms-restricted service, or exposes a credential."
+      "description": "The bundle performs, recommends or appears to authorise automated access to an authenticated, paid, portal, Business Gateway or terms-restricted service, or exposes a credential."
     },
     {
       "id": "HF-COVERAGE",
@@ -115,8 +115,8 @@
   "questions": [
     {
       "id": "LR-Q001",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "What does HM Land Registry cover?",
       "intent": "Find the official statement of HMLR's remit and avoid applying the bundle outside its jurisdiction or authority.",
@@ -171,8 +171,8 @@
     },
     {
       "id": "LR-Q002",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "title register title summary title plan differences",
       "intent": "Distinguish the main property-information products and what each contains.",
@@ -229,8 +229,8 @@
     },
     {
       "id": "LR-Q003",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "online copy or official copy proof of ownership",
       "intent": "Find the route and limitation that distinguishes informational downloads from official copies.",
@@ -289,8 +289,8 @@
     },
     {
       "id": "LR-Q004",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "does a title plan show the exact legal boundary",
       "intent": "Retrieve authoritative boundary guidance and expose the general-boundaries limitation.",
@@ -346,8 +346,8 @@
     },
     {
       "id": "LR-Q005",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "practice guide general agreed determined boundaries",
       "intent": "Find the current official practice guidance needed to distinguish boundary concepts.",
@@ -401,8 +401,8 @@
     },
     {
       "id": "LR-Q006",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "address search misses title search of the index map",
       "intent": "Find the official recovery route when a property address search may not reveal every affected title.",
@@ -464,8 +464,8 @@
     },
     {
       "id": "LR-Q007",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "portal Business Gateway professional access requirements",
       "intent": "Distinguish professional service guidance from public discovery and make access restrictions visible.",
@@ -495,7 +495,7 @@
       ],
       "expected_propositions": [
         "Portal and Business Gateway are professional service surfaces with approval or credential requirements.",
-        "Public documentation does not authorize the bundle to make a transaction or production call."
+        "Public documentation does not authorise the bundle to make a transaction or production call."
       ],
       "near_miss_rule": "A public developer page is not evidence that the production service is anonymous or open for unrestricted automation.",
       "hard_failure_ids": [
@@ -524,8 +524,8 @@
     },
     {
       "id": "LR-Q008",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "what mortgage or lender information is in title information",
       "intent": "Find what title information says about a lender or discharged mortgage without overstating evidential completeness.",
@@ -573,7 +573,7 @@
       "must_not_retrieve": [
         {
           "target_id": "NEG-LR-Q008-ONLINE-OWNER-VERIFICATION",
-          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl",
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl=",
           "max_rank": 7,
           "reason": "A restricted ownership-verification service must not displace public guidance about what title information can establish."
         }
@@ -582,8 +582,8 @@
     },
     {
       "id": "LR-Q009",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "Price Paid Data current property value limitations",
       "intent": "Retrieve the official Price Paid Data description, temporal coverage and reuse limitations.",
@@ -638,8 +638,8 @@
     },
     {
       "id": "LR-Q010",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "data.gov.uk land ownership catalogue modified date versus OCOD publisher dataset release date",
       "intent": "Test whether the bundle keeps catalogue, observation, release and registration dates separate.",
@@ -698,8 +698,8 @@
     },
     {
       "id": "LR-Q011",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "HM Land Registry publisher spatial datasets format cost licence update API GIS file size",
       "intent": "Discover the publisher catalogue and compare spatial products by format, access and GIS requirement.",
@@ -762,8 +762,8 @@
     },
     {
       "id": "LR-Q012",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "INSPIRE polygon indicative or legal boundary",
       "intent": "Verify that spatial discovery polygons are not presented as exact legal title or charge boundaries.",
@@ -821,8 +821,8 @@
     },
     {
       "id": "LR-Q013",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "which local authorities are in Local Land Charges INSPIRE data",
       "intent": "Find the dated authority-level coverage statement and known migration limitation.",
@@ -883,8 +883,8 @@
     },
     {
       "id": "LR-Q014",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "HM Land Registry INSPIRE GML British National Grid CRS Welsh place names language metadata",
       "intent": "Test whether spatial records retain format, CRS or coordinate context, vintage, authority and language metadata where the source supplies them.",
@@ -916,7 +916,7 @@
       ],
       "expected_propositions": [
         "HMLR's INSPIRE GML is captured against British National Grid; reprojection may be required and can introduce positional error.",
-        "The accessibility statement says some Welsh place names in INSPIRE are not coded as a different language and may be mispronounced by screen readers; the bundle must preserve explicit language identity rather than silently normalize labels."
+        "The accessibility statement says some Welsh place names in INSPIRE are not coded as a different language and may be mispronounced by screen readers; the bundle must preserve explicit language identity rather than silently normalise labels."
       ],
       "near_miss_rule": "A precise CRS or reprojected polygon does not make an indicative polygon an exact legal boundary, and an English-looking label does not justify deleting Welsh language identity.",
       "hard_failure_ids": [
@@ -947,8 +947,8 @@
     },
     {
       "id": "LR-Q015",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "Use land and property data API base URL version datasets",
       "intent": "Retrieve the publisher-operated API contract, version and supported dataset scope.",
@@ -993,7 +993,7 @@
       "must_not_retrieve": [
         {
           "target_id": "NEG-LR-Q015-BUSINESS-GATEWAY-BANKRUPTCY",
-          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl",
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl=",
           "max_rank": 10,
           "reason": "A restricted Business Gateway endpoint is not the public ULPD API contract and must not enter its top ten results."
         }
@@ -1002,8 +1002,8 @@
     },
     {
       "id": "LR-Q016",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "what HMLR API data is public and what requires an account licence key",
       "intent": "Distinguish public API documentation and example metadata from authenticated dataset access.",
@@ -1035,7 +1035,7 @@
         "Public documentation and some example data can be inspected without treating the underlying dataset as anonymous access.",
         "Authenticated dataset access requires the documented account, licence acceptance and API key."
       ],
-      "near_miss_rule": "A publicly visible API URL or example response does not authorize anonymous bulk download.",
+      "near_miss_rule": "A publicly visible API URL or example response does not authorise anonymous bulk download.",
       "hard_failure_ids": [
         "HF-LICENCE-ACCESS",
         "HF-RESTRICTED-AUTOMATION"
@@ -1062,8 +1062,8 @@
     },
     {
       "id": "LR-Q017",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "anonymous automation permission credentials terms portal Business Gateway Local Land Charges",
       "intent": "Ensure restricted portal, Business Gateway, local-search and authenticated data routes are discoverable without being invoked.",
@@ -1100,11 +1100,11 @@
       ],
       "expected_propositions": [
         "Portal access is for approved professional customers; public guidance does not grant access or permission to automate.",
-        "Business Gateway documentation is public, but test and production calls require approved access and governing terms; documentation is not authorization.",
+        "Business Gateway documentation is public, but test and production calls require approved access and governing terms; documentation is not authorisation.",
         "Local Land Charges terms prohibit automated software agents from searching, copying or monitoring the service.",
         "The bundle indexes public metadata only and never invokes restricted services or stores credentials, session state or signed links."
       ],
-      "near_miss_rule": "A publicly reachable landing page, robots access, sample contract or developer documentation is not authorization for anonymous automation; permission must be established from service-specific access rules and terms.",
+      "near_miss_rule": "A publicly reachable landing page, robots access, sample contract or developer documentation is not authorisation for anonymous automation; permission must be established from service-specific access rules and terms.",
       "hard_failure_ids": [
         "HF-RESTRICTED-AUTOMATION",
         "HF-LICENCE-ACCESS"
@@ -1132,8 +1132,8 @@
     },
     {
       "id": "LR-Q018",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "OCOD monthly complete file change only update",
       "intent": "Find the distribution and refresh contract needed for a reproducible monthly update.",
@@ -1190,8 +1190,8 @@
     },
     {
       "id": "LR-Q019",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "search local land charges coverage account official certificate",
       "intent": "Find how public and official local-land-charge searches differ and whether an authority is covered.",
@@ -1240,7 +1240,7 @@
       "must_not_retrieve": [
         {
           "target_id": "NEG-LR-Q019-BUSINESS-GATEWAY-LLC-SEARCH",
-          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl",
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl=",
           "max_rank": 2,
           "reason": "A restricted Business Gateway search must not outrank the public service route, coverage statement and terms."
         }
@@ -1249,8 +1249,8 @@
     },
     {
       "id": "LR-Q020",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "local land charge planning condition title boundary differences",
       "intent": "Prevent conflation of local land charges, planning information, title registration and mapped boundaries.",
@@ -1312,8 +1312,8 @@
     },
     {
       "id": "LR-Q021",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "OCOD licence address data third party rights",
       "intent": "Retrieve the dataset-specific licence and keep third-party address-data conditions visible.",
@@ -1359,7 +1359,7 @@
       "must_not_retrieve": [
         {
           "target_id": "NEG-LR-Q021-ONLINE-OWNER-VERIFICATION",
-          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl",
+          "canonical_url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl=",
           "max_rank": 9,
           "reason": "A restricted ownership service cannot establish OCOD address-field reuse rights and must not enter the top nine."
         }
@@ -1368,8 +1368,8 @@
     },
     {
       "id": "LR-Q022",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "Price Paid Data OGL attribution Royal Mail Ordnance Survey",
       "intent": "Find the required attribution and layered address-data reuse conditions for Price Paid Data.",
@@ -1422,8 +1422,8 @@
     },
     {
       "id": "LR-Q023",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "Use land and property data accessibility keyboard focus WCAG",
       "intent": "Retrieve the applicable accessibility statement and test the bundle's equivalent critical journey.",
@@ -1479,8 +1479,8 @@
     },
     {
       "id": "LR-Q024",
-      "status": "candidate-v0.2.0",
-      "verification_status": "requires-new-digest-bound-independent-review",
+      "status": "candidate-input-v0.3.0",
+      "verification_status": "version-scoped-digest-bound-external-evidence",
       "question_type": "competency-and-retrieval",
       "query": "HM Land Registry Welsh language services bilingual registers",
       "intent": "Find the official Welsh-language commitment and preserve bilingual service and register context.",

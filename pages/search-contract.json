@@ -1,6 +1,7 @@
 {
   "schema": "okf-hmlr-search-contract.v1",
   "token_pattern": "[a-z0-9]+",
+  "token_min_length": 2,
   "stopwords": [
     "a",
     "an",
@@ -72,7 +73,8 @@
   "minimum_should_match": {
     "apply_from_query_tokens": 3,
     "minimum_matches": 2,
-    "ratio": 0.3
+    "ratio_numerator": 3,
+    "ratio_denominator": 10
   },
   "tie_breakers": [
     "title_en_gb_base",

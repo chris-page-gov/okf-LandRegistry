@@ -1,60 +1,209 @@
 {
   "schema": "okf-domain-profile-traceability.v1",
-  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v1",
+  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v2",
   "research_cutoff": "2026-07-29",
   "rows": [
     {
       "id": "TRACE-DISCOVERY",
       "requirement": "Find authoritative HMLR material across the public estate.",
-      "tasks": ["TASK-PUBLIC-ROUTE", "TASK-PRACTICE", "TASK-DATASET", "TASK-API", "TASK-LLC"],
-      "artifacts": ["bundle/okf-explorer.json", "bundle/data/manifest.json", "bundle/data/catalogue.json", "bundle/index.html"],
-      "validations": ["VAL-DATA-PLANE", "VAL-EVALUATION"],
-      "evidence": ["EV-GOVUK-SEARCH", "EV-INVENTORY"],
+      "tasks": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-PRACTICE",
+        "TASK-DATASET",
+        "TASK-API",
+        "TASK-LLC"
+      ],
+      "artifacts": [
+        "bundle/okf-explorer.json",
+        "bundle/data/manifest.json",
+        "bundle/data/catalogue.json",
+        "bundle/index.html"
+      ],
+      "validations": [
+        "VAL-DATA-PLANE",
+        "VAL-EVALUATION"
+      ],
+      "evidence": [
+        "EV-GOVUK-SEARCH",
+        "EV-INVENTORY"
+      ],
       "status": "accepted"
     },
     {
       "id": "TRACE-PROVENANCE",
       "requirement": "Keep authority, derivation, freshness, availability, coverage and release state distinct.",
-      "tasks": ["TASK-AUDIT"],
-      "artifacts": ["bundle/data/manifest.json", "bundle/data/coverage.json", "bundle/data/provenance.json"],
-      "validations": ["VAL-SNAPSHOT", "VAL-DATA-PLANE"],
-      "evidence": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "tasks": [
+        "TASK-AUDIT"
+      ],
+      "artifacts": [
+        "bundle/data/manifest.json",
+        "bundle/data/coverage.json",
+        "bundle/data/provenance.json",
+        "bundle/data/semantic/iri-route-registry.json",
+        "bundle/data/semantic/validation.json"
+      ],
+      "validations": [
+        "VAL-SNAPSHOT",
+        "VAL-DATA-PLANE",
+        "VAL-SEMANTIC"
+      ],
+      "evidence": [
+        "EV-OKF-AUTHORING",
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-INVENTORY"
+      ],
+      "status": "accepted"
+    },
+    {
+      "id": "TRACE-SEMANTICS",
+      "requirement": "Publish a comprehensive metadata-level semantic graph with canonical YAML-LD, equivalent JSON-LD, closed registries, evidence-bearing directed relationships and no unbounded inference.",
+      "tasks": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-PRACTICE",
+        "TASK-DATASET",
+        "TASK-SPATIAL",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "artifacts": [
+        "profiles/predicate-registry/v2.lock.json",
+        "profiles/predicate-registry/v2/predicate-registry.schema.json",
+        "bundle/okf-bundle.yamlld",
+        "bundle/okf-bundle.jsonld",
+        "bundle/data/semantic/model.json",
+        "bundle/data/semantic/iri-route-registry.json",
+        "bundle/data/semantic/predicate-registry.json",
+        "bundle/data/semantic/validation.json",
+        "bundle/data/explorer/relationships-*.json"
+      ],
+      "validations": [
+        "VAL-SEMANTIC",
+        "VAL-DATA-PLANE",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ],
+      "evidence": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-OKF-PREDICATE-REGISTRY-V2",
+        "EV-OWNER-SEMANTIC-DIRECTION",
+        "EV-CPSVAP-320",
+        "EV-DCMI-TERMS",
+        "EV-FOAF",
+        "EV-SCHEMAORG",
+        "EV-RDF-11",
+        "EV-RDFS-11",
+        "EV-XSD11-DATATYPES",
+        "EV-SKOS",
+        "EV-CPOV-212",
+        "EV-EU-ATU-TYPE",
+        "EV-EU-LANGUAGE-AUTHORITY",
+        "EV-DCAT",
+        "EV-PROVO"
+      ],
       "status": "accepted"
     },
     {
       "id": "TRACE-RIGHTS",
       "requirement": "Preserve mixed dataset and service rights without unsafe acquisition.",
-      "tasks": ["TASK-DATASET", "TASK-API", "TASK-LLC", "TASK-AUDIT"],
-      "artifacts": ["docs/sources-rights-and-ethics.md", "bundle/data/rights.json"],
-      "validations": ["VAL-RIGHTS"],
-      "evidence": ["EV-PUBLIC-DATA", "EV-LLC-TERMS", "EV-PERSONAL-INFO"],
+      "tasks": [
+        "TASK-DATASET",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "artifacts": [
+        "docs/sources-rights-and-ethics.md",
+        "bundle/data/rights.json"
+      ],
+      "validations": [
+        "VAL-RIGHTS"
+      ],
+      "evidence": [
+        "EV-PUBLIC-DATA",
+        "EV-LLC-TERMS",
+        "EV-PERSONAL-INFO",
+        "EV-INVENTORY",
+        "EV-DCAT"
+      ],
       "status": "accepted"
     },
     {
       "id": "TRACE-PERSONAS",
       "requirement": "Provide evidence-led personas, stories and evaluation coverage.",
-      "tasks": ["TASK-PUBLIC-ROUTE", "TASK-PRACTICE", "TASK-DATASET", "TASK-SPATIAL", "TASK-API", "TASK-LLC", "TASK-AUDIT"],
-      "artifacts": ["personas/personas-and-user-stories.json", "evaluation/questions.json", "evaluation/journeys.json"],
-      "validations": ["VAL-EVALUATION", "VAL-ACCESSIBILITY"],
-      "evidence": ["EV-PUBLIC-GUIDANCE", "EV-PRO-GUIDANCE", "EV-HMLR-RESEARCH"],
+      "tasks": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-PRACTICE",
+        "TASK-DATASET",
+        "TASK-SPATIAL",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "artifacts": [
+        "personas/personas-and-user-stories.json",
+        "evaluation/questions.json",
+        "evaluation/journeys.json"
+      ],
+      "validations": [
+        "VAL-EVALUATION",
+        "VAL-ACCESSIBILITY"
+      ],
+      "evidence": [
+        "EV-PUBLIC-GUIDANCE",
+        "EV-PRO-GUIDANCE",
+        "EV-HMLR-RESEARCH"
+      ],
       "status": "accepted"
     },
     {
       "id": "TRACE-PAGES",
       "requirement": "Publish a durable, accessible GitHub Pages discovery site.",
-      "tasks": ["TASK-PUBLIC-ROUTE", "TASK-DATASET", "TASK-AUDIT"],
-      "artifacts": ["bundle/index.html", "bundle/accessibility.html", ".github/workflows/pages.yml"],
-      "validations": ["VAL-ACCESSIBILITY", "VAL-REPRODUCIBILITY"],
-      "evidence": ["EV-WCAG", "EV-OKF-AUTHORING"],
+      "tasks": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-DATASET",
+        "TASK-AUDIT"
+      ],
+      "artifacts": [
+        "bundle/index.html",
+        "bundle/accessibility.html",
+        ".github/workflows/pages.yml"
+      ],
+      "validations": [
+        "VAL-ACCESSIBILITY",
+        "VAL-REPRODUCIBILITY"
+      ],
+      "evidence": [
+        "EV-WCAG",
+        "EV-OKF-AUTHORING"
+      ],
       "status": "accepted"
     },
     {
       "id": "TRACE-SAFETY",
       "requirement": "Avoid legal overclaim, secrets, personal data and restricted-service automation.",
-      "tasks": ["TASK-PUBLIC-ROUTE", "TASK-SPATIAL", "TASK-API", "TASK-LLC", "TASK-AUDIT"],
-      "artifacts": ["SECURITY.md", "docs/sources-rights-and-ethics.md", "validation/rights-safety.json"],
-      "validations": ["VAL-RIGHTS", "VAL-DATA-PLANE"],
-      "evidence": ["EV-PROPERTY-SERVICE", "EV-LLC-TERMS", "EV-PERSONAL-INFO"],
+      "tasks": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-SPATIAL",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "artifacts": [
+        "SECURITY.md",
+        "docs/sources-rights-and-ethics.md",
+        "validation/rights-safety.json"
+      ],
+      "validations": [
+        "VAL-RIGHTS",
+        "VAL-DATA-PLANE"
+      ],
+      "evidence": [
+        "EV-PROPERTY-SERVICE",
+        "EV-LLC-TERMS",
+        "EV-PERSONAL-INFO"
+      ],
       "status": "accepted"
     }
   ]

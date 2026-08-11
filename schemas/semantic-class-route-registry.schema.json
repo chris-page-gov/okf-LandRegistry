@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/semantic-class-route-registry.schema.json",
+  "title": "HM Land Registry semantic class-to-route delivery index",
+  "type": "object",
+  "required": [
+    "schema",
+    "snapshot",
+    "entries",
+    "counts",
+    "source_plane_roots",
+    "root_sha256"
+  ],
+  "properties": {
+    "schema": {
+      "const": "okf-landregistry-class-route-registry.v1"
+    },
+    "snapshot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    },
+    "counts": {
+      "type": "object",
+      "required": ["entries"],
+      "properties": {
+        "entries": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_plane_roots": {
+      "type": "object",
+      "required": [
+        "semantic_graph_sha256",
+        "iri_route_registry_root_sha256"
+      ],
+      "properties": {
+        "semantic_graph_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "iri_route_registry_root_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "root_sha256": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "httpIri": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "safeRoute": {
+      "type": "string",
+      "minLength": 1,
+      "allOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._~/-]*$"
+        },
+        {
+          "not": {
+            "pattern": "(^|/)\\.\\.(/|$)"
+          }
+        },
+        {
+          "not": {
+            "pattern": "\\.[mM][dD]$"
+          }
+        }
+      ]
+    },
+    "entry": {
+      "type": "object",
+      "required": ["iri", "route", "class_iris"],
+      "properties": {
+        "iri": {
+          "$ref": "#/$defs/httpIri"
+        },
+        "route": {
+          "$ref": "#/$defs/safeRoute"
+        },
+        "class_iris": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/httpIri"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

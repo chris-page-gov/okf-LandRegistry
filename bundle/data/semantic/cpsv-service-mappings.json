@@ -1,0 +1,779 @@
+{
+  "candidate_rule": {
+    "expected_count": 11,
+    "field": "kind",
+    "type_crosswalk_sha256": "b1d0e9ec400060ed594127a366afd9ee44ed7eb385eac2ed84f6da1652537033",
+    "value": "service"
+  },
+  "decisions": [
+    {
+      "decision": "not-a-public-service",
+      "evidence_refs": [
+        "CPSV-E-EXC-LINKED-DATA"
+      ],
+      "id": "CPSV-MAP-0001",
+      "rationale": "This is a data publishing and query service. DCAT DataService remains the primary model and no CPSV PublicService projection is asserted.",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://landregistry.data.gov.uk/",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-092793dc48dda497521c1685",
+          "source_family": "linked-data",
+          "source_native_id": "hmlr:developer:linked-data",
+          "source_native_type": "linked-data-service",
+          "title": "HM Land Registry linked data"
+        },
+        "value_sha256": "e546fd9c0770ed9a0feb08048b20de7c2bfda4cecbf5be87590c990db1b80d1d"
+      },
+      "record_id": "hmlr-092793dc48dda497521c1685",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor"
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-PROPERTY-INFORMATION",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The reviewed service record identifies the official HM Land Registry route and the organisation evidence identifies HM Land Registry and its delivery remit.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0002",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://www.gov.uk/search-property-information-land-registry",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-1841cdb194ad8e7d4264683e",
+          "source_family": "property-information",
+          "source_native_id": "hmlr:service:property-information",
+          "source_native_type": "transactional-service",
+          "title": "Search for land and property information"
+        },
+        "value_sha256": "0f19be417bf13981131b0cc5876d7763b0aefcc1650cd0409802482ddd3386f2"
+      },
+      "record_id": "hmlr-1841cdb194ad8e7d4264683e",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-PROPERTY-INFORMATION"
+        ],
+        "rationale": "The reviewed record describes a transactional public route for obtaining land and property information."
+      }
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-PORTAL",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The reviewed service record names the HM Land Registry portal and its business e-services, supported by the organisation identity evidence.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0003",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-1beb6fbc5637a9b82e1a2981",
+          "source_family": "portal",
+          "source_native_id": "hmlr:service:portal",
+          "source_native_type": "professional-service",
+          "title": "HM Land Registry portal"
+        },
+        "value_sha256": "9c0b27484fb4e5f8860842842a17acd23b60a8001d3f186c811ef0aa89fb46da"
+      },
+      "record_id": "hmlr-1beb6fbc5637a9b82e1a2981",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-PORTAL"
+        ],
+        "rationale": "The reviewed record describes business e-services supplied to approved professional customers."
+      }
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-LOCAL-LAND-CHARGES",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The reviewed record explicitly identifies this as HM Land Registry's statutory Local Land Charges search service.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0004",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://search-local-land-charges.service.gov.uk/",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-3f66063f7d44f4af85c2f124",
+          "source_family": "local-land-charges",
+          "source_native_id": "hmlr:service:local-land-charges",
+          "source_native_type": "transactional-service",
+          "title": "Search for local land charges"
+        },
+        "value_sha256": "23710717ecff71ac2f932db47f8f3a00a5d180dfe1f17b4232d5ba8a193afd94"
+      },
+      "record_id": "hmlr-3f66063f7d44f4af85c2f124",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-LOCAL-LAND-CHARGES"
+        ],
+        "rationale": "The reviewed record describes a statutory transactional search service for members of the public."
+      }
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-CUSTOMER-HELP",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The reviewed record explicitly describes official HM Land Registry support and contact routes.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0005",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://customerhelp.landregistry.gov.uk/",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-5d396ffbfa9c9f5bf358b88c",
+          "source_family": "customer-help",
+          "source_native_id": "hmlr:help:customer-support",
+          "source_native_type": "help-service",
+          "title": "HM Land Registry customer help"
+        },
+        "value_sha256": "2cc9fffdd29b0b11f22f03af581d72e177a4834cdfdefadaa23cbd94df8cda34"
+      },
+      "record_id": "hmlr-5d396ffbfa9c9f5bf358b88c",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-CUSTOMER-HELP"
+        ],
+        "rationale": "The reviewed record describes an official public support service rather than a document about one."
+      }
+    },
+    {
+      "decision": "not-a-public-service",
+      "evidence_refs": [
+        "CPSV-E-EXC-SERVICE-TERMS"
+      ],
+      "id": "CPSV-MAP-0006",
+      "rationale": "This record describes terms and conditions for a service, not the public service itself.",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-642a752202e2b803c6ab3382",
+          "source_family": "local-land-charges",
+          "source_native_id": "hmlr:terms:local-land-charges",
+          "source_native_type": "service-terms",
+          "title": "Local Land Charges search terms and conditions"
+        },
+        "value_sha256": "18471f89bdb3df7d8ae82d11ba294b738524855a38f8955ffb34a385a7f4bd56"
+      },
+      "record_id": "hmlr-642a752202e2b803c6ab3382",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor"
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-PROPERTY-ALERT",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The reviewed record names HM Land Registry Property Alert and describes the account and notification service it supplies.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0007",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://propertyalert.landregistry.gov.uk/",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-76b70c13e88776e8515230f1",
+          "source_family": "property-information",
+          "source_native_id": "hmlr:service:property-alert",
+          "source_native_type": "notification-service",
+          "title": "HM Land Registry Property Alert"
+        },
+        "value_sha256": "8d0b2ea6d62130b0adce719740e259b4c31e4fc27de2106df970625943799520"
+      },
+      "record_id": "hmlr-76b70c13e88776e8515230f1",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-PROPERTY-ALERT"
+        ],
+        "rationale": "The reviewed record describes a public notification service with a user account boundary."
+      }
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-FEE-CALCULATOR",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The reviewed record names the HM Land Registry fee calculator and its registration-service purpose.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0008",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://fee-calculator.landregistry.gov.uk/",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-9ba8be379f260120f9ca847d",
+          "source_family": "fee-calculator",
+          "source_native_id": "hmlr:service:fee-calculator",
+          "source_native_type": "calculation-service",
+          "title": "HM Land Registry fee calculator"
+        },
+        "value_sha256": "8f9cf6add424873a348058c1f2f247ef1f06b92ea4715c9423b892d5fb402a15"
+      },
+      "record_id": "hmlr-9ba8be379f260120f9ca847d",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-FEE-CALCULATOR"
+        ],
+        "rationale": "The reviewed record describes an interactive calculation service for registration fees."
+      }
+    },
+    {
+      "competent_authority": {
+        "evidence_refs": [
+          "CPSV-E-AUTH-SOLD-PRICES",
+          "CPSV-E-ORG-HMLR"
+        ],
+        "organisation_id": "https://www.gov.uk/government/organisations/land-registry",
+        "predicate_iri": "http://data.europa.eu/m8g/hasCompetentAuthority",
+        "rationale": "The frozen GOV.UK result describes the transaction as using HM Land Registry and attributes it to that organisation.",
+        "responsibility_scope": "delivery"
+      },
+      "decision": "mapped",
+      "id": "CPSV-MAP-0009",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://www.gov.uk/search-house-prices",
+          "observed_at": "2026-07-29T09:19:15Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-abf82f4a8429efde75536777",
+          "source_family": "govuk-search",
+          "source_native_id": "govuk:https://www.gov.uk/search-house-prices",
+          "source_native_type": "transaction",
+          "title": "Search sold property prices"
+        },
+        "value_sha256": "2a870f25339dcb1b6349914bae9073eedf3ab7bb273ed7465ad76c73d7118ad5"
+      },
+      "record_id": "hmlr-abf82f4a8429efde75536777",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor",
+      "service_classification": {
+        "class_iri": "http://purl.org/vocab/cpsv#PublicService",
+        "evidence_refs": [
+          "CPSV-E-SVC-SOLD-PRICES"
+        ],
+        "rationale": "The frozen GOV.UK result describes a public transaction for searching sold property prices."
+      }
+    },
+    {
+      "decision": "insufficient-competent-authority-evidence",
+      "evidence_refs": [
+        "CPSV-E-EXC-PRICE-TRENDS"
+      ],
+      "id": "CPSV-MAP-0010",
+      "rationale": "The frozen result supports a public transaction classification, but its description does not independently establish HM Land Registry's delivery responsibility; publisher attribution alone is insufficient.",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://www.gov.uk/check-house-price-trends",
+          "observed_at": "2026-07-29T09:19:15Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-be49a600be0e62069e499c47",
+          "source_family": "govuk-search",
+          "source_native_id": "govuk:https://www.gov.uk/check-house-price-trends",
+          "source_native_type": "transaction",
+          "title": "Check UK property price trends"
+        },
+        "value_sha256": "814fcbdc5b126b0d79085ad7352d791e99cf2a3271f5b5964f813f944c5f321d"
+      },
+      "record_id": "hmlr-be49a600be0e62069e499c47",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor"
+    },
+    {
+      "decision": "not-a-public-service",
+      "evidence_refs": [
+        "CPSV-E-EXC-NATIONAL-POLYGON"
+      ],
+      "id": "CPSV-MAP-0011",
+      "rationale": "This is a licensed data access service. DCAT DataService remains the primary model and no CPSV PublicService projection is asserted.",
+      "record_binding": {
+        "fields": {
+          "canonical_source_url": "https://use-land-property-data.service.gov.uk/datasets/nps",
+          "observed_at": "2026-07-29T07:53:38Z",
+          "publisher_id": "https://www.gov.uk/government/organisations/land-registry",
+          "record_id": "hmlr-c56216cfedae47b9f67a8dc5",
+          "source_family": "ulpd",
+          "source_native_id": "hmlr:dataset:national-polygon-service",
+          "source_native_type": "licensed-data-service",
+          "title": "National Polygon Service"
+        },
+        "value_sha256": "f542dc628e231b8d0b17ecb0201fb228492fb14b8208ebe29f4a818acf902960"
+      },
+      "record_id": "hmlr-c56216cfedae47b9f67a8dc5",
+      "review_status": "reviewed",
+      "reviewed_at": "2026-08-11T06:33:47Z",
+      "reviewed_by_role": "implementation-domain-editor"
+    }
+  ],
+  "evidence": [
+    {
+      "claim_supported": "public-organisation-identity",
+      "id": "CPSV-E-ORG-HMLR",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "publishers[id=https://www.gov.uk/government/organisations/land-registry]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "rationale": "The frozen publisher-registry row identifies HM Land Registry as the official organisation and explicitly governs its CPSV-AP PublicOrganisation class.",
+      "resource": "https://www.gov.uk/government/organisations/land-registry",
+      "retrieved_at": "2026-08-11T06:33:47Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-GOVUK",
+      "rule_version": "1",
+      "source_artifact": "source/publisher-registry.json",
+      "source_field": "publishers[id=https://www.gov.uk/government/organisations/land-registry]",
+      "source_sha256": "06eeb534e356b3001df05d970663315b1b741712b78d5e0e9b6e77080e3b78e9",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "62b77ee84884144e3b04a591a7807f366284a7d85b5af5ea54a3ba6de6bf4798",
+      "url": "https://www.gov.uk/government/organisations/land-registry"
+    },
+    {
+      "claim_supported": "exclusion",
+      "id": "CPSV-E-EXC-LINKED-DATA",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:developer:linked-data]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes a linked-data publishing and query service. It supports a DCAT DataService classification, not a CPSV PublicService projection.",
+      "record_id": "hmlr-092793dc48dda497521c1685",
+      "resource": "https://landregistry.data.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-DATASETS",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:developer:linked-data]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "995f19849ed6e0bb344eb5621763bf53097b5b1e17466768862a934ed52b859e",
+      "url": "https://landregistry.data.gov.uk/"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-PROPERTY-INFORMATION",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:property-information]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes a transactional public route for finding land and property information and obtaining specified products.",
+      "record_id": "hmlr-1841cdb194ad8e7d4264683e",
+      "resource": "https://www.gov.uk/search-property-information-land-registry",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:property-information]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "e802e642278ef9615963d8730cd38f0f263037417d59ba5e88cf8ab6013087a6",
+      "url": "https://www.gov.uk/search-property-information-land-registry"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-PROPERTY-INFORMATION",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:property-information]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen publisher-authoritative record identifies this official route as an HM Land Registry transactional service; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-1841cdb194ad8e7d4264683e",
+      "resource": "https://www.gov.uk/search-property-information-land-registry",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:property-information]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "e802e642278ef9615963d8730cd38f0f263037417d59ba5e88cf8ab6013087a6",
+      "url": "https://www.gov.uk/search-property-information-land-registry"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-PORTAL",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:portal]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes business e-services supplied through an approved professional account for land-registration work.",
+      "record_id": "hmlr-1beb6fbc5637a9b82e1a2981",
+      "resource": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:portal]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "27a3933189d51a4dfd5d1e527e1872f47fa8708da5493508fe6b6512091585d7",
+      "url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-PORTAL",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:portal]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen publisher-authoritative record identifies the portal as HM Land Registry business e-services; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-1beb6fbc5637a9b82e1a2981",
+      "resource": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:portal]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "27a3933189d51a4dfd5d1e527e1872f47fa8708da5493508fe6b6512091585d7",
+      "url": "https://www.gov.uk/government/collections/how-to-use-the-land-registry-portal"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-LOCAL-LAND-CHARGES",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:local-land-charges]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes a statutory transactional search service for migrated local-authority areas.",
+      "record_id": "hmlr-3f66063f7d44f4af85c2f124",
+      "resource": "https://search-local-land-charges.service.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:local-land-charges]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "6b4053ab68bb5959dc19db215a47998fc439f8c9f9f889a897ae59e28022ff6f",
+      "url": "https://search-local-land-charges.service.gov.uk/"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-LOCAL-LAND-CHARGES",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:local-land-charges]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen publisher-authoritative record identifies HM Land Registry's statutory Local Land Charges search service; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-3f66063f7d44f4af85c2f124",
+      "resource": "https://search-local-land-charges.service.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:local-land-charges]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "6b4053ab68bb5959dc19db215a47998fc439f8c9f9f889a897ae59e28022ff6f",
+      "url": "https://search-local-land-charges.service.gov.uk/"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-CUSTOMER-HELP",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:help:customer-support]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes official public support and contact routes rather than a document about a service.",
+      "record_id": "hmlr-5d396ffbfa9c9f5bf358b88c",
+      "resource": "https://customerhelp.landregistry.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-PERSONAL",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:help:customer-support]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "ad54ba4d3aca2472ab127b2a673d1222bca73829b0a45853b7194f6b302f2afa",
+      "url": "https://customerhelp.landregistry.gov.uk/"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-CUSTOMER-HELP",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:help:customer-support]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen publisher-authoritative record identifies official HM Land Registry support and contact routes; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-5d396ffbfa9c9f5bf358b88c",
+      "resource": "https://customerhelp.landregistry.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-PERSONAL",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:help:customer-support]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "ad54ba4d3aca2472ab127b2a673d1222bca73829b0a45853b7194f6b302f2afa",
+      "url": "https://customerhelp.landregistry.gov.uk/"
+    },
+    {
+      "claim_supported": "exclusion",
+      "id": "CPSV-E-EXC-SERVICE-TERMS",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:terms:local-land-charges]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes the terms governing a service, not the public service itself.",
+      "record_id": "hmlr-642a752202e2b803c6ab3382",
+      "resource": "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-RESTRICTED",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:terms:local-land-charges]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "8b9826d07091a12f2be86205a55839b40f7dd4d04c73e2b9c3c0b526588cf909",
+      "url": "https://search-local-land-charges.service.gov.uk/terms-and-conditions"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-PROPERTY-ALERT",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:property-alert]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes a notification service with a public user-account boundary and event-driven alerts.",
+      "record_id": "hmlr-76b70c13e88776e8515230f1",
+      "resource": "https://propertyalert.landregistry.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-PERSONAL",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:property-alert]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "c6379fe6718acc0942964271808213fef3636ea9a61acb95a9442a9fc6281dd3",
+      "url": "https://propertyalert.landregistry.gov.uk/"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-PROPERTY-ALERT",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:property-alert]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen publisher-authoritative record identifies HM Land Registry Property Alert and the service it supplies; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-76b70c13e88776e8515230f1",
+      "resource": "https://propertyalert.landregistry.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-PERSONAL",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:property-alert]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "c6379fe6718acc0942964271808213fef3636ea9a61acb95a9442a9fc6281dd3",
+      "url": "https://propertyalert.landregistry.gov.uk/"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-FEE-CALCULATOR",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:fee-calculator]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes an interactive public calculation service for registration fees.",
+      "record_id": "hmlr-9ba8be379f260120f9ca847d",
+      "resource": "https://fee-calculator.landregistry.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-FEE-CALCULATOR",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:fee-calculator]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "4083b1ffa94afa7bd6e59eed4841c320bf1570f1eb7722e4cafb2058a345df09",
+      "url": "https://fee-calculator.landregistry.gov.uk/"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-FEE-CALCULATOR",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:service:fee-calculator]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen publisher-authoritative record identifies the HM Land Registry fee calculator and its registration-service purpose; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-9ba8be379f260120f9ca847d",
+      "resource": "https://fee-calculator.landregistry.gov.uk/",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-FEE-CALCULATOR",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:service:fee-calculator]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "4083b1ffa94afa7bd6e59eed4841c320bf1570f1eb7722e4cafb2058a345df09",
+      "url": "https://fee-calculator.landregistry.gov.uk/"
+    },
+    {
+      "claim_supported": "public-service-classification",
+      "id": "CPSV-E-SVC-SOLD-PRICES",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "results[link=/search-house-prices]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "rationale": "The frozen GOV.UK search result identifies a public transaction for searching sold property prices in England or Wales.",
+      "record_id": "hmlr-abf82f4a8429efde75536777",
+      "resource": "https://www.gov.uk/search-house-prices",
+      "retrieved_at": "2026-07-29T09:19:15Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-GOVUK",
+      "rule_version": "1",
+      "source_artifact": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+      "source_field": "results[link=/search-house-prices]",
+      "source_sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "50fe81711b92ac39d4330d6d6e32dc51c8867f4cbf992cb44c8e79b538514f01",
+      "url": "https://www.gov.uk/search-house-prices"
+    },
+    {
+      "claim_supported": "competent-authority-delivery",
+      "id": "CPSV-E-AUTH-SOLD-PRICES",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "results[link=/search-house-prices]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "rationale": "The frozen GOV.UK result says that the transaction uses HM Land Registry and attributes it to that organisation; the separately cited organisation evidence establishes the organisation identity.",
+      "record_id": "hmlr-abf82f4a8429efde75536777",
+      "resource": "https://www.gov.uk/search-house-prices",
+      "retrieved_at": "2026-07-29T09:19:15Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-GOVUK",
+      "rule_version": "1",
+      "source_artifact": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+      "source_field": "results[link=/search-house-prices]",
+      "source_sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "50fe81711b92ac39d4330d6d6e32dc51c8867f4cbf992cb44c8e79b538514f01",
+      "url": "https://www.gov.uk/search-house-prices"
+    },
+    {
+      "claim_supported": "exclusion",
+      "id": "CPSV-E-EXC-PRICE-TRENDS",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "results[link=/check-house-price-trends]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T09:19:15Z",
+      "rationale": "The frozen GOV.UK result supports a public transaction classification, but its description does not independently establish HM Land Registry's delivery responsibility; publisher attribution alone is insufficient.",
+      "record_id": "hmlr-be49a600be0e62069e499c47",
+      "resource": "https://www.gov.uk/check-house-price-trends",
+      "retrieved_at": "2026-07-29T09:19:15Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-GOVUK",
+      "rule_version": "1",
+      "source_artifact": "source/snapshots/2026-07-29T091915Z/govuk-search.json",
+      "source_field": "results[link=/check-house-price-trends]",
+      "source_sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "69d9adaa52b50b0e5bd2b3b8fd2eb7bd0ec15811d97a2c3e047b14b12cc45f1e",
+      "url": "https://www.gov.uk/check-house-price-trends"
+    },
+    {
+      "claim_supported": "exclusion",
+      "id": "CPSV-E-EXC-NATIONAL-POLYGON",
+      "issuer": "https://www.gov.uk/government/organisations/land-registry",
+      "locator": "records[id=hmlr:dataset:national-polygon-service]",
+      "normalization": "https://chris-page-gov.github.io/okf-LandRegistry/id/rule/cpsv-ap-3.2.0-service-decision-v1",
+      "observed_at": "2026-07-29T07:53:38Z",
+      "rationale": "The frozen record describes a licensed data access service for National Polygon products. It supports a DCAT DataService classification, not a CPSV PublicService projection.",
+      "record_id": "hmlr-c56216cfedae47b9f67a8dc5",
+      "resource": "https://use-land-property-data.service.gov.uk/datasets/nps",
+      "retrieved_at": "2026-07-29T07:53:38Z",
+      "review_status": "reviewed",
+      "rights_ref": "RIGHT-DATASETS",
+      "rule_version": "1",
+      "source_artifact": "source/curated-records.json",
+      "source_field": "records[id=hmlr:dataset:national-polygon-service]",
+      "source_sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "source_value_hash_canonicalization": "sorted-key compact UTF-8 JSON with trailing newline",
+      "source_value_sha256": "27bee3501daa78d9d16d711e868759403ff0f163dc0931dfa32bd0bc6c496cef",
+      "url": "https://use-land-property-data.service.gov.uk/datasets/nps"
+    }
+  ],
+  "research_cutoff": "2026-07-29",
+  "schema": "okf-hmlr-cpsv-service-mappings.v1",
+  "version": "0.3.0"
+}

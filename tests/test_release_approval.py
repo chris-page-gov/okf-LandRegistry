@@ -57,7 +57,7 @@ class ReleaseApprovalTests(unittest.TestCase):
             checksums, release_root = write_release(root)
             (root / "artifact.txt").write_bytes(b"changed after approval\n")
             with self.assertRaisesRegex(
-                ReleaseApprovalError, "artifact digest mismatch"
+                ReleaseApprovalError, "artefact digest mismatch"
             ):
                 validate_release_approval(checksums, release_root)
 

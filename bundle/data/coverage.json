@@ -1,5 +1,6 @@
 {
   "by_access_model": {
+    "account service; personal searches are free and official search certificates are paid": 1,
     "account-and-licence download and authenticated API; commercial use is paid": 2,
     "approved Business Gateway customer integration": 15,
     "approved professional account": 1,
@@ -23,7 +24,6 @@
     "public query and resource access, subject to service and dataset conditions": 1,
     "public reports, downloads and report-generation tools": 1,
     "public repository metadata and source where a repository is public": 1,
-    "public search subject to terms and fees": 1,
     "public terms; operational search subject to service restrictions and fees": 1,
     "public-repository": 289,
     "public-web": 1867,
@@ -131,12 +131,14 @@
     "cddo-api-catalogue": 16,
     "cross-government-data-catalogues": 1,
     "customer-help": 1,
+    "fee-calculator": 1,
     "github": 290,
     "govuk-content": 2,
-    "govuk-hmlr": 25,
+    "govuk-hmlr": 22,
     "govuk-search": 1842,
+    "legislation": 3,
     "linked-data": 1,
-    "local-land-charges": 3,
+    "local-land-charges": 2,
     "portal": 1,
     "property-information": 3,
     "ulpd": 15,
@@ -521,6 +523,18 @@
       "normalized": 1,
       "retained": 1
     },
+    "fee-calculator": {
+      "acquired": 1,
+      "acquisition": "Minimal public title, description and route metadata only; no calculation, submission or result capture.",
+      "collisions": 1,
+      "curated_inputs": 1,
+      "denominator_as_of": null,
+      "errors": 0,
+      "excluded": 0,
+      "expected": null,
+      "normalized": 1,
+      "retained": 1
+    },
     "github": {
       "acquired": 289,
       "acquisition": "Bounded public repository metadata through the unauthenticated GitHub REST API.",
@@ -546,16 +560,16 @@
       "retained": 2
     },
     "govuk-hmlr": {
-      "acquired": 25,
+      "acquired": 22,
       "acquisition": "Curated metadata plus the exhaustive GOV.UK Search lane.",
-      "collisions": 25,
-      "curated_inputs": 25,
+      "collisions": 22,
+      "curated_inputs": 22,
       "denominator_as_of": null,
       "errors": 0,
       "excluded": 0,
       "expected": null,
-      "normalized": 25,
-      "retained": 25
+      "normalized": 22,
+      "retained": 22
     },
     "govuk-search": {
       "acquired": 1866,
@@ -568,6 +582,18 @@
       "expected": 1866,
       "normalized": 1866,
       "retained": 1866
+    },
+    "legislation": {
+      "acquired": 3,
+      "acquisition": "Curated legislation identity and source-route metadata only; no page-body or attachment acquisition.",
+      "collisions": 3,
+      "curated_inputs": 3,
+      "denominator_as_of": null,
+      "errors": 0,
+      "excluded": 0,
+      "expected": null,
+      "normalized": 3,
+      "retained": 3
     },
     "linked-data": {
       "acquired": 1,
@@ -582,16 +608,16 @@
       "retained": 1
     },
     "local-land-charges": {
-      "acquired": 3,
+      "acquired": 2,
       "acquisition": "Terms and public service-description metadata only; never automate a search.",
-      "collisions": 3,
-      "curated_inputs": 3,
+      "collisions": 2,
+      "curated_inputs": 2,
       "denominator_as_of": null,
       "errors": 0,
       "excluded": 0,
       "expected": null,
-      "normalized": 3,
-      "retained": 3
+      "normalized": 2,
+      "retained": 2
     },
     "portal": {
       "acquired": 1,

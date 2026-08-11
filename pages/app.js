@@ -22,6 +22,7 @@ const state = {
   renderGeneration: 0,
   searchContract: {
     token_pattern: "[a-z0-9]+",
+    token_min_length: 2,
     stopwords: new Set(),
     heading_fields: ["title", "record_type", "topics"],
     body_fields: [
@@ -33,7 +34,8 @@ const state = {
     minimum_should_match: {
       apply_from_query_tokens: 3,
       minimum_matches: 2,
-      ratio: 0.3,
+      ratio_numerator: 3,
+      ratio_denominator: 10,
     },
   },
 };
@@ -53,8 +55,8 @@ const elements = {
 function normalize(value) {
   return String(value || "")
     .normalize("NFKD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLocaleLowerCase("en-GB");
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 }
 
 function fieldsText(record, fields) {
@@ -73,7 +75,10 @@ function textFor(record) {
 function tokens(value) {
   const pattern = new RegExp(state.searchContract.token_pattern, "g");
   const found = normalize(value).match(pattern) || [];
-  return new Set(found.filter((token) => !state.searchContract.stopwords.has(token)));
+  return new Set(found.filter(
+    (token) => token.length >= state.searchContract.token_min_length
+      && !state.searchContract.stopwords.has(token),
+  ));
 }
 
 function create(tag, options = {}) {
@@ -123,7 +128,16 @@ function relevanceScore(record, terms) {
       : tokens(textFor(record)));
   const minimum = state.searchContract.minimum_should_match;
   const requiredMatches = terms.length >= minimum.apply_from_query_tokens
-    ? Math.max(minimum.minimum_matches, Math.ceil(terms.length * minimum.ratio))
+    ? Math.max(
+      minimum.minimum_matches,
+      Math.floor(
+        (
+          terms.length * minimum.ratio_numerator
+          + minimum.ratio_denominator
+          - 1
+        ) / minimum.ratio_denominator,
+      ),
+    )
     : 1;
   const matchedTerms = terms.filter(
     (term) => headingTerms.has(term) || bodyTerms.has(term),
@@ -516,6 +530,36 @@ function showLoadError(error) {
   elements.status.textContent = "Catalogue unavailable";
 }
 
+function isSupportedSearchContract(contract) {
+  if (
+    contract?.schema !== "okf-hmlr-search-contract.v1"
+    || contract.token_pattern !== "[a-z0-9]+"
+    || contract.token_min_length !== 2
+    || !Array.isArray(contract.stopwords)
+    || contract.stopwords.length > 256
+    || !contract.weights
+  ) {
+    return false;
+  }
+  if (!contract.stopwords.every((token, index) =>
+    typeof token === "string"
+    && token.length > 0
+    && token.length <= 32
+    && /^[a-z0-9]+$/.test(token)
+    && token === token.toLowerCase()
+    && (index === 0 || contract.stopwords[index - 1] < token))) {
+    return false;
+  }
+  const minimum = contract.minimum_should_match;
+  return minimum
+    && Object.keys(minimum).sort().join(",")
+      === "apply_from_query_tokens,minimum_matches,ratio_denominator,ratio_numerator"
+    && minimum.apply_from_query_tokens === 3
+    && minimum.minimum_matches === 2
+    && minimum.ratio_numerator === 3
+    && minimum.ratio_denominator === 10;
+}
+
 async function initialise() {
   try {
     const requestOptions = { credentials: "same-origin", cache: "no-store" };
@@ -550,12 +594,7 @@ async function initialise() {
     ) {
       throw new Error("Compact search index contains an invalid record");
     }
-    if (
-      contract.schema !== "okf-hmlr-search-contract.v1"
-      || !Array.isArray(contract.stopwords)
-      || !contract.weights
-      || !contract.minimum_should_match
-    ) {
+    if (!isSupportedSearchContract(contract)) {
       throw new Error("Search contract is missing or unsupported");
     }
     state.searchContract = {

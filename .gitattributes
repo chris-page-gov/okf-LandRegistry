@@ -1,0 +1,4 @@
+# Preserve exact digest-bound upstream standard bytes, including source-native
+# trailing spaces; whitespace policy remains enabled everywhere else.
+standards/cpsv-ap/3.2.0/*.ttl -whitespace
+bundle/data/semantic/standards/cpsv-ap/3.2.0/*.ttl -whitespace

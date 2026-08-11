@@ -12,6 +12,9 @@
     },
     {
       "$ref": "#/$defs/releaseRecord"
+    },
+    {
+      "$ref": "#/$defs/independentReviewEvidence"
     }
   ],
   "$defs": {
@@ -26,6 +29,16 @@
     "nonEmpty": {
       "type": "string",
       "minLength": 1
+    },
+    "canonicalIdentityText": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!\\s)(?!.*\\s$)[^\\u0000-\\u001F\\u007F-\\u009F]+$"
+    },
+    "utcDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
     },
     "safePathCandidate": {
       "type": "string",
@@ -116,7 +129,7 @@
       ],
       "properties": {
         "identity": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "kind": {
           "enum": [
@@ -125,11 +138,10 @@
           ]
         },
         "role": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "reviewed_at": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/$defs/utcDateTime"
         },
         "independent": {
           "type": "boolean"
@@ -237,11 +249,10 @@
           ]
         },
         "reviewer_identity": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "completed_at": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/$defs/utcDateTime"
         },
         "execution_mode": {
           "enum": [
@@ -302,8 +313,7 @@
           "$ref": "#/$defs/candidate"
         },
         "executed_at": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/$defs/utcDateTime"
         },
         "validator": {
           "$ref": "#/$defs/validator"
@@ -318,6 +328,7 @@
         "evidence": {
           "type": "array",
           "minItems": 1,
+          "maxItems": 256,
           "items": {
             "$ref": "#/$defs/evidenceReference"
           }
@@ -382,7 +393,7 @@
       ],
       "properties": {
         "identity": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "kind": {
           "enum": [
@@ -391,14 +402,96 @@
           ]
         },
         "role": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "approved_at": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/$defs/utcDateTime"
         },
         "approved": {
           "type": "boolean"
+        },
+        "binding": {
+          "$ref": "#/$defs/ownerApprovalBinding"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ownerApprovalBinding": {
+      "type": "object",
+      "required": [
+        "version",
+        "canonical_url",
+        "candidate",
+        "pre_g9_manifest",
+        "approved_receipts",
+        "approved_claims",
+        "residual_risks",
+        "human_audit",
+        "independent_review",
+        "independent_review_evidence"
+      ],
+      "properties": {
+        "version": {
+          "$ref": "#/$defs/nonEmpty"
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "candidate": {
+          "$ref": "#/$defs/candidate"
+        },
+        "pre_g9_manifest": {
+          "$ref": "#/$defs/evidenceReference"
+        },
+        "approved_receipts": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "$ref": "#/$defs/approvedReceipt"
+          }
+        },
+        "approved_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmpty"
+          },
+          "uniqueItems": true
+        },
+        "residual_risks": {
+          "$ref": "#/$defs/residualRiskBinding"
+        },
+        "human_audit": {
+          "$ref": "#/$defs/humanAudit"
+        },
+        "independent_review": {
+          "$ref": "#/$defs/independentReleaseReview"
+        },
+        "independent_review_evidence": {
+          "$ref": "#/$defs/evidenceReference"
+        }
+      },
+      "additionalProperties": false
+    },
+    "residualRiskBinding": {
+      "type": "object",
+      "required": [
+        "register",
+        "ids"
+      ],
+      "properties": {
+        "register": {
+          "$ref": "#/$defs/evidenceReference"
+        },
+        "ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmpty"
+          },
+          "uniqueItems": true
         }
       },
       "additionalProperties": false
@@ -415,7 +508,7 @@
       ],
       "properties": {
         "identity": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "kind": {
           "enum": [
@@ -424,11 +517,10 @@
           ]
         },
         "role": {
-          "$ref": "#/$defs/nonEmpty"
+          "$ref": "#/$defs/canonicalIdentityText"
         },
         "reviewed_at": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/$defs/utcDateTime"
         },
         "independent": {
           "type": "boolean"
@@ -439,6 +531,52 @@
             "do_not_approve",
             "candidate"
           ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "independentReviewEvidence": {
+      "type": "object",
+      "required": [
+        "$schema",
+        "schema",
+        "candidate",
+        "independent_review",
+        "pre_g9_manifest_sha256",
+        "approved_claims",
+        "residual_risk_ids"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json"
+        },
+        "schema": {
+          "const": "okf-independent-release-review-evidence.v1"
+        },
+        "candidate": {
+          "$ref": "#/$defs/candidate"
+        },
+        "independent_review": {
+          "$ref": "#/$defs/independentReleaseReview"
+        },
+        "pre_g9_manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "approved_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmpty"
+          },
+          "uniqueItems": true
+        },
+        "residual_risk_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmpty"
+          },
+          "uniqueItems": true
         }
       },
       "additionalProperties": false
@@ -521,6 +659,14 @@
         "claims_reviewed": {
           "type": "boolean"
         },
+        "approved_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/nonEmpty"
+          },
+          "uniqueItems": true
+        },
         "residual_risks_reviewed": {
           "type": "boolean"
         },
@@ -549,6 +695,37 @@
           }
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "version": {
+                "not": {
+                  "enum": [
+                    "0.1.0",
+                    "0.2.0"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "version"
+            ]
+          },
+          "then": {
+            "required": [
+              "approved_claims"
+            ],
+            "properties": {
+              "owner_approval": {
+                "required": [
+                  "binding"
+                ]
+              }
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "evidenceManifest": {
@@ -576,8 +753,7 @@
           ]
         },
         "generated_at": {
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/$defs/utcDateTime"
         },
         "candidate": {
           "$ref": "#/$defs/candidate"

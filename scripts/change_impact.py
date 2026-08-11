@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Classify repository changes against the governed artifact dependency graph.
+"""Classify repository changes against the governed artefact dependency graph.
 
 The report is advisory release-planning evidence. It never passes a validation
 gate, waives a required check, or approves a release candidate.
@@ -10,10 +10,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import re
+import selectors
 import subprocess
 import sys
+import time
 from typing import Any, Iterable, Sequence
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -21,15 +24,119 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_JSON_BYTES = 5_000_000
+MAX_GIT_STDOUT_BYTES = 16 * 1024 * 1024
+MAX_GIT_STDERR_BYTES = 256 * 1024
+GIT_COMMAND_TIMEOUT_SECONDS = 30
 CONTROL_RELATIVE_PATHS = {
     "requirements": Path("governance/requirements.json"),
     "risks": Path("governance/risk-register.json"),
     "traceability": Path("governance/traceability.json"),
 }
+CAUSAL_BUILD_OUTPUTS = (
+    "bundle/**",
+    "bundle/build-receipt.json",
+    "bundle/CHECKSUMS.sha256",
+)
+
+# This is deliberately a second, executable copy of the causal contract rather
+# than data read from the graph that it protects.  Without an independent
+# bootstrap, the graph can remove one of its own build inputs (or reclassify it
+# as generated) and then issue a receipt that omits the byte that weakened the
+# contract.  A reviewed causal change therefore updates this tuple, the graph
+# and the closure tests together.
+REQUIRED_BUILD_INPUT_PATTERNS = (
+    "contracts/okf-explorer.consumer-lock.json",
+    "domain-profile/**",
+    "evaluation/questions.json",
+    "governance/ai-model-usage.json",
+    "governance/artifact-dependency-graph.json",
+    "governance/rights-review.json",
+    "okf.semantic.json",
+    "pages/.nojekyll",
+    "pages/404.html",
+    "pages/accessibility.html",
+    "pages/favicon.svg",
+    "pages/index.html",
+    "pages/manifest.webmanifest",
+    "pages/search-contract.json",
+    "pages/styles.css",
+    "profiles/bundle-wiki/v1.vendor-lock.json",
+    "profiles/bundle-wiki/v1/**",
+    "profiles/predicate-registry/v2.lock.json",
+    "profiles/predicate-registry/v2/**",
+    "requirements-lock.txt",
+    "schemas/artifact-dependency-graph.schema.json",
+    "schemas/curated-rights-access.schema.json",
+    "schemas/domain-profile.schema.json",
+    "schemas/relationship-runtime-row.schema.json",
+    "schemas/semantic-assertion.schema.json",
+    "schemas/semantic-class-route-registry.schema.json",
+    "scripts/acquire.py",
+    "scripts/build.py",
+    "scripts/change_impact.py",
+    "scripts/evaluate.py",
+    "scripts/python_runtime_contract.py",
+    "source/build-config.json",
+    "source/cpsv-service-mappings.json",
+    "source/curated-records.json",
+    "source/curated-rights-access.json",
+    "source/input-manifest-v0.2.0.json",
+    "source/jsonld-context.json",
+    "source/observations/govuk-content-locale-translations-2026-07-29.json",
+    "source/publisher-registry.json",
+    "source/snapshots/2026-07-29T091915Z/**",
+    "source/source-register.json",
+    "source/type-kind-crosswalk.json",
+    "standards/cpsv-ap/3.2.0.vendor-lock.json",
+    "standards/cpsv-ap/3.2.0/**",
+)
+REQUIRED_GENERATED_ROOT_PATTERNS = (
+    "bundle/**",
+    "dist/**",
+    "evaluation/latest-report.json",
+    "validation/**",
+)
 
 
 class ChangeImpactError(ValueError):
     """Raised when change-impact input or policy is unsafe or inconsistent."""
+
+
+def validate_executable_causal_bootstrap(graph: dict[str, Any]) -> None:
+    """Bind this producer's graph to its independent executable boundary.
+
+    Generic graph validation is also used on small, self-contained fixture and
+    downstream producer repositories, so the Land Registry-specific exact set
+    is a producer preflight rather than a universal OKF graph constraint.
+    """
+
+    build_inputs = graph.get("build_inputs")
+    generated_roots = graph.get("generated_roots")
+    observed_build_inputs = (
+        tuple(build_inputs) if isinstance(build_inputs, list) else ()
+    )
+    if observed_build_inputs != REQUIRED_BUILD_INPUT_PATTERNS:
+        missing = sorted(
+            set(REQUIRED_BUILD_INPUT_PATTERNS)
+            - set(build_inputs if isinstance(build_inputs, list) else [])
+        )
+        unexpected = sorted(
+            set(build_inputs if isinstance(build_inputs, list) else [])
+            - set(REQUIRED_BUILD_INPUT_PATTERNS)
+        )
+        raise ChangeImpactError(
+            "build_inputs differs from the executable causal bootstrap: "
+            f"missing={missing!r}, unexpected={unexpected!r}"
+        )
+    if (
+        tuple(generated_roots)
+        if isinstance(generated_roots, list)
+        else ()
+    ) != REQUIRED_GENERATED_ROOT_PATTERNS:
+        raise ChangeImpactError(
+            "generated_roots differs from the executable causal bootstrap; "
+            "generated classifications cannot be changed by the graph alone"
+        )
 
 
 def sha256_file(path: Path) -> str:
@@ -98,6 +205,46 @@ def normalise_repository_path(value: str) -> str:
     return value
 
 
+def normalise_dependency_pattern(
+    value: Any,
+    *,
+    field: str,
+    input_pattern: bool,
+) -> tuple[str, bool]:
+    """Accept one canonical literal or one tree selected by a final ``/**``."""
+
+    if (
+        not isinstance(value, str)
+        or not value
+        or value != value.strip()
+        or any(ord(character) < 32 or ord(character) == 127 for character in value)
+        or any(character in value for character in "\\:~")
+    ):
+        raise ChangeImpactError(
+            f"{field} is not a safe repository-relative pattern: {value!r}"
+        )
+    recursive = value.endswith("/**")
+    literal = value[:-3] if recursive else value
+    if not literal or any(character in literal for character in "*?[]"):
+        raise ChangeImpactError(
+            f"{field} must be a literal or use one trailing '/**': {value!r}"
+        )
+    parts = literal.split("/")
+    if (
+        any(part in {"", ".", ".."} for part in parts)
+        or PurePosixPath(literal).is_absolute()
+        or PurePosixPath(*parts).as_posix() != literal
+    ):
+        raise ChangeImpactError(
+            f"{field} is not canonical and repository-relative: {value!r}"
+        )
+    if input_pattern and parts[0] in {"dist", "validation"}:
+        raise ChangeImpactError(
+            f"{field} must not consume mutable {parts[0]}/ evidence: {value!r}"
+        )
+    return literal, recursive
+
+
 def _glob_regex(pattern: str) -> re.Pattern[str]:
     """Compile the small, path-aware glob language used by the control."""
 
@@ -153,15 +300,153 @@ def _id_set(document: dict[str, Any], member: str) -> set[str]:
     return result
 
 
-def _generated_prefix(pattern: str) -> str:
-    if not pattern.endswith("/**") or any(
-        wildcard in pattern[:-3] for wildcard in "*?"
-    ):
-        raise ChangeImpactError(
-            "generated_roots entries must have the form '<directory>/**': "
-            f"{pattern!r}"
+def _generated_pattern(pattern: str) -> tuple[str, bool]:
+    """Return one exact generated file or recursive generated directory."""
+
+    return normalise_dependency_pattern(
+        pattern,
+        field="generated_roots entry",
+        input_pattern=False,
+    )
+
+
+def _generated_pattern_covers(output: str, pattern: tuple[str, bool]) -> bool:
+    literal, recursive = pattern
+    return output == literal or (recursive and output.startswith(f"{literal}/"))
+
+
+def _dependency_pattern_covers(selected: str, covering: str) -> bool:
+    """Return whether *covering* admits every path selected by *selected*."""
+
+    selected_literal, selected_recursive = normalise_dependency_pattern(
+        selected,
+        field="selected dependency pattern",
+        input_pattern=True,
+    )
+    covering_literal, covering_recursive = normalise_dependency_pattern(
+        covering,
+        field="covering dependency pattern",
+        input_pattern=True,
+    )
+    if not covering_recursive:
+        return not selected_recursive and selected_literal == covering_literal
+    return selected_literal == covering_literal or selected_literal.startswith(
+        covering_literal + "/"
+    )
+
+
+def _dependency_patterns_overlap(left: str, right: str) -> bool:
+    """Return whether two literal-or-tree dependency patterns can intersect."""
+
+    left_literal, left_recursive = normalise_dependency_pattern(
+        left,
+        field="left dependency pattern",
+        input_pattern=False,
+    )
+    right_literal, right_recursive = normalise_dependency_pattern(
+        right,
+        field="right dependency pattern",
+        input_pattern=False,
+    )
+    if left_literal == right_literal:
+        return True
+    return (
+        left_recursive and right_literal.startswith(left_literal + "/")
+    ) or (
+        right_recursive and left_literal.startswith(right_literal + "/")
+    )
+
+
+def validate_build_input_contract(graph: dict[str, Any]) -> None:
+    """Validate build causality without reading assurance-only controls.
+
+    The full graph validator additionally resolves tests, requirements and
+    risks. The deterministic builder deliberately calls only this relational
+    subset after JSON Schema validation, so those assurance controls cannot
+    influence bundle bytes or the build receipt.
+    """
+
+    build_inputs = graph.get("build_inputs")
+    stages = graph.get("stages")
+    generated_roots = graph.get("generated_roots")
+    if not isinstance(build_inputs, list) or not build_inputs:
+        raise ChangeImpactError("artefact dependency graph has no build_inputs")
+    if not isinstance(stages, list) or not stages:
+        raise ChangeImpactError("artefact dependency graph has no stages")
+    if not isinstance(generated_roots, list) or not generated_roots:
+        raise ChangeImpactError("artefact dependency graph has no generated roots")
+
+    for index, pattern in enumerate(generated_roots):
+        normalise_dependency_pattern(
+            pattern,
+            field=f"generated_roots[{index}]",
+            input_pattern=False,
         )
-    return pattern[:-3]
+
+    stage_inputs: list[tuple[dict[str, Any], str]] = []
+    for stage_index, stage in enumerate(stages):
+        if not isinstance(stage, dict):
+            raise ChangeImpactError(
+                f"artefact dependency graph stage {stage_index} is not an object"
+            )
+        inputs = stage.get("inputs")
+        if not isinstance(inputs, list):
+            raise ChangeImpactError(
+                f"artefact dependency graph stage {stage_index} has no inputs"
+            )
+        for input_index, pattern in enumerate(inputs):
+            normalise_dependency_pattern(
+                pattern,
+                field=f"stage {stage_index} inputs[{input_index}]",
+                input_pattern=True,
+            )
+            stage_inputs.append((stage, pattern))
+
+    for index, pattern in enumerate(build_inputs):
+        normalise_dependency_pattern(
+            pattern,
+            field=f"build_inputs[{index}]",
+            input_pattern=True,
+        )
+        if any(
+            _dependency_patterns_overlap(pattern, generated)
+            for generated in generated_roots
+        ):
+            raise ChangeImpactError(
+                f"build_inputs[{index}] overlaps a generated root: {pattern!r}"
+            )
+        covering_stages = [
+            stage
+            for stage, stage_pattern in stage_inputs
+            if _dependency_pattern_covers(pattern, stage_pattern)
+        ]
+        if not covering_stages:
+            raise ChangeImpactError(
+                f"build_inputs[{index}] is not covered by any stage input: "
+                f"{pattern!r}"
+            )
+        selected_tests = {
+            test_id
+            for stage in covering_stages
+            for test_id in stage.get("test_ids", [])
+        }
+        selected_validations = {
+            validation
+            for stage in covering_stages
+            for validation in stage.get("validation_refs", [])
+        }
+        missing_tests = {"build-semantics", "bundle"} - selected_tests
+        if missing_tests or "VAL-REPRODUCIBILITY" not in selected_validations:
+            details = []
+            if missing_tests:
+                details.append("tests " + ", ".join(sorted(missing_tests)))
+            if "VAL-REPRODUCIBILITY" not in selected_validations:
+                details.append("VAL-REPRODUCIBILITY")
+            raise ChangeImpactError(
+                f"build_inputs[{index}] lacks causal rebuild routing for "
+                f"{pattern!r}: " + "; ".join(details)
+            )
+
 
 
 def validate_graph(
@@ -186,14 +471,16 @@ def validate_graph(
     )
     if errors:
         raise ChangeImpactError(
-            "artifact dependency graph is schema-invalid: "
+            "artefact dependency graph is schema-invalid: "
             + _format_validation_errors(errors)
         )
+
+    validate_build_input_contract(graph)
 
     tests = graph["tests"]
     test_ids = [test["id"] for test in tests]
     if len(test_ids) != len(set(test_ids)):
-        raise ChangeImpactError("artifact dependency graph has duplicate test ids")
+        raise ChangeImpactError("artefact dependency graph has duplicate test ids")
     for test in tests:
         for relative in test["repository_paths"]:
             path = repository_root / normalise_repository_path(relative)
@@ -206,14 +493,14 @@ def validate_graph(
     stages = graph["stages"]
     stage_ids = [stage["id"] for stage in stages]
     if len(stage_ids) != len(set(stage_ids)):
-        raise ChangeImpactError("artifact dependency graph has duplicate stage ids")
+        raise ChangeImpactError("artefact dependency graph has duplicate stage ids")
     referenced_test_ids = {
         test_id for stage in stages for test_id in stage["test_ids"]
     }
     unused_test_ids = set(test_ids) - referenced_test_ids
     if unused_test_ids:
         raise ChangeImpactError(
-            "artifact dependency graph has unreferenced test ids: "
+            "artefact dependency graph has unreferenced test ids: "
             + ", ".join(sorted(unused_test_ids))
         )
 
@@ -225,8 +512,8 @@ def validate_graph(
     risk_ids = _id_set(risks, "risks")
     all_gates = set(graph["all_release_gates"])
     validation_ids = set(graph["validation_gate_map"])
-    generated_prefixes = [
-        _generated_prefix(pattern) for pattern in graph["generated_roots"]
+    generated_patterns = [
+        _generated_pattern(pattern) for pattern in graph["generated_roots"]
     ]
 
     mapped_validation_gates = {
@@ -243,6 +530,13 @@ def validate_graph(
 
     for stage in stages:
         label = f"stage {stage['id']!r}"
+        for member in ("inputs", "validation_inputs", "outputs"):
+            for index, pattern in enumerate(stage[member]):
+                normalise_dependency_pattern(
+                    pattern,
+                    field=f"{label} {member}[{index}]",
+                    input_pattern=member in {"inputs", "validation_inputs"},
+                )
         duplicated_inputs = set(stage["inputs"]) & set(stage["validation_inputs"])
         if duplicated_inputs:
             raise ChangeImpactError(
@@ -264,8 +558,8 @@ def validate_graph(
                 )
         for output in stage["outputs"]:
             if not any(
-                output == prefix or output.startswith(f"{prefix}/")
-                for prefix in generated_prefixes
+                _generated_pattern_covers(output, pattern)
+                for pattern in generated_patterns
             ):
                 raise ChangeImpactError(
                     f"{label} output is outside generated_roots: {output!r}"
@@ -279,6 +573,8 @@ def load_graph(*, repository_root: Path = ROOT) -> dict[str, Any]:
         repository_root / "governance" / "artifact-dependency-graph.json"
     )
     validate_graph(graph, repository_root=repository_root)
+    if repository_root.resolve() == ROOT.resolve():
+        validate_executable_causal_bootstrap(graph)
     return graph
 
 
@@ -363,6 +659,8 @@ def analyse_paths(
 
     policy = graph or load_graph(repository_root=repository_root)
     validate_graph(policy, repository_root=repository_root)
+    if repository_root.resolve() == ROOT.resolve():
+        validate_executable_causal_bootstrap(policy)
     changed_paths = sorted({normalise_repository_path(path) for path in paths})
     generated_roots = policy["generated_roots"]
     generated_paths = {
@@ -371,6 +669,11 @@ def analyse_paths(
         if any(path_matches(path, pattern) for pattern in generated_roots)
     }
     authored_paths = [path for path in changed_paths if path not in generated_paths]
+    causal_build_paths = {
+        path
+        for path in authored_paths
+        if any(path_matches(path, pattern) for pattern in policy["build_inputs"])
+    }
 
     matched_stages: list[dict[str, Any]] = []
     input_matched_paths: set[str] = set()
@@ -405,11 +708,19 @@ def analyse_paths(
                 "id": stage["id"],
                 "matched_paths": stage_matches,
                 "input_matches": input_matches,
+                "causal_build_input_matches": sorted(
+                    set(input_matches) & causal_build_paths
+                ),
                 "validation_input_matches": validation_input_matches,
             }
         )
         if input_matches:
-            predicted_outputs.update(stage["outputs"])
+            causal_stage_matches = set(input_matches) & causal_build_paths
+            predicted_outputs.update(
+                output
+                for output in stage["outputs"]
+                if not output.startswith("bundle/") or causal_stage_matches
+            )
         requirement_ids.update(stage["requirement_ids"])
         risk_ids.update(stage["risk_ids"])
         test_ids.update(stage["test_ids"])
@@ -418,6 +729,9 @@ def analyse_paths(
         stage1_review_required = (
             stage1_review_required or stage["stage1_review"]
         )
+
+    if causal_build_paths:
+        predicted_outputs.update(CAUSAL_BUILD_OUTPUTS)
 
     explained_generated_paths = {
         path
@@ -594,22 +908,88 @@ def _validate_revision(revision: str) -> str:
     return revision
 
 
-def _run_git(repository_root: Path, arguments: Sequence[str]) -> bytes:
+def _run_git(
+    repository_root: Path,
+    arguments: Sequence[str],
+    *,
+    maximum_stdout_bytes: int = MAX_GIT_STDOUT_BYTES,
+) -> bytes:
+    """Run one read-only Git query with bounded time and output."""
+
+    if maximum_stdout_bytes < 0:
+        raise ChangeImpactError("Git stdout byte limit must be non-negative")
+    command = ["git", *arguments]
     try:
-        completed = subprocess.run(
-            ["git", *arguments],
+        process = subprocess.Popen(
+            command,
             cwd=repository_root,
-            check=True,
-            capture_output=True,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
         )
-    except (OSError, subprocess.CalledProcessError) as exc:
-        detail = ""
-        if isinstance(exc, subprocess.CalledProcessError):
-            detail = exc.stderr.decode("utf-8", errors="replace").strip()
+    except OSError as exc:
+        raise ChangeImpactError(f"cannot execute Git command: {exc}") from exc
+    if process.stdout is None or process.stderr is None:  # pragma: no cover
+        process.kill()
+        process.wait()
+        raise ChangeImpactError("Git command did not expose bounded output pipes")
+    selector = selectors.DefaultSelector()
+    selector.register(process.stdout, selectors.EVENT_READ, "stdout")
+    selector.register(process.stderr, selectors.EVENT_READ, "stderr")
+    buffers = {"stdout": bytearray(), "stderr": bytearray()}
+    limits = {
+        "stdout": maximum_stdout_bytes,
+        "stderr": MAX_GIT_STDERR_BYTES,
+    }
+    deadline = time.monotonic() + GIT_COMMAND_TIMEOUT_SECONDS
+    try:
+        while selector.get_map():
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise ChangeImpactError(
+                    "Git command exceeded its governed time ceiling"
+                )
+            events = selector.select(remaining)
+            if not events:
+                raise ChangeImpactError(
+                    "Git command exceeded its governed time ceiling"
+                )
+            for key, _mask in events:
+                chunk = os.read(key.fileobj.fileno(), 64 * 1024)
+                if not chunk:
+                    selector.unregister(key.fileobj)
+                    continue
+                target = buffers[key.data]
+                target.extend(chunk)
+                if len(target) > limits[key.data]:
+                    raise ChangeImpactError(
+                        f"Git {key.data} exceeds its governed "
+                        f"{limits[key.data]}-byte ceiling"
+                    )
+        try:
+            returncode = process.wait(
+                timeout=max(0.1, deadline - time.monotonic())
+            )
+        except subprocess.TimeoutExpired as exc:
+            raise ChangeImpactError(
+                "Git command exceeded its governed time ceiling"
+            ) from exc
+    except BaseException:
+        process.kill()
+        process.wait()
+        raise
+    finally:
+        selector.close()
+        process.stdout.close()
+        process.stderr.close()
+    stdout = bytes(buffers["stdout"])
+    stderr = bytes(buffers["stderr"])
+    if returncode != 0:
+        detail = stderr.decode("utf-8", errors="replace").strip()
         raise ChangeImpactError(
-            "git command failed" + (f": {detail}" if detail else "")
-        ) from exc
-    return completed.stdout
+            "Git command failed" + (f": {detail}" if detail else "")
+        )
+    return stdout
 
 
 def resolve_revision(repository_root: Path, revision: str) -> str:
@@ -631,7 +1011,7 @@ def git_changes(
     base: str,
     head: str,
 ) -> tuple[list[dict[str, Any]], dict[str, str]]:
-    """Return normalized diff entries and an exact comparison identity."""
+    """Return normalised diff entries and an exact comparison identity."""
 
     base_sha = resolve_revision(repository_root, base)
     head_sha = resolve_revision(repository_root, head)
@@ -658,7 +1038,7 @@ def git_changes(
 
 
 def canonical_json(value: dict[str, Any]) -> str:
-    """Serialize a report with deterministic key and array ordering."""
+    """Serialise a report with deterministic key and array ordering."""
 
     return json.dumps(value, indent=2, sort_keys=True) + "\n"
 
@@ -666,7 +1046,7 @@ def canonical_json(value: dict[str, Any]) -> str:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "Classify changed repository paths against the governed artifact "
+            "Classify changed repository paths against the governed artefact "
             "dependency graph."
         )
     )

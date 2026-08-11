@@ -3,8 +3,8 @@ type: "Evaluation Contract"
 title: "Evaluation contract"
 description: "Candidate questions, user journeys, metrics and hard-failure gates."
 resource: "https://www.gov.uk/search-property-information-land-registry"
-generated: {"by": "process:hmlr-okf-builder", "at": "2026-07-29T15:30:00Z"}
-status: "released"
+generated: {"by": "process:hmlr-okf-builder", "at": "2026-08-11T12:41:04Z"}
+status: "draft"
 sources: [{"id": "official-source", "resource": "https://www.gov.uk/search-property-information-land-registry"}]
 ---
 

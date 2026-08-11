@@ -1,9 +1,154 @@
 {
   "@context": {
+    "@version": 1.1,
+    "adms": "http://www.w3.org/ns/adms#",
+    "assertion_scope": {
+      "@id": "okf:assertionScope",
+      "@type": "@vocab"
+    },
+    "assertion_status": {
+      "@id": "okf:assertionStatus",
+      "@type": "@vocab"
+    },
+    "authority": {
+      "@context": {
+        "class": {
+          "@id": "okf:authorityClass",
+          "@type": "@vocab"
+        },
+        "derived": "okf:DerivedAuthority",
+        "label": "rdfs:label",
+        "model-assisted": "okf:ModelAssistedAuthority",
+        "official": "okf:OfficialAuthority",
+        "source": {
+          "@id": "http://purl.org/dc/terms/source",
+          "@type": "@id"
+        },
+        "synthetic": "okf:SyntheticAuthority",
+        "unclassified": "okf:UnclassifiedAuthority"
+      },
+      "@id": "okf:authority"
+    },
+    "confidence_score": {
+      "@id": "okf:confidenceScore",
+      "@type": "xsd:decimal"
+    },
+    "count": {
+      "@id": "okf:count",
+      "@type": "xsd:integer"
+    },
+    "cpsv": "http://purl.org/vocab/cpsv#",
+    "cv": "http://data.europa.eu/m8g/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "dcterms": "http://purl.org/dc/terms/",
+    "derivation": {
+      "@id": "okf:derivationMethod",
+      "@type": "@id"
+    },
+    "derivation_activity": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "evidence": {
+      "@container": "@set",
+      "@context": {
+        "field_provenance": "okf:fieldProvenance",
+        "literal_sha256": "okf:literalSha256",
+        "locator": "okf:sourceLocator",
+        "normalization": {
+          "@id": "okf:normalizationRule",
+          "@type": "@id"
+        },
+        "rationale": "okf:rationale",
+        "resource": {
+          "@id": "http://purl.org/dc/terms/source",
+          "@type": "@id"
+        },
+        "retrieved_at": {
+          "@id": "prov:generatedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "rule_id": {
+          "@id": "okf:rule",
+          "@type": "@id"
+        },
+        "source_artifact": "okf:sourceArtifact",
+        "source_field": "okf:sourceField",
+        "source_sha256": "okf:sourceSha256",
+        "source_value": "okf:sourceValue",
+        "source_value_hash_canonicalization": "okf:sourceValueHashCanonicalization",
+        "source_value_sha256": "okf:sourceValueSha256",
+        "type": "okf:evidenceType",
+        "url": {
+          "@id": "https://schema.org/url",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:hadPrimarySource"
+    },
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "inferred": "okf:InferredAssertion",
+    "inverse_label": "okf:inverseLabel",
+    "kind": "rdfs:label",
+    "label": "rdfs:label",
+    "model-derived": "okf:ModelDerivedAssertion",
+    "normalized": "okf:NormalizedAssertion",
+    "observed_at": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "official": "okf:OfficialAssertion",
+    "okf": "https://chris-page-gov.github.io/okf-explorer/ns#",
+    "predicate": {
+      "@id": "rdf:predicate",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
-    "schema": "https://schema.org/"
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "real-world": "okf:RealWorldScope",
+    "review_status": "okf:reviewStatus",
+    "rights": {
+      "@context": {
+        "assertion": "okf:assertionRights",
+        "source": {
+          "@id": "http://purl.org/dc/terms/license",
+          "@type": "@id"
+        }
+      },
+      "@id": "okf:rights"
+    },
+    "route": "okf:route",
+    "rule": {
+      "@id": "okf:rule",
+      "@type": "@id"
+    },
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "source": {
+      "@id": "rdf:subject",
+      "@type": "@id"
+    },
+    "source_route": "okf:sourceRoute",
+    "stale_after": {
+      "@id": "okf:staleAfter",
+      "@type": "xsd:dateTime"
+    },
+    "strength": {
+      "@id": "okf:strength",
+      "@type": "xsd:decimal"
+    },
+    "supporting_assertions": {
+      "@container": "@set",
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "synthetic-fixture": "okf:SyntheticFixtureScope",
+    "target": {
+      "@id": "rdf:object",
+      "@type": "@id"
+    },
+    "target_route": "okf:targetRoute",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   }
 }

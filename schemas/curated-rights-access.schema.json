@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/curated-rights-access.schema.json",
+  "title": "HM Land Registry curated record rights and access classifications",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "research_cutoff",
+    "record_count",
+    "scope_note",
+    "classifications"
+  ],
+  "properties": {
+    "schema": {
+      "const": "okf-hmlr-curated-rights-access.v1"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "research_cutoff": {
+      "type": "string",
+      "format": "date"
+    },
+    "record_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scope_note": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "classifications": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/classification"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "classification": {
+      "type": "object",
+      "required": [
+        "source_native_id",
+        "authored_source_family",
+        "source_family",
+        "classification_scope",
+        "metadata_page_access_state",
+        "access_state",
+        "rights_state",
+        "rights_ref",
+        "curated_record_sha256",
+        "classification_status",
+        "rationale",
+        "evidence_url"
+      ],
+      "properties": {
+        "source_native_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source_family": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "authored_source_family": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "classification_scope": {
+          "enum": [
+            "page-content",
+            "dataset-distribution",
+            "catalogue-members",
+            "service-operation",
+            "linked-data-service",
+            "repository-metadata",
+            "catalogue-metadata",
+            "terms-page",
+            "help-metadata",
+            "legislation-content"
+          ]
+        },
+        "metadata_page_access_state": {
+          "const": "public-evidence-page"
+        },
+        "access_state": {
+          "enum": [
+            "public",
+            "public-with-conditions",
+            "mixed",
+            "authenticated",
+            "authenticated-and-paid",
+            "authenticated-or-paid-by-licence",
+            "approved-professional-users",
+            "public-search-with-terms-and-fees",
+            "documentation-public-service-restricted",
+            "unknown"
+          ]
+        },
+        "rights_state": {
+          "enum": [
+            "open-with-conditions",
+            "conditional",
+            "mixed",
+            "bespoke-licence",
+            "bespoke-or-paid",
+            "restricted-service",
+            "restricted-personal-data",
+            "metadata-only",
+            "unknown"
+          ]
+        },
+        "rights_ref": {
+          "type": "string",
+          "pattern": "^RIGHT-[A-Z0-9]+(?:-[A-Z0-9]+)*$"
+        },
+        "additional_rights_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^RIGHT-[A-Z0-9]+(?:-[A-Z0-9]+)*$"
+          },
+          "uniqueItems": true
+        },
+        "curated_record_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "classification_status": {
+          "enum": [
+            "conservative-reviewed-input",
+            "conservative-pending-specialist-review"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 40,
+          "pattern": "\\S"
+        },
+        "evidence_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

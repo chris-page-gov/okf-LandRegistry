@@ -5,6 +5,15 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      expected_commit_sha:
+        description: Exact final evidence commit to deploy
+        required: true
+        type: string
+      expected_release_root_sha256:
+        description: Exact owner-approved bundle release root
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -21,72 +30,214 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
-          python-version: "3.13"
+          python-version: "3.12.11"
           cache: pip
           cache-dependency-path: requirements-lock.txt
 
       - name: Install hash-locked validation dependencies
-        run: python -m pip install --require-hashes -r requirements-lock.txt
+        run: |
+          python -m venv --without-pip .venv
+          python -m pip --python .venv install \
+            --no-compile --require-hashes -r requirements-lock.txt
 
       - name: Validate the locked Stage 1 profile
-        run: >-
-          python scripts/check_domain_profile.py
-          domain-profile/domain-profile.json
-          --equivalent domain-profile/domain-profile.yaml
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_domain_profile.py \
+            domain-profile/domain-profile.json \
+            --equivalent domain-profile/domain-profile.yaml
 
       - name: Build offline from the frozen snapshot
-        run: python scripts/build.py --replace
+        run: |
+          set -euo pipefail
+          runtime_lock="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/okf-landregistry-build.lock"
+          if ! mkdir -m 700 "${runtime_lock}"; then
+            echo "A governed Land Registry build already holds ${runtime_lock}" >&2
+            exit 1
+          fi
+          cleanup_runtime_lock() { rmdir "${runtime_lock}"; }
+          trap cleanup_runtime_lock EXIT INT TERM
+          test -d .venv
+          test ! -L .venv
+          test -x .venv/bin/python
+          if find .venv -type f \( -name '*.pth' -o -name '*.py[co]' -o -name sitecustomize.py -o -name usercustomize.py \) -print -quit | grep -q .; then
+            echo 'The pre-invocation runtime contains a startup hook or bytecode file' >&2
+            exit 1
+          fi
+          recovery_parent="$(mktemp -d "${GITHUB_WORKSPACE}/../okf-landregistry-recovery.XXXXXX")"
+          previous_output="${recovery_parent}/previous-bundle"
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          test ! -L "${runtime_cache}"
+          test -z "$(find "${runtime_cache}" -mindepth 1 -print -quit)"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/build.py \
+            --snapshot-dir source/snapshots/2026-07-29T091915Z \
+            --publication-base https://chris-page-gov.github.io/okf-LandRegistry/ \
+            --replace \
+            --previous-output "${previous_output}"
+          test -d "${previous_output}"
+          rmdir "${runtime_lock}"
+          trap - EXIT INT TERM
+          printf 'Previous bundle retained at `%s`.\n' "${previous_output}" \
+            >> "${GITHUB_STEP_SUMMARY}"
 
       - name: Run deterministic and safety tests
-        run: python -m unittest discover -s tests -v
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -E -s -B -X "pycache_prefix=${runtime_cache}" \
+            -m unittest discover -s tests -v
 
-      - name: Run the v0.2.0 calibration retrieval diagnostic
-        run: >-
-          python scripts/evaluate.py
-          --k 10
-          --min-expected-source-success-at-k 1.0
-          --min-expected-target-recall-at-k 0.90
-          --min-all-expected-target-success-at-k 1.0
-          --min-mrr 0.80
+      - name: Run the v0.3.0 candidate calibration retrieval diagnostic
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/evaluate.py \
+            --output "${RUNNER_TEMP}/evaluation-calibration-v0.3.0.json" \
+            --k 10 \
+            --min-expected-source-success-at-k 1.0 \
+            --min-expected-target-recall-at-k 0.90 \
+            --min-all-expected-target-success-at-k 1.0 \
+            --min-mrr 0.80
 
       - name: Confirm committed and verified publication bytes match
         run: |
           git diff --exit-code -- bundle
-          git ls-files --others --exclude-standard -- bundle \
-            > "${RUNNER_TEMP}/untracked-bundle-files.txt"
-          if [[ -s "${RUNNER_TEMP}/untracked-bundle-files.txt" ]]; then
-            echo "::error::Generated bundle contains untracked files"
-            sed 's/^/untracked: /' "${RUNNER_TEMP}/untracked-bundle-files.txt"
+          .venv/bin/python -B scripts/check_release_transition.py \
+            bundle-inventory --bundle bundle
+
+      - name: Resolve the immutable candidate anchor for a pull request
+        if: >-
+          github.event_name == 'pull_request' &&
+          github.head_ref == 'candidate/v0.3.0'
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if ! git merge-base --is-ancestor "${PR_BASE_SHA}" HEAD; then
+            echo "::error::The pull-request base moved after the candidate branch was created"
             exit 1
           fi
+          mapfile -t branch_commits < <(git rev-list --reverse "${PR_BASE_SHA}..HEAD")
+          if [[ "${#branch_commits[@]}" -eq 0 ]]; then
+            echo "::error::The pull request contains no immutable candidate commit"
+            exit 1
+          fi
+          candidate_sha="${branch_commits[0]}"
+          if [[ ! "${candidate_sha}" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::The resolved candidate anchor is not a full commit SHA"
+            exit 1
+          fi
+          echo "OKF_CANDIDATE_COMMIT_SHA=${candidate_sha}" >> "${GITHUB_ENV}"
 
-      - name: Validate exact-candidate G1-G9 release evidence
-        if: github.event_name != 'pull_request'
-        run: python scripts/check_release_evidence.py
+      - name: Validate the committed candidate tree on a pull request
+        if: >-
+          github.event_name == 'pull_request' &&
+          github.head_ref == 'candidate/v0.3.0'
+        run: >-
+          .venv/bin/python -B scripts/check_release_evidence.py
+          --candidate-only
+          --candidate-commit-sha "${OKF_CANDIDATE_COMMIT_SHA}"
+
+      - name: Validate pull-request G1-G9 evidence against the resolved candidate
+        if: >-
+          github.event_name == 'pull_request' &&
+          github.head_ref == 'candidate/v0.3.0'
+        run: >-
+          .venv/bin/python -B scripts/check_release_evidence.py
+          --manifest validation/candidate-v0.3.0/final-g9/release-evidence.json
+          --candidate-commit-sha "${OKF_CANDIDATE_COMMIT_SHA}"
+
+      - name: Validate default-branch G1-G9 evidence against its manifest
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        run: >-
+          .venv/bin/python -B scripts/check_release_evidence.py
+          --manifest validation/candidate-v0.3.0/final-g9/release-evidence.json
 
       - name: Confirm the exact release root is approved
         if: >-
-          github.event_name != 'pull_request' &&
+          github.event_name == 'workflow_dispatch' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
           vars.OKF_RELEASE_ROOT_SHA256 != ''
         env:
-          OKF_RELEASE_ROOT_SHA256: ${{ vars.OKF_RELEASE_ROOT_SHA256 }}
-        run: python scripts/check_release_approval.py
+          GITHUB_SHA_VALUE: ${{ github.sha }}
+          EXPECTED_COMMIT_SHA: ${{ inputs.expected_commit_sha }}
+          EXPECTED_RELEASE_ROOT_SHA256: ${{ inputs.expected_release_root_sha256 }}
+          APPROVED_RELEASE_ROOT_SHA256: ${{ vars.OKF_RELEASE_ROOT_SHA256 }}
+          OKF_RELEASE_ROOT_SHA256: ${{ inputs.expected_release_root_sha256 }}
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_release_transition.py \
+            remote-binding --remote origin
+          git fetch --no-tags origin \
+            refs/heads/main:refs/remotes/origin/main
+          REMOTE_DEFAULT_SHA="$(git rev-parse --verify refs/remotes/origin/main)"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_release_transition.py \
+            deployment-identity \
+            --github-sha "${GITHUB_SHA_VALUE}" \
+            --expected-commit-sha "${EXPECTED_COMMIT_SHA}" \
+            --remote-default-sha "${REMOTE_DEFAULT_SHA}" \
+            --input-root "${EXPECTED_RELEASE_ROOT_SHA256}" \
+            --approved-root "${APPROVED_RELEASE_ROOT_SHA256}"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_release_approval.py
 
       - name: Configure GitHub Pages
         if: >-
-          github.event_name != 'pull_request' &&
+          github.event_name == 'workflow_dispatch' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
           vars.OKF_RELEASE_ROOT_SHA256 != ''
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
 
-      - name: Upload the exact verified artifact
+      - name: Reconfirm the exact approved bundle inventory before upload
         if: >-
-          github.event_name != 'pull_request' &&
+          github.event_name == 'workflow_dispatch' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+          vars.OKF_RELEASE_ROOT_SHA256 != ''
+        env:
+          GITHUB_SHA_VALUE: ${{ github.sha }}
+          EXPECTED_COMMIT_SHA: ${{ inputs.expected_commit_sha }}
+          EXPECTED_RELEASE_ROOT_SHA256: ${{ inputs.expected_release_root_sha256 }}
+          APPROVED_RELEASE_ROOT_SHA256: ${{ vars.OKF_RELEASE_ROOT_SHA256 }}
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_release_transition.py \
+            remote-binding --remote origin
+          git fetch --no-tags origin \
+            refs/heads/main:refs/remotes/origin/main
+          REMOTE_DEFAULT_SHA="$(git rev-parse --verify refs/remotes/origin/main)"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_release_transition.py \
+            deployment-identity \
+            --github-sha "${GITHUB_SHA_VALUE}" \
+            --expected-commit-sha "${EXPECTED_COMMIT_SHA}" \
+            --remote-default-sha "${REMOTE_DEFAULT_SHA}" \
+            --input-root "${EXPECTED_RELEASE_ROOT_SHA256}" \
+            --approved-root "${APPROVED_RELEASE_ROOT_SHA256}"
+          .venv/bin/python -I -B -X "pycache_prefix=${runtime_cache}" \
+            scripts/check_release_transition.py \
+            bundle-inventory \
+            --bundle bundle \
+            --expected-root "${EXPECTED_RELEASE_ROOT_SHA256}"
+
+      - name: Upload the exact verified artefact
+        if: >-
+          github.event_name == 'workflow_dispatch' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
           vars.OKF_RELEASE_ROOT_SHA256 != ''
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
@@ -95,7 +246,7 @@ jobs:
 
   deploy:
     if: >-
-      github.event_name != 'pull_request' &&
+      github.event_name == 'workflow_dispatch' &&
       github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
       vars.OKF_RELEASE_ROOT_SHA256 != ''
     needs: verify
@@ -107,6 +258,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy the verified artifact
+      - name: Deploy the verified artefact
         id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
