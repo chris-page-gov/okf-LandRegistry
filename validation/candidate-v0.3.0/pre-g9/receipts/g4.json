@@ -1,0 +1,87 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "checksums-valid",
+      "status": "pass",
+      "summary": "All 856 governed bundle members and release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1 rehash exactly."
+    },
+    {
+      "id": "data-plane-valid",
+      "status": "pass",
+      "summary": "Catalogue, YAML-LD, JSON-LD, 22,267 reified semantic assertions, 22,267 runtime rows, registries, search projection and shards reconcile with zero semantic-validation failure."
+    },
+    {
+      "id": "okf-core-valid",
+      "status": "pass",
+      "summary": "The pinned executable OKF checker reports the exact candidate conformant."
+    },
+    {
+      "id": "routes-valid",
+      "status": "pass",
+      "summary": "Local pages, manifests, descriptor routes and pinned Explorer v0.6.2 journeys resolve; the exact product receipt passes all six journeys."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/automated-validation.json",
+      "sha256": "a43ec8353ad11487af2481edfcda3a2c0af212975169e06a6aeeb030f0dc1657"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/explorer-product-v0.3.0-candidate.json",
+      "sha256": "835857e6d6158a81aa3914503ddfea1cdd1e2f75ba6424ca75eb045631e9a7cc"
+    },
+    {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef"
+    },
+    {
+      "path": "bundle/build-receipt.json",
+      "sha256": "6a9a590c5905845c3a99a148b3a8204e65a71c9c9ceff5350bdb905c240db5db"
+    },
+    {
+      "path": "bundle/data/manifest.json",
+      "sha256": "28ddded5df874f618ee90b0b8edee66dedd2ca4b5a9e8852c0211049c1bf3021"
+    },
+    {
+      "path": "bundle/data/explorer/manifest.json",
+      "sha256": "8c59a3578fad8e5a5e67e70f66db19683bf41826e205fdc53c72ccd0b9a7f5dc"
+    },
+    {
+      "path": "bundle/data/semantic/validation.json",
+      "sha256": "12e707461541ddb67d033d2c27eaca2bcd7b4964fe81ce018b43a838d337529d"
+    },
+    {
+      "path": "contracts/okf-explorer.consumer-lock.json",
+      "sha256": "08fc7a1716bb2a169cf584d2b533568a70b83ee7937be0e133ab743af50eaf50"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:35Z",
+  "failures": [],
+  "gate": "G4",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "scripts/check_okf.py"
+    ],
+    "name": "okf-semantic-data-plane-route-and-reader-validator",
+    "sha256": "c19ca429fe6d0039e051d873acd11f69c801959f218cd311359cf9b5b7ae2a38",
+    "version": "v0.3.0-751b6c1-explorer-v0.6.2"
+  },
+  "waivers": []
+}

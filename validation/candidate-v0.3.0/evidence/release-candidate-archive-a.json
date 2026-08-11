@@ -1,0 +1,17 @@
+{
+  "bytes": 38906084,
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "candidate_at": "2026-08-11T12:41:04Z",
+  "path": "dist/okf-landregistry-0.3.0-candidate-a.zip",
+  "publication_state": "unreleased-candidate",
+  "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+  "schema": "okf-hmlr-candidate-archive.v1",
+  "sha256": "3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e",
+  "version": "0.3.0"
+}

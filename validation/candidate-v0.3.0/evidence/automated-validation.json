@@ -1,0 +1,97 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "executed_at": "2026-08-11T20:15:11Z",
+  "gates": {
+    "G1": {
+      "checks": {
+        "json-yaml-equivalent": "pass",
+        "profile-pack-rehashed": "pass",
+        "references-closed": "pass",
+        "schema-valid": "pass"
+      },
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "scripts/check_domain_profile.py",
+        "domain-profile/domain-profile.json",
+        "--equivalent",
+        "domain-profile/domain-profile.yaml"
+      ],
+      "evidence": [
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml"
+      ],
+      "result": "The exact profile passed its pinned schema, JSON/YAML equivalence, closed-reference and complete pack-rehash checks; its canonical profile SHA-256 is 9c2d86c00217f46d508a81c6fa982df6d9664bbdd4b49d8eed0b6d2c415d056d.",
+      "status": "pass"
+    },
+    "G2": {
+      "checks": {
+        "envelopes-rehashed": "pass",
+        "media-types-valid": "pass",
+        "omissions-explicit": "pass",
+        "terminal-outcomes-complete": "pass"
+      },
+      "evidence": [
+        "source/input-manifest-v0.2.0.json",
+        "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "bundle/build-receipt.json"
+      ],
+      "result": "The 2,170 immutable acquisition records and the bounded two-record Content API observation rehash through the composite input manifest. All four lanes have complete terminal outcomes, recorded media types and explicit coverage limits; no live source was fetched.",
+      "status": "pass"
+    },
+    "G3": {
+      "checks": {
+        "field-inventory-reviewed": "pass",
+        "prohibited-content-absent": "pass",
+        "rights-access-complete": "pass"
+      },
+      "evidence": [
+        "governance/rights-review.json",
+        "governance/risk-register.json",
+        "bundle/data/rights.json"
+      ],
+      "result": "The 2,203-record metadata projection passed field, rights, access, unsafe-URL, credential, formula-injection and prohibited-content regressions. A separate fresh exact-candidate independent review supplies the required G3 rights decision; this automated report does not replace it.",
+      "status": "pass"
+    },
+    "G4": {
+      "checks": {
+        "checksums-valid": "pass",
+        "data-plane-valid": "pass",
+        "okf-core-valid": "pass",
+        "routes-valid": "pass"
+      },
+      "evidence": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json",
+        "bundle/data/manifest.json",
+        "bundle/data/explorer/manifest.json",
+        "bundle/data/semantic/validation.json",
+        "bundle/okf-bundle.jsonld",
+        "contracts/okf-explorer.consumer-lock.json"
+      ],
+      "result": {
+        "checksummed_members": 856,
+        "focused_tests_failed": 0,
+        "focused_tests_passed": 54,
+        "full_candidate_tests_failed": 0,
+        "full_candidate_tests_passed": 557,
+        "jsonld_graph_references_valid": true,
+        "okf_checker_status": "conformant",
+        "record_count": 2203,
+        "relationship_rows": 22267,
+        "semantic_assertion_validation_failures": 0
+      },
+      "status": "pass"
+    }
+  },
+  "schema": "okf-hmlr-v0.3.0-automated-validation-evidence.v1",
+  "status": "pass"
+}

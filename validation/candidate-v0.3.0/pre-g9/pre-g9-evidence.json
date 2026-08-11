@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "generated_at": "2026-08-11T20:40:40Z",
+  "limitations": [
+    "This manifest contains G1-G8 receipts only; it is not G9 owner approval.",
+    "It does not authorise deployment, publication or any public-URL claim."
+  ],
+  "receipts": [
+    {
+      "gate": "G1",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g1.json",
+      "sha256": "b26e406e6f5e0e317ffc2f89ec91acdbe69c1354a996808cd67a0ebaa097d798"
+    },
+    {
+      "gate": "G2",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g2.json",
+      "sha256": "51318d493017a84b4208e88833fd82c8c74a1321eb8c27d3f0cf253b0909c8ec"
+    },
+    {
+      "gate": "G3",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g3.json",
+      "sha256": "7a94d435d1c0f3759b6ac67fbe9c707b2ed4f37d8164b545cf7d0dd9d13c2523"
+    },
+    {
+      "gate": "G4",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g4.json",
+      "sha256": "3017b66549ec430928278a530dec2167716f76a4b421008257f85e750cffd405"
+    },
+    {
+      "gate": "G5",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g5.json",
+      "sha256": "ba18359e04ed3d8111d96df86b4eb44b0d6343f80bcc45fb130906159439a9e1"
+    },
+    {
+      "gate": "G6",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g6.json",
+      "sha256": "1f009ef272f8705897c8fefc6739770ef300a89b0158c55091844dae83ad149b"
+    },
+    {
+      "gate": "G7",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g7.json",
+      "sha256": "6baac03e2c7ff0a68c4234dba242bd2c159fe6e4ce4cdcdd05012da25ff3781f"
+    },
+    {
+      "gate": "G8",
+      "path": "validation/candidate-v0.3.0/pre-g9/receipts/g8.json",
+      "sha256": "d37b04f5b7988f3e22a4446bb595a8a31b824902ddd3231a713f739752f02b10"
+    }
+  ],
+  "schema": "okf-pre-g9-evidence-manifest.v1",
+  "status": "ready_for_owner_review"
+}

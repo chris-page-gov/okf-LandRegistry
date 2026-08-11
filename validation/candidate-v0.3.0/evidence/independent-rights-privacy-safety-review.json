@@ -1,0 +1,229 @@
+{
+  "schema": "okf-hmlr-rights-privacy-safety-independent-review.v1",
+  "status": "pass",
+  "outcome": "pass",
+  "candidate_git_commit": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+  "candidate_git_tree": "e2858d97a6b8d495d585e58dfbf6767a06caa13e",
+  "candidate_direct_parent": "341b436bf8e6f6bcd70760472b3d87f872bc9a5a",
+  "bundle_release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+  "bundle_runtime_tree_sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf",
+  "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+  "reviewer": {
+    "identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+    "role": "independent-rights-privacy-safety-reviewer",
+    "kind": "AI-agent",
+    "reviewed_at": "2026-08-11T20:30:04Z",
+    "independent": true,
+    "independent_of_implementation_and_remediation": true,
+    "scope_separation": "This reviewer did not implement the candidate or author its rights classifications. It reviewed the exact clean checkout, full baseline diff, narrow evaluator correction, generated catalogue, semantic evidence envelope, source-family controls, rights review, risk register, acquisition boundaries and both uncompressed and compressed public projections read-only. It holds no owner, deployment, release or Land Registry G9 authority."
+  },
+  "review_scope": {
+    "checkout": "/private/tmp/okf-LandRegistry-v0.3.0-build14",
+    "baseline": "341b436bf8e6f6bcd70760472b3d87f872bc9a5a",
+    "superseded_candidate": "00973536995495b917a17bc01da38ba73096b122",
+    "evaluator_delta_paths": [
+      "bundle/CHECKSUMS.sha256",
+      "bundle/build-receipt.json",
+      "docs/release-assurance.md",
+      "scripts/evaluate.py",
+      "tests/test_evaluate.py"
+    ],
+    "rights_critical_delta_from_superseded_candidate": "none",
+    "unchanged_materials_from_superseded_candidate": [
+      "domain-profile/**",
+      "research/**",
+      "governance/**",
+      "source/**",
+      "contracts/**",
+      "bundle/data/**",
+      "bundle/okf-bundle.jsonld",
+      "bundle/okf-bundle.yamlld",
+      "bundle/okf-explorer.json"
+    ],
+    "historical_evidence_policy": "Files under /private/tmp/okf-landregistry-v030-evidence/reviewer were consulted only for document shape. No finding, pass state, candidate binding or reviewer conclusion was carried forward."
+  },
+  "identity_verification": {
+    "status": "pass",
+    "candidate_commit_confirmed": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "candidate_tree_confirmed": "e2858d97a6b8d495d585e58dfbf6767a06caa13e",
+    "candidate_parent_confirmed": "341b436bf8e6f6bcd70760472b3d87f872bc9a5a",
+    "bundle_release_root_confirmed": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "bundle_runtime_tree_confirmed": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf",
+    "working_tree": "clean detached exact-candidate checkout",
+    "confirmed_material_sha256": {
+      "research/source-family-inventory.json": "33c04a7baa84d35614126074f5f7064b187ee55b62d009fcf1699e6a30b71aee",
+      "source/source-register.json": "44420b97eb3f4cb85e5749f88b48cf99257798b0ac2f99488c678979ea6b6774",
+      "source/curated-rights-access.json": "a5c6dbfd97c3f5bbf462bb10cb1e3425b144a68f4c5fb462b55782936ad17136",
+      "source/curated-records.json": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a",
+      "governance/rights-review.json": "b47da036da6b1376975b8542749f06df86a61d34237ab244e8dc61819be907f6",
+      "governance/risk-register.json": "73971f33d7087ca261c4383cc653479a93ad5a1acd5f381b8fdc20e6ec81b8b2",
+      "governance/requirements.json": "0153b5e0496b48898b692b670211548964653b23c64f2e2fc1bf9f0928875474",
+      "governance/traceability.json": "a8502292a33555a79c297ee2cb6e196c32294b9aa4326fc744c6d756ac993d4b",
+      "bundle/data/catalogue.json": "3f542630d690c4d4d92cca4ef5b82e2284175d871f456f9c52e42f94ee177bc3",
+      "bundle/data/semantic/validation.json": "12e707461541ddb67d033d2c27eaca2bcd7b4964fe81ce018b43a838d337529d",
+      "bundle/okf-bundle.jsonld": "68ad7d1ce1b919cbb11f90d79205a14853c1db4b7d9776faebbaac3e64e8489b",
+      "bundle/okf-bundle.yamlld": "c7e31331f235430cfa80d9928fab71a398bc7d629bb06b42b5b589c3cf7783be",
+      "bundle/build-receipt.json": "6a9a590c5905845c3a99a148b3a8204e65a71c9c9ceff5350bdb905c240db5db",
+      "bundle/CHECKSUMS.sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef"
+    }
+  },
+  "checks_performed": [
+    {
+      "check": "candidate topology, committed blobs and release-root closure",
+      "command": ".venv/bin/python -B scripts/check_release_evidence.py --candidate-only --candidate-commit-sha 751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+      "status": "pass"
+    },
+    {
+      "check": "focused independent profile, bundle, JSON-LD, URL, acquisition, traceability and evaluator regressions",
+      "command": ".venv/bin/python -B -m unittest -q tests.test_domain_profile tests.test_bundle tests.test_jsonld tests.test_url_canonicalisation tests.test_acquire tests.test_traceability tests.test_evaluate",
+      "status": "pass",
+      "tests": 105,
+      "elapsed_seconds": 65.838
+    },
+    {
+      "check": "structured catalogue identity, rights, access and URL inventory",
+      "method": "independent jq aggregation over all 2,203 catalogue records and 6,686 catalogue URL values",
+      "status": "pass"
+    },
+    {
+      "check": "semantic authority, evidence, rights and URL inventory",
+      "method": "independent jq aggregation over all 22,267 reified assertions and 111,456 authority/evidence/rights URL occurrences",
+      "status": "pass"
+    },
+    {
+      "check": "credential and secret-shape scans",
+      "method": "independent ripgrep scans of all uncompressed bundle files plus decompressed relationship-runtime and route-locator gzip members",
+      "status": "pass"
+    },
+    {
+      "check": "personal-contact heuristic scans",
+      "method": "independent case-insensitive e-mail-address and UK-postcode pattern scans over every catalogue title, description and caveat",
+      "status": "pass"
+    }
+  ],
+  "checks": {
+    "catalogue_scope_and_required_fields": {
+      "status": "pass",
+      "finding": "All 2,203 catalogue records have non-empty record identity and URL, at least one source URL, explicit access state, rights state and primary rights reference, non-empty caveat IDs and evidence references. There are zero duplicate record IDs, zero duplicate canonical record URLs and zero source-family labels indicating property/title records, transaction rows, forum content or uploads. The 17 source families close exactly across the inventory, domain profile and source register."
+    },
+    "rights_layer_separation": {
+      "status": "pass",
+      "finding": "All catalogue records resolve to one of nine applicable primary rights references governed by the ten-assessment rights ledger; RIGHT-EVIDENCE governs project receipts rather than a catalogue source record. OGL-with-exceptions, dataset-specific terms, restricted services, repository metadata, catalogue discovery metadata, legislation, cross-government catalogues, fee-calculator operation, project evidence and prohibited personal content remain distinct. Public reachability, zero price and neighbouring OGL furniture are never treated as permission for anonymous operation or open redistribution."
+    },
+    "curated_classification_boundary": {
+      "status": "pass",
+      "finding": "The curated rights/access input declares and contains exactly 55 record-level classifications. Each row limits its evidence URL to public metadata, documentation or an authority route and explicitly states that reachability does not make a linked service, dataset, output or attachment public, free or openly licensed. Remaining records inherit only governed source-family defaults or exact override rules; focused tamper regressions passed."
+    },
+    "restricted_services_and_access_boundaries": {
+      "status": "pass",
+      "finding": "Twenty-one records use RIGHT-RESTRICTED: 20 are restricted-service rows and the Local Land Charges terms page is deliberately metadata-only despite its public access. Their access states are 16 approved-professional-users, three authenticated, one documentation-public-service-restricted and one public terms page. Business Gateway rows require approval and certificates and carry explicit no-authentication, no-call, no-search, no-monitoring and no-automation caveats. Property Alert, property search and Local Land Charges retain RIGHT-PERSONAL as an additional independent constraint. The bundle contains public descriptions and routes only, never evidence of service execution."
+    },
+    "privacy_and_prohibited_content": {
+      "status": "pass",
+      "finding": "The acquisition and product contracts prohibit live property results, title and ownership records, charge/application/search results, forum posts, uploads, user queries and personal contact data. The generated source-family distribution contains no property-level acquisition lane. The only primary RIGHT-PERSONAL record is the top-level customer-help route and explicitly excludes posts, profiles and uploads; three restricted service records carry RIGHT-PERSONAL additionally. Targeted scans found zero e-mail-address or UK-postcode patterns in catalogue titles, descriptions and caveats. Form identifiers, API templates, legislation numbers and repository names are treated as source metadata rather than personal property records."
+    },
+    "credentials_secrets_and_urls": {
+      "status": "pass",
+      "finding": "All 6,686 catalogue URL values (2,243 unique) use HTTPS. Independent checks found zero userinfo credentials, literal whitespace, quotes, malformed percent escapes, unsafe delimiters, explicit ports or credential-bearing query keys. Across 111,456 canonical assertion authority/evidence/rights URL occurrences (2,272 unique), every value is HTTP(S) and the same unsafe and credential patterns are absent. Uncompressed bundle and decompressed runtime scans found no private-key header, AWS access-key form, GitHub token form, bearer-token form or sensitive credential query value. Public WSDL and percent-encoded endpoint templates remain metadata and are explicitly restricted, not credentials or authorisation."
+    },
+    "semantic_evidence_rights": {
+      "status": "pass",
+      "finding": "Every one of the 22,267 reified semantic assertions has a derived authority object, an assertion-rights object and one to four evidence bindings, totalling 33,461 evidence rows. All 22,267 assertions are normalised, real-world scoped and in the core asserted plane with review status implementation-authorised-pending-release-review. Evidence resources, authority sources and rights sources are credential-free web URLs. The canonical JSON-LD/YAML-LD retain the complete evidence envelope; the bounded runtime projection cannot upgrade derived authority, rights or confidence."
+    },
+    "rights_and_risk_release_boundary": {
+      "status": "pass",
+      "finding": "The governed rights review permits candidate generation only, records release_approved false and discloses that no human legal or licence audit is complete. RISK-001 through RISK-018 remain explicit, including legal reliance, exact-boundary, mixed-rights, privacy, credential, volatility, accessibility, AI-assurance and unsigned-identity risks. This review finds the candidate controls coherent; it does not accept residual risk or convert open and accepted-gap entries into closure."
+    },
+    "unsafe_claims": {
+      "status": "pass",
+      "finding": "The candidate does not settle ownership or priority, identify an exact legal boundary, provide legal advice, promise current fees or migration state, claim complete public-estate coverage, flatten mixed rights to OGL, claim HM Land Registry endorsement, claim CPSV-AP SHACL conformance or inference, or claim that AI-assisted accessibility checks establish WCAG conformance. Source-native repository descriptions are retained as metadata and do not become bundle-level product claims."
+    },
+    "evaluator_delta_rights_impact": {
+      "status": "pass",
+      "finding": "The correction after candidate 0097353 changes only the evaluator, its regression tests, release-assurance wording, the evaluator entry in the build receipt and the resulting checksum/release root. Every rights, source, catalogue and semantic graph byte is identical to the superseded candidate. The new tree verifier additionally fails closed on symlinks, non-regular entries and unsafe relative paths; no access or rights boundary is weakened."
+    }
+  },
+  "record_distribution": {
+    "records": 2203,
+    "source_families": 17,
+    "access_states": {
+      "approved-professional-users": 16,
+      "authenticated": 9,
+      "documentation-public-service-restricted": 1,
+      "mixed": 1,
+      "public": 2176
+    },
+    "rights_states": {
+      "bespoke-licence": 2,
+      "bespoke-or-paid": 3,
+      "conditional": 8,
+      "metadata-only": 295,
+      "mixed": 1,
+      "open-with-conditions": 1870,
+      "restricted-service": 21,
+      "unknown": 3
+    },
+    "primary_rights_refs": {
+      "RIGHT-CATALOGUE": 1,
+      "RIGHT-CDDO": 1,
+      "RIGHT-DATASETS": 17,
+      "RIGHT-FEE-CALCULATOR": 1,
+      "RIGHT-GITHUB": 290,
+      "RIGHT-GOVUK": 1868,
+      "RIGHT-LEGISLATION": 3,
+      "RIGHT-PERSONAL": 1,
+      "RIGHT-RESTRICTED": 21
+    },
+    "additional_right_personal_records": 3
+  },
+  "scan_results": {
+    "missing_required_catalogue_records": 0,
+    "duplicate_record_ids": 0,
+    "duplicate_record_urls": 0,
+    "catalogue_url_values": 6686,
+    "catalogue_unique_urls": 2243,
+    "catalogue_non_https_urls": 0,
+    "catalogue_unsafe_or_credential_urls": 0,
+    "semantic_source_url_occurrences": 111456,
+    "semantic_unique_source_urls": 2272,
+    "semantic_non_web_urls": 0,
+    "semantic_unsafe_or_credential_urls": 0,
+    "uncompressed_secret_shape_matches": 0,
+    "compressed_runtime_secret_shape_matches": 0,
+    "catalogue_email_pattern_matches": 0,
+    "catalogue_uk_postcode_pattern_matches": 0
+  },
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "id": "G3-W-001",
+      "title": "Rights and source state remain time-sensitive",
+      "detail": "This pass is bound to the frozen 29 July 2026 source evidence, governed review state and exact candidate bytes. It is not a legal opinion. Dataset terms, service access, official notices and third-party conditions must be rechecked before action, field expansion, source-content reuse or a later release."
+    },
+    {
+      "id": "G3-W-002",
+      "title": "No independent human legal or licence audit",
+      "detail": "The governed review and this independent check were performed by AI agents. RISK-015 remains an accepted residual gap and no human legal, licence, privacy or domain assurance is implied."
+    },
+    {
+      "id": "G3-W-003",
+      "title": "Unsigned reviewer identity",
+      "detail": "The reviewer identity is exact-digest-bound text but is not digitally signed or independently authenticated. RISK-018 remains for owner review."
+    },
+    {
+      "id": "G3-W-004",
+      "title": "Pattern scans are supporting controls",
+      "detail": "Credential, e-mail and postcode scans reduce risk but cannot prove the absence of every possible secret or personal-data representation. The metadata-only allowlist, prohibited acquisition lanes, structured validation and source-family governance remain the primary controls."
+    }
+  ],
+  "limitations": [
+    "This is an AI-agent review, not independent human legal, licence, privacy, security or HM Land Registry assurance.",
+    "No restricted service, authenticated API, paid product, property result, forum, user upload or source body was accessed.",
+    "The review checks the exact public candidate projection and governed inputs; it does not authenticate publisher terms pages or make a legal determination about them.",
+    "Pattern scans and structured checks are bounded to the recorded candidate and cannot establish future source state.",
+    "This reviewer does not accept residual risks, approve deployment, approve release or make the Land Registry G9 owner decision."
+  ],
+  "release_approval": false,
+  "land_registry_g9": "not-approved-by-this-review",
+  "summary": "PASS for exact-candidate rights, privacy, credentials, URL safety and access-boundary review on candidate 751b6c1 / tree e2858d9 / release root 6a29e38. No prohibited content, credential, unsafe URL, rights flattening, service-operation evidence or unsafe authority claim was identified. No waiver is used; later exact-candidate gates, independent release review and owner G9 remain mandatory."
+}

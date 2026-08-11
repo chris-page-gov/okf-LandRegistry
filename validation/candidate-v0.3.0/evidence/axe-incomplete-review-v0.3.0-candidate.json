@@ -1,0 +1,28 @@
+{
+  "schema": "okf-hmlr-axe-incomplete-review.v1",
+  "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+  "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+  "items": [
+    {
+      "fingerprint": "b23d08fc8193c451b03bbb225698c571b6ceb2d722639fc1a735d143a2e503e1",
+      "disposition": "examined-no-runner-blocker",
+      "rationale": "At the recorded 1,280 x 720 desktop-js profile, the paragraph has opaque foreground rgb(255, 253, 248) and its nearest painted ancestor is the opaque status-card background rgb(50, 16, 47). The target and card have no background image, opacity reduction, filter, blend mode or text shadow that could reduce contrast. Their WCAG sRGB relative-luminance contrast ratio is 16.5157:1 (16.52:1), above the 4.5:1 AA threshold applicable to this 16 px, weight-400 text. The axe incomplete therefore does not disclose a contrast failure or a runner blocker.",
+      "method": "Served the exact Build 14 bundle locally and reproduced route / in the pinned Chromium 151.0.7922.34 runtime at 1,280 x 720. Inspected the target and ancestor chain with getComputedStyle() and getBoundingClientRect(), cross-checked exact index.html SHA-256 6d6f02be8ee5638a1c6b629f688598ab65e26fede988f78978a4edc9e51a7ecd and styles.css SHA-256 891e4e7f3558f94c4eeca7a9a3a47357370aa60cb756909faca830a533cf8a3f, then calculated WCAG relative luminance and (L1 + 0.05) / (L2 + 0.05) from the computed colours.",
+      "examined_by": "Independent Codex AI G6 accessibility reviewer"
+    },
+    {
+      "fingerprint": "385de1c99aa2fb835d1ac99c8ddf4661e0ffc4ba018805f16a47ee58da18d87a",
+      "disposition": "examined-no-runner-blocker",
+      "rationale": "At the recorded 320 x 800 mobile-js profile, the heading has opaque foreground rgb(24, 20, 26), size 51.2 px and weight 500 over body paper rgb(247, 244, 236), giving 16.5592:1 (16.56:1). Its box intersects the decorative parcel group, whose 2 px borders are rgb(50, 16, 47), but opacity 0.14 is applied once to the whole group. Conservatively treating every pixel behind the heading as a fully painted parcel pixel gives composite rgb(219.42, 212.08, 209.54) and 12.4600:1 (12.46:1). That remains above 4.5:1 without relying on the less stringent large-text threshold. The axe incomplete therefore does not disclose a contrast failure or a runner blocker.",
+      "method": "Served the exact Build 14 bundle locally and reproduced route / in the pinned Chromium 151.0.7922.34 runtime at 320 x 800. Measured the target and parcel-group geometry and computed foreground, paper, border, group opacity, z-index, background image, text shadow, filter and blend styles; cross-checked exact index.html SHA-256 6d6f02be8ee5638a1c6b629f688598ab65e26fede988f78978a4edc9e51a7ecd and styles.css SHA-256 891e4e7f3558f94c4eeca7a9a3a47357370aa60cb756909faca830a533cf8a3f; then calculated both base and conservative group-composited WCAG contrast ratios.",
+      "examined_by": "Independent Codex AI G6 accessibility reviewer"
+    },
+    {
+      "fingerprint": "c92a66a5d662a105bd026f58b2acb379e8c55c0f9c1fb1bc4607f5b17554525b",
+      "disposition": "examined-no-runner-blocker",
+      "rationale": "At the recorded 320 x 800 mobile-js profile, the lede has opaque foreground rgb(63, 56, 65), size 18.4 px and weight 400 over body paper rgb(247, 244, 236), giving 10.3091:1 (10.31:1). Its box intersects the same parcel group, whose rgb(50, 16, 47) borders are composited once at group opacity 0.14. The conservative fully painted background rgb(219.42, 212.08, 209.54) gives 7.7570:1 (7.76:1), above the applicable 4.5:1 AA threshold; actual transparent and anti-aliased decoration pixels are lighter. The axe incomplete therefore does not disclose a contrast failure or a runner blocker.",
+      "method": "Served the exact Build 14 bundle locally and reproduced route / in the pinned Chromium 151.0.7922.34 runtime at 320 x 800. Measured the target and parcel-group geometry and computed foreground, paper, border, group opacity, z-index, background image, text shadow, filter and blend styles; cross-checked exact index.html SHA-256 6d6f02be8ee5638a1c6b629f688598ab65e26fede988f78978a4edc9e51a7ecd and styles.css SHA-256 891e4e7f3558f94c4eeca7a9a3a47357370aa60cb756909faca830a533cf8a3f; then calculated both base and conservative group-composited WCAG contrast ratios.",
+      "examined_by": "Independent Codex AI G6 accessibility reviewer"
+    }
+  ]
+}

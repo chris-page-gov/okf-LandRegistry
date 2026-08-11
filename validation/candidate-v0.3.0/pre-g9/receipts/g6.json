@@ -1,0 +1,133 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "automated-journeys",
+      "status": "pass",
+      "summary": "The pinned Explorer passes 6 of 6 product and 26 of 26 search journeys; the reviewed authored-site receipt records all 32 required route/profile observations with no browser or resource error."
+    },
+    {
+      "id": "manual-accessibility-journeys",
+      "status": "pass",
+      "summary": "AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys pass at the proof-of-concept boundary; all three axe incompletes were independently examined and no human audit or WCAG conformance is claimed."
+    },
+    {
+      "id": "performance-budgets",
+      "status": "pass",
+      "summary": "The authored shell does not eagerly load the corpus, and all pinned Explorer v0.6.2 JSON, relationship-row, route, chunk, compressed-byte, decoded-byte and retained-text ceilings pass."
+    },
+    {
+      "id": "security-critical-zero",
+      "status": "pass",
+      "summary": "Independent bounded static and browser review found no critical security issue, unexpected external runtime dependency, secret, storage residue, CSP violation or prohibited claim."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/authored-site-browser-quality-v0.3.0-candidate.json",
+      "sha256": "69671413ab47e4525b6e22011c270c726bfc8609f4590c31874a12d1dafb926e"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/axe-incomplete-review-v0.3.0-candidate.json",
+      "sha256": "e5953dfd683c3e492f6b917a57dc4de03e9af06cad7bac9da98e43e136373d16"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/authored-site-browser-quality-v0.3.0-reviewed.json",
+      "sha256": "e0febfd117175f4ca28b5bcd80f2f15b1c35a815fb43dc59b3828807cdd804f2"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/g6-independent-review.json",
+      "sha256": "809aa9a9f6e286a8e8142ac947861c3e15e3573c6385f785aa36f981643ad0c4"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/explorer-product-v0.3.0-candidate.json",
+      "sha256": "835857e6d6158a81aa3914503ddfea1cdd1e2f75ba6424ca75eb045631e9a7cc"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/explorer-search-v0.3.0-candidate.json",
+      "sha256": "b90d200f322617daa96d2d298a9d8764f30f83bfe2597ca4e08fb9fb308a5909"
+    },
+    {
+      "path": "docs/accessibility.md",
+      "sha256": "3aaa5ade217d382a9ba7980494065cc4e4a3c42520c26e5dcb5e2595b4e62b4f"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:37Z",
+  "failures": [],
+  "gate": "G6",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-08-11T20:31:37Z",
+        "role": "independent-g6-reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-08-11T20:31:37Z",
+      "execution_mode": "document-review",
+      "id": "automated-journeys",
+      "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:31:37Z",
+      "execution_mode": "interactive-browser",
+      "id": "manual-accessibility-journeys",
+      "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:31:37Z",
+      "execution_mode": "document-review",
+      "id": "performance-budgets",
+      "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:31:37Z",
+      "execution_mode": "document-review",
+      "id": "security-critical-zero",
+      "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      "node",
+      "scripts/run_authored_site_browser_quality.mjs",
+      "--repository-root",
+      "/private/tmp/okf-LandRegistry-v0.3.0-build14",
+      "--bundle-root",
+      "/private/tmp/okf-LandRegistry-v0.3.0-build14/bundle",
+      "--explorer-checkout",
+      "/private/tmp/okf-landregistry-v030-evidence-751b6c1/explorer-runtime/okf-explorer-v0.6.2",
+      "--candidate-commit",
+      "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+      "--release-root",
+      "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+      "--incomplete-review",
+      "/private/tmp/okf-LandRegistry-v0.3.0-build14/validation/candidate-v0.3.0/evidence/axe-incomplete-review-v0.3.0-candidate.json",
+      "--output",
+      "/private/tmp/okf-LandRegistry-v0.3.0-build14/validation/candidate-v0.3.0/evidence/authored-site-browser-quality-v0.3.0-reviewed.json"
+    ],
+    "name": "browser-accessibility-security-and-performance-review",
+    "sha256": "eac49c46aa50fb9c60ad61a6cf6211addace455501a58f54716ad220bdfea100",
+    "version": "v0.3.0-751b6c1-explorer-v0.6.2"
+  },
+  "waivers": []
+}

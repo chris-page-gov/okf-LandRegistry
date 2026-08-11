@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": {
+    "byte-identical": "pass",
+    "clean-build-a": "pass",
+    "clean-build-b": "pass",
+    "committed-bundle-identical": "pass"
+  },
+  "comparisons": [
+    {
+      "differences": 0,
+      "left": "build-13-candidate",
+      "right": "build-14-clean-detached",
+      "status": "pass"
+    },
+    {
+      "differences": 0,
+      "left": "candidate-commit-bundle",
+      "right": "build-14-clean-detached",
+      "status": "pass"
+    }
+  ],
+  "executed_at": "2026-08-11T20:15:11Z",
+  "network_access_during_builds": false,
+  "outputs": [
+    {
+      "checkout": "/private/tmp/okf-LandRegistry-v0.3.0",
+      "elapsed_seconds": 94.66,
+      "governed_input_count": 71,
+      "id": "build-13-candidate",
+      "record_count": 2203,
+      "recovery_path": "/private/tmp/okf-landregistry-build-13-recovery.RulVr5/previous-bundle",
+      "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1"
+    },
+    {
+      "checkout": "/private/tmp/okf-LandRegistry-v0.3.0-build14",
+      "elapsed_seconds": 96.18,
+      "governed_input_count": 71,
+      "id": "build-14-clean-detached",
+      "record_count": 2203,
+      "recovery_path": "/private/tmp/okf-landregistry-build-14-recovery.ZvYtG6/previous-bundle",
+      "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1"
+    },
+    {
+      "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+      "id": "candidate-commit-bundle",
+      "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1"
+    }
+  ],
+  "procedure": {
+    "build_13": "Governed build in the reviewed candidate checkout followed by complete staged-candidate validation and the 557-test suite.",
+    "build_14": "Fresh locked CPython 3.12.11 environment in a clean detached checkout; the governed build reproduced Build 13 and git diff --exit-code confirmed equality with the committed candidate.",
+    "change_impact": "scripts/change_impact.py --base v0.2.0 --head 751b6c1e80fbbad3c07f19798c74aebd603eb62c --check completed with no unknown, unmatched or unexplained generated path."
+  },
+  "schema": "okf-hmlr-v0.3.0-reproducibility-evidence.v1",
+  "status": "pass"
+}

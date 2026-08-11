@@ -1,0 +1,136 @@
+{
+  "schema": "okf-hmlr-g6-independent-review.v1",
+  "status": "pass",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "candidate_git_tree_sha": "e2858d97a6b8d495d585e58dfbf6767a06caa13e",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "runtime_tree": {
+      "algorithm": "sha256-sha256sum-lines-v1",
+      "sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf",
+      "files": 857,
+      "bytes": 466605616
+    },
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "build_receipt_sha256": "6a9a590c5905845c3a99a148b3a8204e65a71c9c9ceff5350bdb905c240db5db",
+    "descriptor_sha256": "36d21eee6b3fcf85ea1a9f9a6501e39d73acba3aef9904c4120075878d4b4b5d",
+    "source_dirty": false
+  },
+  "consumer": {
+    "name": "@okf/explorer",
+    "version": "0.6.2",
+    "commit_sha": "9430b3931f96bd9e6e06165c15b522742611f3e9",
+    "git_tree": "9d13ee9c2b174819feea2d732420674d4df5273b",
+    "annotated_tag_object_sha": "43e53f36d869ba7ca2420990191a0834a969dcd2",
+    "consumer_lock_sha256": "08fc7a1716bb2a169cf584d2b533568a70b83ee7937be0e133ab743af50eaf50",
+    "source_dirty": false
+  },
+  "reviewer": {
+    "identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+    "kind": "ai-agent",
+    "role": "independent-g6-reviewer",
+    "reviewed_at": "2026-08-11T20:31:37Z",
+    "independent": true,
+    "execution_mode": "read-only exact-candidate evidence review plus independent pinned-browser contrast inspection",
+    "scope_separation": "This reviewer did not implement, author or remediate the Land Registry candidate, the pinned Explorer, either Explorer acceptance runner, the authored-site observer or their generated receipts. The reviewer did create the separate exact-candidate axe incomplete review after independently inspecting the three reported targets in the pinned Chromium runtime; that role and the resulting digest are explicit below. No repository file was changed and no public URL was visited."
+  },
+  "reviewed_evidence": {
+    "initial_authored_site_observer": {
+      "path": "/private/tmp/okf-landregistry-v030-evidence-751b6c1/authored-site/authored-site-browser-quality-v0.3.0-candidate.json",
+      "sha256": "69671413ab47e4525b6e22011c270c726bfc8609f4590c31874a12d1dafb926e",
+      "schema": "okf-hmlr-authored-site-browser-quality-observations.v1",
+      "terminal_outcome": "runner-failed-closed",
+      "purpose": "Retained diagnostic proving that the initial observer did not silently accept three unexamined axe incomplete results."
+    },
+    "axe_incomplete_review": {
+      "path": "/private/tmp/okf-landregistry-v030-evidence-751b6c1/reviewer/axe-incomplete-review.json",
+      "sha256": "e5953dfd683c3e492f6b917a57dc4de03e9af06cad7bac9da98e43e136373d16",
+      "schema": "okf-hmlr-axe-incomplete-review.v1",
+      "items": 3,
+      "blockers": 0
+    },
+    "reviewed_authored_site_observer": {
+      "path": "/private/tmp/okf-landregistry-v030-evidence-751b6c1/authored-site/authored-site-browser-quality-v0.3.0-reviewed.json",
+      "sha256": "e0febfd117175f4ca28b5bcd80f2f15b1c35a815fb43dc59b3828807cdd804f2",
+      "schema": "okf-hmlr-authored-site-browser-quality-observations.v1",
+      "terminal_outcome": "automated-observations-recorded-without-g6-decision",
+      "exit_code": 0,
+      "blocker_findings": 0
+    },
+    "explorer_product": {
+      "path": "/private/tmp/okf-landregistry-v030-evidence-751b6c1/explorer-runtime/explorer-product-v0.3.0-candidate-751b6c1.json",
+      "sha256": "835857e6d6158a81aa3914503ddfea1cdd1e2f75ba6424ca75eb045631e9a7cc",
+      "schema": "okf-explorer-external-runtime-acceptance.v1",
+      "status": "passed",
+      "journeys_passed": 6,
+      "journeys_failed": 0
+    },
+    "explorer_search": {
+      "path": "/private/tmp/okf-landregistry-v030-evidence-751b6c1/explorer-runtime/explorer-search-v0.3.0-candidate-751b6c1.json",
+      "sha256": "b90d200f322617daa96d2d298a9d8764f30f83bfe2597ca4e08fb9fb308a5909",
+      "schema": "okf-explorer-external-runtime-acceptance.v1",
+      "status": "passed",
+      "journeys_passed": 26,
+      "journeys_failed": 0
+    }
+  },
+  "identity_preflight": {
+    "status": "pass",
+    "candidate_checkout": "Git HEAD is 751b6c1e80fbbad3c07f19798c74aebd603eb62c, the worktree is clean and git diff reports no bundle difference.",
+    "bundle_inventory": "The maintained bundle-inventory validator independently reproduced release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1 from the complete Build 14 bundle.",
+    "runtime_tree_binding": "Both Explorer receipts independently record the same sha256-sha256sum-lines-v1 runtime tree: 50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf, 857 files and 466,605,616 bytes.",
+    "consumer_binding": "The reviewed site observer and both Explorer receipts bind clean @okf/explorer v0.6.2 commit 9430b3931f96bd9e6e06165c15b522742611f3e9 and source tree 9d13ee9c2b174819feea2d732420674d4df5273b.",
+    "observer_continuity": "The initial and reviewed site receipts have identical candidate, consumer, toolchain, coverage, static-security and measurement objects and the same observation IDs and incomplete fingerprints. The initial receipt failed closed only because all three incomplete fingerprints were unexamined; the reviewed receipt binds review SHA-256 e5953dfd683c3e492f6b917a57dc4de03e9af06cad7bac9da98e43e136373d16 and records zero unexamined items, zero review blockers and zero findings."
+  },
+  "checks": {
+    "automated-journeys": {
+      "status": "pass",
+      "finding": "Both clean pinned-Explorer receipts bind the exact 857-file runtime tree and pass: 6 of 6 product journeys and 26 of 26 search-calibration journeys, with zero failed journey. The authored-site observer records all 32 required observations across /, /accessibility.html, /catalogue-index.html and /404.html and the desktop, mobile, JavaScript, no-JavaScript, 200%, 400%, forced-colours and reduced-motion profiles. Every route returned HTTP 200, no observation was missing, no horizontal overflow or document-language failure was recorded, and no console, page, request or resource error occurred. These results satisfy the declared automated-journey boundary for the exact candidate."
+    },
+    "manual-accessibility-journeys": {
+      "status": "pass",
+      "finding": "Pass is limited to the declared AI-agent-assisted proof-of-concept gate and is not human or WCAG assurance. The browser evidence records a visible, focused first-tab skip link and successful skip activation on each applicable authored route, complete traversal of the five accessibility-page focus targets, 48 distinct static-catalogue focus targets, a keyboard path from the landing page to all 2,203 static result links, and intercepted official-source navigation without external network access. The four routes have one H1, valid heading progression and one main landmark; 320-pixel, 200% and 400% effective-width profiles show no horizontal overflow; forced colours and reduced motion are active in every corresponding route observation. Axe 4.12.1 reports no violation. Its three serious-impact colour-contrast incompletes were not discarded: this reviewer independently reproduced their exact computed styles in Chromium 151.0.7922.34 and found 16.52:1 for the desktop status text, 12.46:1 for the mobile heading under a conservative fully painted parcel composite, and 7.76:1 for the mobile lede under the same conservative composite, all above 4.5:1. The candidate accessibility statement prominently discloses that no human audit, representative-user test, representative assistive-technology test or conformance assessment has occurred."
+    },
+    "security-critical-zero": {
+      "status": "pass",
+      "finding": "For this bounded static proof of concept, no critical security issue is disclosed. The static observer scanned 854 files, safely decompressed 346 gzip members, examined 76,009 HTTP URLs and recorded no finding. Each of the four authored HTML routes has a complete restrictive CSP baseline with self-only default content, no unsafe-inline or unsafe-eval, no wildcard, object-src none and base-uri none. Across all 32 browser observations there is no CSP violation, unexpected external runtime request, failed request, error response, console error, page error, cookie or non-zero local/session storage. Official-source activations were intercepted and recorded without contacting the external service. This is sufficient for security-critical-zero at the declared gate boundary, but is not a penetration test, dependency-vulnerability assessment or assurance of an eventual hosting platform."
+    },
+    "performance-budgets": {
+      "status": "pass",
+      "finding": "REQ-013 requires bounded lazy metadata rather than an eager whole-corpus first payload; no additional ungoverned response-time threshold has been invented. The landing page initially requests only index.html and styles.css: 24,549 raw bytes and 6,612 transferred body bytes, with no lazy bundle member requested. The static catalogue is a bounded no-JavaScript fallback at 602,947 raw and 47,777 transferred body bytes. Explorer uses overview-first lazy data: 109 projection chunks, no chunk above 1,106,300 raw bytes against the 67,108,864-byte JSON ceiling. Rich relationships remain within every pinned consumer limit: maximum chunk 55,847 compressed bytes, 662,350 decoded bytes and 250 rows; maximum incident route 19 chunks, 4,750 declared rows and 881,323 compressed bytes; full default hydration 90 chunks, 22,267 rows, 3,903,023 compressed bytes and 33,231,836 retained-text units. The 16-chunk cache value is correctly treated as an eviction ceiling, not a producer route limit. The maintained observer records no limit finding, so the bounded-lazy constraint and candidate-specific numerical budgets pass."
+    }
+  },
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "id": "G6-W-001",
+      "title": "Accessibility assurance remains AI-assisted",
+      "detail": "The manual-accessibility-journeys pass is evidence sufficiency for this AI-generated proof of concept only. No independent human accessibility audit, representative-user study, screen-reader study or representative assistive-technology test was performed, and no WCAG conformance is claimed. GAP-HUMAN-RESEARCH and RISK-015 remain accepted gaps for owner consideration."
+    },
+    {
+      "id": "G6-W-002",
+      "title": "Three reviewed axe incomplete fingerprints persist",
+      "detail": "Axe cannot automatically resolve three colour-contrast backgrounds where the hero decoration overlaps target bounds. Independent exact-candidate measurement clears them at 16.52:1, 12.46:1 conservative and 7.76:1 conservative. They are review-required signals, not defects, and must be re-examined if the HTML, CSS, browser profile or fingerprint changes."
+    },
+    {
+      "id": "G6-W-003",
+      "title": "Evidence is local-candidate evidence",
+      "detail": "Browser observations used loopback-only serving of the digest-bound candidate. No deployed Land Registry v0.3.0 URL was visited or verified; post-deployment identity and journey verification remains separate."
+    },
+    {
+      "id": "G6-W-004",
+      "title": "Full-hydration retained-text headroom is narrow",
+      "detail": "The full default rich-relationship hydration measures 33,231,836 retained-text units against the 33,554,432-unit pinned ceiling, leaving 322,596 units, about 0.96%. This candidate passes, but a later producer change can cross the boundary easily and must be remeasured rather than carrying this result forward."
+    }
+  ],
+  "limitations": [
+    "This is an independent AI-agent review, not independent human accessibility, security, legal, licence, privacy or domain assurance, and not a WCAG conformance claim or penetration test.",
+    "The 200% and 400% observations use equivalent effective CSS widths. No manual browser-control zoom, screen-reader combination, representative-user study or full text-spacing and preference matrix was performed by this reviewer.",
+    "Security review is bounded to the static candidate, its CSP, generated-file scan and recorded local browser behaviour. It does not include fuzzing, dependency-CVE investigation, server-side testing or the eventual GitHub Pages hosting environment.",
+    "The official-source navigation journeys were deliberately intercepted without external network access; they establish link intent, not availability or behaviour of external services.",
+    "No public URL was deployed, visited or verified. A separate post-deployment identity and journey check remains mandatory.",
+    "This review makes no Land Registry G9 decision, grants no owner approval, sets no deployment variable, authorises no publication and claims no HM Land Registry endorsement."
+  ],
+  "decision": "Pass Land Registry G6 for exact candidate commit 751b6c1e80fbbad3c07f19798c74aebd603eb62c and release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1. All four required checks pass with no blocking finding, subject to the recorded limitations and warnings. This decision is not G9 or release authority.",
+  "summary": "Land Registry G6 user-facing quality is PASS for the exact v0.3.0 candidate. Identity preflight binds the clean candidate, release root, 857-file runtime tree, Explorer v0.6.2 source and five evidence files. Automated journeys pass 6/6 product, 26/26 search and 32/32 authored-site route/profile observations. AI-assisted accessibility journeys pass at the proof-of-concept boundary with all three axe incompletes independently examined and no WCAG or human-assurance claim. Bounded static security records no critical issue. The authored shell is small and does not eagerly load the corpus; all lazy projection and rich-relationship numerical limits pass, with narrow retained-text headroom recorded as a warning. There is no blocking finding and no G9 approval or public-deployment claim."
+}

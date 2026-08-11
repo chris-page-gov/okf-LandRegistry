@@ -1,0 +1,199 @@
+{
+  "ai_disclosure": {
+    "ai_generated_proof_of_concept": true,
+    "human_accessibility_audit_completed": false
+  },
+  "build": {
+    "build_receipt_schema": "okf-hmlr-build-receipt.v1",
+    "builder": {
+      "path": "scripts/build.py",
+      "sha256": "7ccc9008b2757fb81052aa561222bf4a0c591422874cd26505e9cd74dd45eb97"
+    },
+    "invocation": [
+      ".venv/bin/python",
+      "-I",
+      "-B",
+      "-X",
+      "pycache_prefix=<private-empty-directory>",
+      "scripts/build.py",
+      "--snapshot-dir",
+      "source/snapshots/2026-07-29T091915Z",
+      "--publication-base",
+      "https://chris-page-gov.github.io/okf-LandRegistry/",
+      "--replace",
+      "--previous-output",
+      "<owner-selected-empty-same-filesystem-path>"
+    ],
+    "invocation_kind": "canonical-reproduction-command-recorded-by-candidate-builder",
+    "network_access_during_build": false,
+    "runtime": {
+      "distribution_identity_sha256": "9f2eafb2fd106c4aabbc5ad30faa6979af340a0f3248abf690827473f1268dd5",
+      "executable_contract": ".venv/bin/python",
+      "gzip_contract": "rfc1952-gzipfile-level9-mtime0-os255-v1",
+      "gzip_golden_sha256": "fb2e18c06e2c0e2ce9b0be33acf9ee67eb49a2a2ecd951d910e9020339754ff3",
+      "implementation": "CPython",
+      "installed_closure_assurance": "exact-site-inventory-record-sha256-size-and-self-record-verified-v1",
+      "installed_record_hashes": "verified",
+      "matches_build_receipt": true,
+      "observation": "Post-startup observation by the metadata command, verified equal to the runtime recorded by the candidate build receipt; this does not attest code executed before the in-process observer began.",
+      "packages": [
+        {
+          "name": "attrs",
+          "version": "26.1.0"
+        },
+        {
+          "name": "cachetools",
+          "version": "7.1.6"
+        },
+        {
+          "name": "frozendict",
+          "version": "2.4.7"
+        },
+        {
+          "name": "jsonschema",
+          "version": "4.26.0"
+        },
+        {
+          "name": "jsonschema-specifications",
+          "version": "2025.9.1"
+        },
+        {
+          "name": "lxml",
+          "version": "6.1.1"
+        },
+        {
+          "name": "pyld",
+          "version": "2.0.4"
+        },
+        {
+          "name": "referencing",
+          "version": "0.37.0"
+        },
+        {
+          "name": "rpds-py",
+          "version": "2026.6.3"
+        },
+        {
+          "name": "ruamel-yaml",
+          "version": "0.19.1"
+        },
+        {
+          "name": "typing-extensions",
+          "version": "4.16.0"
+        }
+      ],
+      "preimport_assurance": "Python startup and initial module imports precede this in-process observer and build-input capture. Isolated mode, an empty external cache prefix and exact site-packages closure are verified before release work continues, but pre-observer executed source bytes are not independently attested and require the single-writer pre-invocation contract.",
+      "python_path_contract": "stdlib-venv-repository-only",
+      "python_startup_contract": "post-startup-verified-isolated-private-empty-pycache-no-hooks-v1",
+      "python_user_site": "disabled",
+      "requirements_lock_sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2",
+      "schema": "okf-python-runtime.v1",
+      "source_execution_assurance": "post-import-capture-single-writer-precondition-no-preobserver-source-byte-attestation-v1",
+      "version": "3.12.11",
+      "virtual_environment_contract": ".venv"
+    },
+    "source_acquisition": "Previously frozen bounded public-metadata snapshot; no live source access during the candidate build.",
+    "type": "offline-deterministic-static-bundle"
+  },
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "dependency_lock": {
+    "hash_enforced_install": "python -m pip --python .venv install --no-compile --require-hashes -r requirements-lock.txt",
+    "package_count": 11,
+    "path": "requirements-lock.txt",
+    "sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2"
+  },
+  "generated_at": "2026-08-11T12:41:04Z",
+  "materials": [
+    {
+      "path": "domain-profile/CHECKSUMS.sha256",
+      "sha256": "c029174e5e570d1e3a47a909e6aaff5213b3a5723a3aece9d9b690cc819b529d"
+    },
+    {
+      "path": "source/input-manifest-v0.2.0.json",
+      "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "9ce224395b26e547fb8eb619344b41d5d75150734196a15b232c7350d3a8cb30"
+    },
+    {
+      "path": "contracts/okf-explorer.consumer-lock.json",
+      "sha256": "08fc7a1716bb2a169cf584d2b533568a70b83ee7937be0e133ab743af50eaf50"
+    },
+    {
+      "path": "pages/search-contract.json",
+      "sha256": "00c0cfac493b4d32bc3c9faa3dab2ba02459fdfa77d44153259e6e25e57d2cfb"
+    },
+    {
+      "path": "evaluation/questions.json",
+      "sha256": "c4423c70ed4207061d8cfea7d0956b87ddbc9e487fe3a512bc30ba2fbdba8fc0"
+    }
+  ],
+  "schema": "okf-hmlr-release-provenance.v1",
+  "subject": {
+    "archive": {
+      "bytes": 38906084,
+      "candidate": {
+        "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+        "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+        "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+        "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+        "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+      },
+      "candidate_at": "2026-08-11T12:41:04Z",
+      "path": "dist/okf-landregistry-0.3.0-candidate-a.zip",
+      "publication_state": "unreleased-candidate",
+      "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+      "schema": "okf-hmlr-candidate-archive.v1",
+      "sha256": "3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e",
+      "version": "0.3.0"
+    },
+    "bundle_checksums": {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef"
+    }
+  },
+  "version": "0.3.0",
+  "workflow_actions": [
+    {
+      "action": "actions/checkout",
+      "kind": "github-action",
+      "revision": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "scope": "job:verify:step:0"
+    },
+    {
+      "action": "actions/setup-python",
+      "kind": "github-action",
+      "revision": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "scope": "job:verify:step:1"
+    },
+    {
+      "action": "actions/configure-pages",
+      "kind": "github-action",
+      "revision": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+      "scope": "job:verify:step:13"
+    },
+    {
+      "action": "actions/upload-pages-artifact",
+      "kind": "github-action",
+      "revision": "fc324d3547104276b827a68afc52ff2a11cc49c9",
+      "scope": "job:verify:step:15"
+    },
+    {
+      "action": "actions/deploy-pages",
+      "kind": "github-action",
+      "revision": "cd2ce8fcbc39b97be8ca5fce6e763baed58fa128",
+      "scope": "job:deploy:step:0"
+    }
+  ]
+}

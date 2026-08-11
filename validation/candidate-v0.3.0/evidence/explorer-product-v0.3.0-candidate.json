@@ -1,0 +1,3487 @@
+{
+  "schema": "okf-explorer-external-runtime-acceptance.v1",
+  "measured_at": "2026-08-11T20:16:30.155Z",
+  "status": "passed",
+  "consumer": {
+    "package": "@okf/explorer",
+    "version": "0.6.2",
+    "source_commit": "9430b3931f96bd9e6e06165c15b522742611f3e9",
+    "source_dirty": false,
+    "dependency_lock_sha256": "4df7e53d145313415100e2b1f193da26bd09092555d7b057ce66d3db4e266baa",
+    "runner_sha256": "8584977b57e3a683f859efeaf34b1f1b63ce33931e9c14878b68133020a4828a",
+    "wrapper_sha256": "95b2d3287f16698f221221b615392421b5654c17c98b909b205727dfa55c3772",
+    "invocation_lock_module_sha256": "1f4741365c3a61c4d11f0e3844aff05bdc8aa3e9e71ff0b426667abe6050e4e7",
+    "executable_materials": {
+      "runner": {
+        "path": "apps/okf-explorer/scripts/run_external_bundle_acceptance.mjs",
+        "bytes": 42509,
+        "sha256": "8584977b57e3a683f859efeaf34b1f1b63ce33931e9c14878b68133020a4828a"
+      },
+      "wrapper": {
+        "path": "apps/okf-explorer/scripts/run_acceptance_invocation.mjs",
+        "bytes": 2489,
+        "sha256": "95b2d3287f16698f221221b615392421b5654c17c98b909b205727dfa55c3772"
+      },
+      "invocation_lock_module": {
+        "path": "apps/okf-explorer/scripts/acceptance_invocation_lock.mjs",
+        "bytes": 30724,
+        "sha256": "1f4741365c3a61c4d11f0e3844aff05bdc8aa3e9e71ff0b426667abe6050e4e7"
+      },
+      "contract_module": {
+        "path": "apps/okf-explorer/scripts/external_bundle_acceptance_contract.mjs",
+        "bytes": 21747,
+        "sha256": "5d2ead8e09fd62e63addf5fc0cec3b1912831f215f7d1b43325a29fcd120960e"
+      },
+      "app_build_manifest_module": {
+        "path": "apps/okf-explorer/scripts/app_build_manifest.mjs",
+        "bytes": 22932,
+        "sha256": "6750dfe9ab09eeea945525473c9919e4d308e7f9a87f748244cbcd13e8b1d867"
+      },
+      "deterministic_build_script": {
+        "path": "apps/okf-explorer/scripts/check_deterministic_build.mjs",
+        "bytes": 3309,
+        "sha256": "a4ee3e440aef1732da4e8b2de277c4cfe11573e4f35d16cb4c4348e84a6ff3e6"
+      }
+    },
+    "build_manifest_sha256": "30e41e79cbd3dba525fafdd42979a227b88d85328a7ae3bdd200456c7b629c83",
+    "runtime": {
+      "node": "v24.16.0",
+      "platform": "darwin",
+      "architecture": "arm64",
+      "chromium": "151.0.7922.34"
+    },
+    "invocation": {
+      "mode": "checkout-scoped-single-writer-wrapper",
+      "purpose": "bundle OKF Explorer acceptance",
+      "owner_pid": 64428,
+      "acquired_at": "2026-08-11T20:16:17.573Z",
+      "parent_pid_verified": true,
+      "deterministic_build_precedes_runner": true,
+      "completed_build": {
+        "schema": "okf-explorer-completed-build-attestation.v1",
+        "completed_at": "2026-08-11T20:16:25.484Z",
+        "command_sha256": "5abbb39192616b9a5e2819425f37e95c26a64dea606ff6ec485ea207c2e5311a",
+        "deterministic_build_script": {
+          "path": "apps/okf-explorer/scripts/check_deterministic_build.mjs",
+          "bytes": 3309,
+          "sha256": "a4ee3e440aef1732da4e8b2de277c4cfe11573e4f35d16cb4c4348e84a6ff3e6"
+        },
+        "canonical_build": {
+          "root": "apps/okf-explorer/build",
+          "manifest_path": "apps/okf-explorer/build/okf-explorer-build-manifest.json",
+          "manifest_bytes": 2849,
+          "manifest_sha256": "30e41e79cbd3dba525fafdd42979a227b88d85328a7ae3bdd200456c7b629c83",
+          "manifest_schema": "okf-explorer-app-build-manifest.v1",
+          "algorithm": "sha256-canonical-json-materials-v1",
+          "files": 16,
+          "tree_sha256": "85c8fd14f085e888670edc05980f6ae355fabd5d1d73579007c5c968dac4585e"
+        }
+      }
+    }
+  },
+  "immutable_inputs": {
+    "private_snapshot_served": true,
+    "source_trees_matched_snapshots_after_run": true,
+    "private_snapshots_matched_initial_identity_after_run": true,
+    "manifest_matched_initial_bytes_after_run": true,
+    "executable_materials_matched_after_run": true,
+    "explorer_build_tree": {
+      "algorithm": "sha256-sha256sum-lines-v1",
+      "sha256": "7cbbd718dbb625fe247125b152e2cdfdd823db8484033b45c4e983e8607e4ff9",
+      "files": 17,
+      "bytes": 903405
+    }
+  },
+  "bundle": {
+    "root_label": "bundle",
+    "descriptor": "okf-explorer.json",
+    "identity": {
+      "schema": "okf-explorer-large-corpus.v1",
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+      "version": "0.3.0",
+      "snapshot": "hmlr-public-metadata-v0.2.0"
+    },
+    "expected_identity": {
+      "schema": "okf-explorer-large-corpus.v1",
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+      "version": "0.3.0",
+      "snapshot": "hmlr-public-metadata-v0.2.0"
+    },
+    "tree": {
+      "algorithm": "sha256-sha256sum-lines-v1",
+      "sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf",
+      "files": 857,
+      "bytes": 466605616
+    }
+  },
+  "journey_manifest": {
+    "path_label": "explorer-v0.3.0-journeys.json",
+    "sha256": "e658fb3397f884baf6fa9cffae04b57f5246ed75b40cf031c58d733b2e9253d5",
+    "bytes": 8554
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.C_umHVvR.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/DIZkiWtD.js",
+      "status": 200,
+      "bytes": 29277,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/BI1F1HPt.js",
+      "status": 200,
+      "bytes": 47866,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+      "status": 200,
+      "bytes": 3975,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.U6o4eik4.css",
+      "status": 200,
+      "bytes": 83916,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+      "status": 200,
+      "bytes": 238,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+      "status": 200,
+      "bytes": 653378,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 7704,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 11287,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/manifest.json",
+      "status": 200,
+      "bytes": 21557,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/overview.json",
+      "status": 200,
+      "bytes": 15722,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/analysis-overview.json",
+      "status": 200,
+      "bytes": 790,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/facets.json",
+      "status": 200,
+      "bytes": 44373,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+      "status": 200,
+      "bytes": 68866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/manifest.json",
+      "status": 200,
+      "bytes": 22773,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/shards.json",
+      "status": 200,
+      "bytes": 22832,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.C_umHVvR.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/DIZkiWtD.js",
+      "status": 200,
+      "bytes": 29277,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/BI1F1HPt.js",
+      "status": 200,
+      "bytes": 47866,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.U6o4eik4.css",
+      "status": 200,
+      "bytes": 83916,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+      "status": 200,
+      "bytes": 3975,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+      "status": 200,
+      "bytes": 238,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+      "status": 200,
+      "bytes": 653378,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 7704,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 11287,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/manifest.json",
+      "status": 200,
+      "bytes": 21557,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/overview.json",
+      "status": 200,
+      "bytes": 15722,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/analysis-overview.json",
+      "status": 200,
+      "bytes": 790,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+      "status": 200,
+      "bytes": 68866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/facets.json",
+      "status": 200,
+      "bytes": 44373,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/manifest.json",
+      "status": 200,
+      "bytes": 22773,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/shards.json",
+      "status": 200,
+      "bytes": 22832,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/entities.json",
+      "status": 200,
+      "bytes": 8011,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/lexicon-e.json",
+      "status": 200,
+      "bytes": 13488,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/lexicon-b.json",
+      "status": 200,
+      "bytes": 6899,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/postings-e.json",
+      "status": 200,
+      "bytes": 21368,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/postings-b.json",
+      "status": 200,
+      "bytes": 8308,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-001.json",
+      "status": 200,
+      "bytes": 1041801,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-000.json",
+      "status": 200,
+      "bytes": 1055473,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-002.json",
+      "status": 200,
+      "bytes": 1106300,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-003.json",
+      "status": 200,
+      "bytes": 1074799,
+      "elapsed_ms": 3
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-008.json",
+      "status": 200,
+      "bytes": 896854,
+      "elapsed_ms": 3
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-004.json",
+      "status": 200,
+      "bytes": 1052812,
+      "elapsed_ms": 4
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-005.json",
+      "status": 200,
+      "bytes": 1075605,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.C_umHVvR.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/DIZkiWtD.js",
+      "status": 200,
+      "bytes": 29277,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/BI1F1HPt.js",
+      "status": 200,
+      "bytes": 47866,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+      "status": 200,
+      "bytes": 3975,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.U6o4eik4.css",
+      "status": 200,
+      "bytes": 83916,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+      "status": 200,
+      "bytes": 238,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+      "status": 200,
+      "bytes": 653378,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 7704,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 11287,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/manifest.json",
+      "status": 200,
+      "bytes": 21557,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/overview.json",
+      "status": 200,
+      "bytes": 15722,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/analysis-overview.json",
+      "status": 200,
+      "bytes": 790,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+      "status": 200,
+      "bytes": 68866,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/facets.json",
+      "status": 200,
+      "bytes": 44373,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/locator/manifest.json",
+      "status": 200,
+      "bytes": 46811,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/locator/routes.json",
+      "status": 200,
+      "bytes": 109162,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime-manifest.json",
+      "status": 200,
+      "bytes": 42801,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/manifest.json",
+      "status": 200,
+      "bytes": 22773,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-001.json",
+      "status": 200,
+      "bytes": 1041801,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/shards.json",
+      "status": 200,
+      "bytes": 22832,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/route-locator/manifest.json",
+      "status": 200,
+      "bytes": 75757,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/route-locator/bucket-c5.json.gz",
+      "status": 200,
+      "bytes": 2812,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-038.json.gz",
+      "status": 200,
+      "bytes": 41171,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-047.json.gz",
+      "status": 200,
+      "bytes": 37997,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-048.json.gz",
+      "status": 200,
+      "bytes": 38524,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-071.json.gz",
+      "status": 200,
+      "bytes": 51162,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-081.json.gz",
+      "status": 200,
+      "bytes": 55626,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.C_umHVvR.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/DIZkiWtD.js",
+      "status": 200,
+      "bytes": 29277,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/BI1F1HPt.js",
+      "status": 200,
+      "bytes": 47866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+      "status": 200,
+      "bytes": 3975,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.U6o4eik4.css",
+      "status": 200,
+      "bytes": 83916,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+      "status": 200,
+      "bytes": 238,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+      "status": 200,
+      "bytes": 653378,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 7704,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 11287,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/manifest.json",
+      "status": 200,
+      "bytes": 21557,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/overview.json",
+      "status": 200,
+      "bytes": 15722,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/analysis-overview.json",
+      "status": 200,
+      "bytes": 790,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+      "status": 200,
+      "bytes": 68866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/locator/manifest.json",
+      "status": 200,
+      "bytes": 46811,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/facets.json",
+      "status": 200,
+      "bytes": 44373,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/locator/routes.json",
+      "status": 200,
+      "bytes": 109162,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime-manifest.json",
+      "status": 200,
+      "bytes": 42801,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/manifest.json",
+      "status": 200,
+      "bytes": 22773,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-001.json",
+      "status": 200,
+      "bytes": 1041801,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/shards.json",
+      "status": 200,
+      "bytes": 22832,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/route-locator/manifest.json",
+      "status": 200,
+      "bytes": 75757,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/route-locator/bucket-3e.json.gz",
+      "status": 200,
+      "bytes": 2619,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-014.json.gz",
+      "status": 200,
+      "bytes": 40037,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-042.json.gz",
+      "status": 200,
+      "bytes": 41430,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-059.json.gz",
+      "status": 200,
+      "bytes": 37874,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-063.json.gz",
+      "status": 200,
+      "bytes": 38946,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/semantic/runtime/core/relationships-073.json.gz",
+      "status": 200,
+      "bytes": 55250,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.C_umHVvR.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/DIZkiWtD.js",
+      "status": 200,
+      "bytes": 29277,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/BI1F1HPt.js",
+      "status": 200,
+      "bytes": 47866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+      "status": 200,
+      "bytes": 3975,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.U6o4eik4.css",
+      "status": 200,
+      "bytes": 83916,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+      "status": 200,
+      "bytes": 238,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+      "status": 200,
+      "bytes": 653378,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 7704,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 11287,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/manifest.json",
+      "status": 200,
+      "bytes": 21557,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/overview.json",
+      "status": 200,
+      "bytes": 15722,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/analysis-overview.json",
+      "status": 200,
+      "bytes": 790,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+      "status": 200,
+      "bytes": 68866,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/facets.json",
+      "status": 200,
+      "bytes": 44373,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/locator/manifest.json",
+      "status": 200,
+      "bytes": 46811,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/locator/routes.json",
+      "status": 200,
+      "bytes": 109162,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/manifest.json",
+      "status": 200,
+      "bytes": 22773,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-001.json",
+      "status": 200,
+      "bytes": 1041801,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/shards.json",
+      "status": 200,
+      "bytes": 22832,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-000.json",
+      "status": 200,
+      "bytes": 1055473,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-000.json",
+      "status": 200,
+      "bytes": 157474,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-001.json",
+      "status": 200,
+      "bytes": 156761,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-002.json",
+      "status": 200,
+      "bytes": 1106300,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-001.json",
+      "status": 200,
+      "bytes": 1041801,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-003.json",
+      "status": 200,
+      "bytes": 1074799,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-003.json",
+      "status": 200,
+      "bytes": 158593,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-002.json",
+      "status": 200,
+      "bytes": 161006,
+      "elapsed_ms": 3
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/publishers-000.json",
+      "status": 200,
+      "bytes": 11281,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-004.json",
+      "status": 200,
+      "bytes": 1052812,
+      "elapsed_ms": 3
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-005.json",
+      "status": 200,
+      "bytes": 1075605,
+      "elapsed_ms": 3
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-006.json",
+      "status": 200,
+      "bytes": 1066723,
+      "elapsed_ms": 5
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-007.json",
+      "status": 200,
+      "bytes": 1083939,
+      "elapsed_ms": 5
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-004.json",
+      "status": 200,
+      "bytes": 157579,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-005.json",
+      "status": 200,
+      "bytes": 158145,
+      "elapsed_ms": 2
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-006.json",
+      "status": 200,
+      "bytes": 158050,
+      "elapsed_ms": 4
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-007.json",
+      "status": 200,
+      "bytes": 159553,
+      "elapsed_ms": 4
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/datasets-008.json",
+      "status": 200,
+      "bytes": 896854,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/resources-008.json",
+      "status": 200,
+      "bytes": 131623,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "bytes": 1318,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/start.C_umHVvR.js",
+      "status": 200,
+      "bytes": 82,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/BI1F1HPt.js",
+      "status": 200,
+      "bytes": 47866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/DIZkiWtD.js",
+      "status": 200,
+      "bytes": 29277,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+      "status": 200,
+      "bytes": 3975,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/assets/2.U6o4eik4.css",
+      "status": 200,
+      "bytes": 83916,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/chunks/xihTtKlq.js",
+      "status": 200,
+      "bytes": 65,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+      "status": 200,
+      "bytes": 238,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+      "status": 200,
+      "bytes": 653378,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+      "status": 200,
+      "bytes": 629,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/okf-registry.json",
+      "status": 200,
+      "bytes": 7704,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/okf-explorer.json",
+      "status": 200,
+      "bytes": 11287,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/manifest.json",
+      "status": 200,
+      "bytes": 21557,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/overview.json",
+      "status": 200,
+      "bytes": 15722,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/analysis-overview.json",
+      "status": 200,
+      "bytes": 790,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+      "status": 200,
+      "bytes": 68866,
+      "elapsed_ms": 0
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/facets.json",
+      "status": 200,
+      "bytes": 44373,
+      "elapsed_ms": 1
+    },
+    {
+      "method": "GET",
+      "path": "/bundle/data/explorer/search/manifest.json",
+      "status": 200,
+      "bytes": 22773,
+      "elapsed_ms": 0
+    }
+  ],
+  "journeys": [
+    {
+      "id": "overview-load-and-safety",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 1,
+        "fragment_present": true,
+        "title": "OKF Explorer",
+        "elapsed_ms": 219,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 1,
+        "fragment_present": true
+      },
+      "observations": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/start.C_umHVvR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/DIZkiWtD.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/BI1F1HPt.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/app.DBmC2AsR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/0.BqBVe4-s.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/2.BM_nuM_o.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/assets/2.U6o4eik4.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/1.BqQtXGLy.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/analysis-overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/facets.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/shards.json",
+          "resource_type": "fetch"
+        }
+      ],
+      "server_requests": [
+        {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "bytes": 1318,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/start.C_umHVvR.js",
+          "status": 200,
+          "bytes": 82,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/DIZkiWtD.js",
+          "status": 200,
+          "bytes": 29277,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/BI1F1HPt.js",
+          "status": 200,
+          "bytes": 47866,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+          "status": 200,
+          "bytes": 3975,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/xihTtKlq.js",
+          "status": 200,
+          "bytes": 65,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/assets/2.U6o4eik4.css",
+          "status": 200,
+          "bytes": 83916,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+          "status": 200,
+          "bytes": 238,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+          "status": 200,
+          "bytes": 653378,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+          "status": 200,
+          "bytes": 629,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/okf-registry.json",
+          "status": 200,
+          "bytes": 7704,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/okf-explorer.json",
+          "status": 200,
+          "bytes": 11287,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/manifest.json",
+          "status": 200,
+          "bytes": 21557,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/overview.json",
+          "status": 200,
+          "bytes": 15722,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/analysis-overview.json",
+          "status": 200,
+          "bytes": 790,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/facets.json",
+          "status": 200,
+          "bytes": 44373,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "status": 200,
+          "bytes": 68866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/manifest.json",
+          "status": 200,
+          "bytes": 22773,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/shards.json",
+          "status": 200,
+          "bytes": 22832,
+          "elapsed_ms": 1
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    },
+    {
+      "id": "search-and-restored-query-state",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true,
+        "title": "OKF Explorer",
+        "elapsed_ms": 347,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true
+      },
+      "observations": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/start.C_umHVvR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/DIZkiWtD.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/BI1F1HPt.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/app.DBmC2AsR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/0.BqBVe4-s.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/2.BM_nuM_o.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/assets/2.U6o4eik4.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/1.BqQtXGLy.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/analysis-overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/facets.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/shards.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/entities.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/lexicon-e.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/lexicon-b.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/postings-e.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/postings-b.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-001.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-000.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-002.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-008.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-003.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-004.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-005.json",
+          "resource_type": "fetch"
+        }
+      ],
+      "server_requests": [
+        {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "bytes": 1318,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/start.C_umHVvR.js",
+          "status": 200,
+          "bytes": 82,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/DIZkiWtD.js",
+          "status": 200,
+          "bytes": 29277,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/BI1F1HPt.js",
+          "status": 200,
+          "bytes": 47866,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/assets/2.U6o4eik4.css",
+          "status": 200,
+          "bytes": 83916,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+          "status": 200,
+          "bytes": 3975,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/xihTtKlq.js",
+          "status": 200,
+          "bytes": 65,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+          "status": 200,
+          "bytes": 238,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+          "status": 200,
+          "bytes": 653378,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+          "status": 200,
+          "bytes": 629,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/okf-registry.json",
+          "status": 200,
+          "bytes": 7704,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/okf-explorer.json",
+          "status": 200,
+          "bytes": 11287,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/manifest.json",
+          "status": 200,
+          "bytes": 21557,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/overview.json",
+          "status": 200,
+          "bytes": 15722,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/analysis-overview.json",
+          "status": 200,
+          "bytes": 790,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "status": 200,
+          "bytes": 68866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/facets.json",
+          "status": 200,
+          "bytes": 44373,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/manifest.json",
+          "status": 200,
+          "bytes": 22773,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/shards.json",
+          "status": 200,
+          "bytes": 22832,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/entities.json",
+          "status": 200,
+          "bytes": 8011,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/lexicon-e.json",
+          "status": 200,
+          "bytes": 13488,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/lexicon-b.json",
+          "status": 200,
+          "bytes": 6899,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/postings-e.json",
+          "status": 200,
+          "bytes": 21368,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/postings-b.json",
+          "status": 200,
+          "bytes": 8308,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-001.json",
+          "status": 200,
+          "bytes": 1041801,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-000.json",
+          "status": 200,
+          "bytes": 1055473,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-002.json",
+          "status": 200,
+          "bytes": 1106300,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-003.json",
+          "status": 200,
+          "bytes": 1074799,
+          "elapsed_ms": 3
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-008.json",
+          "status": 200,
+          "bytes": 896854,
+          "elapsed_ms": 3
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-004.json",
+          "status": 200,
+          "bytes": 1052812,
+          "elapsed_ms": 4
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-005.json",
+          "status": 200,
+          "bytes": 1075605,
+          "elapsed_ms": 2
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    },
+    {
+      "id": "translation-relationship",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true,
+        "title": "OKF Explorer",
+        "elapsed_ms": 257,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true
+      },
+      "observations": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/start.C_umHVvR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/DIZkiWtD.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/BI1F1HPt.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/app.DBmC2AsR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/0.BqBVe4-s.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/2.BM_nuM_o.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/assets/2.U6o4eik4.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/1.BqQtXGLy.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/analysis-overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/facets.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/locator/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/locator/routes.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime-manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-001.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/route-locator/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/shards.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/route-locator/bucket-c5.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-038.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-047.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-048.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-071.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-081.json.gz",
+          "resource_type": "fetch"
+        }
+      ],
+      "server_requests": [
+        {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "bytes": 1318,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/start.C_umHVvR.js",
+          "status": 200,
+          "bytes": 82,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/DIZkiWtD.js",
+          "status": 200,
+          "bytes": 29277,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/BI1F1HPt.js",
+          "status": 200,
+          "bytes": 47866,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/xihTtKlq.js",
+          "status": 200,
+          "bytes": 65,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+          "status": 200,
+          "bytes": 3975,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/assets/2.U6o4eik4.css",
+          "status": 200,
+          "bytes": 83916,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+          "status": 200,
+          "bytes": 238,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+          "status": 200,
+          "bytes": 653378,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+          "status": 200,
+          "bytes": 629,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/okf-registry.json",
+          "status": 200,
+          "bytes": 7704,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/okf-explorer.json",
+          "status": 200,
+          "bytes": 11287,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/manifest.json",
+          "status": 200,
+          "bytes": 21557,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/overview.json",
+          "status": 200,
+          "bytes": 15722,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/analysis-overview.json",
+          "status": 200,
+          "bytes": 790,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "status": 200,
+          "bytes": 68866,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/facets.json",
+          "status": 200,
+          "bytes": 44373,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/locator/manifest.json",
+          "status": 200,
+          "bytes": 46811,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/locator/routes.json",
+          "status": 200,
+          "bytes": 109162,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime-manifest.json",
+          "status": 200,
+          "bytes": 42801,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/manifest.json",
+          "status": 200,
+          "bytes": 22773,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-001.json",
+          "status": 200,
+          "bytes": 1041801,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/shards.json",
+          "status": 200,
+          "bytes": 22832,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/route-locator/manifest.json",
+          "status": 200,
+          "bytes": 75757,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/route-locator/bucket-c5.json.gz",
+          "status": 200,
+          "bytes": 2812,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-038.json.gz",
+          "status": 200,
+          "bytes": 41171,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-047.json.gz",
+          "status": 200,
+          "bytes": 37997,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-048.json.gz",
+          "status": 200,
+          "bytes": 38524,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-071.json.gz",
+          "status": 200,
+          "bytes": 51162,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-081.json.gz",
+          "status": 200,
+          "bytes": 55626,
+          "elapsed_ms": 0
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    },
+    {
+      "id": "deep-link-scalar-geography-and-caveat",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true,
+        "title": "OKF Explorer",
+        "elapsed_ms": 140,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true
+      },
+      "observations": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/start.C_umHVvR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/DIZkiWtD.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/BI1F1HPt.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/app.DBmC2AsR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/0.BqBVe4-s.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/2.BM_nuM_o.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/assets/2.U6o4eik4.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/1.BqQtXGLy.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/analysis-overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/facets.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/locator/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/locator/routes.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime-manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-001.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/shards.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/route-locator/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/route-locator/bucket-3e.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-014.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-042.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-059.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-063.json.gz",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/semantic/runtime/core/relationships-073.json.gz",
+          "resource_type": "fetch"
+        }
+      ],
+      "server_requests": [
+        {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "bytes": 1318,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/start.C_umHVvR.js",
+          "status": 200,
+          "bytes": 82,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/DIZkiWtD.js",
+          "status": 200,
+          "bytes": 29277,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/BI1F1HPt.js",
+          "status": 200,
+          "bytes": 47866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+          "status": 200,
+          "bytes": 3975,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/xihTtKlq.js",
+          "status": 200,
+          "bytes": 65,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/assets/2.U6o4eik4.css",
+          "status": 200,
+          "bytes": 83916,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+          "status": 200,
+          "bytes": 238,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+          "status": 200,
+          "bytes": 653378,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+          "status": 200,
+          "bytes": 629,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/okf-registry.json",
+          "status": 200,
+          "bytes": 7704,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/okf-explorer.json",
+          "status": 200,
+          "bytes": 11287,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/manifest.json",
+          "status": 200,
+          "bytes": 21557,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/overview.json",
+          "status": 200,
+          "bytes": 15722,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/analysis-overview.json",
+          "status": 200,
+          "bytes": 790,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "status": 200,
+          "bytes": 68866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/locator/manifest.json",
+          "status": 200,
+          "bytes": 46811,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/facets.json",
+          "status": 200,
+          "bytes": 44373,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/locator/routes.json",
+          "status": 200,
+          "bytes": 109162,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime-manifest.json",
+          "status": 200,
+          "bytes": 42801,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/manifest.json",
+          "status": 200,
+          "bytes": 22773,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-001.json",
+          "status": 200,
+          "bytes": 1041801,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/shards.json",
+          "status": 200,
+          "bytes": 22832,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/route-locator/manifest.json",
+          "status": 200,
+          "bytes": 75757,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/route-locator/bucket-3e.json.gz",
+          "status": 200,
+          "bytes": 2619,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-014.json.gz",
+          "status": 200,
+          "bytes": 40037,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-042.json.gz",
+          "status": 200,
+          "bytes": 41430,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-059.json.gz",
+          "status": 200,
+          "bytes": 37874,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-063.json.gz",
+          "status": 200,
+          "bytes": 38946,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/semantic/runtime/core/relationships-073.json.gz",
+          "status": 200,
+          "bytes": 55250,
+          "elapsed_ms": 0
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    },
+    {
+      "id": "selected-record-resource",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true,
+        "title": "OKF Explorer",
+        "elapsed_ms": 477,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true
+      },
+      "observations": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/start.C_umHVvR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/DIZkiWtD.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/BI1F1HPt.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/app.DBmC2AsR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/0.BqBVe4-s.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/2.BM_nuM_o.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/assets/2.U6o4eik4.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/1.BqQtXGLy.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/analysis-overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/facets.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/locator/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/locator/routes.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-001.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/shards.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-000.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-001.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-002.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-003.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-000.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-001.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-002.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-003.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/publishers-000.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-004.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-005.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-006.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-007.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-004.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-005.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-006.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-007.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/datasets-008.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/resources-008.json",
+          "resource_type": "fetch"
+        }
+      ],
+      "server_requests": [
+        {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "bytes": 1318,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/start.C_umHVvR.js",
+          "status": 200,
+          "bytes": 82,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/DIZkiWtD.js",
+          "status": 200,
+          "bytes": 29277,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/BI1F1HPt.js",
+          "status": 200,
+          "bytes": 47866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+          "status": 200,
+          "bytes": 3975,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/assets/2.U6o4eik4.css",
+          "status": 200,
+          "bytes": 83916,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/xihTtKlq.js",
+          "status": 200,
+          "bytes": 65,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+          "status": 200,
+          "bytes": 238,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+          "status": 200,
+          "bytes": 653378,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+          "status": 200,
+          "bytes": 629,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/okf-registry.json",
+          "status": 200,
+          "bytes": 7704,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/okf-explorer.json",
+          "status": 200,
+          "bytes": 11287,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/manifest.json",
+          "status": 200,
+          "bytes": 21557,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/overview.json",
+          "status": 200,
+          "bytes": 15722,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/analysis-overview.json",
+          "status": 200,
+          "bytes": 790,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "status": 200,
+          "bytes": 68866,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/facets.json",
+          "status": 200,
+          "bytes": 44373,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/locator/manifest.json",
+          "status": 200,
+          "bytes": 46811,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/locator/routes.json",
+          "status": 200,
+          "bytes": 109162,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/manifest.json",
+          "status": 200,
+          "bytes": 22773,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-001.json",
+          "status": 200,
+          "bytes": 1041801,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/shards.json",
+          "status": 200,
+          "bytes": 22832,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-000.json",
+          "status": 200,
+          "bytes": 1055473,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-000.json",
+          "status": 200,
+          "bytes": 157474,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-001.json",
+          "status": 200,
+          "bytes": 156761,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-002.json",
+          "status": 200,
+          "bytes": 1106300,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-001.json",
+          "status": 200,
+          "bytes": 1041801,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-003.json",
+          "status": 200,
+          "bytes": 1074799,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-003.json",
+          "status": 200,
+          "bytes": 158593,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-002.json",
+          "status": 200,
+          "bytes": 161006,
+          "elapsed_ms": 3
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/publishers-000.json",
+          "status": 200,
+          "bytes": 11281,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-004.json",
+          "status": 200,
+          "bytes": 1052812,
+          "elapsed_ms": 3
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-005.json",
+          "status": 200,
+          "bytes": 1075605,
+          "elapsed_ms": 3
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-006.json",
+          "status": 200,
+          "bytes": 1066723,
+          "elapsed_ms": 5
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-007.json",
+          "status": 200,
+          "bytes": 1083939,
+          "elapsed_ms": 5
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-004.json",
+          "status": 200,
+          "bytes": 157579,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-005.json",
+          "status": 200,
+          "bytes": 158145,
+          "elapsed_ms": 2
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-006.json",
+          "status": 200,
+          "bytes": 158050,
+          "elapsed_ms": 4
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-007.json",
+          "status": 200,
+          "bytes": 159553,
+          "elapsed_ms": 4
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/datasets-008.json",
+          "status": 200,
+          "bytes": 896854,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/resources-008.json",
+          "status": 200,
+          "bytes": 131623,
+          "elapsed_ms": 0
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    },
+    {
+      "id": "repeated-kind-filters",
+      "terminal": {
+        "status": "passed",
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true,
+        "title": "OKF Explorer",
+        "elapsed_ms": 97,
+        "error": null
+      },
+      "restored_state": {
+        "url": "http://127.0.0.1:4179/",
+        "query_parameters_present": 2,
+        "fragment_present": true
+      },
+      "observations": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/",
+          "resource_type": "document"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/start.C_umHVvR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/DIZkiWtD.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/BI1F1HPt.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/entry/app.DBmC2AsR.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/chunks/xihTtKlq.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/0.BqBVe4-s.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/2.BM_nuM_o.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/assets/2.U6o4eik4.css",
+          "resource_type": "stylesheet"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/nodes/1.BqQtXGLy.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/okf-registry.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/okf-explorer.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/manifest.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/analysis-overview.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "resource_type": "script"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/facets.json",
+          "resource_type": "fetch"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4179/bundle/data/explorer/search/manifest.json",
+          "resource_type": "fetch"
+        }
+      ],
+      "server_requests": [
+        {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "bytes": 1318,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/start.C_umHVvR.js",
+          "status": 200,
+          "bytes": 82,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/BI1F1HPt.js",
+          "status": 200,
+          "bytes": 47866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/DIZkiWtD.js",
+          "status": 200,
+          "bytes": 29277,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/entry/app.DBmC2AsR.js",
+          "status": 200,
+          "bytes": 3975,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/assets/2.U6o4eik4.css",
+          "status": 200,
+          "bytes": 83916,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/chunks/xihTtKlq.js",
+          "status": 200,
+          "bytes": 65,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/0.BqBVe4-s.js",
+          "status": 200,
+          "bytes": 238,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/2.BM_nuM_o.js",
+          "status": 200,
+          "bytes": 653378,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/nodes/1.BqQtXGLy.js",
+          "status": 200,
+          "bytes": 629,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/okf-registry.json",
+          "status": 200,
+          "bytes": 7704,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/okf-explorer.json",
+          "status": 200,
+          "bytes": 11287,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/manifest.json",
+          "status": 200,
+          "bytes": 21557,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/overview.json",
+          "status": 200,
+          "bytes": 15722,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/analysis-overview.json",
+          "status": 200,
+          "bytes": 790,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/_app/immutable/workers/largeSearch.worker-B1gsWSi2.js",
+          "status": 200,
+          "bytes": 68866,
+          "elapsed_ms": 0
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/facets.json",
+          "status": 200,
+          "bytes": 44373,
+          "elapsed_ms": 1
+        },
+        {
+          "method": "GET",
+          "path": "/bundle/data/explorer/search/manifest.json",
+          "status": 200,
+          "bytes": 22773,
+          "elapsed_ms": 0
+        }
+      ],
+      "console": [],
+      "page_errors": []
+    }
+  ],
+  "terminal": {
+    "outcome": "passed",
+    "journeys_total": 6,
+    "journeys_passed": 6,
+    "journeys_failed": 0
+  }
+}

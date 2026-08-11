@@ -1,0 +1,216 @@
+{
+  "schema": "okf-hmlr-stage1-independent-review.v1",
+  "status": "pass",
+  "outcome": "pass",
+  "candidate_git_commit": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+  "candidate_git_tree": "e2858d97a6b8d495d585e58dfbf6767a06caa13e",
+  "candidate_direct_parent": "341b436bf8e6f6bcd70760472b3d87f872bc9a5a",
+  "bundle_release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+  "bundle_runtime_tree": {
+    "algorithm": "sha256-sha256sum-lines-v1",
+    "sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf",
+    "files": 857,
+    "bytes": 466605616
+  },
+  "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+  "reviewer": {
+    "identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+    "role": "independent-stage1-reviewer",
+    "kind": "AI-agent",
+    "reviewed_at": "2026-08-11T20:30:04Z",
+    "independent": true,
+    "independent_of_implementation_and_remediation": true,
+    "scope_separation": "This reviewer did not author, build or remediate the frozen v0.3.0 candidate. It inspected the exact clean checkout, complete baseline diff, five-path evaluator correction, governed profile/source/rights materials, generated bundle and fresh exact-candidate identity receipts read-only. It holds no project-owner, deployment, release or Land Registry G9 authority."
+  },
+  "review_scope": {
+    "checkout": "/private/tmp/okf-LandRegistry-v0.3.0-build14",
+    "baseline": "341b436bf8e6f6bcd70760472b3d87f872bc9a5a",
+    "baseline_diff": {
+      "files_changed": 949,
+      "insertions": 1850219,
+      "deletions": 122967,
+      "bundle_paths": 830,
+      "direct_parent_verified": true,
+      "governed_change_impact_status": "pass",
+      "stage1_review_required": true,
+      "release_gates_selected": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "unmatched_paths": 0,
+      "unexplained_generated_paths": 0
+    },
+    "evaluator_correction_from_superseded_candidate": {
+      "superseded_candidate_git_commit": "00973536995495b917a17bc01da38ba73096b122",
+      "changed_paths": [
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json",
+        "docs/release-assurance.md",
+        "scripts/evaluate.py",
+        "tests/test_evaluate.py"
+      ],
+      "material_effect": "The correction replaces the obsolete locale-collation verifier with the pinned Explorer v0.6.2 bytewise Buffer.compare tree algorithm and exact four-field identity. The evaluator digest changes the governed build receipt and therefore the release root; profile, source, governance, catalogue, semantic graph, semantic validation and Reader descriptor bytes are unchanged.",
+      "profile_source_governance_catalogue_and_semantic_delta": "none",
+      "review_status": "pass"
+    },
+    "historical_evidence_policy": "Files under /private/tmp/okf-landregistry-v030-evidence/reviewer were consulted only for document shape. No finding, pass state, candidate binding or reviewer conclusion was carried forward."
+  },
+  "identity_verification": {
+    "status": "pass",
+    "candidate_commit_confirmed": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "candidate_tree_confirmed": "e2858d97a6b8d495d585e58dfbf6767a06caa13e",
+    "candidate_parent_confirmed": "341b436bf8e6f6bcd70760472b3d87f872bc9a5a",
+    "candidate_topology_check": "scripts/check_release_evidence.py --candidate-only passed for the exact commit and release root",
+    "working_tree": "clean detached exact-candidate checkout",
+    "bundle_release_root_confirmed": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "bundle_tree_confirmed": {
+      "algorithm": "sha256-sha256sum-lines-v1",
+      "sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf",
+      "files": 857,
+      "bytes": 466605616,
+      "symlinks": 0
+    },
+    "profile_pack_root_confirmed": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "profile_equivalence": "domain-profile.json and domain-profile.yaml passed the candidate canonical-equivalence validator at canonical SHA-256 9c2d86c00217f46d508a81c6fa982df6d9664bbdd4b49d8eed0b6d2c415d056d",
+    "bundle_members": "856 governed member lines plus one release-root marker in bundle/CHECKSUMS.sha256; 857 regular bundle files including CHECKSUMS.sha256 were hashed by the runtime tree identity",
+    "fresh_consumer_identity_corroboration": {
+      "scope": "identity corroboration only; this Stage 1 review does not close Land Registry G4, G5 or G6",
+      "consumer_version": "0.6.2",
+      "consumer_commit": "9430b3931f96bd9e6e06165c15b522742611f3e9",
+      "consumer_tree": "9d13ee9c2b174819feea2d732420674d4df5273b",
+      "product_receipt_status": "passed",
+      "product_receipt_sha256": "835857e6d6158a81aa3914503ddfea1cdd1e2f75ba6424ca75eb045631e9a7cc",
+      "search_receipt_status": "passed",
+      "search_receipt_sha256": "b90d200f322617daa96d2d298a9d8764f30f83bfe2597ca4e08fb9fb308a5909",
+      "receipt_bundle_tree_sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf"
+    },
+    "confirmed_material_sha256": {
+      "domain-profile/CHECKSUMS.sha256": "c029174e5e570d1e3a47a909e6aaff5213b3a5723a3aece9d9b690cc819b529d",
+      "domain-profile/domain-profile.json": "1b348a1a394f2bc3688bf1f1d71ef257baf58ac0e03380a52768cdf43a1ccc9e",
+      "domain-profile/domain-profile.yaml": "ce8dfeef8b5ad79f32bbb2758b5f1bf9020af39187c15f5eeb0a9402fe1e7efa",
+      "research/source-family-inventory.json": "33c04a7baa84d35614126074f5f7064b187ee55b62d009fcf1699e6a30b71aee",
+      "source/source-register.json": "44420b97eb3f4cb85e5749f88b48cf99257798b0ac2f99488c678979ea6b6774",
+      "source/input-manifest-v0.2.0.json": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc",
+      "source/snapshots/2026-07-29T091915Z/manifest.json": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6",
+      "evaluation/questions.json": "c4423c70ed4207061d8cfea7d0956b87ddbc9e487fe3a512bc30ba2fbdba8fc0",
+      "contracts/okf-explorer.consumer-lock.json": "08fc7a1716bb2a169cf584d2b533568a70b83ee7937be0e133ab743af50eaf50",
+      "governance/rights-review.json": "b47da036da6b1376975b8542749f06df86a61d34237ab244e8dc61819be907f6",
+      "governance/risk-register.json": "73971f33d7087ca261c4383cc653479a93ad5a1acd5f381b8fdc20e6ec81b8b2",
+      "okf.semantic.json": "39a29556fa39f745c6530c832ee2b2a269141e70f76d7bf312a79fd32947e6a6",
+      "bundle/build-receipt.json": "6a9a590c5905845c3a99a148b3a8204e65a71c9c9ceff5350bdb905c240db5db",
+      "bundle/CHECKSUMS.sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+      "bundle/data/catalogue.json": "3f542630d690c4d4d92cca4ef5b82e2284175d871f456f9c52e42f94ee177bc3",
+      "bundle/data/semantic/validation.json": "12e707461541ddb67d033d2c27eaca2bcd7b4964fe81ce018b43a838d337529d",
+      "bundle/okf-bundle.jsonld": "68ad7d1ce1b919cbb11f90d79205a14853c1db4b7d9776faebbaac3e64e8489b",
+      "bundle/okf-bundle.yamlld": "c7e31331f235430cfa80d9928fab71a398bc7d629bb06b42b5b589c3cf7783be",
+      "scripts/evaluate.py": "a7aa4448bfcc90353cc4b3ffbbf2aa34fad3e28d56064770aa0b1410930552d1",
+      "tests/test_evaluate.py": "49eabddb8926a04fb1a0a1a7e41602b5676c1326e634c31c6b61971d2b863f31",
+      "docs/release-assurance.md": "56291a56e594c2dc08590956469559a828a5d92c049c764407bd8a0adff56a3c"
+    }
+  },
+  "checks_performed": [
+    {
+      "check": "candidate topology, committed blobs and release-root closure",
+      "command": ".venv/bin/python -B scripts/check_release_evidence.py --candidate-only --candidate-commit-sha 751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+      "status": "pass"
+    },
+    {
+      "check": "domain-profile schema, reference closure and JSON/YAML equivalence",
+      "command": ".venv/bin/python -B scripts/check_domain_profile.py domain-profile/domain-profile.json --equivalent domain-profile/domain-profile.yaml",
+      "status": "pass"
+    },
+    {
+      "check": "full baseline-to-candidate dependency classification",
+      "command": ".venv/bin/python -B scripts/change_impact.py --base 341b436bf8e6f6bcd70760472b3d87f872bc9a5a --head 751b6c1e80fbbad3c07f19798c74aebd603eb62c --check",
+      "status": "pass",
+      "report_sha256": "69cfce8cdf2da7b20adae4edcfcf7759830bf483500678fbdc1b094472b4e84c"
+    },
+    {
+      "check": "focused independent profile, bundle, JSON-LD, URL, acquisition, traceability and evaluator regressions",
+      "command": ".venv/bin/python -B -m unittest -q tests.test_domain_profile tests.test_bundle tests.test_jsonld tests.test_url_canonicalisation tests.test_acquire tests.test_traceability tests.test_evaluate",
+      "status": "pass",
+      "tests": 105,
+      "elapsed_seconds": 65.838
+    },
+    {
+      "check": "baseline and evaluator-delta whitespace/error-marker review",
+      "command": "git diff --check for baseline..candidate and superseded-candidate..candidate",
+      "status": "pass"
+    },
+    {
+      "check": "independent bundle tree recomputation with the corrected evaluator",
+      "command": "scripts.evaluate.bundle_tree_identity(Path('bundle'))",
+      "status": "pass",
+      "observed_sha256": "50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf"
+    }
+  ],
+  "scope_reviews": {
+    "scope_authority_and_exclusions": {
+      "status": "pass",
+      "finding": "The reviewed profile remains an independent, metadata-only, snapshot-bounded discovery aid for the HM Land Registry public estate. It excludes live title, ownership, address, charge, application and search-result data; full page bodies and attachments; authenticated responses and paid products; forum and upload content; legal advice; ownership, priority and exact-boundary conclusions. Current legislation and formal notices control legal facts, publisher-operated HM Land Registry sources control present operation, and discovery catalogues remain subordinate provenance."
+    },
+    "source_identity_crosswalk": {
+      "status": "pass",
+      "finding": "All 17 governed source-family identities are identical across the source-family inventory, domain profile and source register. Source-native identifiers, canonical URLs, observation times, source dates, local identities and derivations remain separate. The input snapshot name hmlr-public-metadata-v0.2.0 is explicitly a source identity rather than the v0.3.0 product version."
+    },
+    "source_snapshot_and_denominators": {
+      "status": "pass",
+      "finding": "The three primary frozen acquisition lanes reconcile 1,866 GOV.UK Search records, 289 public GitHub repositories and 15 provider-filtered CDDO catalogue rows, totalling 2,170 records, with explicit terminal outcomes and zero recorded errors. Two bounded GOV.UK Content API locale/translation observations supplement rather than enlarge that denominator. The separate 14-item ULPD observation remains non-complete pending adapter reconciliation. The generated catalogue contains 2,203 retained canonical records after governed additions and representation reconciliation and does not collapse unlike denominators into a global completeness claim."
+    },
+    "users_tasks_and_evaluation_boundary": {
+      "status": "pass",
+      "finding": "Seven evidence-led user groups and seven task families cover public, professional, lender, data, developer, local-authority and audit needs. Personas and questions remain explicitly hypothesis-led rather than participant-validated. GAP-HUMAN-RESEARCH, GAP-WELSH and the non-averageable legal, boundary, rights, credential, coverage, date and accessibility failures remain visible."
+    },
+    "semantic_authority_and_evidence_boundary": {
+      "status": "pass",
+      "finding": "The candidate records 22,267 direct triples, 22,267 reified RelationshipAssertion resources and 22,267 bounded runtime rows with identity, route and direct/reified/runtime parity true and zero validation failures. All assertions are normalised, derived and evidence-bearing; every assertion is bound to one to four evidence rows and an assertion-rights object. Thirteen predicates are active-emitted and nine additional authorised capabilities have zero evidence without manufactured assertions. Inference is not run. Official CPSV-AP SHACL is vendored but not run; the seven mapped PublicService instances pass only declared bounded local checks, and the England-and-Wales coverage object is a dcterms:Location rather than an asserted AdministrativeTerritorialUnit. The class-route registry remains a derived delivery index rather than ontology authority."
+    },
+    "consumer_contract": {
+      "status": "pass",
+      "finding": "The only admitted Reader is Explorer v0.6.2 at commit 9430b3931f96bd9e6e06165c15b522742611f3e9 and tree 9d13ee9c2b174819feea2d732420674d4df5273b. Fresh product and search receipts are clean and bind the exact four-field bundle tree 50de3752fd48266aa59c5157324493d66195175140d6581846cabce93ce5a2cf. This finding establishes Stage 1 contract coherence and identity corroboration only; later gate reviewers remain responsible for the runtime acceptance decisions."
+    },
+    "evaluator_delta": {
+      "status": "pass",
+      "finding": "The five-path delta from 0097353 is narrow and justified. The evaluator now reproduces the pinned Explorer runner's recursive UTF-8 bytewise Buffer.compare order, safe relative-path subset, real-directory/regular-file boundary and algorithm/digest/file-count/byte-count identity. Its hard-coded eight-file Node fixture and 512/513 astral-character path-boundary regression passed. Only the evaluator digest in build-receipt.json and the resulting checksum/release root changed in generated bytes; no domain, source, rights, catalogue or semantic assertion changed."
+    },
+    "claims_and_release_boundary": {
+      "status": "pass",
+      "finding": "Candidate bytes remain approval-neutral: release_at is null, the publication state points to external digest-bound evidence, and okf.semantic.json records release_ready false with G1-G9 not-run. The bytes do not confer HM Land Registry endorsement, project-owner approval, public deployment verification, CPSV-AP conformance, inference, legal advice, exact-boundary assurance, global completeness, bilingual parity, participant validation or human accessibility assurance."
+    }
+  },
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "id": "G1-W-001",
+      "title": "Semantic full-hydration headroom is narrow",
+      "detail": "The generated semantic receipt records 33,231,836 retained UTF-16 text units against the pinned 33,554,432 limit, leaving 322,596 units. The exact candidate passes, but any assertion or provenance expansion must repeat the complete source preflight before reserving a publication swap slot."
+    },
+    {
+      "id": "G1-W-002",
+      "title": "Human, Welsh and global-denominator gaps remain",
+      "detail": "GAP-HUMAN-RESEARCH, GAP-WELSH, GAP-ASSOCIATED-DENOMINATOR, GAP-BG-DENOMINATOR and GAP-DATASET-DENOMINATOR remain non-blocking but material. No participant validation, bilingual parity, global public-estate completeness or independent human accessibility assurance is inferred."
+    },
+    {
+      "id": "G1-W-003",
+      "title": "The corrected candidate supersedes earlier candidate evidence",
+      "detail": "The evaluator correction changes a governed input, build receipt, bundle checksum manifest, release root, candidate commit and tree. Evidence bound to 0097353 or release root 900976ba4b8b610ec2dda2c17cd7e97f31725968f82cd35719748790cc9d24e3 cannot be reused for this candidate unless an applicable later gate explicitly proves unchanged dependency roots."
+    }
+  ],
+  "limitations": [
+    "This is an independent AI-agent document and data review, not independent human legal, licence, privacy, accessibility or HM Land Registry assurance.",
+    "No live official service, authenticated endpoint, paid product, title record, property search, source body or public deployment was accessed.",
+    "The review does not run official CPSV-AP SHACL, semantic inference, a human accessibility audit or a WCAG conformance assessment.",
+    "Fresh Explorer receipts were used only to corroborate the exact consumer and bundle-tree identity; this document does not close Land Registry G4, G5, G6, G7, G8 or G9.",
+    "This reviewer is not the project owner and does not approve deployment, publication, release or Land Registry G9."
+  ],
+  "release_approval": false,
+  "land_registry_g9": "not-approved-by-this-review",
+  "summary": "PASS for Stage 1 scope, authority, exclusions, source identities, denominators, semantic evidence boundaries and the narrow evaluator correction on exact candidate 751b6c1 / tree e2858d9 / release root 6a29e38. No blocking finding was identified; later exact-candidate gates, independent release review and owner G9 remain mandatory."
+}
