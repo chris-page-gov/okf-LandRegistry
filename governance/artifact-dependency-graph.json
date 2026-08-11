@@ -11,9 +11,54 @@
     "G8",
     "G9"
   ],
+  "build_inputs": [
+    "contracts/okf-explorer.consumer-lock.json",
+    "domain-profile/CHECKSUMS.sha256",
+    "domain-profile/domain-profile.json",
+    "domain-profile/evidence-register.jsonl",
+    "evaluation/questions.json",
+    "governance/ai-model-usage.json",
+    "governance/artifact-dependency-graph.json",
+    "governance/rights-review.json",
+    "okf.semantic.json",
+    "pages/.nojekyll",
+    "pages/404.html",
+    "pages/accessibility.html",
+    "pages/favicon.svg",
+    "pages/index.html",
+    "pages/manifest.webmanifest",
+    "pages/search-contract.json",
+    "pages/styles.css",
+    "profiles/bundle-wiki/v1.vendor-lock.json",
+    "profiles/bundle-wiki/v1/**",
+    "requirements-lock.txt",
+    "schemas/artifact-dependency-graph.schema.json",
+    "schemas/curated-rights-access.schema.json",
+    "schemas/relationship-runtime-row.schema.json",
+    "schemas/semantic-assertion.schema.json",
+    "scripts/acquire.py",
+    "scripts/build.py",
+    "scripts/change_impact.py",
+    "scripts/evaluate.py",
+    "scripts/python_runtime_contract.py",
+    "source/build-config.json",
+    "source/cpsv-service-mappings.json",
+    "source/curated-records.json",
+    "source/curated-rights-access.json",
+    "source/input-manifest-v0.2.0.json",
+    "source/jsonld-context.json",
+    "source/observations/govuk-content-locale-translations-2026-07-29.json",
+    "source/publisher-registry.json",
+    "source/snapshots/2026-07-29T091915Z/**",
+    "source/source-register.json",
+    "source/type-kind-crosswalk.json",
+    "standards/cpsv-ap/3.2.0.vendor-lock.json",
+    "standards/cpsv-ap/3.2.0/**"
+  ],
   "generated_roots": [
     "bundle/**",
     "dist/**",
+    "evaluation/latest-report.json",
     "validation/**"
   ],
   "schema": "okf-artifact-dependency-graph.v1",
@@ -55,12 +100,15 @@
         "RISK-014",
         "RISK-015",
         "RISK-016",
-        "RISK-017"
+        "RISK-017",
+        "RISK-018"
       ],
       "stage1_review": true,
       "test_ids": [
+        "build-semantics",
+        "bundle",
         "domain-profile",
-        "bundle"
+        "domain-profile-regression"
       ],
       "validation_refs": [
         "VAL-CHANGE-IMPACT",
@@ -130,9 +178,11 @@
       "stage1_review": true,
       "test_ids": [
         "acquisition",
+        "build-semantics",
         "bundle",
         "evaluation",
-        "explorer-contract"
+        "explorer-contract",
+        "govuk-content-observation"
       ],
       "validation_refs": [
         "VAL-SNAPSHOT",
@@ -148,13 +198,22 @@
       "description": "Curated metadata and release configuration consumed by the offline deterministic build.",
       "id": "build-inputs",
       "inputs": [
+        "okf.semantic.json",
+        "profiles/**",
+        "schemas/curated-rights-access.schema.json",
+        "schemas/relationship-runtime-row.schema.json",
+        "schemas/semantic-assertion.schema.json",
+        "source/cpsv-service-mappings.json",
         "source/build-config.json",
+        "source/curated-rights-access.json",
         "source/curated-records.json",
         "source/jsonld-context.json",
         "source/publisher-registry.json",
-        "source/type-kind-crosswalk.json"
+        "source/type-kind-crosswalk.json",
+        "standards/**"
       ],
       "validation_inputs": [
+        "tests/test_build_semantics.py",
         "tests/test_jsonld.py"
       ],
       "outputs": [
@@ -224,14 +283,50 @@
       ]
     },
     {
+      "description": "Exact dependency lock used to provision the deterministic build environment; project packaging metadata is release-only and is not imported by the builder.",
+      "id": "build-environment-control",
+      "inputs": [
+        "requirements-lock.txt"
+      ],
+      "validation_inputs": [],
+      "outputs": [
+        "bundle/**"
+      ],
+      "release_gates": [
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-014",
+        "REQ-017",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-010",
+        "RISK-014",
+        "RISK-017"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "build-semantics",
+        "bundle"
+      ],
+      "validation_refs": [
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
       "description": "Monolithic deterministic generator, including OKF control/data planes and the Explorer projection.",
       "id": "bundle-build-engine",
       "inputs": [
-        "scripts/build.py"
+        "scripts/build.py",
+        "scripts/python_runtime_contract.py"
       ],
       "validation_inputs": [
         "tests/test_build_semantics.py",
-        "tests/test_bundle.py"
+        "tests/test_bundle.py",
+        "tests/test_url_canonicalisation.py"
       ],
       "outputs": [
         "bundle/**"
@@ -290,7 +385,8 @@
         "explorer-contract",
         "jsonld",
         "okf",
-        "pages"
+        "pages",
+        "url-canonicalisation"
       ],
       "validation_refs": [
         "VAL-SNAPSHOT",
@@ -300,6 +396,43 @@
         "VAL-EVALUATION",
         "VAL-ACCESSIBILITY",
         "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Causal build-inventory implementation whose changes require both bundle closure and change-impact regression checks.",
+      "id": "build-causality-control",
+      "inputs": [
+        "scripts/build.py",
+        "scripts/python_runtime_contract.py"
+      ],
+      "validation_inputs": [],
+      "outputs": [
+        "bundle/**"
+      ],
+      "release_gates": [
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-014",
+        "REQ-017",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-010",
+        "RISK-014",
+        "RISK-017"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "build-semantics",
+        "bundle",
+        "change-impact"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
         "VAL-REPRODUCIBILITY"
       ]
     },
@@ -344,6 +477,7 @@
       ],
       "stage1_review": false,
       "test_ids": [
+        "build-semantics",
         "bundle",
         "explorer-contract"
       ],
@@ -420,7 +554,8 @@
         "RISK-014",
         "RISK-015",
         "RISK-016",
-        "RISK-017"
+        "RISK-017",
+        "RISK-018"
       ],
       "stage1_review": true,
       "test_ids": [
@@ -452,7 +587,6 @@
         "bundle/404.html",
         "bundle/CHECKSUMS.sha256",
         "bundle/accessibility.html",
-        "bundle/app.js",
         "bundle/build-receipt.json",
         "bundle/favicon.svg",
         "bundle/index.html",
@@ -492,6 +626,7 @@
       ],
       "stage1_review": false,
       "test_ids": [
+        "build-semantics",
         "bundle",
         "evaluation",
         "explorer-contract",
@@ -521,7 +656,8 @@
         "bundle/CHECKSUMS.sha256",
         "bundle/build-receipt.json",
         "bundle/data/evaluation-report.json",
-        "bundle/data/evaluation.json"
+        "bundle/data/evaluation.json",
+        "evaluation/latest-report.json"
       ],
       "release_gates": [
         "G5",
@@ -547,6 +683,7 @@
       ],
       "stage1_review": true,
       "test_ids": [
+        "build-semantics",
         "bundle",
         "evaluation",
         "traceability"
@@ -558,9 +695,59 @@
       ]
     },
     {
+      "description": "Maintained, fail-closed browser-quality evidence for the authored site against the exact candidate and pinned Explorer consumer.",
+      "id": "authored-site-browser-quality",
+      "inputs": [
+        "scripts/run_authored_site_browser_quality.mjs"
+      ],
+      "validation_inputs": [
+        "tests/test_authored_site_browser_quality_runner.py"
+      ],
+      "outputs": [
+        "validation/candidate-v0.3.0/**"
+      ],
+      "release_gates": [
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-002",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019"
+      ],
+      "risk_ids": [
+        "RISK-008",
+        "RISK-009",
+        "RISK-010",
+        "RISK-011",
+        "RISK-012",
+        "RISK-014",
+        "RISK-015",
+        "RISK-016"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "authored-site-browser-quality"
+      ],
+      "validation_refs": [
+        "VAL-ACCESSIBILITY",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
       "description": "Release evidence assembly, exact-root approval, archive, metadata and CI deployment controls.",
       "id": "release-assurance-tooling",
       "inputs": [
+        ".gitattributes",
         ".gitignore",
         ".github/workflows/**",
         "pyproject.toml",
@@ -571,6 +758,7 @@
         "scripts/check_release_approval.py",
         "scripts/check_release_evidence.py",
         "scripts/check_okf.py",
+        "scripts/check_release_transition.py",
         "scripts/create_release_metadata.py",
         "scripts/package_release.py"
       ],
@@ -581,6 +769,7 @@
         "tests/test_release_approval.py",
         "tests/test_release_evidence.py",
         "tests/test_release_metadata.py",
+        "tests/test_release_transition.py",
         "tests/test_workflow.py"
       ],
       "outputs": [
@@ -604,7 +793,8 @@
         "RISK-014",
         "RISK-015",
         "RISK-016",
-        "RISK-017"
+        "RISK-017",
+        "RISK-018"
       ],
       "stage1_review": false,
       "test_ids": [
@@ -614,6 +804,7 @@
         "release-approval",
         "release-evidence",
         "release-metadata",
+        "release-transition",
         "workflow"
       ],
       "validation_refs": [
@@ -630,13 +821,48 @@
         "schemas/artifact-dependency-graph.schema.json",
         "scripts/change_impact.py"
       ],
-      "validation_inputs": [
-        "tests/test_change_impact.py"
-      ],
+      "validation_inputs": [],
       "outputs": [
+        "bundle/**",
         "bundle/CHECKSUMS.sha256",
         "bundle/build-receipt.json"
       ],
+      "release_gates": [
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-010",
+        "RISK-014",
+        "RISK-015",
+        "RISK-017"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "build-semantics",
+        "bundle",
+        "change-impact"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
+      "description": "Focused regression surface for the change-impact implementation; test-only changes do not generate bundle bytes.",
+      "id": "impact-control-tests",
+      "inputs": [
+        "tests/test_change_impact.py"
+      ],
+      "validation_inputs": [],
+      "outputs": [],
       "release_gates": [
         "G7",
         "G8",
@@ -664,6 +890,41 @@
       ]
     },
     {
+      "description": "Operational release instructions whose chronology and evidence references require traceability review without generating candidate bundle bytes.",
+      "id": "release-assurance-runbook",
+      "inputs": [
+        "docs/v0.3.0-release-tracker-and-assurance-runbook.md"
+      ],
+      "validation_inputs": [],
+      "outputs": [],
+      "release_gates": [
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "requirement_ids": [
+        "REQ-014",
+        "REQ-017",
+        "REQ-018",
+        "REQ-020"
+      ],
+      "risk_ids": [
+        "RISK-010",
+        "RISK-014",
+        "RISK-015",
+        "RISK-017",
+        "RISK-018"
+      ],
+      "stage1_review": false,
+      "test_ids": [
+        "traceability"
+      ],
+      "validation_refs": [
+        "VAL-CHANGE-IMPACT",
+        "VAL-REPRODUCIBILITY"
+      ]
+    },
+    {
       "description": "Product, architecture, safety, maintenance and repository-facing explanatory material.",
       "id": "documentation",
       "inputs": [
@@ -675,6 +936,7 @@
         "SECURITY.md",
         "docs/**",
         "governance/README.md",
+        "okf.semantic.json",
         "schemas/README.md",
         "troubleshooting/**"
       ],
@@ -707,7 +969,8 @@
         "RISK-012",
         "RISK-013",
         "RISK-014",
-        "RISK-015"
+        "RISK-015",
+        "RISK-018"
       ],
       "stage1_review": false,
       "test_ids": [
@@ -719,7 +982,23 @@
   "tests": [
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_authored_site_browser_quality_runner",
+        "-v"
+      ],
+      "description": "Maintained authored-site browser-quality runner identity, safety and fail-closed receipt checks.",
+      "id": "authored-site-browser-quality",
+      "repository_paths": [
+        "tests/test_authored_site_browser_quality_runner.py"
+      ]
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_acquire",
@@ -731,19 +1010,21 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_build_semantics",
         "-v"
       ],
-      "description": "Focused normalization, search-projection and usage-ledger semantics.",
+      "description": "Focused normalisation, search-projection and usage-ledger semantics.",
       "id": "build-semantics",
       "repository_paths": ["tests/test_build_semantics.py"]
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_bundle",
@@ -755,7 +1036,8 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_change_impact",
@@ -767,7 +1049,8 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "scripts/check_domain_profile.py",
         "domain-profile/domain-profile.json",
         "--equivalent",
@@ -779,19 +1062,34 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_domain_profile",
+        "-v"
+      ],
+      "description": "Domain-profile decision, evidence, rights, checksum and review-state regression checks.",
+      "id": "domain-profile-regression",
+      "repository_paths": ["tests/test_domain_profile.py"]
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_evaluate",
         "-v"
       ],
-      "description": "Retrieval, expected-target and acceptance-review behavior.",
+      "description": "Retrieval, expected-target and acceptance-review behaviour.",
       "id": "evaluation",
       "repository_paths": ["tests/test_evaluate.py"]
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_explorer_contract",
@@ -803,7 +1101,8 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_links",
@@ -815,19 +1114,21 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_jsonld",
         "-v"
       ],
-      "description": "Pinned-context JSON-LD expansion, catalogue ranges and semantic identity closure.",
+      "description": "Pinned-context YAML-LD/JSON-LD equivalence, relationship reification, direct-triple reconciliation, catalogue ranges and semantic identity closure.",
       "id": "jsonld",
       "repository_paths": ["tests/test_jsonld.py"]
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_okf",
@@ -839,19 +1140,34 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_observe_govuk_content",
+        "-v"
+      ],
+      "description": "Bounded GOV.UK content observation, language and evidence-envelope checks.",
+      "id": "govuk-content-observation",
+      "repository_paths": ["tests/test_observe_govuk_content.py"]
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_package_release",
         "-v"
       ],
-      "description": "Deterministic release archive behavior.",
+      "description": "Deterministic release archive behaviour.",
       "id": "package-release",
       "repository_paths": ["tests/test_package_release.py"]
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_pages",
@@ -863,7 +1179,8 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_release_approval",
@@ -875,7 +1192,8 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_assemble_release_evidence",
@@ -891,7 +1209,8 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_release_metadata",
@@ -903,7 +1222,24 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_release_transition",
+        "-v"
+      ],
+      "description": "Exact bundle inventory, staged evidence and pull-request transition controls.",
+      "id": "release-transition",
+      "repository_paths": [
+        "scripts/check_release_transition.py",
+        "tests/test_release_transition.py"
+      ]
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_traceability",
@@ -915,7 +1251,21 @@
     },
     {
       "command": [
-        "python",
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_url_canonicalisation",
+        "-v"
+      ],
+      "description": "Fail-closed URL query canonicalisation and credential-evasion checks.",
+      "id": "url-canonicalisation",
+      "repository_paths": ["tests/test_url_canonicalisation.py"]
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
         "-m",
         "unittest",
         "tests.test_workflow",
@@ -939,5 +1289,5 @@
     "VAL-RIGHTS": ["G3"],
     "VAL-SNAPSHOT": ["G2"]
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

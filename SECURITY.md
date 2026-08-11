@@ -56,7 +56,7 @@ the publisher is authoritative for their meaning.
   bucket.
 - **Supply-chain compromise:** pin CI actions by commit digest, lock
   dependencies, minimise privileges, separate build from deployment and record
-  artifact provenance.
+  artefact provenance.
 - **Integrity failure:** checksum every governed input/output and bind
   validation receipts to the exact candidate root.
 - **Availability and stale facts:** build from immutable snapshots, show

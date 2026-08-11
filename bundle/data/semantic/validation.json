@@ -1,0 +1,274 @@
+{
+  "assertion_identity_set_sha256": "11d0570fef8d836687f05c883f965960c0b362e8788d1fee9e96909bf4ae9de5",
+  "context_alignment": {
+    "canonical_path": "profiles/bundle-wiki/v1/semantic-context.jsonld",
+    "canonical_sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b",
+    "canonical_terms_checked": 27,
+    "local_path": "source/jsonld-context.json",
+    "local_sha256": "b50175104c49ecde1993bf05db5dfbf26a77e9cb52602e49eee3d02bb9e0db8c",
+    "status": "conformant"
+  },
+  "contract_metrics": {
+    "direct_triples": 22226,
+    "governed_predicates": 13,
+    "reified_assertions": 22226,
+    "relationship_chunks": 89,
+    "route_bearing_semantic_identities": 6733,
+    "route_locator_buckets": 256,
+    "runtime_rows": 22226
+  },
+  "counts": {
+    "direct_triples_reconciled": 22226,
+    "evidence_rows_validated": 24552,
+    "runtime_rows_mapped_and_validated": 22226,
+    "semantic_assertions_validated": 22226,
+    "validation_failures": 0
+  },
+  "coverage": {
+    "assertions_by_predicate": {
+      "http://data.europa.eu/m8g/hasCompetentAuthority": 7,
+      "http://purl.org/dc/terms/language": 7,
+      "http://purl.org/dc/terms/publisher": 2203,
+      "http://purl.org/dc/terms/rights": 4412,
+      "http://purl.org/dc/terms/source": 2280,
+      "http://purl.org/dc/terms/spatial": 7,
+      "http://www.w3.org/ns/dcat#dataset": 14,
+      "http://www.w3.org/ns/dcat#record": 2203,
+      "http://www.w3.org/ns/dcat#resource": 2203,
+      "http://www.w3.org/ns/prov#wasDerivedFrom": 2280,
+      "http://www.w3.org/ns/prov#wasGeneratedBy": 4406,
+      "http://xmlns.com/foaf/0.1/primaryTopic": 2203,
+      "https://schema.org/translationOfWork": 1
+    },
+    "governed_predicates": 13,
+    "route_bearing_semantic_identities": 6733
+  },
+  "cpsv_ap": {
+    "counts": {
+      "competent_authority_assertions": 7,
+      "excluded_service_kind_records": 4,
+      "public_organisations": 1,
+      "public_services": 7,
+      "validation_failures": 0
+    },
+    "endorsement": "No EU, SEMIC or HM Land Registry endorsement is claimed.",
+    "excluded_records": [
+      {
+        "decision": "insufficient-competent-authority-evidence",
+        "evidence_refs": [
+          "CPSV-E-EXC-PRICE-TRENDS"
+        ],
+        "reason": "The frozen result supports a public transaction classification, but its description does not independently establish HM Land Registry's delivery responsibility; publisher attribution alone is insufficient.",
+        "record_id": "hmlr-be49a600be0e62069e499c47",
+        "record_type": "transaction"
+      },
+      {
+        "decision": "not-a-public-service",
+        "evidence_refs": [
+          "CPSV-E-EXC-LINKED-DATA"
+        ],
+        "reason": "This is a data publishing and query service. DCAT DataService remains the primary model and no CPSV PublicService projection is asserted.",
+        "record_id": "hmlr-092793dc48dda497521c1685",
+        "record_type": "linked-data-service"
+      },
+      {
+        "decision": "not-a-public-service",
+        "evidence_refs": [
+          "CPSV-E-EXC-SERVICE-TERMS"
+        ],
+        "reason": "This record describes terms and conditions for a service, not the public service itself.",
+        "record_id": "hmlr-642a752202e2b803c6ab3382",
+        "record_type": "service-terms"
+      },
+      {
+        "decision": "not-a-public-service",
+        "evidence_refs": [
+          "CPSV-E-EXC-NATIONAL-POLYGON"
+        ],
+        "reason": "This is a licensed data access service. DCAT DataService remains the primary model and no CPSV PublicService projection is asserted.",
+        "record_id": "hmlr-c56216cfedae47b9f67a8dc5",
+        "record_type": "licensed-data-service"
+      }
+    ],
+    "mandatory_projection_checks": {
+      "competent_authority": "passed",
+      "description": "passed",
+      "identifier": "passed",
+      "name": "passed",
+      "public_organisation_preferred_label": "passed",
+      "public_organisation_spatial": "passed"
+    },
+    "mapping": {
+      "candidate_count": 11,
+      "evidence_count": 19,
+      "excluded_count": 4,
+      "mapped_count": 7,
+      "path": "source/cpsv-service-mappings.json",
+      "schema": "okf-hmlr-cpsv-service-mapping-validation.v1",
+      "sha256": "3270866d4c395fc4ddc6ce1934d579a2a9dbc62383cb9b049da6a649959f7f20",
+      "status": "conformant",
+      "type_crosswalk_sha256": "b1d0e9ec400060ed594127a366afd9ee44ed7eb385eac2ed84f6da1652537033"
+    },
+    "mapping_scope": "Selective metadata-level interoperability mapping for genuine HMLR public services; it is not a claim that every bundle entity is a public service or that the bundle is a complete ontology.",
+    "official_shacl_execution": {
+      "reason": "The official CPSV-AP 3.2.0 SHACL file is vendored and digest-bound, but this build performs an explicit bounded projection check rather than claiming general SHACL conformance.",
+      "status": "not-run"
+    },
+    "schema": "okf-hmlr-cpsv-ap-projection-validation.v1",
+    "standard": {
+      "name": "Core Public Service Vocabulary Application Profile",
+      "specification": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/",
+      "vendored_identity_sha256": "e16e63d71340ac52515680e2136853b608256b849bde6c1ea0fbb9380ffba6fe",
+      "version": "3.2.0"
+    },
+    "status": "passed"
+  },
+  "evidence_identity_set_sha256": "f6fa056bb5a2547e359094715a763e078e470574ed921e28a6abf3b4fcf9c7db",
+  "evidence_row_set_sha256": "bc44ab318db57a4e8225ce4619989dfc2c4975db160d47da453bdf23b7a52524",
+  "parity": {
+    "direct_reified_runtime": true,
+    "identity": true,
+    "routes": true
+  },
+  "profile_validation": {
+    "bundle": "conformant",
+    "inference": "not-run",
+    "iri_route_registry": "conformant",
+    "predicate_registry": "conformant",
+    "semantic_model": "conformant"
+  },
+  "resources": {
+    "canonical_context": {
+      "media_type": "application/ld+json",
+      "path": "data/semantic/semantic-context.jsonld",
+      "sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b"
+    },
+    "cpsv_ap_context": {
+      "media_type": "application/ld+json",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap.jsonld",
+      "sha256": "105ae8fcb89a0990d00c7a4f65499e33463e03547d56c603f4135043b6f3a857"
+    },
+    "cpsv_ap_shapes": {
+      "media_type": "text/turtle",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap-SHACL.ttl",
+      "sha256": "84c51ca629a8e297fe9276669b9702b31d49dd50495ad065872fca8b326fd0bc"
+    },
+    "cpsv_ap_vendor_lock": {
+      "media_type": "application/json",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0.vendor-lock.json",
+      "sha256": "762c1d4fa53ea9790145609d17b15f7b2c5867648f09c5f6cd7724abcba82885"
+    },
+    "cpsv_ap_vocabulary": {
+      "media_type": "text/turtle",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap.ttl",
+      "sha256": "f4cbd307f30449a5ebbf507e91b3aa24cf80f9b18c491a44ff04659484e0bc3f"
+    },
+    "cpsv_service_mapping": {
+      "media_type": "application/json",
+      "path": "data/semantic/cpsv-service-mappings.json",
+      "sha256": "3270866d4c395fc4ddc6ce1934d579a2a9dbc62383cb9b049da6a649959f7f20"
+    },
+    "iri_route_registry": {
+      "media_type": "application/json",
+      "path": "data/semantic/iri-route-registry.json",
+      "sha256": "ef109963f7ad0702416301431269564654e4c25d9a493fbe5d52522dc99c889b"
+    },
+    "predicate_registry": {
+      "media_type": "application/json",
+      "path": "data/semantic/predicate-registry.json",
+      "sha256": "b6cb634022926f6b1a8b49ac3eacaa304b3f33bcdb1a27db62e77160d3cf1542"
+    },
+    "profile_shapes": {
+      "media_type": "text/turtle",
+      "path": "data/semantic/profile-shapes.ttl",
+      "sha256": "bffe0611abae937683d30e7ecb76d81b6b49c20cc87a70e709f83aa6569b074c"
+    },
+    "runtime_row_schema": {
+      "media_type": "application/schema+json",
+      "path": "data/semantic/relationship-runtime-row.schema.json",
+      "sha256": "cffb0b01077d210cd1e34140f6feb5c5835f9d1952804759ad3432294a96f3d4"
+    },
+    "semantic_model": {
+      "media_type": "application/json",
+      "path": "data/semantic/model.json",
+      "sha256": "47160a085290f7aa6789a9c186f2ae075a7beb6810731f5617941673cb4ae1c4"
+    }
+  },
+  "rich_relationship_runtime": {
+    "assertion_identity_set_sha256": "11d0570fef8d836687f05c883f965960c0b362e8788d1fee9e96909bf4ae9de5",
+    "buckets": 256,
+    "chunks": 89,
+    "consumer_limits": {
+      "cache_policy": {
+        "interpretation": "consumer eviction ceiling, not a producer route-chunk ceiling",
+        "maximum_cached_chunks": 16
+      },
+      "consumer": {
+        "commit_sha": "4bb7b92a64b7ba69bde9b1e86786217338cd166d",
+        "large_corpus_source_sha256": "d5fdbeb7c5b586d2d0b6b576d997a391fab8f042ff1e826c551e29bb05d0f1b8",
+        "version": "0.6.0"
+      },
+      "limits": {
+        "maximum_json_bytes": 67108864,
+        "maximum_relationship_rows": 300000,
+        "maximum_rich_relationship_cached_chunks": 16,
+        "maximum_rich_relationship_chunk_bytes": 8388608,
+        "maximum_rich_relationship_chunk_rows": 50000,
+        "maximum_rich_relationship_chunks": 10000,
+        "maximum_rich_relationship_decoded_chunk_bytes": 67108864,
+        "maximum_rich_relationship_evidence_items": 16,
+        "maximum_rich_relationship_hydration_compressed_bytes": 67108864,
+        "maximum_rich_relationship_planes": 16,
+        "maximum_rich_relationship_retained_text_units": 33554432,
+        "maximum_rich_relationship_route_chunks": 64,
+        "maximum_rich_relationship_route_rows": 100000,
+        "maximum_rich_relationship_row_text_units": 32768,
+        "maximum_rich_relationship_supporting_assertions": 128
+      },
+      "maxima": {
+        "chunk_compressed_bytes": 50890,
+        "chunk_decoded_bytes": 562527,
+        "chunk_retained_text_units": 396448,
+        "chunk_rows": 250,
+        "full_hydration_chunks": 89,
+        "full_hydration_compressed_bytes": 3554338,
+        "full_hydration_declared_rows": 22226,
+        "full_hydration_retained_text_units": 31445723,
+        "locator_bucket_compressed_bytes": 3531,
+        "locator_bucket_decoded_bytes": 29062,
+        "locator_manifest_bytes": 75753,
+        "route_chunks": 19,
+        "route_compressed_bytes": 791082,
+        "route_declared_rows": 4750,
+        "route_incident_rows": 4420,
+        "route_retained_text_units": 6629406,
+        "row_evidence_items": 2,
+        "row_retained_text_units": 2255,
+        "row_supporting_assertions": 0,
+        "runtime_manifest_bytes": 42343,
+        "total_chunks": 89,
+        "total_planes": 1,
+        "total_rows": 22226
+      },
+      "status": "passed"
+    },
+    "default_planes": [
+      "core"
+    ],
+    "routes": 6733,
+    "rows": 22226,
+    "status": "passed"
+  },
+  "schema": "okf-hmlr-semantic-assertion-validation.v1",
+  "schema_binding": {
+    "bundle_path": "data/semantic/semantic-assertion.schema.json",
+    "bytes": 7308,
+    "draft": "https://json-schema.org/draft/2020-12/schema",
+    "id": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json",
+    "network_resolution_allowed": false,
+    "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc",
+    "source_path": "schemas/semantic-assertion.schema.json"
+  },
+  "status": "conformant",
+  "triple_set_sha256": "dbaa00ad9925b6ed00eee8e6dd48a12bd1de91b3bd5049603e89dcc32be1b3c7"
+}

@@ -14,6 +14,7 @@ from urllib.parse import urldefrag
 
 ROOT = Path(__file__).resolve().parents[1]
 SEARCH_CONTRACT = ROOT / "pages" / "search-contract.json"
+EXPLORER_CONSUMER_LOCK = ROOT / "contracts" / "okf-explorer.consumer-lock.json"
 SEARCH_INDEX_SCHEMA = "okf-hmlr-search-index.v1"
 CATALOGUE_SCHEMA = "okf-hmlr-catalogue.v2"
 CATALOGUE_SCHEMAS = {"okf-hmlr-catalogue.v1", CATALOGUE_SCHEMA}
@@ -248,14 +249,14 @@ def explorer_ascii_collation_key(value: str) -> tuple[tuple[int, ...], tuple[int
             case.append(1)
         else:
             raise ValueError(
-                "locked Explorer v0.5.7 tree identity accepts only printable "
+                "locked Explorer v0.6.0 tree identity accepts only printable "
                 f"ASCII path names: {value!r}"
             )
     return tuple(primary), tuple(case)
 
 
 def explorer_ordered_bundle_files(bundle: Path) -> list[Path]:
-    """Reproduce the locked Explorer v0.5.7 runner's recursive file order."""
+    """Reproduce the locked Explorer v0.6.0 runner's recursive file order."""
 
     files: list[Path] = []
 
@@ -323,6 +324,82 @@ def validate_forbidden_targets(
                 )
 
 
+def locked_runtime_consumer() -> dict:
+    """Return the exact Explorer identity required by candidate journeys."""
+    lock = json.loads(EXPLORER_CONSUMER_LOCK.read_text(encoding="utf-8"))
+    if lock.get("schema") != "okf-explorer-consumer-lock.v1":
+        raise ValueError("Explorer consumer lock has an unsupported schema")
+    consumer = lock.get("consumer")
+    if not isinstance(consumer, dict):
+        raise ValueError("Explorer consumer lock lacks consumer metadata")
+    sources = consumer.get("contract_sources")
+    if not isinstance(sources, list):
+        raise ValueError("Explorer consumer lock lacks contract sources")
+    source_digests = {
+        row.get("path"): row.get("sha256")
+        for row in sources
+        if isinstance(row, dict)
+    }
+    executable_build = consumer.get("executable_build")
+    if not isinstance(executable_build, dict):
+        raise ValueError("Explorer consumer lock lacks executable-build metadata")
+    required = {
+        "consumer_lock": "../contracts/okf-explorer.consumer-lock.json",
+        "package": consumer.get("name"),
+        "release_tag": consumer.get("release_tag"),
+        "version": consumer.get("version"),
+        "source_commit": consumer.get("commit_sha"),
+        "source_dirty": False,
+        "dependency_lock_sha256": source_digests.get(
+            "apps/okf-explorer/pnpm-lock.yaml"
+        ),
+        "runner_sha256": source_digests.get(
+            "apps/okf-explorer/scripts/run_external_bundle_acceptance.mjs"
+        ),
+        "build_manifest_sha256": executable_build.get("build_manifest_sha256"),
+    }
+    if (
+        required["release_tag"] != f"v{required['version']}"
+        or not all(
+            isinstance(required[field], str) and required[field]
+            for field in required
+            if field != "source_dirty"
+        )
+    ):
+        raise ValueError("Explorer consumer lock identity is incomplete")
+    return required
+
+
+def validate_runtime_consumer(
+    manifest: dict, receipt: dict
+) -> dict:
+    """Bind a runtime receipt to the exact governed Explorer checkout."""
+    required = locked_runtime_consumer()
+    if manifest.get("required_consumer") != required:
+        raise ValueError("runtime journey manifest differs from the Explorer lock")
+    receipt_consumer = receipt.get("consumer")
+    if not isinstance(receipt_consumer, dict):
+        raise ValueError("runtime receipt lacks Explorer consumer identity")
+    receipt_fields = {
+        field: required[field]
+        for field in (
+            "package",
+            "version",
+            "source_commit",
+            "source_dirty",
+            "dependency_lock_sha256",
+            "runner_sha256",
+            "build_manifest_sha256",
+        )
+    }
+    if any(
+        receipt_consumer.get(field) != value
+        for field, value in receipt_fields.items()
+    ):
+        raise ValueError("runtime receipt differs from the required Explorer consumer")
+    return receipt_fields
+
+
 def validate_runtime_evidence(
     manifest_path: Path,
     receipt_path: Path,
@@ -336,6 +413,51 @@ def validate_runtime_evidence(
         raise ValueError("runtime journey manifest has an unsupported schema")
     if manifest.get("calibration_suite_sha256") != suite_sha256:
         raise ValueError("runtime journey manifest does not match the question suite")
+    if manifest.get("bundle_descriptor") != "okf-explorer.json":
+        raise ValueError("runtime journey manifest has an unsupported descriptor path")
+    expected_identity = manifest.get("expected_identity")
+    if not isinstance(expected_identity, dict):
+        raise ValueError("runtime journey manifest lacks expected bundle identity")
+    descriptor = json.loads(
+        (bundle / manifest["bundle_descriptor"]).read_text(encoding="utf-8")
+    )
+    if not isinstance(descriptor, dict):
+        raise ValueError("runtime bundle descriptor must be an object")
+
+    def first_string(*values: object) -> str | None:
+        return next(
+            (
+                value
+                for value in values
+                if isinstance(value, str) and value
+            ),
+            None,
+        )
+
+    actual_identity = {
+        "schema": first_string(
+            descriptor.get("schema"),
+            descriptor.get("format"),
+            descriptor.get("type"),
+        ),
+        "id": first_string(
+            descriptor.get("bundle_id"),
+            descriptor.get("id"),
+            descriptor.get("@id"),
+        ),
+        "version": first_string(
+            descriptor.get("version"), descriptor.get("bundle_version")
+        ),
+        "snapshot": first_string(
+            descriptor.get("snapshot"),
+            descriptor.get("snapshot_id"),
+            descriptor.get("data", {}).get("snapshot")
+            if isinstance(descriptor.get("data"), dict)
+            else None,
+        ),
+    }
+    if actual_identity != expected_identity:
+        raise ValueError("runtime journey manifest differs from the bundle identity")
     journey_rows = manifest.get("journeys")
     if not isinstance(journey_rows, list):
         raise ValueError("runtime journey manifest lacks journeys")
@@ -411,6 +533,7 @@ def validate_runtime_evidence(
         or receipt.get("status") != "passed"
     ):
         raise ValueError("runtime journey receipt is not passed")
+    consumer = validate_runtime_consumer(manifest, receipt)
     receipt_manifest = receipt.get("journey_manifest")
     if (
         not isinstance(receipt_manifest, dict)
@@ -424,6 +547,12 @@ def validate_runtime_evidence(
         or receipt_bundle.get("tree") != actual_tree
     ):
         raise ValueError("runtime receipt does not bind the exact bundle tree")
+    if (
+        not isinstance(expected_identity, dict)
+        or receipt_bundle.get("identity") != expected_identity
+        or receipt_bundle.get("expected_identity") != expected_identity
+    ):
+        raise ValueError("runtime receipt does not bind the expected bundle identity")
     receipt_journeys = receipt.get("journeys")
     if not isinstance(receipt_journeys, list):
         raise ValueError("runtime receipt lacks journey outcomes")
@@ -450,6 +579,7 @@ def validate_runtime_evidence(
         "receipt_path": str(receipt_path),
         "receipt_sha256": sha256_bytes(receipt_path.read_bytes()),
         "bundle_tree": actual_tree,
+        "consumer": consumer,
         "journey_count": len(journey_rows),
         "question_count": count,
         "source_resolution_coverage": source_assertions / count if count else 0,
@@ -657,7 +787,7 @@ def validate_acceptance_review(
             )
         if row.get("safety_behavior_verified") is not True:
             raise ValueError(
-                f"{row['id']}: held-out adversarial safety behavior is not verified"
+                f"{row['id']}: held-out adversarial safety behaviour is not verified"
             )
     if len(adversarial_ids) != len(adversarial):
         raise ValueError("duplicate held-out adversarial review ID")

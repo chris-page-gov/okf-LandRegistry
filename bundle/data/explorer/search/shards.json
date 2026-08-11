@@ -3,15 +3,15 @@
   "shards": {
     "filters": [
       {
-        "bytes": 11440,
+        "bytes": 11486,
         "path": "data/explorer/search/filters/access.json",
-        "sha256": "f6fd3b47f4e69713a4d5cb081866747a7b2d94786b115173cfcedfe76b33c1ed",
+        "sha256": "04cf86bdb1e30d54a2446bcd5b9bdb9594ccd43817440145bf8c012144c4dc55",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 10160,
+        "bytes": 10095,
         "path": "data/explorer/search/filters/access_state.json",
-        "sha256": "8e456fde794cb126edbe09e99ec6f18ece5cf146cc92065d51ad128329d141a8",
+        "sha256": "8cab8890bcd8c72c7bd9728aae1d9716e186f9b46d6498c3a5ca1cb66dbab23f",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -45,9 +45,9 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 4269,
+        "bytes": 4294,
         "path": "data/explorer/search/filters/licence.json",
-        "sha256": "f89bafeb0ebb525d92f988a45a0d25720dd80eefd75be946f822060ce4eace48",
+        "sha256": "3f30f8655f35b34f1d8ae55fb402bd0518519091f3797c9f1ed3139b46e4575e",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -75,21 +75,21 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 10066,
+        "bytes": 10124,
         "path": "data/explorer/search/filters/rights_state.json",
-        "sha256": "d7799dc3caa7fe3da57e177db1a0afbd959e2ed5eebcc01132fd908c354e1f66",
+        "sha256": "f848fd9d207e8f5e60614d9b4d424c9e0b0a893e9b9c9ed5b1f4cbb25d2e8905",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 10246,
+        "bytes": 10281,
         "path": "data/explorer/search/filters/service.json",
-        "sha256": "981ac713fcea5b5d19744faab8afbfd7532baea329adfcafe3867f6aaeb735db",
+        "sha256": "57617901312f661091b6a34150ad066ce91eeb95fc1fe1ba96884bb72f5d6af9",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 10252,
+        "bytes": 10287,
         "path": "data/explorer/search/filters/source_family.json",
-        "sha256": "6d442a16d967a70745c2c004b5429860d836fe532d37e179f880c2ee6144bbe4",
+        "sha256": "dcf21b386adbee2ef561d6d3b1e7c7475e483fab8b093ed3ee3d96ef9e810a34",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -149,9 +149,9 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 506,
+        "bytes": 755,
         "path": "data/explorer/search/lexicon-7.json",
-        "sha256": "00b3c9c65e7e4b6eacf64d323a73035868e28b0ed1991a370ddd0bbe471e53df",
+        "sha256": "9b39a50c75f63a820f06dbfe840013e4210cb0e210b611554628e07ce4fc039e",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -161,21 +161,21 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 32243,
+        "bytes": 32152,
         "path": "data/explorer/search/lexicon-a.json",
-        "sha256": "94329d51b3f1f82af9100348d8cdc12efec2619823efb82cbc8e5421cd386614",
+        "sha256": "6bb136b0fd1ecb5d12a6dd6df017161c95f86c7333e5abe4d8bfe4f0663eae6d",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 9368,
+        "bytes": 9369,
         "path": "data/explorer/search/lexicon-b.json",
-        "sha256": "ecdeb24f5570b0db0f9708e5163e51d285298e9740474e0675422b04554912d1",
+        "sha256": "3d3131cdaaca5f8acece410811ee0cc100dce08e835c87861184402d5bd599de",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 36458,
+        "bytes": 36459,
         "path": "data/explorer/search/lexicon-c.json",
-        "sha256": "04c2423b5d1ce8e55e07e7982064b9af8bbe460d2aa8d91cc0726c6427df5bbc",
+        "sha256": "d2068367ede6e11e3b020d830390662617253575e10125d28bd346409dad6f4f",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -191,15 +191,15 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 12308,
+        "bytes": 12392,
         "path": "data/explorer/search/lexicon-f.json",
-        "sha256": "567e27f41c697bafcb6ee5d817562e9618e59f825b7f73e1cb7d26b7ec0cea57",
+        "sha256": "d0e68d3d992d9b489492bee49bd97fd8b8a890c652c96651b1890e58f1056e0e",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
         "bytes": 9423,
         "path": "data/explorer/search/lexicon-g.json",
-        "sha256": "0879f624a1981c73a9816a32d9c2a5147811bd12b70b1525bb96020daa4cea7e",
+        "sha256": "7b79ff868d5ef3d64eea35639eb23bd1a22bdefbcc834ea0886ddbc736cff203",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -275,9 +275,9 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 14832,
+        "bytes": 14750,
         "path": "data/explorer/search/lexicon-t.json",
-        "sha256": "caa658a98c636b070691959bd73181c65510882d74eae8ec77d886b551aa167f",
+        "sha256": "6c1256aba7d834fd3d53c5b8c2c2d0f7876ef60b7d78639b41363397d9594530",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -355,9 +355,9 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 162,
+        "bytes": 266,
         "path": "data/explorer/search/postings-7.json",
-        "sha256": "a2ae9af941f19cb603b2dade7676b11798da1b4b0223174cd75eb13edb7bdc81",
+        "sha256": "924817899313a7f6cdbd7b0c1496932d6ec35dee05d9f87b1d57781171282ba6",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -367,21 +367,21 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 76964,
+        "bytes": 76926,
         "path": "data/explorer/search/postings-a.json",
-        "sha256": "b97aa97e065bb95507d481940b5ac3a1d69c9c4c218f591bc1adc13f92b18767",
+        "sha256": "27585453cc2988317996a33552c56bc0d63f8be2862baf9a341c425330d74364",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 15306,
+        "bytes": 15307,
         "path": "data/explorer/search/postings-b.json",
-        "sha256": "7f407c58cfe10013de834cfbf90a3f7c55cfe454a3c6b04da55838ddf3784f1c",
+        "sha256": "b95e918b0a7246e1c6f834f0c8c68b4c1388d06b64d589241392aebd4db45b0f",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 57357,
+        "bytes": 57358,
         "path": "data/explorer/search/postings-c.json",
-        "sha256": "b94f8aec9f6649d7628fd954ac5c02f2d436b7f450cc13ab84c92f5a5fb75220",
+        "sha256": "5a3c282f617722ac7632ab8b0555efd208bb38abc61e5ae15f5c1fdd8fc569da",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -397,15 +397,15 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 46045,
+        "bytes": 46075,
         "path": "data/explorer/search/postings-f.json",
-        "sha256": "123b5077eb603ab31cc5dfb711f3a40dd8a44c918ae202ae62d1322eec874ee4",
+        "sha256": "d9f1c85dc13c797b48be12ee3b2e0fc58524198c0c64d660631ba1fa0b9b540f",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 63034,
+        "bytes": 63001,
         "path": "data/explorer/search/postings-g.json",
-        "sha256": "e100918dae5e4ad2be6364eb60c9f93fb553c97820568a63a6700002defa8f1c",
+        "sha256": "51e03ce5c8fe8fc459866e6c3e2cfadc4f40f0ad1d0ba1192b19928e9b5afaab",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -433,9 +433,9 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 72894,
+        "bytes": 72895,
         "path": "data/explorer/search/postings-l.json",
-        "sha256": "11a2643c30e5ca4320d580b8f44e92ac27a61ac9d6e1f14fa34b020da97604cc",
+        "sha256": "895ab522f80874c33647baddcb5bdc4a751c784710da3df4471b2f8de664616b",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -481,9 +481,9 @@
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 68613,
+        "bytes": 68583,
         "path": "data/explorer/search/postings-t.json",
-        "sha256": "88f7aeabc4159dcecf1cec709365409fbd7613e2c7b1ceddf3cbfb6f6fa50705",
+        "sha256": "e93ced56c42c8a4fe85fd9e5998734395731172101de62054f5a8369f83f29dd",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
@@ -519,57 +519,57 @@
     ],
     "result_docs": [
       {
-        "bytes": 1000594,
+        "bytes": 1008038,
         "path": "data/explorer/datasets-000.json",
-        "sha256": "a2eb4972d7fb539089359abddbb4006bbd30f407e7c1100236fd0d5a2b55bc03",
+        "sha256": "7aa44ec9d8b41c54688f1dc5e41a6718d84e6e158a2259609ba751ca97cffcb6",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 987268,
+        "bytes": 994606,
         "path": "data/explorer/datasets-001.json",
-        "sha256": "b1161e53a43991027c379116a06b79ba17d4e259dae5ee24cbd28227f3f1bc2f",
+        "sha256": "65a58934358368f2d110d531ed2ecf009fefb09c49bf61d443cb5cfd77b3d58e",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 1049091,
+        "bytes": 1059347,
         "path": "data/explorer/datasets-002.json",
-        "sha256": "926d32eb397d1d4369428b4048b005d820bf89dd490fae3dae1ce475c8c49457",
+        "sha256": "a2767102cef21a251c64804f1b9f7ab675a0b3fe61db1c823864587987d90083",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 1017712,
+        "bytes": 1026049,
         "path": "data/explorer/datasets-003.json",
-        "sha256": "330e60a7a11fe3d290bebcc34b177407b53be31db34439c536259c3eaf0a5755",
+        "sha256": "ca9a052f861b6b6828809902cffa13d778a8b10af1257320d484004ec73bd5c2",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 997011,
+        "bytes": 1004626,
         "path": "data/explorer/datasets-004.json",
-        "sha256": "276e9c45840f1e5a5b3a3e6bc307ad751a80be22f366b230fb74c700c29b4377",
+        "sha256": "8d01a29eeed7428fa09cc62ed23c5bf3ed3ed005d90bc27bad36973e1c642801",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 1019814,
+        "bytes": 1028340,
         "path": "data/explorer/datasets-005.json",
-        "sha256": "d67064c26768f4bc099ed1a4104a736506a7e0c9194c5df97387008bd8f75fbd",
+        "sha256": "6051f241aef526d1294425d5f8fe3642f48b0d2bfa4bc36a57c18c213010fc80",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 1012021,
+        "bytes": 1019525,
         "path": "data/explorer/datasets-006.json",
-        "sha256": "77051b206450197f4b557922a598dc2cc78ab2bafdc23ebab1c0139e9672969d",
+        "sha256": "4576b36f35d45b9f1051f6a228ebbdad9757b766cacbeaa7df429260219d6cd4",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 1030189,
+        "bytes": 1037189,
         "path": "data/explorer/datasets-007.json",
-        "sha256": "fb523e79263d4dcccb59f3dff82c97a0b71536270274d152b01550c75aafe01d",
+        "sha256": "23434f01bc4ed7f34628ea270705c17a32c14a223b45c0931968f38c04afa173",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {
-        "bytes": 852764,
+        "bytes": 858846,
         "path": "data/explorer/datasets-008.json",
-        "sha256": "427046ce92d3159d8909e082c83ac5149cfed30c43db86929e0cf27ee904b090",
+        "sha256": "a7e07ff2b909db407cb3d17c4a9a210904666772d9e8ec7423b20624aa338f14",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       }
     ],
@@ -577,7 +577,7 @@
       {
         "bytes": 106839,
         "path": "data/explorer/search/doc-map.json",
-        "sha256": "3c4a9284ab3b80d7a756c30cf5255cfd2941eb39bacb767336cd11e97343fee1",
+        "sha256": "32d3d01b0bee1ce38f9c31804968010c4856653d059e4533070448117acb1eda",
         "snapshot": "hmlr-public-metadata-v0.2.0"
       },
       {

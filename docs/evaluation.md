@@ -1,14 +1,16 @@
 # Evaluation And Quality
 
-Status: 24-question v0.2.0 calibration candidate at the research cut-off of
-29 July 2026. The v0.1.0 acceptance review is historical and cannot approve
-changed questions, bundle bytes or a different consumer digest.
+Status: 24-question v0.3.0 calibration candidate at the research cut-off of
+29 July 2026. Candidate bytes do not assert the current state of the two
+exact-Explorer runtime receipts or independent review; version-scoped,
+digest-bound evidence does. Historical reviews and receipts cannot approve
+changed bundle bytes, journey manifests or a different consumer digest.
 
 The evaluation scaffold tests whether a static HM Land Registry OKF
 publication helps people find official evidence while preserving legal,
 licensing, access, temporal, provenance, accessibility and language
 boundaries. It does not test the correctness of the underlying land register,
-provide legal advice or authorize access to a transactional service.
+provide legal advice or authorise access to a transactional service.
 
 Machine-readable assets:
 
@@ -17,20 +19,27 @@ Machine-readable assets:
   caveat IDs;
 - [`../evaluation/journeys.json`](../evaluation/journeys.json) — 12 static
   reference-only search/filter/detail hypotheses;
-- [`../evaluation/explorer-v0.2.0-journeys.json`](../evaluation/explorer-v0.2.0-journeys.json)
+- [`../evaluation/explorer-v0.3.0-journeys.json`](../evaluation/explorer-v0.3.0-journeys.json)
   — executable identity, safety, state, resource and relationship journeys;
-- [`../evaluation/explorer-search-calibration-v0.2.0.json`](../evaluation/explorer-search-calibration-v0.2.0.json)
-  — all 24 positive retrieval queries executed by the exact pinned Explorer
-  search worker; and
+- [`../evaluation/explorer-search-calibration-v0.3.0.json`](../evaluation/explorer-search-calibration-v0.3.0.json)
+  — 26 executable journeys covering all 24 positive retrieval questions in
+  the exact pinned Explorer search worker; and
 - [`../personas/personas-and-user-stories.json`](../personas/personas-and-user-stories.json)
   — explicit question → story → persona traceability.
 
+Both v0.3.0 manifests require the exact clean Explorer v0.6.0 checkout at
+commit `4bb7b92a64b7ba69bde9b1e86786217338cd166d`, its locked dependency tree,
+runner and canonical build manifest. The v0.2.0 manifests remain immutable
+digest-bound historical regression inputs. The builder retains and hashes
+them so regressions remain detectable, but they are not current execution
+manifests or v0.3.0 candidate evidence.
+
 Expected propositions are bounded acceptance expectations, not verified legal
 answers. The deterministic calibration baseline executes each
-`must_not_retrieve` assertion. A new independent v0.2.0 review must verify
+`must_not_retrieve` assertion. A new independent v0.3.0 review must verify
 required caveat IDs and expected propositions against named official sources
-after the candidate is frozen. Reviewer-owned held-out cases remain outside
-the calibration suite.
+after the v0.3.0 candidate is frozen. Reviewer-owned held-out cases remain
+outside the calibration suite.
 
 ## First-Release Coverage
 
@@ -78,8 +87,8 @@ average score.
 | `HF-LEGAL-BOUNDARY` | General or indicative geometry is presented as an exact legal boundary or definitive title extent. |
 | `HF-LICENCE-ACCESS` | Open/free reuse is claimed despite a fee, account, bespoke licence, third-party right or other restriction. |
 | `HF-DATE-CURRENCY` | A catalogue, observation or bundle date is presented as dataset release, registration or legal currency. |
-| `HF-AUTHORITY` | Derived, normalized, catalogue or unofficial material is presented as an official HMLR assertion. |
-| `HF-RESTRICTED-AUTOMATION` | The publication invokes or appears to authorize automated restricted-service access or exposes a credential. |
+| `HF-AUTHORITY` | Derived, normalised, catalogue or unofficial material is presented as an official HMLR assertion. |
+| `HF-RESTRICTED-AUTOMATION` | The publication invokes or appears to authorise automated restricted-service access or exposes a credential. |
 | `HF-COVERAGE` | Completeness is claimed without a denominator, as-of date and exclusions. |
 | `HF-ACCESSIBILITY` | A critical task is not keyboard operable or lacks accessible names, focus, status or a non-visual equivalent. |
 | `HF-WELSH-LANGUAGE` | Welsh availability or content is erased, merged without language metadata or falsely described. |
@@ -133,6 +142,8 @@ Validate JSON syntax:
 python3 -m json.tool personas/personas-and-user-stories.json > /dev/null
 python3 -m json.tool evaluation/questions.json > /dev/null
 python3 -m json.tool evaluation/journeys.json > /dev/null
+python3 -m json.tool evaluation/explorer-v0.3.0-journeys.json > /dev/null
+python3 -m json.tool evaluation/explorer-search-calibration-v0.3.0.json > /dev/null
 ```
 
 When this repository is checked out beside `okf-explorer`, validate the
@@ -146,10 +157,27 @@ node ../okf-explorer/scripts/evaluate_okf_explorer.mjs \
   --journeys evaluation/journeys.json
 ```
 
-Browser execution uses the exact locked Explorer version and the two v0.2.0
-journey manifests. `evaluation/journeys.json` is reference-only. Record
-screenshots or traces only with reproducible viewport, bundle digest, route and
-capture context; conversational screenshots are not a durable baseline.
+Candidate contract checks are local and do not create runtime evidence:
+
+```sh
+.venv/bin/python -m unittest \
+  tests.test_evaluate tests.test_explorer_contract -v
+```
+
+Browser execution must use the exact locked Explorer v0.6.0 checkout and the
+two v0.3.0 journey manifests. From that Explorer checkout, run the governed
+`acceptance:bundle` command separately for each manifest only after the final
+candidate bundle is frozen. Each receipt must record the expected clean source
+commit and executable-build digests, the exact journey-manifest digest and the
+exact bundle tree. Candidate bytes retain the G4, G5 and G6 `not_run`
+baseline; only independently reviewed, version-scoped receipts for the exact
+digest record their authoritative state.
+
+`evaluation/journeys.json` is reference-only. Both v0.2.0 Explorer manifests
+are immutable, digest-bound historical regression inputs, not current
+execution manifests. Record screenshots or traces only with a reproducible
+viewport, bundle digest, route and capture context; conversational screenshots
+are not a durable baseline.
 
 ## Promotion Criteria
 

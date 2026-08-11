@@ -159,7 +159,7 @@
       "main_risks": [
         "Applying the Open Government Licence to content governed by a bespoke or third-party licence.",
         "Using a CKAN or catalogue modification date as dataset currency.",
-        "Presenting normalized or derived metadata as an official HMLR assertion."
+        "Presenting normalised or derived metadata as an official HMLR assertion."
       ],
       "evidence_of_success": [
         "Each result exposes source family, canonical URL, observation date and derivation.",

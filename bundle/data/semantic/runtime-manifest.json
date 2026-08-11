@@ -1,0 +1,931 @@
+{
+  "@id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime/relationships",
+  "assertion_contract": "data/semantic/semantic-assertion.schema.json",
+  "default_planes": [
+    "core"
+  ],
+  "generated_at": "2026-08-10T21:42:03Z",
+  "loading_policy": "Load the active core plane by default. No historical or rejected plane is published in this candidate.",
+  "planes": [
+    {
+      "active": true,
+      "assertions": 22226,
+      "authority_classes": [
+        "derived"
+      ],
+      "chunks": [
+        {
+          "bytes": 40960,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-000-79e947112243a213",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-000.json.gz",
+          "records": 250,
+          "sha256": "79e947112243a213f2fce1c1e8d9bc817404b98a9bd5eee973042591c76e29f3"
+        },
+        {
+          "bytes": 41152,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-001-6b9947ba4ead9c4f",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-001.json.gz",
+          "records": 250,
+          "sha256": "6b9947ba4ead9c4fac4a8a9abe20d1920794000977ed15f388c9708418f0bc3a"
+        },
+        {
+          "bytes": 41319,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-002-69201f4634865632",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-002.json.gz",
+          "records": 250,
+          "sha256": "69201f4634865632291e3510bf7868a4ecd7bdfc025edbcd46b41360fd51b3a8"
+        },
+        {
+          "bytes": 41201,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-003-1105f4043e15f8e2",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-003.json.gz",
+          "records": 250,
+          "sha256": "1105f4043e15f8e2a7dc29a02e88603b25f08be0cceea5dd670368b66520cf71"
+        },
+        {
+          "bytes": 41259,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-004-5cc182844b715067",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-004.json.gz",
+          "records": 250,
+          "sha256": "5cc182844b715067876d0efc05789aa79e1e1f379d88734f5c6edef4b1f96e46"
+        },
+        {
+          "bytes": 40727,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-005-a8687f50efa4bb19",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-005.json.gz",
+          "records": 250,
+          "sha256": "a8687f50efa4bb19fb32771ae92f4e4e1675ea974c0bd6364560264a80af8492"
+        },
+        {
+          "bytes": 40838,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-006-882635708aac32a9",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-006.json.gz",
+          "records": 250,
+          "sha256": "882635708aac32a9fd1b0ac494bab920f07c0a0e9ef505d622eaf885112b9759"
+        },
+        {
+          "bytes": 41046,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-007-3c92957991ee90ed",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-007.json.gz",
+          "records": 250,
+          "sha256": "3c92957991ee90ed55cb80834cbaf4653cb9b670698a149b5bc58ddae9d65438"
+        },
+        {
+          "bytes": 41157,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-008-fad443253bbf6ada",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-008.json.gz",
+          "records": 250,
+          "sha256": "fad443253bbf6ada1bc43be881de214e1a568ec8a1e5099c95ec365d9ae40637"
+        },
+        {
+          "bytes": 41125,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-009-e44105a89068173a",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-009.json.gz",
+          "records": 250,
+          "sha256": "e44105a89068173ad1f36e77d583290369c5189465a8840fdb1f1e92d582ebf6"
+        },
+        {
+          "bytes": 41451,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-010-64ce79787dcd8112",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-010.json.gz",
+          "records": 250,
+          "sha256": "64ce79787dcd81125203d89bd14f6c5c27f24a4b655c541dd74736a6242a6ef1"
+        },
+        {
+          "bytes": 41163,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-011-ce1171d9e4cd1937",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-011.json.gz",
+          "records": 250,
+          "sha256": "ce1171d9e4cd1937e2659261a50a2891d1a38af1c42c7af9db52c27a5a61dc47"
+        },
+        {
+          "bytes": 40974,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-012-5af6abb8096eb178",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-012.json.gz",
+          "records": 250,
+          "sha256": "5af6abb8096eb1786f8627c94412531730d6cec2e0e5581f357f403f6a12fc3d"
+        },
+        {
+          "bytes": 40901,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-013-8fdcf4f37adb83d0",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-013.json.gz",
+          "records": 250,
+          "sha256": "8fdcf4f37adb83d0c5cb229f4dd34ac5d447f6027d68d49abd698e5167d1da25"
+        },
+        {
+          "bytes": 39643,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-014-7e439dd237b18422",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-014.json.gz",
+          "records": 250,
+          "sha256": "7e439dd237b1842288ce0fbc1df1abdf52715af9c1851b05f1642c007caf7447"
+        },
+        {
+          "bytes": 39014,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-015-f7d6d3ffc005f08b",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-015.json.gz",
+          "records": 250,
+          "sha256": "f7d6d3ffc005f08b640ebd5948950b7c3fabc9c5f012c2fb209acd58c7da2a85"
+        },
+        {
+          "bytes": 38659,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-016-9ecc080552b1e73f",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-016.json.gz",
+          "records": 250,
+          "sha256": "9ecc080552b1e73f2fe28a5c4ca29c03422f01876c9a8bfd5b87de9134b7b7bf"
+        },
+        {
+          "bytes": 43486,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-017-ccaba03558c5bce3",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-017.json.gz",
+          "records": 250,
+          "sha256": "ccaba03558c5bce3ab12d19b1783ca93bb39b79cb1c082a8683669a806a81d2d"
+        },
+        {
+          "bytes": 50182,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-018-876528f13fbaa625",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-018.json.gz",
+          "records": 250,
+          "sha256": "876528f13fbaa625cef57f1306dd4ad618dcd5cf99e9c4a90460a0e08dce8d05"
+        },
+        {
+          "bytes": 50890,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-019-e9998287f9c57d0e",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-019.json.gz",
+          "records": 250,
+          "sha256": "e9998287f9c57d0ecd487da8f780fa54b88f37f0cd8a81533eca019b10f8d0f2"
+        },
+        {
+          "bytes": 50775,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-020-105d680d4fdf426d",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-020.json.gz",
+          "records": 250,
+          "sha256": "105d680d4fdf426de63089166a6e84a15e707b628fbe424be2157a977990636f"
+        },
+        {
+          "bytes": 50734,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-021-0cff88698443d5eb",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-021.json.gz",
+          "records": 250,
+          "sha256": "0cff88698443d5eb954ed5758136b4b153cb0e210faf07ce9a8c4556e9149e86"
+        },
+        {
+          "bytes": 50668,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-022-830ec8a6d097e4d0",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-022.json.gz",
+          "records": 250,
+          "sha256": "830ec8a6d097e4d09b01848e5e12bf5d7715efff7da0327407f6b598cbfd4bdf"
+        },
+        {
+          "bytes": 50690,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-023-ad5d46992cb2dd30",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-023.json.gz",
+          "records": 250,
+          "sha256": "ad5d46992cb2dd3000850f1e471312a56f843910002610191595ea8115332568"
+        },
+        {
+          "bytes": 50522,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-024-d997724c678e7133",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-024.json.gz",
+          "records": 250,
+          "sha256": "d997724c678e71336772e315bf6689e78cba23bdac9a04a6a857f497802cb368"
+        },
+        {
+          "bytes": 49964,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-025-a7ab9d70bc5a8c12",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-025.json.gz",
+          "records": 250,
+          "sha256": "a7ab9d70bc5a8c12a2670792ee4559af4306da56c6946b2dba1aa9c795e465bc"
+        },
+        {
+          "bytes": 47693,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-026-52f8dd68fa1337d8",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-026.json.gz",
+          "records": 250,
+          "sha256": "52f8dd68fa1337d835281cfe81c5486122e927d215e2c4dce9111d7f70b054f3"
+        },
+        {
+          "bytes": 41314,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-027-e6d62917b4c043ab",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-027.json.gz",
+          "records": 250,
+          "sha256": "e6d62917b4c043ab1c9fb6774d745eb29293ff671e304c57597a758763c46d96"
+        },
+        {
+          "bytes": 41490,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-028-220bb5726bfad921",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-028.json.gz",
+          "records": 250,
+          "sha256": "220bb5726bfad921865f22a96aff3936446bca6a57086d4d10101d1a297c43bc"
+        },
+        {
+          "bytes": 41137,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-029-8065bbee5ddbc25d",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-029.json.gz",
+          "records": 250,
+          "sha256": "8065bbee5ddbc25d7eacb79bbd3a11cc365bccae879c3f8a46b9db72a28a69d2"
+        },
+        {
+          "bytes": 41471,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-030-774b60b3e46ff862",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-030.json.gz",
+          "records": 250,
+          "sha256": "774b60b3e46ff862422cdcc9eb6059e4d9b2970425b06683a81a58134c2379d3"
+        },
+        {
+          "bytes": 41121,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-031-ac6f14a717ac7732",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-031.json.gz",
+          "records": 250,
+          "sha256": "ac6f14a717ac77322f8983eea88548176e733940ee488a3b197f58b5a05ceb3d"
+        },
+        {
+          "bytes": 41421,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-032-6a3a6f9cca6ce997",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-032.json.gz",
+          "records": 250,
+          "sha256": "6a3a6f9cca6ce997b9149ae1b70928b3bfebc3d5a52f2551adfd053c6463aa52"
+        },
+        {
+          "bytes": 41258,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-033-a81fa64e3f872b13",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-033.json.gz",
+          "records": 250,
+          "sha256": "a81fa64e3f872b13b820021f06b8f422f9c978a831892e4c8c59824efcc73789"
+        },
+        {
+          "bytes": 41650,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-034-e3a2eb883225bc6c",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-034.json.gz",
+          "records": 250,
+          "sha256": "e3a2eb883225bc6c614d04c7b60e259574059b0f2596b0f700b16f5cd25e63b1"
+        },
+        {
+          "bytes": 41381,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-035-6679a8f520ea215a",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-035.json.gz",
+          "records": 250,
+          "sha256": "6679a8f520ea215a921506c4bfc1b02056ea8831110346fa3e437b51173cecdc"
+        },
+        {
+          "bytes": 41685,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-036-db7c047fdac8f5a2",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-036.json.gz",
+          "records": 250,
+          "sha256": "db7c047fdac8f5a20c013eca1b7754ef1753d615b8b94a10c0bb1c267433b2a1"
+        },
+        {
+          "bytes": 41528,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-037-e7a66669cf99948e",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-037.json.gz",
+          "records": 250,
+          "sha256": "e7a66669cf99948eb176fbc0605c548191f25c857d28542ea11bd1dae82c793d"
+        },
+        {
+          "bytes": 41594,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-038-b4817d9fe6fc4882",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-038.json.gz",
+          "records": 250,
+          "sha256": "b4817d9fe6fc488268aae528cde1917f33cdd9ccfe892891083a5440f3352932"
+        },
+        {
+          "bytes": 41368,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-039-e409d9e154ba235c",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-039.json.gz",
+          "records": 250,
+          "sha256": "e409d9e154ba235cb2761afc98e009e4babf0d1fe6b480c831beec8f52727667"
+        },
+        {
+          "bytes": 41522,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-040-aaef85ebd03bd0ec",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-040.json.gz",
+          "records": 250,
+          "sha256": "aaef85ebd03bd0ecedf457faae7c3db322c45e77c8b352432776e061098ed212"
+        },
+        {
+          "bytes": 41246,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-041-63b9f949ff0ea3b0",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-041.json.gz",
+          "records": 250,
+          "sha256": "63b9f949ff0ea3b01e4fa0acdec7e7cfab0f34d6219f800b1c3b87364a560fb2"
+        },
+        {
+          "bytes": 41233,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-042-f265d419df4f2cf0",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-042.json.gz",
+          "records": 250,
+          "sha256": "f265d419df4f2cf077a8b1c3f86a0ffc0af6944e7d5331521d97c402fdf1cf20"
+        },
+        {
+          "bytes": 41265,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-043-a402b9f8b590ce93",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-043.json.gz",
+          "records": 250,
+          "sha256": "a402b9f8b590ce932bcd2da51ac709c5064f54e537ac227b2672448e95335965"
+        },
+        {
+          "bytes": 39705,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-044-b7204d358785ac07",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-044.json.gz",
+          "records": 250,
+          "sha256": "b7204d358785ac0733b28abf2462da91440ae30a42878d20498900f229a3026a"
+        },
+        {
+          "bytes": 38632,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-045-3906319b3f705b5d",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-045.json.gz",
+          "records": 250,
+          "sha256": "3906319b3f705b5dce5d972616cc8e2703b823c9b3d16c95716382a82aa61d03"
+        },
+        {
+          "bytes": 39016,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-046-06c5b59ae0dbc793",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-046.json.gz",
+          "records": 250,
+          "sha256": "06c5b59ae0dbc793afe528308ecd8276086f3226e4cbb1fe0e67176ef23398c6"
+        },
+        {
+          "bytes": 38545,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-047-7d6048d181996215",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-047.json.gz",
+          "records": 250,
+          "sha256": "7d6048d181996215e0cb87f823cdeaa2039aed1e17556b377f63116789830b03"
+        },
+        {
+          "bytes": 38617,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-048-410c1518113fb26a",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-048.json.gz",
+          "records": 250,
+          "sha256": "410c1518113fb26ab881f360ec326051fd9d3906c587b4fe3ae70d26398a7210"
+        },
+        {
+          "bytes": 38231,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-049-5c2ac181a4d4771b",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-049.json.gz",
+          "records": 250,
+          "sha256": "5c2ac181a4d4771b0f6db1dffcdeaf422bac4b2304734b08f8c2806b86ff7068"
+        },
+        {
+          "bytes": 38764,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-050-c5da2c5f32504daa",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-050.json.gz",
+          "records": 250,
+          "sha256": "c5da2c5f32504daa81814b5bfa09564de94804c76d36c1c97bbc3422abc7c6a6"
+        },
+        {
+          "bytes": 38548,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-051-283025b92109fe57",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-051.json.gz",
+          "records": 250,
+          "sha256": "283025b92109fe57d49f6bbc5ce089a84a31b1bfc8045764dd088e5930bf8db8"
+        },
+        {
+          "bytes": 38167,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-052-10fb78e3fb1b1021",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-052.json.gz",
+          "records": 250,
+          "sha256": "10fb78e3fb1b10215c4289075710f049e2025efaec44275e3fa6b3368556cab8"
+        },
+        {
+          "bytes": 39092,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-053-db92c2200bb3d430",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-053.json.gz",
+          "records": 250,
+          "sha256": "db92c2200bb3d430c2e613a5de71d3f2d90ac15a88c25d7f05d1d03ddc3cdb30"
+        },
+        {
+          "bytes": 38549,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-054-23dc42516a45e66c",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-054.json.gz",
+          "records": 250,
+          "sha256": "23dc42516a45e66c47d82c17c5e26bf06fdece8e9c7cc50818caef379af940ac"
+        },
+        {
+          "bytes": 38470,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-055-0ba1d1acbc4d099e",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-055.json.gz",
+          "records": 250,
+          "sha256": "0ba1d1acbc4d099e965aebd0bdc754a1632c8b64446bf04208ef9f2bd9f1c666"
+        },
+        {
+          "bytes": 39483,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-056-e7ab07f46a7ac071",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-056.json.gz",
+          "records": 250,
+          "sha256": "e7ab07f46a7ac07157087e79428aa83a8aee9e4f52b0815a87d894ddbd5d98f7"
+        },
+        {
+          "bytes": 38708,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-057-e47d452b26017cbb",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-057.json.gz",
+          "records": 250,
+          "sha256": "e47d452b26017cbbd1f93d228bb7b18f3119c58eb5fcbaf0982dc14390babdd2"
+        },
+        {
+          "bytes": 38477,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-058-2b24f1226c524664",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-058.json.gz",
+          "records": 250,
+          "sha256": "2b24f1226c524664a86c9ab53cb3467fce53b183a832cbb95c0ebbd9f89a3e76"
+        },
+        {
+          "bytes": 38508,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-059-7132ab582c3235ef",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-059.json.gz",
+          "records": 250,
+          "sha256": "7132ab582c3235ef16ce0e47c8bfc28a00eaaccddc444fe1b582c4ca5ff0a066"
+        },
+        {
+          "bytes": 38396,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-060-297a39e680226290",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-060.json.gz",
+          "records": 250,
+          "sha256": "297a39e68022629020e73db6a7a253ceca7e8a49751ffce262afe2140f59a582"
+        },
+        {
+          "bytes": 38264,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-061-97f97879d0e5c25c",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-061.json.gz",
+          "records": 250,
+          "sha256": "97f97879d0e5c25c797309c93c33e1475149d0d486e9d3315410997d75350382"
+        },
+        {
+          "bytes": 42526,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-062-92df4b2db0fc1d76",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-062.json.gz",
+          "records": 250,
+          "sha256": "92df4b2db0fc1d76d3e8139aa943122c938df9d971c458edbf8e747f48978f0a"
+        },
+        {
+          "bytes": 48401,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-063-080bff574dceaf5b",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-063.json.gz",
+          "records": 250,
+          "sha256": "080bff574dceaf5bb38cc155cf51183e54c0dbceca7ca580f1a982ea2e056670"
+        },
+        {
+          "bytes": 47471,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-064-bf9ae61e94c44239",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-064.json.gz",
+          "records": 250,
+          "sha256": "bf9ae61e94c4423914c9c70b14ba74c8e89c49f98c39ac6bbc0d2556d96224c3"
+        },
+        {
+          "bytes": 48072,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-065-857155ccc9fafd71",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-065.json.gz",
+          "records": 250,
+          "sha256": "857155ccc9fafd71c5f0c764704747216db48934e47f6a413b99bf6e27fb7387"
+        },
+        {
+          "bytes": 47571,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-066-234ba72e372d14f0",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-066.json.gz",
+          "records": 250,
+          "sha256": "234ba72e372d14f03331fc1ad125544c5d6fe10324f3a1957ddbd01a792d0d2f"
+        },
+        {
+          "bytes": 48143,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-067-438f68c46352f850",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-067.json.gz",
+          "records": 250,
+          "sha256": "438f68c46352f850dcf8497662f73ab1b137d48dd5f0992d62bd89c6ba481ceb"
+        },
+        {
+          "bytes": 48100,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-068-7bef2e6af94224e3",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-068.json.gz",
+          "records": 250,
+          "sha256": "7bef2e6af94224e3ab5912d307ca094eddc2d8b71618ea5726d29173853994a4"
+        },
+        {
+          "bytes": 47895,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-069-2c59990a30b5a069",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-069.json.gz",
+          "records": 250,
+          "sha256": "2c59990a30b5a069159455631f5a7601ca759aa846658838d5a13645567b8968"
+        },
+        {
+          "bytes": 47992,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-070-388ef5430c01f284",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-070.json.gz",
+          "records": 250,
+          "sha256": "388ef5430c01f284a787be28cd7f6b1bbf75b086c67042fb249020d68fabc889"
+        },
+        {
+          "bytes": 38851,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-071-900b3b81817cacc4",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-071.json.gz",
+          "records": 250,
+          "sha256": "900b3b81817cacc4a705c90f8242a7a54289f341dc649f96efe448e00855e542"
+        },
+        {
+          "bytes": 30042,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-072-70410e62ccfc1473",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-072.json.gz",
+          "records": 250,
+          "sha256": "70410e62ccfc1473949c32e29082336f20462fdab989e7c3836ddd9022455133"
+        },
+        {
+          "bytes": 30271,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-073-b942e8a2c5b46fbf",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-073.json.gz",
+          "records": 250,
+          "sha256": "b942e8a2c5b46fbfdd1788235d5abfeac300f44ddc332334579e3ec40efdbae9"
+        },
+        {
+          "bytes": 29875,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-074-95c339a4aea7114d",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-074.json.gz",
+          "records": 250,
+          "sha256": "95c339a4aea7114d4bf93964f695f25f52d45a5cf01d23411f99079827998ec9"
+        },
+        {
+          "bytes": 29585,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-075-09a3976cb04f654f",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-075.json.gz",
+          "records": 250,
+          "sha256": "09a3976cb04f654ff00538811bbf40f6b9bf70866c565c842f2887a1ccf9dd50"
+        },
+        {
+          "bytes": 30599,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-076-5a2170392127b00c",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-076.json.gz",
+          "records": 250,
+          "sha256": "5a2170392127b00c07846e3a240ca8879baf7a64c4c08a1db085a04282079d03"
+        },
+        {
+          "bytes": 29827,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-077-29638b121c218045",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-077.json.gz",
+          "records": 250,
+          "sha256": "29638b121c218045049932e04a7075f1dd3c1b03649a521f03d331161005e871"
+        },
+        {
+          "bytes": 29708,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-078-30645914f012b836",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-078.json.gz",
+          "records": 250,
+          "sha256": "30645914f012b836be9e3fee841d26b6b8822c35be6a4a073071d1b343c22647"
+        },
+        {
+          "bytes": 29866,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-079-854204a50c22518e",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-079.json.gz",
+          "records": 250,
+          "sha256": "854204a50c22518e7b562f4f564383a6cea89f555e8915ae08373d097307ca12"
+        },
+        {
+          "bytes": 30068,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-080-62230fab171777b1",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-080.json.gz",
+          "records": 250,
+          "sha256": "62230fab171777b1bcbc8062e526c8bddccda67f45f8c4200fa6d8d4a0f16644"
+        },
+        {
+          "bytes": 29964,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-081-1265c6be9f9b3770",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-081.json.gz",
+          "records": 250,
+          "sha256": "1265c6be9f9b37700401590107b0d0e98bb831904f2b9f51c1c401de6313e796"
+        },
+        {
+          "bytes": 30071,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-082-f4f1ded506eb6d36",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-082.json.gz",
+          "records": 250,
+          "sha256": "f4f1ded506eb6d369d17d34f04ebefadd88bc4bafcbd7e90558ef0c0c0ae4427"
+        },
+        {
+          "bytes": 29322,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-083-de5cf612581d5d00",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-083.json.gz",
+          "records": 250,
+          "sha256": "de5cf612581d5d00c2d09fc0b85edfc8c522462caa72ee1a6ba8fdde876b975d"
+        },
+        {
+          "bytes": 29920,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-084-6531ec8427ea43dd",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-084.json.gz",
+          "records": 250,
+          "sha256": "6531ec8427ea43dd1cea07264c7745d2f7d00b5103ac6eb6c5e5b06e1ecebea2"
+        },
+        {
+          "bytes": 29923,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-085-7a5bd1cdfcb874be",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-085.json.gz",
+          "records": 250,
+          "sha256": "7a5bd1cdfcb874bee390a8215e16ca283815c0cfff48a57a0b48cf79f0263b00"
+        },
+        {
+          "bytes": 29117,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-086-5f5fe0888c9285a9",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-086.json.gz",
+          "records": 250,
+          "sha256": "5f5fe0888c9285a9cc1e32fd0cc62a764d760bcd02fa69b4eba284b924798300"
+        },
+        {
+          "bytes": 27839,
+          "content_encoding": "gzip",
+          "count": 250,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-087-46c3b2cb6999ab17",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-087.json.gz",
+          "records": 250,
+          "sha256": "46c3b2cb6999ab17d18934f50943f01ad4564c54c9a477bc867033aac2a5c1ce"
+        },
+        {
+          "bytes": 25270,
+          "content_encoding": "gzip",
+          "count": 226,
+          "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime-chunk/core-088-4f3096ede7185b0d",
+          "media_type": "application/json",
+          "path": "data/semantic/runtime/core/relationships-088.json.gz",
+          "records": 226,
+          "sha256": "4f3096ede7185b0d69a5d253b114daf3873c3a18691eb067d3c892102fcf69be"
+        }
+      ],
+      "id": "urn:okf:hmlr:plane:core",
+      "lifecycle": "active",
+      "name": "core"
+    }
+  ],
+  "route_locator": {
+    "buckets": 256,
+    "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/semantic-runtime/route-locator",
+    "path": "data/semantic/runtime/route-locator/manifest.json",
+    "routes": 6733,
+    "sha256": "4be7bc14f36dfaf84513d12e9f21d5d10f06621a389155516458588cf0834ca6"
+  },
+  "row_contract": "data/semantic/relationship-runtime-row.schema.json",
+  "schema": "okf-rich-relationship-runtime-manifest.v1",
+  "semantic_manifest": "okf-bundle.yamlld",
+  "snapshot": "hmlr-public-metadata-v0.2.0",
+  "totals": {
+    "active_assertions": 22226,
+    "all_assertions": 22226,
+    "chunks": 89,
+    "historical_assertions": 0,
+    "rejected_assertions": 0
+  }
+}

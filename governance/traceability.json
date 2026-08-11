@@ -2,7 +2,7 @@
   "schema": "okf-governance-traceability.v1",
   "project_status": "ai-generated-proof-of-concept",
   "research_cutoff": "2026-07-29",
-  "assurance_state": "candidate-v0.2.0-pending-exact-gates",
+  "assurance_state": "candidate-v0.3.0-external-exact-gates",
   "rows": [
     {
       "requirement_ids": ["REQ-001", "REQ-006", "REQ-007"],
@@ -12,17 +12,17 @@
       "risk_ids": ["RISK-001", "RISK-004", "RISK-005"],
       "validation_refs": ["VAL-RIGHTS", "VAL-DATA-PLANE"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-002", "REQ-004", "REQ-008", "REQ-009"],
       "profile_refs": ["DEC-AUTHORITY", "TRACE-PROVENANCE"],
       "evidence_refs": ["EV-GOVUK-SEARCH", "EV-PUBLIC-DATA", "EV-ULPD", "EV-OKF-AUTHORING"],
-      "artifact_paths": ["docs/metadata-model.md", "docs/architecture.md", "domain-profile/traceability.json", "bundle/data/provenance.json"],
+      "artifact_paths": ["docs/metadata-model.md", "docs/architecture.md", "domain-profile/traceability.json", "bundle/data/provenance.json", "bundle/okf-bundle.yamlld", "bundle/okf-bundle.jsonld", "bundle/data/explorer/relationships-*.json"],
       "risk_ids": ["RISK-006", "RISK-008"],
       "validation_refs": ["VAL-OKF", "VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-003"],
@@ -32,17 +32,17 @@
       "risk_ids": ["RISK-007"],
       "validation_refs": ["VAL-SNAPSHOT", "VAL-DATA-PLANE"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-005"],
-      "profile_refs": ["TRACE-RIGHTS", "RIGHT-GOVUK", "RIGHT-DATASETS", "RIGHT-RESTRICTED", "RIGHT-GITHUB", "RIGHT-CDDO", "RIGHT-EVIDENCE", "RIGHT-PERSONAL"],
+      "profile_refs": ["TRACE-RIGHTS", "RIGHT-GOVUK", "RIGHT-DATASETS", "RIGHT-RESTRICTED", "RIGHT-GITHUB", "RIGHT-CDDO", "RIGHT-LEGISLATION", "RIGHT-CATALOGUE", "RIGHT-FEE-CALCULATOR", "RIGHT-EVIDENCE", "RIGHT-PERSONAL"],
       "evidence_refs": ["EV-PUBLIC-DATA", "EV-ULPD", "EV-LLC-TERMS", "EV-GITHUB"],
-      "artifact_paths": ["docs/sources-rights-and-ethics.md", "governance/rights-review.json", "bundle/data/rights.json"],
+      "artifact_paths": ["docs/sources-rights-and-ethics.md", "governance/rights-review.json", "schemas/curated-rights-access.schema.json", "source/curated-rights-access.json", "bundle/data/rights.json"],
       "risk_ids": ["RISK-003"],
       "validation_refs": ["VAL-RIGHTS"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-010"],
@@ -52,7 +52,7 @@
       "risk_ids": ["RISK-001", "RISK-002", "RISK-006"],
       "validation_refs": ["VAL-EVALUATION", "VAL-DATA-PLANE"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-011", "REQ-013"],
@@ -62,17 +62,17 @@
       "risk_ids": ["RISK-010"],
       "validation_refs": ["VAL-DATA-PLANE", "VAL-ACCESSIBILITY"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-012"],
       "profile_refs": ["STD-WCAG-22", "TRACE-PAGES", "GAP-HUMAN-RESEARCH", "GAP-WELSH"],
       "evidence_refs": ["EV-WCAG", "EV-ACCESSIBILITY"],
-      "artifact_paths": ["docs/accessibility.md", "bundle/accessibility.html"],
+      "artifact_paths": ["docs/accessibility.md", "scripts/run_authored_site_browser_quality.mjs", "tests/test_authored_site_browser_quality_runner.py", "bundle/accessibility.html"],
       "risk_ids": ["RISK-009", "RISK-012"],
       "validation_refs": ["VAL-ACCESSIBILITY"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-014", "REQ-017"],
@@ -82,7 +82,7 @@
       "risk_ids": ["RISK-010", "RISK-011"],
       "validation_refs": ["VAL-SNAPSHOT", "VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-015", "REQ-016"],
@@ -92,17 +92,22 @@
       "risk_ids": ["RISK-013"],
       "validation_refs": ["VAL-EVALUATION"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-018"],
       "profile_refs": ["DEC-RELEASE", "GAP-OWNER-APPROVAL"],
       "evidence_refs": ["EV-INVENTORY"],
-      "artifact_paths": ["docs/release-assurance.md", "governance/risk-register.json", "validation/release-record.json"],
-      "risk_ids": ["RISK-014", "RISK-015"],
+      "artifact_paths": [
+        "docs/release-assurance.md",
+        "docs/v0.3.0-release-tracker-and-assurance-runbook.md",
+        "governance/risk-register.json",
+        "validation/candidate-v0.3.0/**"
+      ],
+      "risk_ids": ["RISK-014", "RISK-015", "RISK-018"],
       "validation_refs": [],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-019"],
@@ -114,12 +119,14 @@
         "bundle/okf-explorer.json",
         "bundle/data/explorer/manifest.json",
         "tests/test_explorer_contract.py",
+        "scripts/run_authored_site_browser_quality.mjs",
+        "tests/test_authored_site_browser_quality_runner.py",
         "apps/okf-explorer/tests/ui/targeted-large-corpus.spec.ts"
       ],
       "risk_ids": ["RISK-016"],
       "validation_refs": ["VAL-EXPLORER-CONSUMER"],
       "implementation_state": "implemented",
-      "verification_state": "candidate"
+      "verification_state": "not_run"
     },
     {
       "requirement_ids": ["REQ-020"],
@@ -136,7 +143,7 @@
       "risk_ids": ["RISK-017"],
       "validation_refs": ["VAL-CHANGE-IMPACT", "VAL-REPRODUCIBILITY"],
       "implementation_state": "implemented",
-      "verification_state": "candidate"
+      "verification_state": "not_run"
     }
   ]
 }

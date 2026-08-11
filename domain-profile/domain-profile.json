@@ -2,16 +2,17 @@
   "$schema": "https://chris-page-gov.github.io/okf-explorer/profile/authoring/v1/domain-profile.schema.json",
   "architecture": {
     "bundle_shape": "large-corpus",
-    "canonical_authoring": "markdown",
+    "canonical_authoring": "markdown-yaml-ld",
     "generated_representations": [
       "okf-explorer-descriptor",
+      "yaml-ld",
       "json-ld",
       "csv",
       "release-archive"
     ],
     "namespace_strategy": "https://chris-page-gov.github.io/okf-LandRegistry/id/ with source-native identifiers retained.",
     "profile_level": "large-corpus",
-    "refresh_strategy": "Acquire immutable, content-addressed source envelopes outside the public projection; build only from a frozen snapshot; use the governed artifact-dependency graph to select affected gates but fail closed where evidence cannot be carried forward; execute the pinned OKF Explorer consumer contract before publication; publish later observations as a new snapshot rather than backpatching release bytes.",
+    "refresh_strategy": "Acquire immutable, content-addressed source envelopes outside the public projection; build only from a frozen snapshot; use the governed artefact-dependency graph to select affected gates but fail closed where evidence cannot be carried forward; execute the pinned OKF Explorer consumer contract before publication; publish later observations as a new snapshot rather than backpatching release bytes.",
     "scale_assumptions": "At least 1,866 GOV.UK records plus up to 289 public repositories, 15 CDDO API rows, approximately 14 dataset records and control concepts; use lazy, integrity-bound Explorer overview, chunk, search, locator and adjacency entrypoints with bounded result rendering."
   },
   "authority_model": {
@@ -24,9 +25,11 @@
       "The repository maintainer controls only the derived static publication and its release state."
     ],
     "semantic_authorities": [
-      "Source-native HMLR definitions, identifiers, exclusions and version semantics take precedence over local normalization.",
+      "Source-native HMLR definitions, identifiers, exclusions and version semantics take precedence over local normalisation.",
       "Current legislation and formal notices outrank older service matrices, roadmaps and catalogue summaries.",
-      "Publisher-operated dataset pages outrank discovery catalogues for cadence, access and operational status."
+      "Publisher-operated dataset pages outrank discovery catalogues for cadence, access and operational status.",
+      "The pinned OKF Bundle Wiki profile governs semantic serialisation, registries and assertion shape without becoming authority for HMLR facts.",
+      "The declared frozen metadata fields and approved deterministic rules are the only authority for generated relationship assertions; Reader projections are not an independent semantic source."
     ],
     "source_authorities": [
       "HM Land Registry is authoritative for its current formal guidance, services, datasets and operational documentation.",
@@ -40,7 +43,9 @@
       "The domain profile validates, JSON and YAML are equivalent, and the pack root digest is recorded.",
       "The tiny positive, negative and degraded fixture builds twice with byte-identical output and fails closed.",
       "Every expected source item has one terminal acquisition outcome and all envelopes rehash.",
-      "OKF core, descriptor, manifests, routes, counts, rights and source ledgers validate.",
+      "OKF core, canonical YAML-LD, equivalent JSON-LD, semantic registries, manifests, routes, counts, rights and source ledgers validate.",
+      "Every material directed relationship reconciles across its direct triple, evidence-bearing assertion and bounded Reader runtime row.",
+      "The inference state is explicit: not-run, or materialised only from an allowlisted finite rule manifest with complete supporting assertions.",
       "The 24-question first-release suite has complete persona/story/source traceability and zero hard failures.",
       "Accessibility, safety, performance and clean reproduction receipts bind the exact frozen candidate.",
       "No public-release or completeness claim is made beyond owner-approved, digest-bound evidence."
@@ -51,13 +56,19 @@
       "Property-level, title, address, polygon or transaction data",
       "Authenticated provider calls, live search and credential handling",
       "Model-assisted relationships, classifications or answers",
-      "Full YAML-LD/RDF/SHACL conformance until a user task justifies governed-semantic publication",
+      "Remote-context resolution, unbounded RDF, RDFS or OWL inference and browser-side reasoning",
+      "Turtle export and general-purpose SHACL or OWL entailment beyond the pinned Bundle Wiki validation profile",
       "Federation until independently governed source lanes require separate releases",
       "Participant-validated usability and bilingual-parity claims"
     ],
     "required_features": [
       "Frozen source envelopes with exact per-family denominators and terminal outcomes",
       "Stable source-native identity, deterministic local routes and collision failure",
+      "Canonical YAML-LD and deterministic JSON-LD generated from one governed semantic assertion source using pinned local contexts",
+      "Digest-bound semantic-model, IRI-to-route and predicate registries with closed reference validation",
+      "Evidence-bearing catalogue, primary-topic, publisher, rights, provenance, translation, collection, distribution, documentation, service/dataset, version and replacement relationships when frozen metadata supports them",
+      "Exact direct-triple, reified-assertion and Reader-runtime parity with bounded relationship delivery",
+      "An explicit no-unbounded-inference policy and digest-bound rule manifest for any future materialised bounded inference",
       "Search, source/type/access/topic facets and bounded result rendering",
       "Record detail with authority, derivation, freshness, rights, coverage and caveats",
       "Dataset distributions, API protocol/access and spatial boundary semantics",
@@ -374,6 +385,7 @@
       "due_point": "Reconsider before any live provider integration.",
       "evidence_refs": [
         "EV-OKF-AUTHORING",
+        "EV-OKF-SEMANTIC-PROFILE",
         "EV-INVENTORY"
       ],
       "id": "DEC-SNAPSHOT",
@@ -419,7 +431,7 @@
       "id": "DEC-ARCHITECTURE",
       "owner": "Project owner through the scaffold request",
       "question": "Which OKF bundle shape fits the declared source population?",
-      "recommended_default": "Large-corpus descriptor with a Markdown control plane, integrity-bound lazy static data, a pinned OKF Explorer consumer contract and a governed artifact-dependency graph.",
+      "recommended_default": "Large-corpus descriptor with a Markdown control plane, integrity-bound lazy static data, a pinned OKF Explorer consumer contract and a governed artefact-dependency graph.",
       "status": "accepted"
     },
     {
@@ -447,16 +459,129 @@
       ],
       "blocking_for_build": false,
       "consequences": [
-        "The first corpus is conservative and explainable."
+        "The v0.3.0 graph remains conservative and explainable while gaining comprehensive deterministic metadata relationships."
       ],
-      "due_point": "Revisit only for a demonstrated search or semantic gap.",
+      "due_point": "Revisit model assistance only after a demonstrated gap, bounded evaluation and a separate owner decision.",
       "evidence_refs": [
-        "EV-OKF-AUTHORING"
+        "EV-OKF-AUTHORING",
+        "EV-OWNER-SEMANTIC-DIRECTION"
       ],
       "id": "DEC-ENRICHMENT",
-      "owner": "Project owner through the request for an evidence-led scaffold",
-      "question": "Should model-assisted classifications or relationships enter the first scaffold?",
-      "recommended_default": "No; use source-native and deterministic normalized fields only.",
+      "owner": "Project owner through the 2026-08-10 semantic implementation direction",
+      "question": "Which derivations may enter the v0.3.0 semantic graph?",
+      "recommended_default": "Use source-native, deterministic normalised and explicitly rule-derived metadata only; do not publish model-assisted assertions.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Retain JSON-LD as the sole semantic serialisation",
+        "Maintain independently authored YAML-LD and JSON-LD documents"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "The YAML-LD and JSON-LD documents represent one graph and must remain exactly equivalent.",
+        "Only pinned local contexts may be resolved during build and Reader validation.",
+        "A large graph may use digest-bound semantic shards without making runtime JSON an independent authority."
+      ],
+      "due_point": "Reassess only if the pinned Bundle Wiki profile changes or a host limit requires a different bounded partition.",
+      "evidence_refs": [
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-YAMLLD",
+        "EV-JSONLD"
+      ],
+      "id": "DEC-SEMANTIC-SERIALIZATION",
+      "owner": "Project owner through the 2026-08-10 semantic implementation direction",
+      "question": "Which serialisation is canonical for the v0.3.0 metadata-level semantic graph?",
+      "recommended_default": "Use canonical YAML-LD with a deterministic equivalent JSON-LD projection generated from one governed assertion source.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Allow implementation-local predicate and route conventions",
+        "Treat presentation labels as semantic definitions"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "Unknown predicates, duplicate IRIs, route collisions and registry-reference gaps fail closed.",
+        "The generated semantic-model, IRI-to-route and predicate registries are snapshot-bound and digest-bound.",
+        "Display grouping, search facets and Markdown links do not create domain predicates."
+      ],
+      "due_point": "Review every registry addition or vocabulary-version change before rebuilding the semantic graph.",
+      "evidence_refs": [
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-OWNER-SEMANTIC-DIRECTION"
+      ],
+      "id": "DEC-SEMANTIC-REGISTRIES",
+      "owner": "Project owner through the 2026-08-10 semantic implementation direction",
+      "question": "How are semantic identities, routes, predicates and evidence policies governed?",
+      "recommended_default": "Generate closed, digest-bound registries from reviewed Stage 1 definitions and validate every emitted entity and assertion against them.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Retain the single translation-edge demonstration",
+        "Generate relationships from links, co-occurrence or title similarity"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "All material directed metadata relationships supported by the frozen inputs can be published.",
+        "Every relationship retains stable identity, safe local routes, predicate, labels, status, scope, authority, derivation, observation, field-level evidence and rights.",
+        "The direct triple, reified assertion and Reader runtime row are generated from one source and reconcile exactly.",
+        "A registered predicate with no qualifying evidence produces no assertion and makes no coverage claim."
+      ],
+      "due_point": "Re-review Stage 1 before adding a relationship kind, derivation class, source field or semantic endpoint type.",
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-OWNER-SEMANTIC-DIRECTION"
+      ],
+      "id": "DEC-SEMANTIC-RELATIONSHIPS",
+      "owner": "Project owner through the 2026-08-10 semantic implementation direction",
+      "question": "Which directed relationships may replace the v0.2.0 single-edge limitation?",
+      "recommended_default": "Publish the complete evidence-bearing metadata relationship set supported by frozen source fields and approved deterministic rules, never relationships guessed from presentation or similarity.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Unbounded browser-side OWL or RDFS reasoning",
+        "Undeclared offline inference mixed into the normalised plane"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "The v0.3.0 candidate declares inference not-run unless a finite allowlisted rule set is materialised.",
+        "Any materialised inferred plane requires a versioned rule manifest, supporting assertion IDs, confidence, derivation activity, exact digests and separate Reader plane membership.",
+        "No inference may establish legal, ownership, boundary, priority, rights, authority, currency, coverage or identity claims."
+      ],
+      "due_point": "Require a fresh Stage 1 and rights/risk review before enabling any inferred plane.",
+      "evidence_refs": [
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-OWNER-SEMANTIC-DIRECTION"
+      ],
+      "id": "DEC-SEMANTIC-INFERENCE",
+      "owner": "Project owner through the 2026-08-10 semantic implementation direction",
+      "question": "May the repository or Reader perform semantic inference?",
+      "recommended_default": "No unbounded or browser-side inference; permit only explicitly authorised, finite, digest-bound materialisation that remains separate from official and normalised assertions.",
+      "status": "accepted"
+    },
+    {
+      "alternatives": [
+        "Retain the v0.2.0 YAML-LD deferral and single-edge limit",
+        "Treat implementation direction as release approval"
+      ],
+      "blocking_for_build": false,
+      "consequences": [
+        "The full metadata-level semantic model may proceed to implementation and candidate assurance.",
+        "The direction is not G9, does not approve an exact version or digest, does not accept residual risk and is not external or independent review.",
+        "Fresh G1-G8 evidence and a later exact-digest owner decision remain mandatory before publication."
+      ],
+      "due_point": "Return to the owner only after an exact candidate, residual risks, claims and canonical identity are available for G9.",
+      "evidence_refs": [
+        "EV-OWNER-SEMANTIC-DIRECTION"
+      ],
+      "id": "DEC-SEMANTIC-V03-AUTHORISATION",
+      "owner": "Project owner",
+      "question": "Has the project owner authorised implementation of the full metadata-level semantic model?",
+      "recommended_default": "Yes, for implementation and candidate assurance from 2026-08-10; no release or exact-digest approval is implied.",
       "status": "accepted"
     },
     {
@@ -465,8 +590,8 @@
       ],
       "blocking_for_build": false,
       "consequences": [
-        "Only the exact v0.2.0 digest named in G9 may be published as an AI-generated proof of concept.",
-        "Later candidates remain unapproved until a new exact-digest decision."
+        "The v0.2.0 release approval was fulfilled only for commit 40482c865dc4332162f1e93756d94ca93abe3559 and release root a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704.",
+        "That historical decision does not authorise v0.3.0; release authority for any later candidate exists only in a new exact-digest owner decision."
       ],
       "due_point": "Repeat before every later release or canonical identity change.",
       "evidence_refs": [
@@ -474,29 +599,29 @@
       ],
       "id": "DEC-RELEASE",
       "owner": "Project owner",
-      "question": "Is the reviewed scaffold authorised for public release and a canonical GitHub Pages identity?",
-      "recommended_default": "Prepare v0.2.0 as an AI-generated proof of concept at the canonical Pages URL, but publish it only after G1-G8 pass receipts and an exact-digest G9 owner approval.",
+      "question": "What historical release decision applies to the v0.2.0 scaffold?",
+      "recommended_default": "The v0.2.0 AI-generated proof-of-concept release conditions were fulfilled only for commit 40482c865dc4332162f1e93756d94ca93abe3559 and release root a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704; that decision does not authorise publication of the v0.3.0 semantic candidate.",
       "status": "accepted"
     }
   ],
-  "description": "A snapshot-bounded, metadata-led profile for discovering HM Land Registry guidance, forms, services, datasets, APIs, developer resources and public repositories without replacing authoritative sources or redistributing restricted property data.",
+  "description": "A snapshot-bounded, metadata-led and fully governed semantic profile for discovering HM Land Registry guidance, forms, services, datasets, APIs, developer resources and public repositories through evidence-bearing directed relationships without replacing authoritative sources, performing legal inference or redistributing restricted property data.",
   "enrichment": {
     "authority_boundary": "Derived metadata never becomes an official HMLR statement.",
     "budget": "No paid model or API calls are authorised.",
     "enabled": false,
-    "evidence_requirement": "Every non-source-native field names its source fields, deterministic method and observation.",
-    "independent_review": "Domain and rights assertions require review independent of the generating implementation; reviewer kind must be disclosed.",
+    "evidence_requirement": "Every non-source-native field and relationship names its frozen source artefact, source field or supporting assertion, deterministic method, observation and applicable rights.",
+    "independent_review": "Domain, semantic and rights assertions require review independent of the generating implementation before release; the 2026-08-10 owner direction is not that review.",
     "permitted_derivations": [
       "source-native",
       "normalized",
       "rule-derived"
     ],
-    "purpose": "AI-assisted authoring does not authorise model-generated corpus assertions; published classifications remain source-native or deterministically derived."
+    "purpose": "The full metadata-level semantic graph is authorised, but AI-assisted authoring does not authorise model-generated corpus assertions; published entities and relationships remain source-native, deterministically normalised or explicitly rule-derived."
   },
   "evaluation": {
     "baselines": [
       "Direct navigation and search on the named official source.",
-      "Deterministic lexical search over the frozen normalized catalogue."
+      "Deterministic lexical search over the frozen normalised catalogue."
     ],
     "challenge_policy": "Use two disjoint held-out passes containing stale, conflicting, similarly named, restricted, unanswerable and unsafe cases; publish new critical categories rather than averaging them away.",
     "citation_policy": "Every material proposition must cite the exact publisher route or frozen source envelope; discovery catalogues cannot establish current operational status alone.",
@@ -584,6 +709,18 @@
         ],
         "temporal_context": "Exact frozen candidate.",
         "verification_status": "independently-verified"
+      },
+      {
+        "citation_expectation": "Pinned OKF Bundle Wiki profile, predicate and IRI registries, field-level frozen evidence and exact semantic validation receipt.",
+        "expected_evidence": "A route-bearing direct triple and matching evidence-bearing assertion and Reader row, with stable identity, predicate, labels, status, scope, authority, derivation, observation, evidence and rights.",
+        "id": "CQ-SEMANTIC",
+        "near_miss_rule": "A label-only link, unregistered predicate, unresolved endpoint, unsupported inferred edge or direct triple without matching reification and runtime identity fails.",
+        "question": "Can a reader traverse every material directed metadata relationship and inspect why it exists without mistaking a derived or structural edge for official HMLR meaning?",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "temporal_context": "Exact frozen v0.3.0 candidate and semantic dataset root.",
+        "verification_status": "candidate"
       }
     ],
     "hard_failures": [
@@ -593,15 +730,19 @@
       "A restricted service is called, monitored or presented as an anonymous public API.",
       "A credential, signed download URL, personal-level record or forum upload enters the public bundle.",
       "A result cannot resolve its authoritative source and observation.",
-      "Unknown, candidate or untested evidence is relabelled verified."
+      "Unknown, candidate or untested evidence is relabelled verified.",
+      "A material directed relationship lacks a governed predicate, route-bearing endpoints, field-level evidence, rights, authority, derivation or observation.",
+      "Direct triples, reified assertions, semantic shards, registries and Reader runtime relationships do not reconcile to the same exact identity set.",
+      "Unbounded inference, remote-context reasoning or an undeclared inferred or model-derived plane is enabled."
     ],
-    "independent_verification": "The 24-question first-release suite was reviewed by an AI agent independent of the retrieval implementation against the frozen snapshot; this is not human domain assurance or participant research.",
+    "independent_verification": "The 24-question v0.2.0 suite was reviewed by an AI agent independent of the retrieval implementation against the frozen snapshot; this is not human domain assurance or participant research. The new semantic competency question and complete v0.3.0 relationship set are candidate inputs; only version-scoped evidence bound to the exact digest records their independent-review state.",
     "metrics": [
       "Recall@5 and Recall@10",
       "Mean reciprocal rank of the primary target",
       "nDCG@10 for graded alternatives",
       "Source-resolution and citation-support rate",
       "Rights, access, freshness and caveat field coverage",
+      "Semantic endpoint, predicate, evidence, rights and direct/reified/runtime parity coverage",
       "Persona, story, source-family and failure-stratum coverage",
       "Keyboard, focus, reflow and semantic-structure journey pass rate"
     ],
@@ -613,6 +754,7 @@
       "Indicative spatial products and CRS",
       "SOAP, REST, linked data and restricted access",
       "LLC migration, coverage and CON29 near miss",
+      "Catalogue, primary-topic, collection, distribution, service, documentation, language, version, publisher, rights and provenance relationships",
       "Welsh, keyboard, screen-reader, zoom and no-JavaScript access",
       "Unanswerable, conflicting, unavailable and unsafe cases"
     ],
@@ -621,6 +763,8 @@
       "Every reviewed question maps to at least one story, persona, source and evidence expectation.",
       "Primary-target MRR at least 0.80 and Recall@10 at least 0.90 for independently verified answerable questions.",
       "Source-resolution and required caveat coverage equal 1.00.",
+      "Every emitted semantic assertion validates and the registry, direct-triple, reified-assertion and Reader-runtime identity sets reconcile exactly.",
+      "Inference is declared not-run unless a separately reviewed finite rule manifest and materialised plane pass all semantic and safety checks.",
       "No critical category added by the second held-out adversarial pass."
     ]
   },
@@ -1142,6 +1286,47 @@
     },
     {
       "access_state": "verified-working",
+      "authority": "OKF Explorer v0.6.0 release profile",
+      "contradicts": [],
+      "evidence_type": "Pinned versioned semantic application profile",
+      "id": "EV-OKF-SEMANTIC-PROFILE",
+      "location": "../profiles/bundle-wiki/v1.vendor-lock.json",
+      "locator": "Complete 16-file Bundle Wiki v1 profile mirror, release commit and per-file identities",
+      "observed_at": "2026-08-10T13:25:40Z",
+      "retrieved_at": "2026-08-10T13:25:40Z",
+      "sha256": "979af714974abb093ac9d4b1b7e289597c61d33c24bb6959d9914c2f74dc6a09",
+      "supports": [
+        "Canonical YAML-LD and equivalent JSON-LD publication",
+        "semantic-model, IRI-to-route and predicate registries",
+        "evidence-bearing relationship assertions and bounded Reader runtime",
+        "explicit bounded inference state"
+      ],
+      "title": "Pinned OKF Bundle Wiki semantic profile",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
+      "authority": "Project owner",
+      "contradicts": [
+        "The v0.2.0 YAML-LD deferral and single-edge implementation limit remain the current candidate-development boundary",
+        "Implementation direction constitutes exact-digest release approval or independent review"
+      ],
+      "evidence_type": "Owner implementation direction",
+      "id": "EV-OWNER-SEMANTIC-DIRECTION",
+      "location": "../domain-profile/decision-register.md",
+      "locator": "DEC-SEMANTIC-V03-AUTHORISATION",
+      "observed_at": "2026-08-10T13:25:40Z",
+      "retrieved_at": "2026-08-10T13:25:40Z",
+      "sha256": "12f192f15f832bd9d91b31ef6cb661e2738269c5cef194dd460b4da2689f5802",
+      "supports": [
+        "Implementation of the full metadata-level semantic model for a v0.3.0 candidate",
+        "Candidate assurance only, with no G9, exact-digest, residual-risk or publication approval"
+      ],
+      "title": "Project-owner direction to implement the v0.3.0 semantic model",
+      "verification": "support-checked"
+    },
+    {
+      "access_state": "verified-working",
       "authority": "YAML Language Development Team",
       "contradicts": [],
       "evidence_type": "Normative specification",
@@ -1356,13 +1541,13 @@
     },
     {
       "blocking": false,
-      "description": "Owner approval is exact-digest scoped; v0.2.0 remains a candidate until its exact G9 record is approved as an AI-generated proof of concept.",
+      "description": "The v0.2.0 proof-of-concept release conditions were fulfilled only for commit 40482c865dc4332162f1e93756d94ca93abe3559 and release root a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704; that approval does not extend to v0.3.0.",
       "evidence_refs": [
         "EV-INVENTORY"
       ],
       "id": "GAP-OWNER-APPROVAL",
-      "impact": "Every later candidate remains draft until a new G9 record approves its version, digest, residual risks and canonical identity.",
-      "next_action": "Repeat the exact-digest owner decision for every later release.",
+      "impact": "The v0.3.0 candidate bytes confer no release authority; version-scoped evidence and a G9 record must bind the version, commit, release root, residual risks and canonical identity.",
+      "next_action": "Before any v0.3.0 RC or publication, exact-candidate G1-G8 evidence and a new exact-digest G9 owner decision must exist.",
       "owner": "Project owner"
     }
   ],
@@ -1393,20 +1578,22 @@
       "People and agents can find the authoritative route for a land-registration task.",
       "Data users can compare datasets by coverage, cadence, format, access and licence.",
       "Property professionals and developers can distinguish public guidance from restricted operational services.",
-      "Every discovery result exposes its source, observation date, authority role and material caveats."
+      "Every discovery result exposes its source, observation date, authority role and material caveats.",
+      "People and agents can traverse governed, evidence-bearing metadata relationships without mistaking the derived graph for legal advice or an HM Land Registry ontology."
     ],
     "non_goals": [
       "The bundle will not provide legal advice or determine ownership, boundaries or priority.",
       "The bundle will not contain title-register, title-plan, search-result or bulk property records.",
       "The bundle will not authenticate to, automate or monitor restricted HM Land Registry services.",
-      "The bundle will not claim completeness outside a named, dated denominator."
+      "The bundle will not claim completeness outside a named, dated denominator.",
+      "The bundle and Reader will not perform unbounded semantic inference or infer legal, ownership, boundary, priority, rights, authority, currency, coverage or identity conclusions."
     ],
     "problem": "HM Land Registry material is spread across GOV.UK, publisher-operated data and transaction services, developer documentation, linked data, help systems, GitHub and an official blog, with materially different authority, freshness, access and reuse conditions.",
     "risk_level": "high",
     "target_okf_version": "0.2"
   },
-  "prepared_at": "2026-07-29T07:53:38Z",
-  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v1",
+  "prepared_at": "2026-08-10T13:25:40Z",
+  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v2",
   "research_cutoff": "2026-07-29",
   "rights_access_privacy": [
     {
@@ -1757,15 +1944,383 @@
           "TASK-AUDIT"
         ],
         "version_key": "Repository is mutable; commits and releases are separate identities."
+      },
+      {
+        "evidence_refs": [
+          "EV-INVENTORY",
+          "EV-OKF-SEMANTIC-PROFILE"
+        ],
+        "examples": [
+          "HM Land Registry public-estate OKF catalogue"
+        ],
+        "excluded_conflations": [
+          "The derived catalogue is not HM Land Registry and does not endorse its contents."
+        ],
+        "id": "TYPE-CATALOGUE",
+        "identity_key": "Canonical publication base plus the semantic descriptor identity.",
+        "label": "Derived metadata catalogue",
+        "optional_properties": [
+          "description",
+          "snapshot",
+          "version",
+          "records"
+        ],
+        "proposed_class": "dcat:Catalog and schema:DataCatalog",
+        "required_properties": [
+          "@id",
+          "@type",
+          "title",
+          "generated_at",
+          "rights"
+        ],
+        "source_native_type": "Project-authored OKF catalogue",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "version_key": "Candidate version and exact semantic dataset root."
+      },
+      {
+        "evidence_refs": [
+          "EV-ACQUISITION-SNAPSHOT",
+          "EV-OKF-SEMANTIC-PROFILE"
+        ],
+        "examples": [
+          "One route-bearing discovery record for a GOV.UK result or curated HMLR resource"
+        ],
+        "excluded_conflations": [
+          "A catalogue record is not the publication, dataset, service or repository that it describes."
+        ],
+        "id": "TYPE-CATALOGUE-RECORD",
+        "identity_key": "Deterministic record ID derived from the preserved source-native identity.",
+        "label": "Catalogue record",
+        "optional_properties": [
+          "source dates",
+          "access state",
+          "caveats"
+        ],
+        "proposed_class": "dcat:CatalogRecord",
+        "required_properties": [
+          "@id",
+          "route",
+          "source",
+          "primary topic",
+          "rights",
+          "provenance"
+        ],
+        "source_native_type": "Deterministically normalised discovery record",
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE",
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Frozen input identity plus the deterministic normalisation rule version."
+      },
+      {
+        "evidence_refs": [
+          "EV-GOVUK-SEARCH",
+          "EV-PRACTICE-GUIDES"
+        ],
+        "examples": [
+          "Land registration practice guides",
+          "UK House Price Index reports"
+        ],
+        "excluded_conflations": [
+          "A collection is not one of its member works and overlapping collections are not identical."
+        ],
+        "id": "TYPE-COLLECTION",
+        "identity_key": "Canonical publisher collection route and source content identifier where supplied.",
+        "label": "Official collection",
+        "optional_properties": [
+          "members",
+          "language",
+          "publisher dates"
+        ],
+        "proposed_class": "dcat:Catalog or schema:Collection",
+        "required_properties": [
+          "@id",
+          "title",
+          "source",
+          "publisher"
+        ],
+        "source_native_type": "Publisher-declared collection or document collection",
+        "task_refs": [
+          "TASK-PRACTICE",
+          "TASK-DATASET",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Preserve source edition, route and observed membership separately."
+      },
+      {
+        "evidence_refs": [
+          "EV-ULPD",
+          "EV-PPD",
+          "EV-INSPIRE-DATA"
+        ],
+        "examples": [
+          "Full file",
+          "change-only file",
+          "GML local-authority file",
+          "documented API distribution"
+        ],
+        "excluded_conflations": [
+          "A distribution is not its dataset, and a signed or authenticated URL is not a publishable identity."
+        ],
+        "id": "TYPE-DISTRIBUTION",
+        "identity_key": "Publisher-declared distribution identity or a deterministic local identity over dataset, distribution kind, format and source-native release key.",
+        "label": "Dataset distribution metadata",
+        "optional_properties": [
+          "format",
+          "cadence",
+          "access service",
+          "download page",
+          "temporal coverage"
+        ],
+        "proposed_class": "dcat:Distribution",
+        "required_properties": [
+          "@id",
+          "title",
+          "dataset",
+          "access",
+          "rights"
+        ],
+        "source_native_type": "Publisher-declared distribution metadata only",
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-SPATIAL",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Preserve full, delta, historic, current and source release identities separately."
+      },
+      {
+        "evidence_refs": [
+          "EV-HMLR-ORG",
+          "EV-GOVUK-SEARCH",
+          "EV-GITHUB"
+        ],
+        "examples": [
+          "HM Land Registry",
+          "Government Digital Service",
+          "Central Digital and Data Office"
+        ],
+        "excluded_conflations": [
+          "Organisation attribution does not establish endorsement, operational authority or rights ownership."
+        ],
+        "id": "TYPE-PUBLISHER",
+        "identity_key": "Canonical publisher organisation URL or source-native organisation identifier.",
+        "label": "Publisher organisation",
+        "optional_properties": [
+          "name",
+          "source role"
+        ],
+        "proposed_class": "schema:Organization and prov:Agent",
+        "required_properties": [
+          "@id",
+          "name"
+        ],
+        "source_native_type": "Source publisher or catalogue provider",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "version_key": "Organisation identity remains separate from each observation and publication role."
+      },
+      {
+        "evidence_refs": [
+          "EV-PUBLIC-DATA",
+          "EV-LLC-TERMS",
+          "EV-ACQUISITION-SNAPSHOT"
+        ],
+        "examples": [
+          "RIGHT-GOVUK",
+          "RIGHT-DATASETS",
+          "RIGHT-RESTRICTED"
+        ],
+        "excluded_conflations": [
+          "A rights assessment is not a blanket licence and does not replace source terms."
+        ],
+        "id": "TYPE-RIGHTS-STATEMENT",
+        "identity_key": "Stable rights-assessment ID within the frozen governance policy.",
+        "label": "Rights and access statement",
+        "optional_properties": [
+          "licence",
+          "attribution",
+          "access constraints",
+          "review trigger"
+        ],
+        "proposed_class": "dcterms:RightsStatement",
+        "required_properties": [
+          "@id",
+          "identifier",
+          "status",
+          "source"
+        ],
+        "source_native_type": "Project rights review linked to publisher terms",
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-LLC",
+          "TASK-AUDIT"
+        ],
+        "version_key": "Governance policy digest and source observation time."
+      },
+      {
+        "evidence_refs": [
+          "EV-ACQUISITION-SNAPSHOT",
+          "EV-OKF-SEMANTIC-PROFILE"
+        ],
+        "examples": [
+          "Bounded acquisition",
+          "deterministic normalisation",
+          "semantic graph generation"
+        ],
+        "excluded_conflations": [
+          "A project activity is not an official publisher action or independent review."
+        ],
+        "id": "TYPE-PROVENANCE-ACTIVITY",
+        "identity_key": "Deterministic activity IRI over rule or tool version and frozen input digest.",
+        "label": "Provenance activity",
+        "optional_properties": [
+          "started time",
+          "ended time",
+          "tool version",
+          "rule manifest"
+        ],
+        "proposed_class": "prov:Activity",
+        "required_properties": [
+          "@id",
+          "activity kind",
+          "input digest"
+        ],
+        "source_native_type": "Project-authored acquisition, normalisation or build activity",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "version_key": "Frozen input digest, rule or tool digest and observation or generation time."
+      },
+      {
+        "evidence_refs": [
+          "EV-ACQUISITION-SNAPSHOT",
+          "EV-OKF-SEMANTIC-PROFILE"
+        ],
+        "examples": [
+          "Frozen source envelope",
+          "field-level source observation",
+          "supporting relationship assertion"
+        ],
+        "excluded_conflations": [
+          "Evidence records do not upgrade a derived assertion to official authority and do not relicense source content."
+        ],
+        "id": "TYPE-EVIDENCE-RESOURCE",
+        "identity_key": "Stable evidence IRI over source artefact, source field or locator and canonical value digest.",
+        "label": "Evidence resource",
+        "optional_properties": [
+          "source URL",
+          "field locator",
+          "retrieval time",
+          "value digest",
+          "rights"
+        ],
+        "proposed_class": "prov:Entity",
+        "required_properties": [
+          "@id",
+          "source artefact",
+          "source digest",
+          "locator"
+        ],
+        "source_native_type": "Frozen source or project evidence record",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "version_key": "Exact source artefact digest and canonical source-value digest."
+      },
+      {
+        "evidence_refs": [
+          "EV-OKF-SEMANTIC-PROFILE",
+          "EV-ACQUISITION-SNAPSHOT"
+        ],
+        "examples": [
+          "Evidence-bearing translation, membership, publisher, rights or provenance assertion"
+        ],
+        "excluded_conflations": [
+          "An assertion's authority class, confidence or validation state does not change the authority of its source evidence."
+        ],
+        "id": "TYPE-RELATIONSHIP-ASSERTION",
+        "identity_key": "Stable assertion IRI over the canonical source IRI, predicate IRI, target IRI and governed assertion plane.",
+        "label": "Relationship assertion",
+        "optional_properties": [
+          "supporting assertions",
+          "confidence",
+          "review status",
+          "derivation activity"
+        ],
+        "proposed_class": "rdf:Statement and okf:RelationshipAssertion",
+        "required_properties": [
+          "@id",
+          "source",
+          "predicate",
+          "target",
+          "routes",
+          "status",
+          "scope",
+          "authority",
+          "derivation",
+          "observation",
+          "evidence",
+          "rights"
+        ],
+        "source_native_type": "Project-authored reification generated from one governed assertion source",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "version_key": "Assertion identity is stable while triple, plane and derivation identity are unchanged."
+      },
+      {
+        "evidence_refs": [
+          "EV-OKF",
+          "EV-OKF-SEMANTIC-PROFILE",
+          "EV-JSONLD",
+          "EV-DCAT",
+          "EV-PROVO"
+        ],
+        "examples": [
+          "OKF 0.2",
+          "OKF Bundle Wiki profile v1",
+          "JSON-LD 1.1",
+          "DCAT 3",
+          "PROV-O"
+        ],
+        "excluded_conflations": [
+          "Use of a vocabulary term is not a conformance claim."
+        ],
+        "id": "TYPE-STANDARD",
+        "identity_key": "Canonical specification or profile IRI plus the declared version.",
+        "label": "Standard or profile",
+        "optional_properties": [
+          "publication status",
+          "version",
+          "validation result"
+        ],
+        "proposed_class": "dcterms:Standard",
+        "required_properties": [
+          "@id",
+          "title",
+          "version",
+          "authority"
+        ],
+        "source_native_type": "Named external standard or pinned application profile",
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "version_key": "Canonical specification IRI and exact declared version or pinned release identity."
       }
     ],
     "equivalence_policy": "Do not assert identity from title, URL similarity, shared title number, address, hierarchy or embedding similarity.",
     "identifier_policy": {
       "collision_rule": "Fail closed on identity collision; never add numeric suffixes silently.",
-      "iri_rule": "Mint only repository-controlled derived IRIs and retain the canonical source URL separately.",
+      "iri_rule": "Mint only repository-controlled derived IRIs, retain the canonical source URL separately and register every assertion endpoint IRI with exactly one safe local Reader route.",
       "native_identifier_rule": "Preserve source routes, slugs, content IDs, service versions and repository full names verbatim.",
       "redirect_rule": "Preserve source redirects and explicit replacement evidence; do not guess moved routes.",
-      "route_rule": "Use deterministic lower-case percent-safe routes prefixed by source family; record every alias and collision."
+      "route_rule": "Use deterministic lower-case percent-safe routes prefixed by source family or semantic node kind; record every route, alias and collision in the digest-bound IRI-to-route registry."
     },
     "identifier_schemes": [
       {
@@ -1797,7 +2352,7 @@
         "uri_policy": "Mint local IRIs from source kind and slug while retaining canonical source URL."
       },
       {
-        "collision_policy": "Fail closed on duplicate repository IDs or normalized names.",
+        "collision_policy": "Fail closed on duplicate repository IDs or normalised names.",
         "equivalence_policy": "Fork, archive or successor relationships are not owl:sameAs.",
         "evidence_refs": [
           "EV-GITHUB"
@@ -1809,6 +2364,21 @@
         "scope": "Public repositories",
         "syntax": "LandRegistry/<repository>",
         "uri_policy": "Use the GitHub html_url as source identity and a local derived IRI."
+      },
+      {
+        "collision_policy": "Fail closed if two canonical inputs, node kinds or assertion triples produce one IRI or if one IRI maps to more than one Reader route.",
+        "equivalence_policy": "A shared source, publisher, rights statement, route label or graph neighbourhood does not establish entity identity.",
+        "evidence_refs": [
+          "EV-ACQUISITION-SNAPSHOT",
+          "EV-OKF-SEMANTIC-PROFILE"
+        ],
+        "id": "IDSCHEME-OKF-DERIVED",
+        "issuer": "HM Land Registry public-estate OKF project",
+        "normalization": "Canonicalise only the reviewed identity fields for each node kind; hash canonical UTF-8 values where no stable source identifier exists.",
+        "persistence": "Retain stable IRIs while the canonical source identity and derivation rule are unchanged; issue a new IRI for a materially different entity or assertion.",
+        "scope": "Derived catalogue, catalogue-record, collection, distribution, publisher, rights, activity, evidence and relationship-assertion nodes",
+        "syntax": "Repository-controlled HTTPS IRI under /id/<kind>/ and a separately validated local Reader route.",
+        "uri_policy": "Record every absolute IRI and safe local route in the digest-bound IRI-to-route registry; neither value is inferred from display text."
       }
     ],
     "prohibited_inferences": [
@@ -1817,18 +2387,119 @@
       "Do not infer open reuse from public or free access.",
       "Do not infer dataset currency from catalogue modification.",
       "Do not infer nationwide LLC coverage from service availability.",
-      "Do not use owl:sameAs without authoritative identity evidence."
+      "Do not use owl:sameAs without authoritative identity evidence.",
+      "Do not infer a domain predicate from a Markdown link, presentation group, search facet, shared topic, co-occurrence, graph proximity, title similarity, URL similarity or embedding similarity.",
+      "Do not infer domain or range membership, transitive closure, inverse edges or replacement from vocabulary declarations alone.",
+      "Do not infer official authority, evidential support or rights from another relationship, a high confidence score or public availability.",
+      "Do not resolve arbitrary remote contexts or run unbounded RDF, RDFS or OWL reasoning in the build or Reader.",
+      "Do not mix a materialised inferred or model-derived plane into the official or normalised default planes."
     ],
     "relationship_types": [
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-CATALOGUE-RECORD",
+        "inverse_label": "is recorded in catalogue",
+        "label": "has catalogue record",
+        "minimum_evidence": "Deterministic projection from one validated frozen discovery record with stable record and catalogue identities.",
+        "non_properties": [
+          "Catalogue membership does not establish source endorsement or completeness outside a declared denominator."
+        ],
+        "permitted_derivations": [
+          "normalized",
+          "rule-derived"
+        ],
+        "predicate_iri": "http://www.w3.org/ns/dcat#record",
+        "source_types": [
+          "Derived metadata catalogue"
+        ],
+        "target_types": [
+          "Catalogue record"
+        ],
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Membership in the exact frozen candidate catalogue."
+      },
+      {
+        "cardinality": "exactly one per catalogue record",
+        "direction": "directed",
+        "id": "REL-PRIMARY-TOPIC",
+        "inverse_label": "is described by catalogue record",
+        "label": "has primary topic",
+        "minimum_evidence": "The deterministic record-to-source-object identity mapping, including source-native identifier and canonical source URL.",
+        "non_properties": [
+          "A catalogue record and its topic remain distinct entities."
+        ],
+        "permitted_derivations": [
+          "normalized"
+        ],
+        "predicate_iri": "http://xmlns.com/foaf/0.1/primaryTopic",
+        "source_types": [
+          "Catalogue record"
+        ],
+        "target_types": [
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository"
+        ],
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE",
+          "TASK-PRACTICE",
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "The primary topic represented by the record in the exact frozen candidate."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-IS-PART-OF",
+        "inverse_label": "has member",
+        "label": "is part of",
+        "minimum_evidence": "Explicit publisher collection membership or deterministic membership in the project catalogue.",
+        "non_properties": [
+          "A hyperlink, topic match or common publisher alone is not membership."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized",
+          "rule-derived"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/isPartOf",
+        "source_types": [
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository"
+        ],
+        "target_types": [
+          "Official collection",
+          "Derived metadata catalogue"
+        ],
+        "task_refs": [
+          "TASK-PRACTICE",
+          "TASK-DATASET",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Membership explicitly observed or deterministically generated for the frozen candidate."
+      },
       {
         "cardinality": "zero or more",
         "direction": "directed",
         "id": "REL-HAS-PART",
         "inverse_label": "is part of",
         "label": "has part",
-        "minimum_evidence": "Source-declared collection membership or distribution listing.",
+        "minimum_evidence": "Source-declared collection membership or a publisher distribution listing with both endpoint identities preserved.",
         "non_properties": [
-          "A hyperlink alone is not membership."
+          "A hyperlink alone is not membership.",
+          "A dataset and one of its distributions are not identical."
         ],
         "permitted_derivations": [
           "source-native",
@@ -1836,12 +2507,14 @@
         ],
         "predicate_iri": "http://purl.org/dc/terms/hasPart",
         "source_types": [
-          "Official publication or guidance record",
+          "Official collection",
           "Dataset"
         ],
         "target_types": [
           "Official publication or guidance record",
-          "Dataset"
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata"
         ],
         "task_refs": [
           "TASK-PRACTICE",
@@ -1852,12 +2525,97 @@
       {
         "cardinality": "zero or more",
         "direction": "directed",
-        "id": "REL-DOCUMENTS",
-        "inverse_label": "is documented by",
-        "label": "documents",
-        "minimum_evidence": "Explicit publisher documentation link.",
+        "id": "REL-DISTRIBUTION",
+        "inverse_label": "is distribution of",
+        "label": "has distribution",
+        "minimum_evidence": "Publisher-declared distribution identity, kind, format and dataset membership in the frozen metadata.",
         "non_properties": [
-          "Documentation does not imply public access."
+          "A format label without a distinct distribution identity is not a distribution node.",
+          "Do not retain credentials or signed download URLs as identities."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://www.w3.org/ns/dcat#distribution",
+        "source_types": [
+          "Dataset"
+        ],
+        "target_types": [
+          "Dataset distribution metadata"
+        ],
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-SPATIAL",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Distribution membership as declared for the observed dataset release or landing page."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-ACCESS-SERVICE",
+        "inverse_label": "provides access for distribution",
+        "label": "has access service",
+        "minimum_evidence": "Explicit publisher metadata linking a distribution to a named service with its access model retained.",
+        "non_properties": [
+          "A documentation URL or API example does not establish anonymous operational access."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://www.w3.org/ns/dcat#accessService",
+        "source_types": [
+          "Dataset distribution metadata"
+        ],
+        "target_types": [
+          "Operational service or API product"
+        ],
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Access-service association observed in publisher metadata at snapshot time."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-SERVES-DATASET",
+        "inverse_label": "is served by",
+        "label": "serves dataset",
+        "minimum_evidence": "Explicit publisher API or service documentation naming the dataset and service identities.",
+        "non_properties": [
+          "Shared title text or a catalogue provider field does not establish this relationship."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://www.w3.org/ns/dcat#servesDataset",
+        "source_types": [
+          "Operational service or API product"
+        ],
+        "target_types": [
+          "Dataset"
+        ],
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Service-to-dataset association observed in the frozen publisher documentation."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-HAS-DOCUMENTATION",
+        "inverse_label": "documents",
+        "label": "has documentation page",
+        "minimum_evidence": "Explicit publisher documentation link naming both the documented object and documentation work.",
+        "non_properties": [
+          "Documentation does not imply public operation, service availability, current status or reuse rights."
         ],
         "permitted_derivations": [
           "source-native",
@@ -1865,17 +2623,91 @@
         ],
         "predicate_iri": "http://xmlns.com/foaf/0.1/page",
         "source_types": [
-          "Official publication or guidance record"
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository"
         ],
         "target_types": [
-          "Operational service or API product",
-          "Dataset"
+          "Official publication or guidance record"
         ],
         "task_refs": [
+          "TASK-PRACTICE",
+          "TASK-DATASET",
           "TASK-API",
-          "TASK-DATASET"
+          "TASK-AUDIT"
         ],
-        "temporal_meaning": "Documentation relationship observed at snapshot time."
+        "temporal_meaning": "Documentation relationship explicitly observed at snapshot time."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-TRANSLATION-OF-WORK",
+        "inverse_label": "has translation",
+        "label": "is translation of work",
+        "minimum_evidence": "Frozen GOV.UK Content API available_translations metadata with shared content identity, locale and exact source-value digest.",
+        "non_properties": [
+          "A language tag, similar title or cross-link alone is not translation evidence."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "https://schema.org/translationOfWork",
+        "source_types": [
+          "Official publication or guidance record",
+          "Official collection"
+        ],
+        "target_types": [
+          "Official publication or guidance record",
+          "Official collection"
+        ],
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE",
+          "TASK-PRACTICE",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Translation relationship declared by GOV.UK at the bounded Content API observation time."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-IS-VERSION-OF",
+        "inverse_label": "has version",
+        "label": "is version of",
+        "minimum_evidence": "Explicit publisher edition, release, schema-version, commit or version relationship with stable identities for both endpoints.",
+        "non_properties": [
+          "A later date, matching title or mutable route alone does not establish a version relationship."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/isVersionOf",
+        "source_types": [
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository"
+        ],
+        "target_types": [
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository"
+        ],
+        "task_refs": [
+          "TASK-PRACTICE",
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Source-declared version relationship applicable to the observed release or edition."
       },
       {
         "cardinality": "zero or more",
@@ -1906,6 +2738,178 @@
           "TASK-AUDIT"
         ],
         "temporal_meaning": "Replacement applies from the source-stated date."
+      },
+      {
+        "cardinality": "exactly one current publisher relationship per published discovery object, unless the source explicitly declares joint publishers",
+        "direction": "directed",
+        "id": "REL-PUBLISHER",
+        "inverse_label": "publishes",
+        "label": "is published by",
+        "minimum_evidence": "Source-native publisher or organisation attribution from the frozen source, retaining authority role separately.",
+        "non_properties": [
+          "Publisher attribution does not imply official endorsement of the derived catalogue or ownership of third-party rights."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/publisher",
+        "source_types": [
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository"
+        ],
+        "target_types": [
+          "Publisher organisation"
+        ],
+        "task_refs": [
+          "TASK-PUBLIC-ROUTE",
+          "TASK-PRACTICE",
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Publisher role observed in the frozen source metadata."
+      },
+      {
+        "cardinality": "one or more applicable rights relationships per published object or assertion",
+        "direction": "directed",
+        "id": "REL-RIGHTS",
+        "inverse_label": "governs rights for",
+        "label": "has rights statement",
+        "minimum_evidence": "Exact current applicable rights-assessment ID plus publisher terms evidence and source-layer classification.",
+        "non_properties": [
+          "The relationship does not assert that source data is open, free of third-party rights or licensed under the project licence."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/rights",
+        "source_types": [
+          "Catalogue record",
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository",
+          "Evidence resource",
+          "Relationship assertion"
+        ],
+        "target_types": [
+          "Rights and access statement"
+        ],
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-LLC",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Rights assessment applicable to the represented source layer and observation."
+      },
+      {
+        "cardinality": "one or more for every deterministically derived record, entity or assertion",
+        "direction": "directed",
+        "id": "REL-WAS-DERIVED-FROM",
+        "inverse_label": "supports derivation of",
+        "label": "was derived from",
+        "minimum_evidence": "Content-addressed frozen source artefact and field or locator, with source and canonical value digests where a field value is normalised.",
+        "non_properties": [
+          "Derivation does not upgrade project-authored metadata to official authority."
+        ],
+        "permitted_derivations": [
+          "normalized",
+          "rule-derived"
+        ],
+        "predicate_iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+        "source_types": [
+          "Catalogue record",
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository",
+          "Relationship assertion"
+        ],
+        "target_types": [
+          "Evidence resource"
+        ],
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Derivation from the exact frozen source artefact used for this candidate."
+      },
+      {
+        "cardinality": "exactly one controlling generation activity for every generated record, node or assertion",
+        "direction": "directed",
+        "id": "REL-WAS-GENERATED-BY",
+        "inverse_label": "generated",
+        "label": "was generated by",
+        "minimum_evidence": "Deterministic activity identity bound to the rule or tool version, frozen input digest and observation or generation time.",
+        "non_properties": [
+          "A generation activity is not a source publisher action, external review or release approval."
+        ],
+        "permitted_derivations": [
+          "normalized",
+          "rule-derived"
+        ],
+        "predicate_iri": "http://www.w3.org/ns/prov#wasGeneratedBy",
+        "source_types": [
+          "Catalogue record",
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository",
+          "Relationship assertion"
+        ],
+        "target_types": [
+          "Provenance activity"
+        ],
+        "task_refs": [
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Generation activity for the exact candidate bytes."
+      },
+      {
+        "cardinality": "zero or more",
+        "direction": "directed",
+        "id": "REL-CONFORMS-TO",
+        "inverse_label": "is conformance target for",
+        "label": "conforms to",
+        "minimum_evidence": "Explicit publisher-declared schema, protocol or standard version; project-profile conformance additionally requires a passing exact-candidate validation receipt.",
+        "non_properties": [
+          "Use of a file format, namespace or vocabulary term alone does not establish conformance."
+        ],
+        "permitted_derivations": [
+          "source-native",
+          "normalized"
+        ],
+        "predicate_iri": "http://purl.org/dc/terms/conformsTo",
+        "source_types": [
+          "Official publication or guidance record",
+          "Official collection",
+          "Dataset",
+          "Dataset distribution metadata",
+          "Operational service or API product",
+          "Public source-code repository",
+          "Derived metadata catalogue"
+        ],
+        "target_types": [
+          "Standard or profile"
+        ],
+        "task_refs": [
+          "TASK-DATASET",
+          "TASK-API",
+          "TASK-AUDIT"
+        ],
+        "temporal_meaning": "Conformance claimed or verified for the named source or candidate version only."
       }
     ],
     "temporal_model": {
@@ -1915,10 +2919,13 @@
         "Dataset release and coverage period",
         "Service observation time",
         "Acquisition time",
+        "Relationship assertion observation and source-value time",
+        "Rule or derivation activity time",
+        "Inference materialisation time when an inferred plane is explicitly enabled",
         "Bundle generation and release time"
       ],
-      "freshness_semantics": "Freshness is source-family specific and always measured from an explicit observation or release event.",
-      "version_semantics": "Preserve source-native editions, releases, schema versions and immutable commits; never infer them from one generic date."
+      "freshness_semantics": "Freshness is source-family and assertion specific, is always measured from an explicit observation or release event, and never upgrades a stale or unknown source merely because the graph was regenerated.",
+      "version_semantics": "Preserve source-native editions, releases, schema versions and immutable commits; version every predicate, derivation rule and materialised inference manifest; never infer any version from one generic date."
     }
   },
   "sources": [
@@ -1929,7 +2936,7 @@
       ],
       "access_status": "verified-working",
       "access_tested_at": "2026-07-29T07:53:38Z",
-      "acquisition_method": "Paginated, size-bounded JSON envelopes plus a canonical normalized projection.",
+      "acquisition_method": "Paginated, size-bounded JSON envelopes plus a canonical normalised projection.",
       "authority_role": "official-reference",
       "coverage": "Exact for the dated GOV.UK Search denominator only.",
       "coverage_denominator_ref": "DEN-GOVUK",
@@ -2057,7 +3064,7 @@
       ],
       "access_status": "verified-working",
       "access_tested_at": "2026-07-29T07:53:38Z",
-      "acquisition_method": "Pin the official repository commit and normalize documentation metadata.",
+      "acquisition_method": "Pin the official repository commit and normalise documentation metadata.",
       "authority_role": "authoritative",
       "coverage": "Exact current service denominator remains unresolved.",
       "evidence_refs": [
@@ -2305,6 +3312,45 @@
     },
     {
       "applicability": "normative",
+      "canonical_url": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+      "conformance_artifact": "Canonical YAML-LD, equivalent JSON-LD, semantic-model descriptor, IRI-to-route registry, predicate registry, direct triples, evidence-bearing relationship assertions and bounded Reader runtime.",
+      "evidence_refs": [
+        "EV-OKF-SEMANTIC-PROFILE"
+      ],
+      "id": "STD-OKF-BUNDLE-WIKI-V1",
+      "mappings": [
+        "OKF 0.2 Markdown remains the portable core while the Bundle Wiki profile supplies the additive semantic layer.",
+        "Every material directed relationship is generated as one direct triple, one reified assertion and one reconciled Reader runtime row."
+      ],
+      "publication_status": "Experimental versioned OKF Explorer application profile",
+      "retrieved_at": "2026-08-10T13:25:40Z",
+      "scope": "Pinned YAML-LD/JSON-LD semantic publication, registries, assertion evidence and bounded large-corpus relationship delivery.",
+      "semantic_conflicts": [
+        "The application profile does not make the derived bundle an HM Land Registry service or semantic authority for source facts.",
+        "YAML-LD remains a W3C Working Draft and is not described as a W3C Recommendation."
+      ],
+      "supported_source_fields": [
+        "Stable semantic and route identities",
+        "governed predicates and labels",
+        "assertion status, scope, authority and derivation",
+        "observation, evidence, rights and lifecycle",
+        "bounded inference state"
+      ],
+      "terms_adopted": [
+        "okf-semantic-model.v1",
+        "okf-iri-route-registry.v1",
+        "okf-predicate-registry.v1",
+        "okf:RelationshipAssertion"
+      ],
+      "title": "OKF Bundle Wiki Profile",
+      "unmet_requirements": [
+        "Exact-candidate conformance and release assurance remain to be demonstrated by Stage 2 receipts."
+      ],
+      "validation": "Validate the vendored profile lock, pinned contexts, registries, every assertion, direct/reified/runtime parity, semantic graph identity and Reader bounds without network context resolution.",
+      "version": "v1 from OKF Explorer v0.6.0 at commit 4bb7b92a64b7ba69bde9b1e86786217338cd166d"
+    },
+    {
+      "applicability": "normative",
       "canonical_url": "https://yaml.org/spec/1.2.2/",
       "conformance_artifact": "Strict YAML documents without aliases, merge keys or custom tags.",
       "evidence_refs": [
@@ -2327,9 +3373,9 @@
       "version": "1.2.2"
     },
     {
-      "applicability": "reference-only",
+      "applicability": "projection",
       "canonical_url": "https://www.w3.org/TR/2025/WD-yaml-ld-10-20250612/",
-      "conformance_artifact": "None in this profile level; status is documented explicitly.",
+      "conformance_artifact": "Canonical YAML-LD Basic-profile semantic descriptor generated from the governed assertion source.",
       "evidence_refs": [
         "EV-YAMLLD"
       ],
@@ -2337,15 +3383,22 @@
       "mappings": [],
       "publication_status": "W3C Working Draft",
       "retrieved_at": "2026-07-29T07:53:38Z",
-      "scope": "Assessed for future governed-semantic authoring; not claimed by the first scaffold.",
-      "semantic_conflicts": [],
-      "supported_source_fields": [],
-      "terms_adopted": [],
+      "scope": "Canonical v0.3.0 semantic descriptor under the pinned OKF Bundle Wiki application profile.",
+      "semantic_conflicts": [
+        "YAML-LD is a W3C Working Draft, so the project claims application-profile compatibility rather than W3C Recommendation status."
+      ],
+      "supported_source_fields": [
+        "The complete governed metadata graph, including direct triples and relationship assertions"
+      ],
+      "terms_adopted": [
+        "YAML-LD Basic profile",
+        "YAML 1.2 Core Schema"
+      ],
       "title": "YAML-LD 1.0",
       "unmet_requirements": [
-        "No YAML-LD conformance artefact in the first scaffold."
+        "No remote-context resolution, generic YAML tags, anchors or merge-key semantics are permitted."
       ],
-      "validation": "Not applicable until governed-semantic authoring is selected.",
+      "validation": "Safe parse, Basic-profile representation checks, pinned local context resolution and exact data equivalence with the JSON-LD projection.",
       "version": "W3C Working Draft 2025-06-12"
     },
     {
@@ -2373,7 +3426,7 @@
     {
       "applicability": "projection",
       "canonical_url": "https://www.w3.org/TR/json-ld11/",
-      "conformance_artifact": "Deterministic JSON-LD catalogue projection.",
+      "conformance_artifact": "Deterministic JSON-LD projection exactly equivalent to the canonical YAML-LD semantic graph.",
       "evidence_refs": [
         "EV-JSONLD"
       ],
@@ -2383,14 +3436,15 @@
       ],
       "publication_status": "W3C Recommendation",
       "retrieved_at": "2026-07-29T07:53:38Z",
-      "scope": "Compact semantic catalogue descriptor without replacing source-native records.",
+      "scope": "Complete bounded semantic graph or digest-bound semantic control document without replacing source-native records.",
       "semantic_conflicts": [
         "Source-native distinctions must not be collapsed to fit a vocabulary."
       ],
       "supported_source_fields": [
         "Dataset",
         "DataService",
-        "CreativeWork and provenance projections"
+        "CreativeWork and provenance projections",
+        "direct relationship triples and evidence-bearing reification"
       ],
       "terms_adopted": [
         "@context",
@@ -2399,9 +3453,9 @@
       ],
       "title": "JSON-LD 1.1",
       "unmet_requirements": [
-        "Full RDF materialization and isomorphism are deferred."
+        "Unbounded remote context resolution and general-purpose inference are prohibited."
       ],
-      "validation": "JSON parse, local context allowlist and stable identifier checks.",
+      "validation": "JSON parse, pinned local context expansion, stable identity and registry closure, direct/reified triple reconciliation and exact YAML-LD data equivalence.",
       "version": "W3C Recommendation 2020-07-16"
     },
     {
@@ -2444,7 +3498,7 @@
     {
       "applicability": "projection",
       "canonical_url": "https://www.w3.org/TR/prov-o/",
-      "conformance_artifact": "Provenance fields and optional JSON-LD projection.",
+      "conformance_artifact": "Route-bearing provenance activities and evidence resources linked to every generated material assertion.",
       "evidence_refs": [
         "EV-PROVO"
       ],
@@ -2454,7 +3508,7 @@
       ],
       "publication_status": "W3C Recommendation",
       "retrieved_at": "2026-07-29T07:53:38Z",
-      "scope": "Source observation, normalization, generation and verification provenance.",
+      "scope": "Source observation, normalisation, generation, bounded rule materialisation and verification provenance.",
       "semantic_conflicts": [],
       "supported_source_fields": [
         "sources",
@@ -2466,11 +3520,12 @@
         "prov:Entity",
         "prov:Activity",
         "prov:wasDerivedFrom",
-        "prov:generatedAtTime"
+        "prov:generatedAtTime",
+        "prov:wasGeneratedBy"
       ],
       "title": "PROV-O",
       "unmet_requirements": [],
-      "validation": "Every generated assertion must resolve to an evidence record and derivation.",
+      "validation": "Every generated assertion must resolve to content-addressed evidence, a derivation and its controlling activity; project activity never implies source endorsement or independent review.",
       "version": "W3C Recommendation 2013-04-30"
     },
     {
@@ -2555,7 +3610,7 @@
       "version": "WCAG 2.2"
     }
   ],
-  "status": "approved",
+  "status": "reviewed",
   "tasks": [
     {
       "authority_requirement": "Current GOV.UK and HMLR service evidence.",
@@ -2948,7 +4003,9 @@
       "planned_artifacts": [
         "bundle/data/manifest.json",
         "bundle/data/coverage.json",
-        "bundle/data/provenance.json"
+        "bundle/data/provenance.json",
+        "bundle/data/semantic/iri-route-registry.json",
+        "bundle/data/semantic/validation.json"
       ],
       "status": "accepted",
       "task_refs": [
@@ -2956,7 +4013,42 @@
       ],
       "validation_refs": [
         "VAL-SNAPSHOT",
-        "VAL-DATA-PLANE"
+        "VAL-DATA-PLANE",
+        "VAL-SEMANTIC"
+      ]
+    },
+    {
+      "evidence_refs": [
+        "EV-ACQUISITION-SNAPSHOT",
+        "EV-OKF-SEMANTIC-PROFILE",
+        "EV-OWNER-SEMANTIC-DIRECTION"
+      ],
+      "id": "TRACE-SEMANTICS",
+      "intent_or_requirement": "Publish a comprehensive metadata-level semantic graph with canonical YAML-LD, equivalent JSON-LD, closed registries, evidence-bearing directed relationships and no unbounded inference.",
+      "planned_artifacts": [
+        "bundle/okf-bundle.yamlld",
+        "bundle/okf-bundle.jsonld",
+        "bundle/data/semantic/semantic-model.json",
+        "bundle/data/semantic/iri-route-registry.json",
+        "bundle/data/semantic/predicate-registry.json",
+        "bundle/data/semantic/validation.json",
+        "bundle/data/explorer/relationships-*.json"
+      ],
+      "status": "accepted",
+      "task_refs": [
+        "TASK-PUBLIC-ROUTE",
+        "TASK-PRACTICE",
+        "TASK-DATASET",
+        "TASK-SPATIAL",
+        "TASK-API",
+        "TASK-LLC",
+        "TASK-AUDIT"
+      ],
+      "validation_refs": [
+        "VAL-SEMANTIC",
+        "VAL-DATA-PLANE",
+        "VAL-EXPLORER-CONSUMER",
+        "VAL-REPRODUCIBILITY"
       ]
     },
     {
@@ -3212,7 +4304,7 @@
       ],
       "id": "USER-AUDITOR",
       "needs": [
-        "Trace a normalized record to publisher evidence.",
+        "Trace a normalised record to publisher evidence.",
         "Identify unknown, restricted, stale, partial and unverified states."
       ],
       "risks": [
@@ -3304,8 +4396,17 @@
       "validator": "tests/test_explorer_contract.py and pinned browser acceptance suite"
     },
     {
+      "id": "VAL-SEMANTIC",
+      "method": "Safe-parse canonical YAML-LD; prove exact JSON-LD data equivalence; expand only pinned local contexts; validate the semantic-model, IRI-to-route and predicate registries; validate every relationship assertion; reconcile the exact direct-triple, reified-assertion and Reader-runtime sets; verify evidence, rights, route and digest closure; and require inference to be not-run or finite, rule-manifest-bound and separately materialised.",
+      "receipt": "bundle/data/semantic/validation.json",
+      "release_gate": true,
+      "severity": "error",
+      "target": "Canonical semantic graph, registries, relationship assertions, inference state and bounded Reader projection",
+      "validator": "scripts/check_bundle.py, tests/test_jsonld.py and the pinned OKF Explorer repository reconciler"
+    },
+    {
       "id": "VAL-CHANGE-IMPACT",
-      "method": "Validate the artifact-dependency graph, classify changed paths, select transitive outputs, consumers and gates, and fail closed on unknown or generated-only changes.",
+      "method": "Validate the artefact-dependency graph, classify changed paths, select transitive outputs, consumers and gates, and fail closed on unknown or generated-only changes.",
       "receipt": "validation/change-impact.json",
       "release_gate": true,
       "severity": "error",
@@ -3313,5 +4414,5 @@
       "validator": "scripts/change_impact.py"
     }
   ],
-  "version": "1"
+  "version": "2"
 }

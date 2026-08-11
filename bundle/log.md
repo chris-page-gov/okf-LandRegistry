@@ -1,7 +1,7 @@
 # HM Land Registry OKF generation log
 
-## 2026-07-29
+## 2026-08-10
 
 - Observed frozen public metadata snapshot `hmlr-public-metadata-v0.2.0` at `2026-07-29T18:00:00Z`.
-- Normalized only public discovery metadata; no authenticated, paid, personal or bulk source records were acquired.
+- Normalised only public discovery metadata; no authenticated, paid, personal or bulk source records were acquired.
 - Generated `ai-generated-proof-of-concept` provenance, rights, reconciliation, one Explorer runtime search plane and a static Pages catalogue offline.

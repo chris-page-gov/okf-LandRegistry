@@ -1,0 +1,290 @@
+{
+  "okf_core": {
+    "specification": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/3fcbb9f828c2f23d109c855ee403c3a4c81f3a96/okf/SPEC.md",
+    "status": "conformant",
+    "version": "0.2"
+  },
+  "reader": {
+    "consumer": "https://chris-page-gov.github.io/okf-explorer/",
+    "contract_lock": {
+      "compatibility_policy": "exact-version-only",
+      "path": "contracts/okf-explorer.consumer-lock.json",
+      "semantic_profile_files": 16,
+      "version": "0.6.0"
+    },
+    "delivery": "json-large-corpus-adjacency",
+    "runtime_projection": {
+      "authority": "bounded-browser-projection",
+      "complete_evidence_sources": [
+        "bundle/okf-bundle.yamlld",
+        "bundle/okf-bundle.jsonld"
+      ],
+      "evidence_core_fields": [
+        "@id",
+        "type",
+        "url",
+        "source_field",
+        "source_value_sha256",
+        "retrieved_at"
+      ],
+      "limit_validation": "bundle/data/semantic/validation.json",
+      "validated_loading_paths": [
+        "full-default-plane-hydration",
+        "every-route-hydration"
+      ]
+    },
+    "preserves": [
+      "direction",
+      "semantic-identities",
+      "local-routes",
+      "predicate",
+      "relationship-kind",
+      "preferred-and-inverse-labels",
+      "assertion-status-and-scope",
+      "authority",
+      "derivation",
+      "supporting-assertions",
+      "confidence",
+      "review-status",
+      "evidence",
+      "rights",
+      "freshness",
+      "lifecycle"
+    ]
+  },
+  "relationship_contract": {
+    "authoring": "generated-yaml-ld-assertion-graph",
+    "direct_triple_policy": "generated-from-one-assertion-source",
+    "predicate_policy": "absolute-iri",
+    "required_fields": [
+      "id",
+      "source",
+      "target",
+      "source_iri",
+      "target_iri",
+      "predicate",
+      "kind",
+      "label",
+      "inverse_label",
+      "assertion_status",
+      "assertion_scope",
+      "authority",
+      "derivation",
+      "observed_at",
+      "evidence",
+      "rights"
+    ],
+    "schema": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json",
+    "schema_binding": {
+      "bytes": 7308,
+      "draft": "https://json-schema.org/draft/2020-12/schema",
+      "local_path": "schemas/semantic-assertion.schema.json",
+      "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc"
+    }
+  },
+  "repository": {
+    "name": "okf-LandRegistry",
+    "role": "large-corpus-producer",
+    "root_index": "bundle/index.md"
+  },
+  "schema": "okf-repository-semantic-contract.v1",
+  "semantic_layer": {
+    "authoritative_inputs": [
+      "source/",
+      "domain-profile/",
+      "governance/",
+      "profiles/bundle-wiki/v1/",
+      "profiles/bundle-wiki/v1.vendor-lock.json",
+      "schemas/",
+      "standards/"
+    ],
+    "authoritative_input_roles": {
+      "content_evidence_and_governance": [
+        "source/",
+        "domain-profile/",
+        "governance/"
+      ],
+      "profile_schema_and_standard_locks": [
+        "profiles/bundle-wiki/v1/",
+        "profiles/bundle-wiki/v1.vendor-lock.json",
+        "schemas/",
+        "standards/"
+      ],
+      "trusted_generators_not_semantic_authority": [
+        "scripts/"
+      ]
+    },
+    "candidate_assurance": {
+      "authority": "version-scoped-digest-bound-external-evidence",
+      "byte_state_scope": "approval-neutral-baseline-not-current-release-state",
+      "independent_review": {
+        "findings": [
+          "source-field-evidence",
+          "cpsv-adversarial-binding",
+          "url-hardening"
+        ],
+        "priority": "P1",
+        "status": "implemented-regression-tested-exact-gate-state-external"
+      },
+      "land_registry_g9": "not-run",
+      "release_approval": "not-granted",
+      "release_gates": {
+        "G1": "not-run",
+        "G2": "not-run",
+        "G3": "not-run",
+        "G4": "not-run",
+        "G5": "not-run",
+        "G6": "not-run",
+        "G7": "not-run",
+        "G8": "not-run",
+        "G9": "not-run"
+      },
+      "release_ready": false,
+      "status": "approval-neutral-candidate",
+      "version": "0.3.0"
+    },
+    "candidate_metrics": {
+      "direct_triples": 22226,
+      "governed_predicates": 13,
+      "reified_assertions": 22226,
+      "relationship_chunks": 89,
+      "route_bearing_semantic_identities": 6733,
+      "route_locator_buckets": 256,
+      "runtime_rows": 22226
+    },
+    "context_policy": "pinned-local-contexts-no-browser-remote-expansion",
+    "cpsv_ap": {
+      "mapping": {
+        "candidates": 11,
+        "evidence_references": 19,
+        "excluded": 4,
+        "mapped": 7,
+        "path": "source/cpsv-service-mappings.json"
+      },
+      "official_shacl": "not-run",
+      "vendor_lock": "standards/cpsv-ap/3.2.0.vendor-lock.json",
+      "version": "3.2.0"
+    },
+    "generated_output_scope": {
+      "authority": "projection-only",
+      "hand_edit_policy": "never-hand-edit-generated-output",
+      "root": "bundle/"
+    },
+    "identity_policy": "absolute-semantic-iri-plus-validated-local-route",
+    "inference": "not-run",
+    "limitations": [
+        "The semantic projection remains metadata-only and carries no property-level records; candidate bytes do not confer publication authority, which belongs only to exact-digest release assurance and owner approval.",
+        "The candidate-byte assurance fields are approval-neutral baselines, not current release state; version-scoped, digest-bound external evidence is authoritative without weakening any gate.",
+        "The P1 source-field evidence, CPSV adversarial-binding and URL-hardening corrections identified by independent review are implemented and locally regression-tested; exact-candidate independent acceptance and release readiness can be recorded only in external evidence.",
+      "CPSV-AP 3.2.0 is vendored, but its official SHACL shapes have not been run; semantic inference has not been run."
+    ],
+    "outputs": [
+      {
+        "generated": true,
+        "path": "bundle/okf-bundle.jsonld",
+        "required": true,
+        "role": "semantic-json-ld"
+      },
+      {
+        "generated": true,
+        "path": "bundle/okf-bundle.yamlld",
+        "required": true,
+        "role": "semantic-yaml-ld"
+      },
+      {
+        "generated": true,
+        "path": "bundle/okf-explorer.json",
+        "required": true,
+        "role": "explorer-runtime"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/adjacency/manifest.json",
+        "required": true,
+        "role": "relationship-route-locator"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/adjacency/*.json",
+        "required": true,
+        "role": "relationship-route-buckets"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/relationships-*.json",
+        "required": true,
+        "role": "relationship-runtime"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/model.json",
+        "required": true,
+        "role": "semantic-model"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/semantic-assertion.schema.json",
+        "required": true,
+        "role": "relationship-schema"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/iri-route-registry.json",
+        "required": true,
+        "role": "iri-route-registry"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/predicate-registry.json",
+        "required": true,
+        "role": "predicate-registry"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/standards/",
+        "required": true,
+        "role": "vendored-standard-projection"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/validation.json",
+        "required": true,
+        "role": "semantic-validation"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/runtime-manifest.json",
+        "required": true,
+        "role": "rich-relationship-runtime-manifest"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/runtime/core/*.json.gz",
+        "required": true,
+        "role": "rich-relationship-runtime-chunks"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/runtime/route-locator/",
+        "required": true,
+        "role": "rich-relationship-route-locator"
+      }
+    ],
+    "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+    "serialisation_policy": "canonical-yaml-ld-equivalent-json-ld",
+    "state": "generated-yaml-ld-graph-candidate"
+  },
+  "tooling": {
+    "build": [
+      ".venv/bin/python scripts/build.py --snapshot-dir source/snapshots/2026-07-29T091915Z --publication-base https://chris-page-gov.github.io/okf-LandRegistry/ --replace"
+    ],
+    "check": [
+      ".venv/bin/python scripts/check_okf.py",
+      ".venv/bin/python -m unittest tests.test_build_semantics tests.test_explorer_contract tests.test_jsonld tests.test_okf -v"
+    ],
+    "setup": [
+      "python3 -m venv .venv",
+      ".venv/bin/python -m pip install --require-hashes --requirement requirements-lock.txt"
+    ]
+  }
+}

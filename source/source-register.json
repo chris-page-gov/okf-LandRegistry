@@ -258,6 +258,40 @@
       ]
     },
     {
+      "id": "fee-calculator",
+      "title": "HM Land Registry fee calculator",
+      "url": "https://fee-calculator.landregistry.gov.uk/",
+      "owner": "HM Land Registry",
+      "authority_tier": "publisher-authoritative",
+      "access_state": "public",
+      "rights_state": "metadata-only",
+      "acquisition": "Minimal public title, description and route metadata only; no calculation, submission or result capture.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Recheck the public route and specialist rights decision for each candidate.",
+      "caveats": [
+        "Public access to the calculator does not authorise reuse of its operation, generated estimates or results.",
+        "Calculator output is not a substitute for the current Fee Order and official guidance."
+      ]
+    },
+    {
+      "id": "legislation",
+      "title": "Legislation.gov.uk land-registration legislation",
+      "url": "https://www.legislation.gov.uk/",
+      "owner": "The National Archives",
+      "authority_tier": "normative-authority",
+      "access_state": "public",
+      "rights_state": "open-with-conditions",
+      "acquisition": "Curated legislation identity and source-route metadata only; no page-body or attachment acquisition.",
+      "observed_denominator": null,
+      "denominator_as_of": null,
+      "refresh": "Recheck the exact legislation routes, revision status and official reuse terms for each candidate.",
+      "caveats": [
+        "Legislation.gov.uk content is available under the Open Government Licence v3.0 except where otherwise stated.",
+        "Original, revised and prospective text must remain distinct, and legislation is not legal advice."
+      ]
+    },
+    {
       "id": "cddo-api-catalogue",
       "title": "CDDO API Catalogue",
       "url": "https://github.com/co-cddo/api-catalogue/blob/main/data/catalogue.csv",

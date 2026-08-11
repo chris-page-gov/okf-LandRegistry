@@ -4,15 +4,15 @@
     "max_postings_per_token": 50000,
     "postings": 98124,
     "postings_shards": 34,
-    "tokens": 5273,
+    "tokens": 5275,
     "uncapped_postings": 98124
   },
   "entrypoints": {
     "doc_map": "data/explorer/search/doc-map.json",
     "facets": {
-      "bytes": 42815,
+      "bytes": 43211,
       "path": "data/explorer/facets.json",
-      "sha256": "fa0dc67c32898394bec85a0b809c6c763f02ac94ff50575018f5170234bf7f40"
+      "sha256": "7e4052d8d9801b9cf4e47ba0b2870daf63edb20d132940e1861a5558fafc1809"
     },
     "filter_postings": {
       "access": "data/explorer/search/filters/access.json",
@@ -97,6 +97,8 @@
       "75": "data/explorer/search/lexicon-7.json",
       "76": "data/explorer/search/lexicon-7.json",
       "78": "data/explorer/search/lexicon-7.json",
+      "7b": "data/explorer/search/lexicon-7.json",
+      "7d": "data/explorer/search/lexicon-7.json",
       "81": "data/explorer/search/lexicon-8.json",
       "82": "data/explorer/search/lexicon-8.json",
       "83": "data/explorer/search/lexicon-8.json",
@@ -435,11 +437,11 @@
   "result_doc_chunk_size": 250,
   "result_limit": 200,
   "schema": "okf-static-search.v2",
-  "shard_manifest_sha256": "42b56c5700be58a71b05d5a886b5e0014ca90f2df5aafad78162d3add4142c3c",
+  "shard_manifest_sha256": "c2406e06e1174bd839eed07cfca9ad4ff289caf5c225ed747b4454e9de91a903",
   "shard_metadata": {
-    "bytes": 22606,
+    "bytes": 22607,
     "path": "data/explorer/search/shards.json",
-    "sha256": "d65125e9de526a01fcf23523b39dbed447e81be2de9e8dcf462b25bcb9568f92"
+    "sha256": "5cdf922a05001297eb180afd3b55660d5de049e85c3a77019687cda108c2d3ff"
   },
   "snapshot": "hmlr-public-metadata-v0.2.0",
   "token_min_length": 2,

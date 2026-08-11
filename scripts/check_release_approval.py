@@ -41,7 +41,7 @@ def artifact_path(bundle_root: Path, name: str) -> Path:
     if artifact.is_symlink():
         raise ReleaseApprovalError(f"checksum path is a symbolic link: {name!r}")
     if not artifact.is_file():
-        raise ReleaseApprovalError(f"checksummed artifact is missing: {name!r}")
+        raise ReleaseApprovalError(f"checksummed artefact is missing: {name!r}")
     return artifact
 
 
@@ -82,24 +82,24 @@ def validate_release_approval(checksums_path: Path, expected_root: str) -> str:
             ) from exc
         if SHA256.fullmatch(digest) is None:
             raise ReleaseApprovalError(
-                f"{checksums_path}:{line_number}: invalid artifact SHA-256"
+                f"{checksums_path}:{line_number}: invalid artefact SHA-256"
             )
         if name in seen_paths:
             raise ReleaseApprovalError(
-                f"{checksums_path}:{line_number}: duplicate artifact path {name!r}"
+                f"{checksums_path}:{line_number}: duplicate artefact path {name!r}"
             )
         seen_paths.add(name)
         artifact = artifact_path(checksums_path.parent, name)
         actual_digest = sha256_file(artifact)
         if actual_digest != digest:
             raise ReleaseApprovalError(
-                f"artifact digest mismatch for {name!r}: "
+                f"artefact digest mismatch for {name!r}: "
                 f"declared {digest}, calculated {actual_digest}"
             )
         digest_lines.append(line)
 
     if not digest_lines:
-        raise ReleaseApprovalError("checksum manifest contains no artifact entries")
+        raise ReleaseApprovalError("checksum manifest contains no artefact entries")
     if len(declared_roots) != 1 or SHA256.fullmatch(declared_roots[0]) is None:
         raise ReleaseApprovalError(
             "checksum manifest must contain exactly one valid release-root marker"

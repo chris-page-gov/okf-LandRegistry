@@ -1,8 +1,14 @@
 # Product contract
 
-Status: **v0.2.0 AI-generated PoC contract; publication is exact-digest gated**
-Research cutoff: **2026-07-29**  
+Status: **v0.3.0 approval-neutral AI-generated PoC candidate bytes;
+authoritative release status is external and exact-digest gated**
+Research cut-off: **2026-07-29**
 Decision authority: project owner (`DEC-RELEASE`)
+
+See the [v0.3.0 release tracker and assurance
+runbook](v0.3.0-release-tracker-and-assurance-runbook.md) for the candidate
+baseline and dependency-ordered checks; version-scoped, digest-bound evidence
+is authoritative for the current release state.
 
 ## Purpose
 
@@ -12,10 +18,12 @@ for guidance, forms, services, datasets, APIs, developer resources and public
 repositories, while keeping authority, freshness, access and reuse conditions
 visible.
 
-Version 0.2.0 was generated with AI assistance and is reviewed through
-digest-bound automated, real-consumer and independent-agent evidence gates.
-Publication is allowed only when `DEC-RELEASE` closes for the exact candidate
-digest. Any approval is for a proof of concept, not for production or legal
+Version 0.3.0 is generated with AI assistance as approval-neutral candidate
+bytes. Historical v0.2.0 receipts and approval do not apply. The bytes do not
+self-assert a gate state or publication decision: version-scoped,
+digest-bound automated, real-consumer and independent-review evidence plus
+the exact `DEC-RELEASE` owner decision are the sole release authority. Any
+approval applies only to a proof of concept, not to production or legal
 reliance.
 
 The bundle is not an HM Land Registry service and is not endorsed by HM Land
@@ -116,8 +124,10 @@ digest-bound candidate. In particular:
 - a clean rebuild is byte-identical; and
 - the project owner closes `DEC-RELEASE` for a named version and canonical URL.
 
-For v0.2.0 the owner decision can approve only the exact digest recorded in the
-release evidence; until that record closes, the candidate is not approved.
+The released v0.2.0 decision is historical and cannot approve v0.3.0 candidate
+bytes. Those bytes deliberately make no current approval or release claim;
+the authoritative state is the subsequent exact-digest G1–G8 evidence,
+independent recommendation and G9 owner decision.
 “Complete”, “production-ready”, “accessible” and “official” still must not
 describe the bundle: the bounded per-family coverage, PoC status and lack of
 human accessibility or participant research remain explicit.

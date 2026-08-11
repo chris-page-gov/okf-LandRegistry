@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T15:30:00Z",
+  "generated_at": "2026-08-10T21:42:03Z",
   "observed_at": "2026-07-29T18:00:00Z",
   "records": [
     {
@@ -1206,7 +1206,7 @@
       "source_native_ids": [
         "cddo-api:b7f72815cf8fb4b53503"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/ApplicationEnquiryV1_0WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/ApplicationEnquiryV1_0WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -9094,7 +9094,7 @@
       "source_native_ids": [
         "cddo-api:f4d565556664a9e5ce9a"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/DischargeActivityV1_0WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/DischargeActivityV1_0WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -9763,7 +9763,7 @@
       "source_native_ids": [
         "cddo-api:e25aed20e28ae5a5e764"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/ECDRS_SoapEngine/EDocumentRegistrationV2_1WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/ECDRS_SoapEngine/EDocumentRegistrationV2_1WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -10200,7 +10200,7 @@
       "source_native_ids": [
         "cddo-api:bc6ce55abedc9db13da7"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/bg2/api/v1/applications/{application_reference}/estimate-completion-date"
+      "url": "https://businessgateway.landregistry.gov.uk/bg2/api/v1/applications/%7Bapplication_reference%7D/estimate-completion-date"
     },
     {
       "evidence_refs": [
@@ -16931,25 +16931,25 @@
     },
     {
       "evidence_refs": [
-        "EV-HMLR-ORG"
+        "EV-INVENTORY"
       ],
-      "id": "hmlr-889cd134912e1bc1a94b44ee",
+      "id": "hmlr-9ba8be379f260120f9ca847d",
       "representations": [
         {
           "curation": "reviewed",
           "derivation": "reviewed-curated-metadata",
           "evidence_refs": [
-            "EV-HMLR-ORG"
+            "EV-INVENTORY"
           ],
           "id": "hmlr:service:fee-calculator",
           "lifecycle_state": "unknown",
           "observed_at": "2026-07-29T07:53:38Z",
-          "rights_ref": "RIGHT-GOVUK",
-          "source_family": "govuk-hmlr"
+          "rights_ref": "RIGHT-FEE-CALCULATOR",
+          "source_family": "fee-calculator"
         }
       ],
       "source_families": [
-        "govuk-hmlr"
+        "fee-calculator"
       ],
       "source_native_ids": [
         "hmlr:service:fee-calculator"
@@ -27331,7 +27331,7 @@
           "id": "hmlr:catalogue:land-property-ownership",
           "lifecycle_state": "unknown",
           "observed_at": "2026-07-29T07:53:38Z",
-          "rights_ref": "RIGHT-GOVUK",
+          "rights_ref": "RIGHT-CATALOGUE",
           "source_family": "cross-government-data-catalogues"
         }
       ],
@@ -27459,7 +27459,7 @@
       "source_native_ids": [
         "cddo-api:72a3218c9161858b54c9"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -27490,7 +27490,7 @@
       "source_native_ids": [
         "cddo-api:5407d1678fbb048b1bd2"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/FullSearchV2_1WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/FullSearchV2_1WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -27668,25 +27668,25 @@
     },
     {
       "evidence_refs": [
-        "EV-HMLR-ORG"
+        "EV-INVENTORY"
       ],
-      "id": "hmlr-a04a454cf3e34e38ba3239b3",
+      "id": "hmlr-7642b10e17c059b3b30215d2",
       "representations": [
         {
           "curation": "reviewed",
           "derivation": "reviewed-curated-metadata",
           "evidence_refs": [
-            "EV-HMLR-ORG"
+            "EV-INVENTORY"
           ],
           "id": "legislation:land-registration-act-2002",
           "lifecycle_state": "unknown",
           "observed_at": "2026-07-29T07:53:38Z",
-          "rights_ref": "RIGHT-GOVUK",
-          "source_family": "govuk-hmlr"
+          "rights_ref": "RIGHT-LEGISLATION",
+          "source_family": "legislation"
         }
       ],
       "source_families": [
-        "govuk-hmlr"
+        "legislation"
       ],
       "source_native_ids": [
         "legislation:land-registration-act-2002"
@@ -27812,25 +27812,25 @@
     },
     {
       "evidence_refs": [
-        "EV-HMLR-ORG"
+        "EV-INVENTORY"
       ],
-      "id": "hmlr-21e781b82d75258e41c886da",
+      "id": "hmlr-e9880f0f70f3a0ddfe2539a8",
       "representations": [
         {
           "curation": "reviewed",
           "derivation": "reviewed-curated-metadata",
           "evidence_refs": [
-            "EV-HMLR-ORG"
+            "EV-INVENTORY"
           ],
           "id": "legislation:land-registration-rules-2003",
           "lifecycle_state": "unknown",
           "observed_at": "2026-07-29T07:53:38Z",
-          "rights_ref": "RIGHT-GOVUK",
-          "source_family": "govuk-hmlr"
+          "rights_ref": "RIGHT-LEGISLATION",
+          "source_family": "legislation"
         }
       ],
       "source_families": [
-        "govuk-hmlr"
+        "legislation"
       ],
       "source_native_ids": [
         "legislation:land-registration-rules-2003"
@@ -32711,27 +32711,25 @@
     },
     {
       "evidence_refs": [
-        "EV-LLC-PROGRAMME",
-        "EV-LLC-TERMS"
+        "EV-INVENTORY"
       ],
-      "id": "hmlr-5af40131585034f994959afb",
+      "id": "hmlr-c16f457f24573e504b8cc23f",
       "representations": [
         {
           "curation": "reviewed",
           "derivation": "reviewed-curated-metadata",
           "evidence_refs": [
-            "EV-LLC-PROGRAMME",
-            "EV-LLC-TERMS"
+            "EV-INVENTORY"
           ],
           "id": "legislation:local-land-charges-act-1975",
           "lifecycle_state": "unknown",
           "observed_at": "2026-07-29T07:53:38Z",
-          "rights_ref": "RIGHT-RESTRICTED",
-          "source_family": "local-land-charges"
+          "rights_ref": "RIGHT-LEGISLATION",
+          "source_family": "legislation"
         }
       ],
       "source_families": [
-        "local-land-charges"
+        "legislation"
       ],
       "source_native_ids": [
         "legislation:local-land-charges-act-1975"
@@ -33057,7 +33055,7 @@
       "source_native_ids": [
         "cddo-api:f9d3866297b73ffc9737"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -38103,7 +38101,7 @@
       "source_native_ids": [
         "cddo-api:fe660941943300d0f151"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/bg2/api/v2/titles/{title_number}/official-copies/availability"
+      "url": "https://businessgateway.landregistry.gov.uk/bg2/api/v2/titles/%7Btitle_number%7D/official-copies/availability"
     },
     {
       "evidence_refs": [
@@ -38134,7 +38132,7 @@
       "source_native_ids": [
         "cddo-api:f0a40d15d9992f960fc6"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialCopyTitleKnownV2_1WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialCopyTitleKnownV2_1WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -38165,7 +38163,7 @@
       "source_native_ids": [
         "cddo-api:8e49a7db883d043cd236"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialSearchOfPartV2_1WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialSearchOfPartV2_1WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -38196,7 +38194,7 @@
       "source_native_ids": [
         "cddo-api:eafd08d47fc160e0a09b"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialSearchV2_1WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialSearchV2_1WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -38490,7 +38488,7 @@
       "source_native_ids": [
         "cddo-api:0c68bcefe026962aa6b0"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/EOOV_SoapEngine/OnlineOwnershipVerificationV1_0WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -42340,7 +42338,7 @@
       "source_native_ids": [
         "cddo-api:f0477d72c5232565c5e2"
       ],
-      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/EnquiryByPropertyDescriptionV2_0WebService?wsdl"
+      "url": "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/EnquiryByPropertyDescriptionV2_0WebService?wsdl="
     },
     {
       "evidence_refs": [
@@ -44605,7 +44603,7 @@
           "id": "hmlr:guidance:title-register-information",
           "lifecycle_state": "unknown",
           "observed_at": "2026-07-29T07:53:38Z",
-          "rights_ref": "RIGHT-RESTRICTED",
+          "rights_ref": "RIGHT-GOVUK",
           "source_family": "property-information"
         }
       ],
@@ -64407,6 +64405,6 @@
   },
   "source_register": {
     "path": "source/source-register.json",
-    "sha256": "131359d2231724f71be6208dcade1caa98eadd466b28f5c09bbe1132084def73"
+    "sha256": "15fb65a927ea6c1b94d6266342514c4d30e051781129205c27b8a8d55fb69709"
   }
 }

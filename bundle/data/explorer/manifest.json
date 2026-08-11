@@ -2,49 +2,49 @@
   "chunks": {
     "datasets": [
       {
-        "bytes": 1000594,
+        "bytes": 1008038,
         "path": "data/explorer/datasets-000.json",
-        "sha256": "a2eb4972d7fb539089359abddbb4006bbd30f407e7c1100236fd0d5a2b55bc03"
+        "sha256": "7aa44ec9d8b41c54688f1dc5e41a6718d84e6e158a2259609ba751ca97cffcb6"
       },
       {
-        "bytes": 987268,
+        "bytes": 994606,
         "path": "data/explorer/datasets-001.json",
-        "sha256": "b1161e53a43991027c379116a06b79ba17d4e259dae5ee24cbd28227f3f1bc2f"
+        "sha256": "65a58934358368f2d110d531ed2ecf009fefb09c49bf61d443cb5cfd77b3d58e"
       },
       {
-        "bytes": 1049091,
+        "bytes": 1059347,
         "path": "data/explorer/datasets-002.json",
-        "sha256": "926d32eb397d1d4369428b4048b005d820bf89dd490fae3dae1ce475c8c49457"
+        "sha256": "a2767102cef21a251c64804f1b9f7ab675a0b3fe61db1c823864587987d90083"
       },
       {
-        "bytes": 1017712,
+        "bytes": 1026049,
         "path": "data/explorer/datasets-003.json",
-        "sha256": "330e60a7a11fe3d290bebcc34b177407b53be31db34439c536259c3eaf0a5755"
+        "sha256": "ca9a052f861b6b6828809902cffa13d778a8b10af1257320d484004ec73bd5c2"
       },
       {
-        "bytes": 997011,
+        "bytes": 1004626,
         "path": "data/explorer/datasets-004.json",
-        "sha256": "276e9c45840f1e5a5b3a3e6bc307ad751a80be22f366b230fb74c700c29b4377"
+        "sha256": "8d01a29eeed7428fa09cc62ed23c5bf3ed3ed005d90bc27bad36973e1c642801"
       },
       {
-        "bytes": 1019814,
+        "bytes": 1028340,
         "path": "data/explorer/datasets-005.json",
-        "sha256": "d67064c26768f4bc099ed1a4104a736506a7e0c9194c5df97387008bd8f75fbd"
+        "sha256": "6051f241aef526d1294425d5f8fe3642f48b0d2bfa4bc36a57c18c213010fc80"
       },
       {
-        "bytes": 1012021,
+        "bytes": 1019525,
         "path": "data/explorer/datasets-006.json",
-        "sha256": "77051b206450197f4b557922a598dc2cc78ab2bafdc23ebab1c0139e9672969d"
+        "sha256": "4576b36f35d45b9f1051f6a228ebbdad9757b766cacbeaa7df429260219d6cd4"
       },
       {
-        "bytes": 1030189,
+        "bytes": 1037189,
         "path": "data/explorer/datasets-007.json",
-        "sha256": "fb523e79263d4dcccb59f3dff82c97a0b71536270274d152b01550c75aafe01d"
+        "sha256": "23434f01bc4ed7f34628ea270705c17a32c14a223b45c0931968f38c04afa173"
       },
       {
-        "bytes": 852764,
+        "bytes": 858846,
         "path": "data/explorer/datasets-008.json",
-        "sha256": "427046ce92d3159d8909e082c83ac5149cfed30c43db86929e0cf27ee904b090"
+        "sha256": "a7e07ff2b909db407cb3d17c4a9a210904666772d9e8ec7423b20624aa338f14"
       }
     ],
     "publishers": [
@@ -56,41 +56,481 @@
     ],
     "relationships": [
       {
-        "bytes": 407,
+        "bytes": 642870,
         "path": "data/explorer/relationships-000.json",
-        "sha256": "3780f2a48e640ab556f3a5b1133f60126c9c49a9ceca9f7f4ddaca9ac7b356e8"
+        "sha256": "6ecb48f0bba57358b1fc0ae94413cc2660889054d1d84c779d33f32c086375c6"
+      },
+      {
+        "bytes": 646934,
+        "path": "data/explorer/relationships-001.json",
+        "sha256": "11cf2c8ac9a492b7129d6e553a5f2d1eca4e09c70f3245f5d3db7c491f9b924e"
+      },
+      {
+        "bytes": 641852,
+        "path": "data/explorer/relationships-002.json",
+        "sha256": "6cd737080d37bd1a07e782e4957eebea5c0413f8f158a1912615cb06a141578b"
+      },
+      {
+        "bytes": 640910,
+        "path": "data/explorer/relationships-003.json",
+        "sha256": "4f11788b5e4fb3607f557f657e1d8eb1b1dab67bda4221f33fd00957f3a6b718"
+      },
+      {
+        "bytes": 645093,
+        "path": "data/explorer/relationships-004.json",
+        "sha256": "a96f5e170111ae7e98c7f8c94892e02ff9b9c691392b3de2aa873605edcbac46"
+      },
+      {
+        "bytes": 641326,
+        "path": "data/explorer/relationships-005.json",
+        "sha256": "d9551f39b0e33c1736bdeda1588bcd514f439ed1f8b3c666f22842434ad52c54"
+      },
+      {
+        "bytes": 646094,
+        "path": "data/explorer/relationships-006.json",
+        "sha256": "228740c7907e3feeabcb938d85b20757d8a4ddb7ada2294114fa8ea0e7d11d70"
+      },
+      {
+        "bytes": 645705,
+        "path": "data/explorer/relationships-007.json",
+        "sha256": "a871ea52087c0b95a0a2c4590eb9b777d1598ddb156d318648117fba7ede5cb4"
+      },
+      {
+        "bytes": 645086,
+        "path": "data/explorer/relationships-008.json",
+        "sha256": "ae77aec1504de67b9d3fad54adb11c15838572cce12b61033a2d8422aab90767"
+      },
+      {
+        "bytes": 646041,
+        "path": "data/explorer/relationships-009.json",
+        "sha256": "5950a4049d207844f0aaaa17477538bd116b3f0a14957ee5860201db768eecca"
+      },
+      {
+        "bytes": 640672,
+        "path": "data/explorer/relationships-010.json",
+        "sha256": "56a89bcc32add4a331bea1bb537c0c00c6b78535c5c72018734ba4e780e7e00c"
+      },
+      {
+        "bytes": 647827,
+        "path": "data/explorer/relationships-011.json",
+        "sha256": "d03db47a286b5aa337101a080579a703c485dcd0ff1d7ba441198ff602cea263"
+      },
+      {
+        "bytes": 645679,
+        "path": "data/explorer/relationships-012.json",
+        "sha256": "0fcadbe00a3c3cdef85932260be6a6159c3bd3e392a38b53013887955aaaa593"
+      },
+      {
+        "bytes": 647129,
+        "path": "data/explorer/relationships-013.json",
+        "sha256": "562c97820fa18f84ce5b37448b426cdad6823fda26fe17bfe4ab4c313ffb1a12"
+      },
+      {
+        "bytes": 644417,
+        "path": "data/explorer/relationships-014.json",
+        "sha256": "bd3d3647f8184629fbbf01a33af6ec8f015dcb7dd9d2ef0d5c729f6cf21ad320"
+      },
+      {
+        "bytes": 646165,
+        "path": "data/explorer/relationships-015.json",
+        "sha256": "2c0000bc9534fc862d69cd890e2395451520e7a290ffe4fc18666f6643071fdb"
+      },
+      {
+        "bytes": 638503,
+        "path": "data/explorer/relationships-016.json",
+        "sha256": "2a906736ddac023fc7ef6bf609b88ea5deefd33204098e13874d38b087d86b93"
+      },
+      {
+        "bytes": 643272,
+        "path": "data/explorer/relationships-017.json",
+        "sha256": "4d656ff9bf4b9b7af4a3a7e76a750c95ee86407f1857626b9d2b6671060557a2"
+      },
+      {
+        "bytes": 646911,
+        "path": "data/explorer/relationships-018.json",
+        "sha256": "e44ddfd6df4d90bb38c74ca61cc04cad8564bd3c7fe2c288fa167e975852f36d"
+      },
+      {
+        "bytes": 647584,
+        "path": "data/explorer/relationships-019.json",
+        "sha256": "f4b627d5eb2807873ff538b79c9dc7365d816d4e7a9cccb6533d07155339dd70"
+      },
+      {
+        "bytes": 639078,
+        "path": "data/explorer/relationships-020.json",
+        "sha256": "db3b0ba2da9ccc9b4ae0055f6695e757a60d0b762f42a9973a469879d107977b"
+      },
+      {
+        "bytes": 652040,
+        "path": "data/explorer/relationships-021.json",
+        "sha256": "f6f9faa2ba678f2635bb2d237bc46db3d6d67c2f142a335490c9e35a1f9364c0"
+      },
+      {
+        "bytes": 643626,
+        "path": "data/explorer/relationships-022.json",
+        "sha256": "77356b8040b60708248e05d0bb7bf16dc1309d80d7b5edcf2d2f2c157a14e5db"
+      },
+      {
+        "bytes": 649223,
+        "path": "data/explorer/relationships-023.json",
+        "sha256": "c62c7a63450190ecfcbd9a199980d2b734feefceaf0b833bad509069b9bd9afb"
+      },
+      {
+        "bytes": 647406,
+        "path": "data/explorer/relationships-024.json",
+        "sha256": "b3cfee954fab8d035f8cf3ed6cbdae74242ae44d803d8311c59791e0f117b34d"
+      },
+      {
+        "bytes": 647408,
+        "path": "data/explorer/relationships-025.json",
+        "sha256": "6162e0507617127dc6566f5c74e380d10a45309eb2420a411e44ac943ee0d9a8"
+      },
+      {
+        "bytes": 643783,
+        "path": "data/explorer/relationships-026.json",
+        "sha256": "7c519ada5835a26aa983e671a7f6bf426e3516cb8526b74ea8111acae6e1c80d"
+      },
+      {
+        "bytes": 643167,
+        "path": "data/explorer/relationships-027.json",
+        "sha256": "e8bafebe346108908afbb9c348654cd720a8ed36b7f86469c2555d2be49f7225"
+      },
+      {
+        "bytes": 644896,
+        "path": "data/explorer/relationships-028.json",
+        "sha256": "e3b1f0c71a7a717620c59479ef4655d3125b123aedaa038ca71aee0e9683be07"
+      },
+      {
+        "bytes": 651951,
+        "path": "data/explorer/relationships-029.json",
+        "sha256": "09a3814ab8c29b218f238d95cf4fe6762725155ea108e70a9d44f935a61f64a2"
+      },
+      {
+        "bytes": 651995,
+        "path": "data/explorer/relationships-030.json",
+        "sha256": "6008bab48519de5dd09ea7dffaf598ae4b71e8947c737210c1e77cf457e30f6e"
+      },
+      {
+        "bytes": 642071,
+        "path": "data/explorer/relationships-031.json",
+        "sha256": "121c83bb39094f630429e02f52ab6ef9222662337d07bcb71f60890d15faa4ad"
+      },
+      {
+        "bytes": 644883,
+        "path": "data/explorer/relationships-032.json",
+        "sha256": "98d37c88fc6d82834c637970b5e50bba665530af87ae32de1359974af4577f44"
+      },
+      {
+        "bytes": 653292,
+        "path": "data/explorer/relationships-033.json",
+        "sha256": "9f7f5e16a8280b2d41bda3791629067b62082a98e240c3be3bf110ee86b85640"
+      },
+      {
+        "bytes": 646363,
+        "path": "data/explorer/relationships-034.json",
+        "sha256": "251280f9e33fd05d373db33edf7bbc92c95d52e8c33c9e67ad5ecd0c4573c198"
+      },
+      {
+        "bytes": 646941,
+        "path": "data/explorer/relationships-035.json",
+        "sha256": "4d85e982dd23612511f88de3c3bd48659cec894c203b5388ff719a02bb6b391d"
+      },
+      {
+        "bytes": 638449,
+        "path": "data/explorer/relationships-036.json",
+        "sha256": "d4acb6b8dcabbd3a9f5e98f0922bab0309dc4164eb4fd968bdb8609f627e0407"
+      },
+      {
+        "bytes": 643658,
+        "path": "data/explorer/relationships-037.json",
+        "sha256": "895bf8d702b87ad0eba4c4fc0ac40484e4b1e3d6af939e8c2d860c1db0f50161"
+      },
+      {
+        "bytes": 646814,
+        "path": "data/explorer/relationships-038.json",
+        "sha256": "403c31f1aabcb356cd1e070e7e79f50f2d3dde690d93087e14eb813fd0d4d734"
+      },
+      {
+        "bytes": 642178,
+        "path": "data/explorer/relationships-039.json",
+        "sha256": "2cf09d8dcfdf3343a9276188ee4533a0453db2ff8f691861b1ab2fd2227e9f39"
+      },
+      {
+        "bytes": 641741,
+        "path": "data/explorer/relationships-040.json",
+        "sha256": "4595247642710c653d1de263a0651067017b2e665c1dd675e98b583caae4eaac"
+      },
+      {
+        "bytes": 645472,
+        "path": "data/explorer/relationships-041.json",
+        "sha256": "e7dd2d6b19a506beccf2ebca00c3c323452ca5aef87156e91431e1ff58646698"
+      },
+      {
+        "bytes": 644436,
+        "path": "data/explorer/relationships-042.json",
+        "sha256": "92c64aabe9024aa54fcac368254043bac7514edbabaf83a5982521b99110379e"
+      },
+      {
+        "bytes": 643565,
+        "path": "data/explorer/relationships-043.json",
+        "sha256": "9d087c3e477a0a0dbb2f21d5f4fc1636dc830d80721a547aeeb333853b9f6ce6"
+      },
+      {
+        "bytes": 639214,
+        "path": "data/explorer/relationships-044.json",
+        "sha256": "a2a92cd5582218ea56cf1262361d589cc6f35a9011402acd9017d519b633b90c"
+      },
+      {
+        "bytes": 652068,
+        "path": "data/explorer/relationships-045.json",
+        "sha256": "d6f07aaea155f17764f8ef0ab64deef0825e2c7ffc8cfba79124d6b99f44b704"
+      },
+      {
+        "bytes": 643955,
+        "path": "data/explorer/relationships-046.json",
+        "sha256": "c97c6ff4f2a5adc446102f05a4ce73ebd67d8234746f0cee9fbd9ff3f4bfbb26"
+      },
+      {
+        "bytes": 647824,
+        "path": "data/explorer/relationships-047.json",
+        "sha256": "4de5a3b4084948d733bcfec8cb9b0661a8b1f70cf17442e23ff67e275e2c3257"
+      },
+      {
+        "bytes": 646207,
+        "path": "data/explorer/relationships-048.json",
+        "sha256": "143113ccaae3c54d0548e2f60da35d2dd5c3b6777fb7e9431b70b3d253f1aad2"
+      },
+      {
+        "bytes": 640389,
+        "path": "data/explorer/relationships-049.json",
+        "sha256": "e8172e38c9df3a7cce0aa2323e75ec7329177102b7d2e5aabbea80ceaff24f48"
+      },
+      {
+        "bytes": 640899,
+        "path": "data/explorer/relationships-050.json",
+        "sha256": "7cd5bed93c09acf949310b95504732a13bef59486f9aa46cffb1b221a1f55eb0"
+      },
+      {
+        "bytes": 648130,
+        "path": "data/explorer/relationships-051.json",
+        "sha256": "0736803330a91fa51ff26fb9a825fd230ddd2a46e7061430e385c3fc4805183c"
+      },
+      {
+        "bytes": 646631,
+        "path": "data/explorer/relationships-052.json",
+        "sha256": "859ff4aa8aa5a7a2b2792065321dc38c40412b0166a5ae70f9686a4dce26c72e"
+      },
+      {
+        "bytes": 646054,
+        "path": "data/explorer/relationships-053.json",
+        "sha256": "4d0312b16bbc5d759b557bd18864ea0b2f7fb306a424ae06fabcec572ece2df9"
+      },
+      {
+        "bytes": 643526,
+        "path": "data/explorer/relationships-054.json",
+        "sha256": "4fd8de8a82657fcc2eba41c7dd75a2432f627e6fe3eab7247dd3e068b25a477c"
+      },
+      {
+        "bytes": 643451,
+        "path": "data/explorer/relationships-055.json",
+        "sha256": "57703022b06e573776a0f62f49c673b32fe715d1e824989cb08b2219c655deb0"
+      },
+      {
+        "bytes": 648243,
+        "path": "data/explorer/relationships-056.json",
+        "sha256": "28ecfee4cb7b0987230a2b0c2ea89605a7297a365b49b103fdd6ce66ad9f1345"
+      },
+      {
+        "bytes": 647576,
+        "path": "data/explorer/relationships-057.json",
+        "sha256": "d601d6013f88b126c83a7929269820ca968b7cb6405d13be7c5e6c6febc650c5"
+      },
+      {
+        "bytes": 645642,
+        "path": "data/explorer/relationships-058.json",
+        "sha256": "69e30078382e405b9209825ef10cf4806ca590f8531a4a247e951615afd5bff6"
+      },
+      {
+        "bytes": 638317,
+        "path": "data/explorer/relationships-059.json",
+        "sha256": "02c64b84307364393ab62edd7e820c35201a1b5e3a003a29c3b88c17a5967861"
+      },
+      {
+        "bytes": 640522,
+        "path": "data/explorer/relationships-060.json",
+        "sha256": "8c1f1edcdb71ee193aa017d5bf218d21b7f93298ed49f67aa5b583f164372bf3"
+      },
+      {
+        "bytes": 648797,
+        "path": "data/explorer/relationships-061.json",
+        "sha256": "5adf6a87b23c969c706a6c917c190a02d15b6b7b30dad4fbd6569b18a03cf83b"
+      },
+      {
+        "bytes": 645396,
+        "path": "data/explorer/relationships-062.json",
+        "sha256": "c90cc9101a005b0ecba4a21e52ac54dcd5099b5a7d35aae144cca60de59fcf97"
+      },
+      {
+        "bytes": 645534,
+        "path": "data/explorer/relationships-063.json",
+        "sha256": "5c4eb147c632fd1a483eeb1018fffcf14897fdd695047623c5aea969657413c3"
+      },
+      {
+        "bytes": 646317,
+        "path": "data/explorer/relationships-064.json",
+        "sha256": "5ce953f4e18ed299c7754463d9eb0b73b00da3b96cf64b427e7d88c36d9d3f1f"
+      },
+      {
+        "bytes": 645942,
+        "path": "data/explorer/relationships-065.json",
+        "sha256": "8d65ccab1b14fa9b2aa61c3de254446fe8a3c0e25e27e6e1612b2ed66e4f665d"
+      },
+      {
+        "bytes": 650666,
+        "path": "data/explorer/relationships-066.json",
+        "sha256": "e65edb0f427747a45cf0773022a2d89ee10175a5f8712a6dcaf0197b55dbd56c"
+      },
+      {
+        "bytes": 643208,
+        "path": "data/explorer/relationships-067.json",
+        "sha256": "1c552133de8167d9c0227b1333fbde7f0584eac347f8c0422bb182aa45d731ba"
+      },
+      {
+        "bytes": 644595,
+        "path": "data/explorer/relationships-068.json",
+        "sha256": "f6a75d0861f608c5cf651caa1ea16f80a649c7028085ece5d1aff330acc23e83"
+      },
+      {
+        "bytes": 642877,
+        "path": "data/explorer/relationships-069.json",
+        "sha256": "200a0735c205f52f3d42c68dcd0b6215023969d765ce312af92e3b09e83f2f77"
+      },
+      {
+        "bytes": 642424,
+        "path": "data/explorer/relationships-070.json",
+        "sha256": "9f5b9aa912326bd79ac8f210b154e7a0794330741b40a2834c4a4a3ed055ff6e"
+      },
+      {
+        "bytes": 646839,
+        "path": "data/explorer/relationships-071.json",
+        "sha256": "c16e0ebd011962a3a28cec40f9858d30c343e8bce8a3ea78565fa3045f0cf60a"
+      },
+      {
+        "bytes": 642378,
+        "path": "data/explorer/relationships-072.json",
+        "sha256": "05affa84cf3937acb262070e8bbdbc8cee7590832c3b8cea1cc0cf8a305bf8ea"
+      },
+      {
+        "bytes": 647046,
+        "path": "data/explorer/relationships-073.json",
+        "sha256": "5b01c3f0b8fd04d1258ae3d5e8032db8f397e820db67adf9bf70b7b0f8097c3a"
+      },
+      {
+        "bytes": 647744,
+        "path": "data/explorer/relationships-074.json",
+        "sha256": "4637af9e3376bd8000f9dfebc8c0f513465222eb41a54ed1b447febfff072ddd"
+      },
+      {
+        "bytes": 647979,
+        "path": "data/explorer/relationships-075.json",
+        "sha256": "92bad8c595788b04dc365276cddc0c6c38fddb1236cf5ec50b11855bef8969e2"
+      },
+      {
+        "bytes": 648053,
+        "path": "data/explorer/relationships-076.json",
+        "sha256": "250f75803fb29ad4764498d4b3e2540f17e4d546090b00456e1a97c01f716a1d"
+      },
+      {
+        "bytes": 645665,
+        "path": "data/explorer/relationships-077.json",
+        "sha256": "c15c68e8b18e450fa16bc5f81c1b736b4247c5b060eaeb18fbe226cfc3af8db4"
+      },
+      {
+        "bytes": 642922,
+        "path": "data/explorer/relationships-078.json",
+        "sha256": "0e78500ad0bd1e1cb71a3ed9762445761505316a52d9f05e8f15d8b521de316d"
+      },
+      {
+        "bytes": 648911,
+        "path": "data/explorer/relationships-079.json",
+        "sha256": "b8ddc87f0f3a404f64dae64e0a0d76ac6c96477dae6c21c1d8ad2ffd60e33106"
+      },
+      {
+        "bytes": 643662,
+        "path": "data/explorer/relationships-080.json",
+        "sha256": "2863bcaaf3861c0e3e50c8ec238c6c44cbd8c5d293d532cf9a932e8686259606"
+      },
+      {
+        "bytes": 645844,
+        "path": "data/explorer/relationships-081.json",
+        "sha256": "b620d217d64e31f05ea8c029416ab666e9fedeb5345ce8991793d3fdbf7eed8d"
+      },
+      {
+        "bytes": 647443,
+        "path": "data/explorer/relationships-082.json",
+        "sha256": "895fd33e5e6635deaa73f80528c45fe12b95dd5211abd2886a667002a685a1b1"
+      },
+      {
+        "bytes": 645422,
+        "path": "data/explorer/relationships-083.json",
+        "sha256": "7863613b983f49ba123ff3633560993a912d53369ac780a748f48ed91c799a34"
+      },
+      {
+        "bytes": 639469,
+        "path": "data/explorer/relationships-084.json",
+        "sha256": "5fa8084f8ea02ffa7491dcb5db451e470ce8ae69c9c7bd789b20f3a16756b558"
+      },
+      {
+        "bytes": 644794,
+        "path": "data/explorer/relationships-085.json",
+        "sha256": "de22128f16de74761363346ca5edf84bcbb6d5a3543da0977a3256be02ebc7c1"
+      },
+      {
+        "bytes": 640657,
+        "path": "data/explorer/relationships-086.json",
+        "sha256": "0e84e116e39c1ce2223777525b2c46b83cd3beca481477f6fae3395575b6651a"
+      },
+      {
+        "bytes": 647984,
+        "path": "data/explorer/relationships-087.json",
+        "sha256": "a1d97dd9c828999c3b2e22d1ba5412f1a097b69286bd54c53c3c4e814c573b23"
+      },
+      {
+        "bytes": 587079,
+        "path": "data/explorer/relationships-088.json",
+        "sha256": "3674f17d6482487a7b6e853069b360222f91fd7ee98d70ab5ca45912d825b09d"
       }
     ],
     "resources": [
       {
-        "bytes": 157456,
+        "bytes": 157457,
         "path": "data/explorer/resources-000.json",
-        "sha256": "fb292aa5211cab369719893132c314b997f8c9220bf602d31db2f00971263c9d"
+        "sha256": "6cda26d24a4f737fb1a9f918af3ecbd4c37da832a8853fa1117bd91b851d372c"
       },
       {
-        "bytes": 156732,
+        "bytes": 156738,
         "path": "data/explorer/resources-001.json",
-        "sha256": "8f3dd1cd7d8e6e81d41225408e0506ee2b2498a0d0abd61a6b41b48d4eba21cd"
+        "sha256": "c31fbfd17b2fc898c6549848846277c123caff0a0cd57d6b08a0f3df95c3ce37"
       },
       {
-        "bytes": 160958,
+        "bytes": 160959,
         "path": "data/explorer/resources-002.json",
-        "sha256": "e9fdca5af3bd7fe97bb5cdd70b38b39b84ee633736ec55b7c72bf0f389f710fb"
+        "sha256": "4f4f089d21f6bb702c7aebfabbbaf97ff017b48e02e6d1566d78929618cd34d2"
       },
       {
-        "bytes": 158555,
+        "bytes": 158559,
         "path": "data/explorer/resources-003.json",
-        "sha256": "88d81adac49b44a4e852763e515ad67b97e0b64e6ee2aab543b1dd9ef5af6ec9"
+        "sha256": "a6fed8b90789b425e7627cac2f5deb45e6f86d3baf79721c908da5c60dce07b8"
       },
       {
-        "bytes": 157563,
+        "bytes": 157545,
         "path": "data/explorer/resources-004.json",
-        "sha256": "a180bb40b08dd561d5b3a855521b9dcfa53a2da3c15b19a356b8d0bd9f13573f"
+        "sha256": "5d67bf4124052c71f5c2b4e3c781fadc86bb51c3eb7bb981db7d19f88e87b3a6"
       },
       {
-        "bytes": 158051,
+        "bytes": 158060,
         "path": "data/explorer/resources-005.json",
-        "sha256": "40dff6f91b187aae40f24090aa1be8a84240c43452ca6422220fdf1d0dfe096c"
+        "sha256": "209fa996427e6ef4e1773fc385b1b98aa0276b650c4856cfe5784ca6ce83a827"
       },
       {
         "bytes": 158016,
@@ -113,30 +553,35 @@
     "datasets": 14,
     "publishers": 13,
     "records": 2203,
-    "relationships": 1,
+    "relationships": 22226,
     "resources": 2203
   },
-  "generated_at": "2026-07-29T15:30:00Z",
+  "generated_at": "2026-08-10T21:42:03Z",
   "indexes": {
     "analysis": "data/explorer/analysis-overview.json",
     "facets": "data/explorer/facets.json",
     "overview": "data/explorer/overview.json",
     "record_locator": {
-      "bytes": 46809,
+      "bytes": 46810,
       "path": "data/explorer/locator/manifest.json",
-      "sha256": "b3f7fd6dcc298b7e247ded3c21bd862ba89d17d0b9b1da33fd3d590119e03fe0"
+      "sha256": "db1e607516e67a02a64246406a6e2b3f17cf0098c5fd7de75d85b318ad5cee72"
     },
     "relationship_adjacency": {
-      "bytes": 526,
+      "bytes": 44742,
       "path": "data/explorer/adjacency/manifest.json",
-      "sha256": "8513ec1bb47a7ce5b3f7fb62cc28f1f3d457d04be1193de8f0d4a7c609731198"
+      "sha256": "1ac88bf6a215378938fe4c61682c8a1690eb69a8912bc25d5fdfb720d744204d"
+    },
+    "relationship_runtime": {
+      "bytes": 42343,
+      "path": "data/semantic/runtime-manifest.json",
+      "sha256": "6b6c573b994559d23780320b5e46332c4890d90681d0fd733e78be974ec27887"
     },
     "search": "data/explorer/search/manifest.json"
   },
   "integrity": {
     "algorithm": "sha256",
-    "manifest_root_sha256": "e628e66632f8e1cbdc6e38b23188351d1e2c0e9722a5ff141c3e0f3fc4bef0e8",
-    "scope": "canonical ordered references to overview, facets and chunks"
+    "manifest_root_sha256": "ee901e892eb927f550a5f6b9f76a2f2a045e5ba0fbca108a52f501061906b318",
+    "scope": "canonical ordered references to Explorer projection files and the bounded rich relationship runtime"
   },
   "performance": {
     "chunk_size": 250,

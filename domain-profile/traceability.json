@@ -1,6 +1,6 @@
 {
   "schema": "okf-domain-profile-traceability.v1",
-  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v1",
+  "profile_id": "urn:okf-domain-profile:hm-land-registry-public-estate:v2",
   "research_cutoff": "2026-07-29",
   "rows": [
     {
@@ -16,9 +16,18 @@
       "id": "TRACE-PROVENANCE",
       "requirement": "Keep authority, derivation, freshness, availability, coverage and release state distinct.",
       "tasks": ["TASK-AUDIT"],
-      "artifacts": ["bundle/data/manifest.json", "bundle/data/coverage.json", "bundle/data/provenance.json"],
-      "validations": ["VAL-SNAPSHOT", "VAL-DATA-PLANE"],
-      "evidence": ["EV-OKF-AUTHORING", "EV-INVENTORY"],
+      "artifacts": ["bundle/data/manifest.json", "bundle/data/coverage.json", "bundle/data/provenance.json", "bundle/data/semantic/iri-route-registry.json", "bundle/data/semantic/validation.json"],
+      "validations": ["VAL-SNAPSHOT", "VAL-DATA-PLANE", "VAL-SEMANTIC"],
+      "evidence": ["EV-OKF-AUTHORING", "EV-OKF-SEMANTIC-PROFILE", "EV-INVENTORY"],
+      "status": "accepted"
+    },
+    {
+      "id": "TRACE-SEMANTICS",
+      "requirement": "Publish a comprehensive metadata-level semantic graph with canonical YAML-LD, equivalent JSON-LD, closed registries, evidence-bearing directed relationships and no unbounded inference.",
+      "tasks": ["TASK-PUBLIC-ROUTE", "TASK-PRACTICE", "TASK-DATASET", "TASK-SPATIAL", "TASK-API", "TASK-LLC", "TASK-AUDIT"],
+      "artifacts": ["bundle/okf-bundle.yamlld", "bundle/okf-bundle.jsonld", "bundle/data/semantic/semantic-model.json", "bundle/data/semantic/iri-route-registry.json", "bundle/data/semantic/predicate-registry.json", "bundle/data/semantic/validation.json", "bundle/data/explorer/relationships-*.json"],
+      "validations": ["VAL-SEMANTIC", "VAL-DATA-PLANE", "VAL-EXPLORER-CONSUMER", "VAL-REPRODUCIBILITY"],
+      "evidence": ["EV-ACQUISITION-SNAPSHOT", "EV-OKF-SEMANTIC-PROFILE", "EV-OWNER-SEMANTIC-DIRECTION"],
       "status": "accepted"
     },
     {

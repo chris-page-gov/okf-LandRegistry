@@ -141,8 +141,8 @@
         "https://www.gov.uk/government/news/business-customers-can-withdraw-official-searches-online",
         "https://www.gov.uk/government/publications/exempt-document-official-copy-registration-ex2",
         "https://businessgateway.landregistry.gov.uk/bg2/s1/v1",
-        "https://businessgateway.landregistry.gov.uk/bg2/api/v2/titles/{title_number}/official-copies/availability",
-        "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialCopyTitleKnownV2_1WebService?wsdl",
+        "https://businessgateway.landregistry.gov.uk/bg2/api/v2/titles/%7Btitle_number%7D/official-copies/availability",
+        "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/OfficialCopyTitleKnownV2_1WebService?wsdl=",
         "https://www.gov.uk/government/publications/the-land-charges-registers-and-agricultural-credits-register-registration-official-search-office-copy-and-cancellation-pg63",
         "https://www.gov.uk/guidance/land-registry-portal-how-to-request-official-copies",
         "https://www.gov.uk/government/news/commercial-and-corporate-information-released-online"
@@ -622,12 +622,12 @@
         "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
         "https://search-local-land-charges.service.gov.uk/",
         "https://landregistry.github.io/bg-dev-pack-redesign/",
-        "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl",
+        "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl=",
         "https://www.gov.uk/guidance/guidance-and-support-for-property-professionals",
-        "https://www.legislation.gov.uk/ukpga/1975/76/contents",
         "https://www.gov.uk/government/publications/business-gateway-connection-terms-and-conditions-for-cloud-providers",
         "https://www.gov.uk/guidance/land-registry-portal-apply-for-a-full-land-charges-search",
-        "https://www.gov.uk/guidance/land-registry-portal-how-to-apply-for-a-land-charges-office-copy"
+        "https://www.gov.uk/guidance/land-registry-portal-how-to-apply-for-a-land-charges-office-copy",
+        "https://businessgateway.landregistry.gov.uk/b2b/BGSoapEngine/BankruptcySearchV2_1WebService?wsdl="
       ]
     },
     {
@@ -679,7 +679,7 @@
       "top_urls": [
         "https://search-local-land-charges.service.gov.uk/",
         "https://search-local-land-charges.service.gov.uk/terms-and-conditions",
-        "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl",
+        "https://businessgateway.landregistry.gov.uk/b2b/ECLLC_SoapEngine/LLCSearchV2_0WebService?wsdl=",
         "https://github.com/LandRegistry/search-local-land-charges-ui",
         "https://www.gov.uk/government/publications/hm-land-registry-local-land-charges-programme/local-land-charges-programme",
         "https://www.gov.uk/guidance/hm-land-registry-local-land-charges-search-results",

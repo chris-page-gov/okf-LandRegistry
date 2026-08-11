@@ -34,6 +34,10 @@
     },
     {
       "count": 1,
+      "value": "account service; personal searches are free and official search certificates are paid"
+    },
+    {
+      "count": 1,
       "value": "approved professional account"
     },
     {
@@ -102,10 +106,6 @@
     },
     {
       "count": 1,
-      "value": "public search subject to terms and fees"
-    },
-    {
-      "count": 1,
       "value": "public terms; operational search subject to service restrictions and fees"
     },
     {
@@ -115,7 +115,7 @@
   ],
   "access_state": [
     {
-      "count": 2164,
+      "count": 2176,
       "value": "public"
     },
     {
@@ -123,24 +123,16 @@
       "value": "approved-professional-users"
     },
     {
-      "count": 15,
-      "value": "mixed"
-    },
-    {
-      "count": 3,
-      "value": "authenticated-and-paid"
-    },
-    {
-      "count": 3,
-      "value": "public-search-with-terms-and-fees"
-    },
-    {
-      "count": 1,
+      "count": 9,
       "value": "authenticated"
     },
     {
       "count": 1,
       "value": "documentation-public-service-restricted"
+    },
+    {
+      "count": 1,
+      "value": "mixed"
     }
   ],
   "audience": [
@@ -614,7 +606,7 @@
     },
     {
       "count": 3,
-      "value": "Crown copyright and legislation.gov.uk reuse terms"
+      "value": "Open Government Licence v3.0 except where otherwise stated; Crown copyright"
     },
     {
       "count": 2,
@@ -877,20 +869,36 @@
   ],
   "rights_state": [
     {
-      "count": 1871,
+      "count": 1870,
       "value": "open-with-conditions"
     },
     {
-      "count": 293,
+      "count": 295,
       "value": "metadata-only"
     },
     {
-      "count": 24,
+      "count": 21,
       "value": "restricted-service"
     },
     {
-      "count": 15,
+      "count": 8,
+      "value": "conditional"
+    },
+    {
+      "count": 3,
       "value": "bespoke-or-paid"
+    },
+    {
+      "count": 3,
+      "value": "unknown"
+    },
+    {
+      "count": 2,
+      "value": "bespoke-licence"
+    },
+    {
+      "count": 1,
+      "value": "mixed"
     }
   ],
   "service": [
@@ -903,7 +911,7 @@
       "value": "github"
     },
     {
-      "count": 25,
+      "count": 22,
       "value": "govuk-hmlr"
     },
     {
@@ -916,7 +924,7 @@
     },
     {
       "count": 3,
-      "value": "local-land-charges"
+      "value": "legislation"
     },
     {
       "count": 3,
@@ -925,6 +933,10 @@
     {
       "count": 2,
       "value": "govuk-content"
+    },
+    {
+      "count": 2,
+      "value": "local-land-charges"
     },
     {
       "count": 1,
@@ -941,6 +953,10 @@
     {
       "count": 1,
       "value": "customer-help"
+    },
+    {
+      "count": 1,
+      "value": "fee-calculator"
     },
     {
       "count": 1,
@@ -965,7 +981,7 @@
       "value": "github"
     },
     {
-      "count": 25,
+      "count": 22,
       "value": "govuk-hmlr"
     },
     {
@@ -978,7 +994,7 @@
     },
     {
       "count": 3,
-      "value": "local-land-charges"
+      "value": "legislation"
     },
     {
       "count": 3,
@@ -987,6 +1003,10 @@
     {
       "count": 2,
       "value": "govuk-content"
+    },
+    {
+      "count": 2,
+      "value": "local-land-charges"
     },
     {
       "count": 1,
@@ -1003,6 +1023,10 @@
     {
       "count": 1,
       "value": "customer-help"
+    },
+    {
+      "count": 1,
+      "value": "fee-calculator"
     },
     {
       "count": 1,

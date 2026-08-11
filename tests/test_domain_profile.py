@@ -50,9 +50,9 @@ class DomainProfileTests(unittest.TestCase):
         self.assertEqual(profile["evidence"], evidence)
         self.assertEqual(len(evidence), len({item["id"] for item in evidence}))
 
-    def test_profile_records_exact_digest_release_approval(self) -> None:
+    def test_profile_is_reviewed_and_release_decision_is_historical(self) -> None:
         profile = json.loads((PROFILE / "domain-profile.json").read_text(encoding="utf-8"))
-        self.assertEqual("approved", profile["status"])
+        self.assertEqual("reviewed", profile["status"])
         recommendation = profile["build_recommendation"]
         self.assertEqual([], recommendation["blocking_decision_ids"])
         release = next(
@@ -61,7 +61,18 @@ class DomainProfileTests(unittest.TestCase):
             if decision["id"] == "DEC-RELEASE"
         )
         self.assertEqual("accepted", release["status"])
-        self.assertIn("AI-generated proof of concept", release["recommended_default"])
+        self.assertIn(
+            "40482c865dc4332162f1e93756d94ca93abe3559",
+            release["recommended_default"],
+        )
+        self.assertIn(
+            "a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704",
+            release["recommended_default"],
+        )
+        self.assertIn(
+            "does not authorise publication of the v0.3.0 semantic candidate",
+            release["recommended_default"],
+        )
 
 
 if __name__ == "__main__":

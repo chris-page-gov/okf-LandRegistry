@@ -1,22 +1,30 @@
 # HM Land Registry domain warm-up
 
-Status: **approved profile for the v0.2.0 AI-generated PoC candidate**
+Status: **owner-authorised Stage 1 profile for v0.3.0 semantic implementation;
+release unapproved**
 Research cut-off: **29 July 2026**
+Semantic implementation direction: **10 August 2026**
 
 ## Recommendation
 
-Build a snapshot-bounded, metadata-only, large-corpus OKF bundle. The first
-bounded population is every record returned by the GOV.UK Search API for the
-`land-registry` organisation slug: 1,866 records at the cut-off. Add separately
-governed lanes for HMLR datasets, public repositories, API catalogue records,
-developer documentation and high-risk service descriptions. Do not treat those
-associated lanes as complete until each has its own reconciled denominator.
+Build a snapshot-bounded, metadata-only, large-corpus OKF bundle with the full
+governed metadata-level semantic layer authorised by the project owner. The
+first bounded population is every record returned by the GOV.UK Search API for
+the `land-registry` organisation slug: 1,866 records at the cut-off. Add
+separately governed lanes for HMLR datasets, public repositories, API catalogue
+records, developer documentation and high-risk service descriptions. Do not
+treat those associated lanes as complete until each has its own reconciled
+denominator.
 
-The portable control plane should be OKF 0.2 Markdown. Generated public
-representations should include an Explorer large-corpus descriptor, compact
-record/search data, source/rights/coverage ledgers, a deliberately additive
-JSON-LD projection and an accessible GitHub Pages site. Full YAML-LD/RDF/SHACL
-conformance is not justified for the first scaffold.
+The portable control plane remains OKF 0.2 Markdown. The additive Bundle Wiki
+profile now makes `okf-bundle.yamlld` the canonical semantic descriptor and
+`okf-bundle.jsonld` its deterministic equivalent. Generated public
+representations should include a semantic-model descriptor, closed
+IRI-to-route and predicate registries, evidence-bearing directed relationship
+assertions, a bounded Explorer relationship runtime, compact record/search
+data, source/rights/coverage ledgers and an accessible GitHub Pages site.
+This is application-profile conformance, not a claim that the YAML-LD Working
+Draft is a W3C Recommendation.
 
 ## Why this shape
 
@@ -39,6 +47,52 @@ The full source universe also has independently changing lanes:
   organisation; and
 - services, linked data, help and blog surfaces without a defensible global
   page denominator.
+
+## Semantic implementation direction
+
+The owner direction of 10 August 2026 replaces the v0.2.0 YAML-LD deferral and
+single translation-edge implementation limit for candidate development. It
+does not alter the metadata-only boundary or approve a release.
+
+Stage 2 should generate one governed semantic assertion source and compile it
+into:
+
+- canonical YAML-LD and exactly equivalent JSON-LD, resolving pinned local
+  contexts only;
+- a digest-bound semantic-model descriptor, IRI-to-route registry and
+  predicate registry;
+- route-bearing entity nodes for catalogue, catalogue record, publication,
+  collection, dataset, distribution, service/API, repository, publisher,
+  rights, provenance activity, evidence, standard/profile and relationship
+  assertion identities;
+- a direct triple and matching evidence-bearing
+  `okf:RelationshipAssertion` for every material directed relationship; and
+- an integrity-bound, bounded Reader projection whose assertion identities and
+  endpoint routes reconcile exactly with the semantic graph.
+
+The governed predicate registry covers the relationship families supported by
+the frozen metadata: catalogue membership and primary topic; explicit
+collection and distribution membership; distribution access service and
+service-to-dataset links; publisher documentation; GOV.UK translations;
+explicit version and replacement evidence; publisher and rights links; and
+content-addressed derivation and generation provenance. A registry entry with
+no qualifying source evidence creates no assertion and makes no coverage
+claim.
+
+Every material assertion must retain a stable assertion IRI, absolute source,
+predicate and target IRIs, safe local endpoint routes, a governed relationship
+kind, preferred and inverse labels, assertion status and scope, authority,
+derivation, observation time, field-level evidence and rights. Markdown links,
+display groups, facets, common publishers, title or URL similarity,
+co-occurrence and embeddings are not relationship evidence.
+
+Inference is declared `not-run` for the initial v0.3.0 candidate. There is no
+unbounded OWL, RDFS, remote-context or browser-side reasoning. A future
+materialised inferred plane would require a separately authorised finite rule
+manifest, supporting assertion identities, confidence, derivation activity,
+exact digests and separate plane membership. No inference may establish legal
+ownership, priority, an exact boundary, beneficial ownership, rights,
+authority, currency, nationwide coverage or semantic identity.
 
 ## Authority and interpretation
 
@@ -105,19 +159,25 @@ The critical tasks are to:
 
 ## Evaluation
 
-The first release uses a deliberately smaller 24-question AI-agent-reviewed suite,
-mapped end-to-end through stories and personas. It includes ordinary,
-near-miss, stale, conflicting, restricted, unsafe and unanswerable cases. The
-direct-source baseline is official navigation and search on the named
-publisher surface. Retrieval scores cannot override a hard failure.
+The retained first-release baseline uses a deliberately smaller 24-question
+AI-agent-reviewed suite, mapped end-to-end through stories and personas. It
+includes ordinary, near-miss, stale, conflicting, restricted, unsafe and
+unanswerable cases. The direct-source baseline is official navigation and
+search on the named publisher surface. Retrieval scores cannot override a hard
+failure. The new semantic competency question and complete v0.3.0 relationship
+set are candidate evidence and require fresh review; the earlier review cannot
+be carried forward as semantic assurance.
 
 Release thresholds include zero hard failures, complete source and caveat
 resolution, primary-target MRR of at least 0.80, Recall@10 of at least 0.90
 after independent verification, and no new critical category in the second
-held-out adversarial pass.
+held-out adversarial pass. Semantic release thresholds additionally require
+every assertion to validate, closed entity/predicate/evidence/rights
+registries, exact direct/reified/runtime identity parity and an inference state
+of `not-run` unless a separately reviewed bounded materialisation passes.
 
 The large-corpus architecture also requires a pinned consumer contract and a
-governed artifact-dependency graph. Stage 2 must first execute a tiny bundle
+governed artefact-dependency graph. Stage 2 must first execute a tiny bundle
 through every selected consumer, then execute the exact release candidate in
 the pinned OKF Explorer and repeat the canonical deep link after deployment.
 Impact analysis may select affected checks, but evidence is reusable only when
@@ -132,12 +192,15 @@ all of its declared dependency roots remain byte-identical.
 - Linked-data schemas and query limits were not fully exercised.
 - Welsh representation parity has not been enumerated.
 - Personas and usability have not been participant validated.
-- Owner approval is exact-digest scoped; every later version requires a new G9
-  decision.
+- The semantic competency question, full relationship population and
+  inference-state controls have not yet received independent exact-candidate
+  review.
+- Owner approval is exact-digest scoped; v0.3.0 requires a new G9 decision.
 
-None of these prevents the clearly labelled v0.2.0 PoC. They do prevent claims
-of full source coverage, production readiness, legal authority, bilingual
-parity, accessibility conformance or human preference.
+None of these prevents authorised candidate implementation. They do prevent
+release claims, full source coverage, production readiness, legal authority,
+bilingual parity, accessibility conformance, semantic completeness across
+unbounded HMLR sources or human preference.
 
 ## Saturation result
 
@@ -149,8 +212,12 @@ are recorded as gaps instead of being silently treated as complete.
 
 ## Handoff
 
-The build may proceed against this approved profile because no open decision is
-marked `blocking_for_build`. Publication is limited to the exact v0.2.0 digest
-accepted by the project owner and recorded in G9. The exact profile, evidence
-register, traceability and checksums—not the research transcript—are the Stage
-2 inputs.
+Stage 2 implementation and candidate assurance may proceed against this
+owner-authorised profile because no open implementation decision is marked
+`blocking_for_build`. The 10 August 2026 direction is not G9 and does not
+authorise publication of any changed bytes. The completed v0.3.0 candidate must
+first obtain fresh G1–G8 evidence, including independent semantic, rights,
+safety, accessibility, reproducibility and real-Reader review. Only then may
+the owner be asked to approve the exact version, digest, residual risks, claims
+and canonical identity in G9. The exact profile, evidence register,
+traceability and checksums—not the research transcript—are the Stage 2 inputs.

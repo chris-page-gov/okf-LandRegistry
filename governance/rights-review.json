@@ -1,14 +1,14 @@
 {
   "schema": "okf-rights-review.v1",
   "project": "HM Land Registry public-estate OKF Bundle",
-  "review_state": "policy-reviewed-for-v0.2.0-candidate",
+  "review_state": "v0.3.0-candidate-exact-review-state-external",
   "release_approved": false,
   "release_authority": "This policy review permits candidate generation only. It does not approve publication. Exact-digest G3 evidence, independent review and the project-owner G9 decision remain external release evidence.",
-  "reviewed_at": "2026-07-29",
+  "reviewed_at": "2026-08-10",
   "review_method": {
     "reviewer_kind": "ai-agent",
     "reviewer_identity": "Codex rights and provenance review",
-    "decision_scope": "Metadata-only v0.2.0 AI-generated proof-of-concept candidate generation; final G3 evidence and owner approval must bind the exact release digest.",
+    "decision_scope": "Metadata-only policy controls and the explicit record-level rights classifications applied to the v0.3.0 AI-generated proof-of-concept candidate; legislation.gov.uk and National Data Library reuse notices were rechecked on 10 August 2026, while G3 evidence, independent review and any owner approval must bind the exact candidate digest.",
     "human_legal_or_licence_audit": "not_completed"
   },
   "research_cutoff": "2026-07-29",
@@ -20,7 +20,7 @@
     {
       "id": "RIGHT-GOVUK",
       "layer": "GOV.UK and HM Land Registry page metadata",
-      "source_family_ids": ["SRC-GOVUK-SEARCH", "SRC-GOVUK-CONTENT", "SRC-GOVUK-HMLR"],
+      "source_family_ids": ["govuk-search", "govuk-content", "govuk-hmlr", "blog", "property-information"],
       "status": "permitted",
       "collection_allowed": true,
       "publication_allowed": true,
@@ -34,7 +34,7 @@
     {
       "id": "RIGHT-DATASETS",
       "layer": "HM Land Registry dataset metadata and distributions",
-      "source_family_ids": ["SRC-ULPD", "SRC-ULPD-API", "SRC-LINKED-DATA"],
+      "source_family_ids": ["ulpd", "ulpd-api", "linked-data"],
       "status": "conditional",
       "collection_allowed": true,
       "publication_allowed": true,
@@ -48,7 +48,7 @@
     {
       "id": "RIGHT-RESTRICTED",
       "layer": "Property information, Local Land Charges, portal and Business Gateway services",
-      "source_family_ids": ["SRC-PROPERTY-SERVICE", "SRC-LLC-SERVICE", "SRC-PORTAL", "SRC-BG-TECHDOC"],
+      "source_family_ids": ["property-information", "local-land-charges", "portal", "business-gateway-docs", "cddo-api-catalogue"],
       "status": "prohibited",
       "collection_allowed": false,
       "publication_allowed": false,
@@ -62,7 +62,7 @@
     {
       "id": "RIGHT-GITHUB",
       "layer": "HM Land Registry public GitHub repository metadata",
-      "source_family_ids": ["SRC-GITHUB"],
+      "source_family_ids": ["github"],
       "status": "conditional",
       "collection_allowed": true,
       "publication_allowed": true,
@@ -76,7 +76,7 @@
     {
       "id": "RIGHT-CDDO",
       "layer": "Central Digital and Data Office API Catalogue metadata",
-      "source_family_ids": ["SRC-CDDO-API"],
+      "source_family_ids": ["cddo-api-catalogue"],
       "status": "conditional",
       "collection_allowed": true,
       "publication_allowed": true,
@@ -86,6 +86,51 @@
       "attribution": "Attribute the catalogue and preserve the publisher-operated HMLR authority link.",
       "evidence_refs": ["EV-CDDO", "EV-BG-DOCS"],
       "review_trigger": "Catalogue licence change or operational claim based on catalogue-only evidence."
+    },
+    {
+      "id": "RIGHT-LEGISLATION",
+      "layer": "Legislation.gov.uk public legislation metadata and content references",
+      "source_family_ids": ["legislation"],
+      "status": "conditional",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["legislation title", "canonical URL", "legislation type and identifier", "public metadata description"],
+      "prohibited_content": ["copied legislation bodies", "EU-derived content without its applicable reuse terms", "legal interpretation", "inferred legal effect or currency"],
+      "licence": "Open Government Licence v3.0 except where otherwise stated; separately identified EU-derived material retains its stated reuse terms.",
+      "attribution": "Retain legislation.gov.uk, the legislation identifier and the applicable Crown copyright and reuse notice.",
+      "evidence_refs": ["EV-INVENTORY"],
+      "evidence_urls": ["https://www.legislation.gov.uk/ukpga/2002/9/contents", "https://www.legislation.gov.uk/uksi/2003/1417/contents", "https://www.legislation.gov.uk/ukpga/1975/76/contents"],
+      "review_trigger": "Any source-content reproduction, legal interpretation, legislation format expansion or change to the displayed reuse notice."
+    },
+    {
+      "id": "RIGHT-CATALOGUE",
+      "layer": "National Data Library collection-page and catalogue metadata",
+      "source_family_ids": ["cross-government-data-catalogues"],
+      "status": "conditional",
+      "collection_allowed": true,
+      "publication_allowed": true,
+      "allowed_fields": ["collection title", "public description", "canonical URL", "publisher and discovery metadata"],
+      "prohibited_content": ["linked dataset contents", "inferred publisher permissions", "source-specific rights inherited from catalogue membership"],
+      "licence": "National Data Library page content is available under the Open Government Licence v3.0 except where otherwise stated; linked datasets retain their publisher terms.",
+      "attribution": "Attribute the National Data Library collection page and preserve each linked publisher route and licence separately.",
+      "evidence_refs": ["EV-INVENTORY", "EV-DCAT"],
+      "evidence_urls": ["https://www.data.gov.uk/about/", "https://www.data.gov.uk/privacy-and-terms/"],
+      "review_trigger": "Catalogue terms change, linked-dataset reuse, field expansion or an operational claim based on catalogue-only evidence."
+    },
+    {
+      "id": "RIGHT-FEE-CALCULATOR",
+      "layer": "HM Land Registry fee-calculator service operation and generated output",
+      "source_family_ids": ["fee-calculator"],
+      "status": "prohibited",
+      "collection_allowed": false,
+      "publication_allowed": false,
+      "allowed_fields": ["public service title", "public description", "official service URL", "access requirement"],
+      "prohibited_content": ["calculator execution", "submitted values", "generated fee estimate", "user result", "copied service content"],
+      "licence": "Service and output reuse rights not established; no source-content or result-reuse permission is inferred from public access.",
+      "attribution": "Retain HM Land Registry and the official calculator route; label any reference as metadata-only.",
+      "evidence_refs": ["EV-INVENTORY"],
+      "evidence_urls": ["https://fee-calculator.landregistry.gov.uk/"],
+      "review_trigger": "Any calculator execution, output retention, content reuse, terms discovery or change to the public service route."
     },
     {
       "id": "RIGHT-EVIDENCE",
@@ -104,7 +149,7 @@
     {
       "id": "RIGHT-PERSONAL",
       "layer": "Property, register, help-forum and user-submitted personal information",
-      "source_family_ids": ["SRC-CUSTOMER-HELP", "SRC-PROPERTY-SERVICE", "SRC-LLC-SERVICE"],
+      "source_family_ids": ["customer-help", "property-information", "local-land-charges"],
       "status": "prohibited",
       "collection_allowed": false,
       "publication_allowed": false,
@@ -117,7 +162,7 @@
     }
   ],
   "release_checks": [
-    "Every public record resolves to exactly one current applicable rights assessment.",
+    "Every public record resolves to exactly one current primary rights assessment, plus only explicitly governed additional constraints where applicable.",
     "Every record has explicit access and rights states; unknown fails closed.",
     "Allowlisted public fields only are present.",
     "No credentials, certificates, tokens, signed URLs or personal-level records are present.",
@@ -129,6 +174,6 @@
     "No independent human legal or licence audit has been completed; retain this limitation as release residual RISK-015.",
     "Live rights, terms and privacy page bodies are not archived in the repository; revalidate publisher-operated routes for every later release.",
     "Dataset and repository rights remain per-source and volatile; this policy review does not authorise source-data or source-code redistribution.",
-    "Final field-inventory, safety-scan and independent rights receipts must bind the exact v0.2.0 digest before publication."
+    "Field-inventory, safety-scan and independent rights receipts must bind the exact v0.3.0 candidate digest; version-scoped evidence records their authoritative state and any publication authority."
   ]
 }
