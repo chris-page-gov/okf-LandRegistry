@@ -1,0 +1,78 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "json-yaml-equivalent",
+      "status": "pass",
+      "summary": "The JSON and YAML profile forms are equivalent after parsing."
+    },
+    {
+      "id": "profile-pack-rehashed",
+      "status": "pass",
+      "summary": "All domain-profile pack members rehash exactly to profile root 967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c."
+    },
+    {
+      "id": "references-closed",
+      "status": "pass",
+      "summary": "Profile, evidence, requirement, decision, risk, rights and trace references close for the exact candidate."
+    },
+    {
+      "id": "schema-valid",
+      "status": "pass",
+      "summary": "The pinned domain-profile schema accepts the exact v0.3.0 profile."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/automated-validation.json",
+      "sha256": "a43ec8353ad11487af2481edfcda3a2c0af212975169e06a6aeeb030f0dc1657"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/independent-stage1-review.json",
+      "sha256": "ffc5191ac12b9c26901b45307216b09ebf9ed7d051706a8b0406e41d67f9891f"
+    },
+    {
+      "path": "domain-profile/CHECKSUMS.sha256",
+      "sha256": "c029174e5e570d1e3a47a909e6aaff5213b3a5723a3aece9d9b690cc819b529d"
+    },
+    {
+      "path": "domain-profile/domain-profile.json",
+      "sha256": "1b348a1a394f2bc3688bf1f1d71ef257baf58ac0e03380a52768cdf43a1ccc9e"
+    },
+    {
+      "path": "domain-profile/domain-profile.yaml",
+      "sha256": "ce8dfeef8b5ad79f32bbb2758b5f1bf9020af39187c15f5eeb0a9402fe1e7efa"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:32Z",
+  "failures": [],
+  "gate": "G1",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "scripts/check_domain_profile.py",
+      "domain-profile/domain-profile.json",
+      "--equivalent",
+      "domain-profile/domain-profile.yaml"
+    ],
+    "name": "domain-profile-validator",
+    "sha256": "369f0a220a79de2095497d75035ed3be43b17e80a2d2ba32e14c43705605f96d",
+    "version": "v0.3.0-751b6c1"
+  },
+  "waivers": []
+}

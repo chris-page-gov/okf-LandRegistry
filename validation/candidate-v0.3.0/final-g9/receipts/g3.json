@@ -1,0 +1,115 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "field-inventory-reviewed",
+      "status": "pass",
+      "summary": "The exact 2,203-record metadata projection and its public fields, access states, rights states, caveats and evidence references were independently reviewed."
+    },
+    {
+      "id": "independent-rights-review",
+      "status": "pass",
+      "summary": "The named independent reviewer passed rights, privacy, credential, URL-safety and access-boundary review for the exact candidate; no human legal or licence audit is claimed."
+    },
+    {
+      "id": "prohibited-content-absent",
+      "status": "pass",
+      "summary": "Automated checks and independent review found no property-level or personal record, credential, unsafe URL, signed URL or prohibited restricted-service operation."
+    },
+    {
+      "id": "rights-access-complete",
+      "status": "pass",
+      "summary": "All 2,203 records resolve to governed access, rights, licence, assessment and caveat states without flattening mixed rights."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/automated-validation.json",
+      "sha256": "a43ec8353ad11487af2481edfcda3a2c0af212975169e06a6aeeb030f0dc1657"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/independent-rights-privacy-safety-review.json",
+      "sha256": "b4079d244856fe1b427dacded15528fb632ef3b8af12b0f94e371ee759f1fec5"
+    },
+    {
+      "path": "governance/rights-review.json",
+      "sha256": "b47da036da6b1376975b8542749f06df86a61d34237ab244e8dc61819be907f6"
+    },
+    {
+      "path": "governance/risk-register.json",
+      "sha256": "73971f33d7087ca261c4383cc653479a93ad5a1acd5f381b8fdc20e6ec81b8b2"
+    },
+    {
+      "path": "bundle/data/rights.json",
+      "sha256": "bcee61763a7f56178ec7e5693d721e9b35c0ff2ff3662773ea716eae8476b52e"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:34Z",
+  "failures": [],
+  "gate": "G3",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-08-11T20:30:04Z",
+        "role": "independent-rights-privacy-safety-reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-08-11T20:30:04Z",
+      "execution_mode": "document-review",
+      "id": "field-inventory-reviewed",
+      "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:30:04Z",
+      "execution_mode": "automated-agent",
+      "id": "independent-rights-review",
+      "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:30:04Z",
+      "execution_mode": "automated-agent",
+      "id": "prohibited-content-absent",
+      "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:30:04Z",
+      "execution_mode": "document-review",
+      "id": "rights-access-complete",
+      "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "tests.test_bundle",
+      "-v"
+    ],
+    "name": "rights-privacy-safety-and-prohibited-content-validator",
+    "sha256": "5004a73518f70f847e104785b48191b403552f32d4c559ca1f6e6bc167195721",
+    "version": "v0.3.0-751b6c1"
+  },
+  "waivers": []
+}

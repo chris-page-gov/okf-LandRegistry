@@ -1,0 +1,79 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "envelopes-rehashed",
+      "status": "pass",
+      "summary": "The 2,170 immutable acquisition records and bounded two-record Content API observation rehash through the composite input manifest."
+    },
+    {
+      "id": "media-types-valid",
+      "status": "pass",
+      "summary": "Every acquisition receipt records an allowed media type and a bounded successful response."
+    },
+    {
+      "id": "omissions-explicit",
+      "status": "pass",
+      "summary": "Acquisition caps, omitted source layers and the bounded-coverage limitation remain explicit; no live source was fetched for the candidate build."
+    },
+    {
+      "id": "terminal-outcomes-complete",
+      "status": "pass",
+      "summary": "All four expected acquisition lanes have complete, reconciled terminal outcomes."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/automated-validation.json",
+      "sha256": "a43ec8353ad11487af2481edfcda3a2c0af212975169e06a6aeeb030f0dc1657"
+    },
+    {
+      "path": "source/input-manifest-v0.2.0.json",
+      "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+    },
+    {
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    {
+      "path": "source/observations/govuk-content-locale-translations-2026-07-29.json",
+      "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
+    },
+    {
+      "path": "bundle/build-receipt.json",
+      "sha256": "6a9a590c5905845c3a99a148b3a8204e65a71c9c9ceff5350bdb905c240db5db"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:33Z",
+  "failures": [],
+  "gate": "G2",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "tests.test_acquire",
+      "tests.test_bundle",
+      "-v"
+    ],
+    "name": "frozen-snapshot-and-build-semantics-validator",
+    "sha256": "7ccc9008b2757fb81052aa561222bf4a0c591422874cd26505e9cd74dd45eb97",
+    "version": "v0.3.0-751b6c1"
+  },
+  "waivers": []
+}

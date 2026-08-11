@@ -1,0 +1,221 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "approved_claims": [
+    "Version 0.3.0 is an independent, metadata-only, AI-generated proof of concept for discovering public HM Land Registry material; it is not an HM Land Registry service or endorsement.",
+    "The exact candidate contains 2,203 public metadata records across 17 governed source families and contains no property-level records.",
+    "The catalogue is a frozen snapshot with a research cut-off of 29 July 2026; completeness is limited to the named, dated and reconciled acquisition lanes and is not claimed for the HM Land Registry public estate as a whole.",
+    "Every one of the 2,203 catalogue records carries an explicit access state, rights state, rights-assessment reference, caveat and evidence reference; public availability is not treated as open-reuse permission.",
+    "The public projection contains metadata and source links only; candidate generation did not authenticate to, execute, search or monitor a restricted HM Land Registry service.",
+    "The candidate publishes canonical YAML-LD and equivalent JSON-LD serialisations of one bounded semantic graph, with 22,267 direct triples, 22,267 reified relationship assertions and 22,267 runtime rows reconciled to the same identities.",
+    "All 22,267 semantic assertions and all 22,267 relationship-runtime rows pass the pinned local schema and reconciliation checks with zero validation failure.",
+    "The candidate publishes 22 authorised predicate capabilities: 13 active-emitted capabilities carrying 22,267 assertions and nine authorised-zero-evidence capabilities carrying zero assertions.",
+    "The candidate records a selective metadata-level public-service mapping for seven of 11 reviewed candidates, with four explicit exclusions and 19 evidence references.",
+    "Official CPSV-AP SHACL and semantic inference were not run, and neither CPSV-AP conformance nor inferred knowledge is claimed.",
+    "The exact candidate passed six local product journeys and 26 local search journeys against the pinned OKF Explorer v0.6.2 consumer.",
+    "On the bounded synthetic 24-question evaluation, the candidate recorded mean reciprocal rank 0.916667, expected-target recall at 10 of 1.0, all-expected-target success at 10 of 1.0 and zero hard failures.",
+    "The exact candidate passed the documented AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys within the explicitly bounded proof-of-concept test scope; this is not a human accessibility audit or WCAG conformance claim.",
+    "The exact candidate passes all pinned Explorer rich-relationship limits, including full default hydration of 22,267 rows and 33,231,836 retained-text units against the 33,554,432-unit ceiling.",
+    "Two clean offline builds using the locked CPython 3.12.11 environment produced byte-identical governed bundle output at release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1; the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e.",
+    "The candidate does not provide legal advice, proof of ownership or priority, an exact-boundary conclusion, a complete or current public-estate inventory, bilingual parity or participant-validated user research.",
+    "No independent human domain, legal, licence, privacy, security or accessibility audit has been completed for this AI-generated proof of concept."
+  ],
+  "approved_receipts": [
+    {
+      "gate": "G1",
+      "sha256": "b26e406e6f5e0e317ffc2f89ec91acdbe69c1354a996808cd67a0ebaa097d798"
+    },
+    {
+      "gate": "G2",
+      "sha256": "51318d493017a84b4208e88833fd82c8c74a1321eb8c27d3f0cf253b0909c8ec"
+    },
+    {
+      "gate": "G3",
+      "sha256": "7a94d435d1c0f3759b6ac67fbe9c707b2ed4f37d8164b545cf7d0dd9d13c2523"
+    },
+    {
+      "gate": "G4",
+      "sha256": "3017b66549ec430928278a530dec2167716f76a4b421008257f85e750cffd405"
+    },
+    {
+      "gate": "G5",
+      "sha256": "ba18359e04ed3d8111d96df86b4eb44b0d6343f80bcc45fb130906159439a9e1"
+    },
+    {
+      "gate": "G6",
+      "sha256": "1f009ef272f8705897c8fefc6739770ef300a89b0158c55091844dae83ad149b"
+    },
+    {
+      "gate": "G7",
+      "sha256": "6baac03e2c7ff0a68c4234dba242bd2c159fe6e4ce4cdcdd05012da25ff3781f"
+    },
+    {
+      "gate": "G8",
+      "sha256": "d37b04f5b7988f3e22a4446bb595a8a31b824902ddd3231a713f739752f02b10"
+    }
+  ],
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "canonical_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+  "claims_reviewed": true,
+  "gate": "G9",
+  "human_audit": {
+    "notes": "This AI-generated proof of concept has not undergone an independent human domain, legal, licence, privacy, security or accessibility audit, and it has not been validated through representative-user research.",
+    "residual_risk_id": "RISK-015",
+    "status": "not_completed"
+  },
+  "independent_review": {
+    "identity": "OpenAI Codex independent release review agent (task /root/lr_independent_release_review)",
+    "independent": true,
+    "kind": "ai-agent",
+    "outcome": "recommend_approval",
+    "reviewed_at": "2026-08-11T20:58:13Z",
+    "role": "release-reviewer"
+  },
+  "owner_approval": {
+    "approved": true,
+    "approved_at": "2026-08-11T21:11:28Z",
+    "binding": {
+      "approved_claims": [
+        "Version 0.3.0 is an independent, metadata-only, AI-generated proof of concept for discovering public HM Land Registry material; it is not an HM Land Registry service or endorsement.",
+        "The exact candidate contains 2,203 public metadata records across 17 governed source families and contains no property-level records.",
+        "The catalogue is a frozen snapshot with a research cut-off of 29 July 2026; completeness is limited to the named, dated and reconciled acquisition lanes and is not claimed for the HM Land Registry public estate as a whole.",
+        "Every one of the 2,203 catalogue records carries an explicit access state, rights state, rights-assessment reference, caveat and evidence reference; public availability is not treated as open-reuse permission.",
+        "The public projection contains metadata and source links only; candidate generation did not authenticate to, execute, search or monitor a restricted HM Land Registry service.",
+        "The candidate publishes canonical YAML-LD and equivalent JSON-LD serialisations of one bounded semantic graph, with 22,267 direct triples, 22,267 reified relationship assertions and 22,267 runtime rows reconciled to the same identities.",
+        "All 22,267 semantic assertions and all 22,267 relationship-runtime rows pass the pinned local schema and reconciliation checks with zero validation failure.",
+        "The candidate publishes 22 authorised predicate capabilities: 13 active-emitted capabilities carrying 22,267 assertions and nine authorised-zero-evidence capabilities carrying zero assertions.",
+        "The candidate records a selective metadata-level public-service mapping for seven of 11 reviewed candidates, with four explicit exclusions and 19 evidence references.",
+        "Official CPSV-AP SHACL and semantic inference were not run, and neither CPSV-AP conformance nor inferred knowledge is claimed.",
+        "The exact candidate passed six local product journeys and 26 local search journeys against the pinned OKF Explorer v0.6.2 consumer.",
+        "On the bounded synthetic 24-question evaluation, the candidate recorded mean reciprocal rank 0.916667, expected-target recall at 10 of 1.0, all-expected-target success at 10 of 1.0 and zero hard failures.",
+        "The exact candidate passed the documented AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys within the explicitly bounded proof-of-concept test scope; this is not a human accessibility audit or WCAG conformance claim.",
+        "The exact candidate passes all pinned Explorer rich-relationship limits, including full default hydration of 22,267 rows and 33,231,836 retained-text units against the 33,554,432-unit ceiling.",
+        "Two clean offline builds using the locked CPython 3.12.11 environment produced byte-identical governed bundle output at release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1; the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e.",
+        "The candidate does not provide legal advice, proof of ownership or priority, an exact-boundary conclusion, a complete or current public-estate inventory, bilingual parity or participant-validated user research.",
+        "No independent human domain, legal, licence, privacy, security or accessibility audit has been completed for this AI-generated proof of concept."
+      ],
+      "approved_receipts": [
+        {
+          "gate": "G1",
+          "sha256": "b26e406e6f5e0e317ffc2f89ec91acdbe69c1354a996808cd67a0ebaa097d798"
+        },
+        {
+          "gate": "G2",
+          "sha256": "51318d493017a84b4208e88833fd82c8c74a1321eb8c27d3f0cf253b0909c8ec"
+        },
+        {
+          "gate": "G3",
+          "sha256": "7a94d435d1c0f3759b6ac67fbe9c707b2ed4f37d8164b545cf7d0dd9d13c2523"
+        },
+        {
+          "gate": "G4",
+          "sha256": "3017b66549ec430928278a530dec2167716f76a4b421008257f85e750cffd405"
+        },
+        {
+          "gate": "G5",
+          "sha256": "ba18359e04ed3d8111d96df86b4eb44b0d6343f80bcc45fb130906159439a9e1"
+        },
+        {
+          "gate": "G6",
+          "sha256": "1f009ef272f8705897c8fefc6739770ef300a89b0158c55091844dae83ad149b"
+        },
+        {
+          "gate": "G7",
+          "sha256": "6baac03e2c7ff0a68c4234dba242bd2c159fe6e4ce4cdcdd05012da25ff3781f"
+        },
+        {
+          "gate": "G8",
+          "sha256": "d37b04f5b7988f3e22a4446bb595a8a31b824902ddd3231a713f739752f02b10"
+        }
+      ],
+      "candidate": {
+        "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+        "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+        "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+        "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+        "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+      },
+      "canonical_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+      "human_audit": {
+        "notes": "This AI-generated proof of concept has not undergone an independent human domain, legal, licence, privacy, security or accessibility audit, and it has not been validated through representative-user research.",
+        "residual_risk_id": "RISK-015",
+        "status": "not_completed"
+      },
+      "independent_review": {
+        "identity": "OpenAI Codex independent release review agent (task /root/lr_independent_release_review)",
+        "independent": true,
+        "kind": "ai-agent",
+        "outcome": "recommend_approval",
+        "reviewed_at": "2026-08-11T20:58:13Z",
+        "role": "release-reviewer"
+      },
+      "independent_review_evidence": {
+        "path": "validation/candidate-v0.3.0/evidence/independent-release-review.json",
+        "sha256": "1f7167edfacf7003b0f656ea383c979416bf31b2a47c310d325badeb95d2e9c8"
+      },
+      "pre_g9_manifest": {
+        "path": "validation/candidate-v0.3.0/pre-g9/pre-g9-evidence.json",
+        "sha256": "52ca442af85071b34784f6e29e54c101ceeacb04c419d00aab619f2d51bc4049"
+      },
+      "residual_risks": {
+        "ids": [
+          "RISK-001",
+          "RISK-002",
+          "RISK-003",
+          "RISK-004",
+          "RISK-005",
+          "RISK-006",
+          "RISK-007",
+          "RISK-008",
+          "RISK-009",
+          "RISK-010",
+          "RISK-011",
+          "RISK-012",
+          "RISK-013",
+          "RISK-014",
+          "RISK-015",
+          "RISK-016",
+          "RISK-017",
+          "RISK-018"
+        ],
+        "register": {
+          "path": "governance/risk-register.json",
+          "sha256": "73971f33d7087ca261c4383cc653479a93ad5a1acd5f381b8fdc20e6ec81b8b2"
+        }
+      },
+      "version": "0.3.0"
+    },
+    "identity": "chris-page-gov",
+    "kind": "human",
+    "role": "project-owner"
+  },
+  "residual_risk_ids": [
+    "RISK-001",
+    "RISK-002",
+    "RISK-003",
+    "RISK-004",
+    "RISK-005",
+    "RISK-006",
+    "RISK-007",
+    "RISK-008",
+    "RISK-009",
+    "RISK-010",
+    "RISK-011",
+    "RISK-012",
+    "RISK-013",
+    "RISK-014",
+    "RISK-015",
+    "RISK-016",
+    "RISK-017",
+    "RISK-018"
+  ],
+  "residual_risks_reviewed": true,
+  "schema": "okf-release-record.v1",
+  "status": "approved",
+  "version": "0.3.0"
+}

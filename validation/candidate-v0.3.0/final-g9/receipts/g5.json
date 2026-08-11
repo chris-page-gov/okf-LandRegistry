@@ -1,0 +1,134 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "hard-failures-zero",
+      "status": "pass",
+      "summary": "The independent review and formal evaluator record zero hard failure, zero forbidden-target violation and no waiver."
+    },
+    {
+      "id": "independent-question-review",
+      "status": "pass",
+      "summary": "The independent exact-candidate review covers all 24 questions, 39 expected targets, 24 forbidden targets, 48 caveat assertions and eight fresh held-out cases."
+    },
+    {
+      "id": "mrr-threshold",
+      "status": "pass",
+      "summary": "Mean reciprocal rank is 0.916667 against the required minimum of 0.80."
+    },
+    {
+      "id": "recall-at-10-threshold",
+      "status": "pass",
+      "summary": "Expected-target recall at 10 and all-expected-target success at 10 are both 1.0 against their governed thresholds."
+    },
+    {
+      "id": "source-caveat-coverage",
+      "status": "pass",
+      "summary": "Expected-source success, source resolution, required-caveat coverage and independent-review caveat coverage are all 1.0."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/evaluation-diagnostic.json",
+      "sha256": "03483447fa70e3ec82ba5426325d37847416123fb90ee1adf9819ffe8193de2c"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/evaluation-acceptance-review.json",
+      "sha256": "9d204910a8a531165e5e6e04643489f17cf3de3783c3cfd86291e15399228bf4"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/evaluation-acceptance.json",
+      "sha256": "7e33238cb8120e7eacc134a4893ce0661d745981ced3b88d14780b69173b5b35"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/explorer-search-v0.3.0-candidate.json",
+      "sha256": "b90d200f322617daa96d2d298a9d8764f30f83bfe2597ca4e08fb9fb308a5909"
+    },
+    {
+      "path": "evaluation/questions.json",
+      "sha256": "c4423c70ed4207061d8cfea7d0956b87ddbc9e487fe3a512bc30ba2fbdba8fc0"
+    },
+    {
+      "path": "evaluation/explorer-search-calibration-v0.3.0.json",
+      "sha256": "77583d1ef32e4bc7a6ca50621eb1e03c793128f138f2854d7526443bf9f01444"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:36Z",
+  "failures": [],
+  "gate": "G5",
+  "review": {
+    "mode": "automated-agent-review",
+    "reviewers": [
+      {
+        "identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+        "independent": true,
+        "kind": "ai-agent",
+        "reviewed_at": "2026-08-11T20:24:52Z",
+        "role": "independent exact-candidate G5 evaluation reviewer"
+      }
+    ]
+  },
+  "reviewed_checks": [
+    {
+      "completed_at": "2026-08-11T20:24:52Z",
+      "execution_mode": "document-review",
+      "id": "hard-failure-review",
+      "reviewer_identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:24:52Z",
+      "execution_mode": "automated-agent",
+      "id": "independent-question-review",
+      "reviewer_identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+      "status": "pass"
+    },
+    {
+      "completed_at": "2026-08-11T20:24:52Z",
+      "execution_mode": "document-review",
+      "id": "source-caveat-coverage",
+      "reviewer_identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+      "status": "pass"
+    }
+  ],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-B",
+      "scripts/evaluate.py",
+      "--bundle",
+      "bundle",
+      "--output",
+      "validation/candidate-v0.3.0/evidence/evaluation-acceptance.json",
+      "--k",
+      "10",
+      "--min-expected-source-success-at-k",
+      "1.0",
+      "--min-expected-target-recall-at-k",
+      "0.90",
+      "--min-all-expected-target-success-at-k",
+      "1.0",
+      "--min-mrr",
+      "0.80",
+      "--acceptance-review",
+      "validation/candidate-v0.3.0/evidence/evaluation-acceptance-review.json",
+      "--runtime-journeys",
+      "evaluation/explorer-search-calibration-v0.3.0.json",
+      "--runtime-receipt",
+      "validation/candidate-v0.3.0/evidence/explorer-search-v0.3.0-candidate.json"
+    ],
+    "name": "retrieval-and-formal-acceptance-evaluator",
+    "sha256": "a7aa4448bfcc90353cc4b3ffbbf2aa34fad3e28d56064770aa0b1410930552d1",
+    "version": "v0.3.0-751b6c1-explorer-v0.6.2"
+  },
+  "waivers": []
+}

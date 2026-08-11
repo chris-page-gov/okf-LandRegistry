@@ -1,0 +1,97 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "checks": [
+    {
+      "id": "byte-identical",
+      "status": "pass",
+      "summary": "Builds 13 and 14 have zero bundle difference, and the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e."
+    },
+    {
+      "id": "clean-build-a",
+      "status": "pass",
+      "summary": "Build 13 in the governed candidate checkout produced release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1 in 94.66 seconds without network access."
+    },
+    {
+      "id": "clean-build-b",
+      "status": "pass",
+      "summary": "Build 14 in a fresh detached checkout and locked CPython 3.12.11 environment reproduced the same release root in 96.18 seconds without network access."
+    },
+    {
+      "id": "committed-bundle-identical",
+      "status": "pass",
+      "summary": "The bundle in candidate commit 751b6c1e80fbbad3c07f19798c74aebd603eb62c is byte-identical to the clean Build 14 output; change impact has no unmatched or unexplained generated path."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "validation/candidate-v0.3.0/evidence/reproducibility.json",
+      "sha256": "82f1685738b0882a50aa14e0b078df34eadd9d1e92254285106d157b2b54564f"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/change-impact.json",
+      "sha256": "69cfce8cdf2da7b20adae4edcfcf7759830bf483500678fbdc1b094472b4e84c"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/release-candidate-archive-a.json",
+      "sha256": "3e01d784ea855b8773c70a805468da8cb61775f480e20942ea981dc41efacd84"
+    },
+    {
+      "path": "validation/candidate-v0.3.0/evidence/release-candidate-archive-b.json",
+      "sha256": "cccd12bc2cda497ebb3e2a95d629aaa7ceb6c729abcf77cd648daa7f4a1fe71a"
+    },
+    {
+      "path": "dist/okf-landregistry-0.3.0-candidate-a.zip",
+      "sha256": "3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e"
+    },
+    {
+      "path": "dist/okf-landregistry-0.3.0-candidate-b.zip",
+      "sha256": "3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e"
+    },
+    {
+      "path": "bundle/build-receipt.json",
+      "sha256": "6a9a590c5905845c3a99a148b3a8204e65a71c9c9ceff5350bdb905c240db5db"
+    },
+    {
+      "path": "bundle/CHECKSUMS.sha256",
+      "sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef"
+    }
+  ],
+  "executed_at": "2026-08-11T20:40:38Z",
+  "failures": [],
+  "gate": "G7",
+  "review": {
+    "mode": "automated",
+    "reviewers": []
+  },
+  "reviewed_checks": [],
+  "schema": "okf-gate-receipt.v1",
+  "status": "pass",
+  "validator": {
+    "command": [
+      ".venv/bin/python",
+      "-I",
+      "-B",
+      "-X",
+      "pycache_prefix=<private-empty-directory>",
+      "scripts/build.py",
+      "--snapshot-dir",
+      "source/snapshots/2026-07-29T091915Z",
+      "--publication-base",
+      "https://chris-page-gov.github.io/okf-LandRegistry/",
+      "--replace",
+      "--previous-output",
+      "<owner-selected-empty-same-filesystem-path>"
+    ],
+    "name": "offline-deterministic-builder-byte-and-impact-comparator",
+    "sha256": "7ccc9008b2757fb81052aa561222bf4a0c591422874cd26505e9cd74dd45eb97",
+    "version": "v0.3.0-751b6c1"
+  },
+  "waivers": []
+}
