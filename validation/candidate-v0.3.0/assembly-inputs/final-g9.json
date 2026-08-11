@@ -1,0 +1,723 @@
+{
+  "schema": "okf-release-assembly-input.v2",
+  "generated_at": "2026-08-11T21:13:04Z",
+  "gates": {
+    "G1": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:32Z",
+      "validator": {
+        "name": "domain-profile-validator",
+        "version": "v0.3.0-751b6c1",
+        "artifact_path": "scripts/check_domain_profile.py",
+        "command": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/check_domain_profile.py",
+          "domain-profile/domain-profile.json",
+          "--equivalent",
+          "domain-profile/domain-profile.yaml"
+        ]
+      },
+      "checks": {
+        "schema-valid": {
+          "status": "pass",
+          "summary": "The pinned domain-profile schema accepts the exact v0.3.0 profile."
+        },
+        "json-yaml-equivalent": {
+          "status": "pass",
+          "summary": "The JSON and YAML profile forms are equivalent after parsing."
+        },
+        "references-closed": {
+          "status": "pass",
+          "summary": "Profile, evidence, requirement, decision, risk, rights and trace references close for the exact candidate."
+        },
+        "profile-pack-rehashed": {
+          "status": "pass",
+          "summary": "All domain-profile pack members rehash exactly to profile root 967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/automated-validation.json",
+        "validation/candidate-v0.3.0/evidence/independent-stage1-review.json",
+        "domain-profile/CHECKSUMS.sha256",
+        "domain-profile/domain-profile.json",
+        "domain-profile/domain-profile.yaml"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G2": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:33Z",
+      "validator": {
+        "name": "frozen-snapshot-and-build-semantics-validator",
+        "version": "v0.3.0-751b6c1",
+        "artifact_path": "scripts/build.py",
+        "command": [
+          ".venv/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "tests.test_acquire",
+          "tests.test_bundle",
+          "-v"
+        ]
+      },
+      "checks": {
+        "envelopes-rehashed": {
+          "status": "pass",
+          "summary": "The 2,170 immutable acquisition records and bounded two-record Content API observation rehash through the composite input manifest."
+        },
+        "media-types-valid": {
+          "status": "pass",
+          "summary": "Every acquisition receipt records an allowed media type and a bounded successful response."
+        },
+        "terminal-outcomes-complete": {
+          "status": "pass",
+          "summary": "All four expected acquisition lanes have complete, reconciled terminal outcomes."
+        },
+        "omissions-explicit": {
+          "status": "pass",
+          "summary": "Acquisition caps, omitted source layers and the bounded-coverage limitation remain explicit; no live source was fetched for the candidate build."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/automated-validation.json",
+        "source/input-manifest-v0.2.0.json",
+        "source/snapshots/2026-07-29T091915Z/manifest.json",
+        "source/observations/govuk-content-locale-translations-2026-07-29.json",
+        "bundle/build-receipt.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G3": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:34Z",
+      "validator": {
+        "name": "rights-privacy-safety-and-prohibited-content-validator",
+        "version": "v0.3.0-751b6c1",
+        "artifact_path": "tests/test_bundle.py",
+        "command": [
+          ".venv/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "tests.test_bundle",
+          "-v"
+        ]
+      },
+      "checks": {
+        "field-inventory-reviewed": {
+          "status": "pass",
+          "summary": "The exact 2,203-record metadata projection and its public fields, access states, rights states, caveats and evidence references were independently reviewed."
+        },
+        "rights-access-complete": {
+          "status": "pass",
+          "summary": "All 2,203 records resolve to governed access, rights, licence, assessment and caveat states without flattening mixed rights."
+        },
+        "prohibited-content-absent": {
+          "status": "pass",
+          "summary": "Automated checks and independent review found no property-level or personal record, credential, unsafe URL, signed URL or prohibited restricted-service operation."
+        },
+        "independent-rights-review": {
+          "status": "pass",
+          "summary": "The named independent reviewer passed rights, privacy, credential, URL-safety and access-boundary review for the exact candidate; no human legal or licence audit is claimed."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/automated-validation.json",
+        "validation/candidate-v0.3.0/evidence/independent-rights-privacy-safety-review.json",
+        "governance/rights-review.json",
+        "governance/risk-register.json",
+        "bundle/data/rights.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+            "kind": "ai-agent",
+            "role": "independent-rights-privacy-safety-reviewer",
+            "reviewed_at": "2026-08-11T20:30:04Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "field-inventory-reviewed": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+          "completed_at": "2026-08-11T20:30:04Z",
+          "execution_mode": "document-review"
+        },
+        "rights-access-complete": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+          "completed_at": "2026-08-11T20:30:04Z",
+          "execution_mode": "document-review"
+        },
+        "prohibited-content-absent": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+          "completed_at": "2026-08-11T20:30:04Z",
+          "execution_mode": "automated-agent"
+        },
+        "independent-rights-review": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent review agent (task /root/lr_independent_stage1_rights)",
+          "completed_at": "2026-08-11T20:30:04Z",
+          "execution_mode": "automated-agent"
+        }
+      }
+    },
+    "G4": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:35Z",
+      "validator": {
+        "name": "okf-semantic-data-plane-route-and-reader-validator",
+        "version": "v0.3.0-751b6c1-explorer-v0.6.2",
+        "artifact_path": "scripts/check_okf.py",
+        "command": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/check_okf.py"
+        ]
+      },
+      "checks": {
+        "okf-core-valid": {
+          "status": "pass",
+          "summary": "The pinned executable OKF checker reports the exact candidate conformant."
+        },
+        "data-plane-valid": {
+          "status": "pass",
+          "summary": "Catalogue, YAML-LD, JSON-LD, 22,267 reified semantic assertions, 22,267 runtime rows, registries, search projection and shards reconcile with zero semantic-validation failure."
+        },
+        "checksums-valid": {
+          "status": "pass",
+          "summary": "All 856 governed bundle members and release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1 rehash exactly."
+        },
+        "routes-valid": {
+          "status": "pass",
+          "summary": "Local pages, manifests, descriptor routes and pinned Explorer v0.6.2 journeys resolve; the exact product receipt passes all six journeys."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/automated-validation.json",
+        "validation/candidate-v0.3.0/evidence/explorer-product-v0.3.0-candidate.json",
+        "bundle/CHECKSUMS.sha256",
+        "bundle/build-receipt.json",
+        "bundle/data/manifest.json",
+        "bundle/data/explorer/manifest.json",
+        "bundle/data/semantic/validation.json",
+        "contracts/okf-explorer.consumer-lock.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G5": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:36Z",
+      "validator": {
+        "name": "retrieval-and-formal-acceptance-evaluator",
+        "version": "v0.3.0-751b6c1-explorer-v0.6.2",
+        "artifact_path": "scripts/evaluate.py",
+        "command": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/evaluate.py",
+          "--bundle",
+          "bundle",
+          "--output",
+          "validation/candidate-v0.3.0/evidence/evaluation-acceptance.json",
+          "--k",
+          "10",
+          "--min-expected-source-success-at-k",
+          "1.0",
+          "--min-expected-target-recall-at-k",
+          "0.90",
+          "--min-all-expected-target-success-at-k",
+          "1.0",
+          "--min-mrr",
+          "0.80",
+          "--acceptance-review",
+          "validation/candidate-v0.3.0/evidence/evaluation-acceptance-review.json",
+          "--runtime-journeys",
+          "evaluation/explorer-search-calibration-v0.3.0.json",
+          "--runtime-receipt",
+          "validation/candidate-v0.3.0/evidence/explorer-search-v0.3.0-candidate.json"
+        ]
+      },
+      "checks": {
+        "independent-question-review": {
+          "status": "pass",
+          "summary": "The independent exact-candidate review covers all 24 questions, 39 expected targets, 24 forbidden targets, 48 caveat assertions and eight fresh held-out cases."
+        },
+        "hard-failures-zero": {
+          "status": "pass",
+          "summary": "The independent review and formal evaluator record zero hard failure, zero forbidden-target violation and no waiver."
+        },
+        "mrr-threshold": {
+          "status": "pass",
+          "summary": "Mean reciprocal rank is 0.916667 against the required minimum of 0.80."
+        },
+        "recall-at-10-threshold": {
+          "status": "pass",
+          "summary": "Expected-target recall at 10 and all-expected-target success at 10 are both 1.0 against their governed thresholds."
+        },
+        "source-caveat-coverage": {
+          "status": "pass",
+          "summary": "Expected-source success, source resolution, required-caveat coverage and independent-review caveat coverage are all 1.0."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/evaluation-diagnostic.json",
+        "validation/candidate-v0.3.0/evidence/evaluation-acceptance-review.json",
+        "validation/candidate-v0.3.0/evidence/evaluation-acceptance.json",
+        "validation/candidate-v0.3.0/evidence/explorer-search-v0.3.0-candidate.json",
+        "evaluation/questions.json",
+        "evaluation/explorer-search-calibration-v0.3.0.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+            "kind": "ai-agent",
+            "role": "independent exact-candidate G5 evaluation reviewer",
+            "reviewed_at": "2026-08-11T20:24:52Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "independent-question-review": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+          "completed_at": "2026-08-11T20:24:52Z",
+          "execution_mode": "automated-agent"
+        },
+        "hard-failure-review": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+          "completed_at": "2026-08-11T20:24:52Z",
+          "execution_mode": "document-review"
+        },
+        "source-caveat-coverage": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex independent evaluation agent (task /root/lr_explorer_fresh_evidence)",
+          "completed_at": "2026-08-11T20:24:52Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G6": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:37Z",
+      "validator": {
+        "name": "browser-accessibility-security-and-performance-review",
+        "version": "v0.3.0-751b6c1-explorer-v0.6.2",
+        "artifact_path": "scripts/run_authored_site_browser_quality.mjs",
+        "command": [
+          "node",
+          "scripts/run_authored_site_browser_quality.mjs",
+          "--repository-root",
+          "/private/tmp/okf-LandRegistry-v0.3.0-build14",
+          "--bundle-root",
+          "/private/tmp/okf-LandRegistry-v0.3.0-build14/bundle",
+          "--explorer-checkout",
+          "/private/tmp/okf-landregistry-v030-evidence-751b6c1/explorer-runtime/okf-explorer-v0.6.2",
+          "--candidate-commit",
+          "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+          "--release-root",
+          "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+          "--incomplete-review",
+          "/private/tmp/okf-LandRegistry-v0.3.0-build14/validation/candidate-v0.3.0/evidence/axe-incomplete-review-v0.3.0-candidate.json",
+          "--output",
+          "/private/tmp/okf-LandRegistry-v0.3.0-build14/validation/candidate-v0.3.0/evidence/authored-site-browser-quality-v0.3.0-reviewed.json"
+        ]
+      },
+      "checks": {
+        "automated-journeys": {
+          "status": "pass",
+          "summary": "The pinned Explorer passes 6 of 6 product and 26 of 26 search journeys; the reviewed authored-site receipt records all 32 required route/profile observations with no browser or resource error."
+        },
+        "manual-accessibility-journeys": {
+          "status": "pass",
+          "summary": "AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys pass at the proof-of-concept boundary; all three axe incompletes were independently examined and no human audit or WCAG conformance is claimed."
+        },
+        "security-critical-zero": {
+          "status": "pass",
+          "summary": "Independent bounded static and browser review found no critical security issue, unexpected external runtime dependency, secret, storage residue, CSP violation or prohibited claim."
+        },
+        "performance-budgets": {
+          "status": "pass",
+          "summary": "The authored shell does not eagerly load the corpus, and all pinned Explorer v0.6.2 JSON, relationship-row, route, chunk, compressed-byte, decoded-byte and retained-text ceilings pass."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/authored-site-browser-quality-v0.3.0-candidate.json",
+        "validation/candidate-v0.3.0/evidence/axe-incomplete-review-v0.3.0-candidate.json",
+        "validation/candidate-v0.3.0/evidence/authored-site-browser-quality-v0.3.0-reviewed.json",
+        "validation/candidate-v0.3.0/evidence/g6-independent-review.json",
+        "validation/candidate-v0.3.0/evidence/explorer-product-v0.3.0-candidate.json",
+        "validation/candidate-v0.3.0/evidence/explorer-search-v0.3.0-candidate.json",
+        "docs/accessibility.md"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated-agent-review",
+        "reviewers": [
+          {
+            "identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+            "kind": "ai-agent",
+            "role": "independent-g6-reviewer",
+            "reviewed_at": "2026-08-11T20:31:37Z",
+            "independent": true
+          }
+        ]
+      },
+      "reviewed_checks": {
+        "automated-journeys": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+          "completed_at": "2026-08-11T20:31:37Z",
+          "execution_mode": "document-review"
+        },
+        "manual-accessibility-journeys": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+          "completed_at": "2026-08-11T20:31:37Z",
+          "execution_mode": "interactive-browser"
+        },
+        "security-critical-zero": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+          "completed_at": "2026-08-11T20:31:37Z",
+          "execution_mode": "document-review"
+        },
+        "performance-budgets": {
+          "status": "pass",
+          "reviewer_identity": "OpenAI Codex (GPT-5), operating as independent review sub-agent /root/lr_g6_independent_review",
+          "completed_at": "2026-08-11T20:31:37Z",
+          "execution_mode": "document-review"
+        }
+      }
+    },
+    "G7": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:38Z",
+      "validator": {
+        "name": "offline-deterministic-builder-byte-and-impact-comparator",
+        "version": "v0.3.0-751b6c1",
+        "artifact_path": "scripts/build.py",
+        "command": [
+          ".venv/bin/python",
+          "-I",
+          "-B",
+          "-X",
+          "pycache_prefix=<private-empty-directory>",
+          "scripts/build.py",
+          "--snapshot-dir",
+          "source/snapshots/2026-07-29T091915Z",
+          "--publication-base",
+          "https://chris-page-gov.github.io/okf-LandRegistry/",
+          "--replace",
+          "--previous-output",
+          "<owner-selected-empty-same-filesystem-path>"
+        ]
+      },
+      "checks": {
+        "clean-build-a": {
+          "status": "pass",
+          "summary": "Build 13 in the governed candidate checkout produced release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1 in 94.66 seconds without network access."
+        },
+        "clean-build-b": {
+          "status": "pass",
+          "summary": "Build 14 in a fresh detached checkout and locked CPython 3.12.11 environment reproduced the same release root in 96.18 seconds without network access."
+        },
+        "byte-identical": {
+          "status": "pass",
+          "summary": "Builds 13 and 14 have zero bundle difference, and the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e."
+        },
+        "committed-bundle-identical": {
+          "status": "pass",
+          "summary": "The bundle in candidate commit 751b6c1e80fbbad3c07f19798c74aebd603eb62c is byte-identical to the clean Build 14 output; change impact has no unmatched or unexplained generated path."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/reproducibility.json",
+        "validation/candidate-v0.3.0/evidence/change-impact.json",
+        "validation/candidate-v0.3.0/evidence/release-candidate-archive-a.json",
+        "validation/candidate-v0.3.0/evidence/release-candidate-archive-b.json",
+        "dist/okf-landregistry-0.3.0-candidate-a.zip",
+        "dist/okf-landregistry-0.3.0-candidate-b.zip",
+        "bundle/build-receipt.json",
+        "bundle/CHECKSUMS.sha256"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    },
+    "G8": {
+      "status": "pass",
+      "executed_at": "2026-08-11T20:40:39Z",
+      "validator": {
+        "name": "candidate-package-sbom-and-provenance-validator",
+        "version": "v0.3.0-751b6c1",
+        "artifact_path": "scripts/package_release.py",
+        "command": [
+          ".venv/bin/python",
+          "-B",
+          "scripts/package_release.py",
+          "--bundle",
+          "bundle",
+          "--config",
+          "source/build-config.json",
+          "--candidate-commit-sha",
+          "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+          "--output",
+          "dist/okf-landregistry-0.3.0-candidate-a.zip",
+          "--receipt",
+          "validation/candidate-v0.3.0/evidence/release-candidate-archive-a.json"
+        ]
+      },
+      "checks": {
+        "artifact-manifest-complete": {
+          "status": "pass",
+          "summary": "The designated unreleased candidate-A archive contains the complete governed bundle and reproduces the exact candidate identity; the independently packaged candidate-B archive is byte-identical and retained as G7 reproducibility evidence."
+        },
+        "dependency-provenance": {
+          "status": "pass",
+          "summary": "Eleven Python dependencies are version- and hash-locked and represented in the exact-candidate SPDX 2.3 document."
+        },
+        "workflow-provenance": {
+          "status": "pass",
+          "summary": "The provenance binds the offline builder, locked CPython 3.12.11 runtime, exact source snapshot, Explorer consumer lock, dependency lock and five SHA-pinned GitHub Actions."
+        },
+        "sbom-recorded": {
+          "status": "pass",
+          "summary": "The exact-candidate SPDX 2.3 SBOM and deterministic provenance document bind version 0.3.0, release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1 and the designated candidate-A archive."
+        }
+      },
+      "evidence": [
+        "validation/candidate-v0.3.0/evidence/release-candidate-archive-a.json",
+        "dist/okf-landregistry-0.3.0-candidate-a.zip",
+        "validation/candidate-v0.3.0/evidence/release-candidate-archive-b.json",
+        "validation/candidate-v0.3.0/evidence/release-metadata/sbom.spdx.json",
+        "validation/candidate-v0.3.0/evidence/release-metadata/provenance.json",
+        "requirements-lock.txt",
+        ".github/workflows/pages.yml",
+        "source/build-config.json"
+      ],
+      "failures": [],
+      "waivers": [],
+      "review": {
+        "mode": "automated",
+        "reviewers": []
+      },
+      "reviewed_checks": {}
+    }
+  },
+  "release": {
+    "status": "approved",
+    "version": "0.3.0",
+    "canonical_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+    "claims_reviewed": true,
+    "approved_claims": [
+      "Version 0.3.0 is an independent, metadata-only, AI-generated proof of concept for discovering public HM Land Registry material; it is not an HM Land Registry service or endorsement.",
+      "The exact candidate contains 2,203 public metadata records across 17 governed source families and contains no property-level records.",
+      "The catalogue is a frozen snapshot with a research cut-off of 29 July 2026; completeness is limited to the named, dated and reconciled acquisition lanes and is not claimed for the HM Land Registry public estate as a whole.",
+      "Every one of the 2,203 catalogue records carries an explicit access state, rights state, rights-assessment reference, caveat and evidence reference; public availability is not treated as open-reuse permission.",
+      "The public projection contains metadata and source links only; candidate generation did not authenticate to, execute, search or monitor a restricted HM Land Registry service.",
+      "The candidate publishes canonical YAML-LD and equivalent JSON-LD serialisations of one bounded semantic graph, with 22,267 direct triples, 22,267 reified relationship assertions and 22,267 runtime rows reconciled to the same identities.",
+      "All 22,267 semantic assertions and all 22,267 relationship-runtime rows pass the pinned local schema and reconciliation checks with zero validation failure.",
+      "The candidate publishes 22 authorised predicate capabilities: 13 active-emitted capabilities carrying 22,267 assertions and nine authorised-zero-evidence capabilities carrying zero assertions.",
+      "The candidate records a selective metadata-level public-service mapping for seven of 11 reviewed candidates, with four explicit exclusions and 19 evidence references.",
+      "Official CPSV-AP SHACL and semantic inference were not run, and neither CPSV-AP conformance nor inferred knowledge is claimed.",
+      "The exact candidate passed six local product journeys and 26 local search journeys against the pinned OKF Explorer v0.6.2 consumer.",
+      "On the bounded synthetic 24-question evaluation, the candidate recorded mean reciprocal rank 0.916667, expected-target recall at 10 of 1.0, all-expected-target success at 10 of 1.0 and zero hard failures.",
+      "The exact candidate passed the documented AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys within the explicitly bounded proof-of-concept test scope; this is not a human accessibility audit or WCAG conformance claim.",
+      "The exact candidate passes all pinned Explorer rich-relationship limits, including full default hydration of 22,267 rows and 33,231,836 retained-text units against the 33,554,432-unit ceiling.",
+      "Two clean offline builds using the locked CPython 3.12.11 environment produced byte-identical governed bundle output at release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1; the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e.",
+      "The candidate does not provide legal advice, proof of ownership or priority, an exact-boundary conclusion, a complete or current public-estate inventory, bilingual parity or participant-validated user research.",
+      "No independent human domain, legal, licence, privacy, security or accessibility audit has been completed for this AI-generated proof of concept."
+    ],
+    "residual_risks_reviewed": true,
+    "residual_risk_ids": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003",
+      "RISK-004",
+      "RISK-005",
+      "RISK-006",
+      "RISK-007",
+      "RISK-008",
+      "RISK-009",
+      "RISK-010",
+      "RISK-011",
+      "RISK-012",
+      "RISK-013",
+      "RISK-014",
+      "RISK-015",
+      "RISK-016",
+      "RISK-017",
+      "RISK-018"
+    ],
+    "human_audit": {
+      "status": "not_completed",
+      "residual_risk_id": "RISK-015",
+      "notes": "This AI-generated proof of concept has not undergone an independent human domain, legal, licence, privacy, security or accessibility audit, and it has not been validated through representative-user research."
+    },
+    "owner_approval": {
+      "identity": "chris-page-gov",
+      "kind": "human",
+      "role": "project-owner",
+      "approved_at": "2026-08-11T21:11:28Z",
+      "approved": true,
+      "binding": {
+        "version": "0.3.0",
+        "canonical_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+        "candidate": {
+          "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+          "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+          "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+          "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+          "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+        },
+        "pre_g9_manifest": {
+          "path": "validation/candidate-v0.3.0/pre-g9/pre-g9-evidence.json",
+          "sha256": "52ca442af85071b34784f6e29e54c101ceeacb04c419d00aab619f2d51bc4049"
+        },
+        "approved_receipts": [
+          {
+            "gate": "G1",
+            "sha256": "b26e406e6f5e0e317ffc2f89ec91acdbe69c1354a996808cd67a0ebaa097d798"
+          },
+          {
+            "gate": "G2",
+            "sha256": "51318d493017a84b4208e88833fd82c8c74a1321eb8c27d3f0cf253b0909c8ec"
+          },
+          {
+            "gate": "G3",
+            "sha256": "7a94d435d1c0f3759b6ac67fbe9c707b2ed4f37d8164b545cf7d0dd9d13c2523"
+          },
+          {
+            "gate": "G4",
+            "sha256": "3017b66549ec430928278a530dec2167716f76a4b421008257f85e750cffd405"
+          },
+          {
+            "gate": "G5",
+            "sha256": "ba18359e04ed3d8111d96df86b4eb44b0d6343f80bcc45fb130906159439a9e1"
+          },
+          {
+            "gate": "G6",
+            "sha256": "1f009ef272f8705897c8fefc6739770ef300a89b0158c55091844dae83ad149b"
+          },
+          {
+            "gate": "G7",
+            "sha256": "6baac03e2c7ff0a68c4234dba242bd2c159fe6e4ce4cdcdd05012da25ff3781f"
+          },
+          {
+            "gate": "G8",
+            "sha256": "d37b04f5b7988f3e22a4446bb595a8a31b824902ddd3231a713f739752f02b10"
+          }
+        ],
+        "approved_claims": [
+          "Version 0.3.0 is an independent, metadata-only, AI-generated proof of concept for discovering public HM Land Registry material; it is not an HM Land Registry service or endorsement.",
+          "The exact candidate contains 2,203 public metadata records across 17 governed source families and contains no property-level records.",
+          "The catalogue is a frozen snapshot with a research cut-off of 29 July 2026; completeness is limited to the named, dated and reconciled acquisition lanes and is not claimed for the HM Land Registry public estate as a whole.",
+          "Every one of the 2,203 catalogue records carries an explicit access state, rights state, rights-assessment reference, caveat and evidence reference; public availability is not treated as open-reuse permission.",
+          "The public projection contains metadata and source links only; candidate generation did not authenticate to, execute, search or monitor a restricted HM Land Registry service.",
+          "The candidate publishes canonical YAML-LD and equivalent JSON-LD serialisations of one bounded semantic graph, with 22,267 direct triples, 22,267 reified relationship assertions and 22,267 runtime rows reconciled to the same identities.",
+          "All 22,267 semantic assertions and all 22,267 relationship-runtime rows pass the pinned local schema and reconciliation checks with zero validation failure.",
+          "The candidate publishes 22 authorised predicate capabilities: 13 active-emitted capabilities carrying 22,267 assertions and nine authorised-zero-evidence capabilities carrying zero assertions.",
+          "The candidate records a selective metadata-level public-service mapping for seven of 11 reviewed candidates, with four explicit exclusions and 19 evidence references.",
+          "Official CPSV-AP SHACL and semantic inference were not run, and neither CPSV-AP conformance nor inferred knowledge is claimed.",
+          "The exact candidate passed six local product journeys and 26 local search journeys against the pinned OKF Explorer v0.6.2 consumer.",
+          "On the bounded synthetic 24-question evaluation, the candidate recorded mean reciprocal rank 0.916667, expected-target recall at 10 of 1.0, all-expected-target success at 10 of 1.0 and zero hard failures.",
+          "The exact candidate passed the documented AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys within the explicitly bounded proof-of-concept test scope; this is not a human accessibility audit or WCAG conformance claim.",
+          "The exact candidate passes all pinned Explorer rich-relationship limits, including full default hydration of 22,267 rows and 33,231,836 retained-text units against the 33,554,432-unit ceiling.",
+          "Two clean offline builds using the locked CPython 3.12.11 environment produced byte-identical governed bundle output at release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1; the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e.",
+          "The candidate does not provide legal advice, proof of ownership or priority, an exact-boundary conclusion, a complete or current public-estate inventory, bilingual parity or participant-validated user research.",
+          "No independent human domain, legal, licence, privacy, security or accessibility audit has been completed for this AI-generated proof of concept."
+        ],
+        "residual_risks": {
+          "register": {
+            "path": "governance/risk-register.json",
+            "sha256": "73971f33d7087ca261c4383cc653479a93ad5a1acd5f381b8fdc20e6ec81b8b2"
+          },
+          "ids": [
+            "RISK-001",
+            "RISK-002",
+            "RISK-003",
+            "RISK-004",
+            "RISK-005",
+            "RISK-006",
+            "RISK-007",
+            "RISK-008",
+            "RISK-009",
+            "RISK-010",
+            "RISK-011",
+            "RISK-012",
+            "RISK-013",
+            "RISK-014",
+            "RISK-015",
+            "RISK-016",
+            "RISK-017",
+            "RISK-018"
+          ]
+        },
+        "human_audit": {
+          "status": "not_completed",
+          "residual_risk_id": "RISK-015",
+          "notes": "This AI-generated proof of concept has not undergone an independent human domain, legal, licence, privacy, security or accessibility audit, and it has not been validated through representative-user research."
+        },
+        "independent_review": {
+          "identity": "OpenAI Codex independent release review agent (task /root/lr_independent_release_review)",
+          "kind": "ai-agent",
+          "role": "release-reviewer",
+          "reviewed_at": "2026-08-11T20:58:13Z",
+          "independent": true,
+          "outcome": "recommend_approval"
+        },
+        "independent_review_evidence": {
+          "path": "validation/candidate-v0.3.0/evidence/independent-release-review.json",
+          "sha256": "1f7167edfacf7003b0f656ea383c979416bf31b2a47c310d325badeb95d2e9c8"
+        }
+      }
+    },
+    "independent_review": {
+      "identity": "OpenAI Codex independent release review agent (task /root/lr_independent_release_review)",
+      "kind": "ai-agent",
+      "role": "release-reviewer",
+      "reviewed_at": "2026-08-11T20:58:13Z",
+      "independent": true,
+      "outcome": "recommend_approval"
+    }
+  }
+}

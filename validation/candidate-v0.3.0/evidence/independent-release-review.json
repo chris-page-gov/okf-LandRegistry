@@ -1,0 +1,59 @@
+{
+  "$schema": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/release-evidence.schema.json",
+  "schema": "okf-independent-release-review-evidence.v1",
+  "candidate": {
+    "candidate_commit_sha": "751b6c1e80fbbad3c07f19798c74aebd603eb62c",
+    "release_root_sha256": "6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1",
+    "checksums_sha256": "f92d3bb61ce9509f038875b29b49c9fa6c84aa50ec5cd31daa0bc4bf06c5efef",
+    "profile_pack_root_sha256": "967877c5eaf5c6f7f3180543f5818a66b7fb7684af6ef530ce5448307338901c",
+    "snapshot_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
+  },
+  "independent_review": {
+    "identity": "OpenAI Codex independent release review agent (task /root/lr_independent_release_review)",
+    "kind": "ai-agent",
+    "role": "release-reviewer",
+    "reviewed_at": "2026-08-11T20:58:13Z",
+    "independent": true,
+    "outcome": "recommend_approval"
+  },
+  "pre_g9_manifest_sha256": "52ca442af85071b34784f6e29e54c101ceeacb04c419d00aab619f2d51bc4049",
+  "approved_claims": [
+    "Version 0.3.0 is an independent, metadata-only, AI-generated proof of concept for discovering public HM Land Registry material; it is not an HM Land Registry service or endorsement.",
+    "The exact candidate contains 2,203 public metadata records across 17 governed source families and contains no property-level records.",
+    "The catalogue is a frozen snapshot with a research cut-off of 29 July 2026; completeness is limited to the named, dated and reconciled acquisition lanes and is not claimed for the HM Land Registry public estate as a whole.",
+    "Every one of the 2,203 catalogue records carries an explicit access state, rights state, rights-assessment reference, caveat and evidence reference; public availability is not treated as open-reuse permission.",
+    "The public projection contains metadata and source links only; candidate generation did not authenticate to, execute, search or monitor a restricted HM Land Registry service.",
+    "The candidate publishes canonical YAML-LD and equivalent JSON-LD serialisations of one bounded semantic graph, with 22,267 direct triples, 22,267 reified relationship assertions and 22,267 runtime rows reconciled to the same identities.",
+    "All 22,267 semantic assertions and all 22,267 relationship-runtime rows pass the pinned local schema and reconciliation checks with zero validation failure.",
+    "The candidate publishes 22 authorised predicate capabilities: 13 active-emitted capabilities carrying 22,267 assertions and nine authorised-zero-evidence capabilities carrying zero assertions.",
+    "The candidate records a selective metadata-level public-service mapping for seven of 11 reviewed candidates, with four explicit exclusions and 19 evidence references.",
+    "Official CPSV-AP SHACL and semantic inference were not run, and neither CPSV-AP conformance nor inferred knowledge is claimed.",
+    "The exact candidate passed six local product journeys and 26 local search journeys against the pinned OKF Explorer v0.6.2 consumer.",
+    "On the bounded synthetic 24-question evaluation, the candidate recorded mean reciprocal rank 0.916667, expected-target recall at 10 of 1.0, all-expected-target success at 10 of 1.0 and zero hard failures.",
+    "The exact candidate passed the documented AI-assisted keyboard, focus, zoom, reflow, forced-colours and reduced-motion journeys within the explicitly bounded proof-of-concept test scope; this is not a human accessibility audit or WCAG conformance claim.",
+    "The exact candidate passes all pinned Explorer rich-relationship limits, including full default hydration of 22,267 rows and 33,231,836 retained-text units against the 33,554,432-unit ceiling.",
+    "Two clean offline builds using the locked CPython 3.12.11 environment produced byte-identical governed bundle output at release root 6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1; the two 38,906,084-byte candidate archives are byte-identical at SHA-256 3ed5fe3b01fcacd6422493016f9089d89d71eab655e58e154201035b7d97f75e.",
+    "The candidate does not provide legal advice, proof of ownership or priority, an exact-boundary conclusion, a complete or current public-estate inventory, bilingual parity or participant-validated user research.",
+    "No independent human domain, legal, licence, privacy, security or accessibility audit has been completed for this AI-generated proof of concept."
+  ],
+  "residual_risk_ids": [
+    "RISK-001",
+    "RISK-002",
+    "RISK-003",
+    "RISK-004",
+    "RISK-005",
+    "RISK-006",
+    "RISK-007",
+    "RISK-008",
+    "RISK-009",
+    "RISK-010",
+    "RISK-011",
+    "RISK-012",
+    "RISK-013",
+    "RISK-014",
+    "RISK-015",
+    "RISK-016",
+    "RISK-017",
+    "RISK-018"
+  ]
+}
