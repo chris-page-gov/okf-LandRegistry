@@ -1,0 +1,296 @@
+{
+  "schema": "okf-explorer-journeys.v1",
+  "title": "HM Land Registry v0.3.0 locked Explorer product journeys",
+  "suite_partition": "product",
+  "bundle_descriptor": "okf-explorer.json",
+  "required_consumer": {
+    "consumer_lock": "../contracts/okf-explorer.consumer-lock.json",
+    "package": "@okf/explorer",
+    "release_tag": "v0.6.1",
+    "version": "0.6.1",
+    "source_commit": "839d4ba4c2d02abc6ef02b3ca1dcbf6a4008e7c8",
+    "annotated_tag_object_sha": "b5918192b1e3969ca2b069a4d56b3d26884ea96c",
+    "immutable_release_id": 368556872,
+    "source_dirty": false,
+    "dependency_lock_sha256": "4df7e53d145313415100e2b1f193da26bd09092555d7b057ce66d3db4e266baa",
+    "runner_sha256": "0f64fc980b5a957ced3ef834719609b61ad6dbdf950fcd893e2a09e9a64aa680",
+    "wrapper_sha256": "95b2d3287f16698f221221b615392421b5654c17c98b909b205727dfa55c3772",
+    "invocation_lock_module_sha256": "1f4741365c3a61c4d11f0e3844aff05bdc8aa3e9e71ff0b426667abe6050e4e7",
+    "executable_materials": {
+      "runner": {
+        "path": "apps/okf-explorer/scripts/run_external_bundle_acceptance.mjs",
+        "bytes": 42239,
+        "sha256": "0f64fc980b5a957ced3ef834719609b61ad6dbdf950fcd893e2a09e9a64aa680"
+      },
+      "wrapper": {
+        "path": "apps/okf-explorer/scripts/run_acceptance_invocation.mjs",
+        "bytes": 2489,
+        "sha256": "95b2d3287f16698f221221b615392421b5654c17c98b909b205727dfa55c3772"
+      },
+      "invocation_lock_module": {
+        "path": "apps/okf-explorer/scripts/acceptance_invocation_lock.mjs",
+        "bytes": 30724,
+        "sha256": "1f4741365c3a61c4d11f0e3844aff05bdc8aa3e9e71ff0b426667abe6050e4e7"
+      },
+      "contract_module": {
+        "path": "apps/okf-explorer/scripts/external_bundle_acceptance_contract.mjs",
+        "bytes": 17538,
+        "sha256": "2dbb32b1f6c4c354ef0cdf2056e2cd20c5c1ad2912563b5aa27013f3ffbb2a71"
+      },
+      "app_build_manifest_module": {
+        "path": "apps/okf-explorer/scripts/app_build_manifest.mjs",
+        "bytes": 22932,
+        "sha256": "6750dfe9ab09eeea945525473c9919e4d308e7f9a87f748244cbcd13e8b1d867"
+      },
+      "deterministic_build_script": {
+        "path": "apps/okf-explorer/scripts/check_deterministic_build.mjs",
+        "bytes": 3309,
+        "sha256": "a4ee3e440aef1732da4e8b2de277c4cfe11573e4f35d16cb4c4348e84a6ff3e6"
+      }
+    },
+    "build_manifest_sha256": "a479394534288239b98fd64423cc20a146828aeccd3284ab84984f15c57b91c7"
+  },
+  "expected_identity": {
+    "schema": "okf-explorer-large-corpus.v1",
+    "id": "https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json",
+    "version": "0.3.0",
+    "snapshot": "hmlr-public-metadata-v0.2.0"
+  },
+  "journeys": [
+    {
+      "id": "overview-load-and-safety",
+      "actions": [
+        {
+          "type": "goto",
+          "hash": "#overview"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".topbar .title-block p:has-text(\"HM Land Registry public-estate OKF\")"
+        },
+        {
+          "type": "wait_for",
+          "selector": "main p.muted:has-text(\"not legal advice\")"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "HM Land Registry public-estate OKF"
+        },
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "not legal advice"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/explorer/manifest.json"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/explorer/overview.json"
+        },
+        {
+          "type": "not_requested",
+          "includes": "/bundle/data/catalogue.json"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "search-and-restored-query-state",
+      "actions": [
+        {
+          "type": "goto",
+          "params": {
+            "q": "exact boundary"
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": "text=Exact line of boundary"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "Exact line of boundary"
+        },
+        {
+          "type": "url_param",
+          "name": "q",
+          "equals": "exact boundary"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/explorer/search/manifest.json"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "translation-relationship",
+      "actions": [
+        {
+          "type": "goto",
+          "hash": "#dataset/record-40df4468c132c56cf31cfbc5",
+          "params": {
+            "view": "graph"
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": "[aria-label=\"Large corpus graph\"] .edge-label:has-text(\"translation of\")"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "translation of"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/semantic/runtime-manifest.json"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/semantic/runtime/route-locator/bucket-c5.json.gz"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/semantic/runtime/core/relationships-"
+        },
+        {
+          "type": "not_requested",
+          "includes": "/bundle/data/explorer/adjacency/"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "deep-link-scalar-geography-and-caveat",
+      "actions": [
+        {
+          "type": "goto",
+          "hash": "#dataset/record-d40ae47538ebfbf57eff5917",
+          "params": {
+            "filter.geography": "Not stated by the source."
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel h2:has-text(\"Exact line of boundary: registration (DB)\")"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": ".right-panel",
+          "includes": "Exact line of boundary: registration (DB)"
+        },
+        {
+          "type": "text",
+          "selector": ".right-panel",
+          "includes": "not a boundary conclusion"
+        },
+        {
+          "type": "url_param",
+          "name": "filter.geography",
+          "equals": "Not stated by the source."
+        },
+        {
+          "type": "url_hash",
+          "equals": "#dataset/record-d40ae47538ebfbf57eff5917"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "selected-record-resource",
+      "actions": [
+        {
+          "type": "goto",
+          "hash": "#dataset/record-d40ae47538ebfbf57eff5917",
+          "params": {
+            "view": "resources"
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel h2:has-text(\"Exact line of boundary: registration (DB)\")"
+        },
+        {
+          "type": "click",
+          "selector": ".right-panel [role=\"tab\"]:has-text(\"Evidence\")"
+        },
+        {
+          "type": "click",
+          "selector": ".right-panel details:has(summary:has-text(\"Official sources (1)\")) > summary"
+        },
+        {
+          "type": "wait_for",
+          "selector": ".right-panel .disclosure-list strong:has-text(\"Recorded public source\")"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "Recorded public source"
+        },
+        {
+          "type": "requested",
+          "includes": "/bundle/data/explorer/resources-"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    },
+    {
+      "id": "repeated-kind-filters",
+      "actions": [
+        {
+          "type": "goto",
+          "params": {
+            "filter.kind": [
+              "guidance",
+              "guidance"
+            ]
+          }
+        },
+        {
+          "type": "wait_for",
+          "selector": "text=kind: guidance"
+        }
+      ],
+      "assertions": [
+        {
+          "type": "text",
+          "selector": "body",
+          "includes": "kind: guidance"
+        },
+        {
+          "type": "url_param",
+          "name": "filter.kind",
+          "equals": "guidance"
+        },
+        {
+          "type": "console_clean"
+        }
+      ]
+    }
+  ]
+}

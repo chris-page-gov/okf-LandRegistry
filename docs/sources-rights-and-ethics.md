@@ -1,10 +1,16 @@
 # Sources, rights, privacy and ethics
 
-Status: policy-reviewed for the metadata-only v0.2.0 AI-generated
-proof-of-concept candidate. Exact-digest release evidence and owner approval
-are still required. The review was
-AI-assisted and no independent human legal or licence audit has been
-completed. This document records project controls and is not legal advice.
+Status: policy controls and a set-exact, record-level classification are
+applied to the metadata-only v0.3.0 approval-neutral AI-generated
+proof-of-concept candidate bytes. The bytes do not assert a current G3,
+independent-review or owner-approval state; version-scoped, exact-digest
+external evidence does. The policy work was AI-assisted and no independent
+human legal or licence audit is claimed. This document records project
+controls and is not legal advice.
+
+See the [v0.3.0 release tracker and assurance
+runbook](v0.3.0-release-tracker-and-assurance-runbook.md) for the candidate
+baseline and dependency-ordered evidence process.
 
 ## Governing principles
 
@@ -29,7 +35,15 @@ Key sources are the [HM Land Registry public data policy][EV-PUBLIC-DATA],
 [Use land and property data catalogue][EV-ULPD], [property-information
 guidance][EV-PROPERTY-SERVICE], [Local Land Charges terms][EV-LLC-TERMS],
 [Business Gateway documentation][EV-BG-DOCS] and [personal information
-charter][EV-PERSONAL-INFO].
+charter][EV-PERSONAL-INFO]. Legislation and cross-government catalogue reuse
+are governed separately by the [legislation.gov.uk notice][EV-LEGISLATION]
+and [National Data Library reuse statement][EV-CATALOGUE].
+
+`source/curated-rights-access.json` classifies all 55 curated records and must
+match that source set exactly. Each row distinguishes access to and rights in
+the described resource from the public evidence page used to describe it. A
+public page therefore cannot make a linked service anonymous, a paid product
+free or a bespoke-licensed dataset open.
 
 ## Rights decisions by layer
 
@@ -40,6 +54,9 @@ charter][EV-PERSONAL-INFO].
 | `RIGHT-RESTRICTED` | Property, LLC, portal and Business Gateway services | Public descriptions only; no authentication, execution, monitoring or result collection |
 | `RIGHT-GITHUB` | Public repository metadata | Metadata only; preserve repository licence, fork and archive states; missing licence means no code-reuse assumption |
 | `RIGHT-CDDO` | CDDO discovery metadata | Preserve catalogue provenance and reverify operation at the publisher source |
+| `RIGHT-LEGISLATION` | Legislation.gov.uk public metadata and content references | Metadata and links only; retain the displayed OGL exceptions, separate EU-derived terms and legal-currency caveats |
+| `RIGHT-CATALOGUE` | National Data Library collection-page metadata | Collection metadata may be reused under the page terms; never inherit that permission into linked datasets |
+| `RIGHT-FEE-CALCULATOR` | Public calculator-service metadata | Public title, description and route only; do not execute the calculator, retain inputs/results or infer output-reuse rights |
 | `RIGHT-EVIDENCE` | Project-authored acquisition and validation receipts | Publish bounded receipt metadata under CC BY 4.0; this does not relicense any underlying source |
 | `RIGHT-PERSONAL` | Property, register, forum and user-submitted information | Prohibited from acquisition, combination, indexing and publication |
 
@@ -122,3 +139,5 @@ Do not convert any of them to “open” from inference.
 [EV-LLC-TERMS]: https://search-local-land-charges.service.gov.uk/terms-and-conditions
 [EV-BG-DOCS]: https://landregistry.github.io/bgtechdoc/
 [EV-PERSONAL-INFO]: https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter
+[EV-LEGISLATION]: https://www.legislation.gov.uk/ukpga/2002/9/contents
+[EV-CATALOGUE]: https://www.data.gov.uk/about/

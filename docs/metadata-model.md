@@ -1,6 +1,10 @@
 # Metadata model
 
-Status: v0.2.0 PoC candidate model. Source-native semantics remain authoritative.
+Status: released v0.2.0 model plus approval-neutral v0.3.0 semantic candidate
+bytes. Source-native semantics remain authoritative. Corrections identified
+by the P1 implementation review are locally regression-tested. The bytes do
+not assert a current gate, G9 or release state; exact digest-bound external
+evidence does.
 
 ## Design rules
 
@@ -98,6 +102,14 @@ Use separate fields for:
 No field may stand in for another. In particular, catalogue modification does
 not establish dataset release, currency or coverage.
 
+For a deterministic candidate, `generated_at` is a governed whole-second UTC
+input rather than the wall-clock time of each rebuild. The builder requires it
+to be strictly later than the selected snapshot observations and retrievals,
+the domain-profile preparation and evidence events, and every CPSV-AP evidence
+retrieval and review. The build receipt records the latest governed event used
+for that comparison. `release_at` remains null until external exact-digest
+approval and publication evidence exist.
+
 ## Relationships
 
 Relationships are typed, directed and evidenced. Expected examples include:
@@ -116,6 +128,141 @@ Source-native relationships are preserved. Deterministic local relationships
 must state the rule and evidence. Unknown direction or semantics are not
 published as a generic “related” fact unless that source-native ambiguity is
 itself represented.
+
+The generated relationship assertion plane requires, for every row:
+
+- a stable absolute assertion IRI;
+- absolute source, predicate and target IRIs plus validated local Explorer
+  routes for both endpoints;
+- preferred and inverse labels, assertion status and real-world/synthetic
+  scope;
+- an authority class and source that remains distinct from confidence;
+- a derivation rule/activity and ISO observation time;
+- field-level evidence with the frozen source artefact and exact hashes; and
+- an explicit assertion-rights statement and rights source.
+
+The governed v0.3.0 source-plane projection generates 22,267 assertions over
+13 active predicates,
+including catalogue, dataset/resource, publisher, source, rights, provenance,
+language, spatial, competent-authority and primary-topic relationships. The
+normalised Welsh-to-English relationship continues to use
+`https://schema.org/translationOfWork` and comes only from the bounded GOV.UK
+Content API `available_translations` observation. Every direct triple and
+reified `rdf:Statement`/`okf:RelationshipAssertion` is generated from the same
+assertion object; Explorer adjacency is a route-bearing projection of that
+object, not a second source of semantics.
+
+### Class-to-route delivery index
+
+`bundle/data/semantic/class-route-registry.json` is a generated delivery
+sidecar, not semantic authority. It deterministically joins each route-bearing
+node's authoritative `rdf:type` facts from the canonical semantic graph to the
+same node's route in the digest-bound IRI-to-route registry. Its
+`source_plane_roots` bind both inputs, and its 10,951 entries must cover exactly
+the complete IRI-to-route population.
+
+The index cannot originate, remove or override a class-membership fact. It is
+not an ontology, an inference result or evidence that the pinned Explorer
+v0.6.1 PWA consumes or presents a class-hierarchy view. Its local Land Registry
+schema governs only the deterministic delivery shape and integrity bindings.
+
+### Predicate capability registry
+
+`bundle/data/semantic/predicate-registry.json` uses the additive
+`okf-predicate-registry.v2` contract. It is referenced from the frozen Bundle
+Wiki v1 semantic model as an external resource with `path`, `sha256` and
+`media_type`; v2 is not inlined into the v1 model. The bundle also carries the
+exact locked schema at
+`bundle/data/semantic/schemas/predicate-registry.v2.schema.json` so validation
+does not require network access.
+
+The registry contains every one of the 22 Stage 1 predicate capabilities,
+ordered by absolute IRI. Each row preserves its preferred and inverse labels,
+description, domain, range, supported assertion status, evidence policy,
+source vocabulary and lifecycle status. A nested `implementation` object is
+derived from the complete relationship assertion plane:
+
+- `active-emitted` carries the exact positive assertion count; 13 rows total
+  22,267 assertions in this candidate; and
+- `authorised-zero-evidence` carries exactly zero; nine rows declare an
+  authorised capability for which the snapshot has no qualifying endpoint
+  evidence.
+
+The latter state is not a negative fact, does not assert that two entities are
+unrelated and cannot be used to manufacture a triple. The producer validates
+all 22 rows, rejects any emitted predicate absent from the capability set and
+reconciles every row count with the supplied assertions. It does not claim
+that the pinned Explorer v0.6.1 PWA displays zero-evidence capability rows.
+
+`root_sha256` covers compact, sorted-key UTF-8 JSON with a final newline for
+the complete registry except `root_sha256` itself. The root therefore binds
+`schema`, `profile`, `snapshot`, `generated_at`, all predicate definitions,
+all implementation objects and all four aggregate counts; hashing only the
+`predicates` array is invalid. The external resource SHA-256 separately binds
+the published, indented JSON bytes.
+
+The offline producer pins
+`schemas/semantic-assertion.schema.json` to the final Explorer contract by
+identifier, Draft 2020-12 version, exact 7,308-byte length and SHA-256
+`f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc`.
+It validates the emitted reified node and a lossless mapping of every runtime
+row, rejects remote schema references, and then requires the direct, reified
+and runtime identity, route and triple sets to agree. The generated schema and
+validation receipt are published under `bundle/data/semantic/` and covered by
+the bundle manifests and checksums.
+
+The current source-plane parity expectation is 22,267 direct triples, 22,267
+reified assertions and 22,267 runtime rows. The IRI and class-route registries
+cover all 10,951 route-bearing semantic identities, while the rich
+relationship-runtime locator contains the 6,694 incident endpoint routes. The
+runtime divides its rows into 90 relationship chunks and uses 256 locator
+buckets. A digest-bound build receipt must reconfirm these values for the exact
+v0.3.0 candidate bytes; they are not universal model requirements and must be
+regenerated if an authoritative input changes.
+
+Runtime parity concerns semantic identity, route and triple equality; it does
+not require the browser row to duplicate every optional provenance string.
+Each bounded row retains the evidence identity, type, source URL, source field,
+source-value hash and retrieval time, with small non-redundant explanatory
+fields where present. The canonical YAML-LD/JSON-LD assertion remains the
+complete evidence-bearing record. For normalised assertions, the compressed
+browser row uses `Derived` as its authority label, `See source rights.` as its
+rights summary and omits the optional release-review status; the canonical
+assertion retains the complete corresponding statements. Build validation
+first measures the fresh full-source projection before a swap slot is reserved,
+then recomputes Explorer's
+UTF-16 retained-text accounting, compressed and decoded byte counts, full
+default-plane hydration and all 6,694 relationship-runtime locator-route plans
+before reporting the runtime as conformant.
+
+Schema validity does not by itself prove that evidence binds to the correct
+source field. Independent review found a P1 source-field evidence issue, as
+well as P1 issues in CPSV adversarial binding and URL hardening. The corrections
+are implemented and covered by local regression tests. Candidate receipts do
+not self-assert independent acceptance or release readiness; version-scoped
+evidence for the exact digest records that state.
+
+## CPSV-AP service projection
+
+The CPSV-AP 3.2.0 mapping is deliberately selective. Its reviewed mapping
+register contains 11 candidate records, of which 7 are mapped to public
+services and 4 are explicitly excluded, with 19 evidence references supporting
+the decisions. Publisher attribution alone is not treated as proof of a
+competent authority, and datasets, data services and service documentation are
+not automatically promoted to `cpsv:PublicService`.
+
+The official CPSV-AP 3.2.0 vocabulary, JSON-LD context and SHACL shapes are
+vendored and digest-bound. The official SHACL shapes have not been run; the
+current receipt covers local bounded projection checks only. Semantic
+inference has not been run either. Neither omission may be represented as a
+passing SHACL or inference result.
+
+The bounded local projection represents HMLR's combined England and Wales
+coverage as the exact governed `dcterms:Location`. It does not emit an EU
+administrative territorial unit without separate authoritative identities.
+Because the official Public Organisation shape requires its spatial target to
+carry that ATU class, the receipt explicitly records that range as not claimed
+and cannot be used as a full CPSV-AP conformance receipt.
 
 ## Dataset and service distinctions
 
@@ -158,9 +305,16 @@ authority.
 
 ## Projection
 
-The canonical authoring layer is OKF 0.2 Markdown plus governed JSON. JSON-LD
-and DCAT are additive projections for interoperable discovery; they must not
-collapse distinctions or introduce facts. CSV is a convenience projection
-and cannot carry the complete rights, provenance or relationship model.
+The authoritative authoring layer comprises the governed content, evidence,
+governance, profile and schema inputs declared by `okf.semantic.json`; trusted
+generator code applies deterministic rules to those inputs. The build creates
+one semantic graph, serialises it as canonical YAML-LD and emits equivalent
+JSON-LD; the two files must parse to the same data model. Neither generated
+serialisation is a separate authority. Explorer shards, adjacency, route
+locators, registries, checksums, receipts and the static site are generated
+projections under `bundle/` and must not be hand-edited. DCAT, CPSV-AP and
+Schema.org mappings remain additive discovery projections and must not collapse
+distinctions or introduce facts. CSV is a convenience projection and cannot
+carry the complete rights, provenance or relationship model.
 
 [EV-INSPIRE-DATA]: https://use-land-property-data.service.gov.uk/datasets/inspire

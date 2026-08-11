@@ -18,6 +18,7 @@ class LocalLinkTests(unittest.TestCase):
             path
             for path in sorted(ROOT.rglob("*.md"))
             if not any(part.startswith(".") for part in path.relative_to(ROOT).parts)
+            and not path.is_relative_to(ROOT / "profiles" / "bundle-wiki" / "v1")
         ]
         for source in markdown_files:
             text = source.read_text(encoding="utf-8")

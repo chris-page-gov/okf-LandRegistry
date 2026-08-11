@@ -4,7 +4,7 @@ An independent, metadata-only [OKF 0.2](https://github.com/GoogleCloudPlatform/k
 bundle for discovering HM Land Registry publications, services, datasets,
 developer resources and public repositories.
 
-Version 0.2.0 is an **AI-generated proof-of-concept release**. It was created
+Version 0.2.0 is the historical **AI-generated proof-of-concept release**. It was created
 with AI assistance and approved by the project owner for exact release root
 `a3e0bdf7846893ce29255f6f20a509dad18ef2b367ba3dfbe48c28191377a704`.
 It has not had a
@@ -17,8 +17,10 @@ replace an official copy or live service.
 
 [**Launch the HM Land Registry bundle in OKF Explorer**](https://chris-page-gov.github.io/okf-explorer/?bundle=https%3A%2F%2Fchris-page-gov.github.io%2Fokf-LandRegistry%2Fokf-explorer.json&view=reader#overview)
 
-The deployed v0.2.0 route has been checked in a real browser for bundle
-identity, overview loading, static search and selected-record hydration. It
+The v0.2.0 bytes were checked in a real browser for bundle identity, overview
+loading, static search and selected-record hydration. The mutable routes below
+may serve a later version; their current identity and release authority must
+be checked against version-scoped, digest-bound evidence. Every version
 remains an independent metadata-discovery PoC, not an HM Land Registry service
 or a source of legal, ownership, priority or exact-boundary conclusions.
 
@@ -26,7 +28,66 @@ Direct publication routes:
 
 - [GitHub Pages site](https://chris-page-gov.github.io/okf-LandRegistry/)
 - [OKF Explorer descriptor](https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json)
-- [Exact-digest release record](validation/release-record.json)
+- [Historical v0.2.0 exact-digest release record](validation/release-record.json)
+
+## v0.3.0 semantic candidate bytes
+
+Version 0.3.0 is built as approval-neutral candidate bytes. It is locked to
+Explorer v0.6.1, the exact 16-file Bundle Wiki v1 semantic profile and the
+two-file Predicate Registry v2 extension recorded in
+`contracts/okf-explorer.consumer-lock.json`. The build emits canonical YAML-LD
+and equivalent JSON-LD from one deterministic assertion source, then projects
+the same identities, routes and predicates into the large-corpus Explorer
+runtime. The pinned Draft 2020-12 assertion schema is exactly 7,308 bytes with
+SHA-256
+`f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc`.
+The separately locked Predicate Registry v2 schema is 7,551 bytes with SHA-256
+`037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069`.
+
+The governed v0.3.0 source-plane projection produces 22,267 direct triples,
+22,267 reified `okf:RelationshipAssertion` nodes and 22,267 runtime rows over
+13 active predicates. Predicate Registry v2 also declares the complete set of
+22 authorised capabilities: 13 `active-emitted` rows carrying the exact
+22,267 per-predicate total and nine `authorised-zero-evidence` rows carrying
+zero. The latter are capability declarations, not relationships, and this
+producer does not claim that the pinned Explorer v0.6.1 PWA displays them. The
+IRI-to-route registry and derived class-to-route delivery index each cover all
+10,951 route-bearing semantic identities. Of those identities, 6,694 incident
+endpoint routes belong to the rich relationship-runtime locator and are
+indexed through 256 locator buckets; the 22,267 runtime rows are divided into
+90 relationship chunks. The class-to-route index is derived only from
+authoritative `rdf:type` facts in the canonical semantic graph and the
+digest-bound IRI-to-route registry. It cannot originate or alter class
+membership, does not constitute ontology authority or inference, and is not
+claimed as a view presented by the pinned Explorer v0.6.1 PWA. A digest-bound
+build receipt must reconfirm these measurements for the exact candidate bytes.
+The reviewed CPSV-AP mapping considers 11
+candidate service records: 7 are mapped, 4 are explicitly excluded, and 19
+evidence references support the decisions. CPSV-AP 3.2.0 is vendored and
+digest-bound, but its official SHACL shapes have not been run; semantic
+inference has not been run either.
+
+The browser runtime is a bounded projection, not a second semantic authority.
+It preserves every assertion identity and triple plus the core authority,
+evidence, observation and rights links needed by Explorer. Repeated optional
+provenance strings are kept in the canonical YAML-LD/JSON-LD evidence envelope
+rather than duplicated in every browser row. The build exhaustively measures
+full default-plane hydration and every relationship-runtime locator-route plan
+against the exact pinned Explorer limits and fails before writing a conformant
+receipt if any row, chunk, route or aggregate ceiling is exceeded.
+
+These counts and local validation results describe candidate bytes, not a
+release decision. Independent review found P1 issues in source-field evidence,
+CPSV adversarial binding and URL hardening; implementation corrections are in
+the candidate and locally regression-tested. Candidate bytes do not
+self-assert a current G1–G9 state, exact-digest approval, release readiness or
+deployment authority. Those decisions exist only in version-scoped,
+digest-bound external evidence. Browser links must be checked against that
+evidence and the root actually served. See
+[`docs/metadata-model.md`](docs/metadata-model.md),
+[`okf.semantic.json`](okf.semantic.json) and the
+[`v0.3.0 release tracker`](docs/v0.3.0-release-tracker-and-assurance-runbook.md)
+for the field, authority, generated-output, tooling and assurance boundaries.
 
 ## What it covers
 
@@ -62,8 +123,13 @@ in `okf-explorer`:
 
 1. **Domain warm-up (read-only).** The reviewed, evidence-bound output is in
    [`domain-profile/`](domain-profile/). JSON and YAML validate as equivalent
-   against the vendored Explorer schema. The profile pack root is
-  `47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95`.
+   against the Land Registry-owned domain-profile schema, which is derived from
+   the Explorer authoring contract but deliberately has its own identity and
+   constraints. Its status is `reviewed`, not release-approved. The profile
+   file identities are governed by
+   [`domain-profile/CHECKSUMS.sha256`](domain-profile/CHECKSUMS.sha256); the
+   builder recomputes the aggregate pack root and records it in the exact
+   candidate build receipt, so this prose does not retain a stale copied root.
 2. **Bundle build.** Public metadata acquisition is separated from the offline,
    deterministic build. The build first proves producer contracts on a tiny
    fixture, then executes the exact pinned Explorer consumer against those
@@ -76,9 +142,11 @@ fixtures and exact post-deployment deep-link checks. The graph identifies the
 transitive checks affected by a change; unknown paths and generated-only edits
 fail closed to all release gates.
 
-The profile architecture is reviewed for the bounded v0.2.0 PoC;
-`DEC-RELEASE` is closed for the exact release root named above. Any governed
-bundle change requires a new digest-bound decision.
+The profile architecture describes the bounded v0.3.0 candidate.
+`DEC-RELEASE` records a historical v0.2.0 approval scoped only to commit
+`40482c865dc4332162f1e93756d94ca93abe3559` and the exact release root named
+above. It cannot approve v0.3.0; only version-scoped G1–G8 evidence and the
+digest-bound G9 decision record the current v0.3.0 state.
 
 ## AI usage and cost disclosure
 
@@ -99,7 +167,7 @@ domain-profile/   Stage 1 report, profile, evidence and digest lock
 research/         source-family discovery inventory
 source/           curated catalogue and optional frozen acquisition snapshots
 personas/         evidence-led task-based personas and user stories
-evaluation/       24 reviewed questions, 12 journeys and evaluation evidence
+evaluation/       24 calibration questions, candidate journeys and historical evidence
 governance/       requirements, risks, rights and traceability
 contracts/        pinned external-consumer contracts
 docs/             product, architecture, provenance and operating guidance
@@ -107,28 +175,85 @@ pages/            authored static GitHub Pages experience
 scripts/          acquire, build, validate and evaluate
 schemas/          pinned profile and local control schemas
 tests/            deterministic, safety, traceability and publication checks
-bundle/           generated OKF control/data planes and Pages artifact
+bundle/           generated OKF control/data planes and Pages artefact
 ```
 
 ## Reproduce it
 
-Python 3.11 or later is sufficient for acquisition and building. Release
-verification installs the hash-locked development dependencies.
+Exact candidate reproduction uses CPython 3.12.11 in a pip-free repository
+virtual environment. The build verifies the isolated start-up flags, exact
+hash-locked distribution set, RECORD hashes and sizes, absence of `.pth`,
+customiser, bytecode and unowned site files, and a fresh external cache
+namespace. The build receipt records only portable runtime identity; verified
+platform-specific installed-tree detail belongs in separate local evidence so
+Linux and macOS builds do not acquire different bundle roots merely because
+their locked wheels differ.
 
 ```bash
-python3 -m pip install --require-hashes -r requirements-lock.txt
-python3 scripts/check_domain_profile.py domain-profile/domain-profile.json \
+set -euo pipefail
+OKF_BASE_PYTHON="${OKF_BASE_PYTHON:?set the absolute CPython 3.12.11 executable}"
+"$OKF_BASE_PYTHON" -I -c \
+  'import platform; assert platform.python_implementation() == "CPython" and platform.python_version() == "3.12.11"'
+test ! -e .venv
+"$OKF_BASE_PYTHON" -B -m venv --without-pip .venv
+"$OKF_BASE_PYTHON" -B -m pip --python .venv install \
+  --no-compile --require-hashes -r requirements-lock.txt
+.venv/bin/python -B scripts/check_domain_profile.py domain-profile/domain-profile.json \
   --equivalent domain-profile/domain-profile.yaml
 
 # Refresh public metadata only when making a new, dated snapshot.
-python3 scripts/acquire.py \
+.venv/bin/python -B scripts/acquire.py \
   --observed-at 2026-07-29T09:19:15Z \
   --output-dir source/snapshots/2026-07-29T091915Z
 
-# This step is offline.
-python3 scripts/build.py --replace
-python3 -m unittest discover -s tests -v
-python3 scripts/evaluate.py \
+# This step is offline. Freeze every authored causal input in the stage-zero
+# index before building; stage generated and evidence surfaces separately.
+git add -A -- . \
+  ':(exclude,top)bundle/**' \
+  ':(exclude,top)validation/**' \
+  ':(exclude,top)dist/**'
+git diff --cached --check
+stage_check_cache="$(mktemp -d "${TMPDIR:-/tmp}/okf-python-cache.XXXXXX")"
+chmod 700 "$stage_check_cache"
+.venv/bin/python -I -B -X "pycache_prefix=$stage_check_cache" \
+  scripts/check_release_transition.py staged-candidate
+runtime_lock="${TMPDIR:-/tmp}/okf-landregistry-build.lock"
+if ! mkdir -m 700 "$runtime_lock"; then
+  echo "A governed Land Registry build already holds $runtime_lock" >&2
+  exit 1
+fi
+cleanup_runtime_lock() { rmdir "$runtime_lock"; }
+trap cleanup_runtime_lock EXIT INT TERM
+test -d .venv
+test ! -L .venv
+test -x .venv/bin/python
+if find .venv -type f \( -name '*.pth' -o -name '*.py[co]' -o -name sitecustomize.py -o -name usercustomize.py \) -print -quit | grep -q .; then
+  echo 'The pre-invocation runtime contains a startup hook or bytecode file' >&2
+  exit 1
+fi
+repository_parent="$(cd .. && pwd -P)"
+recovery_parent="$(mktemp -d "${repository_parent}/okf-landregistry-build-recovery.XXXXXX")"
+previous_output="${recovery_parent}/previous-bundle"
+runtime_cache="$(mktemp -d "${TMPDIR:-/tmp}/okf-python-cache.XXXXXX")"
+chmod 700 "$runtime_cache"
+test ! -L "$runtime_cache"
+test -z "$(find "$runtime_cache" -mindepth 1 -print -quit)"
+.venv/bin/python -I -B -X "pycache_prefix=$runtime_cache" scripts/build.py \
+  --snapshot-dir source/snapshots/2026-07-29T091915Z \
+  --publication-base https://chris-page-gov.github.io/okf-LandRegistry/ \
+  --replace \
+  --previous-output "$previous_output"
+test -d "$previous_output"
+rmdir "$runtime_lock"
+trap - EXIT INT TERM
+git add -A -- bundle
+.venv/bin/python -B scripts/check_release_evidence.py --staged-candidate
+test_runtime_cache="$(mktemp -d "${TMPDIR:-/tmp}/okf-python-cache.XXXXXX")"
+chmod 700 "$test_runtime_cache"
+.venv/bin/python -E -s -B -X "pycache_prefix=$test_runtime_cache" \
+  -m unittest discover -s tests -v
+.venv/bin/python -B scripts/evaluate.py \
+  --output validation/candidate-v0.3.0/evidence/evaluation-diagnostic.json \
   --k 10 \
   --min-expected-source-success-at-k 1.0 \
   --min-expected-target-recall-at-k 0.90 \
@@ -136,12 +261,32 @@ python3 scripts/evaluate.py \
   --min-mrr 0.80
 ```
 
+The initially absent `previous_output` path is outside the repository but on
+the same file system. The builder constructs the candidate there and performs
+one atomic directory exchange: `bundle/` is always present, while the complete
+previous bundle remains at the exact reported recovery path. The builder does
+not delete, prune, overwrite or move that retained bundle. A later move or
+deletion requires separate owner authorisation. Each repeat build must use a
+different empty recovery path; the concrete path is excluded from generated
+bytes and represented by a stable placeholder in the build receipt.
+
+The in-process observer starts after Python startup and initial imports; it
+verifies the runtime before release work continues but does not attest the
+exact source bytes already executed. The executable pre-invocation check
+rejects `.pth`, bytecode and customiser hooks and holds a cooperating
+single-writer lock for the build. This is a fail-closed operational mitigation,
+not cryptographic proof against an uncooperative concurrent mutator. A pre-site
+staged launcher would be needed to close that remaining gap and is proposed for
+a future contract revision.
+
 That command is a deterministic calibration diagnostic, not Land Registry G5
 acceptance.
-Only a new independent review bound to the frozen v0.2.0 question-suite,
+Only a new independent review bound to the frozen v0.3.0 question suite,
 bundle and consumer digests may generate the final acceptance receipt. The
 existing `evaluation/acceptance-review.json` belongs to released v0.1.0
-evidence and is not reusable.
+evidence and is not reusable. The builder digest-binds the v0.2.0 Explorer
+journey manifests as historical regression inputs; they are not current
+execution manifests for the v0.3.0 candidate.
 
 Never edit `bundle/` by hand. Review source and profile changes, rebuild, then
 compare the generated digest and evaluation receipt. Acquisition should be
@@ -149,12 +294,12 @@ rate-limited and rerun only for a declared new observation.
 
 ## Evaluation and release posture
 
-The v0.2.0 calibration suite uses nine evidence-led persona hypotheses, twelve
+The v0.3.0 calibration suite uses nine evidence-led persona hypotheses, twelve
 stories and 24 traceable questions. The smaller suite is intentional: it
 exercises the highest-risk distinctions without padding the full Explorer
 scorer's 100-question reference target with invented questions. Expected
 sources, propositions, executable forbidden targets and required caveat IDs
-must receive a new independent review against the frozen v0.2.0 snapshot.
+must receive a new independent review against the frozen v0.3.0 candidate.
 Reviewer-owned held-out cases remain separate. This is AI-assisted review, not
 participant research or human domain assurance.
 
@@ -163,16 +308,18 @@ catalogue dates presented as data currency, source-authority confusion,
 restricted-service automation, unsupported completeness, inaccessible critical
 tasks and loss of Welsh-language distinctions.
 
-GitHub Actions validates, rebuilds and tests the exact artifact before the same
+GitHub Actions validates, rebuilds and tests the exact artefact before the same
 bytes are uploaded for GitHub Pages. Pages deployment is restricted to the
 default branch and requires the repository variable
 `OKF_RELEASE_ROOT_SHA256` to name the exact owner-approved release root. Pull
 requests run verification without deployment.
 
-For a beginner-level explanation of Stage 1, Land Registry G5 and Land
-Registry G9, the difference between the project and Foundry gate catalogues,
-the exact-candidate evidence and the RC-to-public procedure, see the
-[`v0.2.0 release tracker and public website guide`](docs/v0.2.0-release-tracker-and-publication-guide.md).
+For the current dependency-ordered Stage 1, Land Registry G5 and G9,
+exact-candidate evidence and RC-to-public procedure, see the
+[`v0.3.0 release tracker and assurance runbook`](docs/v0.3.0-release-tracker-and-assurance-runbook.md).
+The
+[`v0.2.0 release tracker and public website guide`](docs/v0.2.0-release-tracker-and-publication-guide.md)
+is retained as historical release guidance.
 
 ## Rights and responsible use
 

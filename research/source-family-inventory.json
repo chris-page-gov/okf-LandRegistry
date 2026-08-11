@@ -236,6 +236,38 @@
       ]
     },
     {
+      "id": "SRC-FEE-CALCULATOR",
+      "title": "HM Land Registry fee calculator",
+      "owner": "HM Land Registry",
+      "url": "https://fee-calculator.landregistry.gov.uk/",
+      "authority_role": "authoritative",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Minimal public title, description and route metadata only; no calculation, submission or result capture.",
+      "rights_status": "prohibited",
+      "refresh": "Recheck the public route and specialist rights decision for each candidate.",
+      "known_limits": [
+        "Public access does not authorise reuse of the calculator operation, generated estimates or results.",
+        "Calculator output is not a substitute for the current Fee Order and official guidance."
+      ]
+    },
+    {
+      "id": "SRC-LEGISLATION",
+      "title": "Legislation.gov.uk land-registration legislation",
+      "owner": "The National Archives",
+      "url": "https://www.legislation.gov.uk/",
+      "authority_role": "authoritative",
+      "access_state": "verified-working",
+      "denominator": null,
+      "acquisition": "Curated legislation identity and source-route metadata only; no page-body or attachment acquisition.",
+      "rights_status": "conditional",
+      "refresh": "Recheck exact legislation routes, revision state and official reuse terms for each candidate.",
+      "known_limits": [
+        "Legislation.gov.uk content is available under the Open Government Licence v3.0 except where otherwise stated.",
+        "Original, revised and prospective text must remain distinct, and legislation is not legal advice."
+      ]
+    },
+    {
       "id": "SRC-CDDO-API",
       "title": "Central Digital and Data Office API Catalogue",
       "owner": "Central Digital and Data Office",

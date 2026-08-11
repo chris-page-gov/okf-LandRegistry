@@ -4,7 +4,7 @@ These files turn the reviewed domain profile into testable release controls:
 
 - `requirements.json` states normative product and safety requirements;
 - `traceability.json` maps those requirements to evidence, decisions,
-  artifacts, risks and validation;
+  artefacts, risks and validation;
 - `risk-register.json` records foreseeable harm, planned controls and release
   disposition;
 - `rights-review.json` records which metadata operations are permitted,
@@ -13,8 +13,10 @@ These files turn the reviewed domain profile into testable release controls:
   pre-tracking usage, subscription allocation and separately billed API spend;
   and
 - `artifact-dependency-graph.json` maps changed authored inputs to predicted
-  generated artifacts, requirements, risks, tests, validations and release
-  gates.
+  generated artefacts, requirements, risks, tests, validations and release
+  gates. Its top-level `build_inputs` role is the smaller causal set hashed into
+  the build receipt; stage `inputs` plus `validation_inputs` remain the complete
+  candidate-control set bound by the candidate commit and G1–G9 evidence.
 
 They are machine-readable inputs, not validation receipts. Where present, the
 v0.1.0 `released-poc` and policy-approval states authorise only the control

@@ -6,7 +6,7 @@
     "likelihood": "1 rare to 5 almost certain",
     "impact": "1 negligible to 5 severe",
     "score": "likelihood multiplied by impact",
-    "note": "Residual scores for v0.2.0 can be accepted only after controls pass against its digest-bound candidate and G9 records the owner decision."
+    "note": "Residual scores for the v0.3.0 candidate bytes are not self-accepting; only exact-digest gate evidence and the G9 owner decision record acceptance."
   },
   "risks": [
     {
@@ -137,7 +137,7 @@
       "residual": {"likelihood": 1, "impact": 5, "score": 5},
       "owner": "Release owner",
       "status": "open",
-      "release_disposition": "block if workflow, dependency or artifact provenance is unresolved"
+      "release_disposition": "block if workflow, dependency or artefact provenance is unresolved"
     },
     {
       "id": "RISK-011",
@@ -188,8 +188,8 @@
       "evidence_refs": ["EV-INVENTORY"],
       "residual": {"likelihood": 1, "impact": 4, "score": 4},
       "owner": "Project owner",
-      "status": "controlled-candidate-v0.2.0",
-      "release_disposition": "publish only when G9 and OKF_RELEASE_ROOT_SHA256 bind the exact v0.2.0 digest"
+      "status": "controlled-candidate-v0.3.0-external-exact-gates",
+      "release_disposition": "publish only when G9 and OKF_RELEASE_ROOT_SHA256 bind the exact v0.3.0 candidate digest"
     },
     {
       "id": "RISK-015",
@@ -227,7 +227,7 @@
     },
     {
       "id": "RISK-017",
-      "title": "Change-impact heuristic omits an affected artifact or reuses stale evidence",
+      "title": "Change-impact heuristic omits an affected artefact or reuses stale evidence",
       "cause": "An unknown path, incomplete dependency edge or monolithic receipt is treated as permission to skip a required rebuild or gate.",
       "harm": "A correction is published with inconsistent generated output or assurance evidence from a different dependency state.",
       "inherent": {
@@ -245,6 +245,32 @@
       "owner": "Release reviewer",
       "status": "controlled",
       "release_disposition": "unknown and generated-only changes select the full gate set; no receipt is reused across a changed declared root"
+    },
+    {
+      "id": "RISK-018",
+      "title": "Unsigned release attestations are mistaken for authenticated identities",
+      "cause": "Owner and reviewer identities are recorded as exact digest-bound text, but the current workflow does not apply a digital signature or independently authenticate the person or agent that supplied an attestation.",
+      "harm": "A copied or fabricated identity string could be mistaken for proof that the named owner or reviewer made the decision.",
+      "inherent": {
+        "likelihood": 3,
+        "impact": 5,
+        "score": 15
+      },
+      "controls": [
+        "REQ-017",
+        "REQ-018"
+      ],
+      "evidence_refs": [
+        "EV-INVENTORY"
+      ],
+      "residual": {
+        "likelihood": 2,
+        "impact": 5,
+        "score": 10
+      },
+      "owner": "Project owner",
+      "status": "accepted-gap",
+      "release_disposition": "retain in G9 residual risks; use the controlled owner and reviewer workflow with exact byte binding, and do not claim a digital signature or authenticated identity"
     }
   ]
 }

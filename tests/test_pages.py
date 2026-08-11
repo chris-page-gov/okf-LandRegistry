@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import json
 import re
+import tempfile
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+
+from scripts import build as builder
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +34,7 @@ class PagesTests(unittest.TestCase):
 
     def test_required_semantic_and_progressive_elements(self) -> None:
         html = (BUNDLE / "index.html").read_text(encoding="utf-8")
+        authored_html = (PAGES / "index.html").read_text(encoding="utf-8")
         parser = StructureParser()
         parser.feed(html)
         tags = [tag for tag, _attrs in parser.tags]
@@ -44,9 +48,13 @@ class PagesTests(unittest.TestCase):
         self.assertIn("./catalogue-index.html", html)
         self.assertIn('content="default-src', html)
         self.assertIn("ai-generated proof of concept", html.casefold())
-        self.assertIn("version 0.2.0", html.casefold())
+        self.assertIn(
+            "version 0.3.0 · release status recorded externally",
+            authored_html.casefold(),
+        )
         self.assertIn("29 July 2026", html)
-        self.assertIn("do not assert publication approval", html)
+        self.assertIn("do not assert a release decision", html)
+        self.assertIn("version-scoped, digest-bound release evidence", html)
         self.assertNotIn("Approved for publication", html)
 
     def test_pages_do_not_ship_a_second_search_runtime(self) -> None:
@@ -66,16 +74,24 @@ class PagesTests(unittest.TestCase):
         notices = analysis["summary"]["notices"]
         self.assertTrue(any("not legal advice" in notice for notice in notices))
 
-    def test_jsonld_is_canonical_and_yamld_is_reference_only(self) -> None:
+    def test_yaml_ld_and_json_ld_are_declared_semantic_serializations(self) -> None:
         descriptor = json.loads((BUNDLE / "okf-explorer.json").read_text())
         serializations = descriptor["semantic_serializations"]
-        self.assertEqual("JSON-LD", serializations["canonical"]["format"])
-        self.assertEqual("okf-bundle.jsonld", serializations["canonical"]["path"])
+        self.assertEqual("YAML-LD", serializations["canonical"]["format"])
+        self.assertEqual("application/ld+yaml", serializations["canonical"]["media_type"])
+        self.assertEqual("okf-bundle.yamlld", serializations["canonical"]["path"])
         self.assertEqual(
-            [{"format": "YAML-LD", "status": "deferred", "reason": serializations["reference_only"][0]["reason"]}],
-            serializations["reference_only"],
+            [
+                {
+                    "format": "JSON-LD",
+                    "media_type": "application/ld+json",
+                    "path": "okf-bundle.jsonld",
+                }
+            ],
+            serializations["alternates"],
         )
-        self.assertFalse(any(BUNDLE.glob("*.yamlld")))
+        self.assertTrue((BUNDLE / "okf-bundle.yamlld").is_file())
+        self.assertTrue((BUNDLE / "okf-bundle.jsonld").is_file())
 
     def test_authored_page_delegates_interaction_to_the_pinned_explorer(self) -> None:
         html = (PAGES / "index.html").read_text(encoding="utf-8")
@@ -95,6 +111,25 @@ class PagesTests(unittest.TestCase):
         ]
         self.assertGreater(len(links), 2_000)
         self.assertTrue(any(str(link).startswith("https://www.gov.uk/") for link in links))
+
+    def test_generated_catalogue_uses_british_language_and_closed_csp(self) -> None:
+        record = {
+            "title": "Example record",
+            "url": "https://www.gov.uk/example",
+            "record_type": "guidance",
+            "source_family": "govuk-hmlr",
+            "authority_role": "publisher-authoritative",
+            "access_state": "public",
+            "rights_state": "conditional",
+        }
+        with tempfile.TemporaryDirectory(dir=ROOT) as temporary_directory:
+            output = Path(temporary_directory)
+            builder.write_static_catalogue(output, [record])
+            catalogue = (output / "catalogue-index.html").read_text(
+                encoding="utf-8"
+            )
+        self.assertIn('<html lang="en-GB">', catalogue)
+        self.assertIn("object-src 'none'", catalogue)
 
     def test_site_has_no_external_runtime_dependencies(self) -> None:
         html = (BUNDLE / "index.html").read_text(encoding="utf-8")
@@ -148,6 +183,8 @@ class PagesTests(unittest.TestCase):
 
     def test_authored_404_uses_project_pages_root(self) -> None:
         html = (PAGES / "404.html").read_text(encoding="utf-8")
+        self.assertIn("proof-of-concept candidate", html)
+        self.assertNotIn("proof-of-concept release", html)
         parser = StructureParser()
         parser.feed(html)
         links = [

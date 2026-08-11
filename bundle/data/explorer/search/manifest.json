@@ -1,18 +1,20 @@
 {
   "counts": {
     "documents": 2203,
+    "entities": 27,
     "max_postings_per_token": 50000,
-    "postings": 98124,
+    "postings": 98234,
     "postings_shards": 34,
-    "tokens": 5273,
-    "uncapped_postings": 98124
+    "tokens": 5286,
+    "uncapped_postings": 98234
   },
   "entrypoints": {
     "doc_map": "data/explorer/search/doc-map.json",
+    "entities": "data/explorer/search/entities.json",
     "facets": {
-      "bytes": 42815,
+      "bytes": 44373,
       "path": "data/explorer/facets.json",
-      "sha256": "fa0dc67c32898394bec85a0b809c6c763f02ac94ff50575018f5170234bf7f40"
+      "sha256": "ad7d11882cc043060464ebad101550d73b41a20876811e13d4425fe179f77b87"
     },
     "filter_postings": {
       "access": "data/explorer/search/filters/access.json",
@@ -97,6 +99,8 @@
       "75": "data/explorer/search/lexicon-7.json",
       "76": "data/explorer/search/lexicon-7.json",
       "78": "data/explorer/search/lexicon-7.json",
+      "7b": "data/explorer/search/lexicon-7.json",
+      "7d": "data/explorer/search/lexicon-7.json",
       "81": "data/explorer/search/lexicon-8.json",
       "82": "data/explorer/search/lexicon-8.json",
       "83": "data/explorer/search/lexicon-8.json",
@@ -435,11 +439,11 @@
   "result_doc_chunk_size": 250,
   "result_limit": 200,
   "schema": "okf-static-search.v2",
-  "shard_manifest_sha256": "42b56c5700be58a71b05d5a886b5e0014ca90f2df5aafad78162d3add4142c3c",
+  "shard_manifest_sha256": "f8e54470a75dc1640076184b34b88dbcd2936a7968f35de5903b5d1edca86074",
   "shard_metadata": {
-    "bytes": 22606,
+    "bytes": 22838,
     "path": "data/explorer/search/shards.json",
-    "sha256": "d65125e9de526a01fcf23523b39dbed447e81be2de9e8dcf462b25bcb9568f92"
+    "sha256": "75acbb4741670d00e8c8b9c4a6dc00f86e8237654ca1ea59fbc9e68f42583ed9"
   },
   "snapshot": "hmlr-public-metadata-v0.2.0",
   "token_min_length": 2,

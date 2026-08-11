@@ -1,0 +1,77 @@
+{
+  "contexts": [
+    {
+      "media_type": "application/ld+json",
+      "path": "context.jsonld",
+      "sha256": "b61025e9c0c5b7bfdf84c6a79ad00403dc93ba50a3e11d6f7d92994672aea8da",
+      "url": "https://chris-page-gov.github.io/okf-LandRegistry/context.jsonld"
+    },
+    {
+      "media_type": "application/ld+json",
+      "path": "data/semantic/semantic-context.jsonld",
+      "sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b",
+      "url": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-context.jsonld"
+    },
+    {
+      "media_type": "application/ld+json",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap.jsonld",
+      "sha256": "105ae8fcb89a0990d00c7a4f65499e33463e03547d56c603f4135043b6f3a857",
+      "url": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/context/cpsv-ap.jsonld"
+    }
+  ],
+  "id_registry": {
+    "media_type": "application/json",
+    "path": "data/semantic/iri-route-registry.json",
+    "sha256": "1550455a17c27ccc5d8b39eb77047e2fabf956a4a2e0345bb509328752682e0a"
+  },
+  "inference": {
+    "profile": "Explicit governed assertions only; no materialised or unbounded browser inference.",
+    "status": "not-run"
+  },
+  "predicate_registry": {
+    "media_type": "application/json",
+    "path": "data/semantic/predicate-registry.json",
+    "sha256": "ad66597b1537c92ee43b664ff61974935514c4ba5c899883526488f8805ee5fb"
+  },
+  "schema": "okf-semantic-model.v1",
+  "shapes": [
+    {
+      "id": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/shapes.ttl",
+      "media_type": "text/turtle",
+      "path": "data/semantic/profile-shapes.ttl",
+      "sha256": "bffe0611abae937683d30e7ecb76d81b6b49c20cc87a70e709f83aa6569b074c",
+      "version": "0.6.0"
+    },
+    {
+      "id": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/predicate-registry.schema.json",
+      "media_type": "application/schema+json",
+      "path": "data/semantic/schemas/predicate-registry.v2.schema.json",
+      "sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069",
+      "version": "2"
+    },
+    {
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/schemas/semantic-class-route-registry.schema.json",
+      "media_type": "application/schema+json",
+      "path": "data/semantic/schemas/semantic-class-route-registry.schema.json",
+      "sha256": "948520f99fb2751d8b0c0d52f85e8a555ee2dd3a72ef708a20784ec7fa43d209",
+      "version": "1.0.0"
+    },
+    {
+      "id": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/shacl/cpsv-ap-SHACL.ttl",
+      "media_type": "text/turtle",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap-SHACL.ttl",
+      "sha256": "84c51ca629a8e297fe9276669b9702b31d49dd50495ad065872fca8b326fd0bc",
+      "version": "3.2.0"
+    }
+  ],
+  "status": "experimental",
+  "vocabularies": [
+    {
+      "id": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/rdf/cpsv-ap.ttl",
+      "media_type": "text/turtle",
+      "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap.ttl",
+      "sha256": "f4cbd307f30449a5ebbf507e91b3aa24cf80f9b18c491a44ff04659484e0bc3f",
+      "version": "3.2.0"
+    }
+  ]
+}

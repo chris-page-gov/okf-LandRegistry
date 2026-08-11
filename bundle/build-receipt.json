@@ -1,114 +1,120 @@
 {
-  "builder": "scripts/build.py/0.2.0",
-  "builder_sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8",
+  "build_chronology": {
+    "generated_at": "2026-08-11T12:41:04Z",
+    "latest_governed_event": "domain profile $.prepared_at",
+    "latest_governed_event_at": "2026-08-11T12:41:03Z"
+  },
+  "builder": "scripts/build.py/0.3.0",
+  "builder_sha256": "80a52c3461a36ddc1c0a4c8926bc092d3be10e14931cd7b7b0c75042a32c3af7",
+  "bundle_profile_vendor_lock": {
+    "file_count": 16,
+    "identity_sha256": "854d1853b71ec8bda3424924f0f0985fe24aa7bca4c180d15f359fe259ef4c7e",
+    "lock_sha256": "979af714974abb093ac9d4b1b7e289597c61d33c24bb6959d9914c2f74dc6a09",
+    "release_commit": "4bb7b92a64b7ba69bde9b1e86786217338cd166d",
+    "status": "conformant",
+    "version": "0.6.0"
+  },
+  "cpsv_ap_vendor_lock": {
+    "file_count": 3,
+    "identity_sha256": "e16e63d71340ac52515680e2136853b608256b849bde6c1ea0fbb9380ffba6fe",
+    "lock_sha256": "762c1d4fa53ea9790145609d17b15f7b2c5867648f09c5f6cd7724abcba82885",
+    "release_commit": "ed1d6494afc7bc234ca21487cbaa89db409d5a61",
+    "status": "conformant",
+    "version": "3.2.0"
+  },
+  "cpsv_service_mapping": {
+    "candidate_count": 11,
+    "evidence_count": 19,
+    "excluded_count": 4,
+    "mapped_count": 7,
+    "path": "source/cpsv-service-mappings.json",
+    "schema": "okf-hmlr-cpsv-service-mapping-validation.v1",
+    "sha256": "01b4e3f5981cb513ac78acafec31704c9175271f685f6e810e145c52dbecf1bd",
+    "status": "conformant",
+    "type_crosswalk_sha256": "b1d0e9ec400060ed594127a366afd9ee44ed7eb385eac2ed84f6da1652537033"
+  },
   "curated_source": {
     "observed_at": "2026-07-29T07:53:38Z",
     "record_count": 55,
-    "sha256": "5b045ea626c07d981a013419267060f90dfe3ea9d172674fec891f7ad05fed30"
+    "rights_access_classifications": {
+      "coverage": "exhaustive-set-exact",
+      "path": "source/curated-rights-access.json",
+      "record_count": 55,
+      "schema": "okf-hmlr-curated-rights-access.v1",
+      "schema_path": "schemas/curated-rights-access.schema.json",
+      "schema_sha256": "44a793bf24f3610618523500564a5233686d9f74d5ea0a03eea11cc168f8fca8",
+      "sha256": "a5c6dbfd97c3f5bbf462bb10cb1e3425b144a68f4c5fb462b55782936ad17136"
+    },
+    "sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a"
   },
-  "domain_profile_canonical_sha256": "99ab3683fc0bacaf133f1ea3ade6f27de736747595e87b8a50a2c61ac50f8aef",
-  "domain_profile_pack_root_sha256": "47f0a5c1a89c78cdeda8e57623db46036753de752766588874fa5835a36a0d95",
-  "generated_at": "2026-07-29T15:30:00Z",
+  "domain_profile_canonical_sha256": "48b79420bfd867acbb544d58acf1c16c642400c4ae67a97846e5706e2db2c524",
+  "domain_profile_pack_root_sha256": "e5425da1370dff378b4e9d084e8d52b8f529ee6200d22f575041d4a8f8446a82",
+  "generated_at": "2026-08-11T12:41:04Z",
   "governed_inputs": [
     {
-      "bytes": 8263,
+      "bytes": 16024,
       "path": "contracts/okf-explorer.consumer-lock.json",
-      "sha256": "2ae9e949085b02ffcb5ab0e777303418a6f553832952cf97e694689e9ada31a9"
+      "sha256": "7977e78c05488dc7cd90d32925df608acdc55860351c72a98ac4261859e71e21"
     },
     {
       "bytes": 608,
       "path": "domain-profile/CHECKSUMS.sha256",
-      "sha256": "4dd7c27b2fa4943b4197b9564cf10dd03411d5f980f256936e60f3739fd0d261"
+      "sha256": "d78cf781a408c0a625ad6127e9ffb096e1806dafd906f5bd2d14779fd7e9a57b"
     },
     {
-      "bytes": 130351,
+      "bytes": 14765,
+      "path": "domain-profile/decision-register.md",
+      "sha256": "bc077839a3d7cb0dbb0982639426841ea868eb39f79a1422c6f53cd4d7496224"
+    },
+    {
+      "bytes": 368150,
       "path": "domain-profile/domain-profile.json",
-      "sha256": "66f043a4bbae9df27609418c2698066423af60033fda0f9d36d08b8a241b6985"
+      "sha256": "6f9267cf4795b738372503f9463d1124fb3ab2057e2919823fa0e02debfd0516"
     },
     {
-      "bytes": 51435,
-      "path": "evaluation/explorer-search-calibration-v0.2.0.json",
-      "sha256": "b00936fcaee53cd481e307c8bf9279416b0d80ae91fefcba2d22b4591d709753"
+      "bytes": 301041,
+      "path": "domain-profile/domain-profile.yaml",
+      "sha256": "e68f57f8114864bfb38b70b07fa9ab02b349222211b6f827f9a43f98c214bb83"
     },
     {
-      "bytes": 5753,
-      "path": "evaluation/explorer-v0.2.0-journeys.json",
-      "sha256": "f721e6c9915484d72ac38b3630926a0461ff7fe417f39651a1a8e79546968431"
+      "bytes": 19763,
+      "path": "domain-profile/domain-warmup-report.md",
+      "sha256": "1681c8fa7fb9a5db82e330952d5d671e3d592991a293a8368a6ef4deafd9934f"
     },
     {
-      "bytes": 858,
-      "path": "evaluation/fixtures/degraded-descriptor/journeys.json",
-      "sha256": "856b1300673b75b3c4967cfa063621cd973b659bd30314d1520f1f2e593f756d"
+      "bytes": 29246,
+      "path": "domain-profile/evidence-register.jsonl",
+      "sha256": "abe3f65abddcae1ca84972e3dfe4a88c80a858a6089bb69410fde895fddfe0a0"
     },
     {
-      "bytes": 306,
-      "path": "evaluation/fixtures/degraded-descriptor/okf-explorer.json",
-      "sha256": "161cbede33da294f45b76f049a4c050dd49a5aa85e76a38fd13a80ae6f281ae5"
+      "bytes": 5563,
+      "path": "domain-profile/traceability.json",
+      "sha256": "ffd7f445c7827986315b7eeb9ce75f19f2d001efa959b2e099b11f760333e1ee"
     },
     {
-      "bytes": 842,
-      "path": "evaluation/fixtures/malformed-descriptor/journeys.json",
-      "sha256": "434b5e6cd2573de07d36163835785534715ad85bc6942ed9de532ca8781220e6"
-    },
-    {
-      "bytes": 286,
-      "path": "evaluation/fixtures/malformed-descriptor/okf-explorer.json",
-      "sha256": "2c08d3fc240d2846fe32a1a79a1b9b9bf72cb97a9986d7a55e6cfe1a8d9abaaf"
-    },
-    {
-      "bytes": 1322,
-      "path": "evaluation/fixtures/tiny-producer/journeys.json",
-      "sha256": "13b8e11fb7aa2f38f237ae12df3976fd61baa7534aed5f882e4cdcc9e47b7464"
-    },
-    {
-      "bytes": 797,
-      "path": "evaluation/fixtures/tiny-producer/okf-explorer.json",
-      "sha256": "62ca82fa3bc70ce969c45d9766c7fe811b3389437ad943ff2c9ef4654cb13973"
-    },
-    {
-      "bytes": 868,
-      "path": "evaluation/fixtures/v0.1.0-degraded/journeys.json",
-      "sha256": "bae111ba9457c8bd5133785a1d159488c7e188b17c98e9eec485eca18a11c2a4"
-    },
-    {
-      "bytes": 22534,
-      "path": "evaluation/journeys.json",
-      "sha256": "d8e42633d4eba03419345b2fd367b6dc80dd82fcb7cb41ae035e840a936810ce"
-    },
-    {
-      "bytes": 61224,
+      "bytes": 61413,
       "path": "evaluation/questions.json",
-      "sha256": "489ce0d6b6669be49a230b991913ee252a89bd0088949818cfb20f12b698e95d"
+      "sha256": "c4423c70ed4207061d8cfea7d0956b87ddbc9e487fe3a512bc30ba2fbdba8fc0"
     },
     {
-      "bytes": 4091,
+      "bytes": 4875,
       "path": "governance/ai-model-usage.json",
-      "sha256": "83ff435b958a85cc22b3290498d7921ac93032f0829111e27225142999b3bf1d"
+      "sha256": "ad0598ec99ea825a140e05dbe2678ecea509313a3ddca36db62aea6f27b88e05"
     },
     {
-      "bytes": 21920,
+      "bytes": 31846,
       "path": "governance/artifact-dependency-graph.json",
-      "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1"
+      "sha256": "7d9b094f936946e711a7f554c19c5ca386ed9f682284fd3ba43ba51660d58db0"
     },
     {
-      "bytes": 10444,
-      "path": "governance/requirements.json",
-      "sha256": "241871106424710de309fd56f63989ba2fbf657c8a32a1b9309b7d808973a5c5"
-    },
-    {
-      "bytes": 8659,
+      "bytes": 12551,
       "path": "governance/rights-review.json",
-      "sha256": "887aadc255cdf966c580c12d3217a7036ccaf8bf8e086cae13cf4537e3a732fc"
+      "sha256": "b47da036da6b1376975b8542749f06df86a61d34237ab244e8dc61819be907f6"
     },
     {
-      "bytes": 12227,
-      "path": "governance/risk-register.json",
-      "sha256": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e"
-    },
-    {
-      "bytes": 6770,
-      "path": "governance/traceability.json",
-      "sha256": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
+      "bytes": 15061,
+      "path": "okf.semantic.json",
+      "sha256": "b7c0800ad80cf8a8417acc87b111631b5ff1bc7a8ad622ba1be5d38dbe4fb696"
     },
     {
       "bytes": 1,
@@ -116,19 +122,14 @@
       "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
-      "bytes": 1165,
+      "bytes": 1170,
       "path": "pages/404.html",
-      "sha256": "bc1928078b8bd469b716d3032afb91b0b901786055c9401b7d3f5dfd3cb50fb9"
+      "sha256": "4458c7749137a052270db166655098cc1d8509d540cb9f753d3b785cb498911e"
     },
     {
-      "bytes": 3487,
+      "bytes": 3587,
       "path": "pages/accessibility.html",
-      "sha256": "884d0aabbe37cf3b2bfdfcd25a10230e22519b1abf4a4ab5745d02aab889bcb0"
-    },
-    {
-      "bytes": 20058,
-      "path": "pages/app.js",
-      "sha256": "e8a430e9813b0f02be1880eee11ca6c1421323576052a92580f1d5eb23976591"
+      "sha256": "7f720e21020add38e780029fc40459681ccd8794263102c86a46ccf20aa68731"
     },
     {
       "bytes": 334,
@@ -136,9 +137,9 @@
       "sha256": "4f02d089de903ea29856d9623f61f3becdb88bab72963ba58252b8373ee008be"
     },
     {
-      "bytes": 9016,
+      "bytes": 9157,
       "path": "pages/index.html",
-      "sha256": "594f958173a70bbc518f1f31acd5472fa5130e32c3f07be3ba3c06fa3dad7f42"
+      "sha256": "f9779bfc6ee8af633c905c5f8f5d390b26b4c302f8a161221f9bdbe9fc70df26"
     },
     {
       "bytes": 389,
@@ -156,19 +157,139 @@
       "sha256": "891e4e7f3558f94c4eeca7a9a3a47357370aa60cb756909faca830a533cf8a3f"
     },
     {
-      "bytes": 25166,
-      "path": "personas/personas-and-user-stories.json",
-      "sha256": "8acddf495ffaf10e432a753bbb8890c7353c10dc9073b1f201091057b2bdd841"
+      "bytes": 3281,
+      "path": "profiles/bundle-wiki/v1.vendor-lock.json",
+      "sha256": "979af714974abb093ac9d4b1b7e289597c61d33c24bb6959d9914c2f74dc6a09"
     },
     {
-      "bytes": 5280,
+      "bytes": 1449,
+      "path": "profiles/bundle-wiki/v1/bundle.schema.json",
+      "sha256": "34cc6181bbdcbdc5a2b98aa3fd6f93dee9af525d2c6623383954b4ec2d644221"
+    },
+    {
+      "bytes": 4526,
+      "path": "profiles/bundle-wiki/v1/concept.schema.json",
+      "sha256": "5c048c9294f4f1118929de0f89ea5a9b60906f4231acc34d68deecd81dbecd41"
+    },
+    {
+      "bytes": 4686,
+      "path": "profiles/bundle-wiki/v1/context.jsonld",
+      "sha256": "810d4f97f63ac04b030ee39a0e199ec2401de3112bb63de8e177413da69ca928"
+    },
+    {
+      "bytes": 3985,
+      "path": "profiles/bundle-wiki/v1/governed-term-validation.schema.json",
+      "sha256": "93c7b2fb7037ba2ec1cac3357825f4c9a41fa8f75d3da6800ca65fce6fad85f4"
+    },
+    {
+      "bytes": 8162,
+      "path": "profiles/bundle-wiki/v1/governed-terms.schema.json",
+      "sha256": "52e7858c73657a04ed3b76423c1966e4f530f2ed3bb4db0de6611495c549eb82"
+    },
+    {
+      "bytes": 8826,
+      "path": "profiles/bundle-wiki/v1/index.md",
+      "sha256": "7dcd555d6627e305d321cc7256c495f72c844753d428e6c60f2ec030d043aeeb"
+    },
+    {
+      "bytes": 1781,
+      "path": "profiles/bundle-wiki/v1/iri-route-registry.schema.json",
+      "sha256": "a5ac291743eb40c1ee5a756adcce1a6273e1d976de92b5d4b2fbee18cf161836"
+    },
+    {
+      "bytes": 3665,
+      "path": "profiles/bundle-wiki/v1/predicate-registry.schema.json",
+      "sha256": "dfd674cd7a773af8681a28b9ac6cafbd335b7ea46c1252a527847796036c39d6"
+    },
+    {
+      "bytes": 4147,
+      "path": "profiles/bundle-wiki/v1/presentation.schema.json",
+      "sha256": "321dd26a0964b427a5636909f7ac001efdc0c6c5c843afbcdcd25ea356661089"
+    },
+    {
+      "bytes": 2476,
+      "path": "profiles/bundle-wiki/v1/provider-datapack-manifest.schema.json",
+      "sha256": "5f80e87a9f65d281d8b3d4c993d853deeec5d3f95008d7f6d19ee17a232ea08b"
+    },
+    {
+      "bytes": 10410,
+      "path": "profiles/bundle-wiki/v1/provider-datapack.schema.json",
+      "sha256": "a177500c16ee521a950dd559714bf7dde5dc9ff73296da05f631d10660508fc1"
+    },
+    {
+      "bytes": 7924,
+      "path": "profiles/bundle-wiki/v1/repository-contract.schema.json",
+      "sha256": "783f81c5c785b3a13cfdedce3a89dd1e5c3f64a007cfe370bc82e37e2caa5ba8"
+    },
+    {
+      "bytes": 7308,
+      "path": "profiles/bundle-wiki/v1/semantic-assertion.schema.json",
+      "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc"
+    },
+    {
+      "bytes": 5047,
+      "path": "profiles/bundle-wiki/v1/semantic-context.jsonld",
+      "sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b"
+    },
+    {
+      "bytes": 8563,
+      "path": "profiles/bundle-wiki/v1/semantic-model.schema.json",
+      "sha256": "caef744be9ca38486e8b4dc27a7393e4fdec11683cbac7124bc62d9553d2c45e"
+    },
+    {
+      "bytes": 939,
+      "path": "profiles/bundle-wiki/v1/shapes.ttl",
+      "sha256": "bffe0611abae937683d30e7ecb76d81b6b49c20cc87a70e709f83aa6569b074c"
+    },
+    {
+      "bytes": 744,
+      "path": "profiles/predicate-registry/v2.lock.json",
+      "sha256": "3d1f7cdbb423628f3938e5aef299ae09013f56be515ff2155475c5325ffd0110"
+    },
+    {
+      "bytes": 4841,
+      "path": "profiles/predicate-registry/v2/index.md",
+      "sha256": "c65a17f0f3e8e17009394a21bf48a5f74dc6c326f5a6f73aa074027f5ad2caba"
+    },
+    {
+      "bytes": 7551,
+      "path": "profiles/predicate-registry/v2/predicate-registry.schema.json",
+      "sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069"
+    },
+    {
+      "bytes": 31089,
+      "path": "requirements-lock.txt",
+      "sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2"
+    },
+    {
+      "bytes": 6068,
       "path": "schemas/artifact-dependency-graph.schema.json",
-      "sha256": "e7105f0b3d190fcbefb68da63efe460148e2e8119bf6684ccc7eeef16fa6a24f"
+      "sha256": "9420672e092c1d0cc7946d94bff36ddaa8a196e1a5d5a17dd69da2277e2bbdf5"
     },
     {
-      "bytes": 49189,
+      "bytes": 3985,
+      "path": "schemas/curated-rights-access.schema.json",
+      "sha256": "44a793bf24f3610618523500564a5233686d9f74d5ea0a03eea11cc168f8fca8"
+    },
+    {
+      "bytes": 76879,
       "path": "schemas/domain-profile.schema.json",
-      "sha256": "2b002829ac11ea8f83f9db57611a07066e60c52a6684c30e960fd1a9a1a1aab7"
+      "sha256": "7237464cc4301d8e0a2657f921c4f6e4359149737be1fb2a8628ddf58520cf14"
+    },
+    {
+      "bytes": 5775,
+      "path": "schemas/relationship-runtime-row.schema.json",
+      "sha256": "cffb0b01077d210cd1e34140f6feb5c5835f9d1952804759ad3432294a96f3d4"
+    },
+    {
+      "bytes": 7308,
+      "path": "schemas/semantic-assertion.schema.json",
+      "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc"
+    },
+    {
+      "bytes": 2444,
+      "path": "schemas/semantic-class-route-registry.schema.json",
+      "sha256": "948520f99fb2751d8b0c0d52f85e8a555ee2dd3a72ef708a20784ec7fa43d209"
     },
     {
       "bytes": 30727,
@@ -176,44 +297,44 @@
       "sha256": "e3d51b0fc18532a3acfe9b5c6b7c8e8c483634edba2be5d8ffdb8482a6aa75f7"
     },
     {
-      "bytes": 128732,
+      "bytes": 578947,
       "path": "scripts/build.py",
-      "sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8"
+      "sha256": "80a52c3461a36ddc1c0a4c8926bc092d3be10e14931cd7b7b0c75042a32c3af7"
     },
     {
-      "bytes": 25965,
+      "bytes": 40258,
       "path": "scripts/change_impact.py",
-      "sha256": "db25edf14c8531f69468b346cdb1fb258d331961884b13c7f7916aa2791de856"
+      "sha256": "9ae9e6598246082d90711e9649e843d8f59773daf80ad40ef0c3ec5c15d29bb6"
     },
     {
-      "bytes": 7331,
-      "path": "scripts/check_domain_profile.py",
-      "sha256": "d88a3eb956d6f9b238d2182eec45ba7e1e2d9bdd24af93fbae5a3f1e3b339f62"
-    },
-    {
-      "bytes": 5975,
-      "path": "scripts/check_okf.py",
-      "sha256": "c19ca429fe6d0039e051d873acd11f69c801959f218cd311359cf9b5b7ae2a38"
-    },
-    {
-      "bytes": 40506,
+      "bytes": 47848,
       "path": "scripts/evaluate.py",
-      "sha256": "f460b5d0347272cae2a0b1b9e79418958707d75767b7b290763b748ce74e55f0"
+      "sha256": "ccced9cfbcf31d4bd816d466f03d4f1eacb571b029649ea31957741d8480ad48"
     },
     {
-      "bytes": 6014,
-      "path": "scripts/observe_govuk_content.py",
-      "sha256": "9db59ba97e3b08d6789a8ea980db1f95790859cd8863d23e4b9f0974fd22528a"
+      "bytes": 34228,
+      "path": "scripts/python_runtime_contract.py",
+      "sha256": "3be976823e64c37f812ddd873057dbd334c8820ee010fee112b403d1d80b7647"
     },
     {
       "bytes": 705,
       "path": "source/build-config.json",
-      "sha256": "af1f39287c77ec56a4d61047759ed12e81130e17d00472e9f0afeb88ff958249"
+      "sha256": "e58698834b892a285f711132e60b6a40ded8951df759f90748387c9920b7e780"
     },
     {
-      "bytes": 92362,
+      "bytes": 42360,
+      "path": "source/cpsv-service-mappings.json",
+      "sha256": "01b4e3f5981cb513ac78acafec31704c9175271f685f6e810e145c52dbecf1bd"
+    },
+    {
+      "bytes": 92480,
       "path": "source/curated-records.json",
-      "sha256": "5b045ea626c07d981a013419267060f90dfe3ea9d172674fec891f7ad05fed30"
+      "sha256": "4e585751d2747281068f8f389ebdb791e3364c09c4dbb57347db810c39e83b4a"
+    },
+    {
+      "bytes": 60752,
+      "path": "source/curated-rights-access.json",
+      "sha256": "a5c6dbfd97c3f5bbf462bb10cb1e3425b144a68f4c5fb462b55782936ad17136"
     },
     {
       "bytes": 1077,
@@ -221,9 +342,9 @@
       "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
     },
     {
-      "bytes": 230,
+      "bytes": 4328,
       "path": "source/jsonld-context.json",
-      "sha256": "3e8758939d465a0a050ba0874e9dba8a5e2d99887996b7dd76e4d1bf0f1fe735"
+      "sha256": "b50175104c49ecde1993bf05db5dfbf26a77e9cb52602e49eee3d02bb9e0db8c"
     },
     {
       "bytes": 2445,
@@ -231,9 +352,9 @@
       "sha256": "baa81ac14e690800a8510d244608c26c0e158e343277990b04756fd0641622b7"
     },
     {
-      "bytes": 2115,
+      "bytes": 8699,
       "path": "source/publisher-registry.json",
-      "sha256": "32330e3f8ff0227c7711123836ce5a5e9ea55f34709b4e7128d3150b57a2226b"
+      "sha256": "06eeb534e356b3001df05d970663315b1b741712b78d5e0e9b6e77080e3b78e9"
     },
     {
       "bytes": 20992,
@@ -251,22 +372,485 @@
       "sha256": "611c2b03c27ef572e218e7f9286bfa97e77b10c6a07eeb5c720530f3de2a28a2"
     },
     {
-      "bytes": 14632,
+      "bytes": 9776,
+      "path": "source/snapshots/2026-07-29T091915Z/manifest.json",
+      "sha256": "143a70620c26fbac72febe0939c263faa76120d2d821f4b097550a5804270df6"
+    },
+    {
+      "bytes": 21030,
       "path": "source/source-register.json",
-      "sha256": "131359d2231724f71be6208dcade1caa98eadd466b28f5c09bbe1132084def73"
+      "sha256": "44420b97eb3f4cb85e5749f88b48cf99257798b0ac2f99488c678979ea6b6774"
     },
     {
       "bytes": 3263,
       "path": "source/type-kind-crosswalk.json",
       "sha256": "b1d0e9ec400060ed594127a366afd9ee44ed7eb385eac2ed84f6da1652537033"
+    },
+    {
+      "bytes": 1700,
+      "path": "standards/cpsv-ap/3.2.0.vendor-lock.json",
+      "sha256": "762c1d4fa53ea9790145609d17b15f7b2c5867648f09c5f6cd7724abcba82885"
+    },
+    {
+      "bytes": 86733,
+      "path": "standards/cpsv-ap/3.2.0/cpsv-ap-SHACL.ttl",
+      "sha256": "84c51ca629a8e297fe9276669b9702b31d49dd50495ad065872fca8b326fd0bc"
+    },
+    {
+      "bytes": 18858,
+      "path": "standards/cpsv-ap/3.2.0/cpsv-ap.jsonld",
+      "sha256": "105ae8fcb89a0990d00c7a4f65499e33463e03547d56c603f4135043b6f3a857"
+    },
+    {
+      "bytes": 53134,
+      "path": "standards/cpsv-ap/3.2.0/cpsv-ap.ttl",
+      "sha256": "f4cbd307f30449a5ebbf507e91b3aa24cf80f9b18c491a44ff04659484e0bc3f"
     }
   ],
   "network_access": false,
   "observed_at": "2026-07-29T18:00:00Z",
+  "predicate_registry_profile_lock": {
+    "consumer_commit_sha": "839d4ba4c2d02abc6ef02b3ca1dcbf6a4008e7c8",
+    "consumer_version": "0.6.1",
+    "file_count": 2,
+    "identity_sha256": "75e444a35fdfe28fc111b6f0490cb8a0d569d20c1e4b62410174ead2608d86c6",
+    "lock_path": "profiles/predicate-registry/v2.lock.json",
+    "lock_sha256": "3d1f7cdbb423628f3938e5aef299ae09013f56be515ff2155475c5325ffd0110",
+    "network_resolution_allowed": false,
+    "profile": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/",
+    "schema_bytes": 7551,
+    "schema_path": "profiles/predicate-registry/v2/predicate-registry.schema.json",
+    "schema_sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069",
+    "status": "conformant"
+  },
+  "publication_base": "https://chris-page-gov.github.io/okf-LandRegistry/",
   "publication_state": "digest-bound-external-evidence",
+  "python_runtime": {
+    "distribution_identity_sha256": "9f2eafb2fd106c4aabbc5ad30faa6979af340a0f3248abf690827473f1268dd5",
+    "executable_contract": ".venv/bin/python",
+    "gzip_contract": "rfc1952-gzipfile-level9-mtime0-os255-v1",
+    "gzip_golden_sha256": "fb2e18c06e2c0e2ce9b0be33acf9ee67eb49a2a2ecd951d910e9020339754ff3",
+    "implementation": "CPython",
+    "installed_closure_assurance": "exact-site-inventory-record-sha256-size-and-self-record-verified-v1",
+    "installed_record_hashes": "verified",
+    "packages": [
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "cachetools",
+        "version": "7.1.6"
+      },
+      {
+        "name": "frozendict",
+        "version": "2.4.7"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.1"
+      },
+      {
+        "name": "pyld",
+        "version": "2.0.4"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.6.3"
+      },
+      {
+        "name": "ruamel-yaml",
+        "version": "0.19.1"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0"
+      }
+    ],
+    "preimport_assurance": "Python startup and initial module imports precede this in-process observer and build-input capture. Isolated mode, an empty external cache prefix and exact site-packages closure are verified before release work continues, but pre-observer executed source bytes are not independently attested and require the single-writer pre-invocation contract.",
+    "python_path_contract": "stdlib-venv-repository-only",
+    "python_startup_contract": "post-startup-verified-isolated-private-empty-pycache-no-hooks-v1",
+    "python_user_site": "disabled",
+    "requirements_lock_sha256": "3f26cc91d636a51152599718155df21854a4276c9f0cae05758fcbfbb50a28a2",
+    "schema": "okf-python-runtime.v1",
+    "source_execution_assurance": "post-import-capture-single-writer-precondition-no-preobserver-source-byte-attestation-v1",
+    "version": "3.12.11",
+    "virtual_environment_contract": ".venv"
+  },
   "record_count": 2203,
   "release_at": null,
+  "reproduction_invocation": [
+    ".venv/bin/python",
+    "-I",
+    "-B",
+    "-X",
+    "pycache_prefix=<private-empty-directory>",
+    "scripts/build.py",
+    "--snapshot-dir",
+    "source/snapshots/2026-07-29T091915Z",
+    "--publication-base",
+    "https://chris-page-gov.github.io/okf-LandRegistry/",
+    "--replace",
+    "--previous-output",
+    "<owner-selected-empty-same-filesystem-path>"
+  ],
   "schema": "okf-hmlr-build-receipt.v1",
+  "semantic_assertion_validation": {
+    "assertion_identity_set_sha256": "ecdff560d9b8da15f0fdbaae6354aabe0b0d54fd03393217b5ffc942085a9224",
+    "class_closure": {
+      "active_entity_types": 20,
+      "authorised_zero_entity_types": 3,
+      "emitted_class_set_sha256": "2f1b8cca57065817eb437fed452170da0db51ba6a3ac293880b8970c5f634c34",
+      "emitted_classes": 31,
+      "record_entities_validated": 2203,
+      "status": "conformant"
+    },
+    "context_alignment": {
+      "canonical_path": "profiles/bundle-wiki/v1/semantic-context.jsonld",
+      "canonical_sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b",
+      "canonical_terms_checked": 27,
+      "local_path": "source/jsonld-context.json",
+      "local_sha256": "b50175104c49ecde1993bf05db5dfbf26a77e9cb52602e49eee3d02bb9e0db8c",
+      "status": "conformant"
+    },
+    "contract_metrics": {
+      "active_emitted_predicates": 13,
+      "authorised_zero_evidence_predicates": 9,
+      "direct_triples": 22267,
+      "governed_predicates": 13,
+      "predicate_assertions_emitted": 22267,
+      "predicate_capabilities": 22,
+      "reified_assertions": 22267,
+      "relationship_chunks": 90,
+      "relationship_runtime_routes": 6694,
+      "route_bearing_semantic_identities": 10951,
+      "route_locator_buckets": 256,
+      "runtime_rows": 22267
+    },
+    "counts": {
+      "direct_triples_reconciled": 22267,
+      "evidence_resources_validated": 4230,
+      "evidence_rows_validated": 33461,
+      "runtime_rows_mapped_and_validated": 22267,
+      "semantic_assertions_validated": 22267,
+      "validation_failures": 0
+    },
+    "coverage": {
+      "active_emitted_predicates": 13,
+      "assertions_by_predicate": {
+        "http://data.europa.eu/m8g/hasCompetentAuthority": 7,
+        "http://purl.org/dc/terms/conformsTo": 0,
+        "http://purl.org/dc/terms/hasPart": 0,
+        "http://purl.org/dc/terms/isPartOf": 0,
+        "http://purl.org/dc/terms/isVersionOf": 0,
+        "http://purl.org/dc/terms/language": 7,
+        "http://purl.org/dc/terms/publisher": 2247,
+        "http://purl.org/dc/terms/replaces": 0,
+        "http://purl.org/dc/terms/rights": 4412,
+        "http://purl.org/dc/terms/source": 2280,
+        "http://purl.org/dc/terms/spatial": 7,
+        "http://www.w3.org/ns/dcat#accessService": 0,
+        "http://www.w3.org/ns/dcat#dataset": 11,
+        "http://www.w3.org/ns/dcat#distribution": 0,
+        "http://www.w3.org/ns/dcat#record": 2203,
+        "http://www.w3.org/ns/dcat#resource": 2203,
+        "http://www.w3.org/ns/dcat#servesDataset": 0,
+        "http://www.w3.org/ns/prov#wasDerivedFrom": 2280,
+        "http://www.w3.org/ns/prov#wasGeneratedBy": 4406,
+        "http://xmlns.com/foaf/0.1/page": 0,
+        "http://xmlns.com/foaf/0.1/primaryTopic": 2203,
+        "https://schema.org/translationOfWork": 1
+      },
+      "authorised_zero_evidence_predicates": 9,
+      "governed_predicates": 13,
+      "predicate_capabilities": 22,
+      "route_bearing_semantic_identities": 10951
+    },
+    "cpsv_ap": {
+      "bounded_projection_checks": {
+        "administrative_territorial_unit_boundary": "passed-zero-emitted",
+        "competent_authority": "passed",
+        "description": "passed",
+        "identifier": "passed",
+        "name": "passed",
+        "public_organisation_preferred_label": "passed",
+        "public_organisation_spatial_location": "passed-local-subset"
+      },
+      "counts": {
+        "administrative_territorial_units": 0,
+        "competent_authority_assertions": 7,
+        "excluded_service_kind_records": 4,
+        "public_organisations": 1,
+        "public_services": 7,
+        "validation_failures": 0
+      },
+      "endorsement": "No EU, SEMIC or HM Land Registry endorsement is claimed.",
+      "excluded_records": [
+        {
+          "decision": "insufficient-competent-authority-evidence",
+          "evidence_refs": [
+            "CPSV-E-EXC-PRICE-TRENDS"
+          ],
+          "reason": "The frozen result supports a public transaction classification, but its description does not independently establish HM Land Registry's delivery responsibility; publisher attribution alone is insufficient.",
+          "record_id": "hmlr-be49a600be0e62069e499c47",
+          "record_type": "transaction"
+        },
+        {
+          "decision": "not-a-public-service",
+          "evidence_refs": [
+            "CPSV-E-EXC-LINKED-DATA"
+          ],
+          "reason": "This is a data publishing and query service. DCAT DataService remains the primary model and no CPSV PublicService projection is asserted.",
+          "record_id": "hmlr-092793dc48dda497521c1685",
+          "record_type": "linked-data-service"
+        },
+        {
+          "decision": "not-a-public-service",
+          "evidence_refs": [
+            "CPSV-E-EXC-SERVICE-TERMS"
+          ],
+          "reason": "This record describes terms and conditions for a service, not the public service itself.",
+          "record_id": "hmlr-642a752202e2b803c6ab3382",
+          "record_type": "service-terms"
+        },
+        {
+          "decision": "not-a-public-service",
+          "evidence_refs": [
+            "CPSV-E-EXC-NATIONAL-POLYGON"
+          ],
+          "reason": "This is a licensed data access service. DCAT DataService remains the primary model and no CPSV PublicService projection is asserted.",
+          "record_id": "hmlr-c56216cfedae47b9f67a8dc5",
+          "record_type": "licensed-data-service"
+        }
+      ],
+      "mapping": {
+        "candidate_count": 11,
+        "evidence_count": 19,
+        "excluded_count": 4,
+        "mapped_count": 7,
+        "path": "source/cpsv-service-mappings.json",
+        "schema": "okf-hmlr-cpsv-service-mapping-validation.v1",
+        "sha256": "01b4e3f5981cb513ac78acafec31704c9175271f685f6e810e145c52dbecf1bd",
+        "status": "conformant",
+        "type_crosswalk_sha256": "b1d0e9ec400060ed594127a366afd9ee44ed7eb385eac2ed84f6da1652537033"
+      },
+      "mapping_scope": "Selective metadata-level interoperability mapping for genuine HMLR public services; it is not a claim that every bundle entity is a public service or that the bundle is a complete ontology.",
+      "official_profile_boundaries": {
+        "cpsv_ap_shacl_conformance": "not-claimed",
+        "public_organisation_spatial_atu_range": "not-claimed-authorised-zero-evidence"
+      },
+      "official_shacl_execution": {
+        "reason": "The official CPSV-AP 3.2.0 SHACL file is vendored and digest-bound, but this build performs an explicit bounded projection check rather than claiming general SHACL conformance.",
+        "status": "not-run"
+      },
+      "schema": "okf-hmlr-cpsv-ap-projection-validation.v1",
+      "standard": {
+        "name": "Core Public Service Vocabulary Application Profile",
+        "specification": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/",
+        "vendored_identity_sha256": "e16e63d71340ac52515680e2136853b608256b849bde6c1ea0fbb9380ffba6fe",
+        "version": "3.2.0"
+      },
+      "status": "passed"
+    },
+    "evidence_identity_set_sha256": "216d78dc18800377c8b9bcf8b2159a41385d352a1254bd9bf8152f56008698b3",
+    "evidence_resource_identity_set_sha256": "3891f3ac1107628a4c079b649d5c8a407ba983bd95694bddd0b6020f9153bd30",
+    "evidence_row_set_sha256": "54476765c36fc5cb60b0e39430e8638c302096fef780fe9491f42209b009c53d",
+    "parity": {
+      "direct_reified_runtime": true,
+      "identity": true,
+      "routes": true
+    },
+    "profile_validation": {
+      "bundle": "conformant",
+      "class_route_registry": "conformant",
+      "inference": "not-run",
+      "iri_route_registry": "conformant",
+      "predicate_registry_v2": {
+        "consumer_commit_sha": "839d4ba4c2d02abc6ef02b3ca1dcbf6a4008e7c8",
+        "consumer_version": "0.6.1",
+        "file_count": 2,
+        "identity_sha256": "75e444a35fdfe28fc111b6f0490cb8a0d569d20c1e4b62410174ead2608d86c6",
+        "lock_path": "profiles/predicate-registry/v2.lock.json",
+        "lock_sha256": "3d1f7cdbb423628f3938e5aef299ae09013f56be515ff2155475c5325ffd0110",
+        "network_resolution_allowed": false,
+        "profile": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/",
+        "schema_bytes": 7551,
+        "schema_path": "profiles/predicate-registry/v2/predicate-registry.schema.json",
+        "schema_sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069",
+        "status": "conformant"
+      },
+      "semantic_model": "conformant"
+    },
+    "resources": {
+      "canonical_context": {
+        "media_type": "application/ld+json",
+        "path": "data/semantic/semantic-context.jsonld",
+        "sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b"
+      },
+      "class_route_registry": {
+        "media_type": "application/json",
+        "path": "data/semantic/class-route-registry.json",
+        "sha256": "3f220ff422c498f09026af714a5acb10ea0cf730f09c169afd4271f09b387108"
+      },
+      "class_route_registry_schema": {
+        "media_type": "application/schema+json",
+        "path": "data/semantic/schemas/semantic-class-route-registry.schema.json",
+        "sha256": "948520f99fb2751d8b0c0d52f85e8a555ee2dd3a72ef708a20784ec7fa43d209"
+      },
+      "cpsv_ap_context": {
+        "media_type": "application/ld+json",
+        "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap.jsonld",
+        "sha256": "105ae8fcb89a0990d00c7a4f65499e33463e03547d56c603f4135043b6f3a857"
+      },
+      "cpsv_ap_shapes": {
+        "media_type": "text/turtle",
+        "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap-SHACL.ttl",
+        "sha256": "84c51ca629a8e297fe9276669b9702b31d49dd50495ad065872fca8b326fd0bc"
+      },
+      "cpsv_ap_vendor_lock": {
+        "media_type": "application/json",
+        "path": "data/semantic/standards/cpsv-ap/3.2.0.vendor-lock.json",
+        "sha256": "762c1d4fa53ea9790145609d17b15f7b2c5867648f09c5f6cd7724abcba82885"
+      },
+      "cpsv_ap_vocabulary": {
+        "media_type": "text/turtle",
+        "path": "data/semantic/standards/cpsv-ap/3.2.0/cpsv-ap.ttl",
+        "sha256": "f4cbd307f30449a5ebbf507e91b3aa24cf80f9b18c491a44ff04659484e0bc3f"
+      },
+      "cpsv_service_mapping": {
+        "media_type": "application/json",
+        "path": "data/semantic/cpsv-service-mappings.json",
+        "sha256": "01b4e3f5981cb513ac78acafec31704c9175271f685f6e810e145c52dbecf1bd"
+      },
+      "iri_route_registry": {
+        "media_type": "application/json",
+        "path": "data/semantic/iri-route-registry.json",
+        "sha256": "1550455a17c27ccc5d8b39eb77047e2fabf956a4a2e0345bb509328752682e0a"
+      },
+      "predicate_registry": {
+        "media_type": "application/json",
+        "path": "data/semantic/predicate-registry.json",
+        "sha256": "ad66597b1537c92ee43b664ff61974935514c4ba5c899883526488f8805ee5fb"
+      },
+      "predicate_registry_schema": {
+        "media_type": "application/schema+json",
+        "path": "data/semantic/schemas/predicate-registry.v2.schema.json",
+        "sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069"
+      },
+      "profile_shapes": {
+        "media_type": "text/turtle",
+        "path": "data/semantic/profile-shapes.ttl",
+        "sha256": "bffe0611abae937683d30e7ecb76d81b6b49c20cc87a70e709f83aa6569b074c"
+      },
+      "runtime_row_schema": {
+        "media_type": "application/schema+json",
+        "path": "data/semantic/relationship-runtime-row.schema.json",
+        "sha256": "cffb0b01077d210cd1e34140f6feb5c5835f9d1952804759ad3432294a96f3d4"
+      },
+      "semantic_model": {
+        "media_type": "application/json",
+        "path": "data/semantic/model.json",
+        "sha256": "c0efb7025843316deec671072f240df6ef53ce8fe2465aa808f458e64f71b9a5"
+      }
+    },
+    "rich_relationship_runtime": {
+      "assertion_identity_set_sha256": "ecdff560d9b8da15f0fdbaae6354aabe0b0d54fd03393217b5ffc942085a9224",
+      "buckets": 256,
+      "chunks": 90,
+      "consumer_limits": {
+        "cache_policy": {
+          "interpretation": "consumer eviction ceiling, not a producer route-chunk ceiling",
+          "maximum_cached_chunks": 16
+        },
+        "consumer": {
+          "commit_sha": "839d4ba4c2d02abc6ef02b3ca1dcbf6a4008e7c8",
+          "large_corpus_source_sha256": "a48f4bcb83ff80f7af42b1bc0247bfbca085976348a64d00833b00266b3adf65",
+          "version": "0.6.1"
+        },
+        "limits": {
+          "maximum_json_bytes": 67108864,
+          "maximum_relationship_rows": 300000,
+          "maximum_rich_relationship_cached_chunks": 16,
+          "maximum_rich_relationship_chunk_bytes": 8388608,
+          "maximum_rich_relationship_chunk_rows": 50000,
+          "maximum_rich_relationship_chunks": 10000,
+          "maximum_rich_relationship_decoded_chunk_bytes": 67108864,
+          "maximum_rich_relationship_evidence_items": 16,
+          "maximum_rich_relationship_hydration_compressed_bytes": 67108864,
+          "maximum_rich_relationship_planes": 16,
+          "maximum_rich_relationship_retained_text_units": 33554432,
+          "maximum_rich_relationship_route_chunks": 64,
+          "maximum_rich_relationship_route_rows": 100000,
+          "maximum_rich_relationship_row_text_units": 32768,
+          "maximum_rich_relationship_supporting_assertions": 128
+        },
+        "maxima": {
+          "chunk_compressed_bytes": 55847,
+          "chunk_decoded_bytes": 662350,
+          "chunk_retained_text_units": 489894,
+          "chunk_rows": 250,
+          "full_hydration_chunks": 90,
+          "full_hydration_compressed_bytes": 3902514,
+          "full_hydration_declared_rows": 22267,
+          "full_hydration_retained_text_units": 33231836,
+          "locator_bucket_compressed_bytes": 3479,
+          "locator_bucket_decoded_bytes": 29077,
+          "locator_manifest_bytes": 75758,
+          "route_chunks": 19,
+          "route_compressed_bytes": 881323,
+          "route_declared_rows": 4750,
+          "route_incident_rows": 4417,
+          "route_retained_text_units": 7765496,
+          "row_evidence_items": 4,
+          "row_retained_text_units": 2533,
+          "row_supporting_assertions": 0,
+          "runtime_manifest_bytes": 42801,
+          "total_chunks": 90,
+          "total_planes": 1,
+          "total_rows": 22267
+        },
+        "status": "passed"
+      },
+      "default_planes": [
+        "core"
+      ],
+      "routes": 6694,
+      "rows": 22267,
+      "source_preflight": {
+        "locked_maximum_retained_text_units": 33554432,
+        "maximum_row_retained_text_units": 2533,
+        "remaining_retained_text_units": 322596,
+        "retained_text_units": 33231836,
+        "rows": 22267,
+        "schema": "okf-hmlr-rich-runtime-source-preflight.v1"
+      },
+      "status": "passed"
+    },
+    "schema": "okf-hmlr-semantic-assertion-validation.v1",
+    "schema_binding": {
+      "bundle_path": "data/semantic/semantic-assertion.schema.json",
+      "bytes": 7308,
+      "draft": "https://json-schema.org/draft/2020-12/schema",
+      "id": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json",
+      "network_resolution_allowed": false,
+      "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc",
+      "source_path": "schemas/semantic-assertion.schema.json"
+    },
+    "status": "conformant",
+    "triple_set_sha256": "54fee4e35ecd377cbd588d121f5aa48922858e56e2b36eeb599cad2b3ede77d3"
+  },
   "snapshot": {
     "acquisition_snapshot": {
       "files": [
@@ -443,5 +1027,6 @@
     "snapshot_id": "hmlr-public-metadata-v0.2.0",
     "source_manifest_sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
   },
-  "status": "ai-generated-proof-of-concept"
+  "status": "ai-generated-proof-of-concept",
+  "version": "0.3.0"
 }

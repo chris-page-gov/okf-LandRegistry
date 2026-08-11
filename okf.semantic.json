@@ -1,0 +1,404 @@
+{
+  "okf_core": {
+    "specification": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/3fcbb9f828c2f23d109c855ee403c3a4c81f3a96/okf/SPEC.md",
+    "status": "conformant",
+    "version": "0.2"
+  },
+  "reader": {
+    "consumer": "https://chris-page-gov.github.io/okf-explorer/",
+    "contract_lock": {
+      "compatibility_policy": "exact-version-only",
+      "path": "contracts/okf-explorer.consumer-lock.json",
+      "predicate_registry_profile_files": 2,
+      "semantic_profile_files": 16,
+      "version": "0.6.1"
+    },
+    "delivery": "json-large-corpus-adjacency",
+    "runtime_projection": {
+      "authority": "bounded-browser-projection",
+      "complete_evidence_sources": [
+        "bundle/okf-bundle.yamlld",
+        "bundle/okf-bundle.jsonld"
+      ],
+      "evidence_core_fields": [
+        "@id",
+        "type",
+        "url",
+        "source_field",
+        "source_value_sha256",
+        "retrieved_at"
+      ],
+      "limit_validation": "bundle/data/semantic/validation.json",
+      "validated_loading_paths": [
+        "full-default-plane-hydration",
+        "every-relationship-runtime-locator-route-hydration"
+      ]
+    },
+    "preserves": [
+      "direction",
+      "semantic-identities",
+      "local-routes",
+      "predicate",
+      "relationship-kind",
+      "preferred-and-inverse-labels",
+      "assertion-status-and-scope",
+      "authority",
+      "derivation",
+      "supporting-assertions",
+      "confidence",
+      "review-status",
+      "evidence",
+      "rights",
+      "freshness",
+      "lifecycle"
+    ]
+  },
+  "relationship_contract": {
+    "authoring": "generated-yaml-ld-assertion-graph",
+    "direct_triple_policy": "generated-from-one-assertion-source",
+    "predicate_policy": "absolute-iri",
+    "required_fields": [
+      "id",
+      "source",
+      "target",
+      "source_iri",
+      "target_iri",
+      "predicate",
+      "kind",
+      "label",
+      "inverse_label",
+      "assertion_status",
+      "assertion_scope",
+      "authority",
+      "derivation",
+      "observed_at",
+      "evidence",
+      "rights"
+    ],
+    "schema": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json",
+    "schema_binding": {
+      "bytes": 7308,
+      "draft": "https://json-schema.org/draft/2020-12/schema",
+      "local_path": "schemas/semantic-assertion.schema.json",
+      "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc"
+    }
+  },
+  "repository": {
+    "name": "okf-LandRegistry",
+    "role": "large-corpus-producer",
+    "root_index": "bundle/index.md"
+  },
+  "schema": "okf-repository-semantic-contract.v1",
+  "semantic_layer": {
+    "authoritative_inputs": [
+      "source/",
+      "domain-profile/",
+      "governance/",
+      "profiles/bundle-wiki/v1/",
+      "profiles/bundle-wiki/v1.vendor-lock.json",
+      "profiles/predicate-registry/v2/",
+      "profiles/predicate-registry/v2.lock.json",
+      "schemas/",
+      "standards/"
+    ],
+    "authoritative_input_roles": {
+      "content_evidence_and_governance": [
+        "source/",
+        "domain-profile/",
+        "governance/"
+      ],
+      "profile_schema_and_standard_locks": [
+        "profiles/bundle-wiki/v1/",
+        "profiles/bundle-wiki/v1.vendor-lock.json",
+        "profiles/predicate-registry/v2/",
+        "profiles/predicate-registry/v2.lock.json",
+        "schemas/",
+        "standards/"
+      ],
+      "trusted_generators_not_semantic_authority": [
+        "scripts/"
+      ]
+    },
+    "candidate_assurance": {
+      "authority": "version-scoped-digest-bound-external-evidence",
+      "byte_state_scope": "approval-neutral-baseline-not-current-release-state",
+      "independent_review": {
+        "findings": [
+          "source-field-evidence",
+          "cpsv-adversarial-binding",
+          "url-hardening"
+        ],
+        "priority": "P1",
+        "status": "implemented-regression-tested-exact-gate-state-external"
+      },
+      "land_registry_g9": "not-run",
+      "release_approval": "not-granted",
+      "release_gates": {
+        "G1": "not-run",
+        "G2": "not-run",
+        "G3": "not-run",
+        "G4": "not-run",
+        "G5": "not-run",
+        "G6": "not-run",
+        "G7": "not-run",
+        "G8": "not-run",
+        "G9": "not-run"
+      },
+      "release_ready": false,
+      "status": "approval-neutral-candidate",
+      "version": "0.3.0"
+    },
+    "candidate_metrics": {
+      "active_emitted_predicates": 13,
+      "authorised_zero_evidence_predicates": 9,
+      "direct_triples": 22267,
+      "governed_predicates": 13,
+      "predicate_assertions_emitted": 22267,
+      "predicate_capabilities": 22,
+      "reified_assertions": 22267,
+      "relationship_chunks": 90,
+      "relationship_runtime_routes": 6694,
+      "route_bearing_semantic_identities": 10951,
+      "route_locator_buckets": 256,
+      "runtime_rows": 22267
+    },
+    "class_route_registry": {
+      "authority": "derived-delivery-index-only",
+      "generated_path": "bundle/data/semantic/class-route-registry.json",
+      "prohibited_claims": [
+        "ontology-authority",
+        "source-of-class-membership",
+        "semantic-inference",
+        "pinned-explorer-v0.6.1-pwa-presentation"
+      ],
+      "schema_path": "schemas/semantic-class-route-registry.schema.json",
+      "source_roots": {
+        "iri_route_registry_root_sha256": "digest-bound IRI-to-route registry root_sha256",
+        "semantic_graph_sha256": "canonical semantic graph digest containing authoritative rdf:type facts"
+      }
+    },
+    "context_policy": "pinned-local-contexts-no-browser-remote-expansion",
+    "cpsv_ap": {
+      "mapping": {
+        "candidates": 11,
+        "evidence_references": 19,
+        "excluded": 4,
+        "mapped": 7,
+        "path": "source/cpsv-service-mappings.json"
+      },
+      "official_shacl": "not-run",
+      "vendor_lock": "standards/cpsv-ap/3.2.0.vendor-lock.json",
+      "version": "3.2.0"
+    },
+    "generated_output_scope": {
+      "authority": "projection-only",
+      "hand_edit_policy": "never-hand-edit-generated-output",
+      "root": "bundle/"
+    },
+    "identity_policy": "absolute-semantic-iri-plus-validated-local-route",
+    "inference": "not-run",
+    "limitations": [
+      "The semantic projection remains metadata-only and carries no property-level records; candidate bytes do not confer publication authority, which belongs only to exact-digest release assurance and owner approval.",
+      "The candidate-byte assurance fields are approval-neutral baselines, not current release state; version-scoped, digest-bound external evidence is authoritative without weakening any gate.",
+      "The P1 source-field evidence, CPSV adversarial-binding and URL-hardening corrections identified by independent review are implemented and locally regression-tested; exact-candidate independent acceptance and release readiness can be recorded only in external evidence.",
+      "The exact Explorer v0.6.1 consumer contract and local Predicate Registry v2 profile extension are pinned. The producer publishes all 22 Stage 1 capabilities with evidence-derived implementation state: 13 active-emitted and nine authorised-zero-evidence. These zero-evidence rows are capability declarations only; this producer does not claim that the pinned Explorer v0.6.1 PWA presents them in its interface.",
+      "The class-to-route registry is a deterministic delivery index derived from authoritative rdf:type facts and the digest-bound IRI-to-route registry; it is not ontology authority, a source of class membership, semantic inference or a claim of pinned Explorer v0.6.1 PWA presentation.",
+      "CPSV-AP 3.2.0 is vendored, but its official SHACL shapes have not been run; semantic inference has not been run."
+    ],
+    "outputs": [
+      {
+        "generated": true,
+        "path": "bundle/okf-bundle.jsonld",
+        "required": true,
+        "role": "semantic-json-ld"
+      },
+      {
+        "generated": true,
+        "path": "bundle/okf-bundle.yamlld",
+        "required": true,
+        "role": "semantic-yaml-ld"
+      },
+      {
+        "generated": true,
+        "path": "bundle/okf-explorer.json",
+        "required": true,
+        "role": "explorer-runtime"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/adjacency/manifest.json",
+        "required": true,
+        "role": "relationship-route-locator"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/adjacency/*.json",
+        "required": true,
+        "role": "relationship-route-buckets"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/relationships-*.json",
+        "required": true,
+        "role": "relationship-runtime"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/search/entities.json",
+        "required": true,
+        "role": "search-entity-registry"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/class-route-registry.json",
+        "required": true,
+        "role": "class-route-registry"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/model.json",
+        "required": true,
+        "role": "semantic-model"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/schemas/semantic-class-route-registry.schema.json",
+        "required": true,
+        "role": "class-route-registry-schema"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/semantic-assertion.schema.json",
+        "required": true,
+        "role": "relationship-schema"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/iri-route-registry.json",
+        "required": true,
+        "role": "iri-route-registry"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/predicate-registry.json",
+        "required": true,
+        "role": "predicate-registry-v2"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/schemas/predicate-registry.v2.schema.json",
+        "required": true,
+        "role": "predicate-registry-v2-schema"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/standards/",
+        "required": true,
+        "role": "vendored-standard-projection"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/validation.json",
+        "required": true,
+        "role": "semantic-validation"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/runtime-manifest.json",
+        "required": true,
+        "role": "rich-relationship-runtime-manifest"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/runtime/core/*.json.gz",
+        "required": true,
+        "role": "rich-relationship-runtime-chunks"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/runtime/route-locator/",
+        "required": true,
+        "role": "rich-relationship-route-locator"
+      }
+    ],
+    "predicate_registry_extension": {
+      "authoritative_stage1_counts": {
+        "active_emitted": 13,
+        "authorised_zero_evidence": 9,
+        "predicates": 22
+      },
+      "compatibility": "separate-full-v2-schema-alongside-v1",
+      "current_delivery": "v2-all-authorised-capabilities",
+      "consumer_lock": {
+        "path": "contracts/okf-explorer.consumer-lock.json",
+        "required_projection_schema": "okf-predicate-registry.v2",
+        "supported_registry_schemas": [
+          "okf-predicate-registry.v1",
+          "okf-predicate-registry.v2"
+        ],
+        "version": "0.6.1"
+      },
+      "external_resource": {
+        "media_type": "application/json",
+        "path": "bundle/data/semantic/predicate-registry.json",
+        "reference_fields": [
+          "path",
+          "sha256",
+          "media_type"
+        ],
+        "schema_path": "bundle/data/semantic/schemas/predicate-registry.v2.schema.json"
+      },
+      "implementation_counts": {
+        "active_emitted": 13,
+        "assertions_emitted": 22267,
+        "authorised_zero_evidence": 9,
+        "predicates": 22
+      },
+      "local_profile_lock": {
+        "file_count": 2,
+        "identity_sha256": "75e444a35fdfe28fc111b6f0490cb8a0d569d20c1e4b62410174ead2608d86c6",
+        "lock_bytes": 744,
+        "lock_path": "profiles/predicate-registry/v2.lock.json",
+        "lock_sha256": "3d1f7cdbb423628f3938e5aef299ae09013f56be515ff2155475c5325ffd0110",
+        "network_resolution_allowed": false,
+        "profile": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/",
+        "schema_bytes": 7551,
+        "schema_path": "profiles/predicate-registry/v2/predicate-registry.schema.json",
+        "schema_sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069"
+      },
+      "required_consumer": "okf-explorer-v0.6.1",
+      "required_schema": "okf-predicate-registry.v2",
+      "root_sha256_binding": {
+        "canonical_material": [
+          "schema",
+          "profile",
+          "snapshot",
+          "generated_at",
+          "predicates",
+          "counts"
+        ],
+        "excluded_field": "root_sha256"
+      },
+      "reader_presentation": "The registry is integrity-bound Reader input; no claim is made that the pinned Explorer v0.6.1 PWA displays authorised-zero-evidence capability rows.",
+      "safety_policy": "Authorised-zero-evidence rows declare capability only and never imply or generate assertions.",
+      "status": "implemented"
+    },
+    "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+    "serialisation_policy": "canonical-yaml-ld-equivalent-json-ld",
+    "state": "generated-yaml-ld-graph-candidate"
+  },
+  "tooling": {
+    "build": [
+      ".venv/bin/python -I -B -X \"pycache_prefix=${OKF_BUILD_RUNTIME_CACHE:?set an absolute empty external build-cache path}\" scripts/build.py --snapshot-dir source/snapshots/2026-07-29T091915Z --publication-base https://chris-page-gov.github.io/okf-LandRegistry/ --replace --previous-output \"${OKF_PREVIOUS_OUTPUT:?set an absolute absent same-filesystem path outside the repository}\""
+    ],
+    "check": [
+      ".venv/bin/python -B scripts/check_okf.py",
+      ".venv/bin/python -E -s -B -X \"pycache_prefix=${OKF_TEST_RUNTIME_CACHE:?set a fresh absolute empty external test-cache path}\" -m unittest tests.test_build_semantics tests.test_explorer_contract tests.test_jsonld tests.test_okf -v"
+    ],
+    "setup": [
+      "\"${OKF_BASE_PYTHON:?set the absolute CPython 3.12.11 executable}\" -I -B -c \"import platform, sys; assert platform.python_implementation() == 'CPython' and sys.version_info[:3] == (3, 12, 11)\"",
+      "\"${OKF_BASE_PYTHON:?set the absolute CPython 3.12.11 executable}\" -I -B -m venv --without-pip .venv",
+      "\"${OKF_BASE_PYTHON:?set the absolute CPython 3.12.11 executable}\" -I -B -m pip --python .venv install --no-compile --require-hashes --requirement requirements-lock.txt"
+    ]
+  }
+}

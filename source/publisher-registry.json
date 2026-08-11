@@ -1,58 +1,143 @@
 {
   "schema": "okf-hmlr-publisher-registry.v1",
   "version": "0.2.0",
+  "observed_at": "2026-07-29T09:19:15Z",
+  "reviewed_at": "2026-08-11T06:33:47Z",
   "publishers": [
     {
+      "name": "Cabinet Office",
+      "id": "https://www.gov.uk/government/organisations/cabinet-office",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
       "name": "Central Digital and Data Office",
-      "id": "https://www.gov.uk/government/organisations/central-digital-and-data-office"
+      "id": "https://www.gov.uk/government/organisations/central-digital-and-data-office",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Companies House",
+      "id": "https://www.gov.uk/government/organisations/companies-house",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Department for Business and Trade",
-      "id": "https://www.gov.uk/government/organisations/department-for-business-and-trade"
+      "id": "https://www.gov.uk/government/organisations/department-for-business-and-trade",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Department for Business, Energy & Industrial Strategy",
-      "id": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy"
+      "id": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Department for Business, Innovation & Skills",
-      "id": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills"
+      "id": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Department for Environment, Food & Rural Affairs",
+      "id": "https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Department for Transport",
-      "id": "https://www.gov.uk/government/organisations/department-for-transport"
+      "id": "https://www.gov.uk/government/organisations/department-for-transport",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Department of Energy & Climate Change",
+      "id": "https://www.gov.uk/government/organisations/department-of-energy-climate-change",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Government Digital Service and contributing publishers",
-      "id": "https://www.data.gov.uk/"
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/agent/government-digital-service-and-contributing-publishers",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent"]
+    },
+    {
+      "name": "High Speed Two (HS2) Limited",
+      "id": "https://www.gov.uk/government/organisations/high-speed-two-limited",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Highways Agency",
+      "id": "https://www.gov.uk/government/organisations/highways-agency",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "HM Courts & Tribunals Service",
-      "id": "https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service"
+      "id": "https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "HM Land Registry",
-      "id": "https://www.gov.uk/government/organisations/land-registry"
+      "id": "https://www.gov.uk/government/organisations/land-registry",
+      "class_iris": ["http://data.europa.eu/m8g/PublicOrganisation", "http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "HM Land Registry and UK House Price Index partners",
-      "id": "https://www.gov.uk/government/collections/uk-house-price-index-reports"
+      "id": "https://chris-page-gov.github.io/okf-LandRegistry/id/agent/hm-land-registry-and-uk-house-price-index-partners",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent"]
+    },
+    {
+      "name": "HM Revenue & Customs",
+      "id": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "HM Treasury",
+      "id": "https://www.gov.uk/government/organisations/hm-treasury",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Homes and Communities Agency",
+      "id": "https://www.gov.uk/government/organisations/homes-and-communities-agency",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Infrastructure and Projects Authority",
+      "id": "https://www.gov.uk/government/organisations/infrastructure-and-projects-authority",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Land Registers of Northern Ireland",
+      "id": "https://www.gov.uk/government/organisations/land-registers-of-northern-ireland",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Ministry of Housing, Communities and Local Government",
-      "id": "https://www.gov.uk/government/organisations/ministry-of-housing-communities-local-government"
+      "id": "https://www.gov.uk/government/organisations/ministry-of-housing-communities-local-government",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "Ministry of Housing, Communities & Local Government (2018 to 2021)",
+      "id": "https://www.gov.uk/government/organisations/ministry-of-housing-communities-and-local-government-2018-2021",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Office for National Statistics",
-      "id": "https://www.gov.uk/government/organisations/office-for-national-statistics"
+      "id": "https://www.gov.uk/government/organisations/office-for-national-statistics",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "Prime Minister's Office, 10 Downing Street",
-      "id": "https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street"
+      "id": "https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     },
     {
       "name": "The National Archives",
-      "id": "https://www.gov.uk/government/organisations/the-national-archives"
+      "id": "https://www.gov.uk/government/organisations/the-national-archives",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "The Shareholder Executive",
+      "id": "https://www.gov.uk/government/organisations/the-shareholder-executive",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
+    },
+    {
+      "name": "UK Government Investments",
+      "id": "https://www.gov.uk/government/organisations/uk-government-investments",
+      "class_iris": ["http://purl.org/dc/terms/Agent", "http://www.w3.org/ns/prov#Agent", "http://xmlns.com/foaf/0.1/Agent", "https://schema.org/Organization"]
     }
   ]
 }

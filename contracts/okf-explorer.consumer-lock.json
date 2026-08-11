@@ -1,16 +1,23 @@
 {
   "schema": "okf-explorer-consumer-lock.v1",
-  "locked_at": "2026-07-29",
+  "locked_at": "2026-08-11",
   "consumer": {
     "name": "@okf/explorer",
     "repository": "https://github.com/chris-page-gov/okf-explorer",
-    "release_tag": "v0.5.7",
-    "version": "0.5.7",
-    "commit_sha": "afd940b6de2d09809ae94dfc77c128936ac7928a",
+    "release_tag": "v0.6.1",
+    "version": "0.6.1",
+    "commit_sha": "839d4ba4c2d02abc6ef02b3ca1dcbf6a4008e7c8",
+    "annotated_tag_object_sha": "b5918192b1e3969ca2b069a4d56b3d26884ea96c",
+    "immutable_release": {
+      "id": 368556872,
+      "immutable": true,
+      "published_at": "2026-08-11T12:34:04Z",
+      "url": "https://github.com/chris-page-gov/okf-explorer/releases/tag/v0.6.1"
+    },
     "contract_sources": [
       {
         "path": "apps/okf-explorer/src/lib/types.ts",
-        "sha256": "64b5a9ca631bf32aa667252fb6787aad3820ac1f0f91dbf10516f35cb994a208"
+        "sha256": "c93fa0e5ce95a71f8f1a3e8cc27f9308e8c23798f3208613aae683617dd9be03"
       },
       {
         "path": "apps/okf-explorer/src/lib/sources/descriptor.ts",
@@ -18,11 +25,15 @@
       },
       {
         "path": "apps/okf-explorer/src/lib/sources/fetch.ts",
-        "sha256": "6f81f92b41443c1474cd1d531b6f9ff126f23863ed36a998185fe68f1463077a"
+        "sha256": "f219ecfa0ce9aa3e49fb31adf5b7ee05813d015875316449fe77469d7d3971c4"
       },
       {
         "path": "apps/okf-explorer/src/lib/sources/largeCorpus.ts",
-        "sha256": "454d251e87fd586eee428fc2e71f24bb5bdb7dd0c178fedc50e9fb9ab8a7b1b6"
+        "sha256": "a48f4bcb83ff80f7af42b1bc0247bfbca085976348a64d00833b00266b3adf65"
+      },
+      {
+        "path": "apps/okf-explorer/src/lib/sources/richRelationshipRuntime.test.ts",
+        "sha256": "6f1c05df9e3dcc03de936ac81318730d9270bd601b2f4737e96b570d26d3b0be"
       },
       {
         "path": "apps/okf-explorer/src/lib/sources/releaseDataPlane.ts",
@@ -30,46 +41,168 @@
       },
       {
         "path": "apps/okf-explorer/src/lib/search/largeSearchContract.ts",
-        "sha256": "943f467653029e1d84c75dd24ce62e8b882184c025400fb5eed30e7362b37ee7"
+        "sha256": "9546ee4e884ee129bd50c757ddaf7035bd3c341dce9bc2ecc719d1c7cdd6056f"
       },
       {
         "path": "apps/okf-explorer/src/workers/largeSearch.worker.ts",
-        "sha256": "211863343a95224998af38c2df9a63cfb5b66e3a3b5d558e0ee8ea856ee353b2"
+        "sha256": "bf28c7c2403697b415f2958cfd0b3c468bd9f88e13fee4ec253b860db89cd354"
       },
       {
         "path": "apps/okf-explorer/src/routes/+page.svelte",
-        "sha256": "e7307762510d639b9e25401caa95639ea41f0d713dc2b8ee9c2b6cb56d0a088a"
+        "sha256": "b7cc473b790e3cba331df3ab048ac5c0c4b77b78cec08b8d5f0c67427436751e"
+      },
+      {
+        "path": "apps/okf-explorer/scripts/acceptance_invocation_lock.mjs",
+        "sha256": "1f4741365c3a61c4d11f0e3844aff05bdc8aa3e9e71ff0b426667abe6050e4e7"
+      },
+      {
+        "path": "apps/okf-explorer/scripts/app_build_manifest.mjs",
+        "sha256": "6750dfe9ab09eeea945525473c9919e4d308e7f9a87f748244cbcd13e8b1d867"
+      },
+      {
+        "path": "apps/okf-explorer/scripts/check_deterministic_build.mjs",
+        "sha256": "a4ee3e440aef1732da4e8b2de277c4cfe11573e4f35d16cb4c4348e84a6ff3e6"
       },
       {
         "path": "apps/okf-explorer/scripts/external_bundle_acceptance_contract.mjs",
-        "sha256": "c5c60f45890ff29f9b28cd2bf94912d873ddc39dc5a1c5530be68248e1a9396d"
+        "sha256": "2dbb32b1f6c4c354ef0cdf2056e2cd20c5c1ad2912563b5aa27013f3ffbb2a71"
+      },
+      {
+        "path": "apps/okf-explorer/scripts/run_acceptance_invocation.mjs",
+        "sha256": "95b2d3287f16698f221221b615392421b5654c17c98b909b205727dfa55c3772"
       },
       {
         "path": "apps/okf-explorer/scripts/run_external_bundle_acceptance.mjs",
-        "sha256": "dbfd6a1a4c004c5c76be4a40b2b5cf2033bd54f519d4727cd0207388b5ece24b"
+        "sha256": "0f64fc980b5a957ced3ef834719609b61ad6dbdf950fcd893e2a09e9a64aa680"
       },
       {
         "path": "apps/okf-explorer/package.json",
-        "sha256": "73b9c6a227ce3f34ae7d7133f1b3e86b1caa8753dd00b0c4f2e6350a03e37d9f"
+        "sha256": "5a68b8a88ee5e82f2f791e90d63e75e12b4f69809b01a073616bf23a50e99f44"
       },
       {
         "path": "apps/okf-explorer/pnpm-lock.yaml",
-        "sha256": "25eb2cd4f1dd2f93ce89e3884e3d9293d490371bd55d4469bba0263ee083ffc1"
+        "sha256": "4df7e53d145313415100e2b1f193da26bd09092555d7b057ce66d3db4e266baa"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/bundle.schema.json",
+        "sha256": "34cc6181bbdcbdc5a2b98aa3fd6f93dee9af525d2c6623383954b4ec2d644221"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/iri-route-registry.schema.json",
+        "sha256": "a5ac291743eb40c1ee5a756adcce1a6273e1d976de92b5d4b2fbee18cf161836"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/predicate-registry.schema.json",
+        "sha256": "dfd674cd7a773af8681a28b9ac6cafbd335b7ea46c1252a527847796036c39d6"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/semantic-assertion.schema.json",
+        "sha256": "f69480328db4b64d678d9c50b6534d808000f7fb50a30e8cc9e3bf2facbcb8bc"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/semantic-context.jsonld",
+        "sha256": "4529e4ffe6acc53bff2746282525ef20eebfddbd205172d8a2a5f398fc1cc25b"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/semantic-model.schema.json",
+        "sha256": "caef744be9ca38486e8b4dc27a7393e4fdec11683cbac7124bc62d9553d2c45e"
+      },
+      {
+        "path": "profiles/bundle-wiki/v1/shapes.ttl",
+        "sha256": "bffe0611abae937683d30e7ecb76d81b6b49c20cc87a70e709f83aa6569b074c"
       }
     ],
+    "acceptance_executable_materials": {
+      "runner": {
+        "path": "apps/okf-explorer/scripts/run_external_bundle_acceptance.mjs",
+        "bytes": 42239,
+        "sha256": "0f64fc980b5a957ced3ef834719609b61ad6dbdf950fcd893e2a09e9a64aa680"
+      },
+      "wrapper": {
+        "path": "apps/okf-explorer/scripts/run_acceptance_invocation.mjs",
+        "bytes": 2489,
+        "sha256": "95b2d3287f16698f221221b615392421b5654c17c98b909b205727dfa55c3772"
+      },
+      "invocation_lock_module": {
+        "path": "apps/okf-explorer/scripts/acceptance_invocation_lock.mjs",
+        "bytes": 30724,
+        "sha256": "1f4741365c3a61c4d11f0e3844aff05bdc8aa3e9e71ff0b426667abe6050e4e7"
+      },
+      "contract_module": {
+        "path": "apps/okf-explorer/scripts/external_bundle_acceptance_contract.mjs",
+        "bytes": 17538,
+        "sha256": "2dbb32b1f6c4c354ef0cdf2056e2cd20c5c1ad2912563b5aa27013f3ffbb2a71"
+      },
+      "app_build_manifest_module": {
+        "path": "apps/okf-explorer/scripts/app_build_manifest.mjs",
+        "bytes": 22932,
+        "sha256": "6750dfe9ab09eeea945525473c9919e4d308e7f9a87f748244cbcd13e8b1d867"
+      },
+      "deterministic_build_script": {
+        "path": "apps/okf-explorer/scripts/check_deterministic_build.mjs",
+        "bytes": 3309,
+        "sha256": "a4ee3e440aef1732da4e8b2de277c4cfe11573e4f35d16cb4c4348e84a6ff3e6"
+      }
+    },
     "executable_build": {
       "algorithm": "sha256-canonical-json-materials-v1",
       "files": 16,
-      "tree_sha256": "fc11e903cb4eb59f7a1f51aee50478f5ddb024fcc2156b088984b02897e68275",
-      "build_manifest_sha256": "a6c5b5872cccab4eddf948226385ebe8acad19a6df336d1626cb4e5a426ad7ff",
-      "index_sha256": "e799a2fdae65cf423682a5d2694a7c3f1d6a404249df0d379fd50820b26f0fc3"
+      "tree_sha256": "8f73184a1021f5c5654d81d0804cfafd57b35ab761979c75d9c19dce58389fa1",
+      "build_manifest_sha256": "a479394534288239b98fd64423cc20a146828aeccd3284ab84984f15c57b91c7",
+      "index_sha256": "8e8c95219e4d68c6dce1f384031e044fccbda9a0851f75a1d6e7c1fcc3b8e039"
+    },
+    "semantic_profile": {
+      "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+      "source_release": {
+        "repository": "https://github.com/chris-page-gov/okf-explorer",
+        "version": "0.6.0",
+        "tag": "v0.6.0",
+        "tag_object": "d256a74419c2593c2bf2f3f5749c606fad5daf9d",
+        "commit": "4bb7b92a64b7ba69bde9b1e86786217338cd166d",
+        "git_tree": "d26ae9a818041ff74c469e653ec714632ddbfc2a"
+      },
+      "git_tree": "d26ae9a818041ff74c469e653ec714632ddbfc2a",
+      "files": 16,
+      "local_vendor_lock": "profiles/bundle-wiki/v1.vendor-lock.json",
+      "local_vendor_lock_sha256": "979af714974abb093ac9d4b1b7e289597c61d33c24bb6959d9914c2f74dc6a09",
+      "aggregate_identity_sha256": "854d1853b71ec8bda3424924f0f0985fe24aa7bca4c180d15f359fe259ef4c7e"
+    },
+    "predicate_registry": {
+      "supported_schemas": [
+        "okf-predicate-registry.v1",
+        "okf-predicate-registry.v2"
+      ],
+      "required_projection_schema": "okf-predicate-registry.v2",
+      "profile": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/",
+      "source_release": {
+        "repository": "https://github.com/chris-page-gov/okf-explorer",
+        "version": "0.6.1",
+        "tag": "v0.6.1",
+        "annotated_tag_object_sha": "b5918192b1e3969ca2b069a4d56b3d26884ea96c",
+        "commit_sha": "839d4ba4c2d02abc6ef02b3ca1dcbf6a4008e7c8",
+        "immutable_release_id": 368556872,
+        "published_at": "2026-08-11T12:34:04Z"
+      },
+      "profile_lock": {
+        "url": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2.lock.json",
+        "local_path": "profiles/predicate-registry/v2.lock.json",
+        "bytes": 744,
+        "sha256": "3d1f7cdbb423628f3938e5aef299ae09013f56be515ff2155475c5325ffd0110",
+        "identity_sha256": "75e444a35fdfe28fc111b6f0490cb8a0d569d20c1e4b62410174ead2608d86c6"
+      },
+      "schema": {
+        "url": "https://chris-page-gov.github.io/okf-explorer/profile/predicate-registry/v2/predicate-registry.schema.json",
+        "local_path": "profiles/predicate-registry/v2/predicate-registry.schema.json",
+        "bytes": 7551,
+        "sha256": "037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069"
+      }
     }
   },
   "compatibility_window": {
     "policy": "exact-version-only",
-    "minimum_version": "0.5.7",
-    "maximum_version": "0.5.7",
-    "rationale": "The v0.2.0 proof of concept is certified only against the exact executable Explorer identity recorded in this lock. Widening the window requires the same fixture and full-candidate browser journeys against every newly admitted consumer version."
+    "minimum_version": "0.6.1",
+    "maximum_version": "0.6.1",
+    "rationale": "The v0.3.0 semantic-model candidate is tested only against the exact executable Explorer identity recorded in this lock. Widening the window requires the same fixture and full-candidate browser journeys against every newly admitted consumer version."
   },
   "descriptor": {
     "schema": "okf-explorer-large-corpus.v1",
@@ -88,7 +221,8 @@
       "data_manifest",
       "overview_index",
       "record_locator",
-      "search_manifest"
+      "search_manifest",
+      "relationship_runtime"
     ],
     "separate_non_runtime_entrypoints": [
       "inventory_manifest"
@@ -111,7 +245,8 @@
       "overview",
       "facets",
       "record_locator",
-      "search"
+      "search",
+      "relationship_runtime"
     ],
     "required_chunk_kinds": [
       "datasets",
@@ -280,8 +415,15 @@
       "target",
       "kind",
       "predicate",
+      "source_iri",
+      "target_iri",
+      "label",
+      "inverse_label",
+      "assertion_status",
+      "assertion_scope",
       "authority",
       "derivation",
+      "observed_at",
       "evidence",
       "rights"
     ],
@@ -299,12 +441,39 @@
       ]
     }
   },
+  "rich_relationship_runtime": {
+    "manifest_schema": "okf-rich-relationship-runtime-manifest.v1",
+    "row_schema": "okf-relationship-runtime-row.v1",
+    "route_locator_schema": "okf-rich-relationship-route-locator.v1",
+    "route_bucket_schema": "okf-rich-relationship-route-locator-bucket.v1",
+    "route_hash_algorithm": "sha256-utf8-first-byte-hex",
+    "content_encoding": "gzip",
+    "default_plane_policy": "default_planes must exactly match active planes; historical and rejected planes are never defaults",
+    "route_commitment": {
+      "assertion_count": "exact incident assertions in each named plane",
+      "assertion_identity_digest": "SHA-256 of JSON.stringify(sorted assertion IDs)",
+      "chunks": "exact integrity-bound chunk paths containing incident assertions"
+    }
+  },
   "limits": {
     "maximum_json_bytes": 67108864,
     "maximum_full_index_records": 50000,
     "maximum_relationship_rows": 300000,
     "maximum_manifest_shard_references": 4096,
     "maximum_postings_per_token": 50000,
-    "maximum_result_limit": 500
+    "maximum_result_limit": 500,
+    "maximum_rich_relationship_route_chunks": 64,
+    "maximum_rich_relationship_route_rows": 100000,
+    "maximum_rich_relationship_chunk_rows": 50000,
+    "maximum_rich_relationship_chunk_bytes": 8388608,
+    "maximum_rich_relationship_decoded_chunk_bytes": 67108864,
+    "maximum_rich_relationship_hydration_compressed_bytes": 67108864,
+    "maximum_rich_relationship_retained_text_units": 33554432,
+    "maximum_rich_relationship_row_text_units": 32768,
+    "maximum_rich_relationship_evidence_items": 16,
+    "maximum_rich_relationship_supporting_assertions": 128,
+    "maximum_rich_relationship_cached_chunks": 16,
+    "maximum_rich_relationship_planes": 16,
+    "maximum_rich_relationship_chunks": 10000
   }
 }

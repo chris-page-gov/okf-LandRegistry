@@ -44,6 +44,27 @@ A reproducible candidate records:
 - generated file manifest and SHA-256 values; and
 - validation and evaluation receipts bound to the candidate root digest.
 
+### Offline semantic-profile locks
+
+The build resolves semantic schemas only from reviewed local bytes. Bundle Wiki
+v1 remains frozen under `profiles/bundle-wiki/v1/` and its vendor lock. The
+additive Predicate Registry v2 extension is frozen separately under
+`profiles/predicate-registry/v2/`, with the adjacent
+`profiles/predicate-registry/v2.lock.json` binding both files. Its schema is
+exactly 7,551 bytes with SHA-256
+`037151379a1ec0cbfe0666d41592585a891a63929f1fcf2845d1eb3de8dd5069`;
+the two-file identity is
+`75e444a35fdfe28fc111b6f0490cb8a0d569d20c1e4b62410174ead2608d86c6`.
+
+Before reading the v2 schema, the builder verifies the lock digest, complete
+directory inventory, file sizes, file digests, aggregate identity, internal
+schema references and the matching `consumer.predicate_registry` entry in the
+Explorer v0.6.1 consumer lock. It never fetches a schema or context during the
+build. The exact schema is copied into
+`bundle/data/semantic/schemas/predicate-registry.v2.schema.json`; its resource
+digest and the complete local-lock receipt are recorded in semantic validation
+and the build receipt.
+
 The same frozen inputs, code, configuration and supported runtime must produce
 byte-identical governed outputs. Expected volatile data—timestamps, temporary
 paths, unordered maps and remote state—must be excluded from generation or
@@ -54,7 +75,7 @@ derived from the frozen snapshot, never masked after the fact.
 Maintain `governance/ai-model-usage.json` as an authored build input and expose
 its digest-bound projection at `bundle/data/ai-usage.json`. At candidate freeze,
 record task-surface tokens only from platform evidence and state the tracking
-cutoff. Leave pre-tracking usage unavailable; do not infer an input/output split
+cut-off. Leave pre-tracking usage unavailable; do not infer an input/output split
 from a total.
 
 Subscription fee allocation, separately billed API spend and a rate-card
@@ -75,7 +96,7 @@ refresh when:
 - a critical official notice makes a current candidate misleading; or
 - a security, privacy, rights or accessibility finding requires withdrawal.
 
-Every refresh creates a new immutable snapshot. Previously released artifacts
+Every refresh creates a new immutable snapshot. Previously released artefacts
 remain reproducible and are not backpatched.
 
 ## Dependency-led change impact
@@ -100,7 +121,7 @@ path explicitly:
   --check
 ```
 
-The canonical JSON report identifies predicted generated artifacts,
+The canonical JSON report identifies predicted generated artefacts,
 requirements, risks, focused test commands, validations, gates and whether
 Stage 1 or manual review is required. Every selected gate is reported as
 `not_run`; the classifier cannot carry forward a pass. `--check` exits
@@ -120,15 +141,115 @@ a source path, output path, focused test, validation ID or gate mapping changes,
 update `governance/artifact-dependency-graph.json`, its tests and the related
 documentation in the same reviewed change.
 
-Test and validator files are declared as `validation_inputs`: they select the
-relevant checks and gates without claiming to generate bundle bytes. If a
-validator also becomes a governed build input, model that producer edge
-separately and review the resulting receipt/checksum outputs.
+The graph separates two exact inventories:
+
+- top-level `build_inputs` are bytes or environment locks causally consumed by
+  the deterministic build; the current 44 patterns expand to 71 files and only
+  these files appear in the build receipt; and
+- stage `inputs` plus `validation_inputs` form the complete 153-file candidate
+  control surface reported by the classifier, bound by the candidate commit
+  and G1–G9 evidence.
+
+Test and validator files are normally `validation_inputs`: they select the
+relevant checks and gates without claiming to generate bundle bytes. Workflow,
+runbook, release-tool and other assurance-only changes likewise do not predict
+bundle outputs. Every causal build-input change must predict `bundle/**`, the
+build receipt and checksum manifest, then select build-semantics, bundle and
+reproducibility checks.
+
+`requirements-lock.txt` is causal because it provisions the exact Python
+dependencies used by the build. `pyproject.toml` is not: the release build does
+not install this repository as a Python package. Both remain protected
+candidate controls. If a validator later becomes a causal build input, add it
+to the explicit top-level role and review the resulting receipt and checksum
+change.
+
+### Causal build transaction
+
+Before a release build, stage every reviewed authored input that the build is
+intended to consume. Do not stage generated `bundle/` changes until after the
+build. The builder expands the 44-pattern causal contract, rejects any
+unindexed causal file, compares each worktree payload with its stage-0 Git blob
+and freezes the 71 accepted inputs in memory. All subsequent repository reads
+must resolve to that snapshot; a newly discovered undeclared read fails rather
+than silently widening the receipt.
+
+Before reserving the atomic publication swap slot, the builder projects every
+fresh source relationship through the exact Explorer v0.6.1 reader-retention
+model. It fails if any row or the full projection exceeds the pinned UTF-16
+text ceiling. The generated runtime must later reproduce that exact source
+measurement, preventing a stale live bundle from standing in for candidate
+scale during pre-build validation.
+
+The build also rejects ignored extras in vendored profile and CPSV-AP trees,
+even though ordinary Git input enumeration excludes ignored files. The vendor
+lock is an exact worktree inventory as well as a digest list. The evaluation
+subprocess runs a copied evaluator and copied causal contracts from the frozen
+transaction, so a late editor write cannot alter its result.
+
+The complete fresh semantic document, relationship planes and bounded CPSV-AP
+projection are validated before the build reserves an atomic publication swap
+slot. In particular, the organisation's spatial target must resolve to the
+governed England and Wales `dcterms:Location`, while the EU administrative
+territorial unit class must remain at its authorised-zero-evidence state. This
+prevents a stale generated bundle from concealing a source/profile
+contradiction until late in candidate generation. The receipt must distinguish
+this passing bounded local check from the official CPSV-AP Public Organisation
+spatial ATU range, which is deliberately not claimed as satisfied.
+
+Immediately before publication of `bundle/`, the builder rechecks the complete
+stage-0 index and every captured file identity and payload. Any change aborts
+while the previous generated directory is still intact. This is the expected
+response to concurrent edits; stage the intended bytes and start a new build.
+
+Replacing a live bundle requires `--previous-output` to name an exact,
+absolute, initially absent path outside the repository on the same file system.
+The builder creates the candidate at that path and atomically exchanges the two
+directory names, leaving the previous live bundle at the selected recovery
+path without any interval in which `bundle/` is absent. A first publication
+uses atomic no-replace. The builder never deletes, prunes, moves or overwrites a
+recovery bundle and never falls back to deletion plus ordinary rename. Each
+reproducibility build needs a distinct swap slot; record every returned path.
+Moving or deleting a retained bundle is a separate owner-authorised operation.
+The concrete path is excluded from generated bytes and appears only as a stable
+placeholder in the reproduction invocation.
+
+The exact runtime is repository-local CPython 3.12.11 in isolated mode with
+bytecode writes, the user site and external Python startup paths disabled. A
+fresh external empty `0700` cache namespace prevents stale repository bytecode
+from being imported. The environment is created `--without-pip` and populated
+by an external installer using `--no-compile --require-hashes`; no bootstrap or
+local distribution is admitted. Installed versions must equal
+`requirements-lock.txt`. Every installed member except the single narrowly
+defined `RECORD` self-entry requires its declared SHA-256 and exact size; the
+self-entry is hashed independently. The complete site inventory rejects `.pth`,
+customiser, bytecode, symbolic-link, special and unowned files. Unknown lock
+syntax is rejected.
+
+The in-process observer starts after Python startup and initial imports; it
+verifies the runtime before release work continues but does not attest the
+exact source bytes already executed. The executable pre-invocation check
+rejects `.pth`, bytecode and customiser hooks and holds a cooperating
+single-writer lock for the build. This is a fail-closed operational mitigation,
+not cryptographic proof against an uncooperative concurrent mutator. A pre-site
+staged launcher would be needed to close that remaining gap and is proposed for
+a future contract revision.
+
+The installed tree and its `RECORD` receipts are checked and may be retained as
+separate local audit evidence, but are not embedded in the bundle: compiled
+wheel paths and bytes legitimately differ between macOS and Linux. The build
+receipt instead binds the portable lock digest, exact package/version identity,
+assurance states and compressor golden value.
+Deterministic gzip output is governed by a complete golden
+vector rather than by a particular operating-system zlib version. Bounded Git
+inventories, input counts, file sizes and aggregate bytes fail before large or
+damaged inputs can be materialised without limit.
 
 The report selects work but cannot record a pass, waive a gate or approve a
-release. Under the present exact-root evidence model, every changed governed
-byte invalidates the old candidate identity even when the dependency graph
-correctly narrows which checks need new execution evidence.
+release. Under the present exact-root evidence model, every changed candidate
+control invalidates the old candidate commit and its evidence even when it does
+not alter bundle bytes and the dependency graph correctly narrows which checks
+need new execution evidence.
 
 ## Change classification
 

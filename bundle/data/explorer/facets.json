@@ -34,6 +34,10 @@
     },
     {
       "count": 1,
+      "value": "account service; personal searches are free and official search certificates are paid"
+    },
+    {
+      "count": 1,
       "value": "approved professional account"
     },
     {
@@ -102,10 +106,6 @@
     },
     {
       "count": 1,
-      "value": "public search subject to terms and fees"
-    },
-    {
-      "count": 1,
       "value": "public terms; operational search subject to service restrictions and fees"
     },
     {
@@ -115,7 +115,7 @@
   ],
   "access_state": [
     {
-      "count": 2164,
+      "count": 2176,
       "value": "public"
     },
     {
@@ -123,24 +123,16 @@
       "value": "approved-professional-users"
     },
     {
-      "count": 15,
-      "value": "mixed"
-    },
-    {
-      "count": 3,
-      "value": "authenticated-and-paid"
-    },
-    {
-      "count": 3,
-      "value": "public-search-with-terms-and-fees"
-    },
-    {
-      "count": 1,
+      "count": 9,
       "value": "authenticated"
     },
     {
       "count": 1,
       "value": "documentation-public-service-restricted"
+    },
+    {
+      "count": 1,
+      "value": "mixed"
     }
   ],
   "audience": [
@@ -614,7 +606,7 @@
     },
     {
       "count": 3,
-      "value": "Crown copyright and legislation.gov.uk reuse terms"
+      "value": "Open Government Licence v3.0 except where otherwise stated; Crown copyright"
     },
     {
       "count": 2,
@@ -781,12 +773,16 @@
   ],
   "publisher": [
     {
-      "count": 2181,
+      "count": 2198,
       "value": "publisher-5f7670365c7dc347f281bbef"
     },
     {
-      "count": 3,
+      "count": 5,
       "value": "publisher-23f32a13da7e6036563c0e02"
+    },
+    {
+      "count": 4,
+      "value": "publisher-af595ff60a3906deeb2a3b8d"
     },
     {
       "count": 3,
@@ -794,11 +790,31 @@
     },
     {
       "count": 3,
-      "value": "publisher-af595ff60a3906deeb2a3b8d"
+      "value": "publisher-517055f5be925346625b9ddc"
+    },
+    {
+      "count": 3,
+      "value": "publisher-6f2c64bf59e61bbae76b7de5"
     },
     {
       "count": 3,
       "value": "publisher-be5e86f588117d1c9877d517"
+    },
+    {
+      "count": 3,
+      "value": "publisher-d617a1e87aede3a79365c2f4"
+    },
+    {
+      "count": 2,
+      "value": "publisher-0e657595b198c359f9e616d9"
+    },
+    {
+      "count": 2,
+      "value": "publisher-1dff2ee65ad31287d5839d4f"
+    },
+    {
+      "count": 2,
+      "value": "publisher-3458f18135daad138a3c074d"
     },
     {
       "count": 2,
@@ -809,16 +825,32 @@
       "value": "publisher-6b13c39ece52c806aea66c94"
     },
     {
+      "count": 2,
+      "value": "publisher-8118fc6acdf90120b3fc8289"
+    },
+    {
+      "count": 2,
+      "value": "publisher-ae0d18943713f70a80d86d4e"
+    },
+    {
       "count": 1,
       "value": "publisher-123caa39958ac86f29e4cd21"
     },
     {
       "count": 1,
-      "value": "publisher-1dff2ee65ad31287d5839d4f"
+      "value": "publisher-18db9843146727038e71cc4c"
     },
     {
       "count": 1,
-      "value": "publisher-50c25a45ded43c689b469aa4"
+      "value": "publisher-23ab316b8f40ce15226ace39"
+    },
+    {
+      "count": 1,
+      "value": "publisher-3f8ba684adb55ac17f208b51"
+    },
+    {
+      "count": 1,
+      "value": "publisher-6e90a6bbec499d009c2b9917"
     },
     {
       "count": 1,
@@ -826,11 +858,27 @@
     },
     {
       "count": 1,
-      "value": "publisher-afea69e90349dd92c0d037ed"
+      "value": "publisher-8e811ff815aa556a25a9b9af"
+    },
+    {
+      "count": 1,
+      "value": "publisher-b481a519ad66ff77f4a6fe2e"
+    },
+    {
+      "count": 1,
+      "value": "publisher-bb72d2e5ad01c0f1f9edba7a"
     },
     {
       "count": 1,
       "value": "publisher-be40ec162ac53206f39ca3bc"
+    },
+    {
+      "count": 1,
+      "value": "publisher-cb597465020acf79cbf5a1e1"
+    },
+    {
+      "count": 1,
+      "value": "publisher-d2bf266e44e1a3a994b417c3"
     }
   ],
   "record_type": [
@@ -877,20 +925,36 @@
   ],
   "rights_state": [
     {
-      "count": 1871,
+      "count": 1870,
       "value": "open-with-conditions"
     },
     {
-      "count": 293,
+      "count": 295,
       "value": "metadata-only"
     },
     {
-      "count": 24,
+      "count": 21,
       "value": "restricted-service"
     },
     {
-      "count": 15,
+      "count": 8,
+      "value": "conditional"
+    },
+    {
+      "count": 3,
       "value": "bespoke-or-paid"
+    },
+    {
+      "count": 3,
+      "value": "unknown"
+    },
+    {
+      "count": 2,
+      "value": "bespoke-licence"
+    },
+    {
+      "count": 1,
+      "value": "mixed"
     }
   ],
   "service": [
@@ -903,7 +967,7 @@
       "value": "github"
     },
     {
-      "count": 25,
+      "count": 22,
       "value": "govuk-hmlr"
     },
     {
@@ -916,7 +980,7 @@
     },
     {
       "count": 3,
-      "value": "local-land-charges"
+      "value": "legislation"
     },
     {
       "count": 3,
@@ -925,6 +989,10 @@
     {
       "count": 2,
       "value": "govuk-content"
+    },
+    {
+      "count": 2,
+      "value": "local-land-charges"
     },
     {
       "count": 1,
@@ -941,6 +1009,10 @@
     {
       "count": 1,
       "value": "customer-help"
+    },
+    {
+      "count": 1,
+      "value": "fee-calculator"
     },
     {
       "count": 1,
@@ -965,7 +1037,7 @@
       "value": "github"
     },
     {
-      "count": 25,
+      "count": 22,
       "value": "govuk-hmlr"
     },
     {
@@ -978,7 +1050,7 @@
     },
     {
       "count": 3,
-      "value": "local-land-charges"
+      "value": "legislation"
     },
     {
       "count": 3,
@@ -987,6 +1059,10 @@
     {
       "count": 2,
       "value": "govuk-content"
+    },
+    {
+      "count": 2,
+      "value": "local-land-charges"
     },
     {
       "count": 1,
@@ -1003,6 +1079,10 @@
     {
       "count": 1,
       "value": "customer-help"
+    },
+    {
+      "count": 1,
+      "value": "fee-calculator"
     },
     {
       "count": 1,
