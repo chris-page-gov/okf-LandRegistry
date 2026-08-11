@@ -1,7 +1,12 @@
 # Personas And User Stories
 
-Status: v0.2.0 evidence-led candidate hypotheses at the research cut-off of
-29 July 2026. Fresh exact-candidate independent review is required.
+Status: v0.3.0 approval-neutral evidence-led candidate hypotheses at the
+research cut-off of 29 July 2026. Their independent-review state is recorded
+only in version-scoped, exact-digest evidence.
+
+See the [v0.3.0 release tracker and assurance
+runbook](v0.3.0-release-tracker-and-assurance-runbook.md) for the candidate
+baseline and dependency-ordered evidence process.
 
 These personas are evidence-led task hypotheses for the HM Land Registry OKF
 bundle. They are behavioural roles, not demographic profiles, and they do not
@@ -23,8 +28,9 @@ than leaving them as unowned overlays.
 
 Expected propositions in the evaluation suite are bounded acceptance
 expectations, not verified legal answers or participant-validated findings.
-The v0.1.0 review is historical; v0.2.0 requires a fresh independent review
-against the frozen candidate.
+The v0.1.0 and v0.2.0 reviews are historical and cannot establish the review
+state of v0.3.0 candidate bytes. Only independent evidence bound to the frozen
+exact digest can do that.
 
 ## Persona Hypotheses
 
@@ -36,7 +42,7 @@ against the frozen candidate.
 | `LR-P04` | Data and GIS practitioner | Assess format, spatial meaning, coverage, vintage, access and licence before reuse. | Presenting indicative geometry as a legal boundary or assuming uniform access and licensing. |
 | `LR-P05` | API and data-integration engineer | Find the publisher contract and authentication boundary without exposing credentials. | Treating catalogue metadata as an operational contract or automating a restricted service. |
 | `LR-P06` | Local-authority land and planning user | Understand Local Land Charges migration, official-search evidence and spatial discovery data. | Claiming complete authority coverage or conflating charges, planning, titles and polygons. |
-| `LR-P07` | Provenance and licensing reviewer | Verify canonical source, authority, derivation, licence, access and observation time. | Inheriting OGL incorrectly or presenting normalized/catalogue metadata as official. |
+| `LR-P07` | Provenance and licensing reviewer | Verify canonical source, authority, derivation, licence, access and observation time. | Inheriting OGL incorrectly or presenting normalised/catalogue metadata as official. |
 | `LR-P08` | Accessible-service user and evaluator | Complete search, filtering and evidence inspection using keyboard and assistive technology. | A visual-only task, obscured focus, unnamed controls or inaccessible source formats. |
 | `LR-P09` | Wales-focused bilingual service user | Discover Welsh or bilingual services and retain source-native language metadata. | Suppressing Welsh availability, losing language tags or misrepresenting bilingual registers. |
 

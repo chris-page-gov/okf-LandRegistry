@@ -1,8 +1,13 @@
 # Scope and coverage
 
-Status: v0.2.0 AI-generated PoC candidate; not a global completeness claim.
+Status: v0.3.0 approval-neutral AI-generated PoC candidate bytes; not a global
+completeness claim. Authoritative release status is external and digest-bound.
 Snapshot policy: snapshot-bounded.  
-Research cutoff: 2026-07-29.
+Research cut-off: 2026-07-29.
+
+See the [v0.3.0 release tracker and assurance
+runbook](v0.3.0-release-tracker-and-assurance-runbook.md) for the candidate
+baseline and dependency-ordered evidence process.
 
 ## Unit of record
 
@@ -100,11 +105,11 @@ evidence of an exact legal boundary.
 
 ## Release language
 
-Version 0.2.0 may be described as an **AI-generated proof of concept**. It may
-be described as approved for publication only after the exact release digest
-has passed independent review and is named in the project-owner G9 decision.
-It must not be described as complete, current, official, exhaustive,
-production-ready or an HM Land Registry service. Coverage claims remain
+Version 0.3.0 is an **AI-generated proof-of-concept candidate**. These bytes do
+not self-assert approval, release status or production readiness and must not
+be described as complete, current, official, exhaustive or an HM Land Registry
+service. Independent review and the project-owner G9 decision bound to the
+exact candidate digest are the sole release authority. Coverage claims remain
 limited to the named, dated denominators above.
 
 [EV-GOVUK-SEARCH]: https://www.gov.uk/api/search.json?filter_organisations=land-registry

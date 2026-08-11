@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class EvaluateTests(unittest.TestCase):
-    def test_runtime_tree_identity_matches_pinned_explorer_receipt(self) -> None:
+    def test_released_runtime_receipt_remains_frozen_during_migration(self) -> None:
         receipt = json.loads(
             (
                 ROOT
@@ -22,9 +22,18 @@ class EvaluateTests(unittest.TestCase):
                 / "explorer-search-runtime-portable-collation-a3e0bdf7.json"
             ).read_text(encoding="utf-8")
         )
-        self.assertEqual(
-            receipt["bundle"]["tree"],
+        released_tree = {
+            "bytes": 31525576,
+            "files": 148,
+            "sha256": (
+                "09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c"
+            ),
+        }
+        self.assertEqual(released_tree, receipt["bundle"]["tree"])
+        self.assertNotEqual(
+            released_tree,
             evaluate.bundle_tree_identity(ROOT / "bundle"),
+            "unreleased migration bytes must not reuse the v0.2.0 receipt",
         )
 
     def test_runtime_tree_identity_uses_locked_explorer_collation(self) -> None:
@@ -79,14 +88,32 @@ class EvaluateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "printable ASCII"):
             evaluate.explorer_ascii_collation_key("café.json")
 
-    def test_locked_worker_calibration_manifest_covers_question_suite(self) -> None:
+    def test_candidate_locked_worker_calibration_covers_question_suite(self) -> None:
         questions_path = ROOT / "evaluation" / "questions.json"
         questions_bytes = questions_path.read_bytes()
         questions = json.loads(questions_bytes)
         runtime = json.loads(
-            (ROOT / "evaluation" / "explorer-search-calibration-v0.2.0.json")
+            (ROOT / "evaluation" / "explorer-search-calibration-v0.3.0.json")
             .read_text(encoding="utf-8")
         )
+        self.assertEqual(
+            evaluate.locked_runtime_consumer(),
+            runtime["required_consumer"],
+        )
+        required_consumer = runtime["required_consumer"]
+        self.assertEqual("v0.6.2", required_consumer["release_tag"])
+        self.assertEqual(368773937, required_consumer["immutable_release_id"])
+        self.assertEqual(
+            required_consumer["wrapper_sha256"],
+            required_consumer["executable_materials"]["wrapper"]["sha256"],
+        )
+        self.assertEqual(
+            required_consumer["invocation_lock_module_sha256"],
+            required_consumer["executable_materials"]
+            ["invocation_lock_module"]["sha256"],
+        )
+        self.assertEqual(6, len(required_consumer["executable_materials"]))
+        self.assertEqual("0.3.0", runtime["expected_identity"]["version"])
         self.assertEqual(
             hashlib.sha256(questions_bytes).hexdigest(),
             runtime["calibration_suite_sha256"],
@@ -107,6 +134,26 @@ class EvaluateTests(unittest.TestCase):
                 for source in question["expected_sources"]
             }
             self.assertIn(journey["runtime_expected_source_url"], expected_urls)
+            canonical_url = journey["runtime_expected_source_url"]
+            self.assertEqual(
+                {
+                    "type": "wait_for_ranked_result",
+                    "canonical_url": canonical_url,
+                },
+                journey["actions"][1],
+            )
+            self.assertEqual(
+                {
+                    "type": "click",
+                    "selector": (
+                        "[data-okf-ranked-results=\"primary\"] "
+                        "[data-okf-ranked-result]"
+                        "[data-result-canonical-url=\""
+                        f"{canonical_url}\"]"
+                    ),
+                },
+                journey["actions"][2],
+            )
             self.assertTrue(
                 any(
                     assertion.get("type") == "attribute"
@@ -298,6 +345,98 @@ class EvaluateTests(unittest.TestCase):
         ranked = evaluate.rank("local land charges automation", records, contract)
         self.assertEqual(["specific"], [record["id"] for record in ranked])
 
+    def test_minimum_should_match_uses_exact_integer_ceiling(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        self.assertEqual(
+            {
+                "apply_from_query_tokens": 3,
+                "minimum_matches": 2,
+                "ratio_numerator": 3,
+                "ratio_denominator": 10,
+            },
+            contract["minimum_should_match"],
+        )
+        records = [
+            {
+                "id": "three-matches",
+                "title": "Three matches",
+                "url": "https://example.test/three",
+                "curation": "source-native",
+                "heading_tokens": ["one", "two", "three"],
+                "body_tokens": [],
+            },
+            {
+                "id": "two-matches",
+                "title": "Two matches",
+                "url": "https://example.test/two",
+                "curation": "source-native",
+                "heading_tokens": ["one", "two"],
+                "body_tokens": [],
+            },
+        ]
+        query = "one two three four five six seven eight nine ten eleven"
+        ranked = evaluate.rank(query, records, contract)
+        self.assertEqual([], ranked)
+
+        records[0]["heading_tokens"].append("four")
+        ranked = evaluate.rank(query, records, contract)
+        self.assertEqual(["three-matches"], [record["id"] for record in ranked])
+
+    def test_minimum_should_match_rejects_invalid_rational_denominator(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        contract["minimum_should_match"]["ratio_denominator"] = 0
+        with self.assertRaisesRegex(ValueError, "positive integers"):
+            evaluate.rank(
+                "one two three",
+                [
+                    {
+                        "id": "record",
+                        "title": "Record",
+                        "url": "https://example.test/record",
+                        "curation": "source-native",
+                        "heading_tokens": ["one", "two", "three"],
+                        "body_tokens": [],
+                    }
+                ],
+                contract,
+            )
+
+    def test_minimum_should_match_rejects_contract_drift(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        mutations = (
+            (None, None, "exactly the four governed fields"),
+            ("fallback", "or", "exactly the four governed fields"),
+            ("apply_from_query_tokens", 99, "settled Explorer contract"),
+            ("minimum_matches", True, "values must be integers"),
+        )
+        for field, value, error in mutations:
+            with self.subTest(field=field, value=value):
+                changed = json.loads(json.dumps(contract))
+                if field is None:
+                    del changed["minimum_should_match"]
+                else:
+                    changed["minimum_should_match"][field] = value
+                with self.assertRaisesRegex(ValueError, error):
+                    evaluate.rank("one two three", [], changed)
+
+    def test_evaluator_tokenisation_matches_component_contract(self) -> None:
+        contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
+        self.assertEqual(
+            {"cafe", "data", "paid", "price", "records"},
+            evaluate.tokens("Café price-paid data-and records x", contract),
+        )
+        self.assertEqual(set(), evaluate.tokens("a\u1ab0b", contract))
+        for field, value, error in (
+            ("token_pattern", "[a-z]+", "token_pattern"),
+            ("token_min_length", 1, "token_min_length"),
+            ("stopwords", ["the", "and"], "stopwords"),
+        ):
+            with self.subTest(field=field):
+                changed = json.loads(json.dumps(contract))
+                changed[field] = value
+                with self.assertRaisesRegex(ValueError, error):
+                    evaluate.tokens("price-paid", changed)
+
     def test_forbidden_targets_are_executable_negative_assertions(self) -> None:
         contract = json.loads(evaluate.SEARCH_CONTRACT.read_text(encoding="utf-8"))
         records = [
@@ -471,10 +610,31 @@ class EvaluateTests(unittest.TestCase):
             root = Path(name)
             bundle = root / "bundle"
             bundle.mkdir()
-            (bundle / "okf-explorer.json").write_text("{}\n", encoding="utf-8")
+            expected_identity = {
+                "schema": "okf-explorer-large-corpus.v1",
+                "id": "https://example.test/okf-explorer.json",
+                "version": "0.3.0",
+                "snapshot": "example-snapshot",
+            }
+            (bundle / "okf-explorer.json").write_text(
+                json.dumps(
+                    {
+                        "schema": expected_identity["schema"],
+                        "@id": expected_identity["id"],
+                        "version": expected_identity["version"],
+                        "snapshot": expected_identity["snapshot"],
+                    },
+                    sort_keys=True,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
             manifest = {
                 "schema": evaluate.RUNTIME_JOURNEY_SCHEMA,
+                "bundle_descriptor": "okf-explorer.json",
                 "calibration_suite_sha256": "a" * 64,
+                "required_consumer": evaluate.locked_runtime_consumer(),
+                "expected_identity": expected_identity,
                 "journeys": [
                     {
                         "id": "q1",
@@ -499,10 +659,25 @@ class EvaluateTests(unittest.TestCase):
             receipt = {
                 "schema": evaluate.RUNTIME_RECEIPT_SCHEMA,
                 "status": "passed",
+                "consumer": {
+                    field: value
+                    for field, value in evaluate.locked_runtime_consumer().items()
+                    if field
+                    not in {
+                        "consumer_lock",
+                        "release_tag",
+                        "annotated_tag_object_sha",
+                        "immutable_release_id",
+                    }
+                },
                 "journey_manifest": {
                     "sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest()
                 },
-                "bundle": {"tree": evaluate.bundle_tree_identity(bundle)},
+                "bundle": {
+                    "tree": evaluate.bundle_tree_identity(bundle),
+                    "identity": manifest["expected_identity"],
+                    "expected_identity": manifest["expected_identity"],
+                },
                 "journeys": [
                     {"id": "q1", "terminal": {"status": "passed"}}
                 ],
@@ -518,6 +693,49 @@ class EvaluateTests(unittest.TestCase):
                 "a" * 64,
                 bundle,
             )
+            receipt["consumer"]["source_commit"] = "0" * 40
+            receipt_path.write_text(
+                json.dumps(receipt, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "required Explorer consumer"):
+                evaluate.validate_runtime_evidence(
+                    manifest_path,
+                    receipt_path,
+                    questions,
+                    "a" * 64,
+                    bundle,
+                )
+            locked = evaluate.locked_runtime_consumer()
+            receipt["consumer"]["source_commit"] = locked["source_commit"]
+            receipt["consumer"]["wrapper_sha256"] = "0" * 64
+            receipt_path.write_text(
+                json.dumps(receipt, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "required Explorer consumer"):
+                evaluate.validate_runtime_evidence(
+                    manifest_path,
+                    receipt_path,
+                    questions,
+                    "a" * 64,
+                    bundle,
+                )
+            receipt["consumer"]["wrapper_sha256"] = locked[
+                "wrapper_sha256"
+            ]
+            receipt["consumer"]["executable_materials"]["contract_module"][
+                "bytes"
+            ] -= 1
+            receipt_path.write_text(
+                json.dumps(receipt, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "required Explorer consumer"):
+                evaluate.validate_runtime_evidence(
+                    manifest_path,
+                    receipt_path,
+                    questions,
+                    "a" * 64,
+                    bundle,
+                )
         self.assertEqual(1.0, result["source_resolution_coverage"])
         self.assertEqual(1.0, result["required_caveat_assertion_coverage"])
 

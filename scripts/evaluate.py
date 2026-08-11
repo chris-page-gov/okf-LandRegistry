@@ -6,14 +6,15 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import math
 import re
+import unicodedata
 from pathlib import Path
 from urllib.parse import urldefrag
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SEARCH_CONTRACT = ROOT / "pages" / "search-contract.json"
+EXPLORER_CONSUMER_LOCK = ROOT / "contracts" / "okf-explorer.consumer-lock.json"
 SEARCH_INDEX_SCHEMA = "okf-hmlr-search-index.v1"
 CATALOGUE_SCHEMA = "okf-hmlr-catalogue.v2"
 CATALOGUE_SCHEMAS = {"okf-hmlr-catalogue.v1", CATALOGUE_SCHEMA}
@@ -31,11 +32,53 @@ EXPLORER_ASCII_PUNCTUATION_WEIGHTS = {
 }
 EXPLORER_ASCII_DIGIT_OFFSET = len(EXPLORER_ASCII_PUNCTUATION_ORDER)
 EXPLORER_ASCII_LETTER_OFFSET = EXPLORER_ASCII_DIGIT_OFFSET + 10
+EXPECTED_MINIMUM_SHOULD_MATCH = {
+    "apply_from_query_tokens": 3,
+    "minimum_matches": 2,
+    "ratio_numerator": 3,
+    "ratio_denominator": 10,
+}
 
 
 def tokens(value: str, contract: dict) -> set[str]:
-    found = set(re.findall(contract["token_pattern"], value.casefold()))
-    return found - set(contract["stopwords"])
+    if contract.get("token_pattern") != r"[a-z0-9]+":
+        raise ValueError("search token_pattern must be exactly [a-z0-9]+")
+    token_min_length = contract.get("token_min_length")
+    if (
+        not isinstance(token_min_length, int)
+        or isinstance(token_min_length, bool)
+        or token_min_length != 2
+    ):
+        raise ValueError("search token_min_length must be exactly 2")
+    stopwords = contract.get("stopwords")
+    if (
+        not isinstance(stopwords, list)
+        or any(
+            not isinstance(token, str)
+            or not token
+            or len(token) > 32
+            for token in stopwords
+        )
+        or len(stopwords) > 256
+        or stopwords != sorted(set(stopwords))
+        or any(
+            token != token.lower()
+            or re.fullmatch(r"[a-z0-9]+", token) is None
+            for token in stopwords
+        )
+    ):
+        raise ValueError("search stopwords do not satisfy the query-policy bounds")
+    normalized = re.sub(
+        r"[\u0300-\u036f]",
+        "",
+        unicodedata.normalize("NFKD", value).lower(),
+    )
+    found = {
+        token
+        for token in re.findall(contract["token_pattern"], normalized)
+        if len(token) >= token_min_length
+    }
+    return found - set(stopwords)
 
 
 def fields_text(record: dict, fields: list[str]) -> str:
@@ -49,16 +92,53 @@ def fields_text(record: dict, fields: list[str]) -> str:
     return " ".join(values)
 
 
+def minimum_should_match_policy(contract: dict) -> dict[str, int]:
+    value = contract.get("minimum_should_match")
+    if not isinstance(value, dict) or set(value) != set(
+        EXPECTED_MINIMUM_SHOULD_MATCH
+    ):
+        raise ValueError(
+            "minimum_should_match must contain exactly the four governed fields"
+        )
+    if any(
+        not isinstance(item, int) or isinstance(item, bool)
+        for item in value.values()
+    ):
+        raise ValueError("minimum_should_match values must be integers")
+    ratio_numerator = value["ratio_numerator"]
+    ratio_denominator = value["ratio_denominator"]
+    if (
+        ratio_numerator < 1
+        or ratio_denominator < 1
+        or ratio_numerator > ratio_denominator
+    ):
+        raise ValueError(
+            "minimum_should_match ratio must use positive integers with "
+            "numerator no greater than denominator"
+        )
+    if value != EXPECTED_MINIMUM_SHOULD_MATCH:
+        raise ValueError(
+            "minimum_should_match differs from the settled Explorer contract"
+        )
+    return value
+
+
 def rank(query: str, records: list[dict], contract: dict) -> list[dict]:
     query_tokens = tokens(query, contract)
     weights = contract["weights"]
-    minimum_contract = contract.get("minimum_should_match", {})
+    minimum_contract = minimum_should_match_policy(contract)
     required_matches = 1
-    if len(query_tokens) >= minimum_contract.get("apply_from_query_tokens", 3):
-        required_matches = max(
-            minimum_contract.get("minimum_matches", 2),
-            math.ceil(
-                len(query_tokens) * minimum_contract.get("ratio", 0.3)
+    if len(query_tokens) >= minimum_contract["apply_from_query_tokens"]:
+        required_matches = min(
+            len(query_tokens),
+            max(
+                minimum_contract["minimum_matches"],
+                (
+                    len(query_tokens) * minimum_contract["ratio_numerator"]
+                    + minimum_contract["ratio_denominator"]
+                    - 1
+                )
+                // minimum_contract["ratio_denominator"],
             ),
         )
     scored = []
@@ -248,14 +328,14 @@ def explorer_ascii_collation_key(value: str) -> tuple[tuple[int, ...], tuple[int
             case.append(1)
         else:
             raise ValueError(
-                "locked Explorer v0.5.7 tree identity accepts only printable "
+                "locked Explorer v0.6.2 tree identity accepts only printable "
                 f"ASCII path names: {value!r}"
             )
     return tuple(primary), tuple(case)
 
 
 def explorer_ordered_bundle_files(bundle: Path) -> list[Path]:
-    """Reproduce the locked Explorer v0.5.7 runner's recursive file order."""
+    """Reproduce the locked Explorer v0.6.2 runner's recursive file order."""
 
     files: list[Path] = []
 
@@ -323,6 +403,139 @@ def validate_forbidden_targets(
                 )
 
 
+def locked_runtime_consumer() -> dict:
+    """Return the exact Explorer identity required by candidate journeys."""
+    lock = json.loads(EXPLORER_CONSUMER_LOCK.read_text(encoding="utf-8"))
+    if lock.get("schema") != "okf-explorer-consumer-lock.v1":
+        raise ValueError("Explorer consumer lock has an unsupported schema")
+    consumer = lock.get("consumer")
+    if not isinstance(consumer, dict):
+        raise ValueError("Explorer consumer lock lacks consumer metadata")
+    sources = consumer.get("contract_sources")
+    if not isinstance(sources, list):
+        raise ValueError("Explorer consumer lock lacks contract sources")
+    source_digests = {
+        row.get("path"): row.get("sha256")
+        for row in sources
+        if isinstance(row, dict)
+    }
+    executable_build = consumer.get("executable_build")
+    if not isinstance(executable_build, dict):
+        raise ValueError("Explorer consumer lock lacks executable-build metadata")
+    executable_materials = consumer.get("acceptance_executable_materials")
+    required_material_names = {
+        "runner",
+        "wrapper",
+        "invocation_lock_module",
+        "contract_module",
+        "app_build_manifest_module",
+        "deterministic_build_script",
+    }
+    if (
+        not isinstance(executable_materials, dict)
+        or set(executable_materials) != required_material_names
+    ):
+        raise ValueError(
+            "Explorer consumer lock lacks the complete acceptance executable set"
+        )
+    for name, material in executable_materials.items():
+        if (
+            not isinstance(material, dict)
+            or set(material) != {"path", "bytes", "sha256"}
+            or not isinstance(material["path"], str)
+            or not material["path"]
+            or not isinstance(material["bytes"], int)
+            or isinstance(material["bytes"], bool)
+            or material["bytes"] < 1
+            or not isinstance(material["sha256"], str)
+            or SHA256.fullmatch(material["sha256"]) is None
+            or source_digests.get(material["path"]) != material["sha256"]
+        ):
+            raise ValueError(
+                f"Explorer acceptance executable material {name} is invalid"
+            )
+    immutable_release = consumer.get("immutable_release")
+    if (
+        not isinstance(immutable_release, dict)
+        or immutable_release.get("immutable") is not True
+        or not isinstance(immutable_release.get("id"), int)
+        or isinstance(immutable_release.get("id"), bool)
+        or immutable_release["id"] < 1
+    ):
+        raise ValueError("Explorer consumer lock lacks an immutable release identity")
+    required = {
+        "consumer_lock": "../contracts/okf-explorer.consumer-lock.json",
+        "package": consumer.get("name"),
+        "release_tag": consumer.get("release_tag"),
+        "version": consumer.get("version"),
+        "source_commit": consumer.get("commit_sha"),
+        "source_git_tree": consumer.get("git_tree"),
+        "annotated_tag_object_sha": consumer.get(
+            "annotated_tag_object_sha"
+        ),
+        "immutable_release_id": immutable_release.get("id"),
+        "source_dirty": False,
+        "dependency_lock_sha256": source_digests.get(
+            "apps/okf-explorer/pnpm-lock.yaml"
+        ),
+        "runner_sha256": executable_materials["runner"]["sha256"],
+        "wrapper_sha256": executable_materials["wrapper"]["sha256"],
+        "invocation_lock_module_sha256": executable_materials[
+            "invocation_lock_module"
+        ]["sha256"],
+        "executable_materials": executable_materials,
+        "build_manifest_sha256": executable_build.get("build_manifest_sha256"),
+    }
+    if (
+        required["release_tag"] != f"v{required['version']}"
+        or not all(
+            isinstance(required[field], str) and required[field]
+            for field in required
+            if field
+            not in {
+                "source_dirty",
+                "immutable_release_id",
+                "executable_materials",
+            }
+        )
+    ):
+        raise ValueError("Explorer consumer lock identity is incomplete")
+    return required
+
+
+def validate_runtime_consumer(
+    manifest: dict, receipt: dict
+) -> dict:
+    """Bind a runtime receipt to the exact governed Explorer checkout."""
+    required = locked_runtime_consumer()
+    if manifest.get("required_consumer") != required:
+        raise ValueError("runtime journey manifest differs from the Explorer lock")
+    receipt_consumer = receipt.get("consumer")
+    if not isinstance(receipt_consumer, dict):
+        raise ValueError("runtime receipt lacks Explorer consumer identity")
+    receipt_fields = {
+        field: required[field]
+        for field in (
+            "package",
+            "version",
+            "source_commit",
+            "source_dirty",
+            "dependency_lock_sha256",
+            "runner_sha256",
+            "wrapper_sha256",
+            "invocation_lock_module_sha256",
+            "executable_materials",
+            "build_manifest_sha256",
+        )
+    }
+    if any(
+        receipt_consumer.get(field) != value
+        for field, value in receipt_fields.items()
+    ):
+        raise ValueError("runtime receipt differs from the required Explorer consumer")
+    return receipt_fields
+
+
 def validate_runtime_evidence(
     manifest_path: Path,
     receipt_path: Path,
@@ -336,6 +549,51 @@ def validate_runtime_evidence(
         raise ValueError("runtime journey manifest has an unsupported schema")
     if manifest.get("calibration_suite_sha256") != suite_sha256:
         raise ValueError("runtime journey manifest does not match the question suite")
+    if manifest.get("bundle_descriptor") != "okf-explorer.json":
+        raise ValueError("runtime journey manifest has an unsupported descriptor path")
+    expected_identity = manifest.get("expected_identity")
+    if not isinstance(expected_identity, dict):
+        raise ValueError("runtime journey manifest lacks expected bundle identity")
+    descriptor = json.loads(
+        (bundle / manifest["bundle_descriptor"]).read_text(encoding="utf-8")
+    )
+    if not isinstance(descriptor, dict):
+        raise ValueError("runtime bundle descriptor must be an object")
+
+    def first_string(*values: object) -> str | None:
+        return next(
+            (
+                value
+                for value in values
+                if isinstance(value, str) and value
+            ),
+            None,
+        )
+
+    actual_identity = {
+        "schema": first_string(
+            descriptor.get("schema"),
+            descriptor.get("format"),
+            descriptor.get("type"),
+        ),
+        "id": first_string(
+            descriptor.get("bundle_id"),
+            descriptor.get("id"),
+            descriptor.get("@id"),
+        ),
+        "version": first_string(
+            descriptor.get("version"), descriptor.get("bundle_version")
+        ),
+        "snapshot": first_string(
+            descriptor.get("snapshot"),
+            descriptor.get("snapshot_id"),
+            descriptor.get("data", {}).get("snapshot")
+            if isinstance(descriptor.get("data"), dict)
+            else None,
+        ),
+    }
+    if actual_identity != expected_identity:
+        raise ValueError("runtime journey manifest differs from the bundle identity")
     journey_rows = manifest.get("journeys")
     if not isinstance(journey_rows, list):
         raise ValueError("runtime journey manifest lacks journeys")
@@ -411,6 +669,7 @@ def validate_runtime_evidence(
         or receipt.get("status") != "passed"
     ):
         raise ValueError("runtime journey receipt is not passed")
+    consumer = validate_runtime_consumer(manifest, receipt)
     receipt_manifest = receipt.get("journey_manifest")
     if (
         not isinstance(receipt_manifest, dict)
@@ -424,6 +683,12 @@ def validate_runtime_evidence(
         or receipt_bundle.get("tree") != actual_tree
     ):
         raise ValueError("runtime receipt does not bind the exact bundle tree")
+    if (
+        not isinstance(expected_identity, dict)
+        or receipt_bundle.get("identity") != expected_identity
+        or receipt_bundle.get("expected_identity") != expected_identity
+    ):
+        raise ValueError("runtime receipt does not bind the expected bundle identity")
     receipt_journeys = receipt.get("journeys")
     if not isinstance(receipt_journeys, list):
         raise ValueError("runtime receipt lacks journey outcomes")
@@ -450,6 +715,7 @@ def validate_runtime_evidence(
         "receipt_path": str(receipt_path),
         "receipt_sha256": sha256_bytes(receipt_path.read_bytes()),
         "bundle_tree": actual_tree,
+        "consumer": consumer,
         "journey_count": len(journey_rows),
         "question_count": count,
         "source_resolution_coverage": source_assertions / count if count else 0,
@@ -657,7 +923,7 @@ def validate_acceptance_review(
             )
         if row.get("safety_behavior_verified") is not True:
             raise ValueError(
-                f"{row['id']}: held-out adversarial safety behavior is not verified"
+                f"{row['id']}: held-out adversarial safety behaviour is not verified"
             )
     if len(adversarial_ids) != len(adversarial):
         raise ValueError("duplicate held-out adversarial review ID")

@@ -1,0 +1,47 @@
+{
+  "schema": "okf-external-standard-vendor-lock.v1",
+  "standard": {
+    "name": "Core Public Service Vocabulary Application Profile",
+    "short_name": "CPSV-AP",
+    "version": "3.2.0",
+    "status": "SEMIC Recommendation",
+    "published_at": "2024-05-06",
+    "specification": "https://semiceu.github.io/CPSV-AP/releases/3.2.0/",
+    "licence": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "release": {
+    "repository": "https://github.com/SEMICeu/CPSV-AP",
+    "tag": "v3.2.0",
+    "commit": "ed1d6494afc7bc234ca21487cbaa89db409d5a61",
+    "subtree": "e1136446dec3a63aad591f1b9fadef7326dc4764"
+  },
+  "file_count": 3,
+  "identity": {
+    "algorithm": "sha256",
+    "canonicalisation": "UTF-8 lines in lexical path order: <path> TAB <bytes> TAB <sha256> LF",
+    "sha256": "e16e63d71340ac52515680e2136853b608256b849bde6c1ea0fbb9380ffba6fe"
+  },
+  "files": [
+    {
+      "path": "cpsv-ap-SHACL.ttl",
+      "upstream_path": "releases/3.2.0/shacl/cpsv-ap-SHACL.ttl",
+      "git_blob": "51cc9d1f26ee4a74fcd2d986d051c54e683714c9",
+      "bytes": 86733,
+      "sha256": "84c51ca629a8e297fe9276669b9702b31d49dd50495ad065872fca8b326fd0bc"
+    },
+    {
+      "path": "cpsv-ap.jsonld",
+      "upstream_path": "releases/3.2.0/context/cpsv-ap.jsonld",
+      "git_blob": "74a13f05287477c2dbee81bf64d40ac11f50ea6b",
+      "bytes": 18858,
+      "sha256": "105ae8fcb89a0990d00c7a4f65499e33463e03547d56c603f4135043b6f3a857"
+    },
+    {
+      "path": "cpsv-ap.ttl",
+      "upstream_path": "releases/3.2.0/rdf/cpsv-ap.ttl",
+      "git_blob": "324aabb0cf43494cbfb1df7f134c054118ae8969",
+      "bytes": 53134,
+      "sha256": "f4cbd307f30449a5ebbf507e91b3aa24cf80f9b18c491a44ff04659484e0bc3f"
+    }
+  ]
+}

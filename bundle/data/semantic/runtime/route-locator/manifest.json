@@ -1,0 +1,2317 @@
+{
+  "bucket_path_template": "data/semantic/runtime/route-locator/bucket-{prefix}.json.gz",
+  "buckets": [
+    {
+      "bucket": "00",
+      "bytes": 2698,
+      "chunk_references": 113,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-00.json.gz",
+      "routes": 33,
+      "sha256": "868d63fa6b335d49d020c807decd224a7e8f387c260ada90969031b606501328"
+    },
+    {
+      "bucket": "01",
+      "bytes": 2490,
+      "chunk_references": 108,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-01.json.gz",
+      "routes": 30,
+      "sha256": "73b4ad0bdfc4509f9a5e41ada43e94b1b466c9046ce9f434d4eceedb3922de8c"
+    },
+    {
+      "bucket": "02",
+      "bytes": 1972,
+      "chunk_references": 89,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-02.json.gz",
+      "routes": 22,
+      "sha256": "20ef92e29627c9c1d1de067d97d19458aa714d6fe24aec63b69eddacde6125b0"
+    },
+    {
+      "bucket": "03",
+      "bytes": 2568,
+      "chunk_references": 125,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-03.json.gz",
+      "routes": 30,
+      "sha256": "ece7f32f7aa4695715991bf74ce70804582e43877dc6bc6ec6d17c8157c0a3a0"
+    },
+    {
+      "bucket": "04",
+      "bytes": 2313,
+      "chunk_references": 105,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-04.json.gz",
+      "routes": 27,
+      "sha256": "d415e69cccb933fe383817992be38105f515e69c9a24a388e1a4a214ce6f045e"
+    },
+    {
+      "bucket": "05",
+      "bytes": 1953,
+      "chunk_references": 86,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-05.json.gz",
+      "routes": 22,
+      "sha256": "b5ebaff720da87c7620613e759a194c8a965415f212fc9dc79f875864d624954"
+    },
+    {
+      "bucket": "06",
+      "bytes": 2105,
+      "chunk_references": 94,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-06.json.gz",
+      "routes": 24,
+      "sha256": "6b0cb04a827dac53f01ddf618a3b52445c64955a2b4a299b769cf6961405f969"
+    },
+    {
+      "bucket": "07",
+      "bytes": 2915,
+      "chunk_references": 146,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-07.json.gz",
+      "routes": 35,
+      "sha256": "5533550755d72f84f324a36600fb0b8313ab38c7cc399ed4f9e2c4ee9073d233"
+    },
+    {
+      "bucket": "08",
+      "bytes": 2668,
+      "chunk_references": 127,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-08.json.gz",
+      "routes": 32,
+      "sha256": "f505ce0f619d13e8560e638e361d49e4b6d90392339e74b80e231d66af58b3ee"
+    },
+    {
+      "bucket": "09",
+      "bytes": 1961,
+      "chunk_references": 92,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-09.json.gz",
+      "routes": 22,
+      "sha256": "039a7bf402e6f682fd245226fcb9a644b19427046a7b932709696bebe97528f2"
+    },
+    {
+      "bucket": "0a",
+      "bytes": 2027,
+      "chunk_references": 94,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-0a.json.gz",
+      "routes": 23,
+      "sha256": "85f140a0b11eb86c1219abbaf9c447275b37a5978d7a79e22bd7c87d65addf42"
+    },
+    {
+      "bucket": "0b",
+      "bytes": 2375,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-0b.json.gz",
+      "routes": 28,
+      "sha256": "b83fef5ed5222af9bf00af79faab9b37ed6c6d113cea1de59d229467715eaf48"
+    },
+    {
+      "bucket": "0c",
+      "bytes": 2058,
+      "chunk_references": 81,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-0c.json.gz",
+      "routes": 24,
+      "sha256": "de29254ee87a6ca9e188c5dde49574398a1b6a4c5f7cd88150d2c33eb513f4fb"
+    },
+    {
+      "bucket": "0d",
+      "bytes": 2034,
+      "chunk_references": 97,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-0d.json.gz",
+      "routes": 23,
+      "sha256": "2debeed00dd6d562731ef608fb577d5f239cfc63d0cd39779a86077aba421162"
+    },
+    {
+      "bucket": "0e",
+      "bytes": 2648,
+      "chunk_references": 132,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-0e.json.gz",
+      "routes": 31,
+      "sha256": "f099ded584c469925c0fb9b53300134ef051f999960b84d2b97df1fd66b693b9"
+    },
+    {
+      "bucket": "0f",
+      "bytes": 1838,
+      "chunk_references": 91,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-0f.json.gz",
+      "routes": 20,
+      "sha256": "d4a47992711f68f6cd1c2cec38935e24d727fe8aa915a0e2316b745c0181b0de"
+    },
+    {
+      "bucket": "10",
+      "bytes": 2191,
+      "chunk_references": 94,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-10.json.gz",
+      "routes": 25,
+      "sha256": "45387ed4b242c4682f4a76712c6018d6355f3a23b03b1265250e4013edeb4ad9"
+    },
+    {
+      "bucket": "11",
+      "bytes": 2470,
+      "chunk_references": 118,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-11.json.gz",
+      "routes": 29,
+      "sha256": "63be6222ffa6ad9964d7b6d8f16928c23813b32774cbd886077e9cbb782ecc80"
+    },
+    {
+      "bucket": "12",
+      "bytes": 2544,
+      "chunk_references": 126,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-12.json.gz",
+      "routes": 30,
+      "sha256": "1d287acd56554365b5b3ff751c6b4ab8d45d5c5b0de609dd81dbc64d434b14ab"
+    },
+    {
+      "bucket": "13",
+      "bytes": 2954,
+      "chunk_references": 152,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-13.json.gz",
+      "routes": 36,
+      "sha256": "25c724f88fb5e55db977dd18ecb2d1111915bd4850d189c08c8bcb68ce961bba"
+    },
+    {
+      "bucket": "14",
+      "bytes": 2838,
+      "chunk_references": 133,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-14.json.gz",
+      "routes": 34,
+      "sha256": "74f4a4180c61a27a2b18f17ebe1fb87fbb13f3c8c9a8e5a58b84069fb7313bbd"
+    },
+    {
+      "bucket": "15",
+      "bytes": 2101,
+      "chunk_references": 96,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-15.json.gz",
+      "routes": 24,
+      "sha256": "9f118fe7dfd7fbb653c867ba21c4c03afee2e63259ec94d0a8ad5d5ecb5d083c"
+    },
+    {
+      "bucket": "16",
+      "bytes": 2820,
+      "chunk_references": 140,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-16.json.gz",
+      "routes": 34,
+      "sha256": "1a364f9542f43869ba7fcf610f2ba8ad1bd28a561b9064f4dfe694c616e7c20f"
+    },
+    {
+      "bucket": "17",
+      "bytes": 2483,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-17.json.gz",
+      "routes": 29,
+      "sha256": "7d52e8da79e74dd145e26e25d713ab60bc4b1e940919467625600ff03d0c82bd"
+    },
+    {
+      "bucket": "18",
+      "bytes": 1805,
+      "chunk_references": 73,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-18.json.gz",
+      "routes": 20,
+      "sha256": "adf16006bf38c25311171b09850454b3f920589353cd9e4920b565cf5e07243d"
+    },
+    {
+      "bucket": "19",
+      "bytes": 1607,
+      "chunk_references": 68,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-19.json.gz",
+      "routes": 17,
+      "sha256": "c79dae68cf43a655026e811c0fa4077b46d2322e14f2c1914da145acbe583768"
+    },
+    {
+      "bucket": "1a",
+      "bytes": 1684,
+      "chunk_references": 75,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-1a.json.gz",
+      "routes": 18,
+      "sha256": "fcfe73179f1e97b9658ebcf83207db3afdafbbc057616f59d4199bd76a487b84"
+    },
+    {
+      "bucket": "1b",
+      "bytes": 2553,
+      "chunk_references": 127,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-1b.json.gz",
+      "routes": 30,
+      "sha256": "e989346aed9ae6735e0fc4a4cb5b80007258fdb6b243f290e3a88935be7c4d51"
+    },
+    {
+      "bucket": "1c",
+      "bytes": 2304,
+      "chunk_references": 101,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-1c.json.gz",
+      "routes": 27,
+      "sha256": "6471f274b4077d2ee9ba484ce8eb783c2757ff89bc20966247d1b720ba845054"
+    },
+    {
+      "bucket": "1d",
+      "bytes": 1927,
+      "chunk_references": 80,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-1d.json.gz",
+      "routes": 22,
+      "sha256": "da34d1419b7b193ba831ba3c14c5b14b9c8a00652f15e3765b4f3d7abcf31fee"
+    },
+    {
+      "bucket": "1e",
+      "bytes": 2306,
+      "chunk_references": 106,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-1e.json.gz",
+      "routes": 27,
+      "sha256": "78b5affdb156d30ae60a6438921c7c7f0db3e3794885c1fe79c4a47c8b342933"
+    },
+    {
+      "bucket": "1f",
+      "bytes": 2110,
+      "chunk_references": 102,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-1f.json.gz",
+      "routes": 24,
+      "sha256": "cdf0cec5655813e8c9513e3a82af52a45adabd8ea7e2748b58b91e08e4f9d2fd"
+    },
+    {
+      "bucket": "20",
+      "bytes": 1871,
+      "chunk_references": 77,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-20.json.gz",
+      "routes": 21,
+      "sha256": "35558e8c4a45a3783c40c0849e3ed3cecf28573a199361c90b7447bd18a66ff3"
+    },
+    {
+      "bucket": "21",
+      "bytes": 2534,
+      "chunk_references": 115,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-21.json.gz",
+      "routes": 30,
+      "sha256": "efeebaa522792e8b49d14531bf87c7ba33289fd98a878bb90daf7895b2877bb9"
+    },
+    {
+      "bucket": "22",
+      "bytes": 2132,
+      "chunk_references": 84,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-22.json.gz",
+      "routes": 25,
+      "sha256": "e8cc43d4d0f469fa7ccbddf44e53ca139bc9814a9bed27609c05208799fe9617"
+    },
+    {
+      "bucket": "23",
+      "bytes": 2261,
+      "chunk_references": 99,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-23.json.gz",
+      "routes": 26,
+      "sha256": "f3015a2d7115850c6266853afe672c5fd45e3cca78e5110dce972549b46418ae"
+    },
+    {
+      "bucket": "24",
+      "bytes": 1824,
+      "chunk_references": 82,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-24.json.gz",
+      "routes": 20,
+      "sha256": "6231b4fbc5397805dc466963c927106a9c113cb8dd245d700e1bfcb574402d37"
+    },
+    {
+      "bucket": "25",
+      "bytes": 1880,
+      "chunk_references": 87,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-25.json.gz",
+      "routes": 21,
+      "sha256": "c11791176332cd6bbb06cf4d4ad656ccef9a5331938bceba8eef7041d4a39592"
+    },
+    {
+      "bucket": "26",
+      "bytes": 1745,
+      "chunk_references": 84,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-26.json.gz",
+      "routes": 19,
+      "sha256": "cc4fccd8903bb2c77195b3647e4c1edb933a7790d7637e5fbacbef04d11ce414"
+    },
+    {
+      "bucket": "27",
+      "bytes": 2119,
+      "chunk_references": 99,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-27.json.gz",
+      "routes": 24,
+      "sha256": "3e7c1ae110b6b5ccf8b7b2d8032c4f5294bb39246b9bcbdf647c4edb60c36f43"
+    },
+    {
+      "bucket": "28",
+      "bytes": 1795,
+      "chunk_references": 73,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-28.json.gz",
+      "routes": 20,
+      "sha256": "6f60d7dcb8b740374988277a3236b0d3abfa46e9953f5f92a9ff785ad3f64a97"
+    },
+    {
+      "bucket": "29",
+      "bytes": 2479,
+      "chunk_references": 120,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-29.json.gz",
+      "routes": 29,
+      "sha256": "bf8316920a393b6e25051dbab8ad26a2f969fd4c0511f3c77cb7fcb0081d0a24"
+    },
+    {
+      "bucket": "2a",
+      "bytes": 2181,
+      "chunk_references": 103,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-2a.json.gz",
+      "routes": 25,
+      "sha256": "0a0427825ae2889411b2135d6006c5dfe2a769b389f1914406538ac34b4b8272"
+    },
+    {
+      "bucket": "2b",
+      "bytes": 2548,
+      "chunk_references": 123,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-2b.json.gz",
+      "routes": 30,
+      "sha256": "f9889a7dc1678cf9d41971d32e079f7582e75e8fd693268f818a607d100e4d6c"
+    },
+    {
+      "bucket": "2c",
+      "bytes": 2116,
+      "chunk_references": 101,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-2c.json.gz",
+      "routes": 24,
+      "sha256": "413eadde9eaceb3877fbf8f038fab966ed7a59d4d6b15cd8ddf8a1732c697b2f"
+    },
+    {
+      "bucket": "2d",
+      "bytes": 2346,
+      "chunk_references": 118,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-2d.json.gz",
+      "routes": 27,
+      "sha256": "9e655bde88a6405c0ba2ddfdb6ce3092172a27e53abaa3bd465d8e1888b4c041"
+    },
+    {
+      "bucket": "2e",
+      "bytes": 2259,
+      "chunk_references": 106,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-2e.json.gz",
+      "routes": 26,
+      "sha256": "c452f7d08eaab6ef6bc9c45f265ca620fe91ce247c6328da88fc700a475b86f9"
+    },
+    {
+      "bucket": "2f",
+      "bytes": 1545,
+      "chunk_references": 77,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-2f.json.gz",
+      "routes": 16,
+      "sha256": "09a91c562be38134ecf8a691b2531dab5c3002c2994f75f830defe4b30eeb4e7"
+    },
+    {
+      "bucket": "30",
+      "bytes": 2273,
+      "chunk_references": 105,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-30.json.gz",
+      "routes": 26,
+      "sha256": "bc9c79ba061966e82733f7bd200ecb679aec2191b5cc1e6bc1fd8eac83d44b68"
+    },
+    {
+      "bucket": "31",
+      "bytes": 2439,
+      "chunk_references": 113,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-31.json.gz",
+      "routes": 29,
+      "sha256": "fe0bb49f90f57b007992c6b0411931d8a65d90b670091c8a673a9cc9f1773867"
+    },
+    {
+      "bucket": "32",
+      "bytes": 2729,
+      "chunk_references": 123,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-32.json.gz",
+      "routes": 33,
+      "sha256": "51f02d65f161cb674b2c1086bf87e47d3e6320ca04c8df26fe55a7315b69e91e"
+    },
+    {
+      "bucket": "33",
+      "bytes": 2754,
+      "chunk_references": 136,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-33.json.gz",
+      "routes": 33,
+      "sha256": "a2767baa01822940b129c77d44479d6710259e26f22f0d8a6fc9b68af8fb1bd4"
+    },
+    {
+      "bucket": "34",
+      "bytes": 2410,
+      "chunk_references": 113,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-34.json.gz",
+      "routes": 28,
+      "sha256": "64c5b69335ee28c8d27e30be2de92ab4807877c420534ab8492ec8488e8944b7"
+    },
+    {
+      "bucket": "35",
+      "bytes": 2049,
+      "chunk_references": 106,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-35.json.gz",
+      "routes": 23,
+      "sha256": "e683822739803f6d4c94d82e115ddecdcc9fd2d106ba87c37eff14e5f8c27340"
+    },
+    {
+      "bucket": "36",
+      "bytes": 2533,
+      "chunk_references": 100,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-36.json.gz",
+      "routes": 31,
+      "sha256": "9e72e728f35636a6ea0ea488d73b280e992682e6ace3e2adc868a9d286c52b41"
+    },
+    {
+      "bucket": "37",
+      "bytes": 2297,
+      "chunk_references": 105,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-37.json.gz",
+      "routes": 27,
+      "sha256": "58d0c878567c466a60e6134eda6c9174224ccfe100b0196fcf2556dc9c8758e9"
+    },
+    {
+      "bucket": "38",
+      "bytes": 1887,
+      "chunk_references": 84,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-38.json.gz",
+      "routes": 21,
+      "sha256": "27c8c79408c3c59e2351a4827873229261151423a81c466c5427141df2e27963"
+    },
+    {
+      "bucket": "39",
+      "bytes": 2579,
+      "chunk_references": 123,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-39.json.gz",
+      "routes": 30,
+      "sha256": "497651e43fbc3178d8689a395d3c9350fbc7a5d1376c7d193ddb96c79712c943"
+    },
+    {
+      "bucket": "3a",
+      "bytes": 2253,
+      "chunk_references": 98,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-3a.json.gz",
+      "routes": 26,
+      "sha256": "47e34a0ef6e35d5b0dfe844f26e1a9b2b2415c07a051d22b577db2d28334db4c"
+    },
+    {
+      "bucket": "3b",
+      "bytes": 2347,
+      "chunk_references": 117,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-3b.json.gz",
+      "routes": 27,
+      "sha256": "f82dd2be44d43d5dc04881e0e49f1fe51710ece09cc8aaa2bc3ae967011b482e"
+    },
+    {
+      "bucket": "3c",
+      "bytes": 2492,
+      "chunk_references": 125,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-3c.json.gz",
+      "routes": 29,
+      "sha256": "b70147a5c5ec82c1ceb34b90a82f239fe45ddb3bd2f56f82fabfddf31f905d14"
+    },
+    {
+      "bucket": "3d",
+      "bytes": 2767,
+      "chunk_references": 122,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-3d.json.gz",
+      "routes": 34,
+      "sha256": "d053d327f271c412212f2dcd4700aa719c7f2c150e1244adf19948cf5d7c49f1"
+    },
+    {
+      "bucket": "3e",
+      "bytes": 2619,
+      "chunk_references": 134,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-3e.json.gz",
+      "routes": 31,
+      "sha256": "a6a24d95bd5358dc16a82fb3cac87df48274cad19553e4b15b1ab3660f3b1e34"
+    },
+    {
+      "bucket": "3f",
+      "bytes": 2022,
+      "chunk_references": 84,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-3f.json.gz",
+      "routes": 23,
+      "sha256": "5ba9dc8914a4a96d47c72f9b395a69c288412c19f692421534c55b957bb0402f"
+    },
+    {
+      "bucket": "40",
+      "bytes": 2375,
+      "chunk_references": 103,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-40.json.gz",
+      "routes": 28,
+      "sha256": "5660e69ab06c1a58a3a36c44183e47bcb08d5cfd4f62d5763744956dbf185614"
+    },
+    {
+      "bucket": "41",
+      "bytes": 1379,
+      "chunk_references": 55,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-41.json.gz",
+      "routes": 14,
+      "sha256": "6e59a17c5c9079f9fdb34b0992c07547f1b5089cae79daf5277be70ddd971e31"
+    },
+    {
+      "bucket": "42",
+      "bytes": 2435,
+      "chunk_references": 125,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-42.json.gz",
+      "routes": 28,
+      "sha256": "a1013a98cfec7f16596ca37f04fdd91e508359468864f16a2f176257472792d9"
+    },
+    {
+      "bucket": "43",
+      "bytes": 2026,
+      "chunk_references": 84,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-43.json.gz",
+      "routes": 23,
+      "sha256": "43c2cea1f9a33ea3957e1d10b404739499bac69f70a53188980149637bfbfb6c"
+    },
+    {
+      "bucket": "44",
+      "bytes": 1827,
+      "chunk_references": 87,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-44.json.gz",
+      "routes": 20,
+      "sha256": "10cac9eb845c4d0ce640d7cd4b39581042f2ed202a6461fae442cd89d30c499f"
+    },
+    {
+      "bucket": "45",
+      "bytes": 2499,
+      "chunk_references": 127,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-45.json.gz",
+      "routes": 29,
+      "sha256": "df17133a99140552a2cc1711f365c1e40380ee779c837b23effe53417dbf7bec"
+    },
+    {
+      "bucket": "46",
+      "bytes": 2014,
+      "chunk_references": 86,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-46.json.gz",
+      "routes": 23,
+      "sha256": "4f19717f1110a6f14e586c8164c375b87b8937a710cd20afb6d95c7c1f53aa77"
+    },
+    {
+      "bucket": "47",
+      "bytes": 2783,
+      "chunk_references": 119,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-47.json.gz",
+      "routes": 34,
+      "sha256": "3a93ab821da4ed84662846569068629385787cc6f511f7bfaac9e4a52ab82837"
+    },
+    {
+      "bucket": "48",
+      "bytes": 1834,
+      "chunk_references": 86,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-48.json.gz",
+      "routes": 20,
+      "sha256": "295d4224321596266d1d304063e7b0fa0f85797902d31300b5dcd43e83073106"
+    },
+    {
+      "bucket": "49",
+      "bytes": 2267,
+      "chunk_references": 108,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-49.json.gz",
+      "routes": 26,
+      "sha256": "23b65634ac5a5288955144204d334825b76a4b7e0dcb56cd9f03f31c955e8af0"
+    },
+    {
+      "bucket": "4a",
+      "bytes": 2464,
+      "chunk_references": 112,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-4a.json.gz",
+      "routes": 29,
+      "sha256": "7a66a20bac4ab961088c069213bdcac9929f0647b89c627472ccd7d0048601d8"
+    },
+    {
+      "bucket": "4b",
+      "bytes": 2155,
+      "chunk_references": 90,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-4b.json.gz",
+      "routes": 25,
+      "sha256": "7ca5473ae97136032067aadba9420f527bf48eee7627da11378948d35e66306f"
+    },
+    {
+      "bucket": "4c",
+      "bytes": 3338,
+      "chunk_references": 159,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-4c.json.gz",
+      "routes": 41,
+      "sha256": "e5ae4ab8924f403beb79dc51e710e69fc8236580115d6f35c574612b5d394580"
+    },
+    {
+      "bucket": "4d",
+      "bytes": 2098,
+      "chunk_references": 99,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-4d.json.gz",
+      "routes": 24,
+      "sha256": "d9101d22f59983cdc9fa63d23278354b1eb5dc7fc1ecdb8e8d6ecd63cab77c9e"
+    },
+    {
+      "bucket": "4e",
+      "bytes": 2534,
+      "chunk_references": 117,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-4e.json.gz",
+      "routes": 30,
+      "sha256": "160b615aee790086966268004e69c295fba7d32f26404e651c44d24d0cd8606d"
+    },
+    {
+      "bucket": "4f",
+      "bytes": 2343,
+      "chunk_references": 114,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-4f.json.gz",
+      "routes": 27,
+      "sha256": "108849135c0e306b32df122b3388936217a807e090c5b2f9ddd87a627a737f62"
+    },
+    {
+      "bucket": "50",
+      "bytes": 2819,
+      "chunk_references": 131,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-50.json.gz",
+      "routes": 34,
+      "sha256": "cc7e1520035b108f62864eb51b3ca1d2b5b3e5aeeeba0f881712a40a5c191bd9"
+    },
+    {
+      "bucket": "51",
+      "bytes": 1767,
+      "chunk_references": 76,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-51.json.gz",
+      "routes": 19,
+      "sha256": "02d6401b705ebc531f4a64b99d6075e6e7e3d659a3cfcece1e8700592bd07b79"
+    },
+    {
+      "bucket": "52",
+      "bytes": 2680,
+      "chunk_references": 136,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-52.json.gz",
+      "routes": 32,
+      "sha256": "dfc8e8f462f097551bf04d2306596d42487abda857661d327429e97490a5cea2"
+    },
+    {
+      "bucket": "53",
+      "bytes": 2663,
+      "chunk_references": 117,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-53.json.gz",
+      "routes": 32,
+      "sha256": "aa4cdef1c18975126f55a0b4848c2b21000cf8b84cb10bc6c0a294b0fedb7f6f"
+    },
+    {
+      "bucket": "54",
+      "bytes": 2036,
+      "chunk_references": 94,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-54.json.gz",
+      "routes": 23,
+      "sha256": "cb58f8873a4de68432a8c06ab29f259e526cb8c7e1c618a50625e37ea5b19595"
+    },
+    {
+      "bucket": "55",
+      "bytes": 2781,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-55.json.gz",
+      "routes": 34,
+      "sha256": "97cbd54cd82a363893168fbbdc1be06dff7e9b5a9495e0f3a7c1c66731f87c03"
+    },
+    {
+      "bucket": "56",
+      "bytes": 2162,
+      "chunk_references": 98,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-56.json.gz",
+      "routes": 25,
+      "sha256": "3fae595068c1a896610728fe800ef7d53c8c2a34908611436f8c9ef363a65c13"
+    },
+    {
+      "bucket": "57",
+      "bytes": 1958,
+      "chunk_references": 86,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-57.json.gz",
+      "routes": 22,
+      "sha256": "277427ecda827379039f7ee3e032e0a784d59ee83f52f4ad01e044f138c3498c"
+    },
+    {
+      "bucket": "58",
+      "bytes": 2115,
+      "chunk_references": 91,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-58.json.gz",
+      "routes": 24,
+      "sha256": "986caf93632a446ef40e17cf66bbdf838d5551743ea317bd63675fea5fc9c459"
+    },
+    {
+      "bucket": "59",
+      "bytes": 3176,
+      "chunk_references": 149,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-59.json.gz",
+      "routes": 39,
+      "sha256": "30e9c8cf9e52cb82febb2aa8f5aa9a83c99ae3b862d808a4317f9b13b6c84af0"
+    },
+    {
+      "bucket": "5a",
+      "bytes": 2587,
+      "chunk_references": 112,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-5a.json.gz",
+      "routes": 31,
+      "sha256": "49e41cbd3aad1d9062ac213fd7b9a9f01e7880fef01bd737684e03bef152862f"
+    },
+    {
+      "bucket": "5b",
+      "bytes": 1940,
+      "chunk_references": 81,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-5b.json.gz",
+      "routes": 22,
+      "sha256": "ec868775e4de7b09dab9c6bf32c77540ab18a21a5a28f879e2580e3e7a17c8b9"
+    },
+    {
+      "bucket": "5c",
+      "bytes": 1694,
+      "chunk_references": 81,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-5c.json.gz",
+      "routes": 18,
+      "sha256": "aabefcedf9ebf40fc2d7ccf366fcf8d34f8e15f00fbf4c0ad201044014ede64b"
+    },
+    {
+      "bucket": "5d",
+      "bytes": 1891,
+      "chunk_references": 93,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-5d.json.gz",
+      "routes": 21,
+      "sha256": "ca67523a16b85119acf572a5e139092372fcb44658f553b6d9c4b84419cf22fc"
+    },
+    {
+      "bucket": "5e",
+      "bytes": 2462,
+      "chunk_references": 118,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-5e.json.gz",
+      "routes": 29,
+      "sha256": "c66c354d9e50a27d70409505d5742f45ce2d8ad9ecac6d3aa278f47cf0e8ad13"
+    },
+    {
+      "bucket": "5f",
+      "bytes": 2160,
+      "chunk_references": 92,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-5f.json.gz",
+      "routes": 25,
+      "sha256": "f14113e14a483ae87d9f2512ec148dfa4c07318d4665f2a7792effc8d2c8dc46"
+    },
+    {
+      "bucket": "60",
+      "bytes": 1660,
+      "chunk_references": 69,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-60.json.gz",
+      "routes": 18,
+      "sha256": "ea93f906fc54f2a283b093967071f46b33f4479ea51da2cea86968eb4a156224"
+    },
+    {
+      "bucket": "61",
+      "bytes": 2133,
+      "chunk_references": 102,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-61.json.gz",
+      "routes": 24,
+      "sha256": "3bd655b52bcc58b262b05470ae49b8ceb412f8c63c579f28e639b91e3489cda6"
+    },
+    {
+      "bucket": "62",
+      "bytes": 2287,
+      "chunk_references": 96,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-62.json.gz",
+      "routes": 27,
+      "sha256": "b68bf4799b4dd67614e5275e88fc1232636759013bc6245446bbc6da493701ae"
+    },
+    {
+      "bucket": "63",
+      "bytes": 2387,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-63.json.gz",
+      "routes": 28,
+      "sha256": "23cf19ea28b10475d7241239ae43433c036b8c66ecd33c4f46908b1ff1febd10"
+    },
+    {
+      "bucket": "64",
+      "bytes": 2556,
+      "chunk_references": 104,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-64.json.gz",
+      "routes": 31,
+      "sha256": "2e1f5a76dd82fb218b530f9cb44c3b6aec57df46d25aabc8e3b16635ac13bd01"
+    },
+    {
+      "bucket": "65",
+      "bytes": 2481,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-65.json.gz",
+      "routes": 29,
+      "sha256": "af9776c3146a571b9b8bcda18b753dd39bef4afd7b9b54c0f846b592f04c7e07"
+    },
+    {
+      "bucket": "66",
+      "bytes": 2387,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-66.json.gz",
+      "routes": 28,
+      "sha256": "7f0b9d59d07b64dd488fdd44705472f281aad85e3fd52b170dec99670569dd32"
+    },
+    {
+      "bucket": "67",
+      "bytes": 2407,
+      "chunk_references": 100,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-67.json.gz",
+      "routes": 29,
+      "sha256": "99d858ca3e09efdd10ce5134cec5c1df3f3a65f3a01f9d61e381ee24a3c49800"
+    },
+    {
+      "bucket": "68",
+      "bytes": 2556,
+      "chunk_references": 140,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-68.json.gz",
+      "routes": 29,
+      "sha256": "9c83f1c1d8b8304bd91f6de6a9071bff5e310418809b7c2e0c5d5873c7793a4d"
+    },
+    {
+      "bucket": "69",
+      "bytes": 2170,
+      "chunk_references": 99,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-69.json.gz",
+      "routes": 25,
+      "sha256": "4f229a8e884da3ea9a18bf6002d04535667447033e6fe7bd8b83e318a762c627"
+    },
+    {
+      "bucket": "6a",
+      "bytes": 2222,
+      "chunk_references": 97,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-6a.json.gz",
+      "routes": 26,
+      "sha256": "7dab3e8147785e72cac6aa1cac383fa6986e0e96b543ed4e4a5418382efe280e"
+    },
+    {
+      "bucket": "6b",
+      "bytes": 2631,
+      "chunk_references": 123,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-6b.json.gz",
+      "routes": 31,
+      "sha256": "0910eb5d809eb49867c99a19e6287606aa5036149fc70398cc6ba5e7529dce51"
+    },
+    {
+      "bucket": "6c",
+      "bytes": 2179,
+      "chunk_references": 104,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-6c.json.gz",
+      "routes": 25,
+      "sha256": "0459b0686ea6708340405084aad2b73d7a2999166681abc983a247c3b88c4422"
+    },
+    {
+      "bucket": "6d",
+      "bytes": 2704,
+      "chunk_references": 135,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-6d.json.gz",
+      "routes": 32,
+      "sha256": "ab66b3cd1cbeed54b474df3c52b00c46d02c4ac3158623a804dd18c2c05427cb"
+    },
+    {
+      "bucket": "6e",
+      "bytes": 2798,
+      "chunk_references": 126,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-6e.json.gz",
+      "routes": 34,
+      "sha256": "edd1cdd05754e976f725da460722195f0d5213db47637f024c6df472b2f38161"
+    },
+    {
+      "bucket": "6f",
+      "bytes": 1577,
+      "chunk_references": 64,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-6f.json.gz",
+      "routes": 17,
+      "sha256": "21ebfc92c7f464ea65c426fc99c94678851be570fe79c075765a111fea1ad095"
+    },
+    {
+      "bucket": "70",
+      "bytes": 2575,
+      "chunk_references": 116,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-70.json.gz",
+      "routes": 31,
+      "sha256": "fc100c276053b2a32abc6de167272966a4d358cf9bcc3895527d09158a151b94"
+    },
+    {
+      "bucket": "71",
+      "bytes": 2067,
+      "chunk_references": 85,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-71.json.gz",
+      "routes": 24,
+      "sha256": "9a427cecb4a67cad1e38da9854ef7f1231e0d9bebe99daab998149fe22e4896c"
+    },
+    {
+      "bucket": "72",
+      "bytes": 2371,
+      "chunk_references": 112,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-72.json.gz",
+      "routes": 27,
+      "sha256": "b84bebe4c26cc16d8dea5d1eba5c68a3644d89d6b22d1b8f47ceca976d881932"
+    },
+    {
+      "bucket": "73",
+      "bytes": 1832,
+      "chunk_references": 85,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-73.json.gz",
+      "routes": 20,
+      "sha256": "2112578fd340490cc6c376ccac8f0e77e82d97cbecb11c3b1925d02361636a9f"
+    },
+    {
+      "bucket": "74",
+      "bytes": 2389,
+      "chunk_references": 114,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-74.json.gz",
+      "routes": 28,
+      "sha256": "a8e370da4c831cacad55953084d146b56cbe656256de7dadb32a29ab27e79403"
+    },
+    {
+      "bucket": "75",
+      "bytes": 2283,
+      "chunk_references": 99,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-75.json.gz",
+      "routes": 27,
+      "sha256": "9c39ede755533ac93bbff11cdf52b056dd9d01fa606eab9a311dc57098f05a58"
+    },
+    {
+      "bucket": "76",
+      "bytes": 2292,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-76.json.gz",
+      "routes": 26,
+      "sha256": "7060c1d453f40eab242c7701d84bb75538d761735b264bc23de817b6a6147f7d"
+    },
+    {
+      "bucket": "77",
+      "bytes": 2281,
+      "chunk_references": 115,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-77.json.gz",
+      "routes": 26,
+      "sha256": "511c36f3208d7cfd3813db69c49a7b7839ca856ddb8fe5034fbbfe2a6087db54"
+    },
+    {
+      "bucket": "78",
+      "bytes": 2123,
+      "chunk_references": 105,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-78.json.gz",
+      "routes": 24,
+      "sha256": "5ca98fb104b5ac47c09728d00aa6e277fe0348e7860f71bfc977770fc863450b"
+    },
+    {
+      "bucket": "79",
+      "bytes": 2377,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-79.json.gz",
+      "routes": 28,
+      "sha256": "28daaff419533218deddbd2095ac5f757694af2f5cba6f8591c70ad9475c3fe0"
+    },
+    {
+      "bucket": "7a",
+      "bytes": 2073,
+      "chunk_references": 104,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-7a.json.gz",
+      "routes": 23,
+      "sha256": "dd2438ee2c1a2b20e8a721a4ab4ab45989638602b9d1e440a338ae4fe4f55ab6"
+    },
+    {
+      "bucket": "7b",
+      "bytes": 2467,
+      "chunk_references": 116,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-7b.json.gz",
+      "routes": 29,
+      "sha256": "dc3ae4ab144e7355019ff174e23f3405e67869629f91619f314d5f864c65e145"
+    },
+    {
+      "bucket": "7c",
+      "bytes": 2419,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-7c.json.gz",
+      "routes": 28,
+      "sha256": "f9bae3a92318df458048e0f13e57476097379bdb03b71d4dda88b9b33077e569"
+    },
+    {
+      "bucket": "7d",
+      "bytes": 2344,
+      "chunk_references": 117,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-7d.json.gz",
+      "routes": 27,
+      "sha256": "fa65e3f97d0686bbebb56b829bb816150b7dfd2501c21cb54675807a3b667380"
+    },
+    {
+      "bucket": "7e",
+      "bytes": 2812,
+      "chunk_references": 125,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-7e.json.gz",
+      "routes": 34,
+      "sha256": "88cd77003b02d3375689b886cebcd8651b6f9f824d1ba40c453e950c3004cf4d"
+    },
+    {
+      "bucket": "7f",
+      "bytes": 2664,
+      "chunk_references": 123,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-7f.json.gz",
+      "routes": 32,
+      "sha256": "64cb646a2ae639f1647961a201cc1e2c898a5d1966266a413ae538c8441c55b4"
+    },
+    {
+      "bucket": "80",
+      "bytes": 1989,
+      "chunk_references": 98,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-80.json.gz",
+      "routes": 22,
+      "sha256": "f868aa43e0ba2f0fb85ab6b0b5bb1e178fabd43562070c2b06c12f8cba928c23"
+    },
+    {
+      "bucket": "81",
+      "bytes": 2025,
+      "chunk_references": 87,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-81.json.gz",
+      "routes": 23,
+      "sha256": "03c297fca28d8d8e127b15a2735ebeb5c0c592e7457fe375b644df26b4e8e594"
+    },
+    {
+      "bucket": "82",
+      "bytes": 2658,
+      "chunk_references": 132,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-82.json.gz",
+      "routes": 32,
+      "sha256": "d5a8b9c34d5da3b03de4cbabc7b3f4d49eb6184ecccf625bc370b1d9a6ceebcd"
+    },
+    {
+      "bucket": "83",
+      "bytes": 2453,
+      "chunk_references": 115,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-83.json.gz",
+      "routes": 29,
+      "sha256": "24a1342c4bd2d0c0d74189878bf59c96e7e4afcaad786a86e64157a926d15312"
+    },
+    {
+      "bucket": "84",
+      "bytes": 2102,
+      "chunk_references": 91,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-84.json.gz",
+      "routes": 24,
+      "sha256": "44f32efc881d163d1c093d7c52ffb1b006f2f8b910aafa6696af006f438f5a60"
+    },
+    {
+      "bucket": "85",
+      "bytes": 2276,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-85.json.gz",
+      "routes": 26,
+      "sha256": "046646c956c7dec821b1047ff9b385e0a95e1c427ab547973181568120a15f0d"
+    },
+    {
+      "bucket": "86",
+      "bytes": 2121,
+      "chunk_references": 97,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-86.json.gz",
+      "routes": 24,
+      "sha256": "5ffcbd8a69387a6cade809f3df8840b8eda592cdbfdb20f5a75019d4c3df2ced"
+    },
+    {
+      "bucket": "87",
+      "bytes": 2527,
+      "chunk_references": 120,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-87.json.gz",
+      "routes": 30,
+      "sha256": "7274993050952fa5a8e80c8041a959109f4d02ab4bb280dee8395996b981d190"
+    },
+    {
+      "bucket": "88",
+      "bytes": 2181,
+      "chunk_references": 98,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-88.json.gz",
+      "routes": 25,
+      "sha256": "3b5b6ba7a4be7717c89acf23b742606635375302966f7701b5b62276f29b28d4"
+    },
+    {
+      "bucket": "89",
+      "bytes": 2022,
+      "chunk_references": 91,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-89.json.gz",
+      "routes": 23,
+      "sha256": "2e4a2a67cd3cb9105d7d9075023db10ff1a57ce353ab85e81631378fab3ccc3f"
+    },
+    {
+      "bucket": "8a",
+      "bytes": 2350,
+      "chunk_references": 115,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-8a.json.gz",
+      "routes": 27,
+      "sha256": "22f4fe6bcc62b3779a379a776c3ed23180190621aa4bc47592015db43244dabb"
+    },
+    {
+      "bucket": "8b",
+      "bytes": 2055,
+      "chunk_references": 92,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-8b.json.gz",
+      "routes": 23,
+      "sha256": "9f066a18cad829cf63c3e6e86608900fc807f881db7c55ed618ac35865386843"
+    },
+    {
+      "bucket": "8c",
+      "bytes": 3015,
+      "chunk_references": 148,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-8c.json.gz",
+      "routes": 37,
+      "sha256": "d6385eb6fec6618045bf628259b7059eaf3900e02536491e5acbbbbd700ecab0"
+    },
+    {
+      "bucket": "8d",
+      "bytes": 2622,
+      "chunk_references": 125,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-8d.json.gz",
+      "routes": 31,
+      "sha256": "33a4ced0be35013da7482e2c2bd23f25e32aab5c4b4e0e95c3650780b1824217"
+    },
+    {
+      "bucket": "8e",
+      "bytes": 1882,
+      "chunk_references": 78,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-8e.json.gz",
+      "routes": 21,
+      "sha256": "c92af0bc96a00b2f636471ee087f0b19b7964217846d1d284be008b4c5523b79"
+    },
+    {
+      "bucket": "8f",
+      "bytes": 2371,
+      "chunk_references": 116,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-8f.json.gz",
+      "routes": 27,
+      "sha256": "68c7d5f9bdd7fca8c831d2f537fe2535648124cf4c59dbe6032d4297ce4f8161"
+    },
+    {
+      "bucket": "90",
+      "bytes": 2042,
+      "chunk_references": 88,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-90.json.gz",
+      "routes": 23,
+      "sha256": "d3a22e1dafc45d8fe0a067cbffd966bbd54826bb262ef2baed5cafe4f6ea2565"
+    },
+    {
+      "bucket": "91",
+      "bytes": 2070,
+      "chunk_references": 103,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-91.json.gz",
+      "routes": 23,
+      "sha256": "70167291053f3b057a52b25cb78e6427bd3e6661e52187ad6b0b67dbc1792746"
+    },
+    {
+      "bucket": "92",
+      "bytes": 1829,
+      "chunk_references": 82,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-92.json.gz",
+      "routes": 20,
+      "sha256": "ed865287a002eb65deae806c4fa6d5c833519d3bb09746a4db7b12ab9c96a78a"
+    },
+    {
+      "bucket": "93",
+      "bytes": 2018,
+      "chunk_references": 91,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-93.json.gz",
+      "routes": 23,
+      "sha256": "0e5fc9ab48486ca00322d056128c07aacd8188968bc6def09a854368e428f887"
+    },
+    {
+      "bucket": "94",
+      "bytes": 2047,
+      "chunk_references": 97,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-94.json.gz",
+      "routes": 23,
+      "sha256": "9139309341647c46f4d23eadd38ec61d3fc9829dd9d16a17717b5b1b5bac8882"
+    },
+    {
+      "bucket": "95",
+      "bytes": 2709,
+      "chunk_references": 136,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-95.json.gz",
+      "routes": 32,
+      "sha256": "eefcc4e777ed93e6e4839cb8ac0eca7bb4a275b8bfcae50bdaf586290d74ac7b"
+    },
+    {
+      "bucket": "96",
+      "bytes": 1737,
+      "chunk_references": 74,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-96.json.gz",
+      "routes": 19,
+      "sha256": "5079c523e72431720f4e1494dc976375aa7e2917259d1b1451e3feb5cd2dce46"
+    },
+    {
+      "bucket": "97",
+      "bytes": 2150,
+      "chunk_references": 92,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-97.json.gz",
+      "routes": 25,
+      "sha256": "2fa7127b9c958c0f96aa3e35e9bbd91883531ceb113e7b9e5b189f7d8e44e794"
+    },
+    {
+      "bucket": "98",
+      "bytes": 2473,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-98.json.gz",
+      "routes": 29,
+      "sha256": "f74d56133121074c5c244ebeba90044b0692020d0681728d5c0f427cdcf96450"
+    },
+    {
+      "bucket": "99",
+      "bytes": 1590,
+      "chunk_references": 67,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-99.json.gz",
+      "routes": 17,
+      "sha256": "7d919d2518a06f9a6d3f2e1e5d0487adb4e86f7dff1d5aa5372a1fa4b5a417d0"
+    },
+    {
+      "bucket": "9a",
+      "bytes": 2299,
+      "chunk_references": 102,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-9a.json.gz",
+      "routes": 27,
+      "sha256": "fd226c8fe0605bd1fc9d81bc9c9b4775543050fdbe4702000f7cd60f308f4e6e"
+    },
+    {
+      "bucket": "9b",
+      "bytes": 2031,
+      "chunk_references": 94,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-9b.json.gz",
+      "routes": 23,
+      "sha256": "fc1dabb5350649138e6c73b8875219ff0287c6b33b71dc3f8c7dee87e1202d48"
+    },
+    {
+      "bucket": "9c",
+      "bytes": 1861,
+      "chunk_references": 75,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-9c.json.gz",
+      "routes": 21,
+      "sha256": "b9e2d37c8b5b3e20b101bbad19199478a1899bcdb414c8b8f385dd201fcb44f9"
+    },
+    {
+      "bucket": "9d",
+      "bytes": 2108,
+      "chunk_references": 93,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-9d.json.gz",
+      "routes": 24,
+      "sha256": "df232be4843bfc0c27703392b31d0404c68c76425686439939ece20c90c23145"
+    },
+    {
+      "bucket": "9e",
+      "bytes": 2828,
+      "chunk_references": 132,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-9e.json.gz",
+      "routes": 34,
+      "sha256": "db20ad295ce696f34d128372e4e865e7daf031fea1986e0347f39117f03d8600"
+    },
+    {
+      "bucket": "9f",
+      "bytes": 2103,
+      "chunk_references": 96,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-9f.json.gz",
+      "routes": 24,
+      "sha256": "9a63d75b4791226abbf24ad9836fc093a9a5af48474605a27ce40bd1c0e0365b"
+    },
+    {
+      "bucket": "a0",
+      "bytes": 1888,
+      "chunk_references": 80,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a0.json.gz",
+      "routes": 21,
+      "sha256": "d2cb32702a7cf79ddfa8ac5b15e1b709a4dea3646f6438a18ed29f128018bc2d"
+    },
+    {
+      "bucket": "a1",
+      "bytes": 2426,
+      "chunk_references": 112,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a1.json.gz",
+      "routes": 28,
+      "sha256": "c62b65aedd0253b65f4859ed3a8d4915e1202bc1d29fbf42aee39f74cc7137d0"
+    },
+    {
+      "bucket": "a2",
+      "bytes": 2235,
+      "chunk_references": 106,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a2.json.gz",
+      "routes": 26,
+      "sha256": "9f3e817e96d4d91171d4e2ceca18ab651814a8ac6f0a563110b2ccf70b661f10"
+    },
+    {
+      "bucket": "a3",
+      "bytes": 2396,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a3.json.gz",
+      "routes": 28,
+      "sha256": "6dcb07b17470c0bfb806fae9b07e893d40fe73b2d672a609443097f9ad26d26f"
+    },
+    {
+      "bucket": "a4",
+      "bytes": 3352,
+      "chunk_references": 179,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a4.json.gz",
+      "routes": 41,
+      "sha256": "0c1b35e637ea108a278559e53b060d48394e26efa8cce226c64215c0143371e4"
+    },
+    {
+      "bucket": "a5",
+      "bytes": 1963,
+      "chunk_references": 95,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a5.json.gz",
+      "routes": 22,
+      "sha256": "f6f742c5aa7ed21c1e6812d16b98410b36671c48186ec501a07d2ac43883acc8"
+    },
+    {
+      "bucket": "a6",
+      "bytes": 2364,
+      "chunk_references": 101,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a6.json.gz",
+      "routes": 28,
+      "sha256": "324f9d052fecec767eeced78a78177cbcc7b3128bd459e29f46d5170ff3bf0d4"
+    },
+    {
+      "bucket": "a7",
+      "bytes": 2803,
+      "chunk_references": 143,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a7.json.gz",
+      "routes": 33,
+      "sha256": "0600d2415d662c866049d1f81291814f755c2e6cb1b70dafedb68bba08b27d46"
+    },
+    {
+      "bucket": "a8",
+      "bytes": 1419,
+      "chunk_references": 46,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a8.json.gz",
+      "routes": 15,
+      "sha256": "c6aa03405e841200d8a1a87c8bd070b0a737e2b6c40b0337e85f12e1b7f1daca"
+    },
+    {
+      "bucket": "a9",
+      "bytes": 2271,
+      "chunk_references": 93,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-a9.json.gz",
+      "routes": 27,
+      "sha256": "b2e2be6f4ec5d8220037a5b5c9d98dbc4fdf293bb2bdb0d7d14fbd5a95fe13cf"
+    },
+    {
+      "bucket": "aa",
+      "bytes": 2332,
+      "chunk_references": 114,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-aa.json.gz",
+      "routes": 27,
+      "sha256": "fde3b628d66445774e4ae50d2a73141699325966fea64d9229835401a005b1df"
+    },
+    {
+      "bucket": "ab",
+      "bytes": 2413,
+      "chunk_references": 119,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ab.json.gz",
+      "routes": 28,
+      "sha256": "fbfe18e675715b81af1d64cb78ad0a7521cf414ff64d68e730b73aefb43bd62f"
+    },
+    {
+      "bucket": "ac",
+      "bytes": 2385,
+      "chunk_references": 119,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ac.json.gz",
+      "routes": 28,
+      "sha256": "25df9dd1aaed50d2f338eebdd238e1897f0126584134aee0b5c895f545469259"
+    },
+    {
+      "bucket": "ad",
+      "bytes": 2533,
+      "chunk_references": 125,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ad.json.gz",
+      "routes": 30,
+      "sha256": "6193a9b01bc31db6c77376a0b9e2eaf6b7330a2d2a94c78c2dccd5c9d4c1d860"
+    },
+    {
+      "bucket": "ae",
+      "bytes": 2312,
+      "chunk_references": 108,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ae.json.gz",
+      "routes": 27,
+      "sha256": "e570de74349975425dbb7b77bc987eb11ee55b21f96a7b4249ac79a367394ec6"
+    },
+    {
+      "bucket": "af",
+      "bytes": 2307,
+      "chunk_references": 102,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-af.json.gz",
+      "routes": 27,
+      "sha256": "c2c079220b32e89b9861bed83ac3436ed81790436bc230dfa3d09d4e8fcaf384"
+    },
+    {
+      "bucket": "b0",
+      "bytes": 2084,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b0.json.gz",
+      "routes": 23,
+      "sha256": "9ed6e5241840869c491fe6567a109d8ddd1b45a481e77178f017003ce8f96053"
+    },
+    {
+      "bucket": "b1",
+      "bytes": 2318,
+      "chunk_references": 111,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b1.json.gz",
+      "routes": 27,
+      "sha256": "996c8e6b978b4665e7c07d916ebe4c9e3e81784da24d4536eff92c76128bff4b"
+    },
+    {
+      "bucket": "b2",
+      "bytes": 1820,
+      "chunk_references": 82,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b2.json.gz",
+      "routes": 20,
+      "sha256": "85e7c9f3de488f1fb18a07c3ccdfe9018e79d51cacad9804e881c4508c098f8f"
+    },
+    {
+      "bucket": "b3",
+      "bytes": 2103,
+      "chunk_references": 93,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b3.json.gz",
+      "routes": 24,
+      "sha256": "ffe4128b0d101d9eb629fa9a55560a80a0683e1cffaadeb2a366ebbaf25b7e2e"
+    },
+    {
+      "bucket": "b4",
+      "bytes": 2382,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b4.json.gz",
+      "routes": 28,
+      "sha256": "82fc520ee1a81f5e34e9be3e7d1eb52620b720c212c8827943484297f229b1c3"
+    },
+    {
+      "bucket": "b5",
+      "bytes": 1650,
+      "chunk_references": 63,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b5.json.gz",
+      "routes": 18,
+      "sha256": "431b01d877e96e82d45b1dfc9a3a4df9fa607c45b0602ab714ca6096e4889285"
+    },
+    {
+      "bucket": "b6",
+      "bytes": 1976,
+      "chunk_references": 92,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b6.json.gz",
+      "routes": 22,
+      "sha256": "4822d538bbfc500e6e893beefd58b7ebc011475e309f240d775e6f10518d0a67"
+    },
+    {
+      "bucket": "b7",
+      "bytes": 1574,
+      "chunk_references": 61,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b7.json.gz",
+      "routes": 17,
+      "sha256": "f0c1c5e1d7de428b2621e52cf4e0ac881ae020c498f73d7a15eb5fdc2a8ed082"
+    },
+    {
+      "bucket": "b8",
+      "bytes": 2308,
+      "chunk_references": 102,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b8.json.gz",
+      "routes": 27,
+      "sha256": "610495565717bc8b3ae78b1e48f1df7fbcdbd3e64f5cbd235751e0d5b6be94c1"
+    },
+    {
+      "bucket": "b9",
+      "bytes": 2111,
+      "chunk_references": 96,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-b9.json.gz",
+      "routes": 24,
+      "sha256": "422144a0ada4211d3e42e93ad5ce114367075dbfd894079023a53525840568ce"
+    },
+    {
+      "bucket": "ba",
+      "bytes": 2980,
+      "chunk_references": 144,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ba.json.gz",
+      "routes": 36,
+      "sha256": "201bf642ce87450c7bceef712926e249aa81c56582948b0ff7e53b542da94833"
+    },
+    {
+      "bucket": "bb",
+      "bytes": 2670,
+      "chunk_references": 127,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-bb.json.gz",
+      "routes": 32,
+      "sha256": "3d4ff0db314fd1b351588873288e96a313ded1c2d09f099678a8455678b2228a"
+    },
+    {
+      "bucket": "bc",
+      "bytes": 2839,
+      "chunk_references": 134,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-bc.json.gz",
+      "routes": 34,
+      "sha256": "8b18dfb07daedcce42c69492ad71415c603bb62cb3572f50d9ed857b31779541"
+    },
+    {
+      "bucket": "bd",
+      "bytes": 1942,
+      "chunk_references": 83,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-bd.json.gz",
+      "routes": 22,
+      "sha256": "eb103b4447af10cde440b345b6a18c560e40ab35cba986c767dc670a0be0bcf9"
+    },
+    {
+      "bucket": "be",
+      "bytes": 2270,
+      "chunk_references": 112,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-be.json.gz",
+      "routes": 26,
+      "sha256": "3c97ee83a8d68e8cdb1d4eaedf146eebc52eaf40ebe1d1414cce751dcc730362"
+    },
+    {
+      "bucket": "bf",
+      "bytes": 2722,
+      "chunk_references": 139,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-bf.json.gz",
+      "routes": 32,
+      "sha256": "2a118d0fab041c3666ec2c33d92d5d46b5b90e9c3caf3702aaeb57bd7d891867"
+    },
+    {
+      "bucket": "c0",
+      "bytes": 2285,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c0.json.gz",
+      "routes": 26,
+      "sha256": "3099d81bf3e16b3983755c1cbe034f1dd9a50bf1d334281927186e11804000b9"
+    },
+    {
+      "bucket": "c1",
+      "bytes": 1961,
+      "chunk_references": 89,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c1.json.gz",
+      "routes": 22,
+      "sha256": "a4c5a0f7525e06908d61de87b4f263c7cf5b13f575420ca552f399a00734b966"
+    },
+    {
+      "bucket": "c2",
+      "bytes": 1738,
+      "chunk_references": 74,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c2.json.gz",
+      "routes": 19,
+      "sha256": "dca8fa1ccd36ac6f74186d8c4d03399fde66303cbf83f69a40aec3423f6b411c"
+    },
+    {
+      "bucket": "c3",
+      "bytes": 2061,
+      "chunk_references": 103,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c3.json.gz",
+      "routes": 23,
+      "sha256": "3bc4afb9becc52ed4fc99357261020aa2ae530181745bb551ab495438075e26b"
+    },
+    {
+      "bucket": "c4",
+      "bytes": 1793,
+      "chunk_references": 76,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c4.json.gz",
+      "routes": 20,
+      "sha256": "001ca9f1954a02f260ce2ed65333a7c0f048cda5430c3a7e718110ae192e143a"
+    },
+    {
+      "bucket": "c5",
+      "bytes": 2812,
+      "chunk_references": 151,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c5.json.gz",
+      "routes": 33,
+      "sha256": "0e69fa6fd7e8b51173e7c4baf51dac91de0b6c7186720f04820e71fe8a5d6d2f"
+    },
+    {
+      "bucket": "c6",
+      "bytes": 2672,
+      "chunk_references": 129,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c6.json.gz",
+      "routes": 32,
+      "sha256": "2d04c83d6772c3b5535dc62ee22cf9c54661b193b850b706e22eaa5021c7b772"
+    },
+    {
+      "bucket": "c7",
+      "bytes": 2217,
+      "chunk_references": 93,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c7.json.gz",
+      "routes": 26,
+      "sha256": "cf780a5dc26548e608998de631a7a4ddd7c09c048b5b21f8179dab8ed814143d"
+    },
+    {
+      "bucket": "c8",
+      "bytes": 2620,
+      "chunk_references": 133,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c8.json.gz",
+      "routes": 31,
+      "sha256": "0ed4fa8e117eaf897e48d92e1f097fa6b361b885d5eee34beb1f29db935ef2bc"
+    },
+    {
+      "bucket": "c9",
+      "bytes": 2026,
+      "chunk_references": 94,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-c9.json.gz",
+      "routes": 23,
+      "sha256": "e42cd07087c81d7e9084f1f1e361a355e410e32fedf4b5491103213ae5f70833"
+    },
+    {
+      "bucket": "ca",
+      "bytes": 2308,
+      "chunk_references": 102,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ca.json.gz",
+      "routes": 27,
+      "sha256": "5b41175ee2a80958dbce3243e227d2576f0cfc018b8ce09e14e3b694a3b00cd5"
+    },
+    {
+      "bucket": "cb",
+      "bytes": 2192,
+      "chunk_references": 106,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-cb.json.gz",
+      "routes": 25,
+      "sha256": "23c4c0572590694cf52c1141c04af131d5b7fc2001ff74e33033f25f3997bce7"
+    },
+    {
+      "bucket": "cc",
+      "bytes": 2050,
+      "chunk_references": 97,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-cc.json.gz",
+      "routes": 23,
+      "sha256": "0a1918e8c4747e888217a73793b74f8fe9beb7bfd8c93292f6d184689e3ce1d6"
+    },
+    {
+      "bucket": "cd",
+      "bytes": 2348,
+      "chunk_references": 103,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-cd.json.gz",
+      "routes": 28,
+      "sha256": "8d815be114e888100f4934c73df76d500676447e54a4b4235068736b798b9028"
+    },
+    {
+      "bucket": "ce",
+      "bytes": 2021,
+      "chunk_references": 88,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ce.json.gz",
+      "routes": 23,
+      "sha256": "4bc5811b5e111daecbcad7877417c42cadbf349b1d90d7a83ffaf1d6ca204fc1"
+    },
+    {
+      "bucket": "cf",
+      "bytes": 1992,
+      "chunk_references": 98,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-cf.json.gz",
+      "routes": 22,
+      "sha256": "4f1458f4abeda9811b07fed137f4ef06d28a0d7cdc99d12ed8cf7a0911a9baec"
+    },
+    {
+      "bucket": "d0",
+      "bytes": 2335,
+      "chunk_references": 92,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d0.json.gz",
+      "routes": 28,
+      "sha256": "e03532451d90320fbe385ec57cea48d2697e06e49d696477accbcb76f3ba2786"
+    },
+    {
+      "bucket": "d1",
+      "bytes": 2166,
+      "chunk_references": 101,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d1.json.gz",
+      "routes": 25,
+      "sha256": "a0234c2847d19c7290ec02ccf99bddf469d9093de3d047189846ec12a1622853"
+    },
+    {
+      "bucket": "d2",
+      "bytes": 2283,
+      "chunk_references": 108,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d2.json.gz",
+      "routes": 26,
+      "sha256": "6fac4bfc064a1aa50ea6549204c43cf935740866c76e989ccf82b905dda8c6c9"
+    },
+    {
+      "bucket": "d3",
+      "bytes": 1717,
+      "chunk_references": 74,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d3.json.gz",
+      "routes": 19,
+      "sha256": "ea9f844aa0e2e6a3db5e735edc20e81c7c4b6b4a7e65ca00ce2d032197a5e38f"
+    },
+    {
+      "bucket": "d4",
+      "bytes": 2402,
+      "chunk_references": 115,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d4.json.gz",
+      "routes": 28,
+      "sha256": "90c096f2bd3786424a5e2ccf137d50af0e538cb270fbe8901fb173952be9ae89"
+    },
+    {
+      "bucket": "d5",
+      "bytes": 1603,
+      "chunk_references": 66,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d5.json.gz",
+      "routes": 17,
+      "sha256": "d54b97bf97a6d510c561ef7c07b5e4215a00c7c3cab097a3c6f76a71a18c0505"
+    },
+    {
+      "bucket": "d6",
+      "bytes": 1686,
+      "chunk_references": 82,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d6.json.gz",
+      "routes": 18,
+      "sha256": "411f9ca3d1a34e0cb136e363848bdbf1b452c1789714bbdb524c1814df03fb96"
+    },
+    {
+      "bucket": "d7",
+      "bytes": 1865,
+      "chunk_references": 75,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d7.json.gz",
+      "routes": 21,
+      "sha256": "8d8592f77e918b55f686e16cc6a062f176e7654f27c86cd00602c0fe77c8da38"
+    },
+    {
+      "bucket": "d8",
+      "bytes": 1822,
+      "chunk_references": 78,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d8.json.gz",
+      "routes": 20,
+      "sha256": "16e960c2e6bf94bf5ac3850558120fb522225e69b316bb4f1e4eb2c344d35cee"
+    },
+    {
+      "bucket": "d9",
+      "bytes": 1959,
+      "chunk_references": 83,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-d9.json.gz",
+      "routes": 22,
+      "sha256": "e1efec46177b5a2005a4632bdc503f81b3f99e67459ab61169a96de5a7a2f834"
+    },
+    {
+      "bucket": "da",
+      "bytes": 2326,
+      "chunk_references": 109,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-da.json.gz",
+      "routes": 27,
+      "sha256": "865ded85638ccfd36a2fe6c681528d466203db4b0b5d4ed1d15285096ad1a684"
+    },
+    {
+      "bucket": "db",
+      "bytes": 2149,
+      "chunk_references": 95,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-db.json.gz",
+      "routes": 25,
+      "sha256": "de75ede2f85c3b902e4fc9554e0bccf6c74566f300125ed1c64922591c3f76ea"
+    },
+    {
+      "bucket": "dc",
+      "bytes": 2347,
+      "chunk_references": 95,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-dc.json.gz",
+      "routes": 28,
+      "sha256": "fdd1780bee9bfc479557ea5aae5d6719fe758d1e15991f5bcc9ce9c9253614a8"
+    },
+    {
+      "bucket": "dd",
+      "bytes": 1956,
+      "chunk_references": 90,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-dd.json.gz",
+      "routes": 22,
+      "sha256": "45f59ebc0f7184aaac64cb698a01926a96c8a1bacce7e616a4cd936d8dfdbb56"
+    },
+    {
+      "bucket": "de",
+      "bytes": 2798,
+      "chunk_references": 122,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-de.json.gz",
+      "routes": 34,
+      "sha256": "618d32aaa4ecba4fa3b478c1f926300570705e7703c059d8c2f1b32768ff481b"
+    },
+    {
+      "bucket": "df",
+      "bytes": 1964,
+      "chunk_references": 82,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-df.json.gz",
+      "routes": 22,
+      "sha256": "7783eb643fecfcc4dd6dd8a8ce68105ff1ae59925b5691a5a53bad0f35ee9ea2"
+    },
+    {
+      "bucket": "e0",
+      "bytes": 2170,
+      "chunk_references": 98,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e0.json.gz",
+      "routes": 25,
+      "sha256": "cfdf89a52ad310848dec4c724eb1f235684da5080f62bc8c9eac7d2db2dfe062"
+    },
+    {
+      "bucket": "e1",
+      "bytes": 2346,
+      "chunk_references": 114,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e1.json.gz",
+      "routes": 27,
+      "sha256": "b8821bdaf9264c24e59d6512d195a987ad71209c6cd37e5ee90c46c900b8e3a2"
+    },
+    {
+      "bucket": "e2",
+      "bytes": 2211,
+      "chunk_references": 110,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e2.json.gz",
+      "routes": 25,
+      "sha256": "24d24f9e4bb0168db06c6a3ed99e076fec25ce193ea3e178b94841ab68bd74c9"
+    },
+    {
+      "bucket": "e3",
+      "bytes": 1813,
+      "chunk_references": 79,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e3.json.gz",
+      "routes": 20,
+      "sha256": "732398982cd9cac83e532412a984eb270ab8dfbf5e0e999111fe1497ca07e418"
+    },
+    {
+      "bucket": "e4",
+      "bytes": 2174,
+      "chunk_references": 105,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e4.json.gz",
+      "routes": 25,
+      "sha256": "0c08c82d2400594090bbaf9bd03a11d38b3978a80a1c4a6e389357f9aee13df9"
+    },
+    {
+      "bucket": "e5",
+      "bytes": 2341,
+      "chunk_references": 114,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e5.json.gz",
+      "routes": 27,
+      "sha256": "8e12da756d8b3bf22024ac290a9bac3e6cb39a1a7c28ac1c225788714fc3266b"
+    },
+    {
+      "bucket": "e6",
+      "bytes": 2199,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e6.json.gz",
+      "routes": 25,
+      "sha256": "fca57ad27941ecc0daadc9e24f9a1187d16a4c1d36632eb43eaf0b99e03b173b"
+    },
+    {
+      "bucket": "e7",
+      "bytes": 2477,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e7.json.gz",
+      "routes": 29,
+      "sha256": "7294804c1e4995f3faf2fbcd987c502c8395b5a1917998f108efdb7c51ad8f9e"
+    },
+    {
+      "bucket": "e8",
+      "bytes": 2414,
+      "chunk_references": 119,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e8.json.gz",
+      "routes": 28,
+      "sha256": "76864445dd80419fc2b0b37e8c9f4a170dff2b556af3fe031691bcd48e59f9ca"
+    },
+    {
+      "bucket": "e9",
+      "bytes": 2357,
+      "chunk_references": 101,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-e9.json.gz",
+      "routes": 28,
+      "sha256": "211d53adbf48da0b434c4fa9a49999e18b35a24796ce57f49329ed370034c25c"
+    },
+    {
+      "bucket": "ea",
+      "bytes": 2345,
+      "chunk_references": 117,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ea.json.gz",
+      "routes": 27,
+      "sha256": "96a579ff168b8c9c8455b960843083b55ff39eb6bd9324e7a767cb6ca135d04f"
+    },
+    {
+      "bucket": "eb",
+      "bytes": 2451,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-eb.json.gz",
+      "routes": 29,
+      "sha256": "515c6a7ba5d15e001f3a56bf28526edfec951075f6c9f1f1ed9761bd3f064197"
+    },
+    {
+      "bucket": "ec",
+      "bytes": 1585,
+      "chunk_references": 57,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ec.json.gz",
+      "routes": 17,
+      "sha256": "3aed0a606b0d7dd633a4d3e3ceabf0a8ed1c63e7057e7632cf8c8d53542c990c"
+    },
+    {
+      "bucket": "ed",
+      "bytes": 2825,
+      "chunk_references": 137,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ed.json.gz",
+      "routes": 34,
+      "sha256": "8a0d0ec03a53478353e4b3bc6335544994c9a54ddb39726787ba5eabe80225be"
+    },
+    {
+      "bucket": "ee",
+      "bytes": 2422,
+      "chunk_references": 106,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ee.json.gz",
+      "routes": 29,
+      "sha256": "dee96fe077e5286a119938f8f410714cfe0a5dd53eee06796ae9eeaa8062637a"
+    },
+    {
+      "bucket": "ef",
+      "bytes": 2388,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ef.json.gz",
+      "routes": 28,
+      "sha256": "16bfd2eb1aed62fbb1f00ec7db8393a7d10324649e982b9a2a787d302e56c615"
+    },
+    {
+      "bucket": "f0",
+      "bytes": 1909,
+      "chunk_references": 84,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f0.json.gz",
+      "routes": 21,
+      "sha256": "881bb60949128ea046a3ac926c2716f9655d6addd7f6e38d9bc28f3e3a065371"
+    },
+    {
+      "bucket": "f1",
+      "bytes": 1534,
+      "chunk_references": 64,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f1.json.gz",
+      "routes": 16,
+      "sha256": "daea4bc3ec046b18219ecdad7cb73b3ffda90b50a7b6e98e17be05010a1d3eba"
+    },
+    {
+      "bucket": "f2",
+      "bytes": 2818,
+      "chunk_references": 136,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f2.json.gz",
+      "routes": 34,
+      "sha256": "4a7bb2f9670a658d70b071ee9df47094d389edb18b25c90862502d8203001cf3"
+    },
+    {
+      "bucket": "f3",
+      "bytes": 2008,
+      "chunk_references": 104,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f3.json.gz",
+      "routes": 22,
+      "sha256": "23d3235a2f58963c6eb2d2c1cfd606f31bff2166c0a8ecd926bfa20d44012935"
+    },
+    {
+      "bucket": "f4",
+      "bytes": 1756,
+      "chunk_references": 80,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f4.json.gz",
+      "routes": 19,
+      "sha256": "f76e18a8224e439e763e0494382bb3644427df02b3ff0a6ad0bb1f49eff28f69"
+    },
+    {
+      "bucket": "f5",
+      "bytes": 2263,
+      "chunk_references": 90,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f5.json.gz",
+      "routes": 27,
+      "sha256": "b098e3a2175481b0f1361b9a7747c1447da9f293ac3eaa042543db540c65026a"
+    },
+    {
+      "bucket": "f6",
+      "bytes": 2523,
+      "chunk_references": 124,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f6.json.gz",
+      "routes": 30,
+      "sha256": "27f4115e502d7a1349b9437f190083dd74c1ede30bf94d7340d71ffb4489bdf7"
+    },
+    {
+      "bucket": "f7",
+      "bytes": 2366,
+      "chunk_references": 101,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f7.json.gz",
+      "routes": 28,
+      "sha256": "324a1a27fb5bbfa1effad7fcbea48372ce424c36c5acee58cfc9ad98896f55e4"
+    },
+    {
+      "bucket": "f8",
+      "bytes": 1684,
+      "chunk_references": 78,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f8.json.gz",
+      "routes": 18,
+      "sha256": "5cc6a7163c6ccf37ee4e18b4037523d83716f89f1f7dbaa14f8b8303f4c392da"
+    },
+    {
+      "bucket": "f9",
+      "bytes": 2617,
+      "chunk_references": 122,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-f9.json.gz",
+      "routes": 31,
+      "sha256": "e1c7a3bc748abf5defcc4dcf4a59c8772c7f6e624f35254b4635074086196811"
+    },
+    {
+      "bucket": "fa",
+      "bytes": 2206,
+      "chunk_references": 107,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-fa.json.gz",
+      "routes": 25,
+      "sha256": "3927e5a3da5093eda1fb25f42fbf63287f4be28a8c349b8df4c891e159c6e624"
+    },
+    {
+      "bucket": "fb",
+      "bytes": 1827,
+      "chunk_references": 78,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-fb.json.gz",
+      "routes": 20,
+      "sha256": "856d36ab8f594d6e6ae6a849ac0cb043b21014f88b84be05ad7ead06dd3035d5"
+    },
+    {
+      "bucket": "fc",
+      "bytes": 3507,
+      "chunk_references": 179,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-fc.json.gz",
+      "routes": 43,
+      "sha256": "0676d022d491ed85501ee6914f8e0a5622355ba17778bcefcd15900fc1060a3a"
+    },
+    {
+      "bucket": "fd",
+      "bytes": 2915,
+      "chunk_references": 146,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-fd.json.gz",
+      "routes": 35,
+      "sha256": "a71b146c4d0b79ee313c3a7c282b90ca39c33bf9e434f743ba6b46c9915ab660"
+    },
+    {
+      "bucket": "fe",
+      "bytes": 1893,
+      "chunk_references": 87,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-fe.json.gz",
+      "routes": 21,
+      "sha256": "e1aff6f864f592361baee53f56a320696632248130fded2bd244dadffc4e2138"
+    },
+    {
+      "bucket": "ff",
+      "bytes": 2768,
+      "chunk_references": 132,
+      "content_encoding": "gzip",
+      "path": "data/semantic/runtime/route-locator/bucket-ff.json.gz",
+      "routes": 33,
+      "sha256": "86512b207a92054f029be5ddf4d088c534e31d373d3bee7c866dc13ffbb7b4fb"
+    }
+  ],
+  "counts": {
+    "buckets": 256,
+    "chunk_references": 26739,
+    "routes": 6694
+  },
+  "generated_at": "2026-08-11T12:41:04Z",
+  "hash_algorithm": "sha256-utf8-first-byte-hex",
+  "schema": "okf-rich-relationship-route-locator.v1"
+}

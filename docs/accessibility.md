@@ -1,10 +1,14 @@
 # Accessibility
 
-Status: WCAG 2.2 Level AA is the design target for the v0.2.0 PoC candidate.
-Historical v0.1.0 evidence cannot approve this candidate. v0.2.0 requires
-fresh automated and assisted journeys; it has not had an independent human
-accessibility audit or representative-user test and makes no conformance
-claim.
+Status: WCAG 2.2 Level AA is the design target for the approval-neutral v0.3.0
+PoC candidate bytes. Historical v0.1.0 and v0.2.0 evidence cannot approve this
+candidate. The bytes do not assert a current G6 or G9 state; version-scoped,
+digest-bound evidence records it. No independent human accessibility audit or
+representative-user test is claimed, and no conformance claim is made.
+
+See the [v0.3.0 release tracker and assurance
+runbook](v0.3.0-release-tracker-and-assurance-runbook.md) for the candidate
+baseline and dependency-ordered evidence process.
 
 ## Commitment and boundary
 
