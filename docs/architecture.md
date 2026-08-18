@@ -451,6 +451,11 @@ consumer and validation boundaries.
 The authoritative decision is
 `validation/candidate-v0.3.0/final-g9/release-record.json`. It approves the
 candidate commit and release root above, not every later commit on `main`.
+Later repository maintenance validates that immutable G1–G9 closure by naming
+the final evidence commit explicitly; it does not reinterpret a later merge
+commit as release evidence. Candidate-affecting validation retains the stricter
+rule that evidence must form a single-parent chain terminating at current
+`HEAD`.
 
 ### Why `not_run` and `approved` are both correct
 

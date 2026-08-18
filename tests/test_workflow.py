@@ -383,6 +383,58 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn("scripts/build.py", routine)
         self.assertNotIn("unittest discover", routine)
 
+    def test_post_release_maintenance_uses_the_immutable_evidence_anchor(
+        self,
+    ) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text()
+        steps = workflow_steps(workflow)
+        impact = steps["Classify the change and select the validation closure"]
+        historical = steps[
+            "Validate immutable v0.3.0 evidence after repository maintenance"
+        ]
+        current_head = steps[
+            "Validate default-branch G1-G9 evidence against its manifest"
+        ]
+
+        self.assertIn(
+            "OKF_V030_EVIDENCE_COMMIT_SHA: "
+            "1d708e39f2cde19610d43c5a7f5e36e4a2f947bc",
+            workflow,
+        )
+        for required in (
+            "post_release_maintenance=true",
+            "post_release_maintenance=false",
+            "all(.matched_stages[]; (.causal_build_input_matches | length) == 0)",
+            "^(bundle|validation|source|domain-profile|research|governance|personas|evaluation|contracts|schemas)/",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, impact)
+
+        for required in (
+            "steps.impact.outputs.full_validation == 'true'",
+            "steps.impact.outputs.post_release_maintenance == 'true'",
+            "github.event_name == 'workflow_dispatch'",
+            "git merge-base --is-ancestor",
+            "git log -m --format= --name-only",
+            "A protected candidate or evidence path changed after v0.3.0",
+            "git diff --exit-code",
+            "bundle validation source domain-profile research governance",
+            "git worktree add --detach",
+            "git worktree remove",
+            "trap cleanup_historical_worktree EXIT INT TERM",
+            '--repository-root "${historical_root}"',
+            "--evidence-commit-sha",
+            "refs/tags/v0.3.0^{commit}",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, historical)
+
+        self.assertIn(
+            "steps.impact.outputs.post_release_maintenance != 'true'",
+            current_head,
+        )
+        self.assertIn("github.event_name != 'workflow_dispatch'", current_head)
+
     def test_build_has_an_honest_preinvocation_single_writer_contract(
         self,
     ) -> None:

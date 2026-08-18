@@ -2797,8 +2797,9 @@ def validate_governed_candidate_commit(
     *,
     candidate_commit_sha: str,
     build_receipt_path: Path,
+    evidence_commit_sha: str | None = None,
 ) -> str:
-    """Bind a prior candidate tree to the current evidence commit without a cycle."""
+    """Bind a prior candidate tree to one exact evidence commit without a cycle."""
 
     root = repository_root.resolve()
     if COMMIT_SHA.fullmatch(candidate_commit_sha) is None:
@@ -2806,10 +2807,37 @@ def validate_governed_candidate_commit(
             "governed candidate commit must be exactly 40 lowercase "
             "hexadecimal characters"
         )
-    evidence_commit_sha = current_commit(root)
+    current_head_sha = current_commit(root)
+    evidence_commit_sha = evidence_commit_sha or current_head_sha
     if COMMIT_SHA.fullmatch(evidence_commit_sha) is None:
         raise ReleaseEvidenceError(
             "evidence commit must be exactly 40 lowercase hexadecimal characters"
+        )
+
+    evidence_object = _git_command(
+        root, ["rev-parse", "--verify", f"{evidence_commit_sha}^{{commit}}"]
+    )
+    if evidence_object.returncode != 0:
+        raise ReleaseEvidenceError(
+            f"governed evidence commit does not exist: {evidence_commit_sha}"
+        )
+    if evidence_object.stdout.strip() != evidence_commit_sha:
+        raise ReleaseEvidenceError(
+            "governed evidence commit did not resolve to the declared full commit"
+        )
+
+    evidence_ancestor = _git_command(
+        root,
+        ["merge-base", "--is-ancestor", evidence_commit_sha, current_head_sha],
+    )
+    if evidence_ancestor.returncode == 1:
+        raise ReleaseEvidenceError(
+            "governed evidence commit is not an ancestor of repository HEAD"
+        )
+    if evidence_ancestor.returncode != 0:
+        raise ReleaseEvidenceError(
+            "could not establish governed evidence ancestry: "
+            f"{evidence_ancestor.stderr.strip()}"
         )
 
     candidate_object = _git_command(
@@ -4546,7 +4574,7 @@ def validate_committed_release_evidence_closure(
     schema_path: Path = Path(RELEASE_EVIDENCE_SCHEMA_PATH),
     evidence_commit_sha: str,
 ) -> str:
-    """Require every final-evidence input read by the CLI to be exact HEAD bytes."""
+    """Require every final-evidence input to match the exact evidence commit."""
 
     root = repository_root.resolve()
     if COMMIT_SHA.fullmatch(evidence_commit_sha) is None:
@@ -4579,7 +4607,7 @@ def validate_committed_release_evidence_closure(
         )
         if worktree_content != content:
             raise ReleaseEvidenceError(
-                f"{purpose} is not the exact committed evidence blob at HEAD: "
+                f"{purpose} is not the exact blob at the evidence commit: "
                 f"{canonical!r}"
             )
         cache[canonical] = content
@@ -4915,6 +4943,15 @@ def main() -> int:
         ),
     )
     parser.add_argument(
+        "--repository-root",
+        type=Path,
+        default=ROOT,
+        help=(
+            "repository worktree to validate; defaults to the checkout "
+            "containing this script"
+        ),
+    )
+    parser.add_argument(
         "--manifest",
         type=Path,
         help=(
@@ -4925,7 +4962,7 @@ def main() -> int:
     parser.add_argument(
         "--schema",
         type=Path,
-        default=ROOT / "schemas" / "release-evidence.schema.json",
+        default=Path(RELEASE_EVIDENCE_SCHEMA_PATH),
         help="release evidence JSON Schema",
     )
     parser.add_argument(
@@ -4953,6 +4990,13 @@ def main() -> int:
             "defaults to the manifest value"
         ),
     )
+    parser.add_argument(
+        "--evidence-commit-sha",
+        help=(
+            "exact historical commit containing the immutable release evidence; "
+            "defaults to repository HEAD"
+        ),
+    )
     args = parser.parse_args()
 
     if args.staged_candidate:
@@ -4962,6 +5006,10 @@ def main() -> int:
             parser.error(
                 "--candidate-commit-sha is not used with --staged-candidate"
             )
+        if args.evidence_commit_sha is not None:
+            parser.error(
+                "--evidence-commit-sha is not used with --staged-candidate"
+            )
     elif args.candidate_only:
         if args.manifest is not None:
             parser.error("--manifest is not used with --candidate-only")
@@ -4969,13 +5017,19 @@ def main() -> int:
             parser.error(
                 "--candidate-commit-sha is required with --candidate-only"
             )
+        if args.evidence_commit_sha is not None:
+            parser.error(
+                "--evidence-commit-sha is not used with --candidate-only"
+            )
     elif args.manifest is None:
         parser.error("--manifest is required in normal evidence mode")
+
+    repository_root = args.repository_root.resolve()
 
     try:
         if args.staged_candidate:
             governed_count = validate_staged_candidate(
-                ROOT,
+                repository_root,
                 build_receipt_path=args.build_receipt,
             )
             print(
@@ -4985,14 +5039,14 @@ def main() -> int:
             return 0
         if args.candidate_only:
             candidate, _governed_count = validate_committed_candidate_closure(
-                ROOT,
+                repository_root,
                 candidate_commit_sha=args.candidate_commit_sha,
                 checksums_path=args.checksums,
                 profile_checksums_path=args.profile_checksums,
                 build_receipt_path=args.build_receipt,
             )
             evidence_commit_sha = validate_governed_candidate_commit(
-                ROOT,
+                repository_root,
                 candidate_commit_sha=args.candidate_commit_sha,
                 build_receipt_path=args.build_receipt,
             )
@@ -5004,9 +5058,11 @@ def main() -> int:
             )
             return 0
 
-        evidence_commit_sha = current_commit(ROOT)
+        evidence_commit_sha = args.evidence_commit_sha or current_commit(
+            repository_root
+        )
         declared_commit = validate_committed_release_evidence_closure(
-            ROOT,
+            repository_root,
             manifest_path=args.manifest,
             schema_path=args.schema,
             evidence_commit_sha=evidence_commit_sha,
@@ -5020,19 +5076,20 @@ def main() -> int:
             )
         candidate_commit_sha = args.candidate_commit_sha or declared_commit
         candidate, _governed_count = validate_committed_candidate_closure(
-            ROOT,
+            repository_root,
             candidate_commit_sha=candidate_commit_sha,
             checksums_path=args.checksums,
             profile_checksums_path=args.profile_checksums,
             build_receipt_path=args.build_receipt,
         )
         evidence_commit_sha = validate_governed_candidate_commit(
-            ROOT,
+            repository_root,
             candidate_commit_sha=candidate_commit_sha,
             build_receipt_path=args.build_receipt,
+            evidence_commit_sha=evidence_commit_sha,
         )
         validate_release_evidence(
-            ROOT,
+            repository_root,
             manifest_path=args.manifest,
             schema_path=args.schema,
             expected_candidate=candidate,

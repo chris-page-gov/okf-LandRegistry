@@ -18,6 +18,9 @@ on:
 permissions:
   contents: read
 
+env:
+  OKF_V030_EVIDENCE_COMMIT_SHA: 1d708e39f2cde19610d43c5a7f5e36e4a2f947bc
+
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -62,6 +65,7 @@ jobs:
           else
             echo "routine_update=false" >> "${GITHUB_OUTPUT}"
             echo "full_validation=true" >> "${GITHUB_OUTPUT}"
+            echo "post_release_maintenance=false" >> "${GITHUB_OUTPUT}"
             echo "Manual or unbounded invocation selects the full validation closure." \
               >> "${GITHUB_STEP_SUMMARY}"
             exit 0
@@ -83,13 +87,28 @@ jobs:
           ' "${report}" >/dev/null; then
             echo "routine_update=true" >> "${GITHUB_OUTPUT}"
             echo "full_validation=false" >> "${GITHUB_OUTPUT}"
+            echo "post_release_maintenance=false" >> "${GITHUB_OUTPUT}"
             echo "The governed impact report selected the bounded routine-update lane." \
               >> "${GITHUB_STEP_SUMMARY}"
           else
             echo "routine_update=false" >> "${GITHUB_OUTPUT}"
             echo "full_validation=true" >> "${GITHUB_OUTPUT}"
-            echo "The governed impact report selected the full validation closure." \
-              >> "${GITHUB_STEP_SUMMARY}"
+            if jq -e '
+              (.manual_review_required | not) and
+              (.stage1_review_required | not) and
+              (.explained_generated_paths | length == 0) and
+              (.unexplained_generated_paths | length == 0) and
+              all(.matched_stages[]; (.causal_build_input_matches | length) == 0) and
+              ([.changed_paths[] | select(test("^(bundle|validation|source|domain-profile|research|governance|personas|evaluation|contracts|schemas)/|^(okf[.]semantic[.]json|pyproject[.]toml|requirements[^/]*[.]txt)$"))] | length == 0)
+            ' "${report}" >/dev/null; then
+              echo "post_release_maintenance=true" >> "${GITHUB_OUTPUT}"
+              echo "The governed impact report selected full post-release maintenance validation." \
+                >> "${GITHUB_STEP_SUMMARY}"
+            else
+              echo "post_release_maintenance=false" >> "${GITHUB_OUTPUT}"
+              echo "The governed impact report selected the candidate-affecting full validation closure." \
+                >> "${GITHUB_STEP_SUMMARY}"
+            fi
           fi
 
       - name: Validate a bounded routine repository update
@@ -220,10 +239,51 @@ jobs:
           --manifest validation/candidate-v0.3.0/final-g9/release-evidence.json
           --candidate-commit-sha "${OKF_CANDIDATE_COMMIT_SHA}"
 
+      - name: Validate immutable v0.3.0 evidence after repository maintenance
+        if: >-
+          steps.impact.outputs.full_validation == 'true' &&
+          (steps.impact.outputs.post_release_maintenance == 'true' ||
+           github.event_name == 'workflow_dispatch')
+        run: |
+          set -euo pipefail
+          evidence_sha="${OKF_V030_EVIDENCE_COMMIT_SHA}"
+          test "$(git rev-parse 'refs/tags/v0.3.0^{commit}')" = "${evidence_sha}"
+          git merge-base --is-ancestor "${evidence_sha}" HEAD
+          if git log -m --format= --name-only "${evidence_sha}..HEAD" -- \
+            bundle validation source domain-profile research governance \
+            personas evaluation contracts schemas okf.semantic.json \
+            pyproject.toml requirements-dev.txt requirements-lock.txt | grep -q .; then
+            echo "A protected candidate or evidence path changed after v0.3.0" >&2
+            exit 1
+          fi
+          git diff --exit-code "${evidence_sha}" HEAD -- \
+            bundle validation source domain-profile research governance \
+            personas evaluation contracts schemas okf.semantic.json \
+            pyproject.toml requirements-dev.txt requirements-lock.txt
+          historical_parent="$(mktemp -d "${RUNNER_TEMP}/okf-v030-evidence.XXXXXX")"
+          historical_root="${historical_parent}/repository"
+          cleanup_historical_worktree() {
+            if test -d "${historical_root}"; then
+              git worktree remove --force "${historical_root}"
+            fi
+            rmdir "${historical_parent}"
+          }
+          trap cleanup_historical_worktree EXIT INT TERM
+          git worktree add --detach "${historical_root}" "${evidence_sha}"
+          .venv/bin/python -B scripts/check_release_evidence.py \
+            --repository-root "${historical_root}" \
+            --manifest validation/candidate-v0.3.0/final-g9/release-evidence.json \
+            --evidence-commit-sha "${evidence_sha}"
+          git worktree remove "${historical_root}"
+          rmdir "${historical_parent}"
+          trap - EXIT INT TERM
+
       - name: Validate default-branch G1-G9 evidence against its manifest
         if: >-
           github.event_name != 'pull_request' &&
+          github.event_name != 'workflow_dispatch' &&
           steps.impact.outputs.full_validation == 'true' &&
+          steps.impact.outputs.post_release_maintenance != 'true' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py

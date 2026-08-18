@@ -1068,6 +1068,29 @@ class CandidateModeCliTests(unittest.TestCase):
         self.assertIn("committed candidate topology validated", committed.stdout)
         self.assertIn(self.fixture.release_root, committed.stdout)
 
+    def test_cli_can_validate_an_explicit_detached_repository_root(self) -> None:
+        candidate = self.fixture.commit_candidate()
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-B",
+                str(ROOT / "scripts" / "check_release_evidence.py"),
+                "--repository-root",
+                str(self.fixture.root),
+                "--candidate-only",
+                "--candidate-commit-sha",
+                candidate,
+            ],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(0, result.returncode, result.stderr)
+        self.assertIn("committed candidate topology validated", result.stdout)
+
     def test_candidate_modes_are_mutually_exclusive_and_sha_is_required(
         self,
     ) -> None:
@@ -2172,6 +2195,52 @@ class ReleaseEvidenceTests(unittest.TestCase):
         self.assertEqual("0.3.0", current["version"])
         self.assertIn("binding", current["owner_approval"])
         self.assertEqual(self.fixture.candidate, self.fixture.validate())
+
+    def test_exact_historical_evidence_survives_later_maintenance(self) -> None:
+        maintenance = self.fixture.root / "docs" / "maintenance-note.md"
+        maintenance.write_text(
+            "# Later repository maintenance\n",
+            encoding="utf-8",
+        )
+        self.fixture.git("add", "docs/maintenance-note.md")
+        self.fixture.git("commit", "-m", "Maintain repository after release")
+
+        declared = (
+            release_evidence_checker.validate_committed_release_evidence_closure(
+                self.fixture.root,
+                manifest_path=self.fixture.manifest_path.relative_to(
+                    self.fixture.root
+                ),
+                schema_path=Path("schemas/release-evidence.schema.json"),
+                evidence_commit_sha=self.fixture.evidence_commit_sha,
+            )
+        )
+        validated = validate_governed_candidate_commit(
+            self.fixture.root,
+            candidate_commit_sha=self.fixture.candidate_commit_sha,
+            build_receipt_path=Path("bundle/build-receipt.json"),
+            evidence_commit_sha=self.fixture.evidence_commit_sha,
+        )
+
+        self.assertEqual(self.fixture.candidate_commit_sha, declared)
+        self.assertEqual(self.fixture.evidence_commit_sha, validated)
+
+    def test_historical_evidence_commit_must_be_ancestor_of_head(self) -> None:
+        tree = self.fixture.git("rev-parse", "HEAD^{tree}").stdout.strip()
+        unrelated = self.fixture.git(
+            "commit-tree", tree, input_text="Unrelated evidence\n"
+        ).stdout.strip()
+
+        with self.assertRaisesRegex(
+            ReleaseEvidenceError,
+            "evidence commit is not an ancestor of repository HEAD",
+        ):
+            validate_governed_candidate_commit(
+                self.fixture.root,
+                candidate_commit_sha=self.fixture.candidate_commit_sha,
+                build_receipt_path=Path("bundle/build-receipt.json"),
+                evidence_commit_sha=unrelated,
+            )
 
     def test_committed_evidence_closure_allows_unreferenced_diagnostic(
         self,
