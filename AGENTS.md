@@ -128,6 +128,15 @@ Before handing off a change:
 8. report checks actually run and gates still `not_run`; and
 9. never imply that local validation closes owner approval.
 
+For a routine documentation or repository correction, do not start a release
+rebuild merely because the commit changes. The bounded routine path is allowed
+only when the classifier predicts no generated output, no causal or generated
+path changed, Stage 1 and manual review are both false, and the wording does
+not materially alter scope, authority, rights, public fields, architecture,
+release claims or approval state. Run the selected focused checks and describe
+the result as later repository maintenance. Any other change fails closed to
+the affected candidate and release workflow.
+
 Start with `docs/product-contract.md`, `docs/architecture.md`,
 `docs/sources-rights-and-ethics.md` and `docs/release-assurance.md`.
 

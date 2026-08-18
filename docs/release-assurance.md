@@ -6,6 +6,16 @@ bind, approve or release changed v0.3.0 bytes. Candidate bytes do not assert a
 current G1–G9 or release state. Version-scoped exact-identity evidence,
 independent review and the Land Registry G9 owner decision are authoritative.
 
+For the exact v0.3.0 candidate, that external authority now exists:
+`validation/candidate-v0.3.0/final-g9/release-record.json` records status
+`approved` for candidate commit `751b6c1e80fbbad3c07f19798c74aebd603eb62c`
+and release root
+`6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1`.
+The candidate-byte baseline remains `not_run` by design. See [Semantic
+contract impact and release
+state](architecture.md#semantic-contract-impact-and-release-state) for the
+state model.
+
 Use the
 [v0.3.0 release tracker and assurance runbook](v0.3.0-release-tracker-and-assurance-runbook.md)
 to record the candidate identity and execute the dependency-ordered checks.

@@ -272,6 +272,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn('--candidate-commit-sha "$(git rev-parse HEAD)"', workflow)
         candidate_pr_gate = (
             "github.event_name == 'pull_request' &&\n"
+            "          steps.impact.outputs.full_validation == 'true' &&\n"
             "          github.head_ref == 'candidate/v0.3.0'"
         )
         self.assertEqual(3, workflow.count(candidate_pr_gate))
@@ -332,15 +333,55 @@ class WorkflowTests(unittest.TestCase):
         for name in release_pull_request_steps:
             with self.subTest(name=name):
                 self.assertIn("github.event_name == 'pull_request'", steps[name])
+                self.assertIn(
+                    "steps.impact.outputs.full_validation == 'true'",
+                    steps[name],
+                )
                 self.assertIn("github.head_ref == 'candidate/v0.3.0'", steps[name])
         for name in (
             "Validate the locked Stage 1 profile",
             "Build offline from the frozen snapshot",
             "Run deterministic and safety tests",
+            "Run the v0.3.0 candidate calibration retrieval diagnostic",
             "Confirm committed and verified publication bytes match",
         ):
             with self.subTest(name=name):
-                self.assertNotIn("\n        if:", steps[name])
+                self.assertIn(
+                    "if: steps.impact.outputs.full_validation == 'true'",
+                    steps[name],
+                )
+
+    def test_routine_update_lane_is_bounded_and_fails_closed(self) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text()
+        steps = workflow_steps(workflow)
+        impact = steps["Classify the change and select the validation closure"]
+        routine = steps["Validate a bounded routine repository update"]
+
+        for required in (
+            ".manual_review_required | not",
+            ".stage1_review_required | not",
+            ".affected.generated_artifacts | length == 0",
+            ".explained_generated_paths | length == 0",
+            ".unexplained_generated_paths | length == 0",
+            '([.matched_stages[].id] - ["documentation"])',
+            "full_validation=true",
+            "routine_update=false",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, impact)
+
+        self.assertIn("--base \"${impact_base}\"", impact)
+        self.assertIn("--head HEAD", impact)
+        self.assertIn("EVENT_NAME", impact)
+        self.assertIn("PUSH_BEFORE_SHA", impact)
+        self.assertIn(
+            "if: steps.impact.outputs.routine_update == 'true'",
+            routine,
+        )
+        self.assertIn("tests.test_links tests.test_traceability", routine)
+        self.assertIn("scripts/check_okf.py", routine)
+        self.assertNotIn("scripts/build.py", routine)
+        self.assertNotIn("unittest discover", routine)
 
     def test_build_has_an_honest_preinvocation_single_writer_contract(
         self,
