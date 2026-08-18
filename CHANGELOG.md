@@ -12,8 +12,10 @@ will use semantic versioning where it fits the artefact lifecycle.
   including source and generated boundaries, fail-closed impact routing,
   documentation and changelog lockstep, and exact-byte publication controls.
   Verification and the full test suite now run as independent CI branches and
-  converge before the manual Pages deployment. The v0.3.0 bundle and its
-  historical G1–G9 evidence remain unchanged.
+  converge before the manual Pages deployment. The current governed control
+  surface has 154 files because the new walkthrough is governed documentation;
+  the v0.3.0 bundle and its 153-file historical G1–G9 evidence boundary remain
+  unchanged.
 - Explained the v0.3.0 semantic-contract migration, the displaced pre-v0.3
   prototype and the deliberate separation between approval-neutral candidate
   bytes, exact external G9 evidence and later repository state. The candidate

@@ -2028,11 +2028,12 @@ class BuildSemanticsTests(unittest.TestCase):
             path.relative_to(ROOT).as_posix()
             for path in builder.dependency_graph_build_input_paths(graph)
         }
-        self.assertEqual(153, len(complete_paths))
+        self.assertEqual(154, len(complete_paths))
         self.assertEqual(71, len(build_paths))
         self.assertIn("tests/test_build_semantics.py", complete_paths)
         self.assertIn(".gitattributes", complete_paths)
         self.assertIn("docs/validation-evidence-layout.md", complete_paths)
+        self.assertIn("docs/okf-publication-method.md", complete_paths)
         self.assertIn(".github/workflows/pages.yml", complete_paths)
         self.assertIn(
             "docs/v0.3.0-release-tracker-and-assurance-runbook.md",

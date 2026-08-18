@@ -226,9 +226,10 @@ The graph separates two exact inventories:
 - top-level `build_inputs` are bytes or environment locks causally consumed by
   the deterministic build; the current 44 patterns expand to 71 files and only
   these files appear in the build receipt; and
-- stage `inputs` plus `validation_inputs` form the complete 153-file candidate
-  control surface reported by the classifier, bound by the candidate commit
-  and G1–G9 evidence.
+- stage `inputs` plus `validation_inputs` form the complete 154-file current
+  control surface reported by the classifier. The immutable v0.3.0 evidence
+  anchor retains its 153-file historical surface; the additional current file
+  is this later publication-method documentation.
 
 Test and validator files are normally `validation_inputs`: they select the
 relevant checks and gates without claiming to generate bundle bytes. Workflow,
