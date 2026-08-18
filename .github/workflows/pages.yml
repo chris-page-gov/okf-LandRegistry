@@ -45,7 +45,64 @@ jobs:
           python -m pip --python .venv install \
             --no-compile --require-hashes -r requirements-lock.txt
 
+      - name: Classify the change and select the validation closure
+        id: impact
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          report="${RUNNER_TEMP}/change-impact.json"
+          if [ "${EVENT_NAME}" = "pull_request" ]; then
+            impact_base="${PR_BASE_SHA}"
+          elif [ "${EVENT_NAME}" = "push" ] && \
+               [ "${PUSH_BEFORE_SHA}" != "0000000000000000000000000000000000000000" ]; then
+            impact_base="${PUSH_BEFORE_SHA}"
+          else
+            echo "routine_update=false" >> "${GITHUB_OUTPUT}"
+            echo "full_validation=true" >> "${GITHUB_OUTPUT}"
+            echo "Manual or unbounded invocation selects the full validation closure." \
+              >> "${GITHUB_STEP_SUMMARY}"
+            exit 0
+          fi
+
+          .venv/bin/python -B scripts/change_impact.py \
+            --base "${impact_base}" \
+            --head HEAD \
+            --output "${report}"
+
+          if jq -e '
+            (.manual_review_required | not) and
+            (.stage1_review_required | not) and
+            (.affected.generated_artifacts | length == 0) and
+            (.explained_generated_paths | length == 0) and
+            (.unexplained_generated_paths | length == 0) and
+            (.matched_stages | length > 0) and
+            (([.matched_stages[].id] - ["documentation"]) | length == 0)
+          ' "${report}" >/dev/null; then
+            echo "routine_update=true" >> "${GITHUB_OUTPUT}"
+            echo "full_validation=false" >> "${GITHUB_OUTPUT}"
+            echo "The governed impact report selected the bounded routine-update lane." \
+              >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "routine_update=false" >> "${GITHUB_OUTPUT}"
+            echo "full_validation=true" >> "${GITHUB_OUTPUT}"
+            echo "The governed impact report selected the full validation closure." \
+              >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+      - name: Validate a bounded routine repository update
+        if: steps.impact.outputs.routine_update == 'true'
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -E -s -B -X "pycache_prefix=${runtime_cache}" \
+            -m unittest tests.test_links tests.test_traceability -v
+          .venv/bin/python -B scripts/check_okf.py
+
       - name: Validate the locked Stage 1 profile
+        if: steps.impact.outputs.full_validation == 'true'
         run: |
           runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
           chmod 700 "${runtime_cache}"
@@ -55,6 +112,7 @@ jobs:
             --equivalent domain-profile/domain-profile.yaml
 
       - name: Build offline from the frozen snapshot
+        if: steps.impact.outputs.full_validation == 'true'
         run: |
           set -euo pipefail
           runtime_lock="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/okf-landregistry-build.lock"
@@ -90,6 +148,7 @@ jobs:
             >> "${GITHUB_STEP_SUMMARY}"
 
       - name: Run deterministic and safety tests
+        if: steps.impact.outputs.full_validation == 'true'
         run: |
           runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
           chmod 700 "${runtime_cache}"
@@ -97,6 +156,7 @@ jobs:
             -m unittest discover -s tests -v
 
       - name: Run the v0.3.0 candidate calibration retrieval diagnostic
+        if: steps.impact.outputs.full_validation == 'true'
         run: |
           runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
           chmod 700 "${runtime_cache}"
@@ -110,6 +170,7 @@ jobs:
             --min-mrr 0.80
 
       - name: Confirm committed and verified publication bytes match
+        if: steps.impact.outputs.full_validation == 'true'
         run: |
           git diff --exit-code -- bundle
           .venv/bin/python -B scripts/check_release_transition.py \
@@ -118,6 +179,7 @@ jobs:
       - name: Resolve the immutable candidate anchor for a pull request
         if: >-
           github.event_name == 'pull_request' &&
+          steps.impact.outputs.full_validation == 'true' &&
           github.head_ref == 'candidate/v0.3.0'
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -141,6 +203,7 @@ jobs:
       - name: Validate the committed candidate tree on a pull request
         if: >-
           github.event_name == 'pull_request' &&
+          steps.impact.outputs.full_validation == 'true' &&
           github.head_ref == 'candidate/v0.3.0'
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py
@@ -150,6 +213,7 @@ jobs:
       - name: Validate pull-request G1-G9 evidence against the resolved candidate
         if: >-
           github.event_name == 'pull_request' &&
+          steps.impact.outputs.full_validation == 'true' &&
           github.head_ref == 'candidate/v0.3.0'
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py
@@ -159,6 +223,7 @@ jobs:
       - name: Validate default-branch G1-G9 evidence against its manifest
         if: >-
           github.event_name != 'pull_request' &&
+          steps.impact.outputs.full_validation == 'true' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py

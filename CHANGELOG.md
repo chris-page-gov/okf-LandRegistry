@@ -4,6 +4,17 @@ All notable project-authored changes will be recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and approved releases
 will use semantic versioning where it fits the artefact lifecycle.
 
+## Unreleased
+
+### Documentation
+
+- Explained the v0.3.0 semantic-contract migration, the displaced pre-v0.3
+  prototype and the deliberate separation between approval-neutral candidate
+  bytes, exact external G9 evidence and later repository state. The candidate
+  remains unchanged; this clarification does not inherit or reopen its owner
+  approval. Documented the bounded routine-update path for minor repository
+  corrections that leave causal inputs and generated roots unchanged.
+
 ## [0.3.0] - 2026-08-11
 
 ### Added

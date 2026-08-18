@@ -24,13 +24,24 @@ be checked against version-scoped, digest-bound evidence. Every version
 remains an independent metadata-discovery PoC, not an HM Land Registry service
 or a source of legal, ownership, priority or exact-boundary conclusions.
 
+Version 0.3.0 is the current approved **AI-generated proof-of-concept
+release**. The owner approval applies only to candidate commit
+`751b6c1e80fbbad3c07f19798c74aebd603eb62c` and bundle release root
+`6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1`.
+The candidate bytes deliberately retain approval-neutral `not_run` baselines;
+the subsequent [exact G9 release
+record](validation/candidate-v0.3.0/final-g9/release-record.json) is the
+authority for their approved state. Read [Semantic contract impact and release
+state](docs/architecture.md#semantic-contract-impact-and-release-state) before
+interpreting those two layers or changing semantic/build files.
+
 Direct publication routes:
 
 - [GitHub Pages site](https://chris-page-gov.github.io/okf-LandRegistry/)
 - [OKF Explorer descriptor](https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json)
 - [Historical v0.2.0 exact-digest release record](validation/release-record.json)
 
-## v0.3.0 semantic candidate bytes
+## v0.3.0 semantic candidate and release evidence
 
 Version 0.3.0 is built as approval-neutral candidate bytes. It is locked to
 Explorer v0.6.2, the exact 16-file Bundle Wiki v1 semantic profile sourced
@@ -89,6 +100,9 @@ evidence and the root actually served. See
 [`okf.semantic.json`](okf.semantic.json) and the
 [`v0.3.0 release tracker`](docs/v0.3.0-release-tracker-and-assurance-runbook.md)
 for the field, authority, generated-output, tooling and assurance boundaries.
+For this exact candidate, the external G9 record now has status `approved`.
+That approval does not change the candidate's self-description and does not
+carry forward to later commits.
 
 ## What it covers
 

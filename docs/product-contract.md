@@ -5,6 +5,13 @@ authoritative release status is external and exact-digest gated**
 Research cut-off: **2026-07-29**
 Decision authority: project owner (`DEC-RELEASE`)
 
+Current exact release state: the external v0.3.0 G9 record approves candidate
+commit `751b6c1e80fbbad3c07f19798c74aebd603eb62c` at bundle release root
+`6a29e38e7bb805aafb7f36ba8d1fa4ce976875f45997049cd4808d6ede7f75e1`.
+The approval-neutral wording below remains the candidate-byte contract and is
+not stale. See [Semantic contract impact and release
+state](architecture.md#semantic-contract-impact-and-release-state).
+
 See the [v0.3.0 release tracker and assurance
 runbook](v0.3.0-release-tracker-and-assurance-runbook.md) for the candidate
 baseline and dependency-ordered checks; version-scoped, digest-bound evidence

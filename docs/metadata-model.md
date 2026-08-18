@@ -55,6 +55,38 @@ Every public record must expose:
 Missing source fields remain absent or explicitly unknown. They must not be
 inferred merely to make a record look complete.
 
+## Fact, inference and external-verification boundary
+
+The model describes public discovery metadata. It does not contain a
+registered-title fact plane. Title-register, title-plan, ownership, charge,
+address, application and property-search records are prohibited inputs, so an
+`official` semantic assertion in this bundle means that an official source
+declared the **metadata relationship**. It must never be read as an official
+registered-title fact.
+
+| Information class | Representation in v0.3.0 | Permitted interpretation |
+|---|---|---|
+| Source-native public metadata | Record fields and semantic assertions with `assertion_status: official`, official authority source, observation time and field-level evidence | The named publisher source supplied the metadata at the recorded observation boundary. |
+| Deterministically derived metadata | `assertion_status: normalized`, derived authority, named derivation and source-value hashes | A reproducible projection of frozen source metadata; it does not upgrade the source's authority. |
+| Inferred or model-derived information | Schema vocabulary reserves `inferred` and `model-derived`, but the v0.3.0 semantic model records inference as `not-run` and emits no such public plane | No inference claim is available from this candidate. Absence of an inferred edge is not a negative fact. |
+| Registered-title or property fact | Not represented; prohibited by the metadata-only scope | The bundle cannot establish ownership, charges, priority, a legal boundary or the current state of a title. |
+| Matter needing current external verification | Official source URL, access/rights state, caveat, evidence state and observation time direct the user to the publisher-operated route | The linked current official source must be checked outside the bundle; the static snapshot is not verification of current operational or title state. |
+
+External verification is an action boundary, not a fifth
+`assertion_status`. Evidence states such as `observed`, `corroborated`,
+`candidate`, `unavailable`, `untested` and `rejected` describe the evidence
+available to this metadata bundle. They do not certify a registered-title fact
+or turn a historical observation into a current one. The
+`operationally_verified_by` relationship can identify evidence for a public
+service route, but it is not property verification.
+
+If a future product proposes property-level or registered-title facts, this
+model is insufficient. That change requires a new Stage 1 scope and rights
+review, a separately governed proposition and verification model, and new
+source and release evidence. It must not overload the existing metadata
+assertion status or infer a title fact from dataset, service or spatial
+metadata.
+
 ## Controlled states
 
 ### Authority role
@@ -101,6 +133,13 @@ Use separate fields for:
 
 No field may stand in for another. In particular, catalogue modification does
 not establish dataset release, currency or coverage.
+
+There is deliberately no universal `effective_date` field. Where an official
+source supplies legal validity or effective-from/to semantics, preserve those
+source-native fields with their definition and evidence. Otherwise the value
+is unknown. `observed_at` records when the source was observed; it is not an
+effective date, a title-state date or evidence that the information remains
+current.
 
 For a deterministic candidate, `generated_at` is a governed whole-second UTC
 input rather than the wall-clock time of each rebuild. The builder requires it
