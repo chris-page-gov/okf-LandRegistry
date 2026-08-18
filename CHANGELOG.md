@@ -6,6 +6,14 @@ will use semantic versioning where it fits the artefact lifecycle.
 
 ## Unreleased
 
+### Fixed
+
+- Corrected merged-main routing for the initial lifecycle adoption so its
+  exact, enumerated unmatched control files select immutable post-release
+  maintenance validation. The frozen build and byte comparison remain
+  mandatory, but later maintenance is no longer misrouted to current-commit
+  G1–G9 evidence.
+
 ### Documentation
 
 - Added the OKF publication-method v1 lifecycle contract and walkthrough,

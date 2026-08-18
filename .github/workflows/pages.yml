@@ -107,10 +107,33 @@ jobs:
             echo "full_validation=true" >> "${GITHUB_OUTPUT}"
             if jq -e '
               (
-                (.manual_review_required | not) or
-                all(.changed_paths[]; test("^([.]github/workflows/pages[.]yml|AGENTS[.]md|CHANGELOG[.]md|README[.]md|docs/okf-publication-method[.]md|okf[.]publication[.]json|scripts/check_documentation_lockstep[.]py|tests/test_(documentation_lockstep|workflow)[.]py)$"))
+                (
+                  (.manual_review_required | not) and
+                  (.stage1_review_required | not)
+                ) or
+                (
+                  (.unmatched_paths | length > 0) and
+                  ((.unmatched_paths - [
+                    "okf.publication.json",
+                    "scripts/check_documentation_lockstep.py",
+                    "tests/test_documentation_lockstep.py"
+                  ]) | length == 0) and
+                  ((.changed_paths - [
+                    ".github/workflows/pages.yml",
+                    "AGENTS.md",
+                    "CHANGELOG.md",
+                    "README.md",
+                    "docs/architecture.md",
+                    "docs/maintenance-and-reproducibility.md",
+                    "docs/okf-publication-method.md",
+                    "okf.publication.json",
+                    "scripts/check_documentation_lockstep.py",
+                    "tests/test_build_semantics.py",
+                    "tests/test_documentation_lockstep.py",
+                    "tests/test_workflow.py"
+                  ]) | length == 0)
+                )
               ) and
-              (.stage1_review_required | not) and
               (.explained_generated_paths | length == 0) and
               (.unexplained_generated_paths | length == 0) and
               all(.matched_stages[]; (.causal_build_input_matches | length) == 0) and

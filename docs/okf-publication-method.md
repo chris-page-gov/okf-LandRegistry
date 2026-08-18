@@ -31,6 +31,12 @@ maintenance commit into release evidence.
    same change. Dependency updates have no blanket exemption.
 3. Run the bounded routine checks or the full dependency closure selected by
    the impact report. Unknown paths fail closed.
+   The initial lifecycle adoption has one narrow bootstrap exception: only the
+   three named publication-contract, lockstep-checker and lockstep-test paths
+   may be unmatched, and every changed path must belong to the enumerated
+   adoption set. This routes that later maintenance through the immutable
+   v0.3.0 evidence anchor rather than treating the maintenance commit as new
+   release evidence.
 4. For a full run, build once from the frozen snapshot and verify that the
    resulting `bundle/` is byte-identical to the committed candidate.
 5. Run the independent full test branch in parallel. Deployment waits for both
