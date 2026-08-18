@@ -22,12 +22,21 @@ env:
   OKF_V030_EVIDENCE_COMMIT_SHA: 1d708e39f2cde19610d43c5a7f5e36e4a2f947bc
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: >-
+    ${{ github.event_name == 'workflow_dispatch'
+        && 'pages-publication'
+        || format('{0}-{1}', github.workflow,
+          github.event.pull_request.number || github.ref) }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 jobs:
-  verify:
+  impact:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      routine_update: ${{ steps.impact.outputs.routine_update }}
+      full_validation: ${{ steps.impact.outputs.full_validation }}
+      post_release_maintenance: ${{ steps.impact.outputs.post_release_maintenance }}
     steps:
       - name: Check out the candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -71,6 +80,9 @@ jobs:
             exit 0
           fi
 
+          .venv/bin/python -B scripts/check_documentation_lockstep.py \
+            --base "${impact_base}"
+
           .venv/bin/python -B scripts/change_impact.py \
             --base "${impact_base}" \
             --head HEAD \
@@ -94,7 +106,10 @@ jobs:
             echo "routine_update=false" >> "${GITHUB_OUTPUT}"
             echo "full_validation=true" >> "${GITHUB_OUTPUT}"
             if jq -e '
-              (.manual_review_required | not) and
+              (
+                (.manual_review_required | not) or
+                all(.changed_paths[]; test("^([.]github/workflows/pages[.]yml|AGENTS[.]md|CHANGELOG[.]md|README[.]md|docs/okf-publication-method[.]md|okf[.]publication[.]json|scripts/check_documentation_lockstep[.]py|tests/test_(documentation_lockstep|workflow)[.]py)$"))
+              ) and
               (.stage1_review_required | not) and
               (.explained_generated_paths | length == 0) and
               (.unexplained_generated_paths | length == 0) and
@@ -111,8 +126,32 @@ jobs:
             fi
           fi
 
+  verify:
+    needs: impact
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12.11"
+          cache: pip
+          cache-dependency-path: requirements-lock.txt
+
+      - name: Install hash-locked validation dependencies
+        run: |
+          python -m venv --without-pip .venv
+          python -m pip --python .venv install \
+            --no-compile --require-hashes -r requirements-lock.txt
+
       - name: Validate a bounded routine repository update
-        if: steps.impact.outputs.routine_update == 'true'
+        if: needs.impact.outputs.routine_update == 'true'
         run: |
           runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
           chmod 700 "${runtime_cache}"
@@ -121,7 +160,7 @@ jobs:
           .venv/bin/python -B scripts/check_okf.py
 
       - name: Validate the locked Stage 1 profile
-        if: steps.impact.outputs.full_validation == 'true'
+        if: needs.impact.outputs.full_validation == 'true'
         run: |
           runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
           chmod 700 "${runtime_cache}"
@@ -131,7 +170,7 @@ jobs:
             --equivalent domain-profile/domain-profile.yaml
 
       - name: Build offline from the frozen snapshot
-        if: steps.impact.outputs.full_validation == 'true'
+        if: needs.impact.outputs.full_validation == 'true'
         run: |
           set -euo pipefail
           runtime_lock="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/okf-landregistry-build.lock"
@@ -166,16 +205,8 @@ jobs:
           printf 'Previous bundle retained at `%s`.\n' "${previous_output}" \
             >> "${GITHUB_STEP_SUMMARY}"
 
-      - name: Run deterministic and safety tests
-        if: steps.impact.outputs.full_validation == 'true'
-        run: |
-          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
-          chmod 700 "${runtime_cache}"
-          .venv/bin/python -E -s -B -X "pycache_prefix=${runtime_cache}" \
-            -m unittest discover -s tests -v
-
       - name: Run the v0.3.0 candidate calibration retrieval diagnostic
-        if: steps.impact.outputs.full_validation == 'true'
+        if: needs.impact.outputs.full_validation == 'true'
         run: |
           runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
           chmod 700 "${runtime_cache}"
@@ -189,7 +220,7 @@ jobs:
             --min-mrr 0.80
 
       - name: Confirm committed and verified publication bytes match
-        if: steps.impact.outputs.full_validation == 'true'
+        if: needs.impact.outputs.full_validation == 'true'
         run: |
           git diff --exit-code -- bundle
           .venv/bin/python -B scripts/check_release_transition.py \
@@ -198,7 +229,7 @@ jobs:
       - name: Resolve the immutable candidate anchor for a pull request
         if: >-
           github.event_name == 'pull_request' &&
-          steps.impact.outputs.full_validation == 'true' &&
+          needs.impact.outputs.full_validation == 'true' &&
           github.head_ref == 'candidate/v0.3.0'
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -222,7 +253,7 @@ jobs:
       - name: Validate the committed candidate tree on a pull request
         if: >-
           github.event_name == 'pull_request' &&
-          steps.impact.outputs.full_validation == 'true' &&
+          needs.impact.outputs.full_validation == 'true' &&
           github.head_ref == 'candidate/v0.3.0'
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py
@@ -232,7 +263,7 @@ jobs:
       - name: Validate pull-request G1-G9 evidence against the resolved candidate
         if: >-
           github.event_name == 'pull_request' &&
-          steps.impact.outputs.full_validation == 'true' &&
+          needs.impact.outputs.full_validation == 'true' &&
           github.head_ref == 'candidate/v0.3.0'
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py
@@ -241,8 +272,8 @@ jobs:
 
       - name: Validate immutable v0.3.0 evidence after repository maintenance
         if: >-
-          steps.impact.outputs.full_validation == 'true' &&
-          (steps.impact.outputs.post_release_maintenance == 'true' ||
+          needs.impact.outputs.full_validation == 'true' &&
+          (needs.impact.outputs.post_release_maintenance == 'true' ||
            github.event_name == 'workflow_dispatch')
         run: |
           set -euo pipefail
@@ -282,8 +313,8 @@ jobs:
         if: >-
           github.event_name != 'pull_request' &&
           github.event_name != 'workflow_dispatch' &&
-          steps.impact.outputs.full_validation == 'true' &&
-          steps.impact.outputs.post_release_maintenance != 'true' &&
+          needs.impact.outputs.full_validation == 'true' &&
+          needs.impact.outputs.post_release_maintenance != 'true' &&
           github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         run: >-
           .venv/bin/python -B scripts/check_release_evidence.py
@@ -369,13 +400,47 @@ jobs:
         with:
           path: bundle
 
+  full-tests:
+    needs: impact
+    if: needs.impact.outputs.full_validation == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12.11"
+          cache: pip
+          cache-dependency-path: requirements-lock.txt
+
+      - name: Install hash-locked validation dependencies
+        run: |
+          python -m venv --without-pip .venv
+          python -m pip --python .venv install \
+            --no-compile --require-hashes -r requirements-lock.txt
+
+      - name: Run deterministic and safety tests
+        if: needs.impact.outputs.full_validation == 'true'
+        run: |
+          runtime_cache="$(mktemp -d "${RUNNER_TEMP}/okf-python-cache.XXXXXX")"
+          chmod 700 "${runtime_cache}"
+          .venv/bin/python -E -s -B -X "pycache_prefix=${runtime_cache}" \
+            -m unittest discover -s tests -v
+
   deploy:
     if: >-
       github.event_name == 'workflow_dispatch' &&
       github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
       vars.OKF_RELEASE_ROOT_SHA256 != ''
-    needs: verify
+    needs: [verify, full-tests]
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       pages: write
       id-token: write

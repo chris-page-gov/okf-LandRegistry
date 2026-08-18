@@ -329,6 +329,14 @@ default branch and requires the repository variable
 `OKF_RELEASE_ROOT_SHA256` to name the exact owner-approved release root. Pull
 requests run verification without deployment.
 
+The repository's machine-readable lifecycle controls are in
+[`okf.publication.json`](okf.publication.json). The
+[`OKF publication method walkthrough`](docs/okf-publication-method.md) explains
+the source family, authored and generated boundaries, documentation and
+changelog lockstep, impact-routed checks, parallel convergence and exact-byte
+publication sequence. This maintenance contract does not change the semantic
+graph or the immutable v0.3.0 release candidate.
+
 For the current dependency-ordered Stage 1, Land Registry G5 and G9,
 exact-candidate evidence and RC-to-public procedure, see the
 [`v0.3.0 release tracker and assurance runbook`](docs/v0.3.0-release-tracker-and-assurance-runbook.md).

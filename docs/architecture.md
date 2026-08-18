@@ -210,9 +210,11 @@ this candidate, 44 safe literal-or-final-`/**` patterns expand to exactly 71
 files. Those files alone are hashed into `bundle/build-receipt.json`; every
 change to one predicts `bundle/**`, `bundle/build-receipt.json` and
 `bundle/CHECKSUMS.sha256`, and selects build-semantics, bundle and
-reproducibility checks. The classifier reports the complete 153-file
-candidate-control expansion separately. This distinction keeps exact build
-causality separate from exact release assurance without weakening either.
+reproducibility checks. The classifier reports the complete 154-file current
+control expansion separately. The immutable v0.3.0 evidence anchor retains its
+153-file historical surface; the additional current file is later
+publication-method documentation. This distinction keeps exact build causality
+separate from exact release assurance without weakening either.
 
 The graph is not permitted to weaken its own boundary. `scripts/change_impact.py`
 contains an independently executable bootstrap for the exact 44 input patterns
