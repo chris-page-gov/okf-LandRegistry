@@ -66,16 +66,24 @@ class PagesTests(unittest.TestCase):
         notices = analysis["summary"]["notices"]
         self.assertTrue(any("not legal advice" in notice for notice in notices))
 
-    def test_jsonld_is_canonical_and_yamld_is_reference_only(self) -> None:
+    def test_yaml_ld_and_json_ld_are_declared_semantic_serializations(self) -> None:
         descriptor = json.loads((BUNDLE / "okf-explorer.json").read_text())
         serializations = descriptor["semantic_serializations"]
-        self.assertEqual("JSON-LD", serializations["canonical"]["format"])
-        self.assertEqual("okf-bundle.jsonld", serializations["canonical"]["path"])
+        self.assertEqual("YAML-LD", serializations["canonical"]["format"])
+        self.assertEqual("application/ld+yaml", serializations["canonical"]["media_type"])
+        self.assertEqual("okf-bundle.yamlld", serializations["canonical"]["path"])
         self.assertEqual(
-            [{"format": "YAML-LD", "status": "deferred", "reason": serializations["reference_only"][0]["reason"]}],
-            serializations["reference_only"],
+            [
+                {
+                    "format": "JSON-LD",
+                    "media_type": "application/ld+json",
+                    "path": "okf-bundle.jsonld",
+                }
+            ],
+            serializations["alternates"],
         )
-        self.assertFalse(any(BUNDLE.glob("*.yamlld")))
+        self.assertTrue((BUNDLE / "okf-bundle.yamlld").is_file())
+        self.assertTrue((BUNDLE / "okf-bundle.jsonld").is_file())
 
     def test_authored_page_delegates_interaction_to_the_pinned_explorer(self) -> None:
         html = (PAGES / "index.html").read_text(encoding="utf-8")

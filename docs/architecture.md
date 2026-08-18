@@ -59,6 +59,30 @@ flowchart LR
 8. **Approve and deploy.** Publish only the candidate whose checksums and
    receipts the owner approved.
 
+## Semantic relationship projection
+
+The normalized relationship assertion list is the single build-time source
+for all directed edges. The generator validates its semantic endpoint IRIs
+and local routes, then emits three synchronized representations:
+
+```mermaid
+flowchart LR
+    A["Frozen GOV.UK available_translations metadata"] --> B["Normalized evidence-bearing assertion"]
+    B --> C["YAML-LD graph"]
+    B --> D["JSON-LD graph"]
+    B --> E["Explorer relationship adjacency"]
+    B --> F["Direct semantic triple"]
+    B --> G["Reified RelationshipAssertion"]
+```
+
+YAML-LD and JSON-LD are deterministic serializations of the same in-memory
+graph. Every semantic entity carries an explicit local route; the browser does
+not infer a route from an external IRI or fetch arbitrary remote contexts.
+The direct triple supports ordinary graph traversal, while the reified node
+preserves direction, inverse wording, authority, derivation, observation,
+field-level evidence and rights. Tests fail if either form is absent or if
+the direct and reified triples differ.
+
 ## Change-impact dependency graph
 
 `governance/artifact-dependency-graph.json` is the machine-readable

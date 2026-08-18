@@ -14,6 +14,7 @@ import csv
 import functools
 import hashlib
 import html
+import io
 import json
 import os
 import re
@@ -27,6 +28,9 @@ from pathlib import Path
 from typing import Any, Iterable
 from urllib.parse import parse_qsl, urldefrag, urljoin, urlparse
 
+from jsonschema import Draft202012Validator, FormatChecker
+from ruamel.yaml import YAML
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "bundle"
@@ -35,6 +39,23 @@ BUILD_VERSION = "0.2.0"
 RESEARCH_CUTOFF = "2026-07-29"
 SHARD_SIZE = 250
 GENERATED_MARKER = ".okf-generated"
+TRANSLATION_PREDICATE = "https://schema.org/translationOfWork"
+SEMANTIC_ASSERTION_SCHEMA_PATH = ROOT / "schemas" / "semantic-assertion.schema.json"
+SEMANTIC_ASSERTION_SCHEMA_BUNDLE_PATH = (
+    "data/semantic/semantic-assertion.schema.json"
+)
+SEMANTIC_ASSERTION_VALIDATION_BUNDLE_PATH = "data/semantic/validation.json"
+SEMANTIC_ASSERTION_SCHEMA_ID = (
+    "https://chris-page-gov.github.io/okf-explorer/profile/"
+    "bundle-wiki/v1/semantic-assertion.schema.json"
+)
+SEMANTIC_ASSERTION_SCHEMA_DRAFT = (
+    "https://json-schema.org/draft/2020-12/schema"
+)
+SEMANTIC_ASSERTION_SCHEMA_BYTES = 7268
+SEMANTIC_ASSERTION_SCHEMA_SHA256 = (
+    "307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52"
+)
 SENSITIVE_QUERY_KEYS = {
     "access_token",
     "api-key",
@@ -142,6 +163,66 @@ def canonical_json(value: Any) -> bytes:
 def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def load_pinned_semantic_assertion_schema(
+) -> tuple[Draft202012Validator, dict[str, Any]]:
+    """Load the exact final Explorer schema without remote resolution."""
+    raw = SEMANTIC_ASSERTION_SCHEMA_PATH.read_bytes()
+    digest = sha256_bytes(raw)
+    if len(raw) != SEMANTIC_ASSERTION_SCHEMA_BYTES:
+        raise ValueError(
+            "semantic assertion schema byte count changed: "
+            f"{len(raw)} != {SEMANTIC_ASSERTION_SCHEMA_BYTES}"
+        )
+    if digest != SEMANTIC_ASSERTION_SCHEMA_SHA256:
+        raise ValueError(
+            "semantic assertion schema digest changed: "
+            f"{digest} != {SEMANTIC_ASSERTION_SCHEMA_SHA256}"
+        )
+    schema = json.loads(raw)
+    if not isinstance(schema, dict):
+        raise ValueError("semantic assertion schema must be a JSON object")
+    if schema.get("$id") != SEMANTIC_ASSERTION_SCHEMA_ID:
+        raise ValueError("semantic assertion schema identity changed")
+    if schema.get("$schema") != SEMANTIC_ASSERTION_SCHEMA_DRAFT:
+        raise ValueError("semantic assertion schema draft changed")
+
+    def local_references(value: Any) -> Iterable[str]:
+        if isinstance(value, dict):
+            reference = value.get("$ref")
+            if isinstance(reference, str):
+                yield reference
+            for child in value.values():
+                yield from local_references(child)
+        elif isinstance(value, list):
+            for child in value:
+                yield from local_references(child)
+
+    remote_references = sorted(
+        reference
+        for reference in local_references(schema)
+        if not reference.startswith("#/")
+    )
+    if remote_references:
+        raise ValueError(
+            "semantic assertion schema contains remote references: "
+            + ", ".join(remote_references)
+        )
+    Draft202012Validator.check_schema(schema)
+    binding = {
+        "id": SEMANTIC_ASSERTION_SCHEMA_ID,
+        "draft": SEMANTIC_ASSERTION_SCHEMA_DRAFT,
+        "source_path": "schemas/semantic-assertion.schema.json",
+        "bundle_path": SEMANTIC_ASSERTION_SCHEMA_BUNDLE_PATH,
+        "bytes": len(raw),
+        "sha256": digest,
+        "network_resolution_allowed": False,
+    }
+    return (
+        Draft202012Validator(schema, format_checker=FormatChecker()),
+        binding,
+    )
 
 
 def load_build_config() -> dict[str, Any]:
@@ -279,6 +360,21 @@ def sha256_file(path: Path) -> str:
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(canonical_json(value))
+
+
+def write_yaml_ld(path: Path, value: Any) -> None:
+    """Write a deterministic YAML 1.2 serialization of a JSON-LD document."""
+    yaml = YAML()
+    yaml.allow_duplicate_keys = False
+    yaml.default_flow_style = False
+    yaml.default_style = '"'
+    yaml.indent(mapping=2, sequence=4, offset=2)
+    yaml.width = 4096
+    yaml.representer.ignore_aliases = lambda _value: True
+    stream = io.StringIO()
+    yaml.dump(value, stream)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(stream.getvalue(), encoding="utf-8", newline="\n")
 
 
 def write_compact_json(path: Path, value: Any) -> None:
@@ -1393,22 +1489,24 @@ def make_descriptor(
         ],
         "core_conformance": "OKF v0.2 Markdown concept layer",
         "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
-        "semantic_descriptor": urljoin(publication_base, "okf-bundle.jsonld"),
+        "semantic_descriptor": urljoin(publication_base, "okf-bundle.yamlld"),
         "semantic_serializations": {
             "canonical": {
-                "format": "JSON-LD",
-                "path": "okf-bundle.jsonld",
+                "format": "YAML-LD",
+                "media_type": "application/ld+yaml",
+                "path": "okf-bundle.yamlld",
             },
-            "reference_only": [
+            "alternates": [
                 {
-                    "format": "YAML-LD",
-                    "status": "deferred",
-                    "reason": (
-                        "Reference-only in the approved v0.2 profile; no "
-                        "YAML-LD conformance artifact is claimed."
-                    ),
+                    "format": "JSON-LD",
+                    "media_type": "application/ld+json",
+                    "path": "okf-bundle.jsonld",
                 }
             ],
+            "graph_equivalence": (
+                "Both files are deterministic serializations of the same "
+                "in-memory semantic graph."
+            ),
         },
         "repository": "https://github.com/chris-page-gov/okf-LandRegistry",
         "counts": {
@@ -1528,6 +1626,7 @@ def jsonld_projection(
     publication_base: str,
     snapshot: dict[str, Any],
     records: list[dict[str, Any]],
+    relationship_assertions: list[dict[str, Any]],
     config: dict[str, Any],
 ) -> dict[str, Any]:
     publication_base = publication_base.rstrip("/") + "/"
@@ -1538,6 +1637,7 @@ def jsonld_projection(
     publisher_nodes: dict[str, dict[str, Any]] = {}
     rights_nodes: dict[str, dict[str, Any]] = {}
     activity_nodes: dict[str, dict[str, Any]] = {}
+    entity_nodes: dict[str, dict[str, Any]] = {}
     entity_types = {
         "dataset": ["dcat:Dataset", "schema:Dataset"],
         "service": ["dcat:DataService", "schema:Service"],
@@ -1587,6 +1687,7 @@ def jsonld_projection(
             {
                 "@id": record_node_id,
                 "@type": "dcat:CatalogRecord",
+                "route": "dataset/" + explorer_name("record", record["record_id"]),
                 "dcterms:identifier": record["record_id"],
                 "dcterms:source": [
                     {"@id": source_url} for source_url in record["source_urls"]
@@ -1599,6 +1700,7 @@ def jsonld_projection(
         entity: dict[str, Any] = {
             "@id": record["canonical_source_url"],
             "@type": entity_types[record["kind"]],
+            "route": "dataset/" + explorer_name("record", record["record_id"]),
             "schema:name": record["title"],
             "schema:description": record["description"],
             "schema:url": record["canonical_source_url"],
@@ -1616,8 +1718,38 @@ def jsonld_projection(
             entity["dcterms:modified"] = record["publisher_last_updated"]
         if record["licence"] is not None:
             entity["dcterms:license"] = record["licence"]
+        graph.append(entity)
+        entity_nodes[record["canonical_source_url"]] = entity
+
+    for assertion in relationship_assertions:
+        source_iri = assertion["source"]["@id"]
+        target_iri = assertion["target"]["@id"]
+        predicate_iri = assertion["predicate"]["@id"]
+        source_node = entity_nodes.get(source_iri)
+        if source_node is None or target_iri not in entity_nodes:
+            raise ValueError(
+                "semantic relationship endpoint lacks an entity node: "
+                f"{source_iri} -> {target_iri}"
+            )
+        direct_target = {"@id": target_iri}
+        existing = source_node.get(predicate_iri)
+        if existing is None:
+            source_node[predicate_iri] = direct_target
+        elif isinstance(existing, list):
+            if direct_target in existing:
+                raise ValueError("duplicate direct semantic relationship triple")
+            existing.append(direct_target)
+        else:
+            if existing == direct_target:
+                raise ValueError("duplicate direct semantic relationship triple")
+            source_node[predicate_iri] = [existing, direct_target]
         graph.append(
-            entity
+            {
+                **assertion,
+                "rdf:subject": assertion["source"],
+                "rdf:predicate": assertion["predicate"],
+                "rdf:object": assertion["target"],
+            }
         )
     graph.extend(publisher_nodes[key] for key in sorted(publisher_nodes))
     graph.extend(rights_nodes[key] for key in sorted(rights_nodes))
@@ -2078,6 +2210,466 @@ def compact_canonical_json(value: Any) -> bytes:
     ).encode("utf-8")
 
 
+def translation_relationship_assertions(
+    publication_base: str,
+    records: list[dict[str, Any]],
+    composite_manifest: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Normalize GOV.UK translation metadata into one governed assertion plane."""
+    publication_base = publication_base.rstrip("/") + "/"
+    observation_input = next(
+        (
+            row
+            for row in composite_manifest["inputs"]
+            if row["id"] == "govuk-content-locale-translations"
+        ),
+        None,
+    )
+    if observation_input is None:
+        raise ValueError("composite input lacks GOV.UK translation observation")
+    observation_path = ROOT / observation_input["path"]
+    if sha256_file(observation_path) != observation_input["sha256"]:
+        raise ValueError("GOV.UK translation observation digest mismatch")
+    observation_document = load_json(observation_path)
+    observations_by_group: dict[str, dict[str, Any]] = {}
+    for observation in observation_document.get("observations", []):
+        metadata = observation.get("metadata", {})
+        group = clean_text(metadata.get("content_id"))
+        translations = metadata.get("available_translations")
+        if not group or not isinstance(translations, list) or not translations:
+            raise ValueError("GOV.UK translation observation lacks governed metadata")
+        if group in observations_by_group:
+            raise ValueError(f"duplicate GOV.UK translation observation: {group}")
+        observations_by_group[group] = observation
+
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for record in records:
+        group = clean_text(record.get("translation_group"))
+        if group:
+            groups.setdefault(group, []).append(record)
+
+    assertions: list[dict[str, Any]] = []
+    triples: set[tuple[str, str, str]] = set()
+    for group, members in sorted(groups.items()):
+        observation = observations_by_group.get(group)
+        if observation is None:
+            raise ValueError(f"translation group lacks source observation: {group}")
+        english_members = [
+            record for record in members if "en" in record.get("languages", [])
+        ]
+        if len(english_members) != 1:
+            raise ValueError(
+                f"translation group requires exactly one English record: {group}"
+            )
+        english = english_members[0]
+        metadata = observation["metadata"]
+        translations = metadata["available_translations"]
+        value_sha256 = sha256_bytes(compact_canonical_json(translations))
+        activity_id = urljoin(
+            publication_base,
+            "id/activity/govuk-content-translation-normalization-"
+            + observation_input["sha256"][:16],
+        )
+        for translated in sorted(members, key=lambda item: item["record_id"]):
+            if translated["record_id"] == english["record_id"]:
+                continue
+            source_iri = clean_text(translated["canonical_source_url"])
+            target_iri = clean_text(english["canonical_source_url"])
+            triple = (source_iri, TRANSLATION_PREDICATE, target_iri)
+            if triple in triples:
+                raise ValueError(f"duplicate normalized translation triple: {triple}")
+            triples.add(triple)
+            assertion_key = "\0".join(triple)
+            assertion_hash = sha256_bytes(assertion_key.encode("utf-8"))[:24]
+            source_route = (
+                "dataset/" + explorer_name("record", translated["record_id"])
+            )
+            target_route = "dataset/" + explorer_name("record", english["record_id"])
+            evidence_id = urljoin(
+                publication_base,
+                "id/evidence/govuk-content-translation-" + assertion_hash,
+            )
+            assertions.append(
+                {
+                    "@id": urljoin(
+                        publication_base, "id/assertion/" + assertion_hash
+                    ),
+                    "@type": ["rdf:Statement", "okf:RelationshipAssertion"],
+                    "source": {"@id": source_iri},
+                    "predicate": {"@id": TRANSLATION_PREDICATE},
+                    "target": {"@id": target_iri},
+                    "source_route": source_route,
+                    "target_route": target_route,
+                    "kind": "translation of",
+                    "label": "translation of",
+                    "inverse_label": "has translation",
+                    "assertion_status": "normalized",
+                    "assertion_scope": "real-world",
+                    "authority": {
+                        "class": "derived",
+                        "label": (
+                            "Deterministically normalized from official GOV.UK "
+                            "Content API available_translations metadata"
+                        ),
+                        "source": clean_text(observation["api_url"]),
+                    },
+                    "derivation": urljoin(
+                        publication_base,
+                        "id/rule/govuk-content-available-translations-v1",
+                    ),
+                    "derivation_activity": activity_id,
+                    "rule": urljoin(
+                        publication_base,
+                        "id/rule/govuk-content-available-translations-v1",
+                    ),
+                    "observed_at": clean_text(observation_document["observed_at"]),
+                    "evidence": [
+                        {
+                            "@id": evidence_id,
+                            "type": "official-metadata-observation",
+                            "url": clean_text(observation["api_url"]),
+                            "resource": source_iri,
+                            "source_artifact": observation_input["path"],
+                            "source_sha256": observation_input["sha256"],
+                            "source_field": (
+                                "observations[].metadata.available_translations"
+                            ),
+                            "source_value_sha256": value_sha256,
+                            "source_value_hash_canonicalization": (
+                                "sorted-key compact UTF-8 JSON with trailing newline"
+                            ),
+                            "locator": (
+                                "content_id=" + group + "; locale="
+                                + ",".join(translated.get("languages", []))
+                            ),
+                            "normalization": urljoin(
+                                publication_base,
+                                "id/rule/govuk-content-available-translations-v1",
+                            ),
+                            "retrieved_at": clean_text(
+                                observation_document["observed_at"]
+                            ),
+                        }
+                    ],
+                    "rights": {
+                        "source": urljoin(publication_base, "data/rights.json"),
+                        "assertion": (
+                            "Project-authored normalized metadata assertion; "
+                            "the linked GOV.UK source metadata retains its "
+                            "recorded rights and exceptions."
+                        ),
+                    },
+                }
+            )
+    validate_relationship_assertions(assertions)
+    return assertions
+
+
+def runtime_relationship(assertion: dict[str, Any]) -> dict[str, Any]:
+    """Project one semantic assertion into the Explorer route plane."""
+    return {
+        "schema": "okf-relationship-assertion.v2",
+        "id": assertion["@id"],
+        "source": assertion["source_route"],
+        "target": assertion["target_route"],
+        "source_iri": assertion["source"]["@id"],
+        "target_iri": assertion["target"]["@id"],
+        "predicate": assertion["predicate"]["@id"],
+        **{
+            key: assertion[key]
+            for key in (
+                "kind",
+                "label",
+                "inverse_label",
+                "assertion_status",
+                "assertion_scope",
+                "authority",
+                "derivation",
+                "derivation_activity",
+                "rule",
+                "observed_at",
+                "evidence",
+                "rights",
+            )
+        },
+    }
+
+
+def runtime_relationship_as_semantic(row: dict[str, Any]) -> dict[str, Any]:
+    """Map one Reader row back to the schema-governed assertion shape."""
+    excluded = {
+        "schema",
+        "id",
+        "source",
+        "target",
+        "source_iri",
+        "target_iri",
+    }
+    mapped = {
+        key: value for key, value in row.items() if key not in excluded
+    }
+    mapped.update(
+        {
+            "@id": row.get("id"),
+            "@type": ["rdf:Statement", "okf:RelationshipAssertion"],
+            "source": {"@id": row.get("source_iri")},
+            "predicate": {"@id": row.get("predicate")},
+            "target": {"@id": row.get("target_iri")},
+            "source_route": row.get("source"),
+            "target_route": row.get("target"),
+        }
+    )
+    return mapped
+
+
+def validate_semantic_relationship_planes(
+    semantic_document: dict[str, Any],
+    runtime_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Validate the emitted semantic/runtime planes and their exact parity."""
+    validator, schema_binding = load_pinned_semantic_assertion_schema()
+    graph = semantic_document.get("@graph")
+    if not isinstance(graph, list):
+        raise ValueError("semantic document lacks an @graph array")
+    semantic_rows = [
+        node
+        for node in graph
+        if isinstance(node, dict)
+        and "okf:RelationshipAssertion"
+        in (
+            node.get("@type", [])
+            if isinstance(node.get("@type", []), list)
+            else [node.get("@type")]
+        )
+    ]
+    mapped_runtime_rows = [
+        runtime_relationship_as_semantic(row) for row in runtime_rows
+    ]
+    for plane, rows in (
+        ("semantic", semantic_rows),
+        ("runtime-mapped", mapped_runtime_rows),
+    ):
+        identifiers: set[str] = set()
+        for ordinal, row in enumerate(rows):
+            identifier = clean_text(row.get("@id"))
+            if identifier in identifiers:
+                raise ValueError(
+                    f"duplicate {plane} relationship assertion ID: {identifier}"
+                )
+            identifiers.add(identifier)
+            failures = sorted(
+                validator.iter_errors(row),
+                key=lambda error: "/".join(
+                    str(part) for part in error.absolute_path
+                ),
+            )
+            if failures:
+                detail = "; ".join(
+                    f"{error.json_path}: {error.message}"
+                    for error in failures[:8]
+                )
+                raise ValueError(
+                    f"{plane} assertion {identifier or ordinal!r} failed the "
+                    f"pinned semantic schema: {detail}"
+                )
+
+    def assertion_core(row: dict[str, Any]) -> dict[str, Any]:
+        return {
+            key: value
+            for key, value in row.items()
+            if key not in {"rdf:subject", "rdf:predicate", "rdf:object"}
+        }
+
+    semantic_by_id = {
+        clean_text(row.get("@id")): assertion_core(row)
+        for row in semantic_rows
+    }
+    runtime_by_id = {
+        clean_text(row.get("@id")): row for row in mapped_runtime_rows
+    }
+    if semantic_by_id != runtime_by_id:
+        raise ValueError(
+            "semantic and runtime-mapped relationship assertion sets differ"
+        )
+
+    def triple(row: dict[str, Any]) -> tuple[str, str, str]:
+        return tuple(
+            clean_text(row[field].get("@id"))
+            for field in ("source", "predicate", "target")
+        )  # type: ignore[return-value]
+
+    semantic_triples = {triple(row) for row in semantic_rows}
+    runtime_triples = {triple(row) for row in mapped_runtime_rows}
+    nodes_by_id = {
+        clean_text(node.get("@id")): node
+        for node in graph
+        if isinstance(node, dict) and clean_text(node.get("@id"))
+    }
+    assertion_predicates = {item[1] for item in semantic_triples}
+    direct_triples: set[tuple[str, str, str]] = set()
+    for source_iri, node in nodes_by_id.items():
+        for predicate_iri in assertion_predicates:
+            raw_targets = node.get(predicate_iri)
+            if raw_targets is None:
+                continue
+            targets = raw_targets if isinstance(raw_targets, list) else [raw_targets]
+            for target in targets:
+                if isinstance(target, dict) and clean_text(target.get("@id")):
+                    direct_triples.add(
+                        (source_iri, predicate_iri, clean_text(target.get("@id")))
+                    )
+    if not (
+        semantic_triples == runtime_triples == direct_triples
+        and len(semantic_rows) == len(runtime_rows)
+    ):
+        raise ValueError(
+            "direct, reified and runtime semantic relationship planes differ"
+        )
+
+    def set_digest(values: Iterable[Any]) -> str:
+        payload = json.dumps(
+            sorted(values),
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        return sha256_bytes(payload)
+
+    identity_digest = set_digest(semantic_by_id)
+    triple_digest = set_digest(semantic_triples)
+    return {
+        "schema": "okf-hmlr-semantic-assertion-validation.v1",
+        "status": "conformant",
+        "schema_binding": schema_binding,
+        "counts": {
+            "semantic_assertions_validated": len(semantic_rows),
+            "runtime_rows_mapped_and_validated": len(mapped_runtime_rows),
+            "direct_triples_reconciled": len(direct_triples),
+            "validation_failures": 0,
+        },
+        "parity": {
+            "direct_reified_runtime": True,
+            "identity": True,
+            "routes": True,
+        },
+        "assertion_identity_set_sha256": identity_digest,
+        "triple_set_sha256": triple_digest,
+    }
+
+
+def validate_relationship_assertions(assertions: list[dict[str, Any]]) -> None:
+    """Fail closed when an assertion cannot support graph and Reader projections."""
+    required = {
+        "@id",
+        "@type",
+        "source",
+        "predicate",
+        "target",
+        "source_route",
+        "target_route",
+        "kind",
+        "label",
+        "inverse_label",
+        "assertion_status",
+        "assertion_scope",
+        "authority",
+        "derivation",
+        "observed_at",
+        "evidence",
+        "rights",
+    }
+    identifiers: set[str] = set()
+    triples: set[tuple[str, str, str]] = set()
+
+    def require_absolute_iri(value: Any, field: str) -> str:
+        iri = clean_text(value.get("@id") if isinstance(value, dict) else value)
+        parsed = urlparse(iri)
+        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+            raise ValueError(f"relationship {field} is not an absolute IRI: {iri}")
+        if parsed.username or parsed.password:
+            raise ValueError(f"relationship {field} contains credentials")
+        return iri
+
+    for assertion in assertions:
+        missing = sorted(required - set(assertion))
+        if missing:
+            raise ValueError(
+                "relationship assertion lacks required fields: " + ", ".join(missing)
+            )
+        identifier = require_absolute_iri(assertion["@id"], "@id")
+        if identifier in identifiers:
+            raise ValueError(f"duplicate relationship assertion ID: {identifier}")
+        identifiers.add(identifier)
+        triple = (
+            require_absolute_iri(assertion["source"], "source"),
+            require_absolute_iri(assertion["predicate"], "predicate"),
+            require_absolute_iri(assertion["target"], "target"),
+        )
+        if triple in triples:
+            raise ValueError(f"duplicate relationship assertion triple: {triple}")
+        triples.add(triple)
+        for route_field in ("source_route", "target_route"):
+            route = clean_text(assertion[route_field])
+            parsed_route = urlparse(route)
+            if (
+                not route
+                or route.startswith("/")
+                or parsed_route.scheme
+                or parsed_route.netloc
+                or parsed_route.query
+                or parsed_route.fragment
+                or ".." in route.split("/")
+            ):
+                raise ValueError(
+                    f"relationship {route_field} is not a safe local route: {route}"
+                )
+        status = assertion["assertion_status"]
+        scope = assertion["assertion_scope"]
+        authority = assertion["authority"]
+        expected_authority = {
+            "official": "official",
+            "normalized": "derived",
+            "inferred": "derived",
+            "model-derived": "model-assisted",
+        }
+        if status not in expected_authority or scope not in {
+            "real-world",
+            "synthetic-fixture",
+        }:
+            raise ValueError("relationship assertion status or scope is unsupported")
+        authority_class = clean_text(authority.get("class"))
+        required_class = (
+            "synthetic"
+            if scope == "synthetic-fixture"
+            else expected_authority[status]
+        )
+        if authority_class != required_class:
+            raise ValueError("relationship assertion authority/status conflict")
+        require_absolute_iri(authority.get("source"), "authority.source")
+        require_absolute_iri(assertion["derivation"], "derivation")
+        if not clean_text(assertion.get("observed_at")):
+            raise ValueError("relationship assertion lacks observation time")
+        evidence = assertion["evidence"]
+        if not isinstance(evidence, list) or not evidence:
+            raise ValueError("relationship assertion lacks evidence")
+        for item in evidence:
+            require_absolute_iri(item.get("@id"), "evidence.@id")
+            require_absolute_iri(item.get("url"), "evidence.url")
+            for digest_field in ("source_sha256", "source_value_sha256"):
+                if not re.fullmatch(r"[0-9a-f]{64}", clean_text(item.get(digest_field))):
+                    raise ValueError(
+                        f"relationship evidence lacks a valid {digest_field}"
+                    )
+            if not clean_text(item.get("source_field")) or not clean_text(
+                item.get("retrieved_at")
+            ):
+                raise ValueError("relationship evidence lacks field provenance")
+        rights = assertion["rights"]
+        require_absolute_iri(rights.get("source"), "rights.source")
+        if not clean_text(rights.get("assertion")):
+            raise ValueError("relationship assertion lacks a rights statement")
+
+
 def explorer_worker_tokens(value: str) -> list[str]:
     normalized = "".join(
         character
@@ -2425,6 +3017,7 @@ def write_explorer_relationship_adjacency(
 def write_explorer_projection(
     output: Path,
     records: list[dict[str, Any]],
+    relationship_rows: list[dict[str, Any]],
     snapshot: dict[str, Any],
     config: dict[str, Any],
 ) -> dict[str, Any]:
@@ -2432,7 +3025,6 @@ def write_explorer_projection(
     projection_dir = output / "data" / "explorer"
     dataset_rows: list[dict[str, Any]] = []
     resource_rows: list[dict[str, Any]] = []
-    relationship_rows: list[dict[str, Any]] = []
     publisher_counts = Counter(clean_text(record["publisher_id"]) for record in records)
     publisher_titles = {
         clean_text(record["publisher_id"]): clean_text(record["publisher"])
@@ -2581,40 +3173,13 @@ def write_explorer_projection(
         for publisher_id in sorted(publisher_counts, key=str.casefold)
     ]
 
-    translations: dict[str, list[dict[str, Any]]] = {}
-    by_record_id = {record["record_id"]: record for record in records}
-    for record in records:
-        group = clean_text(record.get("translation_group"))
-        if group:
-            translations.setdefault(group, []).append(record)
-    for group, members in sorted(translations.items()):
-        english = next(
-            (record for record in members if "en" in record.get("languages", [])),
-            None,
-        )
-        if english is None:
-            raise ValueError(f"translation group lacks an English record: {group}")
-        target_name = explorer_name("record", english["record_id"])
-        for translated in sorted(members, key=lambda item: item["record_id"]):
-            if translated["record_id"] == english["record_id"]:
-                continue
-            source_name = explorer_name("record", translated["record_id"])
-            relationship_rows.append(
-                {
-                    "source": f"dataset/{source_name}",
-                    "target": f"dataset/{target_name}",
-                    "kind": "translation of",
-                    "predicate": "translation_of",
-                    "authority": "observed",
-                    "derivation": (
-                        "GOV.UK Content API available_translations metadata "
-                        f"for content identity {group}."
-                    ),
-                    "observed_at": clean_text(translated.get("observed_at")),
-                    "evidence": list(translated.get("evidence_refs", [])),
-                    "rights": clean_text(translated.get("rights_state")),
-                }
-            )
+    dataset_routes = {row["route"] for row in dataset_rows}
+    for relationship in relationship_rows:
+        for endpoint in (relationship["source"], relationship["target"]):
+            if endpoint not in dataset_routes:
+                raise ValueError(
+                    f"relationship endpoint lacks a generated Explorer route: {endpoint}"
+                )
 
     facet_keys = [
         "access",
@@ -2883,6 +3448,7 @@ def governed_input_receipts(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
         ROOT / "scripts" / "evaluate.py",
         ROOT / "schemas" / "artifact-dependency-graph.schema.json",
         ROOT / "schemas" / "domain-profile.schema.json",
+        ROOT / "schemas" / "semantic-assertion.schema.json",
         ROOT / "contracts" / "okf-explorer.consumer-lock.json",
         ROOT / "source" / "build-config.json",
         ROOT / "source" / "curated-records.json",
@@ -3058,6 +3624,12 @@ def build(
     if not records:
         raise ValueError("refusing to publish an empty catalogue")
     validate_evaluation_caveat_bindings(records)
+    relationship_assertions = translation_relationship_assertions(
+        publication_base, records, composite_manifest
+    )
+    relationship_rows = [
+        runtime_relationship(assertion) for assertion in relationship_assertions
+    ]
     input_receipts = governed_input_receipts(snapshot)
 
     with tempfile.TemporaryDirectory(prefix=".okf-build-", dir=ROOT) as temp_name:
@@ -3164,7 +3736,7 @@ def build(
         evaluation = load_json(ROOT / "evaluation" / "questions.json")
         write_json(staging / "data" / "evaluation.json", evaluation)
         explorer_projection = write_explorer_projection(
-            staging, records, snapshot, config
+            staging, records, relationship_rows, snapshot, config
         )
         write_static_catalogue(staging, records)
         evaluation_process = subprocess.run(
@@ -3189,6 +3761,29 @@ def build(
             )
             raise ValueError(f"evaluation failed: {detail}")
 
+        write_json(
+            staging / "context.jsonld",
+            load_json(ROOT / "source" / "jsonld-context.json"),
+        )
+        semantic_document = jsonld_projection(
+            publication_base,
+            snapshot,
+            records,
+            relationship_assertions,
+            config,
+        )
+        write_json(staging / "okf-bundle.jsonld", semantic_document)
+        write_yaml_ld(staging / "okf-bundle.yamlld", semantic_document)
+        semantic_validation = validate_semantic_relationship_planes(
+            semantic_document, relationship_rows
+        )
+        schema_bundle_path = staging / SEMANTIC_ASSERTION_SCHEMA_BUNDLE_PATH
+        schema_bundle_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(SEMANTIC_ASSERTION_SCHEMA_PATH, schema_bundle_path)
+        semantic_validation_path = (
+            staging / SEMANTIC_ASSERTION_VALIDATION_BUNDLE_PATH
+        )
+        write_json(semantic_validation_path, semantic_validation)
         descriptor = make_descriptor(
             publication_base,
             snapshot,
@@ -3198,15 +3793,15 @@ def build(
             reconciliation,
             explorer_projection,
         )
+        descriptor["extensions"]["okf-bundle-wiki-semantic.v1"] = {
+            "profile": (
+                "https://chris-page-gov.github.io/okf-explorer/profile/"
+                "bundle-wiki/v1/"
+            ),
+            "assertion_schema": explorer_reference(staging, schema_bundle_path),
+            "validation": explorer_reference(staging, semantic_validation_path),
+        }
         write_json(staging / "okf-explorer.json", descriptor)
-        write_json(
-            staging / "context.jsonld",
-            load_json(ROOT / "source" / "jsonld-context.json"),
-        )
-        write_json(
-            staging / "okf-bundle.jsonld",
-            jsonld_projection(publication_base, snapshot, records, config),
-        )
         write_json(staging / "data" / "manifest.json", data_manifest(staging, records))
         receipt = {
             "schema": "okf-hmlr-build-receipt.v1",
@@ -3222,6 +3817,7 @@ def build(
             "domain_profile_pack_root_sha256": profile_pack_root_sha256(),
             "governed_inputs": input_receipts,
             "record_count": len(records),
+            "semantic_assertion_validation": semantic_validation,
             "status": config["status"],
             "publication_state": config["publication_state"],
         }

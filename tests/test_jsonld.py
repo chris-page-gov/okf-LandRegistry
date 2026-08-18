@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from pyld import jsonld
+from ruamel.yaml import YAML
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +16,9 @@ DCAT = "http://www.w3.org/ns/dcat#"
 DCTERMS = "http://purl.org/dc/terms/"
 FOAF = "http://xmlns.com/foaf/0.1/"
 PROV = "http://www.w3.org/ns/prov#"
+RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 SCHEMA = "https://schema.org/"
+OKF = "https://chris-page-gov.github.io/okf-explorer/ns#"
 
 
 def load_json(path: Path) -> Any:
@@ -38,6 +41,9 @@ class JsonLdProjectionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.document = load_json(BUNDLE / "okf-bundle.jsonld")
+        yaml = YAML(typ="safe")
+        with (BUNDLE / "okf-bundle.yamlld").open(encoding="utf-8") as handle:
+            cls.yaml_document = yaml.load(handle)
         cls.catalogue = load_json(BUNDLE / "data" / "catalogue.json")
         cls.expanded = jsonld.expand(
             cls.document,
@@ -46,6 +52,13 @@ class JsonLdProjectionTests(unittest.TestCase):
         cls.root = cls.expanded[0]
         cls.graph = cls.root["@graph"]
         cls.nodes = {node["@id"]: node for node in cls.graph}
+
+    def test_yaml_ld_and_json_ld_are_exact_graph_serializations(self) -> None:
+        self.assertEqual(self.document, self.yaml_document)
+        self.assertEqual(
+            PUBLICATION_BASE + "okf-bundle.yamlld",
+            load_json(BUNDLE / "okf-explorer.json")["semantic_descriptor"],
+        )
 
     def test_pinned_local_context_expands_without_network(self) -> None:
         self.assertEqual(
@@ -117,6 +130,59 @@ class JsonLdProjectionTests(unittest.TestCase):
                 or identifier.startswith("https://"),
                 identifier,
             )
+
+    def test_translation_direct_triple_and_rich_assertion_reconcile(self) -> None:
+        compact_assertions = [
+            node
+            for node in self.document["@graph"]
+            if "okf:RelationshipAssertion" in node.get("@type", [])
+        ]
+        self.assertEqual(1, len(compact_assertions))
+        assertion = compact_assertions[0]
+        required = {
+            "@id",
+            "@type",
+            "source",
+            "predicate",
+            "target",
+            "source_route",
+            "target_route",
+            "kind",
+            "label",
+            "inverse_label",
+            "assertion_status",
+            "assertion_scope",
+            "authority",
+            "derivation",
+            "observed_at",
+            "evidence",
+            "rights",
+        }
+        self.assertFalse(required - set(assertion))
+        self.assertEqual("normalized", assertion["assertion_status"])
+        self.assertEqual("real-world", assertion["assertion_scope"])
+        self.assertEqual("derived", assertion["authority"]["class"])
+        self.assertEqual(64, len(assertion["evidence"][0]["source_sha256"]))
+        self.assertEqual(64, len(assertion["evidence"][0]["source_value_sha256"]))
+
+        expanded_assertions = [
+            node
+            for node in self.graph
+            if RDF + "Statement" in node.get("@type", [])
+            and OKF + "RelationshipAssertion" in node.get("@type", [])
+        ]
+        self.assertEqual(1, len(expanded_assertions))
+        expanded = expanded_assertions[0]
+        source = expanded[RDF + "subject"][0]["@id"]
+        predicate = expanded[RDF + "predicate"][0]["@id"]
+        target = expanded[RDF + "object"][0]["@id"]
+        self.assertEqual(SCHEMA + "translationOfWork", predicate)
+        self.assertIn(source, self.nodes)
+        self.assertIn(target, self.nodes)
+        self.assertIn(
+            target,
+            {reference["@id"] for reference in self.nodes[source][predicate]},
+        )
 
 
 if __name__ == "__main__":

@@ -56,9 +56,9 @@
     ],
     "relationships": [
       {
-        "bytes": 407,
+        "bytes": 2548,
         "path": "data/explorer/relationships-000.json",
-        "sha256": "3780f2a48e640ab556f3a5b1133f60126c9c49a9ceca9f7f4ddaca9ac7b356e8"
+        "sha256": "cf76478213281d4c8ee90ed61a1719f8859138f146ba73d9bae75cce2bcea755"
       }
     ],
     "resources": [
@@ -127,15 +127,15 @@
       "sha256": "b3f7fd6dcc298b7e247ded3c21bd862ba89d17d0b9b1da33fd3d590119e03fe0"
     },
     "relationship_adjacency": {
-      "bytes": 526,
+      "bytes": 528,
       "path": "data/explorer/adjacency/manifest.json",
-      "sha256": "8513ec1bb47a7ce5b3f7fb62cc28f1f3d457d04be1193de8f0d4a7c609731198"
+      "sha256": "094431ac47eef52d93b2721e9945f819f7792251a4102dd8dfb6575f5d2b7262"
     },
     "search": "data/explorer/search/manifest.json"
   },
   "integrity": {
     "algorithm": "sha256",
-    "manifest_root_sha256": "e628e66632f8e1cbdc6e38b23188351d1e2c0e9722a5ff141c3e0f3fc4bef0e8",
+    "manifest_root_sha256": "ddc6151f9cc40d1ba45de29171c6d7b9de8535167a7cb574d84a8ec6cf1da875",
     "scope": "canonical ordered references to overview, facets and chunks"
   },
   "performance": {

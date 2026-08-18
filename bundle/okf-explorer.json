@@ -22,7 +22,7 @@
     "sources": 15,
     "topics": 314
   },
-  "data_plane_manifest_root_sha256": "e628e66632f8e1cbdc6e38b23188351d1e2c0e9722a5ff141c3e0f3fc4bef0e8",
+  "data_plane_manifest_root_sha256": "ddc6151f9cc40d1ba45de29171c6d7b9de8535167a7cb574d84a8ec6cf1da875",
   "description": "Independent, metadata-only discovery bundle for HM Land Registry publications, services, datasets, APIs and official repositories.",
   "entrypoint_integrity": {
     "analysis_overview": {
@@ -31,9 +31,9 @@
       "sha256": "7fdb32eafcd392de199c404161820367650dfdc2cb48f5c55c416da0cdd31331"
     },
     "data_manifest": {
-      "bytes": 4970,
+      "bytes": 4971,
       "path": "data/explorer/manifest.json",
-      "sha256": "30c692a50a935bc438cb7f803385ebd1db10921283e232e60cd5c65e406a707b"
+      "sha256": "b0f99866464866cbfc11735b67bbdef1df452f2fefe69236ddb35ee2ecceb6a0"
     },
     "overview_index": {
       "bytes": 15581,
@@ -46,9 +46,9 @@
       "sha256": "b3f7fd6dcc298b7e247ded3c21bd862ba89d17d0b9b1da33fd3d590119e03fe0"
     },
     "relationship_adjacency": {
-      "bytes": 526,
+      "bytes": 528,
       "path": "data/explorer/adjacency/manifest.json",
-      "sha256": "8513ec1bb47a7ce5b3f7fb62cc28f1f3d457d04be1193de8f0d4a7c609731198"
+      "sha256": "094431ac47eef52d93b2721e9945f819f7792251a4102dd8dfb6575f5d2b7262"
     },
     "search_manifest": {
       "bytes": 21574,
@@ -79,6 +79,19 @@
     "viewer": "https://chris-page-gov.github.io/okf-explorer/"
   },
   "extensions": {
+    "okf-bundle-wiki-semantic.v1": {
+      "assertion_schema": {
+        "bytes": 7268,
+        "path": "data/semantic/semantic-assertion.schema.json",
+        "sha256": "307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52"
+      },
+      "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+      "validation": {
+        "bytes": 1014,
+        "path": "data/semantic/validation.json",
+        "sha256": "5edb64812b19519742948b16991d2902957483974422d109729855c5abdb4beb"
+      }
+    },
     "okf-hmlr-discovery.v1": {
       "ai_generated_proof_of_concept": true,
       "authenticated_calls_enabled": false,
@@ -126,19 +139,21 @@
     "metadata_only": true,
     "research_cutoff": "2026-07-29"
   },
-  "semantic_descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.jsonld",
+  "semantic_descriptor": "https://chris-page-gov.github.io/okf-LandRegistry/okf-bundle.yamlld",
   "semantic_serializations": {
-    "canonical": {
-      "format": "JSON-LD",
-      "path": "okf-bundle.jsonld"
-    },
-    "reference_only": [
+    "alternates": [
       {
-        "format": "YAML-LD",
-        "reason": "Reference-only in the approved v0.2 profile; no YAML-LD conformance artifact is claimed.",
-        "status": "deferred"
+        "format": "JSON-LD",
+        "media_type": "application/ld+json",
+        "path": "okf-bundle.jsonld"
       }
-    ]
+    ],
+    "canonical": {
+      "format": "YAML-LD",
+      "media_type": "application/ld+yaml",
+      "path": "okf-bundle.yamlld"
+    },
+    "graph_equivalence": "Both files are deterministic serializations of the same in-memory semantic graph."
   },
   "snapshot": "hmlr-public-metadata-v0.2.0",
   "status": "ai-generated-proof-of-concept",

@@ -148,6 +148,7 @@
       "description": "Curated metadata and release configuration consumed by the offline deterministic build.",
       "id": "build-inputs",
       "inputs": [
+        "schemas/semantic-assertion.schema.json",
         "source/build-config.json",
         "source/curated-records.json",
         "source/jsonld-context.json",
@@ -155,6 +156,7 @@
         "source/type-kind-crosswalk.json"
       ],
       "validation_inputs": [
+        "tests/test_build_semantics.py",
         "tests/test_jsonld.py"
       ],
       "outputs": [
@@ -675,6 +677,7 @@
         "SECURITY.md",
         "docs/**",
         "governance/README.md",
+        "okf.semantic.json",
         "schemas/README.md",
         "troubleshooting/**"
       ],
@@ -821,7 +824,7 @@
         "tests.test_jsonld",
         "-v"
       ],
-      "description": "Pinned-context JSON-LD expansion, catalogue ranges and semantic identity closure.",
+      "description": "Pinned-context YAML-LD/JSON-LD equivalence, relationship reification, direct-triple reconciliation, catalogue ranges and semantic identity closure.",
       "id": "jsonld",
       "repository_paths": ["tests/test_jsonld.py"]
     },

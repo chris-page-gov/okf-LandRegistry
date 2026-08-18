@@ -1,13 +1,18 @@
 from __future__ import annotations
 
+import copy
 import json
 import tempfile
 import unittest
 from pathlib import Path
+from urllib.parse import urlparse
 
 from scripts.build import (
     ROOT,
+    SEMANTIC_ASSERTION_SCHEMA_BYTES,
+    SEMANTIC_ASSERTION_SCHEMA_SHA256,
     ai_usage_projection,
+    load_pinned_semantic_assertion_schema,
     load_publisher_registry,
     load_type_kind_crosswalk,
     load_ai_model_usage,
@@ -16,6 +21,9 @@ from scripts.build import (
     normalize_cddo,
     normalize_govuk,
     record_id_for,
+    runtime_relationship_as_semantic,
+    validate_semantic_relationship_planes,
+    validate_relationship_assertions,
     write_search_and_shards,
 )
 
@@ -145,9 +153,36 @@ class BuildSemanticsTests(unittest.TestCase):
                 json.loads((ROOT / "bundle" / reference["path"]).read_text())
             )
         self.assertIn(
-            "translation_of",
+            "https://schema.org/translationOfWork",
             {relationship["predicate"] for relationship in relationships},
         )
+        required = {
+            "id",
+            "source",
+            "target",
+            "source_iri",
+            "target_iri",
+            "predicate",
+            "label",
+            "inverse_label",
+            "assertion_status",
+            "assertion_scope",
+            "authority",
+            "derivation",
+            "observed_at",
+            "evidence",
+            "rights",
+        }
+        for relationship in relationships:
+            self.assertFalse(required - set(relationship))
+            for field in ("id", "source_iri", "target_iri", "predicate", "derivation"):
+                self.assertEqual("https", urlparse(relationship[field]).scheme)
+            self.assertEqual("normalized", relationship["assertion_status"])
+            self.assertEqual("real-world", relationship["assertion_scope"])
+            self.assertEqual("derived", relationship["authority"]["class"])
+            self.assertTrue(relationship["evidence"])
+            self.assertEqual(64, len(relationship["evidence"][0]["source_sha256"]))
+            self.assertEqual(64, len(relationship["evidence"][0]["source_value_sha256"]))
 
     def test_ai_usage_ledger_is_explicit_about_unknown_and_subscription_costs(
         self,
@@ -167,6 +202,118 @@ class BuildSemanticsTests(unittest.TestCase):
         self.assertEqual("governance/ai-model-usage.json", projection["source"]["path"])
         self.assertEqual(64, len(projection["source"]["sha256"]))
         self.assertEqual(ledger, projection["ledger"])
+
+    def test_relationship_contract_fails_closed(self) -> None:
+        graph = json.loads((ROOT / "bundle" / "okf-bundle.jsonld").read_text())[
+            "@graph"
+        ]
+        assertion = next(
+            node
+            for node in graph
+            if "okf:RelationshipAssertion" in node.get("@type", [])
+        )
+        validate_relationship_assertions([assertion])
+
+        missing_evidence = copy.deepcopy(assertion)
+        missing_evidence.pop("evidence")
+        with self.assertRaisesRegex(ValueError, "required fields"):
+            validate_relationship_assertions([missing_evidence])
+
+        authority_conflict = copy.deepcopy(assertion)
+        authority_conflict["authority"]["class"] = "official"
+        with self.assertRaisesRegex(ValueError, "authority/status conflict"):
+            validate_relationship_assertions([authority_conflict])
+
+    def test_final_explorer_schema_validates_both_emitted_planes(self) -> None:
+        validator, binding = load_pinned_semantic_assertion_schema()
+        self.assertEqual(SEMANTIC_ASSERTION_SCHEMA_BYTES, binding["bytes"])
+        self.assertEqual(SEMANTIC_ASSERTION_SCHEMA_SHA256, binding["sha256"])
+        self.assertFalse(binding["network_resolution_allowed"])
+
+        semantic_document = json.loads(
+            (ROOT / "bundle" / "okf-bundle.jsonld").read_text()
+        )
+        manifest = json.loads(
+            (ROOT / "bundle" / "data" / "explorer" / "manifest.json").read_text()
+        )
+        runtime_rows = [
+            row
+            for reference in manifest["chunks"]["relationships"]
+            for row in json.loads(
+                (ROOT / "bundle" / reference["path"]).read_text()
+            )
+        ]
+        report = validate_semantic_relationship_planes(
+            semantic_document, runtime_rows
+        )
+        self.assertEqual(
+            {
+                "semantic_assertions_validated": 1,
+                "runtime_rows_mapped_and_validated": 1,
+                "direct_triples_reconciled": 1,
+                "validation_failures": 0,
+            },
+            report["counts"],
+        )
+        self.assertTrue(report["parity"]["direct_reified_runtime"])
+        mapped = runtime_relationship_as_semantic(runtime_rows[0])
+        self.assertEqual([], list(validator.iter_errors(mapped)))
+
+    def test_final_schema_rejects_noncanonical_web_urls(self) -> None:
+        validator, _binding = load_pinned_semantic_assertion_schema()
+        graph = json.loads(
+            (ROOT / "bundle" / "okf-bundle.jsonld").read_text()
+        )["@graph"]
+        assertion = next(
+            node
+            for node in graph
+            if "okf:RelationshipAssertion" in node.get("@type", [])
+        )
+        cases = (
+            ("authority", "javascript:alert(1)"),
+            ("authority", "https://user:pass@example.test/rule"),
+            ("authority", "https:///missing-host"),
+            ("authority", "https://example.test:0/rule"),
+            ("authority", "https://example.test:65536/rule"),
+            ("evidence-url", "https://example.test/bad%escape"),
+            ("evidence-resource", "https://example.test/a<bad>"),
+            ("rights", "https://example.test/path with space"),
+        )
+        for field, value in cases:
+            with self.subTest(field=field, value=value):
+                changed = copy.deepcopy(assertion)
+                if field == "authority":
+                    changed["authority"]["source"] = value
+                elif field == "evidence-url":
+                    changed["evidence"][0]["url"] = value
+                elif field == "evidence-resource":
+                    changed["evidence"][0]["resource"] = value
+                else:
+                    changed["rights"]["source"] = value
+                self.assertTrue(list(validator.iter_errors(changed)))
+
+    def test_generated_schema_and_validation_receipt_are_integrity_bound(self) -> None:
+        source = ROOT / "schemas" / "semantic-assertion.schema.json"
+        generated = (
+            ROOT / "bundle" / "data" / "semantic"
+            / "semantic-assertion.schema.json"
+        )
+        self.assertEqual(source.read_bytes(), generated.read_bytes())
+        validation = json.loads(
+            (ROOT / "bundle" / "data" / "semantic" / "validation.json")
+            .read_text()
+        )
+        self.assertEqual("conformant", validation["status"])
+        self.assertEqual(
+            SEMANTIC_ASSERTION_SCHEMA_SHA256,
+            validation["schema_binding"]["sha256"],
+        )
+        receipt = json.loads(
+            (ROOT / "bundle" / "build-receipt.json").read_text()
+        )
+        self.assertEqual(
+            validation, receipt["semantic_assertion_validation"]
+        )
 
     def test_boundary_discovery_record_gets_visible_general_boundary_caveat(self) -> None:
         record = normalize_govuk(

@@ -2,14 +2,14 @@
   "algorithm": "fnv1a32-prefix-2",
   "buckets": {
     "04": {
-      "bytes": 451,
+      "bytes": 2592,
       "path": "data/explorer/adjacency/04.json",
-      "sha256": "18cee767dd38ac38e291d7ebd24ce4b32d9cc26da6d59b2a871832cf86a2e4c9"
+      "sha256": "6339a3be5efad0982499d38cc8419b9ae96bd9a14ce9f51340f95ec00552c8f4"
     },
     "32": {
-      "bytes": 451,
+      "bytes": 2592,
       "path": "data/explorer/adjacency/32.json",
-      "sha256": "87949d60605373c717fc4cbadcea804a5d91655b8eb7ba5af1c438f66c12c181"
+      "sha256": "33c557b5aa41b3f5c94b1cad5b60b16a4405aae0fa25d2a05ef428fa3567d61c"
     }
   },
   "relationships": 1,

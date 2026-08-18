@@ -1,0 +1,132 @@
+{
+  "okf_core": {
+    "specification": "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
+    "status": "conformant",
+    "version": "0.2"
+  },
+  "reader": {
+    "consumer": "https://chris-page-gov.github.io/okf-explorer/",
+    "delivery": "json-large-corpus-adjacency",
+    "preserves": [
+      "direction",
+      "semantic-identities",
+      "local-routes",
+      "predicate",
+      "relationship-kind",
+      "preferred-and-inverse-labels",
+      "assertion-status-and-scope",
+      "authority",
+      "derivation",
+      "supporting-assertions",
+      "confidence",
+      "review-status",
+      "evidence",
+      "rights",
+      "freshness",
+      "lifecycle"
+    ]
+  },
+  "relationship_contract": {
+    "authoring": "generated-yaml-ld-assertion-graph",
+    "direct_triple_policy": "generated-from-one-assertion-source",
+    "predicate_policy": "absolute-iri",
+    "required_fields": [
+      "id",
+      "source",
+      "target",
+      "source_iri",
+      "target_iri",
+      "predicate",
+      "kind",
+      "label",
+      "inverse_label",
+      "assertion_status",
+      "assertion_scope",
+      "authority",
+      "derivation",
+      "observed_at",
+      "evidence",
+      "rights"
+    ],
+    "schema": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json"
+  },
+  "repository": {
+    "name": "okf-LandRegistry",
+    "role": "large-corpus-producer",
+    "root_index": "bundle/index.md"
+  },
+  "schema": "okf-repository-semantic-contract.v1",
+  "semantic_layer": {
+    "authoritative_inputs": [
+      "source/",
+      "profiles/",
+      "schemas/",
+      "scripts/"
+    ],
+    "context_policy": "pinned-local-contexts-no-browser-remote-expansion",
+    "identity_policy": "absolute-semantic-iri-plus-validated-local-route",
+    "limitations": [
+      "The semantic projection remains metadata-only and carries no property-level records; any publication of changed bytes requires fresh exact-digest release assurance and owner approval.",
+      "The full release-assurance suite intentionally retains a prior-release receipt mismatch until a new candidate is authorized; the declared semantic checks exclude that expected release gate without weakening it."
+    ],
+    "outputs": [
+      {
+        "generated": true,
+        "path": "bundle/okf-bundle.jsonld",
+        "required": true,
+        "role": "semantic-json-ld"
+      },
+      {
+        "generated": true,
+        "path": "bundle/okf-bundle.yamlld",
+        "required": true,
+        "role": "semantic-yaml-ld"
+      },
+      {
+        "generated": true,
+        "path": "bundle/okf-explorer.json",
+        "required": true,
+        "role": "explorer-runtime"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/explorer/relationships-*.json",
+        "required": true,
+        "role": "relationship-runtime"
+      },
+      {
+        "generated": false,
+        "path": "schemas/semantic-assertion.schema.json",
+        "required": true,
+        "role": "relationship-schema"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/semantic-assertion.schema.json",
+        "required": true,
+        "role": "relationship-schema"
+      },
+      {
+        "generated": true,
+        "path": "bundle/data/semantic/validation.json",
+        "required": true,
+        "role": "semantic-validation"
+      }
+    ],
+    "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/",
+    "state": "generated-yaml-ld-graph"
+  },
+  "tooling": {
+    "build": [
+      ".venv/bin/python scripts/build.py --replace"
+    ],
+    "check": [
+      ".venv/bin/python scripts/check_okf.py",
+      ".venv/bin/python -m unittest tests.test_build_semantics tests.test_explorer_contract tests.test_jsonld tests.test_okf -v"
+    ],
+    "setup": [
+      "python3 -m venv .venv",
+      ".venv/bin/python -m pip install --require-hashes --requirement requirements-lock.txt"
+    ]
+  }
+}

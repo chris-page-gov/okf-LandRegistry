@@ -1,9 +1,80 @@
 {
   "@context": {
+    "@version": 1.1,
+    "assertion": "okf:rightsAssertion",
+    "assertion_scope": "okf:assertionScope",
+    "assertion_status": "okf:assertionStatus",
+    "authority": "okf:authority",
+    "class": "okf:authorityClass",
     "dcat": "http://www.w3.org/ns/dcat#",
     "dcterms": "http://purl.org/dc/terms/",
+    "derivation": {
+      "@id": "okf:derivation",
+      "@type": "@id"
+    },
+    "derivation_activity": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "evidence": {
+      "@container": "@set",
+      "@id": "prov:hadPrimarySource"
+    },
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "inverse_label": "okf:inverseLabel",
+    "kind": "okf:relationshipKind",
+    "label": "schema:name",
+    "locator": "okf:evidenceLocator",
+    "normalization": {
+      "@id": "okf:normalizationRule",
+      "@type": "@id"
+    },
+    "observed_at": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "okf": "https://chris-page-gov.github.io/okf-explorer/ns#",
+    "predicate": {
+      "@id": "okf:predicate",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
-    "schema": "https://schema.org/"
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "resource": {
+      "@id": "dcterms:source",
+      "@type": "@id"
+    },
+    "retrieved_at": {
+      "@id": "okf:retrievedAt",
+      "@type": "xsd:dateTime"
+    },
+    "rights": "dcterms:rights",
+    "route": "okf:route",
+    "rule": {
+      "@id": "okf:normalizationRule",
+      "@type": "@id"
+    },
+    "schema": "https://schema.org/",
+    "source": {
+      "@id": "okf:source",
+      "@type": "@id"
+    },
+    "source_artifact": "okf:sourceArtifact",
+    "source_field": "okf:sourceField",
+    "source_route": "okf:sourceRoute",
+    "source_sha256": "okf:sourceSha256",
+    "source_value_hash_canonicalization": "okf:sourceValueHashCanonicalization",
+    "source_value_sha256": "okf:sourceValueSha256",
+    "target": {
+      "@id": "okf:target",
+      "@type": "@id"
+    },
+    "target_route": "okf:targetRoute",
+    "type": "okf:evidenceType",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   }
 }

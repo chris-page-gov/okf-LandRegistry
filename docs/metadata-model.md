@@ -117,6 +117,35 @@ must state the rule and evidence. Unknown direction or semantics are not
 published as a generic “related” fact unless that source-native ambiguity is
 itself represented.
 
+The generated relationship assertion plane requires, for every row:
+
+- a stable absolute assertion IRI;
+- absolute source, predicate and target IRIs plus validated local Explorer
+  routes for both endpoints;
+- preferred and inverse labels, assertion status and real-world/synthetic
+  scope;
+- an authority class and source that remains distinct from confidence;
+- a derivation rule/activity and ISO observation time;
+- field-level evidence with the frozen source artifact and exact hashes; and
+- an explicit assertion-rights statement and rights source.
+
+The current normalized Welsh-to-English relationship uses
+`https://schema.org/translationOfWork`. It comes only from the bounded GOV.UK
+Content API `available_translations` observation. Its direct triple and
+reified `rdf:Statement`/`okf:RelationshipAssertion` are generated from the
+same assertion object; Explorer adjacency is a route-bearing projection of
+that object, not a second source of semantics.
+
+The offline producer pins
+`schemas/semantic-assertion.schema.json` to the final Explorer contract by
+identifier, Draft 2020-12 version, exact 7,268-byte length and SHA-256
+`307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52`.
+It validates the emitted reified node and a lossless mapping of every runtime
+row, rejects remote schema references, and then requires the direct, reified
+and runtime identity, route and triple sets to agree. The generated schema and
+validation receipt are published under `bundle/data/semantic/` and covered by
+the bundle manifests and checksums.
+
 ## Dataset and service distinctions
 
 A dataset landing page, full file, change-only file, API, linked-data endpoint
@@ -158,9 +187,11 @@ authority.
 
 ## Projection
 
-The canonical authoring layer is OKF 0.2 Markdown plus governed JSON. JSON-LD
-and DCAT are additive projections for interoperable discovery; they must not
-collapse distinctions or introduce facts. CSV is a convenience projection
-and cannot carry the complete rights, provenance or relationship model.
+The canonical authoring layer is OKF 0.2 Markdown plus governed source JSON.
+The build creates one semantic graph and serializes it as YAML-LD and JSON-LD;
+the two files must parse to the same data model. DCAT and Schema.org mappings
+remain additive discovery projections and must not collapse distinctions or
+introduce facts. CSV is a convenience projection and cannot carry the
+complete rights, provenance or relationship model.
 
 [EV-INSPIRE-DATA]: https://use-land-property-data.service.gov.uk/datasets/inspire

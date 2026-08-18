@@ -18,11 +18,11 @@
       "requirement_ids": ["REQ-002", "REQ-004", "REQ-008", "REQ-009"],
       "profile_refs": ["DEC-AUTHORITY", "TRACE-PROVENANCE"],
       "evidence_refs": ["EV-GOVUK-SEARCH", "EV-PUBLIC-DATA", "EV-ULPD", "EV-OKF-AUTHORING"],
-      "artifact_paths": ["docs/metadata-model.md", "docs/architecture.md", "domain-profile/traceability.json", "bundle/data/provenance.json"],
+      "artifact_paths": ["docs/metadata-model.md", "docs/architecture.md", "domain-profile/traceability.json", "bundle/data/provenance.json", "bundle/okf-bundle.yamlld", "bundle/okf-bundle.jsonld", "bundle/data/explorer/relationships-*.json"],
       "risk_ids": ["RISK-006", "RISK-008"],
       "validation_refs": ["VAL-OKF", "VAL-DATA-PLANE", "VAL-REPRODUCIBILITY"],
       "implementation_state": "implemented",
-      "verification_state": "pass"
+      "verification_state": "candidate"
     },
     {
       "requirement_ids": ["REQ-003"],

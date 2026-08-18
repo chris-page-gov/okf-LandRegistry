@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class EvaluateTests(unittest.TestCase):
-    def test_runtime_tree_identity_matches_pinned_explorer_receipt(self) -> None:
+    def test_released_runtime_receipt_remains_frozen_during_migration(self) -> None:
         receipt = json.loads(
             (
                 ROOT
@@ -22,9 +22,18 @@ class EvaluateTests(unittest.TestCase):
                 / "explorer-search-runtime-portable-collation-a3e0bdf7.json"
             ).read_text(encoding="utf-8")
         )
-        self.assertEqual(
-            receipt["bundle"]["tree"],
+        released_tree = {
+            "bytes": 31525576,
+            "files": 148,
+            "sha256": (
+                "09ad960c7b44d0d1831cd8f4aa5a625fb2e7e4294a3ff2c6941bf1b1c127209c"
+            ),
+        }
+        self.assertEqual(released_tree, receipt["bundle"]["tree"])
+        self.assertNotEqual(
+            released_tree,
             evaluate.bundle_tree_identity(ROOT / "bundle"),
+            "unreleased migration bytes must not reuse the v0.2.0 receipt",
         )
 
     def test_runtime_tree_identity_uses_locked_explorer_collation(self) -> None:

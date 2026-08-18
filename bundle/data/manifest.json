@@ -32,19 +32,19 @@
       "sha256": "27fb37cd6bd54f9b734e471004e7844a1e89a93d1c54bf7ad3454277b60e8d9d"
     },
     {
-      "bytes": 451,
+      "bytes": 2592,
       "path": "data/explorer/adjacency/04.json",
-      "sha256": "18cee767dd38ac38e291d7ebd24ce4b32d9cc26da6d59b2a871832cf86a2e4c9"
+      "sha256": "6339a3be5efad0982499d38cc8419b9ae96bd9a14ce9f51340f95ec00552c8f4"
     },
     {
-      "bytes": 451,
+      "bytes": 2592,
       "path": "data/explorer/adjacency/32.json",
-      "sha256": "87949d60605373c717fc4cbadcea804a5d91655b8eb7ba5af1c438f66c12c181"
+      "sha256": "33c557b5aa41b3f5c94b1cad5b60b16a4405aae0fa25d2a05ef428fa3567d61c"
     },
     {
-      "bytes": 526,
+      "bytes": 528,
       "path": "data/explorer/adjacency/manifest.json",
-      "sha256": "8513ec1bb47a7ce5b3f7fb62cc28f1f3d457d04be1193de8f0d4a7c609731198"
+      "sha256": "094431ac47eef52d93b2721e9945f819f7792251a4102dd8dfb6575f5d2b7262"
     },
     {
       "bytes": 790,
@@ -112,9 +112,9 @@
       "sha256": "fd6455fb8854446ba9ad42b4f261ccf478e07adcb5e02552d10a09ad80e4c2c2"
     },
     {
-      "bytes": 4970,
+      "bytes": 4971,
       "path": "data/explorer/manifest.json",
-      "sha256": "30c692a50a935bc438cb7f803385ebd1db10921283e232e60cd5c65e406a707b"
+      "sha256": "b0f99866464866cbfc11735b67bbdef1df452f2fefe69236ddb35ee2ecceb6a0"
     },
     {
       "bytes": 15581,
@@ -127,9 +127,9 @@
       "sha256": "a1d70550b275555039992fed0844953e0562c64b3dda946d7e4689b1293adf33"
     },
     {
-      "bytes": 407,
+      "bytes": 2548,
       "path": "data/explorer/relationships-000.json",
-      "sha256": "3780f2a48e640ab556f3a5b1133f60126c9c49a9ceca9f7f4ddaca9ac7b356e8"
+      "sha256": "cf76478213281d4c8ee90ed61a1719f8859138f146ba73d9bae75cce2bcea755"
     },
     {
       "bytes": 157456,
@@ -635,6 +635,16 @@
       "bytes": 739504,
       "path": "data/rights.json",
       "sha256": "0eaa10ad6f287ec87b169dc465e9a92367f519b1ebbdc4c849132f33e0ba3527"
+    },
+    {
+      "bytes": 7268,
+      "path": "data/semantic/semantic-assertion.schema.json",
+      "sha256": "307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52"
+    },
+    {
+      "bytes": 1014,
+      "path": "data/semantic/validation.json",
+      "sha256": "5edb64812b19519742948b16991d2902957483974422d109729855c5abdb4beb"
     }
   ],
   "record_count": 2203,

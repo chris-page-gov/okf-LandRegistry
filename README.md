@@ -28,6 +28,22 @@ Direct publication routes:
 - [OKF Explorer descriptor](https://chris-page-gov.github.io/okf-LandRegistry/okf-explorer.json)
 - [Exact-digest release record](validation/release-record.json)
 
+## Unreleased semantic migration
+
+The current working tree adds a generated YAML-LD semantic graph while
+retaining JSON-LD and the large-corpus Explorer projection. One deterministic
+assertion source now produces the direct relationship triple, its
+evidence-bearing `okf:RelationshipAssertion`, and the route-bearing Explorer
+row. The producer validates both emitted assertion planes against the exact
+7,268-byte final Explorer schema and publishes the pinned schema plus a
+machine-readable parity receipt under `bundle/data/semantic/`. See
+[`docs/metadata-model.md`](docs/metadata-model.md) and
+[`okf.semantic.json`](okf.semantic.json) for the field and tooling contracts.
+
+This migration is not part of the browser-verified v0.2.0 release linked
+above. Its changed bundle digest must complete the repository's existing
+assurance and owner-approval process before publication.
+
 ## What it covers
 
 The source map starts with the [HM Land Registry organisation

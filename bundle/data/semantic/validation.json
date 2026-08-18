@@ -1,0 +1,26 @@
+{
+  "assertion_identity_set_sha256": "43c1243bc527a7e84b5e2322c860d84f3434a3ccf2b2aff54ca0d4924c9eb375",
+  "counts": {
+    "direct_triples_reconciled": 1,
+    "runtime_rows_mapped_and_validated": 1,
+    "semantic_assertions_validated": 1,
+    "validation_failures": 0
+  },
+  "parity": {
+    "direct_reified_runtime": true,
+    "identity": true,
+    "routes": true
+  },
+  "schema": "okf-hmlr-semantic-assertion-validation.v1",
+  "schema_binding": {
+    "bundle_path": "data/semantic/semantic-assertion.schema.json",
+    "bytes": 7268,
+    "draft": "https://json-schema.org/draft/2020-12/schema",
+    "id": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json",
+    "network_resolution_allowed": false,
+    "sha256": "307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52",
+    "source_path": "schemas/semantic-assertion.schema.json"
+  },
+  "status": "conformant",
+  "triple_set_sha256": "11510141489af37151a709e18653f86dd4c0bf93829c5fd3c5fb89a398d053f2"
+}

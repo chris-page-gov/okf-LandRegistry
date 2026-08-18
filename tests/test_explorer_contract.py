@@ -154,6 +154,21 @@ class ExplorerConsumerContractTests(unittest.TestCase):
             "published_by",
             {relationship["predicate"] for relationship in relationships},
         )
+        self.assertEqual(1, len(relationships))
+        relationship = relationships[0]
+        self.assertEqual(
+            "https://schema.org/translationOfWork", relationship["predicate"]
+        )
+        self.assertTrue(relationship["id"].startswith("https://"))
+        self.assertTrue(relationship["source_iri"].startswith("https://"))
+        self.assertTrue(relationship["target_iri"].startswith("https://"))
+        self.assertEqual("translation of", relationship["label"])
+        self.assertEqual("has translation", relationship["inverse_label"])
+        self.assertEqual("normalized", relationship["assertion_status"])
+        self.assertEqual("real-world", relationship["assertion_scope"])
+        self.assertEqual("derived", relationship["authority"]["class"])
+        self.assertTrue(relationship["evidence"])
+        self.assertIn("assertion", relationship["rights"])
 
     def test_runtime_search_indexes_governed_caveat_text(self) -> None:
         manifest = load_json(BUNDLE / "data" / "explorer" / "manifest.json")

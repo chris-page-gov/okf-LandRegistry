@@ -1,7 +1,8 @@
 # Standards profile
 
-Status: v0.2.0 PoC candidate standards profile. A listed standard is not a blanket
-conformance claim.
+Status: released v0.2.0 profile plus an unreleased semantic-projection
+migration. A listed standard is not a blanket conformance claim, and the
+migration does not amend the exact-digest v0.2.0 approval.
 
 ## Applicability vocabulary
 
@@ -24,7 +25,7 @@ conformance claim.
 | `STD-INSPIRE-CP` | [INSPIRE Cadastral Parcels 3.1][INSPIRE] | source-native | Preserve publisher-declared parcel metadata; do not republish geometry or imply exact boundaries |
 | `STD-GML-321` | [OGC GML 3.2.1][GML] | source-native | Record source format and CRS declarations only |
 | `STD-WCAG-22` | [WCAG 2.2][WCAG] | normative target | Level A/AA design and test requirements; automated and agent-assisted journeys do not establish conformance without an independent human audit |
-| `STD-YAMLLD-10` | [YAML-LD 1.0 Working Draft][YAMLLD] | reference-only | No YAML-LD artifact or conformance claim in the first scaffold |
+| `STD-YAMLLD-10` | [YAML-LD 1.0 Working Draft][YAMLLD] | projection | Deterministic `application/ld+yaml` serialization of the same bounded graph as JSON-LD; no claim beyond the tested local profile |
 
 ## Mapping policy
 
@@ -39,10 +40,13 @@ Mappings are additive and reversible:
 - reject a generated projection if it cannot preserve a material source
   distinction.
 
-The JSON-LD/DCAT projection is for discovery. Sparse GOV.UK records are not
-declared DCAT-conformant merely because they use a DCAT term. The project also
-does not claim full RDF materialisation, graph isomorphism or SHACL
-conformance.
+The YAML-LD and JSON-LD files serialize one in-memory discovery graph. Each
+material directed relationship is emitted both as a direct triple and as an
+evidence-bearing `okf:RelationshipAssertion`; tests require those two forms
+to reconcile and require both serializations to parse to the same data model.
+Sparse GOV.UK records are not declared DCAT-conformant merely because they use
+a DCAT term. The project does not claim general RDF graph isomorphism, remote
+context expansion or SHACL conformance.
 
 ## Validation evidence
 
@@ -69,4 +73,4 @@ from the claim.
 [INSPIRE]: https://inspire.ec.europa.eu/id/document/tg/cp
 [GML]: https://portal.ogc.org/files/?artifact_id=20509
 [WCAG]: https://www.w3.org/TR/WCAG22/
-[YAMLLD]: https://www.w3.org/TR/2025/WD-yaml-ld-10-20250612/
+[YAMLLD]: https://www.w3.org/TR/yaml-ld-10/

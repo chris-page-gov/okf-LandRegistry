@@ -6,6 +6,32 @@ will use semantic versioning where it fits the artifact lifecycle.
 
 ## [Unreleased]
 
+### Added
+
+- A deterministic YAML-LD semantic serialization alongside JSON-LD.
+- Evidence-bearing `okf:RelationshipAssertion` nodes with stable semantic
+  identities, local routes, authority, derivation, observation, evidence and
+  rights metadata.
+- An exact, offline-pinned copy of the final Explorer semantic assertion
+  schema and a generated validation/parity receipt for semantic and runtime
+  projections.
+
+### Changed
+
+- The GOV.UK Welsh-to-English translation edge now uses the absolute
+  `https://schema.org/translationOfWork` predicate and is projected from the
+  same assertion source into the direct graph triple and Explorer adjacency.
+- Semantic tests now require YAML-LD/JSON-LD data equivalence and reconcile
+  direct triples with their reified assertions.
+- The historical v0.2.0 Explorer receipt remains immutable and is explicitly
+  rejected as evidence for these unreleased changed bundle bytes.
+
+### Release posture
+
+- These are unreleased working-tree bytes. The v0.2.0 approval and public
+  release remain bound to their existing digest; publication of this migration
+  requires a new candidate, release evidence and owner approval.
+
 ## [0.2.0] - 2026-08-04
 
 ### Fixed

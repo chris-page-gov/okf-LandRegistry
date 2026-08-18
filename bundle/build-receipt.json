@@ -1,6 +1,6 @@
 {
   "builder": "scripts/build.py/0.2.0",
-  "builder_sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8",
+  "builder_sha256": "983538e04685a3bf5373833f06f32a842b5b7b9e99933a15851232d3023e99d5",
   "curated_source": {
     "observed_at": "2026-07-29T07:53:38Z",
     "record_count": 55,
@@ -86,9 +86,9 @@
       "sha256": "83ff435b958a85cc22b3290498d7921ac93032f0829111e27225142999b3bf1d"
     },
     {
-      "bytes": 21920,
+      "bytes": 22106,
       "path": "governance/artifact-dependency-graph.json",
-      "sha256": "be83ae0795cf3bf95ad1fb91de1a86ec80e04a99f55501028626ea49bb237ec1"
+      "sha256": "2e1f3438e9580b0a2d06b1a24f31c3c4f48e3a08718cd3135301e77e8d94db86"
     },
     {
       "bytes": 10444,
@@ -106,9 +106,9 @@
       "sha256": "106b43ddc4ad20dfa90481dd4a4568bdf1ef61c47ce2d9a9117dc91f2f112f5e"
     },
     {
-      "bytes": 6770,
+      "bytes": 6876,
       "path": "governance/traceability.json",
-      "sha256": "f4cf087dea04c03b1ffbfb07188bbf98669a23430f85e5826e4d9cf4645e7719"
+      "sha256": "8748092867134930b06c031fdb5225202dd6a0fb7a3cd7267b1d8ff58d78f314"
     },
     {
       "bytes": 1,
@@ -171,14 +171,19 @@
       "sha256": "2b002829ac11ea8f83f9db57611a07066e60c52a6684c30e960fd1a9a1a1aab7"
     },
     {
+      "bytes": 7268,
+      "path": "schemas/semantic-assertion.schema.json",
+      "sha256": "307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52"
+    },
+    {
       "bytes": 30727,
       "path": "scripts/acquire.py",
       "sha256": "e3d51b0fc18532a3acfe9b5c6b7c8e8c483634edba2be5d8ffdb8482a6aa75f7"
     },
     {
-      "bytes": 128732,
+      "bytes": 153202,
       "path": "scripts/build.py",
-      "sha256": "2a02714265d7b8f9391f0c3c168e6fa881e8a1224036bea228748f013b9391d8"
+      "sha256": "983538e04685a3bf5373833f06f32a842b5b7b9e99933a15851232d3023e99d5"
     },
     {
       "bytes": 25965,
@@ -221,9 +226,9 @@
       "sha256": "f4c30b27d4238a080957bf71403c73a43fc4d570a04d19b9be3c7c657b8f61dc"
     },
     {
-      "bytes": 230,
+      "bytes": 2172,
       "path": "source/jsonld-context.json",
-      "sha256": "3e8758939d465a0a050ba0874e9dba8a5e2d99887996b7dd76e4d1bf0f1fe735"
+      "sha256": "0bffb42a23722f9ab17b912c2fc0bc05817cec207a089afbbda4434a4c6b9e4c"
     },
     {
       "bytes": 2445,
@@ -267,6 +272,32 @@
   "record_count": 2203,
   "release_at": null,
   "schema": "okf-hmlr-build-receipt.v1",
+  "semantic_assertion_validation": {
+    "assertion_identity_set_sha256": "43c1243bc527a7e84b5e2322c860d84f3434a3ccf2b2aff54ca0d4924c9eb375",
+    "counts": {
+      "direct_triples_reconciled": 1,
+      "runtime_rows_mapped_and_validated": 1,
+      "semantic_assertions_validated": 1,
+      "validation_failures": 0
+    },
+    "parity": {
+      "direct_reified_runtime": true,
+      "identity": true,
+      "routes": true
+    },
+    "schema": "okf-hmlr-semantic-assertion-validation.v1",
+    "schema_binding": {
+      "bundle_path": "data/semantic/semantic-assertion.schema.json",
+      "bytes": 7268,
+      "draft": "https://json-schema.org/draft/2020-12/schema",
+      "id": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/semantic-assertion.schema.json",
+      "network_resolution_allowed": false,
+      "sha256": "307e59c5a3b1f502d50c7d82233a330e6919634b7b57fbdaed96a6a6a290af52",
+      "source_path": "schemas/semantic-assertion.schema.json"
+    },
+    "status": "conformant",
+    "triple_set_sha256": "11510141489af37151a709e18653f86dd4c0bf93829c5fd3c5fb89a398d053f2"
+  },
   "snapshot": {
     "acquisition_snapshot": {
       "files": [
