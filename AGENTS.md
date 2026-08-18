@@ -137,6 +137,14 @@ release claims or approval state. Run the selected focused checks and describe
 the result as later repository maintenance. Any other change fails closed to
 the affected candidate and release workflow.
 
+A non-causal release-assurance tooling or test change may use the full
+post-release maintenance lane only when the impact report requires neither
+Stage 1 nor manual review, records no causal input or generated-path change,
+and CI proves the complete protected candidate and evidence path set is
+byte-identical to the immutable v0.3.0 evidence commit. Validate G1–G9 at that
+explicit historical anchor; never reinterpret the later maintenance commit as
+release evidence or approval.
+
 Start with `docs/product-contract.md`, `docs/architecture.md`,
 `docs/sources-rights-and-ethics.md` and `docs/release-assurance.md`.
 

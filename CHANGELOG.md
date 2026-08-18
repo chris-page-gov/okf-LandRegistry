@@ -13,7 +13,9 @@ will use semantic versioning where it fits the artefact lifecycle.
   bytes, exact external G9 evidence and later repository state. The candidate
   remains unchanged; this clarification does not inherit or reopen its owner
   approval. Documented the bounded routine-update path for minor repository
-  corrections that leave causal inputs and generated roots unchanged.
+  corrections that leave causal inputs and generated roots unchanged, plus a
+  full post-release maintenance lane that validates immutable historical G1–G9
+  evidence without treating a later repository commit as release evidence.
 
 ## [0.3.0] - 2026-08-11
 
