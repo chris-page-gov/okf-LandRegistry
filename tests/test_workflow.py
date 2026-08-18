@@ -404,8 +404,16 @@ class WorkflowTests(unittest.TestCase):
         for required in (
             "post_release_maintenance=true",
             "post_release_maintenance=false",
-            "scripts/check_documentation_lockstep[.]py",
-            "tests/test_(documentation_lockstep|workflow)[.]py",
+            "(.unmatched_paths | length > 0)",
+            "(.unmatched_paths - [",
+            '"okf.publication.json"',
+            '"scripts/check_documentation_lockstep.py"',
+            '"tests/test_documentation_lockstep.py"',
+            "(.changed_paths - [",
+            '"docs/architecture.md"',
+            '"docs/maintenance-and-reproducibility.md"',
+            '"tests/test_build_semantics.py"',
+            '"tests/test_workflow.py"',
             "all(.matched_stages[]; (.causal_build_input_matches | length) == 0)",
             "^(bundle|validation|source|domain-profile|research|governance|personas|evaluation|contracts|schemas)/",
         ):
