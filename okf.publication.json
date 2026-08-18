@@ -1,0 +1,576 @@
+{
+  "schema": "okf-repository-publication-contract.v1",
+  "modified": "2026-08-18",
+  "locale": "en-GB",
+  "time_zone": "Europe/London",
+  "repository": {
+    "name": "okf-LandRegistry",
+    "url": "https://github.com/chris-page-gov/okf-LandRegistry",
+    "role": "large-corpus-producer",
+    "root_index": "README.md",
+    "lifecycle": "active"
+  },
+  "semantic_contract": {
+    "path": "okf.semantic.json",
+    "profile": "https://chris-page-gov.github.io/okf-explorer/profile/bundle-wiki/v1/"
+  },
+  "source_families": [
+    {
+      "id": "hmlr-public-metadata-snapshot",
+      "label": "Frozen HM Land Registry public metadata",
+      "description": "Allowlisted public metadata snapshots, curated records and governed source registers used by the offline deterministic build.",
+      "kind": "structured-data-folder",
+      "paths": [
+        "source/**",
+        "research/source-family-inventory.json",
+        "domain-profile/**",
+        "governance/rights-review.json"
+      ],
+      "formats": [
+        "application/json",
+        "application/gzip",
+        "text/csv"
+      ],
+      "origin": "mixed",
+      "authority": "mixed",
+      "snapshot_policy": "immutable-checksummed",
+      "inventory": {
+        "method": "content-addressed-manifest",
+        "manifest_path": "source/input-manifest-v0.2.0.json",
+        "identity": [
+          "relative-path",
+          "bytes",
+          "sha256",
+          "source-identifier"
+        ]
+      },
+      "rights": {
+        "status": "mixed",
+        "evidence": [
+          "https://github.com/chris-page-gov/okf-LandRegistry/blob/main/governance/rights-review.json"
+        ],
+        "limitations": [
+          "Public access and zero price do not establish open rights; every source family retains its recorded terms."
+        ]
+      },
+      "sensitivity": {
+        "status": "assessed-no-personal-data",
+        "assessment": "The governed acquisition boundary is metadata-only and excludes property-level, personal, authenticated and paid content.",
+        "evidence": [
+          "https://github.com/chris-page-gov/okf-LandRegistry/blob/main/docs/sources-rights-and-ethics.md"
+        ]
+      },
+      "extraction": {
+        "mode": "versioned-adapter",
+        "network_access": "prohibited",
+        "command_ids": [
+          "build-bundle"
+        ],
+        "limitations": [
+          "Publication builds use the frozen snapshot; refreshing upstream metadata is a separate reviewed acquisition operation."
+        ]
+      },
+      "invalidates": [
+        "source",
+        "semantic",
+        "runtime",
+        "documentation",
+        "release",
+        "deployment",
+        "browser"
+      ],
+      "limitations": [
+        "The bundle is an independent metadata-discovery proof of concept and is not an HM Land Registry service or legal evidence."
+      ]
+    }
+  ],
+  "boundaries": {
+    "authored": [
+      {
+        "path": "source/**",
+        "role": "source-envelope",
+        "source_family_id": "hmlr-public-metadata-snapshot"
+      },
+      {
+        "path": "domain-profile/**",
+        "role": "source-register",
+        "source_family_id": "hmlr-public-metadata-snapshot"
+      },
+      {
+        "path": "governance/**",
+        "role": "policy"
+      },
+      {
+        "path": "scripts/**",
+        "role": "generator"
+      },
+      {
+        "path": "tests/**",
+        "role": "test"
+      },
+      {
+        "path": "okf.semantic.json",
+        "role": "policy"
+      },
+      {
+        "path": "okf.publication.json",
+        "role": "publication-contract"
+      },
+      {
+        "path": "README.md",
+        "role": "documentation"
+      },
+      {
+        "path": "docs/**",
+        "role": "documentation"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "role": "changelog"
+      },
+      {
+        "path": ".github/workflows/**",
+        "role": "workflow"
+      }
+    ],
+    "generated": [
+      {
+        "path": "bundle/okf-bundle.yamlld",
+        "role": "semantic-yaml-ld",
+        "plane": "semantic",
+        "required": true,
+        "build_command_ids": [
+          "build-bundle"
+        ],
+        "check_command_ids": [
+          "check-okf"
+        ]
+      },
+      {
+        "path": "bundle/okf-explorer.json",
+        "role": "explorer-runtime",
+        "plane": "runtime",
+        "required": true,
+        "build_command_ids": [
+          "build-bundle"
+        ],
+        "check_command_ids": [
+          "check-okf"
+        ]
+      },
+      {
+        "path": "bundle/CHECKSUMS.sha256",
+        "role": "checksum-manifest",
+        "plane": "release",
+        "required": true,
+        "build_command_ids": [
+          "build-bundle"
+        ],
+        "check_command_ids": [
+          "check-bundle-inventory"
+        ]
+      },
+      {
+        "path": "validation/**",
+        "role": "validation-receipt",
+        "plane": "release",
+        "required": true,
+        "build_command_ids": [],
+        "check_command_ids": [
+          "check-release-evidence"
+        ]
+      }
+    ]
+  },
+  "planes": [
+    {
+      "id": "source",
+      "depends_on": [],
+      "paths": [
+        "source/**",
+        "research/**",
+        "domain-profile/**",
+        "governance/**"
+      ],
+      "command_ids": [
+        "classify-impact",
+        "check-domain-profile"
+      ]
+    },
+    {
+      "id": "semantic",
+      "depends_on": [
+        "source"
+      ],
+      "paths": [
+        "okf.semantic.json",
+        "profiles/**",
+        "schemas/**",
+        "scripts/build.py",
+        "bundle/okf-bundle.yamlld",
+        "bundle/okf-bundle.jsonld"
+      ],
+      "command_ids": [
+        "build-bundle",
+        "check-okf"
+      ]
+    },
+    {
+      "id": "runtime",
+      "depends_on": [
+        "semantic"
+      ],
+      "paths": [
+        "bundle/data/**",
+        "bundle/okf-explorer.json",
+        "pages/**"
+      ],
+      "command_ids": [
+        "build-bundle",
+        "test-all"
+      ]
+    },
+    {
+      "id": "documentation",
+      "depends_on": [
+        "source",
+        "semantic"
+      ],
+      "paths": [
+        "README.md",
+        "docs/**",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "okf.publication.json",
+        "scripts/check_documentation_lockstep.py"
+      ],
+      "command_ids": [
+        "check-lockstep",
+        "check-okf"
+      ]
+    },
+    {
+      "id": "release",
+      "depends_on": [
+        "semantic",
+        "runtime",
+        "documentation"
+      ],
+      "paths": [
+        "validation/**",
+        "dist/**",
+        "requirements-lock.txt",
+        "tests/**"
+      ],
+      "command_ids": [
+        "test-all",
+        "check-bundle-inventory",
+        "check-release-evidence"
+      ]
+    },
+    {
+      "id": "deployment",
+      "depends_on": [
+        "release"
+      ],
+      "paths": [
+        ".github/workflows/pages.yml",
+        "bundle/**"
+      ],
+      "command_ids": [
+        "check-workflow",
+        "deploy-pages"
+      ]
+    },
+    {
+      "id": "browser",
+      "depends_on": [
+        "deployment"
+      ],
+      "paths": [
+        "scripts/run_authored_site_browser_quality.mjs",
+        "evaluation/**"
+      ],
+      "command_ids": [
+        "test-browser-runner",
+        "verify-pages"
+      ]
+    }
+  ],
+  "tooling": {
+    "commands": [
+      {
+        "id": "classify-impact",
+        "kind": "check",
+        "planes": [
+          "source"
+        ],
+        "command": ".venv/bin/python -B scripts/change_impact.py --base BASE --head HEAD",
+        "source": "AGENTS.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 5
+      },
+      {
+        "id": "check-domain-profile",
+        "kind": "check",
+        "planes": [
+          "source"
+        ],
+        "command": ".venv/bin/python -I -B scripts/check_domain_profile.py domain-profile/domain-profile.json --equivalent domain-profile/domain-profile.yaml",
+        "source": "AGENTS.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 10
+      },
+      {
+        "id": "build-bundle",
+        "kind": "build",
+        "planes": [
+          "semantic",
+          "runtime",
+          "release"
+        ],
+        "command": ".venv/bin/python -I -B scripts/build.py --snapshot-dir source/snapshots/2026-07-29T091915Z --publication-base https://chris-page-gov.github.io/okf-LandRegistry/ --replace",
+        "source": "AGENTS.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "generated-only",
+        "timeout_minutes": 15
+      },
+      {
+        "id": "check-okf",
+        "kind": "check",
+        "planes": [
+          "semantic",
+          "runtime",
+          "documentation"
+        ],
+        "command": ".venv/bin/python -B scripts/check_okf.py",
+        "source": "AGENTS.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 10
+      },
+      {
+        "id": "check-lockstep",
+        "kind": "check",
+        "planes": [
+          "documentation"
+        ],
+        "command": ".venv/bin/python -B scripts/check_documentation_lockstep.py --base BASE",
+        "source": "AGENTS.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 5
+      },
+      {
+        "id": "test-all",
+        "kind": "test",
+        "planes": [
+          "runtime",
+          "release"
+        ],
+        "command": ".venv/bin/python -E -s -B -m unittest discover -s tests -v",
+        "source": "AGENTS.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 30
+      },
+      {
+        "id": "check-bundle-inventory",
+        "kind": "check",
+        "planes": [
+          "release"
+        ],
+        "command": ".venv/bin/python -B scripts/check_release_transition.py bundle-inventory --bundle bundle",
+        "source": ".github/workflows/pages.yml",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 10
+      },
+      {
+        "id": "check-release-evidence",
+        "kind": "check",
+        "planes": [
+          "release"
+        ],
+        "command": ".venv/bin/python -B scripts/check_release_evidence.py --manifest validation/candidate-v0.3.0/final-g9/release-evidence.json",
+        "source": ".github/workflows/pages.yml",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 15
+      },
+      {
+        "id": "check-workflow",
+        "kind": "test",
+        "planes": [
+          "deployment"
+        ],
+        "command": ".venv/bin/python -B -m unittest tests.test_workflow -v",
+        "source": ".github/workflows/pages.yml",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 5
+      },
+      {
+        "id": "test-browser-runner",
+        "kind": "test",
+        "planes": [
+          "browser"
+        ],
+        "command": ".venv/bin/python -B -m unittest tests.test_authored_site_browser_quality_runner -v",
+        "source": "docs/v0.3.0-release-tracker-and-assurance-runbook.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "none",
+        "mutates": "none",
+        "timeout_minutes": 10
+      },
+      {
+        "id": "deploy-pages",
+        "kind": "deploy",
+        "planes": [
+          "deployment"
+        ],
+        "command": "Run the manual GitHub Pages workflow with the exact approved commit and release root",
+        "source": ".github/workflows/pages.yml",
+        "review_status": "reviewed-local-guidance",
+        "network": "deployment",
+        "mutates": "external-state",
+        "timeout_minutes": 10
+      },
+      {
+        "id": "verify-pages",
+        "kind": "verify",
+        "planes": [
+          "browser"
+        ],
+        "command": "Run the bounded post-deployment browser identity and journey procedure",
+        "source": "docs/v0.3.0-release-tracker-and-assurance-runbook.md",
+        "review_status": "reviewed-local-guidance",
+        "network": "bounded-read",
+        "mutates": "none",
+        "timeout_minutes": 5
+      }
+    ]
+  },
+  "lockstep": {
+    "controlled_paths": [
+      ".github/workflows/**",
+      "scripts/**",
+      "tests/**",
+      "governance/**",
+      "domain-profile/**",
+      "source/**",
+      "profiles/**",
+      "schemas/**",
+      "okf.semantic.json",
+      "okf.publication.json",
+      "requirements*.txt"
+    ],
+    "documentation_paths": [
+      "README.md",
+      "docs/**",
+      "AGENTS.md",
+      "CHANGELOG.md"
+    ],
+    "changelog_path": "CHANGELOG.md",
+    "check_command_id": "check-lockstep",
+    "dependency_update_policy": "assess-release-bound-bytes-no-blanket-exemption",
+    "unknown_path_policy": "fail-closed"
+  },
+  "ci": {
+    "provider": "github-actions",
+    "workflow_paths": [
+      ".github/workflows/pages.yml"
+    ],
+    "impact_routing": "dependency-graph",
+    "parallelism": "independent-planes",
+    "unknown_path_policy": "fail-closed",
+    "browser": {
+      "ordinary": {
+        "policy": "installed-chrome",
+        "engines": [
+          "chrome"
+        ],
+        "command_ids": [
+          "test-browser-runner"
+        ]
+      },
+      "cross_engine": {
+        "policy": "not-applicable",
+        "engines": [],
+        "command_ids": [],
+        "installation": {
+          "policy": "none",
+          "command_ids": [],
+          "timeout_minutes": 10
+        }
+      }
+    }
+  },
+  "publication": {
+    "mode": "manual",
+    "scope": "public-release",
+    "authority": {
+      "decision": "Only the project owner may deploy the exact version-scoped candidate after digest-bound G1 to G9 evidence closes for those bytes.",
+      "evidence_paths": [
+        "docs/v0.3.0-release-tracker-and-assurance-runbook.md",
+        "validation/candidate-v0.3.0/final-g9/release-record.json"
+      ]
+    },
+    "candidate_policy": "promote-exact-assured-bytes-without-rebuild",
+    "targets": [
+      {
+        "id": "github-pages",
+        "kind": "github-pages",
+        "workflow_path": ".github/workflows/pages.yml",
+        "public_base_url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+        "exact_commit_required": true,
+        "promote_without_rebuild": true
+      }
+    ]
+  },
+  "verification": {
+    "required": true,
+    "browser": "real-browser",
+    "exact_commit_required": true,
+    "identity_checks": [
+      "commit",
+      "descriptor",
+      "snapshot",
+      "sha256",
+      "route"
+    ],
+    "journeys": [
+      {
+        "id": "land-registry-discovery",
+        "url": "https://chris-page-gov.github.io/okf-LandRegistry/",
+        "expected_identity": "HM Land Registry public-estate OKF",
+        "steps": [
+          "Open the published landing page and confirm the independent metadata-only boundary.",
+          "Confirm the deployed checksum root matches the exact approved release evidence.",
+          "Open the Explorer descriptor and follow a representative public metadata record.",
+          "Confirm navigation succeeds with no browser console or page errors."
+        ]
+      }
+    ],
+    "console_policy": "no-errors",
+    "command_ids": [
+      "verify-pages"
+    ]
+  },
+  "limitations": [
+    "The publication contract records lifecycle controls but does not reopen or inherit the v0.3.0 owner approval.",
+    "The shared exact-commit installed-Chrome receipt is not yet integrated; the existing bounded manual post-deployment procedure remains authoritative until that work is completed.",
+    "CI parallelisation applies only before convergence; deployment still requires every full validation dependency to pass."
+  ]
+}

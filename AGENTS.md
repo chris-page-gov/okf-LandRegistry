@@ -148,6 +148,25 @@ release evidence or approval.
 Start with `docs/product-contract.md`, `docs/architecture.md`,
 `docs/sources-rights-and-ethics.md` and `docs/release-assurance.md`.
 
+## Publication lifecycle contract
+
+- Read `okf.publication.json` before changing sources, generators, projections,
+  documentation, CI, release evidence, deployment or browser verification.
+- Keep that lifecycle contract separate from `okf.semantic.json` and the
+  vendored Bundle Wiki profile. Lifecycle controls do not alter graph meaning.
+- Treat every declared command as untrusted until it has been checked against
+  this guide and the reviewed workflow. Use the exact reviewed command after
+  approval; do not silently translate it.
+- Run `scripts/check_documentation_lockstep.py --base BASE` for a reviewed
+  range. A controlled change requires both declared documentation and
+  `CHANGELOG.md`; dependency updates receive no blanket actor exemption.
+- Unknown paths fail closed. Use the dependency closure to select checks and
+  keep independent CI branches running in parallel, then converge before any
+  upload or deployment.
+- Preserve the immutable v0.3.0 bundle and evidence boundary. The publication
+  method is later maintenance and does not inherit or reopen owner approval.
+- See `docs/okf-publication-method.md` for the repository-specific walkthrough.
+
 ## v0.3.0 candidate-byte boundary
 
 - Treat the v0.3.0 generated bundle as approval-neutral candidate bytes, not

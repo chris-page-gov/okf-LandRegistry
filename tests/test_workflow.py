@@ -272,7 +272,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn('--candidate-commit-sha "$(git rev-parse HEAD)"', workflow)
         candidate_pr_gate = (
             "github.event_name == 'pull_request' &&\n"
-            "          steps.impact.outputs.full_validation == 'true' &&\n"
+            "          needs.impact.outputs.full_validation == 'true' &&\n"
             "          github.head_ref == 'candidate/v0.3.0'"
         )
         self.assertEqual(3, workflow.count(candidate_pr_gate))
@@ -334,7 +334,7 @@ class WorkflowTests(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertIn("github.event_name == 'pull_request'", steps[name])
                 self.assertIn(
-                    "steps.impact.outputs.full_validation == 'true'",
+                    "needs.impact.outputs.full_validation == 'true'",
                     steps[name],
                 )
                 self.assertIn("github.head_ref == 'candidate/v0.3.0'", steps[name])
@@ -347,7 +347,7 @@ class WorkflowTests(unittest.TestCase):
         ):
             with self.subTest(name=name):
                 self.assertIn(
-                    "if: steps.impact.outputs.full_validation == 'true'",
+                    "if: needs.impact.outputs.full_validation == 'true'",
                     steps[name],
                 )
 
@@ -375,7 +375,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("EVENT_NAME", impact)
         self.assertIn("PUSH_BEFORE_SHA", impact)
         self.assertIn(
-            "if: steps.impact.outputs.routine_update == 'true'",
+            "if: needs.impact.outputs.routine_update == 'true'",
             routine,
         )
         self.assertIn("tests.test_links tests.test_traceability", routine)
@@ -404,6 +404,8 @@ class WorkflowTests(unittest.TestCase):
         for required in (
             "post_release_maintenance=true",
             "post_release_maintenance=false",
+            "scripts/check_documentation_lockstep[.]py",
+            "tests/test_(documentation_lockstep|workflow)[.]py",
             "all(.matched_stages[]; (.causal_build_input_matches | length) == 0)",
             "^(bundle|validation|source|domain-profile|research|governance|personas|evaluation|contracts|schemas)/",
         ):
@@ -411,8 +413,8 @@ class WorkflowTests(unittest.TestCase):
                 self.assertIn(required, impact)
 
         for required in (
-            "steps.impact.outputs.full_validation == 'true'",
-            "steps.impact.outputs.post_release_maintenance == 'true'",
+            "needs.impact.outputs.full_validation == 'true'",
+            "needs.impact.outputs.post_release_maintenance == 'true'",
             "github.event_name == 'workflow_dispatch'",
             "git merge-base --is-ancestor",
             "git log -m --format= --name-only",
@@ -430,7 +432,7 @@ class WorkflowTests(unittest.TestCase):
                 self.assertIn(required, historical)
 
         self.assertIn(
-            "steps.impact.outputs.post_release_maintenance != 'true'",
+            "needs.impact.outputs.post_release_maintenance != 'true'",
             current_head,
         )
         self.assertIn("github.event_name != 'workflow_dispatch'", current_head)
@@ -862,6 +864,33 @@ class WorkflowTests(unittest.TestCase):
                 self.assertGreaterEqual(len(command), 2)
                 self.assertEqual(".venv/bin/python", command[0])
                 self.assertEqual("-B", command[1])
+
+    def test_independent_validation_branches_converge_before_deployment(self) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text()
+        impact = workflow[workflow.index("  impact:") : workflow.index("  verify:")]
+        verify = workflow[workflow.index("  verify:") : workflow.index("  full-tests:")]
+        full_tests = workflow[
+            workflow.index("  full-tests:") : workflow.index("  deploy:")
+        ]
+        deploy = workflow[workflow.index("  deploy:") :]
+
+        self.assertIn("timeout-minutes: 10", impact)
+        self.assertIn("scripts/check_documentation_lockstep.py", impact)
+        self.assertIn("routine_update: ${{ steps.impact.outputs.routine_update }}", impact)
+        self.assertIn("needs: impact", verify)
+        self.assertIn("timeout-minutes: 45", verify)
+        self.assertNotIn("Run deterministic and safety tests", verify)
+        self.assertIn("needs: impact", full_tests)
+        self.assertIn("timeout-minutes: 30", full_tests)
+        self.assertIn("Run deterministic and safety tests", full_tests)
+        self.assertNotIn("scripts/build.py", full_tests)
+        self.assertIn("needs: [verify, full-tests]", deploy)
+        self.assertIn("timeout-minutes: 10", deploy)
+        self.assertIn("'pages-publication'", workflow)
+        self.assertIn(
+            "cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}",
+            workflow,
+        )
 
     def test_push_verifies_but_only_exact_dispatch_can_deploy(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text()
