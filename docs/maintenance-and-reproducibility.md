@@ -3,6 +3,11 @@
 Status: operating procedure for the v0.2.0 AI-generated PoC and later
 digest-bound releases.
 
+The `impact`, `verify` and `full-tests` GitHub Actions jobs use Ubuntu 24.04 so
+`setup-python` can provision the pinned CPython 3.12.11. The release job stays
+on `ubuntu-latest`; it does not provision the governed Python runtime. This
+runner choice does not change candidate or frozen release bytes.
+
 ## Two-stage lifecycle
 
 ### Stage 1 — discovery and contract

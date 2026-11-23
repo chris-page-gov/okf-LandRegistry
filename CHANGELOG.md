@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — runner compatibility
+
+- Run the Python-provisioning Actions jobs on Ubuntu 24.04 because the Ubuntu
+  26.04 image cannot provision the pinned CPython 3.12.11. Keep the release job
+  and all candidate and frozen release bytes unchanged.
+
 ## Unreleased — standards references
 
 - Link the central current and historical OKF standards register and public bundle catalogue.
