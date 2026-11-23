@@ -31,7 +31,7 @@ concurrency:
 
 jobs:
   impact:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     outputs:
       routine_update: ${{ steps.impact.outputs.routine_update }}
@@ -151,7 +151,7 @@ jobs:
 
   verify:
     needs: impact
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - name: Check out the candidate
@@ -426,7 +426,7 @@ jobs:
   full-tests:
     needs: impact
     if: needs.impact.outputs.full_validation == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - name: Check out the candidate
