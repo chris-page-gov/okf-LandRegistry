@@ -358,3 +358,7 @@ See [`docs/product-contract.md`](docs/product-contract.md),
 [`docs/scope-and-coverage.md`](docs/scope-and-coverage.md) and
 [`docs/sources-rights-and-ethics.md`](docs/sources-rights-and-ethics.md)
 before extending the bundle.
+
+## OKF standards and bundle discovery
+
+The [central standards register](https://github.com/chris-page-gov/okf-explorer/blob/main/docs/okf-standards.md) records current and historical OKF specifications, version-specific pins and the public bundle catalogue. Use the [machine-readable register](https://raw.githubusercontent.com/chris-page-gov/okf-explorer/main/registry/okf-standards.json) to resolve the version implemented by this repository.

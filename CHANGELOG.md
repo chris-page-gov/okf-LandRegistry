@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — standards references
+
+- Link the central current and historical OKF standards register and public bundle catalogue.
+
+
 All notable project-authored changes will be recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and approved releases
 will use semantic versioning where it fits the artefact lifecycle.
