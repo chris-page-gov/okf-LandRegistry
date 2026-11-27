@@ -389,12 +389,15 @@ class WorkflowTests(unittest.TestCase):
         workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text()
         steps = workflow_steps(workflow)
         impact = steps["Classify the change and select the validation closure"]
-        historical = steps[
-            "Validate immutable v0.3.0 evidence after repository maintenance"
-        ]
+        historical_name = "Preflight immutable v0.3.0 evidence before the build"
+        historical = steps[historical_name]
         current_head = steps[
             "Validate default-branch G1-G9 evidence against its manifest"
         ]
+        self.assertLess(
+            list(steps).index(historical_name),
+            list(steps).index("Build offline from the frozen snapshot"),
+        )
 
         self.assertIn(
             "OKF_V030_EVIDENCE_COMMIT_SHA: "

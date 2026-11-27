@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — release evidence preflight
+
+- Check the exact immutable v0.3.0 G1–G9 evidence before the frozen-snapshot
+  build in post-release maintenance and manual validation runs.
+
 ## Unreleased — runner compatibility
 
 - Run the Python-provisioning Actions jobs on Ubuntu 24.04 because the Ubuntu

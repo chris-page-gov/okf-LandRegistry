@@ -186,10 +186,11 @@ all of the following before it treats the work as post-release maintenance:
   locks, and those paths remain byte-identical to the final v0.3.0 evidence
   commit.
 
-The full build, deterministic tests, calibration and committed-bundle checks
-still run. The G1–G9 closure is then checked against exact evidence commit
-`1d708e39f2cde19610d43c5a7f5e36e4a2f947bc`, which must remain the target of
-tag `v0.3.0` and an ancestor of current `HEAD`:
+Before the full build, deterministic tests and calibration, the workflow checks
+the G1–G9 closure against exact evidence commit
+`1d708e39f2cde19610d43c5a7f5e36e4a2f947bc`. This catches invalid historical
+evidence before the frozen-snapshot build starts. The check requires that the
+commit remain the target of tag `v0.3.0` and an ancestor of current `HEAD`:
 
 ```console
 .venv/bin/python -B scripts/check_release_evidence.py \
@@ -201,6 +202,9 @@ tag `v0.3.0` and an ancestor of current `HEAD`:
 CI creates and removes that detached worktree itself. This is necessary because
 G8 binds assurance inputs such as the workflow: validating historical G8 from
 the later maintenance worktree would correctly report different bytes.
+
+After this preflight passes, the full build, deterministic tests, calibration
+and committed-bundle checks still run.
 
 This validates historical evidence; it does not make the maintenance commit
 part of the candidate or extend owner approval to repository tooling. If any
